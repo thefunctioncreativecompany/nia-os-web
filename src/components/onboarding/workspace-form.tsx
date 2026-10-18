@@ -85,7 +85,7 @@ export function WorkspaceForm({ initial }: { initial: OnboardingWorkspace }) {
       <form onSubmit={handleSubmit} className="flex flex-col gap-7">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
-            <Label htmlFor="workspace-name" className="text-[13px] leading-normal font-medium">
+            <Label htmlFor="workspace-name" className="text-small leading-normal font-medium">
               Workspace name
             </Label>
             <Input
@@ -99,7 +99,7 @@ export function WorkspaceForm({ initial }: { initial: OnboardingWorkspace }) {
             />
           </div>
           <div className="flex flex-col gap-1.5">
-            <Label htmlFor="workspace-role" className="text-[13px] leading-normal font-medium">
+            <Label htmlFor="workspace-role" className="text-small leading-normal font-medium">
               Your role in this workspace
             </Label>
             <Input
@@ -114,7 +114,7 @@ export function WorkspaceForm({ initial }: { initial: OnboardingWorkspace }) {
         </div>
 
         <fieldset aria-labelledby="invite-label" className="flex flex-col gap-2.5">
-          <div className="flex items-center justify-between text-[13px] leading-normal">
+          <div className="flex items-center justify-between text-small leading-normal">
             <span id="invite-label" className="font-medium text-foreground">
               Invite team members (optional)
             </span>

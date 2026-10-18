@@ -57,7 +57,7 @@ export function FollowForm({ userId, initial }: { userId: string; initial: strin
                   />
                   <div className="flex min-w-0 flex-col gap-0.5">
                     <p className="text-sm leading-[1.4] font-bold text-foreground">{creator.name}</p>
-                    <p className="text-[13px] leading-normal text-muted-foreground">
+                    <p className="text-small leading-normal text-muted-foreground">
                       {creator.description}
                     </p>
                     <p className="text-xs leading-normal text-ring">{creator.followers}</p>

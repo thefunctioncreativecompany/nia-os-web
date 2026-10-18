@@ -44,7 +44,7 @@ export function OnboardingStep({
             Step {stepNumber(step)} of {ONBOARDING_TOTAL_STEPS}
           </p>
         )}
-        <h1 className="text-[32px] leading-[1.3] font-bold text-foreground">{title}</h1>
+        <h1 className="text-h1 font-bold text-foreground">{title}</h1>
         <p className="text-sm leading-normal text-muted-foreground">{description}</p>
       </header>
       {children}
@@ -84,7 +84,7 @@ export function SkipLink({ href, children }: { href: string; children: React.Rea
   return (
     <Link
       href={href}
-      className="rounded-sm text-[13px] leading-normal text-muted-foreground outline-none hover:text-foreground hover:underline focus-visible:ring-3 focus-visible:ring-ring/50"
+      className="rounded-sm text-small leading-normal text-muted-foreground outline-none hover:text-foreground hover:underline focus-visible:ring-3 focus-visible:ring-ring/50"
     >
       {children}
     </Link>

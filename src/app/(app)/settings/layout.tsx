@@ -13,7 +13,7 @@ export default function SettingsLayout({ children }: LayoutProps<"/settings">) {
         >
           ← Back to Home
         </Link>
-        <h1 className="text-[28px] leading-[1.3] font-bold text-foreground">Settings</h1>
+        <h1 className="text-h2 font-bold text-foreground">Settings</h1>
         <SettingsDescription />
       </div>
       <SettingsTabs />

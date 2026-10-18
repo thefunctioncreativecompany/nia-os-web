@@ -33,7 +33,7 @@ export function SettingsToggleRow({
     <div className="flex items-center justify-between gap-6 border-b border-border py-3">
       <label htmlFor={id} className="flex max-w-[400px] flex-col gap-1">
         <span className="text-sm leading-[1.4] font-bold text-foreground">{title}</span>
-        <span className="text-[13px] leading-normal text-muted-foreground">{description}</span>
+        <span className="text-small leading-normal text-muted-foreground">{description}</span>
       </label>
       <Switch
         id={id}
@@ -101,7 +101,7 @@ export function SettingsField({
 }) {
   return (
     <div className={cn("flex min-w-0 flex-col gap-2", className)}>
-      <Label htmlFor={id} className="text-[13px] leading-normal font-bold text-foreground">
+      <Label htmlFor={id} className="text-small leading-normal font-bold text-foreground">
         {label}
       </Label>
       {children}

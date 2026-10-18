@@ -64,7 +64,7 @@ export function FeaturesStep({ userId }: { userId: string }) {
               </span>
               <div className="flex min-w-0 flex-1 flex-col gap-0.5">
                 <p className="text-sm leading-[1.4] font-bold text-foreground">{title}</p>
-                <p className="text-[13px] leading-normal text-muted-foreground">{description}</p>
+                <p className="text-small leading-normal text-muted-foreground">{description}</p>
               </div>
             </li>
           ))}

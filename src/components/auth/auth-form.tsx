@@ -34,7 +34,7 @@ export function AuthForm({
   return (
     <div className="flex w-full max-w-[380px] flex-col gap-7">
       <div className="flex flex-col gap-2">
-        <h1 className="text-[32px] leading-[1.3] font-bold text-nia-ink">
+        <h1 className="text-h1 font-bold text-nia-ink">
           {title}
         </h1>
         <p className="text-sm leading-normal text-nia-ink-muted">
@@ -46,7 +46,7 @@ export function AuthForm({
         <div className="flex flex-col gap-4">
           {children}
           {error && (
-            <p role="alert" className="text-[13px] leading-normal text-destructive">
+            <p role="alert" className="text-small leading-normal text-destructive">
               {error}
             </p>
           )}
@@ -61,7 +61,7 @@ export function AuthForm({
             <>
               <div className="flex items-center gap-3">
                 <Separator className="flex-1 bg-nia-line" />
-                <span className="text-[13px] leading-normal text-nia-ink-muted">
+                <span className="text-small leading-normal text-nia-ink-muted">
                   or
                 </span>
                 <Separator className="flex-1 bg-nia-line" />
@@ -72,7 +72,7 @@ export function AuthForm({
         </div>
       </form>
 
-      <div className="text-[13px] text-nia-ink-muted">{footer}</div>
+      <div className="text-small text-nia-ink-muted">{footer}</div>
     </div>
   );
 }

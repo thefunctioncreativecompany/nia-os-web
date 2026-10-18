@@ -41,6 +41,13 @@ Design:
   focus rings and keyboard behaviour.
 - Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
   motion. Only modals/panels, the saved tick, cards settling, Copilot highlights and onboarding slides animate.
+- Theme tokens (`src/app/globals.css`): colors `foreground`/`primary` (Obsidian), `gold`
+  (+ `gold-foreground`), Figma greys (`muted`, `muted-foreground`, `border`, `secondary`, `accent`);
+  fonts `font-sans` (Geist), `font-serif` (Instrument Serif italic), `font-mono`, `font-wordmark`
+  (the "NIA" mark); text sizes `text-h1` 32, `text-h2` 28, `text-h3` 24, `text-lead` 15, `text-sm` 14,
+  `text-small` 13, `text-caption` 12, `text-micro` 11, `text-wordmark` 22; motion `duration-fast/base/slow`
+  with `ease-out` (code animations use `src/lib/motion.ts`). Gold is under 4.5:1 on white: indicators,
+  borders, tints and large text only.
 
 Data:
 - RLS on every table: users see only rows in workspaces they belong to. Soft deletes (`deleted_at`).
@@ -56,6 +63,11 @@ Data:
   beta). "What you can do" as slides and "How did you hear" as an optional tap on the last screen wait
   until Ika updates Figma. Done in step 1.4.
 - Home lives at `/home`; `/dashboard` redirects there. Done with the step 1.3 fixes.
+- Auth and onboarding heroes are a fixed still per screen (`src/components/auth/hero-images.ts`), not a
+  slideshow (no looping animation). Figma's image where Ika's set has it in high resolution; the
+  rest are picks from her set, to be confirmed.
+- Gold marks the active navbar tab (light tint) and the active Settings tab (underline).
+- The bare domain sends signed-out visitors to `/login` and signed-in ones into the app.
 
 ## Working notes
 
@@ -80,8 +92,10 @@ Data:
 
 Milestone 0 — Foundations
 - [x] 0.1 CLAUDE.md (this file), BUILD_PLAN.md and docs/design-program.md added.
-- [ ] 0.2 Theme. Current theme is mapped from Figma (DM Sans, `#1A1A1A`, radius sm 6 / md 8 / lg 12 /
-  xl 16 / 2xl 22); to be re-mapped to the plan's brand, plus motion tokens.
+- [x] 0.2 Theme. Obsidian, Aged Gold, Geist + Instrument Serif, named text sizes from the Figma text
+  styles, motion tokens and reduced-motion handling. Radius (sm 6 / md 8 / lg 12 / xl 16 / 2xl 22) and
+  the 4px spacing grid unchanged. Other raw pixel values (widths, heights) still get cleaned up as each
+  screen is next touched.
 - [ ] 0.3 Base components. Have button, input, dialog, dropdown-menu, badge, card, avatar, select,
   sonner, sheet, tooltip (plus slider, switch, textarea, skeleton). Missing: tabs, table,
   toggle-group, Button `pill`, Badge status variants.

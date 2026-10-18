@@ -80,7 +80,7 @@ export function ProfessionForm({ userId, initial }: { userId: string; initial: s
                 </span>
                 <span
                   className={cn(
-                    "min-w-0 text-xs leading-normal text-foreground [overflow-wrap:anywhere] min-[380px]:text-[13px]",
+                    "min-w-0 text-xs leading-normal text-foreground [overflow-wrap:anywhere] min-[380px]:text-small",
                     selected ? "font-bold" : "font-medium",
                   )}
                 >

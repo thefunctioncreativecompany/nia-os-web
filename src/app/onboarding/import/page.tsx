@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { AuthLayout } from "@/components/auth/auth-layout";
 import { ImportStep } from "@/components/onboarding/import-step";
 
 export const metadata: Metadata = {
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ImportStep />;
+  return (
+    <AuthLayout hero="import">
+      <ImportStep />
+    </AuthLayout>
+  );
 }

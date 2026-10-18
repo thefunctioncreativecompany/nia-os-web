@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 // with the address in ?email=.
 export default function Page({ searchParams }: PageProps<"/check-email">) {
   return (
-    <AuthLayout>
+    <AuthLayout hero="check-email">
       <Suspense fallback={<CheckEmail email={null} type="recovery" />}>
         <CheckEmailFromParams searchParams={searchParams} />
       </Suspense>
@@ -50,7 +50,7 @@ function CheckEmail({ email, type }: { email: string | null; type: EmailLinkType
       </div>
 
       <div className="flex flex-col gap-3">
-        <h1 className="text-[32px] leading-[1.3] font-bold text-nia-ink">
+        <h1 className="text-h1 font-bold text-nia-ink">
           Check your email
         </h1>
         <p className="text-sm leading-normal break-words text-nia-ink-muted">
@@ -73,7 +73,7 @@ function CheckEmail({ email, type }: { email: string | null; type: EmailLinkType
         <OpenInbox email={email} />
       </Suspense>
 
-      <div className="flex w-full flex-col items-center gap-4 text-[13px] text-nia-ink-muted">
+      <div className="flex w-full flex-col items-center gap-4 text-small text-nia-ink-muted">
         <p>
           Didn&apos;t receive it? <ResendEmailButton email={email} type={type} />
         </p>

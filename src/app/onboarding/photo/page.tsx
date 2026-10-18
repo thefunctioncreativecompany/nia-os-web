@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 
 import { getOnboardingProfile } from "@/lib/onboarding-data";
+import { AuthLayout } from "@/components/auth/auth-layout";
 import { OnboardingSkeleton } from "@/components/onboarding/onboarding-primitives";
 import { PhotoForm } from "@/components/onboarding/photo-form";
 
@@ -11,9 +12,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <Suspense fallback={<OnboardingSkeleton />}>
-      <Photo />
-    </Suspense>
+    <AuthLayout hero="photo">
+      <Suspense fallback={<OnboardingSkeleton />}>
+        <Photo />
+      </Suspense>
+    </AuthLayout>
   );
 }
 

@@ -76,7 +76,7 @@ Next.js (App Router) + TypeScript + Tailwind + shadcn/ui, Supabase (Postgres, Au
 ## Milestone 0 — Foundations
 
 - [x] **0.1 CLAUDE.md.** Create/refresh CLAUDE.md: product summary (Nia OS, an AI-enabled content production operating system for creative professionals), the stack, the Product, Design and Data rules above (short form), a pointer to this file, and a Progress section listing Milestones 0–6.
-- [ ] **0.2 Theme.** Map brand colors, Geist + Instrument Serif, radii and spacing onto the shadcn theme variables in `globals.css`. Show Ika a table of Figma style → variable before applying. Add the motion tokens.
+- [x] **0.2 Theme.** Map brand colors, Geist + Instrument Serif, radii and spacing onto the shadcn theme variables in `globals.css`. Show Ika a table of Figma style → variable before applying. Add the motion tokens.
 - [ ] **0.3 Base components.** `npx shadcn@latest add` button, input, dialog, dropdown-menu, badge, card, tabs, table, avatar, toggle-group, select, sonner, sheet, tooltip. Add variants: Button `pill` (44px, fully rounded, default), Badge `confirmed / pending / on-hold / wrapped / cancelled`.
 - [ ] **0.4 Nia components** in `src/components/nia`: Navbar, StatusBadge, EmptyState (slot for an illustration), DocumentHeader (Back, PREVIEW, Ready to Export, Download PDF), ProjectCard (16:9 cover image, title, production-type chip, next shoot date; gradient fallback from project color; 1.02 hover lift at `fast`), TemplateCard (miniature document preview), ProposalCard (AI draft marker, Apply / Modify / Dismiss), SavedIndicator ("All changes saved ✓" with tick animation).
 - [ ] **0.5 Component gallery.** A `/dev/components` page showing every component and variant, for side-by-side comparison with Figma. Hide it in production.

@@ -53,12 +53,12 @@ export function ImportStep() {
               />
               <div className="flex min-w-0 flex-col gap-0.5">
                 <p className="text-sm leading-[1.4] font-bold text-foreground">{platform.name}</p>
-                <p className="text-[13px] leading-normal text-muted-foreground">
+                <p className="text-small leading-normal text-muted-foreground">
                   {platform.description}
                 </p>
               </div>
             </div>
-            <span className="shrink-0 rounded-full border border-border px-3.5 py-1.5 text-[13px] leading-normal font-bold text-muted-foreground">
+            <span className="shrink-0 rounded-full border border-border px-3.5 py-1.5 text-small leading-normal font-bold text-muted-foreground">
               Coming soon
             </span>
           </li>

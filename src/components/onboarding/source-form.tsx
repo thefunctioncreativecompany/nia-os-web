@@ -71,7 +71,7 @@ export function SourceForm({
 
         <div className="flex flex-col gap-5">
           <OnboardingActions isPending={isPending} disabled={!source} />
-          <div className="flex flex-col items-center gap-1 text-center text-[13px] leading-normal text-muted-foreground">
+          <div className="flex flex-col items-center gap-1 text-center text-small leading-normal text-muted-foreground">
             <p className="w-full truncate">
               Signed in as <span className="font-bold text-foreground">{email}</span>
             </p>

@@ -24,7 +24,7 @@ import { useStepSubmit } from "@/components/onboarding/use-step-submit";
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/gif"];
 
 const toolButtonClassName =
-  "h-9 min-w-0 flex-1 gap-2 rounded-md sm:w-[120px] sm:flex-none border-border bg-muted px-3 text-[13px] leading-normal font-medium text-foreground";
+  "h-9 min-w-0 flex-1 gap-2 rounded-md sm:w-[120px] sm:flex-none border-border bg-muted px-3 text-small leading-normal font-medium text-foreground";
 
 export function PhotoForm({
   userId,

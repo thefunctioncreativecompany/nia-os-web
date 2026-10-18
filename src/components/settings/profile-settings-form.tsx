@@ -38,7 +38,7 @@ import {
 const AVATAR_TYPES = ["image/jpeg", "image/png"];
 
 const pillClassName =
-  "rounded-[20px] px-4 py-2 text-[13px] leading-[1.4] font-semibold transition-colors";
+  "rounded-[20px] px-4 py-2 text-small leading-[1.4] font-semibold transition-colors";
 
 export function ProfileSettingsForm({
   userId,
@@ -342,7 +342,7 @@ function TraitPicker({
 
   return (
     <div className="flex flex-col gap-2">
-      <span id="traits-label" className="text-[13px] leading-normal font-bold text-foreground">
+      <span id="traits-label" className="text-small leading-normal font-bold text-foreground">
         What traits should the assistant have?
       </span>
       <div role="group" aria-labelledby="traits-label" className="flex flex-wrap gap-2">
@@ -394,7 +394,7 @@ function TraitPicker({
                 setCustom("");
               }
             }}
-            className="h-auto w-40 rounded-[20px] border-border px-4 py-2 text-[13px] leading-[1.4] md:text-[13px]"
+            className="h-auto w-40 rounded-[20px] border-border px-4 py-2 text-small leading-[1.4] md:text-small"
           />
         </div>
       )}
@@ -464,7 +464,7 @@ function LinkedAccounts({ identities }: { identities: UserIdentity[] }) {
                 <span className="text-sm leading-[1.4] font-bold text-foreground">
                   {provider.name}
                 </span>
-                <span className="truncate text-[13px] leading-normal text-muted-foreground">
+                <span className="truncate text-small leading-normal text-muted-foreground">
                   {identity ? (identityEmail ?? "Connected") : "Not connected"}
                 </span>
               </div>
@@ -480,7 +480,7 @@ function LinkedAccounts({ identities }: { identities: UserIdentity[] }) {
                       type="button"
                       onClick={() => disconnect(identity)}
                       disabled={busy !== null}
-                      className="text-[13px] leading-normal font-bold text-muted-foreground hover:text-foreground disabled:opacity-50"
+                      className="text-small leading-normal font-bold text-muted-foreground hover:text-foreground disabled:opacity-50"
                     >
                       {busy === provider.id ? "Disconnecting..." : "Disconnect"}
                     </button>
@@ -492,7 +492,7 @@ function LinkedAccounts({ identities }: { identities: UserIdentity[] }) {
                   variant="outline"
                   onClick={() => connect(provider.id)}
                   disabled={busy !== null}
-                  className="h-auto rounded-full border-border px-4 py-2 text-[13px] leading-[1.4] font-bold"
+                  className="h-auto rounded-full border-border px-4 py-2 text-small leading-[1.4] font-bold"
                 >
                   {busy === provider.id ? "Redirecting..." : "Connect"}
                 </Button>

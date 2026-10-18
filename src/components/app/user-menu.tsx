@@ -34,7 +34,7 @@ export function UserMenu({ user }: { user: CurrentUser }) {
       <DropdownMenuTrigger className="flex items-center gap-3 rounded-full outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
         <Avatar className="size-9 after:border-nia-line">
           <AvatarImage src={user.avatarUrl ?? undefined} alt="" />
-          <AvatarFallback className="bg-nia-chip text-[13px] font-bold text-nia-ink">
+          <AvatarFallback className="bg-nia-chip text-small font-bold text-nia-ink">
             {getInitials(user.name, user.email)}
           </AvatarFallback>
         </Avatar>

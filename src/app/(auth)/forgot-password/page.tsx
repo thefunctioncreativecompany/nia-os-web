@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <AuthLayout>
+    <AuthLayout hero="forgot-password">
       <ForgotPasswordForm />
     </AuthLayout>
   );

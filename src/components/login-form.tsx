@@ -75,7 +75,7 @@ export function LoginForm() {
       />
       <Link
         href="/forgot-password"
-        className="-mt-2 self-end text-[13px] leading-normal text-nia-ink-muted hover:underline"
+        className="-mt-2 self-end text-small leading-normal text-nia-ink-muted hover:underline"
       >
         Forgot password?
       </Link>

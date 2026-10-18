@@ -1,9 +1,24 @@
-import { DM_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 
-// Brand typeface from Figma, used app-wide as --font-sans.
-// The designs use the 14pt optical size; globals.css sets that on <body>.
-export const dmSans = DM_Sans({
+// Brand typefaces (BUILD_PLAN.md → Design rules). Applied on <html> in the root layout
+// and exposed to Tailwind as font-sans, font-serif and font-mono in globals.css.
+
+// Interface text.
+export const geist = Geist({
   subsets: ["latin"],
-  axes: ["opsz"],
-  variable: "--font-sans",
+  variable: "--font-geist",
+});
+
+// Accent headings only, always italic.
+export const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  variable: "--font-instrument-serif",
+});
+
+// Numbers and code.
+export const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
 });

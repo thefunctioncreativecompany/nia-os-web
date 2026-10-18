@@ -47,7 +47,7 @@ const tabs = [
 export function SettingsDescription() {
   const segment = useSelectedLayoutSegment();
   const tab = tabs.find((t) => t.segment === segment) ?? tabs[0];
-  return <p className="text-[15px] leading-[1.4] text-muted-foreground">{tab.description}</p>;
+  return <p className="text-lead text-muted-foreground">{tab.description}</p>;
 }
 
 export function SettingsTabs() {
@@ -76,7 +76,7 @@ export function SettingsTabs() {
             className="flex h-full flex-col justify-end gap-3 text-sm leading-[1.4] font-bold text-foreground"
           >
             {tab.label}
-            <span className="h-[3px] w-full rounded-[1.5px] bg-primary" />
+            <span className="h-[3px] w-full rounded-[1.5px] bg-gold" />
           </Link>
         ) : (
           <Link

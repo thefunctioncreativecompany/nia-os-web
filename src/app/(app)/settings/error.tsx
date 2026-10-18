@@ -16,7 +16,7 @@ export default function SettingsError({
         <h2 className="text-base leading-normal font-bold text-foreground">
           We couldn&apos;t load these settings
         </h2>
-        <p className="text-[13px] leading-normal text-muted-foreground">{error.message}</p>
+        <p className="text-small leading-normal text-muted-foreground">{error.message}</p>
       </div>
       <Button
         type="button"

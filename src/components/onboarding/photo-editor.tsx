@@ -77,7 +77,7 @@ export function PhotoEditor({
           />
         </div>
         <div className="flex items-center gap-4">
-          <Label htmlFor="photo-zoom" className="text-[13px] font-medium">
+          <Label htmlFor="photo-zoom" className="text-small font-medium">
             Zoom
           </Label>
           <Slider

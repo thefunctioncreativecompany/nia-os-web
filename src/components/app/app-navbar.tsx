@@ -49,7 +49,7 @@ export function AppNavbar({ user }: { user: React.ReactNode }) {
                 key={tab.label}
                 href={tab.href}
                 aria-current="page"
-                className="flex h-[38px] w-[100px] items-center justify-center gap-[5px] rounded-[20px] bg-nia-pill text-[15px] leading-[1.4] font-medium text-nia-ink"
+                className="flex h-[38px] w-[100px] items-center justify-center gap-[5px] rounded-[20px] bg-gold/15 text-lead font-medium text-foreground"
               >
                 {icon}
                 {tab.label}
@@ -97,7 +97,7 @@ export function AppNavbar({ user }: { user: React.ReactNode }) {
             placeholder="Search..."
             aria-label="Search"
             className={cn(
-              "h-auto rounded-[30px] border-nia-line bg-white py-2.5 pr-4 pl-11 text-[13px] leading-normal text-nia-ink placeholder:text-nia-placeholder md:text-[13px]",
+              "h-auto rounded-[30px] border-nia-line bg-white py-2.5 pr-4 pl-11 text-small leading-normal text-nia-ink placeholder:text-nia-placeholder md:text-small",
             )}
           />
         </div>
@@ -105,7 +105,7 @@ export function AppNavbar({ user }: { user: React.ReactNode }) {
           type="button"
           variant="outline"
           aria-label="Create"
-          className="h-8 w-9 rounded-[6px] border-nia-line bg-white p-0 text-[18px] leading-[1.4] font-medium text-nia-ink hover:bg-nia-field-muted hover:text-nia-ink"
+          className="h-8 w-9 rounded-[6px] border-nia-line bg-white p-0 text-lg leading-[1.4] font-medium text-nia-ink hover:bg-nia-field-muted hover:text-nia-ink"
         >
           +
         </Button>
