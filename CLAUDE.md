@@ -2,93 +2,119 @@
 
 # Nia OS (web)
 
-Next.js 16 (App Router, Cache Components) + Tailwind 4 + shadcn/ui + Supabase auth.
-Designs live in Figma: `jaF49U0T0DQ5lNB6h4wJvp` (Nia Technologies Inc.), page "Web App",
-frame "Nia OS — Developer Handoff (Ordered by User Journey)".
+Nia OS is an AI-enabled content production operating system for creative professionals: projects,
+documents (call sheets, shot lists, scripts), people and places, schedule, and an AI Copilot that
+proposes and never acts on its own.
 
-## Build loop (repeat for every screen)
+**How we build: follow [BUILD_PLAN.md](BUILD_PLAN.md) exactly.** One unchecked step at a time, top
+to bottom. Explain the plan in plain English and wait for Ika's OK, build from Figma with sample data,
+run the Design check, connect Supabase, run the Standard checks, then tick the box, update Progress
+below, commit, push and stop. Ika is new to coding: explain simply, no unexplained jargon.
+Design thinking behind the rules: [docs/design-program.md](docs/design-program.md).
 
-1. Copy the screen's Figma frame link (right-click → Copy link to selection). Where a screen or
-   layout could be formatted or improved beyond the Figma (e.g. no mobile design), suggest Claude Design.
-2. Plan first: "Plan how to build this screen. Don't write code yet: [link]"
-3. Build the look with sample data, matching Figma exactly and reusing existing components.
-4. Compare with Figma at localhost:3000 and fix specific differences.
-5. Make it real: connect to Supabase so data saves and loads for the signed-in user.
-6. Run the test checklist.
-7. "Commit and push." Vercel deploys in about a minute; check the live site too.
+Figma (source of truth): file `jaF49U0T0DQ5lNB6h4wJvp` (Nia Technologies Inc.), developer handoff
+board node `796-7730`. Anything missing from Figma gets designed in Claude Design and reconciled into
+Figma first, never invented in code.
 
-## Test checklist (every screen)
+## Stack
 
-- Refresh the page: is the data still there?
-- Log out and back in: is it still there?
-- Sign in with a second test account: it must not see the first account's data.
-- Narrow the browser window: does the layout still hold?
-- Check the live Vercel site, not just localhost.
+Next.js 16 (App Router, Cache Components, partial prefetching) + TypeScript + Tailwind 4 + shadcn/ui
+(radix-nova), Supabase (Postgres, Auth, Storage, Realtime), Vercel, GitHub. Motion via Framer Motion
+(`motion`). Icons: Lucide only.
 
-## Golden rules
+## Rules (short form; full text in BUILD_PLAN.md)
 
-- One screen per prompt; two to five screens per session.
-- Start a session with "Read CLAUDE.md and tell me where we left off." End with
-  "Update the progress section of CLAUDE.md, then commit and push."
-- Keys never go in chats or code: only `.env.local` and Vercel → Settings → Environment Variables.
-- If something isn't fixed in two tries: "Undo back to the last commit" and describe it differently.
-- After each change, ask whether to commit.
+Product:
+- AI proposes, the producer decides: AI output is a proposal card (Apply / Modify / Dismiss) with a
+  gold "AI draft" marker; never change user data without Apply.
+- Deep modules (Projects, Documents, People & Places, Schedule, Copilot); one primary action per screen.
+- Every element serves a production job, or ask Ika. Imagery comes from the user's own work.
+- Production language (project, call sheet, shoot day, crew, call time, wrap). Never: payload, token,
+  manifest, asset locker, "Intelligent Core", or "workspace" except for the team account.
+- Prevent mistakes (e.g. double-booking) instead of reporting them afterwards.
 
-## Conventions
+Design:
+- Colors, fonts, radii, spacing and motion only from theme variables; no hex or pixel values in pages.
+- Brand: Obsidian `#0A0908`, Aged Gold `#8A7A52` (single accent, active states only), Geist (UI),
+  Instrument Serif italic (accent headings only).
+- Build from `src/components/ui` (shadcn) and `src/components/nia`; new looks are variants. Keep shadcn
+  focus rings and keyboard behaviour.
+- Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
+  motion. Only modals/panels, the saved tick, cards settling, Copilot highlights and onboarding slides animate.
 
-- Build screens from shadcn components and the Supabase UI library auth blocks, restyled to Figma,
-  rather than from raw pixels. Use real logo SVGs from the web (not Figma placeholders).
-- Theme: the shadcn light-mode variables in `src/app/globals.css` are mapped from Figma
-  (foreground/primary `#1A1A1A`, muted-foreground `#73726C`, border/input `#E2E2E2`, secondary
-  `#EEEDEC`, accent `#F0EFEC`, muted `#F9F9F9`, destructive `#EF4444`, ring `#9C9B96`). Prefer
-  shadcn tokens (`text-foreground`, `border-border`, ...); `nia-*` names are aliases plus extras
-  (`nia-footer`, `nia-placeholder`, `nia-success(-bg)`). Radius scale = Figma: sm 6, md 8, lg 12,
-  xl 16, 2xl 22px, buttons `rounded-full`. Font: DM Sans app-wide with `opsz 14`.
-- Auth UI: `src/components/auth/` (`AuthLayout`, `AuthForm`, `AuthInput`, `GoogleButton`, ...).
-  Supabase logic stays in `src/components/{login,sign-up,forgot-password,update-password}-form.tsx`.
-- Email and Google sign-in links land on `/auth/confirm`; failures go to `/auth/error`.
+Data:
+- RLS on every table: users see only rows in workspaces they belong to. Soft deletes (`deleted_at`).
+- Keys only in `.env.local` and Vercel → Settings → Environment Variables; never in code, chat or the browser.
+- Schema changes are migration files in `supabase/migrations`, explained to Ika, then run by her in
+  the Supabase SQL Editor (paste the file's contents, not its name).
+
+## Decisions (2026-10-17)
+
+- Brand: switch to the plan's brand (Obsidian, Aged Gold, Geist, Instrument Serif) now, even though
+  Figma still shows DM Sans and `#1A1A1A`. Done in step 0.2.
+- Onboarding: trim to the plan. Hide Import profile and Follow creators now (keep the code for after
+  beta). "What you can do" as slides and "How did you hear" as an optional tap on the last screen wait
+  until Ika updates Figma. Done in step 1.4.
+- Home lives at `/home`; `/dashboard` redirects there. Done with the step 1.3 fixes.
+
+## Working notes
+
+- If something fails twice, stop, explain simply, and offer to revert to the last commit.
+- Sessions: start with "Read CLAUDE.md and tell me where we left off"; end by updating Progress,
+  then commit and push.
+- Live site: https://nia-os-web-9ahh.vercel.app (production deploys from `main`, ~1 minute).
+- Test account: credentials in `.env.local` as `TEST_USER_EMAIL` / `TEST_USER_PASSWORD`; sign in with
+  them in headless Chrome to verify signed-in screens. A second test account is still needed for the
+  isolation check (until then, isolation is checked by querying as the test account).
+- Supabase URL Configuration: Site URL `https://nia-os-web-9ahh.vercel.app`; Redirect URLs exactly
+  `https://nia-os-web-9ahh.vercel.app/**` and `http://localhost:3000/**`. Never use
+  `*-nia-technologies.vercel.app` URLs (Vercel-protected, shows a login wall).
+- Auth UI lives in `src/components/auth/`; Supabase logic in
+  `src/components/{login,sign-up,forgot-password,update-password}-form.tsx`. Email and Google links
+  land on `/auth/confirm`; failures go to `/auth/error`. Use real logo SVGs from the web.
+- Anything reading the Supabase session must `await connection()` first (Supabase reads `Date.now()`),
+  inside a `<Suspense>` boundary.
+- If the dev server serves stale CSS or route types, stop it, `rm -rf .next`, and restart.
 
 ## Progress
 
-Live at https://nia-os-web-9ahh.vercel.app (production deploys from `main`).
+Milestone 0 — Foundations
+- [x] 0.1 CLAUDE.md (this file), BUILD_PLAN.md and docs/design-program.md added.
+- [ ] 0.2 Theme. Current theme is mapped from Figma (DM Sans, `#1A1A1A`, radius sm 6 / md 8 / lg 12 /
+  xl 16 / 2xl 22); to be re-mapped to the plan's brand, plus motion tokens.
+- [ ] 0.3 Base components. Have button, input, dialog, dropdown-menu, badge, card, avatar, select,
+  sonner, sheet, tooltip (plus slider, switch, textarea, skeleton). Missing: tabs, table,
+  toggle-group, Button `pill`, Badge status variants.
+- [ ] 0.4 Nia components. Not started.
+- [ ] 0.5 Component gallery. Not started.
+- [x] 0.6 Connect services. Supabase URLs and Vercel env vars verified; live site loads.
 
-Done:
-- Auth screens from Figma, wired to Supabase: `/login`, `/signup`, `/forgot-password`,
-  `/check-email`, `/reset-password`, plus `/auth/error`. Google sign-in, resend email,
-  "Open email app" opens the user's web inbox. Old `/auth/*` pages removed.
-- `/privacy` policy page (needed for Google OAuth). Company name and contact email to be confirmed.
-- Google OAuth client created and published; Google provider enabled in Supabase. Sign-in verified
-  working on the live site (Google + email sign-up/confirm).
-- Supabase URL Configuration: Site URL `https://nia-os-web-9ahh.vercel.app`; Redirect URLs exactly
-  `https://nia-os-web-9ahh.vercel.app/**` and `http://localhost:3000/**`. Use `/**` wildcards (the app
-  adds `?next=`), and never point at `*-nia-technologies.vercel.app` URLs (Vercel-protected → login wall).
+Milestone 1 — Accounts
+- [x] 1.1 AuthLayout, Log in, Sign up. Hero is a crossfading slideshow of Ika's images.
+- [x] 1.2 Password recovery: forgot password, check your email (opens the user's web inbox), new password.
+- [ ] 1.3 Make auth real. Working: email/password, Google, password reset, `profiles`,
+  `user_settings`, `workspaces`, `workspace_members`, `workspace_invites` with RLS; new users →
+  onboarding (proxy), logged-out → `/login`. To do: returning users → `/home` (rename from
+  `/dashboard`), create the personal workspace at sign-up (today it's made in onboarding), soft deletes.
+- [ ] 1.4 Onboarding. Built as all 9 Figma screens under `/onboarding/*`, saving each step, tested end
+  to end locally and live. To do: trim per Decisions above.
 
-- App shell: Figma top navbar (replaces the shadcn sidebar), placeholder `/dashboard`, Figma theme
-  mapped onto the shadcn variables.
-- Settings → Profile and General, saving to Supabase (photo upload, linked Google account, workspace
-  name, preferences). Other tabs show as disabled.
-- Onboarding (Figma `796:16081`), nine steps under `/onboarding/*`, each saving on Continue: how did
-  you hear, import (platforms "coming soon"), username (live availability check), photo (upload +
-  crop/zoom/rotate), profession, workspace (invites stored, emails not sent yet), follow sample
-  creators, what you can do, all set. The proxy sends users to onboarding until they finish
-  (`onboarded` flag in user metadata, falling back to `profiles.onboarding_completed_at`); accounts
-  created before 2026-10-18 skip it. Auth and onboarding share the crossfading hero slideshow.
-- Supabase migrations run in the SQL editor: `20261018000000_profiles_settings_workspaces.sql`,
-  `20261019000000_onboarding.sql`. Pending: `20261019010000_avatar_cleanup.sql` (old photos aren't
-  deleted until it's run).
-- Tested end to end with the test account (credentials in `.env.local` as `TEST_USER_*`; scripts sign
-  in headlessly): every onboarding step persists after a fresh sign-in, and RLS limits it to its own
-  profile, settings, workspace, invites and avatar folder.
-- Session checks call `await connection()` first (Supabase reads `Date.now()`), so partial
-  prefetching doesn't hit the "unstable value" prerender error.
+Milestone 2 — Projects
+- [ ] 2.1 App shell. Partly built: Figma top navbar with profile menu (Settings, Log out); other tabs
+  disabled.
+- [ ] 2.2–2.5 Not started.
 
-Next (one session each, full build loop per screen):
-- Home empty state (Figma `872:42636` / `1021:754`); "Go to Dashboard" lands on the placeholder.
-- Settings: Notifications (Claude Design draft awaiting approval; data in
-  `user_settings.notification_preferences`), Security (password, TOTP 2FA, sessions + revoke, login
-  history; no backup codes), Shortcuts (custom key combos, reset), Connected Apps "coming soon"
-  (Pinterest, IMDb, Cosmos, Instagram).
-- Apple sign-in alongside Google (needs an Apple Developer account).
-- Open questions: keep the slideshow on login/sign-up or onboarding only; keep the low-res Black
-  Panther slide; confirm caption years; "Explore templates" target.
-- Not yet built from Figma: home, projects, calendar, and the rest of the app.
+Milestone 3 — Documents: not started.
+
+Milestone 4 — Shoot day: not started.
+
+Milestone 5 — Copilot: not started.
+
+Milestone 6 — Share & launch
+- [ ] 6.3 Essential settings. Partly built: Settings → Profile (incl. AI assistant style and
+  suggestions) and General save to Supabase; other tabs disabled. A Notifications design draft
+  exists in Claude Design.
+- [ ] Everything else not started.
+
+Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
+`20261019000000_onboarding.sql`, `20261019010000_avatar_cleanup.sql`.
