@@ -63,26 +63,32 @@ Done:
   `https://nia-os-web-9ahh.vercel.app/**` and `http://localhost:3000/**`. Use `/**` wildcards (the app
   adds `?next=`), and never point at `*-nia-technologies.vercel.app` URLs (Vercel-protected → login wall).
 
-In progress (branch `feat/settings-profile`, not pushed):
-- Top navbar app shell (replaces sidebar) and `/settings/profile` look with sample data.
-- Figma theme applied to the shadcn variables.
+- App shell: Figma top navbar (replaces the shadcn sidebar), placeholder `/dashboard`, Figma theme
+  mapped onto the shadcn variables.
+- Settings → Profile and General, saving to Supabase (photo upload, linked Google account, workspace
+  name, preferences). Other tabs show as disabled.
+- Onboarding (Figma `796:16081`), nine steps under `/onboarding/*`, each saving on Continue: how did
+  you hear, import (platforms "coming soon"), username (live availability check), photo (upload +
+  crop/zoom/rotate), profession, workspace (invites stored, emails not sent yet), follow sample
+  creators, what you can do, all set. The proxy sends users to onboarding until they finish
+  (`onboarded` flag in user metadata, falling back to `profiles.onboarding_completed_at`); accounts
+  created before 2026-10-18 skip it. Auth and onboarding share the crossfading hero slideshow.
+- Supabase migrations run in the SQL editor: `20261018000000_profiles_settings_workspaces.sql`,
+  `20261019000000_onboarding.sql`. Pending: `20261019010000_avatar_cleanup.sql` (old photos aren't
+  deleted until it's run).
+- Tested end to end with the test account (credentials in `.env.local` as `TEST_USER_*`; scripts sign
+  in headlessly): every onboarding step persists after a fresh sign-in, and RLS limits it to its own
+  profile, settings, workspace, invites and avatar folder.
+- Session checks call `await connection()` first (Supabase reads `Date.now()`), so partial
+  prefetching doesn't hit the "unstable value" prerender error.
 
-Plan (approved 2026-10-17), one session each, full build loop per screen:
-- A: Supabase schema (profiles, user_settings, workspaces/members/invites, login_events, RLS;
-  SQL in `supabase/migrations`, run in the Supabase SQL editor) + connect Profile + General +
-  Notifications (no Figma frame: draft it in Claude Design first).
-- B: Security (password, TOTP 2FA, sessions + revoke, login history; no backup codes) +
-  Shortcuts (custom key combos, reset) + Connected Apps as "coming soon" (Pinterest, IMDb,
-  Cosmos, Instagram).
-- C: Onboarding (frames in `796:16081`): how did you hear, import profile ("coming soon" +
-  skip), username (availability check), photo (upload/crop), profession.
-- D: Onboarding: workspace setup (invites stored, emails later), follow creators (sample
-  creators), what to expect, all set → Home empty state (`872:42636`).
-  New users are routed through onboarding until complete.
-
-Next:
-- Settings section (Figma `796:10795`): Profile, General, Connected Apps, Security, Shortcuts.
-  Profile (`796:10907`) is planned and first. Decisions: the Figma top navbar replaces the shadcn
-  sidebar app-wide; Apple sign-in is set up alongside Google (needs an Apple Developer account);
-  assistant traits are presets you toggle plus custom ones; data goes in a `profiles` table with RLS.
-- Not yet built from Figma: onboarding flow, home, projects, calendar, and the rest of the app.
+Next (one session each, full build loop per screen):
+- Home empty state (Figma `872:42636` / `1021:754`); "Go to Dashboard" lands on the placeholder.
+- Settings: Notifications (Claude Design draft awaiting approval; data in
+  `user_settings.notification_preferences`), Security (password, TOTP 2FA, sessions + revoke, login
+  history; no backup codes), Shortcuts (custom key combos, reset), Connected Apps "coming soon"
+  (Pinterest, IMDb, Cosmos, Instagram).
+- Apple sign-in alongside Google (needs an Apple Developer account).
+- Open questions: keep the slideshow on login/sign-up or onboarding only; keep the low-res Black
+  Panther slide; confirm caption years; "Explore templates" target.
+- Not yet built from Figma: home, projects, calendar, and the rest of the app.
