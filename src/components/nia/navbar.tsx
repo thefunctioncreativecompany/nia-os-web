@@ -32,7 +32,7 @@ const tabs: Tab[] = [
 
 // Top bar on every signed-in page (Figma "Navbar"). `user` is the avatar menu,
 // passed in from the server so it can stream in.
-export function AppNavbar({ user }: { user: React.ReactNode }) {
+export function Navbar({ user }: { user: React.ReactNode }) {
   const pathname = usePathname();
   const isActive = (tab: Tab) =>
     tab.match.some((path) => pathname === path || pathname.startsWith(`${path}/`));
@@ -104,6 +104,7 @@ export function AppNavbar({ user }: { user: React.ReactNode }) {
         <Button
           type="button"
           variant="outline"
+          size="compact"
           aria-label="Create"
           className="h-8 w-9 rounded-[6px] border-nia-line bg-white p-0 text-lg leading-[1.4] font-medium text-nia-ink hover:bg-nia-field-muted hover:text-nia-ink"
         >

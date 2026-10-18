@@ -45,7 +45,8 @@ Design:
   (+ `gold-foreground`), Figma greys (`muted`, `muted-foreground`, `border`, `secondary`, `accent`);
   fonts `font-sans` (Geist), `font-serif` (Instrument Serif italic), `font-mono`, `font-wordmark`
   (the "NIA" mark); text sizes `text-h1` 32, `text-h2` 28, `text-h3` 24, `text-lead` 15, `text-sm` 14,
-  `text-small` 13, `text-caption` 12, `text-micro` 11, `text-wordmark` 22; motion `duration-fast/base/slow`
+  `text-small` 13, `text-caption` 12, `text-micro` 11, `text-meta` 10, `text-tiny` 9, `text-wordmark` 22;
+  shadow `shadow-elevation-2`; motion `duration-fast/base/slow`
   with `ease-out` (code animations use `src/lib/motion.ts`). Gold is under 4.5:1 on white: indicators,
   borders, tints and large text only.
 
@@ -102,7 +103,16 @@ Milestone 0 — Foundations
   toggle). Button size `pill` (44px, rounded-full, bold) is the default; `compact` is the old 32px.
   Badge variants `confirmed / pending / on-hold / wrapped / cancelled` use `status-*` theme colors
   from Figma (Pending and Wrapped text darkened for contrast).
-- [ ] 0.4 Nia components. Not started.
+- [x] 0.4 Nia components in `src/components/nia`, built from what Figma shows: Navbar (+ UserMenu),
+  StatusBadge, EmptyState (optional illustration slot), DocumentHeader (+ DocumentPreviewHeader,
+  DownloadPdfButton; title in Instrument Serif italic), ProjectCard (default + compact, 19:10 cover,
+  hover lift), TemplateCard (default + compact), ProposalCard (Apply Changes / Modify),
+  SavedIndicator (tick animation via `motion`). Waiting on Figma (Ika designs in Claude Design, then
+  added before the step that needs it): ProjectCard production-type chip, next shoot date and
+  no-cover gradient (by 2.2; until then a plain grey block); SavedIndicator "Saving…" state (by 2.3);
+  TemplateCard miniature preview (by 3.3); ProposalCard Dismiss + gold "AI draft" marker (by 5.3).
+  Also: Figma's projects grid tile says "New Workspace"; per production language it should be
+  "New project" (2.2).
 - [ ] 0.5 Component gallery. Not started.
 - [x] 0.6 Connect services. Supabase URLs and Vercel env vars verified; live site loads.
 

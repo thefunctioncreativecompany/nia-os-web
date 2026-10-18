@@ -1,14 +1,14 @@
 import { Suspense } from "react";
 
 import { getCurrentUser } from "@/lib/auth";
-import { AppNavbar } from "@/components/app/app-navbar";
-import { UserMenu, UserMenuSkeleton } from "@/components/app/user-menu";
+import { Navbar } from "@/components/nia/navbar";
+import { UserMenu, UserMenuSkeleton } from "@/components/nia/user-menu";
 
 // Shell for every signed-in page: the Figma top navbar above the page.
 export default function AppLayout({ children }: LayoutProps<"/">) {
   return (
     <div className="flex min-h-svh w-full flex-col bg-white text-nia-ink">
-      <AppNavbar
+      <Navbar
         user={
           <Suspense fallback={<UserMenuSkeleton />}>
             <NavbarUser />
