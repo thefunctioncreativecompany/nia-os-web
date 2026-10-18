@@ -49,40 +49,42 @@
   --color-nia-chip: var(--nia-chip);
   --color-nia-success: var(--nia-success);
   --color-nia-success-bg: var(--nia-success-bg);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 10px);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  /* Light theme mapped from Figma (02 — Auth / Login & Onboarding Flow). */
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #1a1a1a;
+  --primary-foreground: #ffffff;
+  --secondary: #eeedec;
+  --secondary-foreground: #1a1a1a;
+  --muted: #f9f9f9;
+  --muted-foreground: #73726c;
+  --accent: #f0efec;
+  --accent-foreground: #1a1a1a;
+  --destructive: #ef4444;
+  --border: #e2e2e2;
+  --input: #e2e2e2;
+  --ring: #9c9b96;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
+  /* 12px: cards and auth inputs. The scale below hits Figma's 6/8/12/16/22px. */
+  --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -91,16 +93,16 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  /* NIA brand colors (Figma: auth screens) */
-  --nia-ink: #1a1a1a;
-  --nia-ink-muted: #73726c;
-  --nia-line: #e2e2e2;
+  /* NIA brand names, aliased to the theme where Figma uses the same color. */
+  --nia-ink: var(--foreground);
+  --nia-ink-muted: var(--muted-foreground);
+  --nia-line: var(--border);
+  --nia-pill: var(--secondary);
+  --nia-chip: var(--accent);
+  --nia-field-muted: var(--muted);
+  /* NIA brand colors outside the shadcn theme. */
   --nia-footer: #1c1c1c;
-  /* NIA brand colors (Figma: app shell + settings) */
-  --nia-pill: #eeedec;
   --nia-placeholder: #938f99;
-  --nia-field-muted: #f9f9fa;
-  --nia-chip: #f0efec;
   --nia-success: #166534;
   --nia-success-bg: #dcfce7;
 }

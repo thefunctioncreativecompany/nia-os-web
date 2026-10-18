@@ -38,8 +38,12 @@ frame "Nia OS — Developer Handoff (Ordered by User Journey)".
 
 - Build screens from shadcn components and the Supabase UI library auth blocks, restyled to Figma,
   rather than from raw pixels. Use real logo SVGs from the web (not Figma placeholders).
-- Brand colors are Tailwind tokens in `src/app/globals.css`: `nia-ink`, `nia-ink-muted`,
-  `nia-line`, `nia-footer`. Font is DM Sans with `opsz 14`.
+- Theme: the shadcn light-mode variables in `src/app/globals.css` are mapped from Figma
+  (foreground/primary `#1A1A1A`, muted-foreground `#73726C`, border/input `#E2E2E2`, secondary
+  `#EEEDEC`, accent `#F0EFEC`, muted `#F9F9F9`, destructive `#EF4444`, ring `#9C9B96`). Prefer
+  shadcn tokens (`text-foreground`, `border-border`, ...); `nia-*` names are aliases plus extras
+  (`nia-footer`, `nia-placeholder`, `nia-success(-bg)`). Radius scale = Figma: sm 6, md 8, lg 12,
+  xl 16, 2xl 22px, buttons `rounded-full`. Font: DM Sans app-wide with `opsz 14`.
 - Auth UI: `src/components/auth/` (`AuthLayout`, `AuthForm`, `AuthInput`, `GoogleButton`, ...).
   Supabase logic stays in `src/components/{login,sign-up,forgot-password,update-password}-form.tsx`.
 - Email and Google sign-in links land on `/auth/confirm`; failures go to `/auth/error`.
@@ -58,6 +62,23 @@ Done:
 - Supabase URL Configuration: Site URL `https://nia-os-web-9ahh.vercel.app`; Redirect URLs exactly
   `https://nia-os-web-9ahh.vercel.app/**` and `http://localhost:3000/**`. Use `/**` wildcards (the app
   adds `?next=`), and never point at `*-nia-technologies.vercel.app` URLs (Vercel-protected → login wall).
+
+In progress (branch `feat/settings-profile`, not pushed):
+- Top navbar app shell (replaces sidebar) and `/settings/profile` look with sample data.
+- Figma theme applied to the shadcn variables.
+
+Plan (approved 2026-10-17), one session each, full build loop per screen:
+- A: Supabase schema (profiles, user_settings, workspaces/members/invites, login_events, RLS;
+  SQL in `supabase/migrations`, run in the Supabase SQL editor) + connect Profile + General +
+  Notifications (no Figma frame: draft it in Claude Design first).
+- B: Security (password, TOTP 2FA, sessions + revoke, login history; no backup codes) +
+  Shortcuts (custom key combos, reset) + Connected Apps as "coming soon" (Pinterest, IMDb,
+  Cosmos, Instagram).
+- C: Onboarding (frames in `796:16081`): how did you hear, import profile ("coming soon" +
+  skip), username (availability check), photo (upload/crop), profession.
+- D: Onboarding: workspace setup (invites stored, emails later), follow creators (sample
+  creators), what to expect, all set → Home empty state (`872:42636`).
+  New users are routed through onboarding until complete.
 
 Next:
 - Settings section (Figma `796:10795`): Profile, General, Connected Apps, Security, Shortcuts.
