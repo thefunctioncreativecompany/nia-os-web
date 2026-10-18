@@ -7,6 +7,7 @@ import {
   SlidersSection,
   TogglesSection,
 } from "./_sections/controls";
+import { MenusSection, ModalsSection, SheetsSection } from "./_sections/overlays";
 
 export const metadata: Metadata = {
   title: "Component library · Nia OS",
@@ -19,6 +20,9 @@ const SECTIONS = [
   { id: "toggles", label: "2. Toggles" },
   { id: "sliders", label: "3. Sliders & Steppers" },
   { id: "page-controls", label: "4. Page Controls" },
+  { id: "menus", label: "5. Menus & Dropdowns" },
+  { id: "modals", label: "6. Modals & Dialogs" },
+  { id: "sheets", label: "7. Bottom Sheets" },
 ];
 
 // Every component and variant, side by side for comparing with the nOS Design System
@@ -56,6 +60,9 @@ export default function Page() {
           <TogglesSection />
           <SlidersSection />
           <PageControlsSection />
+          <MenusSection />
+          <ModalsSection />
+          <SheetsSection />
         </main>
       </div>
     </div>

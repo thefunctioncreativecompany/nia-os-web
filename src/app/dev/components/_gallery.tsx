@@ -45,11 +45,13 @@ export function GallerySection({
 
 export function GalleryCard({
   title,
+  description,
   wide = false,
   className,
   children,
 }: {
   title: string;
+  description?: string;
   wide?: boolean;
   className?: string;
   children: React.ReactNode;
@@ -62,7 +64,10 @@ export function GalleryCard({
         className,
       )}
     >
-      <h3 className="text-small font-bold tracking-wide text-muted-foreground uppercase">{title}</h3>
+      <div className="flex flex-col gap-1">
+        <h3 className="text-small font-bold tracking-wide text-muted-foreground uppercase">{title}</h3>
+        {description && <p className="text-caption text-muted-foreground">{description}</p>}
+      </div>
       {children}
     </div>
   );
