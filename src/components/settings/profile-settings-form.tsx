@@ -11,6 +11,7 @@ import {
   TRAIT_PRESETS,
   type ProfileSettings,
 } from "@/lib/settings";
+import { AVATAR_BUCKET, MAX_AVATAR_BYTES, avatarPath } from "@/lib/avatars";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -34,9 +35,7 @@ import {
   settingsSelectClassName,
 } from "@/components/settings/settings-primitives";
 
-const MAX_AVATAR_BYTES = 5 * 1024 * 1024; // 5 MB, per the design
 const AVATAR_TYPES = ["image/jpeg", "image/png"];
-const AVATAR_BUCKET = "avatars";
 
 const pillClassName =
   "rounded-[20px] px-4 py-2 text-[13px] leading-[1.4] font-semibold transition-colors";
@@ -254,12 +253,6 @@ export function ProfileSettingsForm({
 }
 
 // "https://…/storage/v1/object/public/avatars/<user id>/avatar-1.png" → "<user id>/avatar-1.png"
-function avatarPath(url: string | null, userId: string) {
-  const marker = `/object/public/${AVATAR_BUCKET}/`;
-  const path = url?.split(marker)[1];
-  return path?.startsWith(`${userId}/`) ? decodeURIComponent(path) : null;
-}
-
 function AvatarPicker({
   preview,
   onPick,
