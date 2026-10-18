@@ -53,8 +53,11 @@ Done:
   `/check-email`, `/reset-password`, plus `/auth/error`. Google sign-in, resend email,
   "Open email app" opens the user's web inbox. Old `/auth/*` pages removed.
 - `/privacy` policy page (needed for Google OAuth). Company name and contact email to be confirmed.
-- Google OAuth client created and published; Google provider enabled in Supabase. Supabase redirect
-  URLs needed: `http://localhost:3000/auth/confirm` and `https://nia-os-web-9ahh.vercel.app/auth/confirm`.
+- Google OAuth client created and published; Google provider enabled in Supabase. Sign-in verified
+  working on the live site (Google + email sign-up/confirm).
+- Supabase URL Configuration: Site URL `https://nia-os-web-9ahh.vercel.app`; Redirect URLs exactly
+  `https://nia-os-web-9ahh.vercel.app/**` and `http://localhost:3000/**`. Use `/**` wildcards (the app
+  adds `?next=`), and never point at `*-nia-technologies.vercel.app` URLs (Vercel-protected → login wall).
 
 Next:
 - Settings section (Figma `796:10795`): Profile, General, Connected Apps, Security, Shortcuts.
