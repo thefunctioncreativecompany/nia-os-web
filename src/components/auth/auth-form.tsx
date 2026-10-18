@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { authButtonClassName } from "@/components/auth/auth-primitives";
 import { GoogleButton } from "@/components/auth/google-button";
 
 // Shared body for the auth forms: heading, fields, error, primary action,
@@ -53,7 +52,7 @@ export function AuthForm({
         </div>
 
         <div className="flex flex-col gap-4">
-          <Button type="submit" disabled={isPending} className={authButtonClassName}>
+          <Button type="submit" disabled={isPending} className="w-full">
             {isPending ? pendingLabel : submitLabel}
           </Button>
 

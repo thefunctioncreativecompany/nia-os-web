@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import { nextStepHref } from "@/lib/onboarding";
 import { Button } from "@/components/ui/button";
-import { authButtonClassName } from "@/components/auth/auth-primitives";
 import { OnboardingStep, SkipLink } from "@/components/onboarding/onboarding-primitives";
 
 const PLATFORMS = [
@@ -71,7 +70,7 @@ export function ImportStep() {
 
       <div className="flex flex-col items-center gap-5">
         <SkipLink href={next}>Skip for now</SkipLink>
-        <Button asChild className={authButtonClassName}>
+        <Button asChild className="w-full">
           <Link href={next}>Continue</Link>
         </Button>
       </div>

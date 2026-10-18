@@ -38,7 +38,7 @@ export function GoogleButton() {
       variant="outline"
       onClick={signIn}
       disabled={isLoading}
-      className="h-11 w-full gap-2 rounded-full border-nia-line bg-white px-6 text-sm leading-[1.4] font-bold text-nia-ink hover:bg-neutral-50 hover:text-nia-ink"
+      className="w-full"
     >
       <Image src="/auth/google.svg" alt="" width={16} height={16} />
       {isLoading ? "Redirecting..." : "Continue with Google"}

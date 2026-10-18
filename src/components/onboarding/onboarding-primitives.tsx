@@ -8,7 +8,6 @@ import {
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { authButtonClassName } from "@/components/auth/auth-primitives";
 
 // Shared column for every onboarding screen: "Step N of 8", heading, description,
 // then the step's content.
@@ -73,7 +72,7 @@ export function OnboardingActions({
   return (
     <div className={cn("flex w-full flex-col items-center gap-5", className)}>
       {skipHref && <SkipLink href={skipHref}>{skipLabel}</SkipLink>}
-      <Button type="submit" disabled={disabled || isPending} className={authButtonClassName}>
+      <Button type="submit" disabled={disabled || isPending} className="w-full">
         {isPending ? pendingLabel : submitLabel}
       </Button>
     </div>

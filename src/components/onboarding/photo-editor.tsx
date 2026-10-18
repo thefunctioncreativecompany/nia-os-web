@@ -100,10 +100,10 @@ export function PhotoEditor({
           </Button>
         </div>
         <DialogFooter>
-          <Button type="button" variant="outline" className="rounded-full px-5" onClick={onCancel}>
+          <Button type="button" variant="outline" onClick={onCancel}>
             Cancel
           </Button>
-          <Button type="button" className="rounded-full px-5" disabled={!area || isWorking} onClick={apply}>
+          <Button type="button" disabled={!area || isWorking} onClick={apply}>
             {isWorking ? "Applying…" : "Apply"}
           </Button>
         </DialogFooter>

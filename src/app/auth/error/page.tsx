@@ -4,7 +4,6 @@ import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 import { AuthLayout } from '@/components/auth/auth-layout'
-import { authButtonClassName } from '@/components/auth/auth-primitives'
 
 export const metadata: Metadata = {
   title: 'Something went wrong · Nia OS',
@@ -25,7 +24,7 @@ export default function Page({ searchParams }: PageProps<'/auth/error'>) {
             </Suspense>
           </p>
         </div>
-        <Button asChild className={authButtonClassName}>
+        <Button asChild className="w-full">
           <Link href="/login">Back to login</Link>
         </Button>
       </div>

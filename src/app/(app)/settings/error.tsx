@@ -18,11 +18,7 @@ export default function SettingsError({
         </h2>
         <p className="text-small leading-normal text-muted-foreground">{error.message}</p>
       </div>
-      <Button
-        type="button"
-        onClick={retry}
-        className="h-auto rounded-full px-6 py-2.5 text-sm font-bold"
-      >
+      <Button type="button" onClick={retry}>
         Try again
       </Button>
     </div>

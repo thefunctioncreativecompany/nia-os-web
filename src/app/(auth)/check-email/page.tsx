@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { getInboxUrl } from "@/lib/email-inbox";
 import { Button } from "@/components/ui/button";
-import { authButtonClassName, BackToLoginLink } from "@/components/auth/auth-primitives";
+import { BackToLoginLink } from "@/components/auth/auth-primitives";
 import { AuthLayout } from "@/components/auth/auth-layout";
 import {
   ResendEmailButton,
@@ -92,7 +92,7 @@ async function OpenInbox({ email }: { email: string | null }) {
 // provider is known, otherwise falls back to the device's mail app.
 function OpenEmailButton({ href }: { href: string | null }) {
   return (
-    <Button asChild className={authButtonClassName}>
+    <Button asChild className="w-full">
       {href ? (
         <a href={href} target="_blank" rel="noopener noreferrer">
           Open email app

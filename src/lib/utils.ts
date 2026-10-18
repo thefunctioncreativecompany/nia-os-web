@@ -1,4 +1,17 @@
-export { cn } from "cn"
+import { createCn } from "cn/config"
+
+// Class merging (later classes win over conflicting earlier ones). It needs to know the
+// theme's named text sizes (globals.css), or it mistakes `text-small` for a text color
+// and drops one of the two.
+export const cn = createCn({
+  extend: {
+    classGroups: {
+      "font-size": [
+        { text: ["h1", "h2", "h3", "lead", "small", "caption", "micro", "wordmark"] },
+      ],
+    },
+  },
+})
 
 // "Jane Doe" -> "JD", shown when a user has no avatar picture.
 export function getInitials(name: string, email: string) {

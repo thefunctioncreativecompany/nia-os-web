@@ -4,7 +4,6 @@ import { Check } from "lucide-react";
 
 import { AuthLayout } from "@/components/auth/auth-layout";
 import { Button } from "@/components/ui/button";
-import { authButtonClassName } from "@/components/auth/auth-primitives";
 
 export const metadata: Metadata = {
   title: "You're all set · Nia OS",
@@ -24,7 +23,7 @@ export default function Page() {
           </p>
         </div>
         <div className="flex w-full flex-col gap-3">
-          <Button asChild className={authButtonClassName}>
+          <Button asChild className="w-full">
             <Link href="/dashboard">Go to Dashboard</Link>
           </Button>
           {/* Templates aren't built yet. */}
@@ -32,7 +31,7 @@ export default function Page() {
             type="button"
             variant="outline"
             disabled
-            className="h-11 w-full rounded-full border-border bg-white text-sm leading-[1.4] font-bold text-foreground"
+            className="w-full"
           >
             Explore templates · Coming soon
           </Button>

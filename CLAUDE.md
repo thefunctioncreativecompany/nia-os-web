@@ -87,6 +87,8 @@ Data:
 - Anything reading the Supabase session must `await connection()` first (Supabase reads `Date.now()`),
   inside a `<Suspense>` boundary.
 - If the dev server serves stale CSS or route types, stop it, `rm -rf .next`, and restart.
+- Always import `cn` from `@/lib/utils` (it knows the named text sizes). After `npx shadcn add`,
+  change the new file's `import { cn } from "cn"` to `@/lib/utils`.
 
 ## Progress
 
@@ -96,9 +98,10 @@ Milestone 0 — Foundations
   styles, motion tokens and reduced-motion handling. Radius (sm 6 / md 8 / lg 12 / xl 16 / 2xl 22) and
   the 4px spacing grid unchanged. Other raw pixel values (widths, heights) still get cleaned up as each
   screen is next touched.
-- [ ] 0.3 Base components. Have button, input, dialog, dropdown-menu, badge, card, avatar, select,
-  sonner, sheet, tooltip (plus slider, switch, textarea, skeleton). Missing: tabs, table,
-  toggle-group, Button `pill`, Badge status variants.
+- [x] 0.3 Base components. All plan components installed (plus slider, switch, textarea, skeleton,
+  toggle). Button size `pill` (44px, rounded-full, bold) is the default; `compact` is the old 32px.
+  Badge variants `confirmed / pending / on-hold / wrapped / cancelled` use `status-*` theme colors
+  from Figma (Pending and Wrapped text darkened for contrast).
 - [ ] 0.4 Nia components. Not started.
 - [ ] 0.5 Component gallery. Not started.
 - [x] 0.6 Connect services. Supabase URLs and Vercel env vars verified; live site loads.
