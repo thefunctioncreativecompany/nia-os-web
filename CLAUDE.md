@@ -90,6 +90,12 @@ Data:
 - If the dev server serves stale CSS or route types, stop it, `rm -rf .next`, and restart.
 - Always import `cn` from `@/lib/utils` (it knows the named text sizes). After `npx shadcn add`,
   change the new file's `import { cn } from "cn"` to `@/lib/utils`.
+- Install shadcn components with `yes n | npx shadcn@latest add <name>` so it never overwrites the
+  restyled files.
+- Build screens from the component gallery first (`/dev/components`, run locally). `<Calendar>` reads
+  the clock: pass `today` on prerendered pages. `<CommandDialog>` needs a `<Command>` inside.
+- Looping motion is allowed only for "still working" indicators (spinner, loading dots), and they stop
+  under reduced motion.
 
 ## Progress
 
@@ -113,7 +119,14 @@ Milestone 0 — Foundations
   TemplateCard miniature preview (by 3.3); ProposalCard Dismiss + gold "AI draft" marker (by 5.3).
   Also: Figma's projects grid tile says "New Workspace"; per production language it should be
   "New project" (2.2).
-- [ ] 0.5 Component gallery. Not started.
+- [x] 0.5 Component gallery at `/dev/components` (404 on production): the whole nOS Design System,
+  sections 1–30 (Figma 957-19992 … 957-22790, variations 1181:11320, project modals 957:22891), built
+  on shadcn and restyled. Section files in `src/app/dev/components/_sections/`; new Nia components in
+  `src/components/nia/` (pickers, lists, media, tables, inbox, charts, map, panels, export, preview,
+  cast & crew, templates). Added shadcn chart (Recharts) and hover-card; `--chart-1/2/3` are ink
+  `#1A1A1A`, teal `#0B7A75`, rust `#92400E`. Notes: the map is a schematic plan (no street-map
+  service yet); the variations' green buttons and purple accents are drawn in Nia black/gold per the
+  brand decision; the Calendar range fills the days between the ends (Figma marks only the ends).
 - [x] 0.6 Connect services. Supabase URLs and Vercel env vars verified; live site loads.
 
 Milestone 1 — Accounts
