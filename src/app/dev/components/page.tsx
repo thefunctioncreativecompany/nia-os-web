@@ -1,0 +1,63 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+import {
+  ButtonsSection,
+  PageControlsSection,
+  SlidersSection,
+  TogglesSection,
+} from "./_sections/controls";
+
+export const metadata: Metadata = {
+  title: "Component library · Nia OS",
+  robots: { index: false, follow: false },
+};
+
+// Section menu, in design-system order.
+const SECTIONS = [
+  { id: "buttons", label: "1. Buttons" },
+  { id: "toggles", label: "2. Toggles" },
+  { id: "sliders", label: "3. Sliders & Steppers" },
+  { id: "page-controls", label: "4. Page Controls" },
+];
+
+// Every component and variant, side by side for comparing with the nOS Design System
+// in Figma (BUILD_PLAN 0.5). Hidden on the production site.
+export default function Page() {
+  if (process.env.VERCEL_ENV === "production") notFound();
+
+  return (
+    <div className="min-h-svh bg-background">
+      <header className="border-b border-border px-4 py-6 md:px-10">
+        <p className="font-wordmark text-wordmark font-bold text-foreground">NIA</p>
+        <h1 className="mt-2 text-h1 font-bold text-foreground">Component library</h1>
+        <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
+          The nOS Design System built on shadcn/ui and the Nia theme. Use these components (src/components/ui and
+          src/components/nia) when building screens.
+        </p>
+      </header>
+      <div className="flex flex-wrap">
+        <nav
+          aria-label="Sections"
+          className="flex-[1_1_220px] border-border px-4 py-6 md:sticky md:top-0 md:max-h-svh md:max-w-[260px] md:overflow-y-auto md:border-r md:px-6"
+        >
+          <ul className="flex flex-wrap gap-x-4 gap-y-1 md:flex-col">
+            {SECTIONS.map((section) => (
+              <li key={section.id}>
+                <a href={`#${section.id}`} className="block rounded-md py-1 text-small text-muted-foreground hover:text-foreground">
+                  {section.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <main className="flex min-w-0 flex-[999_1_640px] flex-col gap-16 px-4 py-8 md:px-10">
+          <ButtonsSection />
+          <TogglesSection />
+          <SlidersSection />
+          <PageControlsSection />
+        </main>
+      </div>
+    </div>
+  );
+}
