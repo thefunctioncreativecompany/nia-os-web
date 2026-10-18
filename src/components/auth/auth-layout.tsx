@@ -1,13 +1,8 @@
 import Image from "next/image";
-import { DM_Sans } from "next/font/google";
 
+import { dmSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import heroImage from "@/assets/auth-hero.jpg";
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  axes: ["opsz"],
-});
 
 // Hero image framing from Figma, as the image box relative to the hero panel.
 // The box plus object-cover matches the design at 1440px and never distorts.
