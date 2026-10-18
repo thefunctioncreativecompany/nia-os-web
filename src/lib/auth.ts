@@ -21,7 +21,7 @@ export const getCurrentUser = cache(async (): Promise<CurrentUser> => {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/auth/login");
+    redirect("/login");
   }
 
   return {
