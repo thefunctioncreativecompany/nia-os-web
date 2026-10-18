@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nOS Templates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body, #root { height: 100%; width: 100%; }
+    body { background: #EFEEEA; font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.18); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,.3); }
+    input::placeholder, textarea::placeholder { color: #A8A8A3; }
+    /* Print: only the call sheet leaves the building */
+    @media print {
+      body { background: #fff; }
+      body * { visibility: hidden; }
+      #callsheet-print, #callsheet-print * { visibility: visible; }
+      #callsheet-print { position: absolute; left: 0; top: 0; width: 100%; border: none !important; box-shadow: none !important; }
+      .no-print { display: none !important; }
+      .print-unclip { overflow: visible !important; height: auto !important; box-shadow: none !important; border: none !important; }
+    }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    .art-float { animation: float 7s ease-in-out infinite; }
+    .hide-scroll { scrollbar-width: none; } .hide-scroll::-webkit-scrollbar { display: none; }
+    @media (prefers-reduced-motion: reduce) { .art-float { animation: none; } }
+    @keyframes popIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    @keyframes nodeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Preview only: in nia-client2 the JSX below is compiled by the app's build, so drop this line. -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+/**
+ * nOS — Creative Director Workspace
+ * v2.1 — The pipeline is now Template 01 of the Templates feature, with two views.
+ *
+ * Render flow:
+ *   no session  → <TemplatesGallery/>; choosing a template opens <ProjectLauncher template/>
+ *   session set → <ProjectWorkspace template projectName task/>
+ *                   view 'map'  → <MapView/> canvas + step panel
+ *                   view 'list' → sidebar + full-width step
+ *
+ * A template = stages + steps, where each step declares what it requires and
+ * what it delivers. The map is drawn from that data, so new templates
+ * (music video, campaign, lookbook…) need data, not new screens.
+ *
+ * Built modules: Blueprint (steps 1–3), Team Assembly (7), Shot Plan (8), Callsheet (9).
+ * Steps 4, 5, 6, 10, 11 hold working notes until their modules are designed.
+ */
+const { useState, useRef, useEffect, useMemo } = React;
+
+/* ─── TOKENS (unchanged) ─────────────────────────────────────── */
+const BODY = "'DM Sans', 'Helvetica Neue', Arial, sans-serif";
+const MONO = "'SF Mono', 'Fira Code', monospace";
+const C = {
+  pageBg: '#EFEEEA', cardBg: '#FFFFFF',
+  ink: '#0F0E0C', ink2: '#3A3A37', ink3: '#6E6E6A', ink4: '#A8A8A3',
+  border: 'rgba(15,14,12,.08)', borderMd: 'rgba(15,14,12,.13)',
+  teal: '#0B7A75', tealLight: '#E8F4F3', tealSoft: 'rgba(11,122,117,.1)',
+  orb: 'radial-gradient(circle at 42% 38%, #E05018 0%, #C02810 22%, #3C1860 48%, #180E40 72%, #080620 100%)',
+};
+
+/* ─── SVG ICONS (unchanged set) ──────────────────────────────── */
+const Svg = ({ w = 18, vb = '0 0 20 20', sw = 1.5, solid, children }) => (
+  <svg width={w} height={w} viewBox={vb} fill={solid ? 'currentColor' : 'none'}
+       stroke={solid ? 'none' : 'currentColor'} strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round">{children}</svg>
+);
+const Ic = {
+  overview: <Svg><rect x="2" y="2" width="7" height="7" rx="1.5"/><rect x="11" y="2" width="7" height="7" rx="1.5"/><rect x="2" y="11" width="7" height="7" rx="1.5"/><rect x="11" y="11" width="7" height="7" rx="1.5"/></Svg>,
+  workflow: <Svg><circle cx="3.5" cy="10" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="16.5" cy="10" r="1.5"/><path d="M5 10h3M11.5 10h3"/></Svg>,
+  tasks: <Svg><path d="M3 5h14M3 10h9M3 15h11"/></Svg>,
+  nos: <Svg><polygon points="10,2 18,7 18,13 10,18 2,13 2,7"/><circle cx="10" cy="10" r="2.5"/></Svg>,
+  ask: <Svg><path d="M10 2C5.6 2 2 5.1 2 9c0 2.1.9 4 2.4 5.3L4 18l3.8-1.4C8.5 16.9 9.2 17 10 17c4.4 0 8-3.1 8-7s-3.6-8-8-8z"/><path d="M10 8v.01M10 11v2"/></Svg>,
+  integrations: <Svg><circle cx="5" cy="5" r="2"/><circle cx="15" cy="5" r="2"/><circle cx="5" cy="15" r="2"/><circle cx="15" cy="15" r="2"/><path d="M7 5h6M5 7v6M15 7v6M7 15h6"/></Svg>,
+  back: <Svg w={16} vb="0 0 16 16" sw={1.6}><path d="M10 3L5 8l5 5"/></Svg>,
+  spark: <Svg w={13} vb="0 0 16 16" solid><path d="M8 1l1.8 4.8L15 6.5l-3.6 3.2 1.1 4.8L8 12 4.5 14.5l1.1-4.8L2 6.5l5.2-.7z"/></Svg>,
+  plus: <Svg w={12} vb="0 0 16 16" sw={2}><path d="M8 2v12M2 8h12"/></Svg>,
+  arrow: <Svg w={11} vb="0 0 12 12" sw={1.6}><path d="M2 6h8M6 2l4 4-4 4"/></Svg>,
+  check: <Svg w={12} vb="0 0 14 14" sw={2}><path d="M2 7l4 4 6-7"/></Svg>,
+  user: <Svg w={13} vb="0 0 20 20" sw={2}><circle cx="10" cy="7" r="4"/><path d="M3 18c0-3.3 3.1-6 7-6s7 2.7 7 6"/></Svg>,
+  connect: <Svg w={13} vb="0 0 16 16" sw={1.6}><circle cx="4" cy="8" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="12" cy="12" r="2"/><path d="M6 7.2l4-2.4M6 8.8l4 2.4"/></Svg>,
+  chevDown: <Svg w={11} vb="0 0 12 12" sw={1.8}><path d="M2 4l4 4 4-4"/></Svg>,
+  chevLeft: <Svg w={12} vb="0 0 12 12" sw={1.8}><path d="M8 2L4 6l4 4"/></Svg>,
+  chevRight: <Svg w={12} vb="0 0 12 12" sw={1.8}><path d="M4 2l4 4-4 4"/></Svg>,
+  close: <Svg w={10} vb="0 0 13 13" sw={1.8}><path d="M2 2l9 9M11 2L2 11"/></Svg>,
+  send: <Svg w={14} vb="0 0 20 20" sw={1.6}><path d="M18 2L2 8l6 4 8-8-8 8 4 6z"/></Svg>,
+  download: <Svg w={13} vb="0 0 16 16" sw={1.6}><path d="M8 2v8M5 7l3 3 3-3M2 13h12"/></Svg>,
+  launch: <Svg w={12} vb="0 0 16 16" sw={1.6}><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4v4M14 2L8 8"/></Svg>,
+  /* added for the map view */
+  mapView: <Svg w={13} vb="0 0 20 20" sw={1.6}><rect x="1.5" y="2.5" width="7" height="5.5" rx="1.5"/><rect x="11.5" y="12" width="7" height="5.5" rx="1.5"/><path d="M8.5 5.25H10v9.5h1.5"/></Svg>,
+  listView: <Svg w={13} vb="0 0 20 20" sw={1.6}><path d="M7 5h11M7 10h11M7 15h11"/><circle cx="3" cy="5" r=".6"/><circle cx="3" cy="10" r=".6"/><circle cx="3" cy="15" r=".6"/></Svg>,
+  lock: <Svg w={11} vb="0 0 16 16" sw={1.6}><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2"/></Svg>,
+  minus: <Svg w={12} vb="0 0 16 16" sw={2}><path d="M3 8h10"/></Svg>,
+  fit: <Svg w={12} vb="0 0 16 16" sw={1.6}><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></Svg>,
+  search: <Svg w={18} vb="0 0 20 20" sw={1.7}><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4.5 4.5"/></Svg>,
+  cardsView: <Svg w={13} vb="0 0 20 20" sw={1.6}><rect x="2" y="4" width="10" height="12" rx="2"/><path d="M15 5v10M18 6.5v7"/></Svg>,
+  gridView: <Svg w={13} vb="0 0 20 20" sw={1.6}><rect x="2.5" y="3" width="15" height="4" rx="1.3"/><rect x="2.5" y="8.5" width="15" height="4" rx="1.3"/><rect x="2.5" y="14" width="15" height="3.5" rx="1.3"/></Svg>,
+};
+
+/* ─── ATOMS (existing Nia components) ────────────────────────── */
+const Icon = ({ ic, size = 16, color, style = {} }) => (
+  <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: size, height: size, color: color || 'currentColor', flexShrink: 0, ...style }}>{ic}</span>
+);
+const Chip = ({ label, small, color }) => (
+  <span style={{ display: 'inline-block', fontFamily: MONO, fontSize: small ? 9 : 10.5, fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', background: color ? color + '18' : C.tealSoft, color: color || C.teal, padding: small ? '3px 8px' : '4px 10px', borderRadius: 20, whiteSpace: 'nowrap' }}>{label}</span>
+);
+const SectionLabel = ({ children, sub }) => (
+  <div style={{ marginBottom: sub ? 14 : 12 }}>
+    <div style={{ fontFamily: BODY, fontSize: 17, fontWeight: 800, letterSpacing: '-.3px', color: C.ink, marginBottom: sub ? 4 : 0, lineHeight: 1.2 }}>{children}</div>
+    {sub && <div style={{ fontFamily: BODY, fontSize: 12.5, color: C.ink4, lineHeight: 1.55 }}>{sub}</div>}
+  </div>
+);
+const Divider = () => <div style={{ height: 1, background: C.border, margin: '24px 0' }} />;
+const MonoLabel = ({ children, color = C.ink4, style = {} }) => (
+  <div style={{ fontFamily: MONO, fontSize: 9.5, fontWeight: 600, letterSpacing: '.08em', textTransform: 'uppercase', color, ...style }}>{children}</div>
+);
+
+/* Pill button — same hover language as the original (ghost → #E8E7E3, primary → opacity) */
+function Btn({ children, onClick, icon, variant = 'ghost', disabled, small, title }) {
+  const [h, setH] = useState(false);
+  const primary = variant === 'primary';
+  const look = primary
+    ? { background: C.teal, border: `1px solid ${C.teal}`, color: '#fff', opacity: disabled ? .45 : h ? .88 : 1 }
+    : { background: h && !disabled ? '#E8E7E3' : C.pageBg, border: `1px solid ${h && !disabled ? C.borderMd : C.border}`, color: C.ink2, opacity: disabled ? .45 : 1 };
+  return (
+    <button title={title} disabled={disabled} onClick={onClick} onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
+      style={{ display: 'inline-flex', alignItems: 'center', gap: 6, height: small ? 28 : 34, padding: small ? '0 11px' : '0 15px', borderRadius: 20, fontFamily: BODY, fontSize: small ? 12 : 12.5, fontWeight: primary ? 600 : 500, cursor: disabled ? 'default' : 'pointer', transition: 'all .13s', whiteSpace: 'nowrap', ...look }}>
+      {icon && <Icon ic={icon} size={small ? 11 : 12} style={{ opacity: primary ? 1 : .6 }} />}
+      {children}
+    </button>
+  );
+}
+
+/* Labelled input / textarea */
+function Field({ label, value, onChange, placeholder, multiline, rows = 4, type = 'text', large, span }) {
+  const [f, setF] = useState(false);
+  const style = {
+    width: '100%', border: `1.5px solid ${f ? C.teal : C.borderMd}`, borderRadius: 10, padding: large ? '14px 16px' : '10px 13px',
+    fontFamily: BODY, fontSize: large ? 18 : 13.5, fontWeight: large ? 500 : 400, letterSpacing: large ? '-.2px' : 0,
+    color: C.ink, background: f ? C.cardBg : C.pageBg, outline: 'none', resize: 'vertical', lineHeight: 1.6, transition: 'all .13s',
+  };
+  const common = { value, placeholder, style, onFocus: () => setF(true), onBlur: () => setF(false), onChange: e => onChange(e.target.value) };
+  return (
+    <label style={{ display: 'block', gridColumn: span ? '1 / -1' : 'auto' }}>
+      <MonoLabel style={{ marginBottom: 6 }}>{label}</MonoLabel>
+      {multiline ? <textarea rows={rows} {...common} /> : <input type={type} {...common} />}
+    </label>
+  );
+}
+
+/* Borderless cell input for the data tables */
+function CellInput({ value, onChange, placeholder, mono, align, type = 'text' }) {
+  const [f, setF] = useState(false);
+  return (
+    <input type={type} value={value} placeholder={placeholder} onChange={e => onChange(e.target.value)}
+      onFocus={() => setF(true)} onBlur={() => setF(false)}
+      style={{ width: '100%', border: 'none', outline: 'none', background: f ? C.tealLight : 'transparent', fontFamily: mono ? MONO : BODY, fontSize: mono ? 12 : 12.5, color: C.ink, padding: '9px 10px', textAlign: align || 'left', transition: 'background .12s' }} />
+  );
+}
+
+/* ─── HELPERS ────────────────────────────────────────────────── */
+const uid = () => Math.random().toString(36).slice(2, 9);
+const pad = n => String(n).padStart(2, '0');
+const toMin = t => { if (!t) return 0; const [h, m] = t.split(':').map(Number); return (h || 0) * 60 + (m || 0); };
+const fmtClock = m => { const x = ((Math.round(m) % 1440) + 1440) % 1440; return pad(Math.floor(x / 60)) + ':' + pad(x % 60); };
+const fmtDur = m => { const h = Math.floor(m / 60), r = m % 60; return h ? `${h}h ${pad(r)}m` : `${r}m`; };
+
+const th = { fontFamily: MONO, fontSize: 9, fontWeight: 600, letterSpacing: '.08em', textTransform: 'uppercase', color: C.ink4, textAlign: 'left', padding: '9px 10px', background: C.pageBg, border: `1px solid ${C.borderMd}`, whiteSpace: 'nowrap' };
+const td = { border: `1px solid ${C.borderMd}`, padding: 0, verticalAlign: 'middle' };
+
+/* ─── PIPELINE DEFINITION ────────────────────────────────────── */
+/* requires: steps whose output this step builds on (drives map edges + availability)
+   delivers: what the step hands to the rest of the production
+   map:      { sub: column inside its stage, row: vertical slot } — hand-placed so no line crosses a card */
+const STEPS = [
+  { n: 1,  label: 'Vision',                 phase: 'Blueprint',      requires: [],        delivers: 'Direction statement', map: { sub: 0, row: 1 }, desc: 'The single direction every decision on this shoot answers to.' },
+  { n: 2,  label: 'Concept Blueprint',      phase: 'Blueprint',      requires: [1],       delivers: 'Concept & deliverables', map: { sub: 1, row: 0 }, desc: 'The vision translated into a concept the team can build.' },
+  { n: 3,  label: 'Mood References',        phase: 'Blueprint',      requires: [1],       delivers: 'Reference board',     map: { sub: 1, row: 2 }, desc: 'The visual language: light, palette, styling, casting, place.' },
+  { n: 4,  label: 'Location Scouting',      phase: 'Pre-production', requires: [2, 3],    delivers: 'Confirmed location',  map: { sub: 0, row: 0 }, desc: 'Shortlist, recce and confirm where the day happens.' },
+  { n: 5,  label: 'Talent Casting',         phase: 'Pre-production', requires: [2, 3],    delivers: 'Confirmed talent',    map: { sub: 0, row: 1 }, desc: 'Who is in front of the camera, and when they are available.' },
+  { n: 6,  label: 'Styling & Wardrobe',     phase: 'Pre-production', requires: [3, 5],    delivers: 'Look list',           map: { sub: 1, row: 2 }, desc: 'Looks, pulls, fittings and returns.' },
+  { n: 7,  label: 'Team Assembly',          phase: 'Pre-production', requires: [2],       delivers: 'Crew & call times',   map: { sub: 0, row: 3 }, desc: 'Who is behind the camera, and when each person is called.' },
+  { n: 8,  label: 'Shot Planning',          phase: 'Shoot',          requires: [4, 5, 6], delivers: 'Shot list',           map: { sub: 0, row: 1 }, desc: 'Every frame in order, with its location, cast, setup and running time.' },
+  { n: 9,  label: 'Callsheet Distribution', phase: 'Shoot',          requires: [7, 8],    delivers: 'Call sheet',          map: { sub: 1, row: 2 }, desc: 'The day, compiled from the shot plan and the team.' },
+  { n: 10, label: 'Contingency (Plan B)',   phase: 'Safeguards',     requires: [8],       delivers: 'Plan B',              map: { sub: 0, row: 0 }, desc: 'What happens if weather, talent or light falls through.' },
+  { n: 11, label: 'Gear Inventory',         phase: 'Safeguards',     requires: [8],       delivers: 'Kit list',            map: { sub: 0, row: 2 }, desc: "What's owned, rented, packed and backed up." },
+];
+const PHASES = ['Blueprint', 'Pre-production', 'Shoot', 'Safeguards'];
+const REF_TAGS = ['Light', 'Palette', 'Styling', 'Casting', 'Location'];
+const SHOT_STATUS = [
+  { label: 'Planned', color: C.ink3 },
+  { label: 'Ready',   color: C.teal },
+  { label: 'Shot',    color: C.ink },
+];
+/* ─── TEMPLATES ──────────────────────────────────────────────────
+   Template 01. Every future template follows this shape. */
+const CD_TEMPLATE = {
+  id: 'cd-editorial-shoot', index: 1,
+  archetype: 'Creative Director', name: 'Editorial Shoot',
+  summary: 'From vision to call sheet: the pre-production path for a fashion or editorial shoot.',
+  preview: 'From first idea to call sheet: vision, references, casting, shot plan and the day itself.',
+  launch: { task: 'Shoot planning', domain: 'Production & Execution' },
+  label: 'New template', stage: 'Pre-production',
+  art: 'canister', tone: 'radial-gradient(120% 95% at 50% 28%, #A6E2DB 0%, #3BA59D 34%, #0B6460 66%, #052826 100%)',
+  stages: PHASES, steps: STEPS,
+};
+/* The full catalogue: generated from templates.manifest.json (keep the two in sync). */
+const CATALOG_DATA = [{"code": "T01", "name": "Editorial Shoot", "kind": "workflow", "family": "production", "variant": "a", "stage": "Pre-production", "label": "New template", "status": "live", "icps": ["Creative Director", "Photographer", "Stylist"], "object": "35mm film canister with the film leader pulled out", "preview": "From first idea to call sheet: vision, references, casting, shot plan and the day itself.", "keywords": ["photoshoot", "shoot", "editorial", "fashion", "lookbook", "campaign", "magazine", "moodboard", "mood board", "pre-production", "creative direction", "shot plan", "callsheet"], "icon": "film"}, {"code": "D01", "name": "Call Sheet", "kind": "document", "family": "production", "variant": "b", "stage": "Production", "label": "New template", "status": "designed", "icps": ["Line Producer", "1st Assistant Director", "Production Manager"], "object": "Aluminium clipboard holding one ruled sheet", "preview": "Who's called, when and where. One sheet the whole crew works from.", "keywords": ["callsheet", "call time", "crew call", "shoot day", "schedule", "daily", "on set"], "icon": "clipboard"}, {"code": "D02", "name": "Production Budget", "kind": "document", "family": "production", "variant": "c", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Line Producer", "Executive Producer"], "object": "1970s desk adding machine with a curl of paper tape", "preview": "Every line of spend, from first estimate to wrap actuals.", "keywords": ["budget", "cost", "money", "spend", "finance", "estimate", "quote", "actuals"], "icon": "calculator"}, {"code": "D03", "name": "Crew Contacts", "kind": "document", "family": "production", "variant": "a", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Line Producer", "Production Manager"], "object": "Rotary card file", "preview": "The whole crew in one place: roles, numbers, agents and availability.", "keywords": ["crew", "contacts", "team", "phone list", "directory", "hiring"], "icon": "cards"}, {"code": "D04", "name": "Invoice", "kind": "document", "family": "production", "variant": "b", "stage": "Post-production", "label": "New template", "status": "designed", "icps": ["Line Producer", "Production Manager"], "object": "Carbon-copy invoice pad, top sheet curling up", "preview": "Bill clearly and get paid. Itemised, numbered and ready to send.", "keywords": ["invoice", "bill", "billing", "payment", "pay", "paid", "fees"], "icon": "receipt"}, {"code": "D05", "name": "Script Breakdown", "kind": "document", "family": "production", "variant": "c", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["1st Assistant Director", "Script Supervisor"], "object": "Brad-bound script with coloured index tabs", "preview": "Every scene broken into cast, props, wardrobe, locations and time.", "keywords": ["script", "breakdown", "scenes", "props", "elements", "schedule"], "icon": "script"}, {"code": "D06", "name": "Shotlist", "kind": "document", "family": "production", "variant": "a", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Director", "1st Assistant Director", "Director of Photography"], "object": "Director's viewfinder on a neck cord", "preview": "Every frame in order, with lens, movement and coverage.", "keywords": ["shot list", "shots", "coverage", "frames", "angles", "lens"], "icon": "viewfinder"}, {"code": "D07", "name": "Filming Notice", "kind": "document", "family": "production", "variant": "b", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["1st Assistant Director", "Production Manager", "Location Manager"], "object": "Small folding A-frame street sign, blank face", "preview": "Tell neighbours and councils what's happening, where and when.", "keywords": ["permit", "notice", "neighbours", "council", "location", "street", "filming"], "icon": "sign"}, {"code": "D08", "name": "Equipment Rental", "kind": "document", "family": "production", "variant": "c", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Production Manager", "Director of Photography", "Gaffer"], "object": "Cine prime lens with a paper luggage tag", "preview": "What's booked, from whom, for which days, and what it costs.", "keywords": ["gear", "equipment", "rental", "hire", "kit", "camera", "lights"], "icon": "lens"}, {"code": "D09", "name": "Storyboard", "kind": "document", "family": "production", "variant": "a", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Director", "Production Designer"], "object": "Fan of three storyboard panel cards with abstract sketches", "preview": "The film frame by frame, before anyone picks up a camera.", "keywords": ["storyboard", "frames", "sketch", "visualise", "boards", "animatic"], "icon": "storyboard"}, {"code": "D10", "name": "AV Script", "kind": "document", "family": "production", "variant": "b", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Director"], "object": "Open booklet: a frame on the left page, a waveform on the right", "preview": "Picture and sound side by side, line by line.", "keywords": ["av script", "two column", "voiceover", "audio visual", "commercial", "ad script"], "icon": "wave"}, {"code": "D11", "name": "Series Bible", "kind": "document", "family": "production", "variant": "c", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Director", "Executive Producer"], "object": "Thick cloth hardback with a ribbon bookmark", "preview": "The world, the characters and the rules every episode follows.", "keywords": ["series", "bible", "show", "episodes", "characters", "world", "pitch"], "icon": "book"}, {"code": "D12", "name": "Casting Deck", "kind": "document", "family": "production", "variant": "a", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Casting Director", "Executive Producer", "Talent Management Agency"], "object": "Fan of unbranded instant-film prints", "preview": "Shortlisted talent, side by side, ready for the room.", "keywords": ["casting", "talent", "actors", "models", "shortlist", "auditions"], "icon": "polaroid"}, {"code": "D13", "name": "Continuity Log", "kind": "document", "family": "production", "variant": "b", "stage": "Production", "label": "New template", "status": "designed", "icps": ["Script Supervisor", "Costume Designer"], "object": "Spiral notebook with one instant print clipped to it", "preview": "What was worn, held and said, take by take.", "keywords": ["continuity", "wardrobe", "props", "takes", "matching"], "icon": "notebook"}, {"code": "D14", "name": "Shot Logging", "kind": "document", "family": "production", "variant": "c", "stage": "Production", "label": "New template", "status": "designed", "icps": ["Director of Photography", "DIT"], "object": "Clapperboard slate with blank chalk fields", "preview": "Every take logged: lens, settings, notes and circled selects.", "keywords": ["log", "takes", "slate", "clapper", "camera report", "dailies"], "icon": "clapper"}, {"code": "D15", "name": "GRWM", "kind": "document", "family": "creator", "variant": "a", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Content Creator / Influencer"], "object": "Open compact mirror", "preview": "Get Ready With Me, planned beat by beat from mirror to door.", "keywords": ["grwm", "get ready with me", "makeup", "beauty", "outfit", "routine", "tiktok", "reels"], "icon": "mirror"}, {"code": "D16", "name": "Explainer", "kind": "document", "family": "creator", "variant": "b", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Content Creator / Influencer", "UGC Creator"], "object": "Small easel with a flip chart", "preview": "One idea, explained clearly in under a minute.", "keywords": ["explainer", "explain", "how it works", "educational", "tiktok", "youtube"], "icon": "easel"}, {"code": "D17", "name": "Day in My Life", "kind": "document", "family": "creator", "variant": "c", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Content Creator / Influencer"], "object": "Twin-bell alarm clock", "preview": "A day told in moments, from alarm to lights out.", "keywords": ["day in my life", "vlog", "routine", "diary", "lifestyle"], "icon": "clock"}, {"code": "D18", "name": "Tutorial", "kind": "document", "family": "creator", "variant": "a", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Content Creator / Influencer", "UGC Creator"], "object": "Three stacked numbered blocks (numerals as shapes, no type)", "preview": "Step by step, so anyone can follow along.", "keywords": ["tutorial", "how to", "step by step", "guide", "lesson", "youtube"], "icon": "steps"}, {"code": "D19", "name": "Storytime", "kind": "document", "family": "creator", "variant": "b", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Content Creator / Influencer"], "object": "Vintage ribbon microphone", "preview": "A story told straight to camera, with a hook, a turn and a payoff.", "keywords": ["storytime", "story", "talking head", "anecdote", "podcast"], "icon": "mic"}, {"code": "D20", "name": "Product Review", "kind": "document", "family": "creator", "variant": "c", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["UGC Creator"], "object": "Magnifying glass over a small unlabelled bottle", "preview": "An honest look at one product, to the brand's brief.", "keywords": ["review", "product", "ugc", "brand", "testimonial"], "icon": "magnifier"}, {"code": "D21", "name": "Haul / Unboxing", "kind": "document", "family": "creator", "variant": "a", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["UGC Creator"], "object": "Open shipping box with tissue paper spilling out", "preview": "The reveal, paced for the first open.", "keywords": ["haul", "unboxing", "unbox", "shopping", "ugc", "package"], "icon": "box"}, {"code": "D22", "name": "Content Guideline", "kind": "document", "family": "creator", "variant": "b", "stage": "Pre-production", "label": "New template", "status": "designed", "icps": ["Social Media Manager", "Brand Manager / Marketing Director"], "object": "Folded guide booklet with a colour swatch strip", "preview": "The rules of the brand's voice and look, for everyone posting.", "keywords": ["brand guidelines", "brand", "guidelines", "tone of voice", "style guide", "social"], "icon": "swatch"}, {"code": "D23", "name": "Press Junket Brief", "kind": "document", "family": "enterprise", "variant": "a", "stage": "Post-production", "label": "New template", "status": "designed", "icps": ["PR / Communications Agency", "Publicist / Unit Publicist"], "object": "Press pass on a lanyard, blank card", "preview": "Who's talking to whom, when, and what's on and off the record.", "keywords": ["press", "junket", "pr", "interviews", "media", "publicity", "premiere"], "icon": "badge"}, {"code": "G01", "name": "Lighting Plot", "kind": "document", "family": "camera", "variant": "a", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Director of Photography", "Gaffer"], "object": "Fresnel lamp", "preview": null, "keywords": ["lighting", "lights", "plot", "gaffer", "rig"], "icon": "lamp"}, {"code": "G02", "name": "Power Distribution", "kind": "document", "family": "camera", "variant": "b", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Gaffer"], "object": "Cable reel", "preview": null, "keywords": ["power", "electric", "distro", "generator"], "icon": "plug"}, {"code": "G03", "name": "Camera Package List", "kind": "document", "family": "camera", "variant": "c", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Director of Photography"], "object": "Generic cine camera body (invented form)", "preview": null, "keywords": ["camera", "package", "lenses", "gear list"], "icon": "camera"}, {"code": "G04", "name": "Content Calendar", "kind": "document", "family": "creator", "variant": "c", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Social Media Manager", "Content Creator / Influencer"], "object": "Flip desk calendar", "preview": null, "keywords": ["content calendar", "posting", "schedule", "social", "instagram", "tiktok"], "icon": "calendar"}, {"code": "G05", "name": "Social Media Brief", "kind": "document", "family": "creator", "variant": "a", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Social Media Manager"], "object": "Tabletop tripod with an empty phone clamp", "preview": null, "keywords": ["social", "brief", "instagram", "tiktok", "campaign", "posts"], "icon": "phone"}, {"code": "G06", "name": "Brand Deal Tracker", "kind": "document", "family": "creator", "variant": "b", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Content Creator / Influencer"], "object": "Paper swing tag on string", "preview": null, "keywords": ["brand deal", "sponsorship", "partnership", "collab", "influencer"], "icon": "tag"}, {"code": "G07", "name": "Edit Decision List", "kind": "document", "family": "post", "variant": "a", "stage": "Post-production", "label": "In design", "status": "gap", "icps": ["Editor (Film / Video)"], "object": "Film splicer", "preview": null, "keywords": ["edit", "edl", "cut", "editor", "timeline"], "icon": "splice"}, {"code": "G08", "name": "Post Schedule", "kind": "document", "family": "post", "variant": "b", "stage": "Post-production", "label": "In design", "status": "gap", "icps": ["Editor (Film / Video)"], "object": "Wall planner strip", "preview": null, "keywords": ["post schedule", "post-production", "deadlines", "delivery"], "icon": "planner"}, {"code": "G09", "name": "Color Brief", "kind": "document", "family": "post", "variant": "c", "stage": "Post-production", "label": "In design", "status": "gap", "icps": ["Colorist"], "object": "Grading trackball", "preview": null, "keywords": ["color", "colour", "grade", "grading", "lut", "look"], "icon": "trackball"}, {"code": "G10", "name": "VFX Breakdown", "kind": "document", "family": "post", "variant": "a", "stage": "Post-production", "label": "In design", "status": "gap", "icps": ["VFX Supervisor"], "object": "Chrome ball and grey ball pair", "preview": null, "keywords": ["vfx", "visual effects", "cgi", "green screen", "comp"], "icon": "sphere"}, {"code": "G11", "name": "Sound Spotting", "kind": "document", "family": "post", "variant": "b", "stage": "Post-production", "label": "In design", "status": "gap", "icps": ["Sound Designer / Mixer"], "object": "Studio headphones", "preview": null, "keywords": ["sound", "audio", "spotting", "mix", "foley"], "icon": "headphones"}, {"code": "G12", "name": "Cue Sheet", "kind": "document", "family": "post", "variant": "c", "stage": "Post-production", "label": "In design", "status": "gap", "icps": ["Sound Designer / Mixer", "Music Supervisor"], "object": "Sheet-music page on a stand", "preview": null, "keywords": ["music", "cue sheet", "licensing", "score", "songs"], "icon": "music"}, {"code": "G13", "name": "Motion Brief", "kind": "document", "family": "post", "variant": "a", "stage": "Post-production", "label": "In design", "status": "gap", "icps": ["Motion Designer"], "object": "Zoetrope", "preview": null, "keywords": ["motion", "animation", "titles", "graphics", "after effects"], "icon": "zoetrope"}, {"code": "G14", "name": "Photo Brief", "kind": "document", "family": "photo", "variant": "a", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Photographer"], "object": "Medium-format camera (invented form)", "preview": null, "keywords": ["photo", "photography", "photoshoot", "brief", "stills"], "icon": "camera"}, {"code": "G15", "name": "Contact Sheet", "kind": "document", "family": "photo", "variant": "b", "stage": "Post-production", "label": "In design", "status": "gap", "icps": ["Photographer"], "object": "Loupe on a contact sheet", "preview": null, "keywords": ["contact sheet", "selects", "proofs", "photo", "edit"], "icon": "polaroid"}, {"code": "G16", "name": "Shot List (Photo)", "kind": "document", "family": "photo", "variant": "c", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Photographer"], "object": "Handheld light meter", "preview": null, "keywords": ["photo", "shot list", "stills", "shots"], "icon": "viewfinder"}, {"code": "G17", "name": "Usage License", "kind": "document", "family": "photo", "variant": "a", "stage": "Post-production", "label": "In design", "status": "gap", "icps": ["Photographer"], "object": "Embossed seal on a certificate", "preview": null, "keywords": ["usage", "license", "licence", "rights", "photo"], "icon": "seal"}, {"code": "G18", "name": "Event Brief", "kind": "document", "family": "photo", "variant": "b", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Event / Press Photographer"], "object": "Hot-shoe flash", "preview": null, "keywords": ["event", "press", "red carpet", "wedding", "coverage"], "icon": "flash"}, {"code": "G19", "name": "Design Bible", "kind": "document", "family": "craft", "variant": "a", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Production Designer"], "object": "Fanned swatch book", "preview": null, "keywords": ["production design", "art department", "palette", "world", "sets"], "icon": "swatch"}, {"code": "G20", "name": "Set Drawing", "kind": "document", "family": "craft", "variant": "b", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Production Designer"], "object": "Drafting triangle and scale rule", "preview": null, "keywords": ["set", "drawing", "plan", "construction", "art department"], "icon": "ruler"}, {"code": "G21", "name": "Prop List", "kind": "document", "family": "craft", "variant": "c", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Production Designer"], "object": "Tagged rotary phone", "preview": null, "keywords": ["props", "prop list", "art department", "set dressing"], "icon": "rotary"}, {"code": "G22", "name": "Costume Breakdown", "kind": "document", "family": "craft", "variant": "a", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Costume Designer"], "object": "Dress form", "preview": null, "keywords": ["costume", "wardrobe", "characters", "fittings"], "icon": "hanger"}, {"code": "G23", "name": "Makeup Sheet", "kind": "document", "family": "craft", "variant": "b", "stage": "Production", "label": "In design", "status": "gap", "icps": ["Makeup Artist (MUA)"], "object": "Brush on a pigment palette", "preview": null, "keywords": ["makeup", "mua", "beauty", "looks", "hair"], "icon": "brush"}, {"code": "G24", "name": "Pull Sheet", "kind": "document", "family": "craft", "variant": "c", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Stylist"], "object": "Garment on a hanger with a pull tag", "preview": null, "keywords": ["pull", "pulls", "stylist", "fashion", "showroom", "returns", "wardrobe"], "icon": "hanger"}, {"code": "G25", "name": "Contract Template", "kind": "document", "family": "enterprise", "variant": "b", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Entertainment Lawyer"], "object": "Fountain pen", "preview": null, "keywords": ["contract", "legal", "agreement", "terms"], "icon": "pen"}, {"code": "G26", "name": "Deal Memo", "kind": "document", "family": "enterprise", "variant": "c", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Entertainment Lawyer", "Talent Management Agency"], "object": "Folded memo with a bulldog clip", "preview": null, "keywords": ["deal memo", "deal", "terms", "crew deal", "legal"], "icon": "memo"}, {"code": "G27", "name": "Rights Tracker", "kind": "document", "family": "enterprise", "variant": "a", "stage": "Post-production", "label": "In design", "status": "gap", "icps": ["Entertainment Lawyer"], "object": "Rubber stamp", "preview": null, "keywords": ["rights", "clearances", "licensing", "ip", "legal"], "icon": "stamp"}, {"code": "G28", "name": "NDA", "kind": "document", "family": "enterprise", "variant": "b", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Entertainment Lawyer"], "object": "Sealed envelope", "preview": null, "keywords": ["nda", "confidential", "non-disclosure", "legal"], "icon": "envelope"}, {"code": "G29", "name": "Submission Tracker", "kind": "document", "family": "performance", "variant": "a", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Talent Agent"], "object": "Headshot in a folder", "preview": null, "keywords": ["submissions", "talent", "agent", "auditions"], "icon": "folder"}, {"code": "G30", "name": "Availability Calendar", "kind": "document", "family": "performance", "variant": "b", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Talent Agent", "Talent Management Agency"], "object": "Flip calendar with a ring", "preview": null, "keywords": ["availability", "holds", "talent", "bookings", "dates"], "icon": "calendar"}, {"code": "G31", "name": "Deal Log", "kind": "document", "family": "performance", "variant": "c", "stage": "Pre-production", "label": "In design", "status": "gap", "icps": ["Talent Agent"], "object": "Ledger book", "preview": null, "keywords": ["deals", "bookings", "fees", "talent", "agent"], "icon": "book"}];
+const FAMILY_LABELS = {"production": "Production & Direction", "creator": "Creator & Content", "camera": "Camera & On-Set", "post": "Post-Production", "photo": "Photography", "craft": "Design, Styling & Craft", "enterprise": "Enterprise, Brand & PR", "performance": "Talent & Performance"};
+const FAMILIES = {"production": {"light": "#A6E2DB", "core": "#2E9A93", "deep": "#052826"}, "camera": {"light": "#C9DCEB", "core": "#6C93B5", "deep": "#0E1E2E"}, "creator": {"light": "#F6B08A", "core": "#E05018", "deep": "#2A0C08"}, "post": {"light": "#CDBDF0", "core": "#7A5BC4", "deep": "#120A2A"}, "craft": {"light": "#F0D6DB", "core": "#BE919D", "deep": "#261A21"}, "photo": {"light": "#F1E6C8", "core": "#C2AF80", "deep": "#352D1B"}, "enterprise": {"light": "#E4E2DC", "core": "#9C9A93", "deep": "#0F0E0C"}, "performance": {"light": "#D3E2C2", "core": "#7FA36A", "deep": "#121C0F"}};
+
+
+const ROLE_PRESETS = ['Photographer', 'Stylist', 'Hair & Make-up', 'Producer', '1st AD', 'Gaffer', 'Digital Tech'];
+
+const initialProjectData = (projectName, task) => ({
+  projectName, task,
+  vision: { statement: '', keywords: [] },
+  concept: { logline: '', format: '', deliverables: '', audience: '', narrative: '' },
+  references: [],
+  team: [],
+  shots: [],
+  callsheet: { date: '', callTime: '07:00', location: '', setupMins: 60, notes: '' },
+  notes: {},
+});
+
+/* ─── PROJECT LAUNCHER (initialisation gate) ─────────────────── */
+const EXISTING_PROJECTS = [
+  { id: 'p1', name: 'Spring Editorial — Studio Shoot' },
+  { id: 'p2', name: 'Brand Campaign — Lookbook' },
+  { id: 'p3', name: 'Music Video — Treatment' },
+];
+
+function ProjectLauncher({ template, task, domain, onClose, onLaunch }) {
+  const [mode, setMode] = useState(null);
+  const [selected, setSelected] = useState(null);
+  const [newName, setNewName] = useState('');
+  const projectName = mode === 'new' ? newName.trim() : selected?.name;
+  const canLaunch = mode === 'existing' ? !!selected : mode === 'new' && newName.trim().length > 0;
+
+  // No AI summary: launching hands straight over to the workspace.
+  const handleLaunch = () => { if (canLaunch) onLaunch?.({ task, project: projectName, isNew: mode === 'new' }); };
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, zIndex: 600, background: 'rgba(15,14,12,.52)', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }} onClick={onClose}>
+      <div style={{ background: C.cardBg, borderRadius: '20px 20px 0 0', width: '100%', maxWidth: 600, padding: '12px 28px 44px', boxShadow: '0 -8px 40px rgba(0,0,0,.18)' }} onClick={e => e.stopPropagation()}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 22 }}>
+          <div style={{ width: 36, height: 4, borderRadius: 2, background: C.border }} />
+        </div>
+        <div style={{ marginBottom: 22 }}>
+          <MonoLabel color={C.teal} style={{ marginBottom: 7 }}>{domain}</MonoLabel>
+          <div style={{ fontFamily: BODY, fontWeight: 700, fontSize: 20, color: C.ink, letterSpacing: '-.3px', lineHeight: 1.25, marginBottom: 6 }}>{task}</div>
+          <div style={{ fontFamily: BODY, fontSize: 13, color: C.ink3, lineHeight: 1.65 }}>Attach this task to a project and Nia opens its pre-production workspace.</div>
+        </div>
+        {template && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '12px 14px', marginBottom: 18, borderRadius: 12, border: `1px dashed ${C.borderMd}` }}>
+            <div style={{ position: 'relative', width: 44, height: 44, borderRadius: 9, overflow: 'hidden', flexShrink: 0 }}><TemplateArt t={template} thumb /></div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <MonoLabel color={C.teal} style={{ marginBottom: 3 }}>{template.label}</MonoLabel>
+              <div style={{ fontFamily: BODY, fontSize: 13, color: C.ink, fontWeight: 600 }}>{template.name} <span style={{ color: C.ink4, fontWeight: 400 }}>· {template.stage}</span></div>
+            </div>
+          </div>
+        )}
+
+        {!mode && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {[{ id: 'existing', title: 'Add to existing project', sub: 'Choose from your current projects' },
+              { id: 'new', title: 'Start a new project', sub: 'Create a new project around this task' }].map(opt => (
+              <button key={opt.id} onClick={() => setMode(opt.id)}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 16px', background: C.pageBg, border: `1px solid ${C.border}`, borderRadius: 12, cursor: 'pointer', transition: 'all .13s', textAlign: 'left' }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = C.teal; e.currentTarget.style.background = C.tealLight; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.background = C.pageBg; }}>
+                <div>
+                  <div style={{ fontFamily: BODY, fontWeight: 600, fontSize: 13.5, color: C.ink, marginBottom: 2 }}>{opt.title}</div>
+                  <div style={{ fontFamily: BODY, fontSize: 12, color: C.ink4 }}>{opt.sub}</div>
+                </div>
+                <Icon ic={Ic.arrow} size={11} style={{ opacity: .5 }} />
+              </button>
+            ))}
+          </div>
+        )}
+
+        {mode === 'existing' && (
+          <>
+            <button onClick={() => { setMode(null); setSelected(null); }} style={{ fontFamily: BODY, fontSize: 12, color: C.ink4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 0 14px' }}>← Back</button>
+            <SectionLabel>Your projects</SectionLabel>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 7, marginBottom: 18 }}>
+              {EXISTING_PROJECTS.map(p => {
+                const sel = selected?.id === p.id;
+                return (
+                  <button key={p.id} onClick={() => setSelected(p)}
+                    style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 14px', background: sel ? C.tealLight : C.pageBg, border: `1.5px solid ${sel ? C.teal : C.border}`, borderRadius: 10, cursor: 'pointer', transition: 'all .12s', textAlign: 'left' }}>
+                    <div style={{ width: 8, height: 8, borderRadius: '50%', background: sel ? C.teal : C.ink4, flexShrink: 0 }} />
+                    <span style={{ fontFamily: BODY, fontSize: 13, color: sel ? C.teal : C.ink, fontWeight: sel ? 600 : 400 }}>{p.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        )}
+
+        {mode === 'new' && (
+          <>
+            <button onClick={() => { setMode(null); setNewName(''); }} style={{ fontFamily: BODY, fontSize: 12, color: C.ink4, background: 'none', border: 'none', cursor: 'pointer', padding: '0 0 14px' }}>← Back</button>
+            <SectionLabel>Project name</SectionLabel>
+            <input value={newName} onChange={e => setNewName(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleLaunch()} autoFocus
+              placeholder="e.g. Thebe Magugu — AW25 Campaign"
+              style={{ width: '100%', border: `1.5px solid ${C.teal}`, borderRadius: 10, padding: '11px 14px', fontFamily: BODY, fontSize: 13.5, color: C.ink, background: C.pageBg, outline: 'none', marginBottom: 18 }} />
+          </>
+        )}
+
+        {mode && (
+          <button onClick={handleLaunch} disabled={!canLaunch}
+            style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '14px 0', background: canLaunch ? C.teal : C.border, border: 'none', borderRadius: 12, fontFamily: BODY, fontSize: 14, fontWeight: 600, color: canLaunch ? '#fff' : C.ink4, cursor: canLaunch ? 'pointer' : 'default', transition: 'all .15s' }}
+            onMouseEnter={e => { if (canLaunch) e.currentTarget.style.opacity = '.88'; }}
+            onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}>
+            <Icon ic={Ic.spark} size={14} />
+            {mode === 'new' ? 'Create project & start task' : `Add to ${projectName || 'project'}`}
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ─── SIDEBAR STEP ITEM ──────────────────────────────────────── */
+function StepItem({ step, active, done, onClick }) {
+  const [h, setH] = useState(false);
+  return (
+    <button onClick={onClick} onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
+      style={{ width: '100%', display: 'flex', alignItems: 'center', gap: 10, padding: '8px 10px', marginBottom: 2, borderRadius: 10, border: `1px solid ${active ? C.border : 'transparent'}`, background: active ? C.cardBg : h ? 'rgba(15,14,12,.04)' : 'transparent', boxShadow: active ? '0 1px 4px rgba(0,0,0,.06)' : 'none', cursor: 'pointer', textAlign: 'left', transition: 'all .13s' }}>
+      <span style={{ width: 22, height: 22, borderRadius: '50%', flexShrink: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: done ? C.teal : active ? C.tealLight : 'transparent', border: `1px solid ${done || active ? C.teal : C.borderMd}`, color: done ? '#fff' : C.teal }}>
+        {done ? <Icon ic={Ic.check} size={11} />
+          : active ? <Icon ic={Ic.spark} size={11} />
+          : <span style={{ fontFamily: MONO, fontSize: 8.5, fontWeight: 600, color: C.ink4 }}>{pad(step.n)}</span>}
+      </span>
+      <span style={{ fontFamily: BODY, fontSize: 13, fontWeight: active ? 600 : 400, color: active ? C.ink : done ? C.ink2 : C.ink3, lineHeight: 1.3 }}>{step.label}</span>
+    </button>
+  );
+}
+
+/* ─── MODULE: BLUEPRINT (steps 1–3) ──────────────────────────── */
+function BlueprintModule({ step, data, setData, goTo }) {
+  if (step === 1) return <VisionView data={data} setData={setData} goTo={goTo} />;
+  if (step === 2) return <ConceptView data={data} setData={setData} />;
+  return <MoodReferences refs={data.references} setRefs={v => setData('references', v)} />;
+}
+
+function VisionView({ data, setData, goTo }) {
+  const [kw, setKw] = useState('');
+  const v = data.vision;
+  const addKw = () => { const k = kw.trim(); if (k && !v.keywords.includes(k)) setData('vision', { ...v, keywords: [...v.keywords, k] }); setKw(''); };
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 26 }}>
+      <Field large multiline rows={3} label="Vision statement" value={v.statement} onChange={s => setData('vision', { ...v, statement: s })}
+        placeholder="One or two sentences. What should this work make people feel?" />
+      <div>
+        <MonoLabel style={{ marginBottom: 8 }}>Direction keywords</MonoLabel>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, alignItems: 'center' }}>
+          {v.keywords.map(k => (
+            <button key={k} onClick={() => setData('vision', { ...v, keywords: v.keywords.filter(x => x !== k) })} title="Remove"
+              style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}><Chip label={`${k} ×`} /></button>
+          ))}
+          <input value={kw} onChange={e => setKw(e.target.value)} onKeyDown={e => e.key === 'Enter' && addKw()} placeholder="Add a keyword, press Enter"
+            style={{ border: `1px dashed ${C.borderMd}`, borderRadius: 20, padding: '6px 12px', fontFamily: BODY, fontSize: 12.5, color: C.ink, background: 'transparent', outline: 'none', minWidth: 200 }} />
+        </div>
+      </div>
+      <div style={{ background: C.pageBg, borderRadius: 14, padding: '16px 18px', display: 'flex', alignItems: 'center', gap: 14 }}>
+        <div style={{ display: 'flex', gap: 6 }}>
+          {[0, 1, 2, 3].map(i => {
+            const r = data.references[i];
+            return <div key={i} style={{ width: 44, height: 56, borderRadius: 4, background: r ? `center/cover url(${r.src})` : 'transparent', border: r ? 'none' : `1px dashed ${C.borderMd}` }} />;
+          })}
+        </div>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontFamily: BODY, fontWeight: 600, fontSize: 13, color: C.ink }}>{data.references.length} mood reference{data.references.length === 1 ? '' : 's'}</div>
+          <div style={{ fontFamily: BODY, fontSize: 12, color: C.ink4 }}>The vision reads stronger with images beside it.</div>
+        </div>
+        <Btn small icon={Ic.arrow} onClick={() => goTo(3)}>Mood references</Btn>
+      </div>
+    </div>
+  );
+}
+
+function ConceptView({ data, setData }) {
+  const c = data.concept;
+  const set = k => val => setData('concept', { ...c, [k]: val });
+  return (
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
+      <Field span label="Logline" value={c.logline} onChange={set('logline')} placeholder="The concept in a single line." />
+      <Field label="Format" value={c.format} onChange={set('format')} placeholder="e.g. 12-look editorial, 35mm + digital" />
+      <Field label="Deliverables" value={c.deliverables} onChange={set('deliverables')} placeholder="e.g. 8 selects, 1 × 30s cutdown" />
+      <Field label="Audience" value={c.audience} onChange={set('audience')} placeholder="Who this is for" />
+      <Field label="Season / drop" value={c.season || ''} onChange={set('season')} placeholder="e.g. AW25" />
+      <Field span multiline rows={6} label="Narrative" value={c.narrative} onChange={set('narrative')} placeholder="How the story unfolds across the set: opening image, turn, final frame." />
+    </div>
+  );
+}
+
+function RefFrame({ r, i, onCaption, onTag, onRemove }) {
+  const [h, setH] = useState(false);
+  return (
+    <figure onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
+      style={{ breakInside: 'avoid', marginBottom: 16, background: C.cardBg, border: `1px solid ${C.border}`, borderRadius: 4, padding: 8, position: 'relative' }}>
+      <img src={r.src} alt={r.caption} style={{ width: '100%', display: 'block', borderRadius: 2 }} />
+      <button onClick={onRemove} title="Remove"
+        style={{ position: 'absolute', top: 14, right: 14, width: 24, height: 24, borderRadius: '50%', background: 'rgba(15,14,12,.6)', border: 'none', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: h ? 1 : 0, transition: 'opacity .15s' }}>
+        <Icon ic={Ic.close} size={10} />
+      </button>
+      <figcaption style={{ display: 'flex', alignItems: 'center', gap: 8, paddingTop: 8 }}>
+        <span style={{ fontFamily: MONO, fontSize: 9, fontWeight: 600, color: C.ink4, letterSpacing: '.06em' }}>FR {pad(i + 1)}</span>
+        <input value={r.caption} onChange={e => onCaption(e.target.value)}
+          style={{ flex: 1, minWidth: 0, border: 'none', outline: 'none', background: 'transparent', fontFamily: BODY, fontSize: 12, color: C.ink2 }} />
+        <button onClick={onTag} title="Change tag" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}><Chip small label={r.tag} /></button>
+      </figcaption>
+    </figure>
+  );
+}
+
+function MoodReferences({ refs, setRefs }) {
+  const [over, setOver] = useState(false);
+  const [filter, setFilter] = useState('All');
+  const fileRef = useRef(null);
+
+  const readFiles = async files => {
+    const imgs = [...files].filter(f => f.type.startsWith('image/'));
+    const loaded = await Promise.all(imgs.map(f => new Promise(res => {
+      const rd = new FileReader();
+      rd.onload = e => res({ id: uid(), src: e.target.result, caption: f.name.replace(/\.[^.]+$/, ''), tag: 'Light' });
+      rd.readAsDataURL(f);
+    })));
+    setRefs([...refs, ...loaded]);
+  };
+  const update = (id, patch) => setRefs(refs.map(r => r.id === id ? { ...r, ...patch } : r));
+  const cycleTag = r => update(r.id, { tag: REF_TAGS[(REF_TAGS.indexOf(r.tag) + 1) % REF_TAGS.length] });
+  const shown = filter === 'All' ? refs : refs.filter(r => r.tag === filter);
+
+  return (
+    <div>
+      <div onClick={() => fileRef.current?.click()}
+        onDragOver={e => { e.preventDefault(); setOver(true); }} onDragLeave={() => setOver(false)}
+        onDrop={e => { e.preventDefault(); setOver(false); readFiles(e.dataTransfer.files); }}
+        style={{ border: `1.5px dashed ${C.teal}`, borderRadius: 14, padding: '30px 20px', textAlign: 'center', cursor: 'pointer', background: over ? C.tealLight : 'transparent', transition: 'background .15s', marginBottom: 22 }}>
+        <div style={{ color: C.teal, marginBottom: 8, display: 'flex', justifyContent: 'center' }}><Icon ic={Ic.plus} size={18} /></div>
+        <div style={{ fontFamily: BODY, fontWeight: 700, fontSize: 14, color: C.ink }}>Drop images here</div>
+        <div style={{ fontFamily: BODY, fontSize: 12, color: C.ink4, marginTop: 3 }}>or click to browse — JPG, PNG, WebP</div>
+        <input ref={fileRef} type="file" accept="image/*" multiple style={{ display: 'none' }} onChange={e => { readFiles(e.target.files); e.target.value = ''; }} />
+      </div>
+
+      {refs.length > 0 && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 16, flexWrap: 'wrap' }}>
+          {['All', ...REF_TAGS].map(t => {
+            const on = filter === t;
+            const count = t === 'All' ? refs.length : refs.filter(r => r.tag === t).length;
+            return (
+              <button key={t} onClick={() => setFilter(t)}
+                style={{ height: 28, padding: '0 12px', borderRadius: 20, border: `1px solid ${on ? C.border : 'transparent'}`, background: on ? C.cardBg : 'transparent', boxShadow: on ? '0 1px 4px rgba(0,0,0,.07)' : 'none', fontFamily: BODY, fontSize: 12, fontWeight: on ? 600 : 400, color: on ? C.ink : C.ink3, cursor: 'pointer' }}>
+                {t} <span style={{ fontFamily: MONO, fontSize: 9, color: C.ink4 }}>{count}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      {refs.length === 0 ? (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
+          {[0, 1, 2, 3].map(i => (
+            <div key={i} style={{ aspectRatio: i % 2 ? '3 / 4' : '4 / 5', border: `1px dashed ${C.borderMd}`, borderRadius: 4, display: 'flex', alignItems: 'flex-end', padding: 10 }}>
+              <span style={{ fontFamily: MONO, fontSize: 9, color: C.ink4, letterSpacing: '.06em' }}>FR {pad(i + 1)}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div style={{ columnCount: 3, columnGap: 16 }}>
+          {shown.map(r => (
+            <RefFrame key={r.id} r={r} i={refs.indexOf(r)} onCaption={c => update(r.id, { caption: c })} onTag={() => cycleTag(r)} onRemove={() => setRefs(refs.filter(x => x.id !== r.id))} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── MODULE: TEAM ASSEMBLY (step 7, feeds the callsheet) ────── */
+function TeamModule({ team, setTeam }) {
+  const add = role => setTeam([...team, { id: uid(), role: role || '', name: '', call: '', contact: '' }]);
+  const upd = (id, k, v) => setTeam(team.map(t => t.id === id ? { ...t, [k]: v } : t));
+  return (
+    <div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 16, alignItems: 'center' }}>
+        <MonoLabel style={{ marginRight: 4 }}>Quick add</MonoLabel>
+        {ROLE_PRESETS.map(r => <Btn key={r} small icon={Ic.plus} onClick={() => add(r)}>{r}</Btn>)}
+      </div>
+      <table style={{ width: '100%', borderCollapse: 'collapse', background: C.cardBg }}>
+        <thead><tr>
+          <th style={{ ...th, width: 40 }}>#</th><th style={th}>Role</th><th style={th}>Name</th>
+          <th style={{ ...th, width: 110 }}>Call</th><th style={th}>Contact</th><th style={{ ...th, width: 40 }} />
+        </tr></thead>
+        <tbody>
+          {team.length === 0 && (
+            <tr><td colSpan={6} style={{ ...td, padding: '18px 12px', fontFamily: BODY, fontSize: 12.5, color: C.ink4 }}>No crew yet. Use quick add, or add a blank row.</td></tr>
+          )}
+          {team.map((t, i) => (
+            <tr key={t.id}>
+              <td style={{ ...td, padding: '0 10px', fontFamily: MONO, fontSize: 11, color: C.ink4 }}>{pad(i + 1)}</td>
+              <td style={td}><CellInput value={t.role} onChange={v => upd(t.id, 'role', v)} placeholder="Role" /></td>
+              <td style={td}><CellInput value={t.name} onChange={v => upd(t.id, 'name', v)} placeholder="Name" /></td>
+              <td style={td}><CellInput type="time" mono value={t.call} onChange={v => upd(t.id, 'call', v)} /></td>
+              <td style={td}><CellInput value={t.contact} onChange={v => upd(t.id, 'contact', v)} placeholder="Phone or email" /></td>
+              <td style={{ ...td, textAlign: 'center' }}>
+                <button onClick={() => setTeam(team.filter(x => x.id !== t.id))} title="Remove" style={{ background: 'none', border: 'none', color: C.ink4, cursor: 'pointer', padding: 8 }}><Icon ic={Ic.close} size={10} /></button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div style={{ marginTop: 12 }}><Btn small icon={Ic.plus} onClick={() => add('')}>Add crew member</Btn></div>
+    </div>
+  );
+}
+
+/* ─── MODULE: SHOT PLAN (step 8) ─────────────────────────────── */
+function ShotPlanModule({ shots, setShots }) {
+  const add = () => setShots([...shots, { id: uid(), scene: '', location: '', cast: '', setup: '', mins: '', status: 0 }]);
+  const upd = (id, k, v) => setShots(shots.map(s => s.id === id ? { ...s, [k]: v } : s));
+  const move = (i, dir) => {
+    const j = i + dir; if (j < 0 || j >= shots.length) return;
+    const next = [...shots]; [next[i], next[j]] = [next[j], next[i]]; setShots(next);
+  };
+  const runtime = shots.reduce((a, s) => a + (Number(s.mins) || 0), 0);
+  const locations = new Set(shots.map(s => s.location.trim()).filter(Boolean)).size;
+  const counts = SHOT_STATUS.map((_, k) => shots.filter(s => s.status === k).length);
+  const arrowBtn = { background: 'none', border: 'none', cursor: 'pointer', color: C.ink4, padding: '2px 3px', display: 'flex' };
+
+  return (
+    <div>
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', background: C.cardBg, minWidth: 820 }}>
+          <thead><tr>
+            <th style={{ ...th, width: 64 }}>Shot</th><th style={th}>Scene</th><th style={th}>Location</th>
+            <th style={th}>Cast</th><th style={th}>Setup</th><th style={{ ...th, width: 74, textAlign: 'right' }}>Mins</th>
+            <th style={{ ...th, width: 104 }}>Status</th><th style={{ ...th, width: 36 }} />
+          </tr></thead>
+          <tbody>
+            {shots.length === 0 && (
+              <tr><td colSpan={8} style={{ ...td, padding: '18px 12px', fontFamily: BODY, fontSize: 12.5, color: C.ink4 }}>No shots yet. Add the first frame — order here becomes the order of the day.</td></tr>
+            )}
+            {shots.map((s, i) => {
+              const st = SHOT_STATUS[s.status];
+              return (
+                <tr key={s.id}>
+                  <td style={{ ...td, padding: '0 4px 0 10px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                      <span style={{ fontFamily: MONO, fontSize: 11, color: C.ink2, width: 22 }}>{pad(i + 1)}</span>
+                      <button title="Move up" onClick={() => move(i, -1)} style={arrowBtn}><Icon ic={Ic.chevDown} size={10} style={{ transform: 'rotate(180deg)' }} /></button>
+                      <button title="Move down" onClick={() => move(i, 1)} style={arrowBtn}><Icon ic={Ic.chevDown} size={10} /></button>
+                    </div>
+                  </td>
+                  <td style={td}><CellInput value={s.scene} onChange={v => upd(s.id, 'scene', v)} placeholder="Look 01 — opening" /></td>
+                  <td style={td}><CellInput value={s.location} onChange={v => upd(s.id, 'location', v)} placeholder="Studio A" /></td>
+                  <td style={td}><CellInput value={s.cast} onChange={v => upd(s.id, 'cast', v)} placeholder="Talent" /></td>
+                  <td style={td}><CellInput value={s.setup} onChange={v => upd(s.id, 'setup', v)} placeholder="85mm, window light" /></td>
+                  <td style={td}><CellInput type="number" mono align="right" value={s.mins} onChange={v => upd(s.id, 'mins', v)} placeholder="30" /></td>
+                  <td style={{ ...td, padding: '0 8px' }}>
+                    <button onClick={() => upd(s.id, 'status', (s.status + 1) % SHOT_STATUS.length)} title="Change status" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
+                      <Chip small label={st.label} color={st.color} />
+                    </button>
+                  </td>
+                  <td style={{ ...td, textAlign: 'center' }}>
+                    <button onClick={() => setShots(shots.filter(x => x.id !== s.id))} title="Remove" style={{ background: 'none', border: 'none', color: C.ink4, cursor: 'pointer', padding: 8 }}><Icon ic={Ic.close} size={10} /></button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 12, gap: 12, flexWrap: 'wrap' }}>
+        <Btn small icon={Ic.plus} onClick={add}>Add shot</Btn>
+        <div style={{ display: 'flex', gap: 22, fontFamily: MONO, fontSize: 10.5, color: C.ink3, letterSpacing: '.04em' }}>
+          <span>SHOTS <b style={{ color: C.ink }}>{pad(shots.length)}</b></span>
+          <span>LOCATIONS <b style={{ color: C.ink }}>{pad(locations)}</b></span>
+          <span>RUNTIME <b style={{ color: C.ink }}>{fmtDur(runtime)}</b></span>
+          <span>READY <b style={{ color: C.teal }}>{counts[1]}</b> · SHOT <b style={{ color: C.ink }}>{counts[2]}</b></span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── MODULE: CALLSHEET (step 9) ─────────────────────────────── */
+function CallsheetModule({ data, setData, goTo }) {
+  const cs = data.callsheet;
+  const set = k => v => setData('callsheet', { ...cs, [k]: v });
+  const location = cs.location || data.shots.find(s => s.location.trim())?.location || '—';
+  const callMin = toMin(cs.callTime);
+  let t = callMin + (Number(cs.setupMins) || 0);
+  const schedule = data.shots.map(s => { const at = t; t += Number(s.mins) || 0; return { ...s, at }; });
+  const wrap = t;
+  const dateLabel = cs.date
+    ? new Date(cs.date + 'T00:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+    : 'Date to be confirmed';
+  const cell = { padding: '8px 10px', borderBottom: `1px solid ${C.border}`, fontFamily: BODY, fontSize: 12.5, color: C.ink2, verticalAlign: 'top' };
+  const head = { ...cell, fontFamily: MONO, fontSize: 9, fontWeight: 600, letterSpacing: '.08em', textTransform: 'uppercase', color: C.ink4, borderBottom: `1.5px solid ${C.ink}` };
+
+  return (
+    <div>
+      {/* Controls */}
+      <div className="no-print" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 14, marginBottom: 14 }}>
+        <Field type="date" label="Shoot date" value={cs.date} onChange={set('date')} />
+        <Field type="time" label="General call" value={cs.callTime} onChange={set('callTime')} />
+        <Field label="Base location" value={cs.location} onChange={set('location')} placeholder={location !== '—' ? location : 'From shot plan'} />
+        <Field type="number" label="Setup before first shot (mins)" value={cs.setupMins} onChange={set('setupMins')} />
+        <Field span multiline rows={2} label="Notes for the day" value={cs.notes} onChange={set('notes')} placeholder="Parking, catering, nearest hospital, weather call…" />
+      </div>
+      <div className="no-print" style={{ display: 'flex', justifyContent: 'flex-end', gap: 8, marginBottom: 22 }}>
+        <Btn small icon={Ic.arrow} onClick={() => goTo(8)}>Edit shot plan</Btn>
+        <Btn small icon={Ic.arrow} onClick={() => goTo(7)}>Edit team</Btn>
+        <Btn variant="primary" icon={Ic.download} onClick={() => window.print()}>Export</Btn>
+      </div>
+
+      {/* The sheet */}
+      <div id="callsheet-print" style={{ background: C.cardBg, border: `1px solid ${C.borderMd}`, boxShadow: '0 2px 18px rgba(0,0,0,.06)', padding: '40px 44px 32px', maxWidth: 860, margin: '0 auto' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 24 }}>
+          <div>
+            <MonoLabel color={C.ink3} style={{ letterSpacing: '.24em', marginBottom: 10 }}>Call Sheet</MonoLabel>
+            <div style={{ fontFamily: BODY, fontWeight: 800, fontSize: 30, letterSpacing: '-.8px', color: C.ink, lineHeight: 1.05 }}>{data.projectName}</div>
+            <div style={{ fontFamily: BODY, fontSize: 13, color: C.ink3, marginTop: 6 }}>{dateLabel}</div>
+          </div>
+          <div style={{ display: 'flex', gap: 28, textAlign: 'right' }}>
+            {[['General call', fmtClock(callMin)], ['Est. wrap', schedule.length ? fmtClock(wrap) : '—']].map(([l, v]) => (
+              <div key={l}>
+                <MonoLabel style={{ marginBottom: 4 }}>{l}</MonoLabel>
+                <div style={{ fontFamily: MONO, fontSize: 26, fontWeight: 600, color: C.ink, letterSpacing: '-.5px' }}>{v}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ height: 1.5, background: C.ink, margin: '22px 0 0' }} />
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', borderBottom: `1px solid ${C.borderMd}` }}>
+          {[['Location', location], ['Shots', pad(schedule.length)], ['Crew', pad(data.team.length)], ['Day length', schedule.length ? fmtDur(wrap - callMin) : '—']].map(([l, v], i) => (
+            <div key={l} style={{ padding: '12px 12px 12px ' + (i ? '14px' : '0'), borderLeft: i ? `1px solid ${C.borderMd}` : 'none' }}>
+              <MonoLabel style={{ marginBottom: 4 }}>{l}</MonoLabel>
+              <div style={{ fontFamily: BODY, fontSize: 14, fontWeight: 600, color: C.ink }}>{v}</div>
+            </div>
+          ))}
+        </div>
+
+        <MonoLabel color={C.ink} style={{ margin: '26px 0 6px', letterSpacing: '.14em' }}>Shot order</MonoLabel>
+        {schedule.length === 0 ? (
+          <div style={{ padding: '18px 0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: `1.5px solid ${C.ink}` }}>
+            <span style={{ fontFamily: BODY, fontSize: 13, color: C.ink4 }}>No shots planned yet. The schedule builds itself from the shot plan.</span>
+            <span className="no-print"><Btn small icon={Ic.arrow} onClick={() => goTo(8)}>Plan shots</Btn></span>
+          </div>
+        ) : (
+          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <thead><tr>
+              {['#', 'Time', 'Scene', 'Location', 'Cast', 'Setup', 'Mins'].map(hd => <th key={hd} style={{ ...head, textAlign: hd === 'Mins' ? 'right' : 'left' }}>{hd}</th>)}
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td style={{ ...cell, fontFamily: MONO, color: C.ink4 }}>—</td>
+                <td style={{ ...cell, fontFamily: MONO, color: C.ink }}>{fmtClock(callMin)}</td>
+                <td colSpan={5} style={{ ...cell, color: C.ink3 }}>Crew call · setup and prep ({Number(cs.setupMins) || 0} mins)</td>
+              </tr>
+              {schedule.map((s, i) => (
+                <tr key={s.id}>
+                  <td style={{ ...cell, fontFamily: MONO, color: C.ink4 }}>{pad(i + 1)}</td>
+                  <td style={{ ...cell, fontFamily: MONO, color: C.ink }}>{fmtClock(s.at)}</td>
+                  <td style={{ ...cell, color: C.ink, fontWeight: 600 }}>{s.scene || '—'}</td>
+                  <td style={cell}>{s.location || '—'}</td>
+                  <td style={cell}>{s.cast || '—'}</td>
+                  <td style={cell}>{s.setup || '—'}</td>
+                  <td style={{ ...cell, fontFamily: MONO, textAlign: 'right' }}>{Number(s.mins) || 0}</td>
+                </tr>
+              ))}
+              <tr>
+                <td style={{ ...cell, fontFamily: MONO, color: C.ink4, borderBottom: 'none' }}>—</td>
+                <td style={{ ...cell, fontFamily: MONO, color: C.teal, fontWeight: 600, borderBottom: 'none' }}>{fmtClock(wrap)}</td>
+                <td colSpan={5} style={{ ...cell, color: C.teal, fontWeight: 600, borderBottom: 'none' }}>Wrap</td>
+              </tr>
+            </tbody>
+          </table>
+        )}
+
+        <MonoLabel color={C.ink} style={{ margin: '26px 0 6px', letterSpacing: '.14em' }}>Crew</MonoLabel>
+        {data.team.length === 0 ? (
+          <div style={{ padding: '18px 0', borderTop: `1.5px solid ${C.ink}`, fontFamily: BODY, fontSize: 13, color: C.ink4 }}>No crew assembled yet.</div>
+        ) : (
+          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <thead><tr>{['Role', 'Name', 'Call', 'Contact'].map(hd => <th key={hd} style={{ ...head, textAlign: 'left' }}>{hd}</th>)}</tr></thead>
+            <tbody>
+              {data.team.map(m => (
+                <tr key={m.id}>
+                  <td style={{ ...cell, color: C.ink, fontWeight: 600 }}>{m.role || '—'}</td>
+                  <td style={cell}>{m.name || '—'}</td>
+                  <td style={{ ...cell, fontFamily: MONO }}>{m.call || fmtClock(callMin)}</td>
+                  <td style={cell}>{m.contact || '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+
+        {cs.notes && (
+          <>
+            <MonoLabel color={C.ink} style={{ margin: '26px 0 6px', letterSpacing: '.14em' }}>Notes</MonoLabel>
+            <div style={{ borderTop: `1.5px solid ${C.ink}`, paddingTop: 10, fontFamily: BODY, fontSize: 12.5, color: C.ink2, lineHeight: 1.7, whiteSpace: 'pre-wrap' }}>{cs.notes}</div>
+          </>
+        )}
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 34, paddingTop: 12, borderTop: `1px solid ${C.borderMd}` }}>
+          <span style={{ fontFamily: MONO, fontSize: 9, color: C.ink4, letterSpacing: '.08em' }}>PREPARED IN NIA OS</span>
+          <span style={{ fontFamily: MONO, fontSize: 9, color: C.ink4, letterSpacing: '.08em' }}>{data.task.toUpperCase()}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── MODULE: WORKING NOTES (steps 4, 5, 6, 10, 11 — next to be designed) ── */
+function StepNotes({ step, value, onChange }) {
+  return (
+    <div>
+      <div style={{ background: C.pageBg, borderRadius: 12, padding: '12px 16px', marginBottom: 18, display: 'flex', alignItems: 'center', gap: 10 }}>
+        <Chip small label="Module in design" color={C.ink3} />
+        <span style={{ fontFamily: BODY, fontSize: 12.5, color: C.ink3 }}>Keep working notes here for now; they carry into the {step.label.toLowerCase()} module when it ships.</span>
+      </div>
+      <Field multiline rows={10} label="Working notes" value={value || ''} onChange={onChange} placeholder={`Notes for ${step.label.toLowerCase()}…`} />
+    </div>
+  );
+}
+
+/* ─── MAP VIEW ───────────────────────────────────────────────── */
+const MAP = { nodeW: 220, nodeH: 76, subW: 276, pad: 30, gap: 18, top: 92, rowGap: 128, margin: 24, bottom: 92 };
+
+function layoutMap(template) {
+  const rows = Math.max(...template.steps.map(s => s.map.row)) + 1;
+  const H = MAP.top + (rows - 1) * MAP.rowGap + MAP.nodeH + MAP.bottom;
+  const pos = {}, bands = [];
+  let x = MAP.margin;
+  template.stages.forEach((name, i) => {
+    const steps = template.steps.filter(s => s.phase === name);
+    const subs = Math.max(...steps.map(s => s.map.sub)) + 1;
+    const w = MAP.pad * 2 + (subs - 1) * MAP.subW + MAP.nodeW;
+    bands.push({ name, steps, x, w, i });
+    steps.forEach(s => { pos[s.n] = { x: x + MAP.pad + s.map.sub * MAP.subW, y: MAP.top + s.map.row * MAP.rowGap }; });
+    x += w + MAP.gap;
+  });
+  return { pos, bands, W: x - MAP.gap + MAP.margin, H };
+}
+
+const stepStatus = (step, completed) =>
+  completed.includes(step.n) ? 'done' : step.requires.every(r => completed.includes(r)) ? 'available' : 'waiting';
+
+const ancestorsOf = (n, steps, acc = new Set()) => {
+  steps[n - 1].requires.forEach(r => { if (!acc.has(r)) { acc.add(r); ancestorsOf(r, steps, acc); } });
+  return acc;
+};
+
+/* Orthogonal connector with soft corners; it bends in the gutter just before the target card */
+const edgePath = (x1, y1, x2, y2) => {
+  if (Math.abs(y2 - y1) < 1) return `M${x1},${y1} H${x2}`;
+  const xm = x2 - 30, r = Math.min(10, Math.abs(y2 - y1) / 2), d = y2 > y1 ? 1 : -1;
+  return `M${x1},${y1} H${xm - r} Q${xm},${y1} ${xm},${y1 + d * r} V${y2 - d * r} Q${xm},${y2} ${xm + r},${y2} H${x2}`;
+};
+
+/* What a card shows under its name: live progress once work exists, otherwise what the step delivers */
+function stepMeta(step, d) {
+  const live = text => ({ text, live: true });
+  const idle = { text: step.delivers, live: false };
+  switch (step.n) {
+    case 1: return d.vision.statement.trim() ? live(d.vision.keywords.length ? `Direction set · ${d.vision.keywords.length} keywords` : 'Direction set') : idle;
+    case 2: { const k = Object.values(d.concept).filter(v => String(v).trim()).length; return k ? live(`${k} / 5 fields`) : idle; }
+    case 3: return d.references.length ? live(`${d.references.length} frame${d.references.length === 1 ? '' : 's'}`) : idle;
+    case 7: return d.team.length ? live(`${d.team.length} crew`) : idle;
+    case 8: { const m = d.shots.reduce((a, s) => a + (Number(s.mins) || 0), 0); return d.shots.length ? live(`${d.shots.length} shot${d.shots.length === 1 ? '' : 's'} · ${fmtDur(m)}`) : idle; }
+    case 9: return d.shots.length ? live(`Call ${d.callsheet.callTime}${d.callsheet.date ? ' · ' + d.callsheet.date : ''}`) : idle;
+    default: return (d.notes[step.n] || '').trim() ? live('Notes started') : idle;
+  }
+}
+
+/* 35mm frame: sprocket holes + frame number, or the lead image once one exists */
+function FilmTile({ n, img }) {
+  const holes = side => (
+    <div style={{ position: 'absolute', left: 7, right: 7, [side]: 5, display: 'flex', justifyContent: 'space-between' }}>
+      {[0, 1, 2, 3].map(i => <span key={i} style={{ width: 5, height: 3, borderRadius: 1, background: img ? 'rgba(255,255,255,.8)' : 'rgba(15,14,12,.16)' }} />)}
+    </div>
+  );
+  return (
+    <div style={{ position: 'relative', width: 52, height: 52, flexShrink: 0, borderRadius: 10, overflow: 'hidden', background: img ? `#111 center/cover url("${img}")` : C.pageBg, border: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {holes('top')}{holes('bottom')}
+      {!img && <span style={{ fontFamily: MONO, fontSize: 13, fontWeight: 600, color: C.ink2, letterSpacing: '.04em' }}>{pad(n)}</span>}
+    </div>
+  );
+}
+
+function MapNode({ step, p, status, active, meta, img, onOpen, onHover, delay }) {
+  const [h, setH] = useState(false);
+  const waiting = status === 'waiting';
+  return (
+    <div data-node="" onClick={onOpen}
+      onMouseEnter={() => { setH(true); onHover(step.n); }} onMouseLeave={() => { setH(false); onHover(null); }}
+      style={{ position: 'absolute', left: p.x, top: p.y, width: MAP.nodeW, height: MAP.nodeH, animation: `nodeIn .32s ease ${delay}s both` }}>
+      <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', gap: 12, padding: '0 14px 0 12px', background: C.cardBg, borderRadius: 14,
+        border: `1.5px solid ${active ? C.teal : h ? C.borderMd : C.border}`,
+        boxShadow: active ? `0 0 0 4px ${C.tealSoft}, 0 10px 28px rgba(15,14,12,.08)` : h ? '0 8px 22px rgba(15,14,12,.08)' : '0 1px 3px rgba(15,14,12,.04)',
+        opacity: waiting && !active && !h ? .5 : 1, transform: h ? 'translateY(-1px)' : 'none', cursor: 'pointer', transition: 'all .16s ease' }}>
+        <FilmTile n={step.n} img={img} />
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontFamily: BODY, fontSize: 14, fontWeight: 600, color: C.ink, letterSpacing: '-.15px', lineHeight: 1.25, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{step.label}</div>
+          <div style={{ fontFamily: MONO, fontSize: 9, fontWeight: 600, letterSpacing: '.07em', textTransform: 'uppercase', color: meta.live ? C.teal : C.ink4, marginTop: 5, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{meta.text}</div>
+        </div>
+        {status === 'done' && (
+          <span style={{ width: 20, height: 20, borderRadius: '50%', background: C.teal, color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Icon ic={Ic.check} size={10} /></span>
+        )}
+      </div>
+      {status === 'available' && (
+        <span style={{ position: 'absolute', top: -11, right: 12, display: 'flex', background: C.cardBg, borderRadius: 20 }}><Chip small label="Available" /></span>
+      )}
+      {waiting && (
+        <span title="Waiting on earlier steps" style={{ position: 'absolute', top: -9, right: 12, width: 20, height: 20, borderRadius: 6, background: C.cardBg, border: `1px solid ${C.borderMd}`, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', color: C.ink4 }}>
+          <Icon ic={Ic.lock} size={11} />
+        </span>
+      )}
+    </div>
+  );
+}
+
+function MapPopover({ step, p, status, steps, completed, flip }) {
+  const reqs = step.requires.map(n => steps[n - 1]);
+  const statusChip = { done: <Chip small label="Complete" />, available: <Chip small label="Available" />, waiting: <Chip small label="Waiting" color={C.ink3} /> }[status];
+  const row = (label, body) => (
+    <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginTop: 8 }}>
+      <span style={{ width: 66, flexShrink: 0, paddingTop: 2 }}><MonoLabel>{label}</MonoLabel></span>
+      <div style={{ flex: 1, fontFamily: BODY, fontSize: 12.5, color: C.ink, lineHeight: 1.5 }}>{body}</div>
+    </div>
+  );
+  return (
+    <div style={{ position: 'absolute', left: flip ? p.x - 314 : p.x + MAP.nodeW + 14, top: p.y - 8, width: 300, background: C.cardBg, borderRadius: 14, border: `1px solid ${C.border}`, boxShadow: '0 16px 44px rgba(15,14,12,.14)', padding: '16px 18px', zIndex: 30, pointerEvents: 'none', animation: 'popIn .14s ease' }}>
+      <div style={{ fontFamily: BODY, fontSize: 15, fontWeight: 700, color: C.ink, letterSpacing: '-.2px' }}>{step.label}</div>
+      <div style={{ display: 'flex', gap: 6, marginTop: 8 }}><Chip small label={step.phase} color={C.ink3} />{statusChip}</div>
+      <div style={{ height: 1, background: C.border, margin: '13px 0' }} />
+      <p style={{ fontFamily: BODY, fontSize: 13, color: C.ink2, lineHeight: 1.6 }}>{step.desc}</p>
+      <div style={{ height: 1, background: C.border, margin: '13px 0 5px' }} />
+      {row('Requires', reqs.length ? reqs.map(r => {
+        const ok = completed.includes(r.n);
+        return (
+          <div key={r.n} style={{ display: 'flex', alignItems: 'center', gap: 7, color: ok ? C.ink : C.ink3 }}>
+            <Icon ic={ok ? Ic.check : Ic.lock} size={11} color={ok ? C.teal : C.ink4} />{r.label}
+          </div>
+        );
+      }) : <span style={{ color: C.ink3 }}>Nothing. Start here.</span>)}
+      {row('Delivers', step.delivers)}
+      {status === 'waiting' && (
+        <div style={{ fontFamily: BODY, fontSize: 11.5, color: C.ink4, marginTop: 12, lineHeight: 1.5 }}>The order is a guide, not a gate. Open it any time.</div>
+      )}
+    </div>
+  );
+}
+
+function MapControlBtn({ ic, onClick, title, children }) {
+  const [h, setH] = useState(false);
+  return (
+    <button onClick={onClick} title={title} onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
+      style={{ minWidth: 30, height: 30, padding: children ? '0 8px' : 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8, border: 'none', background: h ? C.tealLight : 'transparent', color: h ? C.teal : C.ink2, cursor: 'pointer', fontFamily: MONO, fontSize: 10.5, fontWeight: 600, transition: 'all .13s' }}>
+      {ic ? <Icon ic={ic} size={12} /> : children}
+    </button>
+  );
+}
+
+function MapView({ template, completed, activeStep, panelOpen, projectData, onOpen }) {
+  const steps = template.steps;
+  const { pos, bands, W, H } = useMemo(() => layoutMap(template), [template]);
+  const [hover, setHover] = useState(null);
+  const [scale, setScale] = useState(1);
+  const scroller = useRef(null);
+  const drag = useRef(null);
+
+  const fitScale = el => Math.max(.5, Math.min(1, +((el.clientWidth - 16) / W).toFixed(2)));
+  const fit = () => { const el = scroller.current; if (el) setScale(fitScale(el)); };
+  // Open legible (≥ 80%); "Fit" shows the whole template.
+  useEffect(() => { const el = scroller.current; if (el) setScale(Math.max(.8, fitScale(el))); }, []);
+  const zoom = d => setScale(s => Math.max(.5, Math.min(1.3, +(s + d).toFixed(2))));
+
+  // Keep the open step in view once the panel has slid in.
+  useEffect(() => {
+    if (!panelOpen) return;
+    const el = scroller.current, p = pos[activeStep];
+    if (!el || !p) return;
+    const t = setTimeout(() => el.scrollTo({ left: (p.x + MAP.nodeW / 2) * scale - el.clientWidth / 2, top: (p.y + MAP.nodeH / 2) * scale - el.clientHeight / 2, behavior: 'smooth' }), 260);
+    return () => clearTimeout(t);
+  }, [activeStep, panelOpen]);
+
+  // Drag the background to pan.
+  const onDown = e => {
+    if (e.button !== 0 || e.target.closest('[data-node]')) return;
+    const el = scroller.current;
+    drag.current = { x: e.clientX, y: e.clientY, l: el.scrollLeft, t: el.scrollTop };
+    el.style.cursor = 'grabbing';
+  };
+  const onMove = e => {
+    const d = drag.current; if (!d) return;
+    const el = scroller.current;
+    el.scrollLeft = d.l - (e.clientX - d.x); el.scrollTop = d.t - (e.clientY - d.y);
+  };
+  const onUp = () => { drag.current = null; if (scroller.current) scroller.current.style.cursor = 'grab'; };
+
+  // Hovering (or opening) a step lights up the full chain it depends on.
+  const focus = hover ?? (panelOpen ? activeStep : null);
+  const chain = focus ? new Set([focus, ...ancestorsOf(focus, steps)]) : new Set();
+  const edges = steps.flatMap(s => s.requires.map(r => ({ from: r, to: s.n, hl: chain.has(s.n) && chain.has(r), done: completed.includes(r) })))
+    .sort((a, b) => a.hl - b.hl);
+
+  const doneCount = completed.length;
+  const next = steps.find(s => stepStatus(s, completed) === 'available');
+  const lastBand = bands[bands.length - 1];
+  const leadImg = projectData.references[0]?.src;
+
+  return (
+    <div style={{ position: 'relative', flex: 1, minWidth: 0, background: C.pageBg }}>
+      <div ref={scroller} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerLeave={onUp}
+        style={{ position: 'absolute', inset: 0, display: 'flex', overflow: 'auto', cursor: 'grab', userSelect: 'none',
+          backgroundImage: 'radial-gradient(rgba(15,14,12,.11) 1px, transparent 1.3px)', backgroundSize: '18px 18px', backgroundAttachment: 'local' }}>
+        <div style={{ width: W * scale, height: H * scale, flexShrink: 0, position: 'relative', margin: 'auto' }}>
+          <div style={{ position: 'absolute', left: 0, top: 0, width: W, height: H, transform: `scale(${scale})`, transformOrigin: '0 0' }}>
+            {/* Stage bands */}
+            {bands.map(b => {
+              const d = b.steps.filter(s => completed.includes(s.n)).length;
+              return (
+                <div key={b.name} style={{ position: 'absolute', left: b.x, top: MAP.margin, width: b.w, height: H - MAP.margin * 2, borderRadius: 20, background: b.i % 2 ? 'rgba(255,255,255,.26)' : 'rgba(255,255,255,.55)', border: `1px solid ${C.border}` }}>
+                  <div style={{ position: 'absolute', left: 16, bottom: 16, padding: '7px 14px', borderRadius: 20, border: `1px solid ${C.borderMd}`, background: C.pageBg, fontFamily: MONO, fontSize: 10, fontWeight: 600, letterSpacing: '.16em', textTransform: 'uppercase', color: C.ink3 }}>{b.name}</div>
+                  <div style={{ position: 'absolute', right: 18, bottom: 24, fontFamily: MONO, fontSize: 10, fontWeight: 600, letterSpacing: '.08em', color: d === b.steps.length ? C.teal : C.ink4 }}>{pad(d)}/{pad(b.steps.length)}</div>
+                </div>
+              );
+            })}
+
+            {/* Connectors */}
+            <svg width={W} height={H} style={{ position: 'absolute', left: 0, top: 0, pointerEvents: 'none', overflow: 'visible' }}>
+              {edges.map(e => {
+                const a = pos[e.from], b = pos[e.to];
+                return (
+                  <path key={e.from + '-' + e.to} d={edgePath(a.x + MAP.nodeW, a.y + MAP.nodeH / 2, b.x, b.y + MAP.nodeH / 2)} fill="none"
+                    stroke={e.hl ? C.teal : e.done ? 'rgba(15,14,12,.32)' : 'rgba(15,14,12,.2)'}
+                    strokeWidth={e.hl ? 2 : 1.25} strokeDasharray={e.hl || e.done ? 'none' : '4 4'} style={{ transition: 'stroke .18s' }} />
+                );
+              })}
+              {steps.filter(s => s.requires.length).map(s => {
+                const p = pos[s.n], lit = chain.has(s.n);
+                return <circle key={s.n} cx={p.x} cy={p.y + MAP.nodeH / 2} r={3.5} fill={lit ? C.teal : C.cardBg} stroke={lit ? C.teal : 'rgba(15,14,12,.3)'} strokeWidth={1.25} />;
+              })}
+            </svg>
+
+            {/* Step cards */}
+            {steps.map((s, i) => (
+              <MapNode key={s.n} step={s} p={pos[s.n]} status={stepStatus(s, completed)} active={panelOpen && s.n === activeStep}
+                meta={stepMeta(s, projectData)} img={s.n === 3 ? leadImg : null} delay={i * .025}
+                onOpen={() => onOpen(s.n)} onHover={setHover} />
+            ))}
+
+            {hover && (
+              <MapPopover step={steps[hover - 1]} p={pos[hover]} status={stepStatus(steps[hover - 1], completed)} steps={steps} completed={completed}
+                flip={pos[hover].x + MAP.nodeW + 330 > W || pos[hover].x >= lastBand.x} />
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Template card */}
+      <div className="no-print" style={{ position: 'absolute', left: 18, bottom: 18, width: 252, background: C.cardBg, border: `1px solid ${C.border}`, borderRadius: 14, padding: '14px 16px', boxShadow: '0 6px 22px rgba(15,14,12,.06)' }}>
+        <MonoLabel color={C.teal} style={{ marginBottom: 6 }}>Template · {template.stage}</MonoLabel>
+        <div style={{ fontFamily: BODY, fontSize: 15, fontWeight: 700, color: C.ink, letterSpacing: '-.2px' }}>{template.name}</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '10px 0 12px' }}>
+          <div style={{ flex: 1, height: 3, background: C.border, borderRadius: 2, overflow: 'hidden' }}>
+            <div style={{ width: `${(doneCount / steps.length) * 100}%`, height: '100%', background: C.teal, transition: 'width .3s ease' }} />
+          </div>
+          <MonoLabel color={C.ink3}>{pad(doneCount)}/{pad(steps.length)}</MonoLabel>
+        </div>
+        {next
+          ? <button onClick={() => onOpen(next.n)}
+              style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, padding: '9px 12px', borderRadius: 10, border: `1px solid ${C.border}`, background: C.pageBg, cursor: 'pointer', transition: 'all .13s', textAlign: 'left' }}
+              onMouseEnter={e => { e.currentTarget.style.background = C.tealLight; e.currentTarget.style.borderColor = C.teal; }}
+              onMouseLeave={e => { e.currentTarget.style.background = C.pageBg; e.currentTarget.style.borderColor = C.border; }}>
+              <span>
+                <MonoLabel style={{ marginBottom: 2 }}>Next up</MonoLabel>
+                <span style={{ fontFamily: BODY, fontSize: 13, fontWeight: 600, color: C.ink }}>{next.label}</span>
+              </span>
+              <Icon ic={Ic.arrow} size={11} color={C.teal} />
+            </button>
+          : <div style={{ fontFamily: BODY, fontSize: 13, color: C.teal, fontWeight: 600 }}>Every step is complete.</div>}
+      </div>
+
+      {/* Zoom controls */}
+      <div className="no-print" style={{ position: 'absolute', right: 18, bottom: 18, display: 'flex', alignItems: 'center', gap: 2, padding: 3, background: C.cardBg, border: `1px solid ${C.border}`, borderRadius: 11, boxShadow: '0 4px 16px rgba(15,14,12,.06)' }}>
+        <MapControlBtn ic={Ic.minus} title="Zoom out" onClick={() => zoom(-.1)} />
+        <MapControlBtn title="Reset to 100%" onClick={() => setScale(1)}>{Math.round(scale * 100)}%</MapControlBtn>
+        <MapControlBtn ic={Ic.plus} title="Zoom in" onClick={() => zoom(.1)} />
+        <div style={{ width: 1, height: 16, background: C.border, margin: '0 3px' }} />
+        <MapControlBtn ic={Ic.fit} title="Fit to screen" onClick={fit} />
+      </div>
+    </div>
+  );
+}
+
+/* ─── VIEW TOGGLE (Map / List) ───────────────────────────────── */
+function ViewToggle({ view, setView }) {
+  const opts = [{ id: 'map', label: 'Map', ic: Ic.mapView }, { id: 'list', label: 'List', ic: Ic.listView }];
+  return (
+    <div role="tablist" style={{ display: 'inline-flex', padding: 3, background: C.pageBg, border: `1px solid ${C.border}`, borderRadius: 20 }}>
+      {opts.map(o => {
+        const on = view === o.id;
+        return (
+          <button key={o.id} role="tab" aria-selected={on} onClick={() => setView(o.id)} title={`${o.label} view`}
+            onMouseEnter={e => { if (!on) e.currentTarget.style.color = C.ink; }} onMouseLeave={e => { if (!on) e.currentTarget.style.color = C.ink3; }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, height: 26, padding: '0 12px', borderRadius: 16, border: 'none', background: on ? C.cardBg : 'transparent', boxShadow: on ? '0 1px 3px rgba(15,14,12,.1)' : 'none', color: on ? C.ink : C.ink3, fontFamily: BODY, fontSize: 12, fontWeight: on ? 600 : 500, cursor: 'pointer', transition: 'all .13s' }}>
+            <Icon ic={o.ic} size={13} />{o.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ─── STEP BODY (shared by list view and the map's side panel) ─ */
+function StepBody({ step, total, isDone, compact, module, goTo, toggleComplete, completeAndNext }) {
+  const n = step.n;
+  return (
+    <>
+      <div className="no-print">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <MonoLabel color={C.teal}>Step {pad(n)} / {total} · {step.phase}</MonoLabel>
+          {isDone && <Chip small label="Complete" />}
+        </div>
+        <h1 style={{ fontFamily: BODY, fontWeight: 800, fontSize: compact ? 25 : 30, letterSpacing: compact ? '-.6px' : '-.8px', color: C.ink, margin: '8px 0 6px' }}>{step.label}</h1>
+        <p style={{ fontFamily: BODY, fontSize: compact ? 13.5 : 14, color: C.ink3, lineHeight: 1.6 }}>{step.desc}</p>
+        <div style={{ height: 1.5, background: C.ink, margin: compact ? '18px 0 22px' : '20px 0 26px' }} />
+      </div>
+
+      {module}
+
+      <div className="no-print">
+        <Divider />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+          <Btn icon={Ic.chevLeft} disabled={n === 1} onClick={() => goTo(n - 1)}>Previous</Btn>
+          <div style={{ display: 'flex', gap: 8 }}>
+            {isDone && <Btn onClick={toggleComplete}>Mark incomplete</Btn>}
+            {n < total
+              ? <Btn variant="primary" icon={Ic.check} onClick={completeAndNext}>{isDone ? 'Continue' : 'Mark complete & continue'}</Btn>
+              : !isDone && <Btn variant="primary" icon={Ic.check} onClick={toggleComplete}>Mark complete</Btn>}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+/* ─── TEMPLATE ART ───────────────────────────────────────────────
+   Stand-in hero objects drawn in SVG, one per template, all sharing one
+   recipe: a single object, light from the upper left, a tinted gradient
+   ground, a soft floor shadow and 35mm grain. Swap each for a rendered
+   Spline/Blender image later; the card layout stays the same. */
+function ArtCanister({ p }) {
+  return (
+    <>
+      <defs>
+        <linearGradient id={p + 'body'} x1="0" x2="1"><stop offset="0" stopColor="#0A3634"/><stop offset=".18" stopColor="#5FB5AE"/><stop offset=".34" stopColor="#E9FFFC"/><stop offset=".46" stopColor="#9FDCD6"/><stop offset=".72" stopColor="#2C7F7A"/><stop offset="1" stopColor="#072624"/></linearGradient>
+        <linearGradient id={p + 'cap'} x1="0" x2="1"><stop offset="0" stopColor="#0B2E2C"/><stop offset=".3" stopColor="#CFEFEB"/><stop offset=".5" stopColor="#FFFFFF"/><stop offset=".72" stopColor="#5AA7A1"/><stop offset="1" stopColor="#06201F"/></linearGradient>
+        <linearGradient id={p + 'film'} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#D88A3E"/><stop offset=".55" stopColor="#8A3F12"/><stop offset="1" stopColor="#4E2008"/></linearGradient>
+        <linearGradient id={p + 'label'} x1="0" x2="1"><stop offset="0" stopColor="#0F0E0C"/><stop offset=".36" stopColor="#3A3A37"/><stop offset=".5" stopColor="#5E5E5A"/><stop offset=".66" stopColor="#262624"/><stop offset="1" stopColor="#0F0E0C"/></linearGradient>
+      </defs>
+      <g transform="rotate(-9 200 140)">
+        <path d={`M236 110 H318 Q334 110 338 124 L346 150 Q349 162 336 162 H236 Z`} fill={`url(#${p}film)`} opacity=".94"/>
+        {[0, 1, 2, 3, 4, 5, 6].map(i => <g key={i}><rect x={246 + i * 12.5} y="115" width="7" height="5" rx="1.2" fill="rgba(255,236,214,.55)"/><rect x={246 + i * 12.5} y="151" width="7" height="5" rx="1.2" fill="rgba(255,236,214,.55)"/></g>)}
+        <path d="M238 112 H316" stroke="rgba(255,255,255,.35)" strokeWidth="1.2"/>
+        <ellipse cx="200" cy="224" rx="54" ry="11" fill={`url(#${p}cap)`}/>
+        <rect x="150" y="72" width="100" height="148" fill={`url(#${p}body)`}/>
+        <rect x="150" y="100" width="100" height="86" fill={`url(#${p}label)`}/>
+        <rect x="150" y="167" width="100" height="6" fill="#0B7A75"/>
+        <rect x="181" y="100" width="13" height="86" fill="#fff" opacity=".1"/>
+        <rect x="146" y="212" width="108" height="12" fill={`url(#${p}cap)`}/>
+        <path d="M146 212 Q200 224 254 212" stroke="rgba(255,255,255,.28)" fill="none"/>
+        <rect x="146" y="64" width="108" height="12" fill={`url(#${p}cap)`}/>
+        <ellipse cx="200" cy="64" rx="54" ry="12" fill={`url(#${p}cap)`}/>
+        <ellipse cx="200" cy="64" rx="40" ry="8" fill="rgba(0,0,0,.22)"/>
+        <rect x="188" y="44" width="24" height="20" fill={`url(#${p}cap)`}/>
+        <ellipse cx="200" cy="44" rx="12" ry="4" fill="#EFFFFD"/>
+      </g>
+    </>
+  );
+}
+
+function ArtRecord({ p }) {
+  return (
+    <>
+      <defs>
+        <radialGradient id={p + 'lbl'} cx=".42" cy=".38" r=".7"><stop offset="0" stopColor="#E05018"/><stop offset=".3" stopColor="#C02810"/><stop offset=".62" stopColor="#3C1860"/><stop offset="1" stopColor="#180E40"/></radialGradient>
+        <linearGradient id={p + 'sheen'} x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#fff" stopOpacity="0"/><stop offset=".42" stopColor="#fff" stopOpacity="0"/><stop offset=".5" stopColor="#FFD9C4" stopOpacity=".38"/><stop offset=".58" stopColor="#fff" stopOpacity="0"/><stop offset="1" stopColor="#fff" stopOpacity="0"/></linearGradient>
+      </defs>
+      <g transform="rotate(-10 200 135)">
+        <ellipse cx="200" cy="146" rx="140" ry="62" fill="#050407"/>
+        <ellipse cx="200" cy="138" rx="140" ry="62" fill="#0E0B12"/>
+        {[130, 119, 108, 97, 86, 75, 64, 55].map(r => <ellipse key={r} cx="200" cy="138" rx={r} ry={r * .443} fill="none" stroke="rgba(255,255,255,.07)"/>)}
+        <ellipse cx="200" cy="138" rx="140" ry="62" fill={`url(#${p}sheen)`}/>
+        <ellipse cx="200" cy="138" rx="46" ry="20.4" fill={`url(#${p}lbl)`}/>
+        <ellipse cx="200" cy="138" rx="4" ry="1.8" fill="#0a0a0a"/>
+        <ellipse cx="200" cy="138" rx="140" ry="62" fill="none" stroke="rgba(255,255,255,.2)" strokeWidth="1.4"/>
+      </g>
+    </>
+  );
+}
+
+function ArtPrints({ p }) {
+  return (
+    <>
+      <defs>
+        <filter id={p + 'ds'} x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="9" floodColor="#1E170A" floodOpacity=".32"/></filter>
+        <linearGradient id={p + 'sky'} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#F2D8A8"/><stop offset=".6" stopColor="#D88F5E"/><stop offset="1" stopColor="#9C4A33"/></linearGradient>
+        <linearGradient id={p + 'gloss'} x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#fff" stopOpacity=".45"/><stop offset=".35" stopColor="#fff" stopOpacity="0"/><stop offset="1" stopColor="#fff" stopOpacity="0"/></linearGradient>
+        <clipPath id={p + 'clip'}><rect x="126" y="76" width="148" height="104" rx="2"/></clipPath>
+      </defs>
+      <g filter={`url(#${p}ds)`}>
+        <rect x="118" y="68" width="164" height="132" rx="4" fill="#EFE8D8" transform="rotate(-15 200 134)"/>
+        <rect x="118" y="68" width="164" height="132" rx="4" fill="#FAF6EC" transform="rotate(7 200 134)"/>
+        <g transform="rotate(-3 200 134)">
+          <rect x="118" y="68" width="164" height="132" rx="4" fill="#FFFDF8"/>
+          <g clipPath={`url(#${p}clip)`}>
+            <rect x="126" y="76" width="148" height="104" fill={`url(#${p}sky)`}/>
+            <circle cx="232" cy="122" r="17" fill="#FFF1D6" opacity=".9"/>
+            <path d="M126 150 C160 136 190 156 222 144 C246 136 262 146 274 140 V180 H126 Z" fill="#5A2E1E"/>
+            <path d="M126 162 C156 154 196 170 274 156 V180 H126 Z" fill="#2E1710"/>
+          </g>
+          <rect x="118" y="68" width="164" height="132" rx="4" fill={`url(#${p}gloss)`}/>
+        </g>
+      </g>
+    </>
+  );
+}
+
+function ArtHanger({ p }) {
+  return (
+    <>
+      <defs>
+        <linearGradient id={p + 'metal'} x1="0" x2="1"><stop offset="0" stopColor="#4A3A40"/><stop offset=".3" stopColor="#F5E9EC"/><stop offset=".5" stopColor="#9D7F88"/><stop offset=".7" stopColor="#FFFFFF"/><stop offset="1" stopColor="#5A4650"/></linearGradient>
+        <linearGradient id={p + 'satin'} x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#F7E6E9"/><stop offset=".35" stopColor="#D9AEB8"/><stop offset=".55" stopColor="#FFF4F6"/><stop offset=".8" stopColor="#B98793"/><stop offset="1" stopColor="#8E5F6C"/></linearGradient>
+      </defs>
+      <path d="M200 64 C200 42 224 42 224 58 C224 72 200 70 200 86" fill="none" stroke={`url(#${p}metal)`} strokeWidth="6.5" strokeLinecap="round"/>
+      <path d="M128 178 H272 C266 200 280 222 266 242 C240 232 222 248 200 240 C178 248 160 232 134 242 C120 222 134 200 128 178 Z" fill={`url(#${p}satin)`}/>
+      <path d="M150 186 C146 206 156 222 148 236 M200 186 C196 206 206 222 200 236 M246 186 C242 206 252 222 246 236" stroke="rgba(255,255,255,.35)" fill="none" strokeWidth="1.2"/>
+      <path d="M200 86 L96 168 Q86 178 100 180 H300 Q314 178 304 168 Z" fill="none" stroke={`url(#${p}metal)`} strokeWidth="8" strokeLinejoin="round"/>
+    </>
+  );
+}
+
+const ART = { canister: ArtCanister, record: ArtRecord, prints: ArtPrints, hanger: ArtHanger };
+
+/* Tiny version of the template's map, drawn from the same step data */
+function MiniMap({ t }) {
+  const { pos, bands, W, H } = layoutMap(t);
+  return (
+    <div style={{ width: 132, height: 84, padding: 8, borderRadius: 12, background: 'rgba(255,255,255,.14)', border: '1px solid rgba(255,255,255,.28)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)' }}>
+      <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" style={{ width: '100%', height: '100%', display: 'block' }}>
+        {bands.map(b => <rect key={b.name} x={b.x} y={MAP.margin} width={b.w} height={H - MAP.margin * 2} rx="24" fill="rgba(255,255,255,.08)"/>)}
+        {t.steps.flatMap(s => s.requires.map(r => (
+          <path key={r + '-' + s.n} d={edgePath(pos[r].x + MAP.nodeW, pos[r].y + MAP.nodeH / 2, pos[s.n].x, pos[s.n].y + MAP.nodeH / 2)} fill="none" stroke="rgba(255,255,255,.55)" strokeWidth="7"/>
+        )))}
+        {t.steps.map(s => <rect key={s.n} x={pos[s.n].x} y={pos[s.n].y} width={MAP.nodeW} height={MAP.nodeH} rx="16" fill={s.n === 1 ? '#fff' : 'rgba(255,255,255,.82)'}/>)}
+      </svg>
+    </div>
+  );
+}
+
+/* ─── TEMPLATE GLYPHS (compact tiles, search, stand-in art) ────
+   One line icon per object in the manifest's `icon` field. */
+const GLYPHS = {
+  film: <><rect x="5" y="5" width="8" height="15" rx="1.6"/><path d="M7.5 5V3.5h3V5"/><path d="M13 9h5.5l1.5 2.5-1.5 2.5H13"/><path d="M15 9v5M17 9v5"/></>,
+  clipboard: <><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><path d="M8.5 10h7M8.5 13.5h7M8.5 17h4"/></>,
+  calculator: <><rect x="5" y="3" width="14" height="18" rx="2"/><rect x="8" y="6" width="8" height="3.5" rx=".5"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01"/></>,
+  receipt: <><path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z"/><path d="M9 8h6M9 11.5h6M9 15h3"/></>,
+  cards: <><rect x="4" y="7" width="16" height="11" rx="2"/><path d="M8 7V5h8v2"/><circle cx="9.5" cy="12.5" r="1.8"/><path d="M13 11.5h4M13 14.5h3M8 18v2M16 18v2"/></>,
+  script: <><path d="M6 3h10l2 2v16H6z"/><path d="M18 7h2M18 11h2M18 15h2M9 8h6M9 11.5h6M9 15h4"/></>,
+  viewfinder: <><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><rect x="8.5" y="9" width="7" height="6" rx="1"/></>,
+  sign: <><path d="M6 21L10 4h4l4 17"/><path d="M8.2 13h7.6"/></>,
+  lens: <><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></>,
+  storyboard: <><rect x="3" y="6" width="5.5" height="5" rx="1"/><rect x="9.25" y="6" width="5.5" height="5" rx="1"/><rect x="15.5" y="6" width="5.5" height="5" rx="1"/><path d="M3.5 14h4.5M9.75 14h4.5M16 14h4.5M3.5 17h3M9.75 17h3M16 17h3"/></>,
+  wave: <path d="M3 12h1.5M7 8v8M10 5v14M13 9v6M16 7v10M19 10v4"/>,
+  book: <><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/><path d="M13 4v6l-2-1.5L9 10V4"/></>,
+  polaroid: <><rect x="8" y="5" width="11" height="14" rx="1.2"/><rect x="10" y="7" width="7" height="7"/><path d="M8 8.5L5 9l1.4 11 6-.9"/></>,
+  notebook: <><rect x="6" y="3" width="13" height="18" rx="1.5"/><path d="M4 7h3M4 11h3M4 15h3M4 19h3M10 8h6M10 11.5h6"/></>,
+  clapper: <><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M4 10l.8-4 15-2.2.7 3.6"/><path d="M8.5 5.4l2 4M13.5 4.7l2 4.3"/></>,
+  mirror: <><circle cx="12" cy="9" r="5.5"/><path d="M10 7.5a2.5 2.5 0 012-1.5M12 14.5V21M9 21h6"/></>,
+  easel: <><rect x="5" y="4" width="14" height="10" rx="1"/><path d="M12 14v3M8 21l4-4 4 4M8 8h5M8 11h8"/></>,
+  clock: <><circle cx="12" cy="13" r="7"/><path d="M12 9.5V13l2.5 1.5M5 5l2.5-1.5M19 5l-2.5-1.5"/></>,
+  steps: <><rect x="4" y="14" width="5" height="6" rx="1"/><rect x="9.5" y="9" width="5" height="11" rx="1"/><rect x="15" y="4" width="5" height="16" rx="1"/></>,
+  mic: <><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0012 0M12 17v4M9 21h6"/></>,
+  magnifier: <><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></>,
+  box: <><path d="M4 9l8-4 8 4v9l-8 4-8-4z"/><path d="M4 9l8 4 8-4M12 13v9"/></>,
+  swatch: <><rect x="3" y="5" width="6" height="14" rx="1.5"/><path d="M9 7.5l5-2 4.8 12.6-5 1.9"/><circle cx="6" cy="16" r="1"/></>,
+  badge: <><rect x="6" y="7" width="12" height="14" rx="2"/><path d="M9 3l3 4 3-4"/><circle cx="12" cy="12.5" r="2"/><path d="M9 17.5h6"/></>,
+  lamp: <><rect x="4" y="5" width="12" height="10" rx="2"/><circle cx="10" cy="10" r="3"/><path d="M16 8h4M10 15v4M6 21h8"/></>,
+  plug: <><path d="M9 3v5M15 3v5M7 8h10v3a5 5 0 01-10 0z"/><path d="M12 16v5"/></>,
+  calendar: <><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></>,
+  phone: <><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></>,
+  tag: <><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8" r="1.4"/></>,
+  splice: <><circle cx="6" cy="7" r="2.5"/><circle cx="6" cy="17" r="2.5"/><path d="M8 8.5L20 18M8 15.5L20 6"/></>,
+  planner: <><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 14h4M13 14h5"/></>,
+  trackball: <><circle cx="12" cy="12" r="5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></>,
+  sphere: <><circle cx="9" cy="13" r="5"/><circle cx="17" cy="9" r="3.5"/><path d="M7 11a3 3 0 012-1.5"/></>,
+  headphones: <><path d="M4 15v-3a8 8 0 0116 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></>,
+  music: <><path d="M9 18V6l10-2v12"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="16" r="2"/></>,
+  zoetrope: <><ellipse cx="12" cy="7" rx="8" ry="3"/><path d="M4 7v8c0 1.7 3.6 3 8 3s8-1.3 8-3V7M8 9.6v5M12 10v5M16 9.6v5"/></>,
+  camera: <><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.5"/></>,
+  seal: <><circle cx="12" cy="10" r="5"/><path d="M9 14l-1 7 4-2 4 2-1-7"/></>,
+  flash: <path d="M13 3L6 13h5l-1 8 7-10h-5z"/>,
+  ruler: <><path d="M3 17L17 3l4 4L7 21z"/><path d="M7 13l2 2M10 10l2 2M13 7l2 2"/></>,
+  rotary: <><path d="M5 9c0-3 3-5 7-5s7 2 7 5l-2.5 1-1-2.5h-7l-1 2.5z"/><rect x="6" y="11" width="12" height="9" rx="2"/><circle cx="12" cy="15.5" r="2"/></>,
+  hanger: <><path d="M10 6a2 2 0 112 2v1.5"/><path d="M12 9.5L3.5 16a1 1 0 00.6 1.8h15.8a1 1 0 00.6-1.8z"/></>,
+  brush: <><path d="M15 3l6 6-7 7-6-6z"/><path d="M8 10l-2.5 2.5c-1 1-1 3-3 4.5 2.5 0 4.5 0 5.5-1l2.5-2.5"/></>,
+  pen: <><path d="M14 4l6 6-9 9-5 1 1-5z"/><path d="M12 6l6 6"/></>,
+  memo: <><path d="M6 4h12v17H6z"/><path d="M9 9h6M9 12.5h6M9 16h3M14 2v5"/></>,
+  stamp: <><path d="M9 3h6v5l2 3v2H7v-2l2-3z"/><path d="M5 17h14v3H5z"/></>,
+  envelope: <><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 7l9 6 9-6"/></>,
+  folder: <><path d="M3 6h6l2 2h10v11H3z"/><circle cx="12" cy="12.5" r="2"/><path d="M8.5 17.5a3.5 3.5 0 017 0"/></>,
+};
+function Glyph({ name, size = 24, color = 'currentColor', sw = 1.6 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ display: 'block', flexShrink: 0 }}>
+      {GLYPHS[name] || GLYPHS.clipboard}
+    </svg>
+  );
+}
+
+/* ─── CATALOGUE (from templates.manifest.json) ───────────────── */
+const toneFor = (family, variant) => {
+  const f = FAMILIES[family] || FAMILIES.production;
+  const pos = { a: '30% 26%', b: '50% 28%', c: '70% 26%' }[variant] || '50% 28%';
+  return `radial-gradient(120% 95% at ${pos}, ${f.light} 0%, ${f.core} 40%, ${f.deep} 100%)`;
+};
+const CATALOG = CATALOG_DATA.map(d => d.code === 'T01'
+  ? { ...d, ...CD_TEMPLATE, status: 'live' }
+  : { ...d, id: d.code.toLowerCase(), tone: toneFor(d.family, d.variant) });
+const FAMILY_ORDER = ['production', 'creator', 'camera', 'post', 'photo', 'craft', 'enterprise', 'performance'];
+const STAGES_ALL = ['Pre-production', 'Production', 'Post-production'];
+
+/* ─── SEARCH: plain-language matching with reasons ───────────────
+   Each word the user types is expanded with everyday synonyms, then scored
+   against name > keywords > roles > stage/family > description. */
+const STOPWORDS = new Set('a an the for my our i im i\'m we need to of in on at with and or want make making plan planning planned template templates next week some help me do doing new something'.split(' '));
+const SYNONYMS = {
+  photoshoot: ['shoot', 'editorial', 'photo'], shoot: ['shoot', 'call sheet', 'shot list'], fashion: ['editorial', 'fashion', 'pull', 'stylist', 'wardrobe'],
+  lookbook: ['editorial', 'lookbook'], magazine: ['editorial'], campaign: ['campaign', 'editorial', 'brand', 'social'], ad: ['av script', 'commercial'], commercial: ['av script', 'commercial'],
+  money: ['budget', 'invoice'], cost: ['budget'], costs: ['budget'], spend: ['budget'], pay: ['invoice'], paid: ['invoice'], bill: ['invoice'],
+  crew: ['crew', 'call sheet'], team: ['crew'], schedule: ['call sheet', 'schedule', 'calendar'], permit: ['filming notice'], permits: ['filming notice'], location: ['filming notice', 'location'],
+  cast: ['casting'], model: ['casting'], models: ['casting'], actors: ['casting'], talent: ['casting', 'talent'],
+  film: ['shot list', 'storyboard', 'script'], movie: ['script', 'storyboard'], video: ['shot list', 'storyboard', 'av script'], music: ['music', 'cue sheet'], song: ['music'],
+  tiktok: ['tiktok', 'grwm', 'creator'], reels: ['reels', 'tiktok'], instagram: ['instagram', 'social'], youtube: ['youtube', 'tutorial', 'explainer'], vlog: ['day in my life'],
+  makeup: ['makeup', 'grwm'], beauty: ['beauty', 'makeup'], gear: ['equipment', 'camera'], lights: ['lighting'], edit: ['edit', 'contact sheet'], colour: ['color'],
+  sound: ['sound', 'audio'], press: ['press'], pr: ['press', 'publicity'], legal: ['legal', 'contract'], wedding: ['event'], unboxing: ['unboxing', 'haul'], brand: ['brand'],
+  script: ['script'], story: ['storytime', 'storyboard'], photo: ['photo', 'editorial'], photographer: ['photo', 'editorial'], stylist: ['stylist', 'pull', 'editorial'], styling: ['stylist', 'pull', 'wardrobe'],
+};
+function rankTemplates(query, list) {
+  const words = query.toLowerCase().replace(/[^a-z0-9\s'-]/g, ' ').split(/\s+/).filter(w => w.length >= 2 && !STOPWORDS.has(w));
+  if (!words.length) return [];
+  return list.map(t => {
+    const words_ = str => str.toLowerCase().split(/[^a-z0-9']+/).filter(Boolean);
+    const name = t.name.toLowerCase(), kw = t.keywords.join(' | ').toLowerCase(), roles = t.icps.join(' | ').toLowerCase();
+    const nameW = words_(t.name), kwW = words_(t.keywords.join(' ')), roleW = words_(t.icps.join(' '));
+    const metaW = words_(t.stage + ' ' + (FAMILY_LABELS[t.family] || '')), descW = words_((t.preview || '') + ' ' + t.object);
+    // Matches start at a word boundary ("line" finds "Line Producer", not "guideline"); phrases match whole.
+    const hit = (ws, str, term) => term.includes(' ') ? str.includes(term) : ws.some(w => w.startsWith(term));
+    const termScore = term => {
+      if (hit(nameW, name, term)) return 12;
+      if (hit(kwW, kw, term)) return 6;
+      if (hit(roleW, roles, term)) return 5;
+      if (hit(metaW, '', term)) return 3;
+      if (term.length > 3 && hit(descW, '', term)) return 2;
+      return 0;
+    };
+    let score = 0; const matched = [];
+    words.forEach(w => {
+      const base = w.length > 3 && w.endsWith('s') ? w.slice(0, -1) : w;
+      let best = Math.max(termScore(w), termScore(base));
+      (SYNONYMS[w] || SYNONYMS[base] || []).forEach(s => { best = Math.max(best, termScore(s) * .8); });
+      if (best > 0) { score += best; matched.push(w); }
+    });
+    if (score > 0) score += { live: 3, designed: 1, gap: 0 }[t.status] + (matched.length === words.length ? score * .2 : 0);
+    return { t, score, matched, of: words.length };
+  }).filter(r => r.score > 0).sort((a, b) => b.score - a.score);
+}
+
+/* ─── SHARED TILE PIECES ─────────────────────────────────────── */
+function GlyphTile({ t, size = 36, radius = 9 }) {
+  return (
+    <div style={{ position: 'relative', width: size, height: size, borderRadius: radius, overflow: 'hidden', flexShrink: 0, background: t.tone, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: t.status === 'gap' ? .6 : 1 }}>
+      {t.art ? <TemplateArt t={t} thumb /> : <Glyph name={t.icon} size={Math.round(size * .5)} color="#fff" sw={1.7} />}
+    </div>
+  );
+}
+
+function TemplateArt({ t, thumb, hover }) {
+  const p = (thumb ? 'th-' : 'hero-') + t.id + '-';
+  const Obj = ART[t.art];
+  return (
+    <div style={{ position: 'absolute', inset: 0, background: t.tone }}>
+      {Obj ? (
+        <svg viewBox="0 0 400 275" preserveAspectRatio={thumb ? 'xMidYMid slice' : 'xMidYMid meet'}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', transform: hover ? 'scale(1.035)' : 'none', transition: 'transform .5s cubic-bezier(.2,.7,.2,1)' }}>
+          <defs><radialGradient id={p + 'floor'}><stop offset="0" stopColor="#000" stopOpacity=".38"/><stop offset="1" stopColor="#000" stopOpacity="0"/></radialGradient></defs>
+          <ellipse cx="200" cy="246" rx="120" ry="13" fill={`url(#${p}floor)`}/>
+          <g className={thumb ? '' : 'art-float'}><g transform={thumb ? undefined : 'translate(26 -8) scale(.87)'}><Obj p={p} /></g></g>
+        </svg>
+      ) : t.status !== 'gap' && !thumb && (
+        /* Stand-in until the template's rendered thumbnail exists: its glyph, large, lit like an object */
+        <div style={{ position: 'absolute', left: 0, right: 0, top: '10%', height: '58%', display: 'flex', alignItems: 'center', justifyContent: 'center', transform: hover ? 'scale(1.035)' : 'none', transition: 'transform .5s cubic-bezier(.2,.7,.2,1)' }}>
+          <div className="art-float" style={{ filter: 'drop-shadow(0 18px 22px rgba(0,0,0,.28))' }}><Glyph name={t.icon} size={112} color="rgba(255,255,255,.95)" sw={1.1} /></div>
+        </div>
+      )}
+      <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: thumb ? .1 : .16, mixBlendMode: 'overlay', pointerEvents: 'none' }}>
+        <filter id={p + 'grain'}><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+        <rect width="100%" height="100%" filter={`url(#${p}grain)`}/>
+      </svg>
+    </div>
+  );
+}
+
+/* ─── SHOWCASE CARD (Apple Music-style) ──────────────────────── */
+const CARD_W = 'min(560px, calc(100vw - 104px))';
+
+function TemplateCard({ t, onUse, width = CARD_W, badge }) {
+  const [h, setH] = useState(false);
+  const open = t.status !== 'gap';
+  return (
+    <div style={{ width, flexShrink: 0, scrollSnapAlign: 'start' }}>
+      <div style={{ marginBottom: 12 }}>
+        {/* label · title · stage */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <MonoLabel color={C.ink3}>{t.label}</MonoLabel>
+          {badge && <Chip small label={badge} />}
+        </div>
+        <div style={{ fontFamily: BODY, fontSize: 21, fontWeight: 600, color: C.ink, letterSpacing: '-.35px', marginTop: 6, lineHeight: 1.2 }}>{t.name}</div>
+        <div style={{ fontFamily: BODY, fontSize: 15, color: C.ink3, marginTop: 2 }}>{t.stage}</div>
+      </div>
+      <button onClick={open ? () => onUse(t) : undefined} disabled={!open} aria-label={open ? `Use the ${t.name} template` : `${t.name} template, in design`}
+        onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
+        style={{ position: 'relative', display: 'block', width: '100%', aspectRatio: '16 / 11', padding: 0, borderRadius: 18, overflow: 'hidden', border: '1px solid rgba(15,14,12,.08)', cursor: open ? 'pointer' : 'default', textAlign: 'left',
+          transform: h && open ? 'translateY(-3px)' : 'none', boxShadow: h && open ? '0 24px 54px rgba(15,14,12,.22)' : '0 8px 24px rgba(15,14,12,.10)', transition: 'transform .3s ease, box-shadow .3s ease' }}>
+        <TemplateArt t={t} hover={h && open} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,6,4,.62) 0%, rgba(8,6,4,.18) 34%, rgba(8,6,4,0) 52%)' }} />
+        {!open && (
+          <span style={{ position: 'absolute', top: 16, left: 16, padding: '6px 11px', borderRadius: 20, background: 'rgba(255,255,255,.16)', border: '1px solid rgba(255,255,255,.3)', backdropFilter: 'blur(8px)', fontFamily: MONO, fontSize: 9.5, fontWeight: 600, letterSpacing: '.08em', textTransform: 'uppercase', color: '#fff' }}>In design</span>
+        )}
+        {open && (
+          <span style={{ position: 'absolute', top: 16, right: 16, display: 'inline-flex', alignItems: 'center', gap: 7, padding: '8px 13px', borderRadius: 20, background: 'rgba(255,255,255,.92)', fontFamily: BODY, fontSize: 12.5, fontWeight: 600, color: C.ink, opacity: h ? 1 : 0, transform: h ? 'none' : 'translateY(-4px)', transition: 'all .2s ease' }}>
+            Use template <Icon ic={Ic.arrow} size={11} color={C.teal} />
+          </span>
+        )}
+        {t.preview && <div style={{ position: 'absolute', left: 22, right: t.steps ? 172 : 22, bottom: 20, fontFamily: BODY, fontSize: 15, lineHeight: 1.45, color: '#fff', letterSpacing: '-.1px', textShadow: '0 1px 12px rgba(0,0,0,.25)' }}>{t.preview}</div>}
+        {t.steps && <div style={{ position: 'absolute', right: 18, bottom: 18 }}><MiniMap t={t} /></div>}
+      </button>
+    </div>
+  );
+}
+
+/* ─── COMPACT TILE (small card + icon, Canva-style) ──────────── */
+function CompactTile({ t, onUse }) {
+  const [h, setH] = useState(false);
+  const f = FAMILIES[t.family] || FAMILIES.production;
+  const open = t.status !== 'gap';
+  return (
+    <button onClick={open ? () => onUse(t) : undefined} disabled={!open}
+      aria-label={open ? `Use the ${t.name} template, ${t.stage}` : `${t.name}, in design`}
+      onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}
+      style={{ position: 'relative', height: 96, padding: 0, border: `1px solid ${h && open ? C.borderMd : C.border}`, borderRadius: 14, overflow: 'hidden', cursor: open ? 'pointer' : 'default', textAlign: 'left',
+        background: `linear-gradient(100deg, ${f.light}66 0%, ${f.light}AA 100%), #FFFFFF`, transform: h && open ? 'translateY(-2px)' : 'none', boxShadow: h && open ? '0 10px 24px rgba(15,14,12,.10)' : 'none', transition: 'all .18s ease' }}>
+      <div style={{ position: 'absolute', left: 16, top: 0, bottom: 0, right: 112, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 5 }}>
+        <div style={{ fontFamily: BODY, fontSize: 14.5, fontWeight: 600, color: C.ink, lineHeight: 1.25, letterSpacing: '-.1px' }}>{t.name}</div>
+        <div style={{ fontFamily: MONO, fontSize: 9, fontWeight: 600, letterSpacing: '.07em', textTransform: 'uppercase', color: C.ink2, opacity: .7 }}>{open ? t.stage : 'In design'}</div>
+      </div>
+      {/* stacked cards, bleeding off the bottom edge */}
+      <div style={{ position: 'absolute', right: 10, top: 24, width: 60, height: 70, borderRadius: 10, background: f.core, opacity: .32, transform: `rotate(${h && open ? 12 : 9}deg)`, transition: 'transform .25s ease' }} />
+      <div style={{ position: 'absolute', right: 30, top: h && open ? 18 : 22, width: 68, height: 76, borderRadius: 11, overflow: 'hidden', background: t.tone, transform: 'rotate(-5deg)', boxShadow: '0 6px 16px rgba(15,14,12,.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: open ? 1 : .55, transition: 'top .25s ease' }}>
+        {t.art ? <TemplateArt t={t} thumb /> : <div style={{ marginTop: -6 }}><Glyph name={t.icon} size={30} color="#fff" sw={1.6} /></div>}
+      </div>
+    </button>
+  );
+}
+
+/* Tiny version of the template's map, drawn from the same step data */
+function MiniMapSafe({ t }) { return t.steps ? <MiniMap t={t} /> : null; }
+
+/* ─── SEARCH BOX WITH SUGGESTIONS ────────────────────────────── */
+function TemplateSearch({ catalog, query, setQuery, onCommit, onUse }) {
+  const [focus, setFocus] = useState(false);
+  const [idx, setIdx] = useState(0);
+  const results = useMemo(() => rankTemplates(query, catalog).slice(0, 5), [query, catalog]);
+  const showDrop = focus && query.trim().length > 1;
+  useEffect(() => { setIdx(0); }, [query]);
+
+  const onKey = e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); setIdx(i => Math.min(results.length, i + 1)); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); setIdx(i => Math.max(0, i - 1)); }
+    else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (idx < results.length && results[idx]) { onUse(results[idx].t); setFocus(false); e.currentTarget.blur(); }
+      else { onCommit(query); setFocus(false); e.currentTarget.blur(); }
+    }
+    else if (e.key === 'Escape') { setFocus(false); e.currentTarget.blur(); }
+  };
+
+  return (
+    <div style={{ position: 'relative', width: '100%', maxWidth: 760 }}>
+      <label htmlFor="tpl-search" style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)' }}>Search templates</label>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, height: 56, padding: '0 16px 0 18px', background: C.cardBg, borderRadius: 16, border: `1.5px solid ${focus ? C.teal : C.borderMd}`, boxShadow: focus ? `0 0 0 4px ${C.tealSoft}, 0 10px 30px rgba(15,14,12,.08)` : '0 2px 10px rgba(15,14,12,.04)', transition: 'all .15s' }}>
+        <Icon ic={Ic.search} size={18} color={focus ? C.teal : C.ink3} />
+        <input id="tpl-search" value={query} onChange={e => setQuery(e.target.value)} onKeyDown={onKey}
+          onFocus={() => setFocus(true)} onBlur={() => setTimeout(() => setFocus(false), 120)} autoComplete="off"
+          role="combobox" aria-expanded={showDrop} aria-controls="tpl-suggest"
+          placeholder="What are you making? Try “fashion editorial”, “permit” or “stylist”"
+          style={{ flex: 1, minWidth: 0, border: 'none', outline: 'none', background: 'transparent', fontFamily: BODY, fontSize: 15.5, color: C.ink }} />
+        {query && (
+          <button onClick={() => { setQuery(''); onCommit(''); }} aria-label="Clear search"
+            style={{ width: 28, height: 28, borderRadius: '50%', border: 'none', background: C.pageBg, color: C.ink3, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Icon ic={Ic.close} size={10} />
+          </button>
+        )}
+      </div>
+
+      {showDrop && (
+        <div id="tpl-suggest" role="listbox" style={{ position: 'absolute', left: 0, right: 0, top: 64, zIndex: 50, background: C.cardBg, borderRadius: 16, border: `1px solid ${C.border}`, boxShadow: '0 22px 54px rgba(15,14,12,.16)', padding: 8, animation: 'popIn .14s ease' }}>
+          {results.length === 0 && (
+            <div style={{ padding: '14px 12px', fontFamily: BODY, fontSize: 13.5, color: C.ink3, lineHeight: 1.55 }}>
+              No template matches that yet. Try a role (“line producer”), a deliverable (“call sheet”) or what you’re shooting (“music video”).
+            </div>
+          )}
+          {results.map((r, i) => {
+            const on = i === idx;
+            return (
+              <button key={r.t.code} role="option" aria-selected={on} onMouseDown={e => e.preventDefault()} onClick={() => { onUse(r.t); setFocus(false); }} onMouseEnter={() => setIdx(i)}
+                style={{ width: '100%', display: 'flex', alignItems: 'center', gap: 12, padding: '9px 10px', borderRadius: 11, border: 'none', background: on ? C.tealLight : 'transparent', cursor: 'pointer', textAlign: 'left' }}>
+                <GlyphTile t={r.t} size={40} radius={10} />
+                <span style={{ flex: 1, minWidth: 0 }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ fontFamily: BODY, fontSize: 14, fontWeight: 600, color: C.ink }}>{r.t.name}</span>
+                    {i === 0 && <Chip small label="Best match" />}
+                    {r.t.status === 'gap' && <Chip small label="In design" color={C.ink3} />}
+                  </span>
+                  <span style={{ display: 'block', fontFamily: BODY, fontSize: 12, color: C.ink3, marginTop: 2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {r.t.stage} · for {r.t.icps.slice(0, 2).join(', ')}
+                  </span>
+                </span>
+                <span style={{ fontFamily: MONO, fontSize: 9, fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', color: C.teal, flexShrink: 0 }}>{r.matched.join(' · ')}</span>
+              </button>
+            );
+          })}
+          <button onMouseDown={e => e.preventDefault()} onClick={() => { onCommit(query); setFocus(false); }} onMouseEnter={() => setIdx(results.length)}
+            style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 4, padding: '10px 12px', borderRadius: 11, border: 'none', borderTop: `1px solid ${C.border}`, background: idx === results.length ? C.pageBg : 'transparent', cursor: 'pointer', fontFamily: BODY, fontSize: 13, color: C.ink2 }}>
+            <span>See all results for “{query.trim()}”</span>
+            <span style={{ fontFamily: MONO, fontSize: 10, color: C.ink4 }}>ENTER ↵</span>
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── GALLERY VIEW TOGGLE ────────────────────────────────────── */
+function GalleryToggle({ view, setView }) {
+  const opts = [{ id: 'showcase', label: 'Showcase', ic: Ic.cardsView }, { id: 'compact', label: 'Compact', ic: Ic.gridView }];
+  return (
+    <div role="tablist" aria-label="Gallery view" style={{ display: 'inline-flex', padding: 3, background: C.cardBg, border: `1px solid ${C.border}`, borderRadius: 20 }}>
+      {opts.map(o => {
+        const on = view === o.id;
+        return (
+          <button key={o.id} role="tab" aria-selected={on} onClick={() => setView(o.id)}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, height: 30, padding: '0 13px', borderRadius: 16, border: 'none', background: on ? C.ink : 'transparent', color: on ? '#fff' : C.ink3, fontFamily: BODY, fontSize: 12.5, fontWeight: on ? 600 : 500, cursor: 'pointer', transition: 'all .13s' }}>
+            <Icon ic={o.ic} size={13} />{o.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function StageChips({ stage, setStage, catalog }) {
+  const opts = ['All', ...STAGES_ALL];
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+      {opts.map(s => {
+        const on = stage === s;
+        const n = s === 'All' ? catalog.length : catalog.filter(t => t.stage === s).length;
+        return (
+          <button key={s} onClick={() => setStage(s)} aria-pressed={on}
+            onMouseEnter={e => { if (!on) e.currentTarget.style.borderColor = C.teal; }} onMouseLeave={e => { if (!on) e.currentTarget.style.borderColor = C.border; }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, height: 36, padding: '0 14px', borderRadius: 20, border: `1px solid ${on ? C.teal : C.border}`, background: on ? C.tealLight : C.cardBg, color: on ? C.teal : C.ink2, fontFamily: BODY, fontSize: 13, fontWeight: on ? 600 : 500, cursor: 'pointer', transition: 'all .13s' }}>
+            {s}<span style={{ fontFamily: MONO, fontSize: 10, color: on ? C.teal : C.ink4 }}>{n}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function Toast({ msg }) {
+  if (!msg) return null;
+  return (
+    <div role="status" style={{ position: 'fixed', left: '50%', bottom: 28, transform: 'translateX(-50%)', zIndex: 700, background: C.ink, color: '#fff', padding: '12px 18px', borderRadius: 14, fontFamily: BODY, fontSize: 13, boxShadow: '0 14px 40px rgba(0,0,0,.25)', animation: 'popIn .16s ease', maxWidth: 'calc(100vw - 40px)' }}>{msg}</div>
+  );
+}
+
+/* ─── TEMPLATES GALLERY ──────────────────────────────────────── */
+function TemplatesGallery({ catalog, onUse }) {
+  const [view, setView] = useState('showcase');
+  const [stage, setStage] = useState('All');
+  const [query, setQuery] = useState('');
+  const [committed, setCommitted] = useState('');
+  const [toast, setToast] = useState('');
+  const row = useRef(null);
+  const toastTimer = useRef(null);
+
+  const use = t => {
+    if (t.status === 'live') return onUse(t);
+    if (t.status === 'designed') { flash(`${t.name} opens in the document editor, which isn't part of this prototype.`); return; }
+    flash(`${t.name} is in design. It isn't ready to use yet.`);
+  };
+  const flash = m => { setToast(m); clearTimeout(toastTimer.current); toastTimer.current = setTimeout(() => setToast(''), 2600); };
+  const nudge = d => { const el = row.current; if (el) el.scrollBy({ left: d * Math.min(584, el.clientWidth - 80), behavior: 'smooth' }); };
+
+  const inStage = t => stage === 'All' || t.stage === stage;
+  const visible = catalog.filter(inStage);
+  const featured = visible.filter(t => t.status !== 'gap');
+  const inDesign = visible.filter(t => t.status === 'gap');
+  const results = committed ? rankTemplates(committed, catalog).filter(r => inStage(r.t)) : null;
+  const compactGrid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 248px), 1fr))', gap: 14 };
+
+  return (
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', background: C.pageBg }}>
+      <div style={{ height: 56, flexShrink: 0, display: 'flex', alignItems: 'center', gap: 12, padding: '0 20px', background: C.cardBg, borderBottom: `1px solid ${C.border}` }}>
+        <div style={{ width: 26, height: 26, borderRadius: '50%', background: C.orb }} />
+        <div style={{ fontFamily: BODY, fontWeight: 700, fontSize: 15, color: C.ink, letterSpacing: '-.2px' }}>Nia</div>
+        <span style={{ color: C.ink4 }}>/</span>
+        <div style={{ fontFamily: BODY, fontSize: 14, color: C.ink3 }}>Templates</div>
+      </div>
+
+      <div style={{ flex: 1, overflowY: 'auto' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '40px 0 72px' }}>
+          {/* Hero: title, search, filters */}
+          <div style={{ padding: '0 44px', display: 'flex', flexDirection: 'column', gap: 18 }}>
+            <div>
+              <MonoLabel color={C.teal} style={{ marginBottom: 8 }}>Templates</MonoLabel>
+              <h1 style={{ fontFamily: BODY, fontWeight: 800, fontSize: 36, letterSpacing: '-1.1px', color: C.ink, lineHeight: 1.05 }}>Start from a proven path</h1>
+            </div>
+            <TemplateSearch catalog={catalog} query={query} setQuery={setQuery} onCommit={q => setCommitted(q.trim())} onUse={use} />
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14, flexWrap: 'wrap' }}>
+              <StageChips stage={stage} setStage={setStage} catalog={catalog} />
+              {!results && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  {view === 'showcase' && <>
+                    <Btn small icon={Ic.chevLeft} onClick={() => nudge(-1)} title="Previous" />
+                    <Btn small icon={Ic.chevRight} onClick={() => nudge(1)} title="Next" />
+                  </>}
+                  <GalleryToggle view={view} setView={setView} />
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Search results */}
+          {results && (
+            <div style={{ padding: '30px 44px 0' }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 12, marginBottom: 18 }}>
+                <SectionLabel sub={!results.length ? 'Nothing matches yet.'
+                  : results[0].matched.length < results[0].of ? `No template covers everything you typed yet. These are the closest ${results.length}.`
+                  : `${results.length} template${results.length === 1 ? '' : 's'} match${results.length === 1 ? 'es' : ''}${stage !== 'All' ? ' in ' + stage.toLowerCase() : ''}.`}>Results for “{committed}”</SectionLabel>
+                <Btn small icon={Ic.close} onClick={() => { setCommitted(''); setQuery(''); }}>Clear</Btn>
+              </div>
+              {results.length > 0 ? (
+                <div style={{ display: 'flex', gap: 28, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+                  <div style={{ flex: '1 1 460px', maxWidth: 560 }}>
+                    <TemplateCard t={results[0].t} onUse={use} width="100%" badge="Best match" />
+                    <div style={{ fontFamily: BODY, fontSize: 12.5, color: C.ink3, marginTop: 12 }}>Matched on <span style={{ fontFamily: MONO, fontSize: 10.5, color: C.teal, textTransform: 'uppercase', letterSpacing: '.06em' }}>{results[0].matched.join(' · ')}</span></div>
+                  </div>
+                  {results.length > 1 && (
+                    <div style={{ flex: '1 1 360px', minWidth: 0 }}>
+                      <MonoLabel style={{ marginBottom: 12 }}>Also relevant</MonoLabel>
+                      <div style={compactGrid}>{results.slice(1, 13).map(r => <CompactTile key={r.t.code} t={r.t} onUse={use} />)}</div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div style={{ padding: '26px 24px', borderRadius: 16, border: `1px dashed ${C.borderMd}`, fontFamily: BODY, fontSize: 14, color: C.ink3, lineHeight: 1.6, maxWidth: 640 }}>
+                  No template covers that yet. Try a role (“line producer”), a deliverable (“call sheet”) or what you’re shooting (“music video”).
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Showcase view */}
+          {!results && view === 'showcase' && (
+            <>
+              <div ref={row} className="hide-scroll" style={{ display: 'flex', gap: 24, overflowX: 'auto', scrollSnapType: 'x mandatory', scrollPaddingLeft: 44, padding: '28px 44px 52px', marginBottom: -18 }}>
+                {featured.map(t => <TemplateCard key={t.code} t={t} onUse={use} />)}
+                <div style={{ width: 20, flexShrink: 0 }} />
+              </div>
+              {inDesign.length > 0 && (
+                <div style={{ padding: '0 44px' }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 12 }}>
+                    <SectionLabel sub="What we're building next.">{inDesign.length} in design</SectionLabel>
+                    <Btn small icon={Ic.gridView} onClick={() => setView('compact')}>See all in compact view</Btn>
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                    {inDesign.map(t => (
+                      <span key={t.code} style={{ display: 'inline-flex', alignItems: 'center', gap: 7, height: 32, padding: '0 12px 0 6px', borderRadius: 20, background: C.cardBg, border: `1px solid ${C.border}`, fontFamily: BODY, fontSize: 12.5, color: C.ink3 }}>
+                        <GlyphTile t={t} size={22} radius={11} />{t.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* Compact view: small cards with icons, one shelf per family */}
+          {!results && view === 'compact' && (
+            <div style={{ padding: '30px 44px 0', display: 'flex', flexDirection: 'column', gap: 34 }}>
+              {FAMILY_ORDER.map(fam => {
+                const items = visible.filter(t => t.family === fam);
+                if (!items.length) return null;
+                return (
+                  <section key={fam}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                      <span style={{ width: 10, height: 10, borderRadius: 3, background: FAMILIES[fam].core }} />
+                      <h2 style={{ fontFamily: BODY, fontSize: 17, fontWeight: 800, letterSpacing: '-.3px', color: C.ink }}>{FAMILY_LABELS[fam]}</h2>
+                      <MonoLabel color={C.ink4}>{items.length}</MonoLabel>
+                    </div>
+                    <div style={compactGrid}>{items.map(t => <CompactTile key={t.code} t={t} onUse={use} />)}</div>
+                  </section>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
+      <Toast msg={toast} />
+    </div>
+  );
+}
+
+/* ─── WORKSPACE SHELL ────────────────────────────────────────── */
+function ProjectWorkspace({ template, projectName, task, onExit }) {
+  const steps = template.steps, total = steps.length;
+  const [state, setState] = useState({ activeStep: 1, completed: [], projectData: initialProjectData(projectName, task) });
+  const [view, setView] = useState('map');
+  const [panelOpen, setPanelOpen] = useState(false);
+  const { activeStep, completed, projectData } = state;
+  const step = steps[activeStep - 1];
+  const isDone = completed.includes(activeStep);
+
+  const setData = (key, value) => setState(s => ({ ...s, projectData: { ...s.projectData, [key]: value } }));
+  const goTo = n => setState(s => ({ ...s, activeStep: n }));
+  const openStep = n => { goTo(n); setPanelOpen(true); };
+  const toggleComplete = () => setState(s => ({ ...s, completed: s.completed.includes(s.activeStep) ? s.completed.filter(x => x !== s.activeStep) : [...s.completed, s.activeStep] }));
+  const completeAndNext = () => setState(s => ({
+    ...s,
+    completed: s.completed.includes(s.activeStep) ? s.completed : [...s.completed, s.activeStep],
+    activeStep: Math.min(total, s.activeStep + 1),
+  }));
+
+  useEffect(() => {
+    const onKey = e => { if (e.key === 'Escape') setPanelOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  const renderModule = () => {
+    if (activeStep <= 3) return <BlueprintModule step={activeStep} data={projectData} setData={setData} goTo={goTo} />;
+    if (activeStep === 7) return <TeamModule team={projectData.team} setTeam={v => setData('team', v)} />;
+    if (activeStep === 8) return <ShotPlanModule shots={projectData.shots} setShots={v => setData('shots', v)} />;
+    if (activeStep === 9) return <CallsheetModule data={projectData} setData={setData} goTo={goTo} />;
+    return <StepNotes step={step} value={projectData.notes[activeStep]} onChange={v => setData('notes', { ...projectData.notes, [activeStep]: v })} />;
+  };
+  const body = compact => (
+    <StepBody step={step} total={total} isDone={isDone} compact={compact} module={renderModule()}
+      goTo={goTo} toggleComplete={toggleComplete} completeAndNext={completeAndNext} />
+  );
+  const PANEL_W = 'min(700px, 60vw)';
+
+  return (
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', background: C.pageBg }}>
+      {/* Top bar */}
+      <div className="no-print" style={{ height: 56, flexShrink: 0, display: 'flex', alignItems: 'center', gap: 14, padding: '0 20px', background: C.cardBg, borderBottom: `1px solid ${C.border}` }}>
+        <Btn small icon={Ic.back} onClick={onExit}>Templates</Btn>
+        <div style={{ width: 26, height: 26, borderRadius: '50%', background: C.orb, flexShrink: 0 }} />
+        <div style={{ fontFamily: BODY, fontWeight: 700, fontSize: 15, color: C.ink, letterSpacing: '-.2px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{projectName}</div>
+        <Chip small label={task} />
+        <span title={template.summary}><Chip small label={`Template · ${template.name}`} color={C.ink3} /></span>
+        <div style={{ flex: 1 }} />
+        <ViewToggle view={view} setView={setView} />
+        <MonoLabel color={C.ink3}>{pad(completed.length)} / {total} complete</MonoLabel>
+      </div>
+
+      {view === 'list' ? (
+        <div style={{ flex: 1, display: 'flex', minHeight: 0 }}>
+          {/* Sidebar */}
+          <aside className="no-print" style={{ width: 252, flexShrink: 0, background: C.pageBg, borderRight: `1px solid ${C.border}`, overflowY: 'auto', padding: '18px 12px 24px' }}>
+            <div style={{ padding: '0 10px 16px' }}>
+              <div style={{ height: 3, background: C.border, borderRadius: 2, overflow: 'hidden' }}>
+                <div style={{ width: `${(completed.length / total) * 100}%`, height: '100%', background: C.teal, transition: 'width .3s ease' }} />
+              </div>
+            </div>
+            {template.stages.map(ph => (
+              <div key={ph} style={{ marginBottom: 14 }}>
+                <MonoLabel style={{ padding: '0 10px 6px' }}>{ph}</MonoLabel>
+                {steps.filter(s => s.phase === ph).map(s => (
+                  <StepItem key={s.n} step={s} active={s.n === activeStep} done={completed.includes(s.n)} onClick={() => goTo(s.n)} />
+                ))}
+              </div>
+            ))}
+          </aside>
+
+          {/* Main */}
+          <main className="print-unclip" style={{ flex: 1, overflowY: 'auto', background: C.cardBg }}>
+            <div style={{ maxWidth: 1080, margin: '0 auto', padding: '34px 44px 64px' }}>{body(false)}</div>
+          </main>
+        </div>
+      ) : (
+        <div style={{ flex: 1, display: 'flex', minHeight: 0 }}>
+          <MapView template={template} completed={completed} activeStep={activeStep} panelOpen={panelOpen} projectData={projectData} onOpen={openStep} />
+
+          {/* Step panel */}
+          <aside className="print-unclip" style={{ width: panelOpen ? PANEL_W : 0, flexShrink: 0, overflow: 'hidden', background: C.cardBg, borderLeft: panelOpen ? `1px solid ${C.border}` : 'none', boxShadow: panelOpen ? '-10px 0 30px rgba(15,14,12,.05)' : 'none', transition: 'width .24s ease' }}>
+            <div className="print-unclip" style={{ width: PANEL_W, height: '100%', overflowY: 'auto' }}>
+              <div className="no-print" style={{ position: 'sticky', top: 0, zIndex: 5, display: 'flex', alignItems: 'center', gap: 6, padding: '10px 16px', background: 'rgba(255,255,255,.94)', backdropFilter: 'blur(6px)', borderBottom: `1px solid ${C.border}` }}>
+                <Btn small icon={Ic.chevLeft} disabled={activeStep === 1} onClick={() => goTo(activeStep - 1)} title="Previous step" />
+                <Btn small icon={Ic.chevRight} disabled={activeStep === total} onClick={() => goTo(activeStep + 1)} title="Next step" />
+                <div style={{ flex: 1 }} />
+                <Btn small icon={Ic.launch} onClick={() => { setView('list'); setPanelOpen(false); }}>Open in list</Btn>
+                <Btn small icon={Ic.close} onClick={() => setPanelOpen(false)} title="Close (Esc)" />
+              </div>
+              {panelOpen && <div style={{ padding: '22px 30px 48px' }}>{body(true)}</div>}
+            </div>
+          </aside>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── ROOT: templates gallery → launcher → workspace ─────────── */
+function NiaTemplatesApp() {
+  const [picked, setPicked] = useState(null);   // template waiting on the launcher
+  const [session, setSession] = useState(null);
+  if (session) {
+    return <ProjectWorkspace template={session.template} projectName={session.project} task={session.task} onExit={() => setSession(null)} />;
+  }
+  return (
+    <>
+      <TemplatesGallery catalog={CATALOG} onUse={t => setPicked(t)} />
+      {picked && (
+        <ProjectLauncher template={picked} task={picked.launch.task} domain={picked.launch.domain}
+          onClose={() => setPicked(null)} onLaunch={s => { setSession({ ...s, template: picked }); setPicked(null); }} />
+      )}
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<NiaTemplatesApp />);
+  </script>
+</body>
+</html>

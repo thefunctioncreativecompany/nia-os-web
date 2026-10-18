@@ -1,0 +1,1726 @@
+{
+  "$comment": "Nia template catalogue for the Templates gallery. Source: ICP Mapping & Workflow Strategy (Aug 2026) + Template 01. See TEMPLATE_THUMBNAILS.md.",
+  "version": 1,
+  "statuses": {
+    "live": "Opens the launcher (has steps/map)",
+    "designed": "Template exists; thumbnail to be rendered",
+    "gap": "Template not designed yet: gradient card, 'In design', not clickable"
+  },
+  "labels": [
+    "New template",
+    "Updated template",
+    "In design"
+  ],
+  "stages": [
+    "Pre-production",
+    "Production",
+    "Post-production"
+  ],
+  "variantGradientCentre": {
+    "a": "30% 25%",
+    "b": "50% 28%",
+    "c": "70% 25%"
+  },
+  "families": {
+    "production": {
+      "name": "Production",
+      "light": "#A6E2DB",
+      "core": "#2E9A93",
+      "deep": "#052826"
+    },
+    "camera": {
+      "name": "Camera",
+      "light": "#C9DCEB",
+      "core": "#6C93B5",
+      "deep": "#0E1E2E"
+    },
+    "creator": {
+      "name": "Creator",
+      "light": "#F6B08A",
+      "core": "#E05018",
+      "deep": "#2A0C08"
+    },
+    "post": {
+      "name": "Post",
+      "light": "#CDBDF0",
+      "core": "#7A5BC4",
+      "deep": "#120A2A"
+    },
+    "craft": {
+      "name": "Craft",
+      "light": "#F0D6DB",
+      "core": "#BE919D",
+      "deep": "#261A21"
+    },
+    "photo": {
+      "name": "Photo",
+      "light": "#F1E6C8",
+      "core": "#C2AF80",
+      "deep": "#352D1B"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "light": "#E4E2DC",
+      "core": "#9C9A93",
+      "deep": "#0F0E0C"
+    },
+    "performance": {
+      "name": "Performance",
+      "light": "#D3E2C2",
+      "core": "#7FA36A",
+      "deep": "#121C0F"
+    }
+  },
+  "todo": [
+    "The ICP doc counts 27 designed templates but names 23 (D01–D23). Add the 4 missing ones.",
+    "Review every 'stage' value: each is the stage where the template is mainly used."
+  ],
+  "templates": [
+    {
+      "code": "T01",
+      "slug": "t01-editorial-shoot",
+      "name": "Editorial Shoot",
+      "kind": "workflow",
+      "family": "production",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "live",
+      "icps": [
+        "Creative Director",
+        "Photographer",
+        "Stylist"
+      ],
+      "object": "35mm film canister with the film leader pulled out",
+      "alt": "A teal chrome 35mm film canister with amber film pulled from its side",
+      "preview": "From first idea to call sheet: vision, references, casting, shot plan and the day itself.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/t01-editorial-shoot.master.png",
+        "card": "/templates/t01-editorial-shoot-card.avif",
+        "cardFallback": "/templates/t01-editorial-shoot-card.webp",
+        "cardSmall": "/templates/t01-editorial-shoot-card-sm.webp",
+        "square": "/templates/t01-editorial-shoot-square.webp"
+      },
+      "icon": "film",
+      "keywords": [
+        "photoshoot",
+        "shoot",
+        "editorial",
+        "fashion",
+        "lookbook",
+        "campaign",
+        "magazine",
+        "moodboard",
+        "mood board",
+        "pre-production",
+        "creative direction",
+        "shot plan",
+        "callsheet"
+      ]
+    },
+    {
+      "code": "D01",
+      "slug": "d01-call-sheet",
+      "name": "Call Sheet",
+      "kind": "document",
+      "family": "production",
+      "variant": "b",
+      "stage": "Production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Line Producer",
+        "1st Assistant Director",
+        "Production Manager"
+      ],
+      "object": "Aluminium clipboard holding one ruled sheet",
+      "alt": "An aluminium clipboard holding a single ruled sheet",
+      "preview": "Who's called, when and where. One sheet the whole crew works from.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d01-call-sheet.master.png",
+        "card": "/templates/d01-call-sheet-card.avif",
+        "cardFallback": "/templates/d01-call-sheet-card.webp",
+        "cardSmall": "/templates/d01-call-sheet-card-sm.webp",
+        "square": "/templates/d01-call-sheet-square.webp"
+      },
+      "icon": "clipboard",
+      "keywords": [
+        "callsheet",
+        "call time",
+        "crew call",
+        "shoot day",
+        "schedule",
+        "daily",
+        "on set"
+      ]
+    },
+    {
+      "code": "D02",
+      "slug": "d02-production-budget",
+      "name": "Production Budget",
+      "kind": "document",
+      "family": "production",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Line Producer",
+        "Executive Producer"
+      ],
+      "object": "1970s desk adding machine with a curl of paper tape",
+      "alt": "A vintage desk adding machine with paper tape curling out",
+      "preview": "Every line of spend, from first estimate to wrap actuals.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d02-production-budget.master.png",
+        "card": "/templates/d02-production-budget-card.avif",
+        "cardFallback": "/templates/d02-production-budget-card.webp",
+        "cardSmall": "/templates/d02-production-budget-card-sm.webp",
+        "square": "/templates/d02-production-budget-square.webp"
+      },
+      "icon": "calculator",
+      "keywords": [
+        "budget",
+        "cost",
+        "money",
+        "spend",
+        "finance",
+        "estimate",
+        "quote",
+        "actuals"
+      ]
+    },
+    {
+      "code": "D03",
+      "slug": "d03-crew-contacts",
+      "name": "Crew Contacts",
+      "kind": "document",
+      "family": "production",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Line Producer",
+        "Production Manager"
+      ],
+      "object": "Rotary card file",
+      "alt": "A rotary card file with fanned index cards",
+      "preview": "The whole crew in one place: roles, numbers, agents and availability.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d03-crew-contacts.master.png",
+        "card": "/templates/d03-crew-contacts-card.avif",
+        "cardFallback": "/templates/d03-crew-contacts-card.webp",
+        "cardSmall": "/templates/d03-crew-contacts-card-sm.webp",
+        "square": "/templates/d03-crew-contacts-square.webp"
+      },
+      "icon": "cards",
+      "keywords": [
+        "crew",
+        "contacts",
+        "team",
+        "phone list",
+        "directory",
+        "hiring"
+      ]
+    },
+    {
+      "code": "D04",
+      "slug": "d04-invoice",
+      "name": "Invoice",
+      "kind": "document",
+      "family": "production",
+      "variant": "b",
+      "stage": "Post-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Line Producer",
+        "Production Manager"
+      ],
+      "object": "Carbon-copy invoice pad, top sheet curling up",
+      "alt": "A carbon-copy pad with its top sheet curling up",
+      "preview": "Bill clearly and get paid. Itemised, numbered and ready to send.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d04-invoice.master.png",
+        "card": "/templates/d04-invoice-card.avif",
+        "cardFallback": "/templates/d04-invoice-card.webp",
+        "cardSmall": "/templates/d04-invoice-card-sm.webp",
+        "square": "/templates/d04-invoice-square.webp"
+      },
+      "icon": "receipt",
+      "keywords": [
+        "invoice",
+        "bill",
+        "billing",
+        "payment",
+        "pay",
+        "paid",
+        "fees"
+      ]
+    },
+    {
+      "code": "D05",
+      "slug": "d05-script-breakdown",
+      "name": "Script Breakdown",
+      "kind": "document",
+      "family": "production",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "1st Assistant Director",
+        "Script Supervisor"
+      ],
+      "object": "Brad-bound script with coloured index tabs",
+      "alt": "A brad-bound script with coloured tabs along its edge",
+      "preview": "Every scene broken into cast, props, wardrobe, locations and time.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d05-script-breakdown.master.png",
+        "card": "/templates/d05-script-breakdown-card.avif",
+        "cardFallback": "/templates/d05-script-breakdown-card.webp",
+        "cardSmall": "/templates/d05-script-breakdown-card-sm.webp",
+        "square": "/templates/d05-script-breakdown-square.webp"
+      },
+      "icon": "script",
+      "keywords": [
+        "script",
+        "breakdown",
+        "scenes",
+        "props",
+        "elements",
+        "schedule"
+      ]
+    },
+    {
+      "code": "D06",
+      "slug": "d06-shotlist",
+      "name": "Shotlist",
+      "kind": "document",
+      "family": "production",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Director",
+        "1st Assistant Director",
+        "Director of Photography"
+      ],
+      "object": "Director's viewfinder on a neck cord",
+      "alt": "A director's viewfinder hanging from a cord",
+      "preview": "Every frame in order, with lens, movement and coverage.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d06-shotlist.master.png",
+        "card": "/templates/d06-shotlist-card.avif",
+        "cardFallback": "/templates/d06-shotlist-card.webp",
+        "cardSmall": "/templates/d06-shotlist-card-sm.webp",
+        "square": "/templates/d06-shotlist-square.webp"
+      },
+      "icon": "viewfinder",
+      "keywords": [
+        "shot list",
+        "shots",
+        "coverage",
+        "frames",
+        "angles",
+        "lens"
+      ]
+    },
+    {
+      "code": "D07",
+      "slug": "d07-filming-notice",
+      "name": "Filming Notice",
+      "kind": "document",
+      "family": "production",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "1st Assistant Director",
+        "Production Manager",
+        "Location Manager"
+      ],
+      "object": "Small folding A-frame street sign, blank face",
+      "alt": "A small folding A-frame street sign",
+      "preview": "Tell neighbours and councils what's happening, where and when.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d07-filming-notice.master.png",
+        "card": "/templates/d07-filming-notice-card.avif",
+        "cardFallback": "/templates/d07-filming-notice-card.webp",
+        "cardSmall": "/templates/d07-filming-notice-card-sm.webp",
+        "square": "/templates/d07-filming-notice-square.webp"
+      },
+      "icon": "sign",
+      "keywords": [
+        "permit",
+        "notice",
+        "neighbours",
+        "council",
+        "location",
+        "street",
+        "filming"
+      ]
+    },
+    {
+      "code": "D08",
+      "slug": "d08-equipment-rental",
+      "name": "Equipment Rental",
+      "kind": "document",
+      "family": "production",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Production Manager",
+        "Director of Photography",
+        "Gaffer"
+      ],
+      "object": "Cine prime lens with a paper luggage tag",
+      "alt": "A cinema prime lens with a paper tag tied to it",
+      "preview": "What's booked, from whom, for which days, and what it costs.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d08-equipment-rental.master.png",
+        "card": "/templates/d08-equipment-rental-card.avif",
+        "cardFallback": "/templates/d08-equipment-rental-card.webp",
+        "cardSmall": "/templates/d08-equipment-rental-card-sm.webp",
+        "square": "/templates/d08-equipment-rental-square.webp"
+      },
+      "icon": "lens",
+      "keywords": [
+        "gear",
+        "equipment",
+        "rental",
+        "hire",
+        "kit",
+        "camera",
+        "lights"
+      ]
+    },
+    {
+      "code": "D09",
+      "slug": "d09-storyboard",
+      "name": "Storyboard",
+      "kind": "document",
+      "family": "production",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Director",
+        "Production Designer"
+      ],
+      "object": "Fan of three storyboard panel cards with abstract sketches",
+      "alt": "Three storyboard cards fanned out",
+      "preview": "The film frame by frame, before anyone picks up a camera.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d09-storyboard.master.png",
+        "card": "/templates/d09-storyboard-card.avif",
+        "cardFallback": "/templates/d09-storyboard-card.webp",
+        "cardSmall": "/templates/d09-storyboard-card-sm.webp",
+        "square": "/templates/d09-storyboard-square.webp"
+      },
+      "icon": "storyboard",
+      "keywords": [
+        "storyboard",
+        "frames",
+        "sketch",
+        "visualise",
+        "boards",
+        "animatic"
+      ]
+    },
+    {
+      "code": "D10",
+      "slug": "d10-av-script",
+      "name": "AV Script",
+      "kind": "document",
+      "family": "production",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Director"
+      ],
+      "object": "Open booklet: a frame on the left page, a waveform on the right",
+      "alt": "An open booklet with a picture frame on one page and a sound wave on the other",
+      "preview": "Picture and sound side by side, line by line.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d10-av-script.master.png",
+        "card": "/templates/d10-av-script-card.avif",
+        "cardFallback": "/templates/d10-av-script-card.webp",
+        "cardSmall": "/templates/d10-av-script-card-sm.webp",
+        "square": "/templates/d10-av-script-square.webp"
+      },
+      "icon": "wave",
+      "keywords": [
+        "av script",
+        "two column",
+        "voiceover",
+        "audio visual",
+        "commercial",
+        "ad script"
+      ]
+    },
+    {
+      "code": "D11",
+      "slug": "d11-series-bible",
+      "name": "Series Bible",
+      "kind": "document",
+      "family": "production",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Director",
+        "Executive Producer"
+      ],
+      "object": "Thick cloth hardback with a ribbon bookmark",
+      "alt": "A thick cloth-bound book with a ribbon bookmark",
+      "preview": "The world, the characters and the rules every episode follows.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d11-series-bible.master.png",
+        "card": "/templates/d11-series-bible-card.avif",
+        "cardFallback": "/templates/d11-series-bible-card.webp",
+        "cardSmall": "/templates/d11-series-bible-card-sm.webp",
+        "square": "/templates/d11-series-bible-square.webp"
+      },
+      "icon": "book",
+      "keywords": [
+        "series",
+        "bible",
+        "show",
+        "episodes",
+        "characters",
+        "world",
+        "pitch"
+      ]
+    },
+    {
+      "code": "D12",
+      "slug": "d12-casting-deck",
+      "name": "Casting Deck",
+      "kind": "document",
+      "family": "production",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Casting Director",
+        "Executive Producer",
+        "Talent Management Agency"
+      ],
+      "object": "Fan of unbranded instant-film prints",
+      "alt": "A fan of instant-film prints",
+      "preview": "Shortlisted talent, side by side, ready for the room.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d12-casting-deck.master.png",
+        "card": "/templates/d12-casting-deck-card.avif",
+        "cardFallback": "/templates/d12-casting-deck-card.webp",
+        "cardSmall": "/templates/d12-casting-deck-card-sm.webp",
+        "square": "/templates/d12-casting-deck-square.webp"
+      },
+      "icon": "polaroid",
+      "keywords": [
+        "casting",
+        "talent",
+        "actors",
+        "models",
+        "shortlist",
+        "auditions"
+      ]
+    },
+    {
+      "code": "D13",
+      "slug": "d13-continuity-log",
+      "name": "Continuity Log",
+      "kind": "document",
+      "family": "production",
+      "variant": "b",
+      "stage": "Production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Script Supervisor",
+        "Costume Designer"
+      ],
+      "object": "Spiral notebook with one instant print clipped to it",
+      "alt": "A spiral notebook with an instant print clipped to the cover",
+      "preview": "What was worn, held and said, take by take.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d13-continuity-log.master.png",
+        "card": "/templates/d13-continuity-log-card.avif",
+        "cardFallback": "/templates/d13-continuity-log-card.webp",
+        "cardSmall": "/templates/d13-continuity-log-card-sm.webp",
+        "square": "/templates/d13-continuity-log-square.webp"
+      },
+      "icon": "notebook",
+      "keywords": [
+        "continuity",
+        "wardrobe",
+        "props",
+        "takes",
+        "matching"
+      ]
+    },
+    {
+      "code": "D14",
+      "slug": "d14-shot-logging",
+      "name": "Shot Logging",
+      "kind": "document",
+      "family": "production",
+      "variant": "c",
+      "stage": "Production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Director of Photography",
+        "DIT"
+      ],
+      "object": "Clapperboard slate with blank chalk fields",
+      "alt": "A clapperboard slate with blank chalk fields",
+      "preview": "Every take logged: lens, settings, notes and circled selects.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d14-shot-logging.master.png",
+        "card": "/templates/d14-shot-logging-card.avif",
+        "cardFallback": "/templates/d14-shot-logging-card.webp",
+        "cardSmall": "/templates/d14-shot-logging-card-sm.webp",
+        "square": "/templates/d14-shot-logging-square.webp"
+      },
+      "icon": "clapper",
+      "keywords": [
+        "log",
+        "takes",
+        "slate",
+        "clapper",
+        "camera report",
+        "dailies"
+      ]
+    },
+    {
+      "code": "D15",
+      "slug": "d15-grwm",
+      "name": "GRWM",
+      "kind": "document",
+      "family": "creator",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Content Creator / Influencer"
+      ],
+      "object": "Open compact mirror",
+      "alt": "An open compact mirror",
+      "preview": "Get Ready With Me, planned beat by beat from mirror to door.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d15-grwm.master.png",
+        "card": "/templates/d15-grwm-card.avif",
+        "cardFallback": "/templates/d15-grwm-card.webp",
+        "cardSmall": "/templates/d15-grwm-card-sm.webp",
+        "square": "/templates/d15-grwm-square.webp"
+      },
+      "icon": "mirror",
+      "keywords": [
+        "grwm",
+        "get ready with me",
+        "makeup",
+        "beauty",
+        "outfit",
+        "routine",
+        "tiktok",
+        "reels"
+      ]
+    },
+    {
+      "code": "D16",
+      "slug": "d16-explainer",
+      "name": "Explainer",
+      "kind": "document",
+      "family": "creator",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Content Creator / Influencer",
+        "UGC Creator"
+      ],
+      "object": "Small easel with a flip chart",
+      "alt": "A small easel holding a flip chart",
+      "preview": "One idea, explained clearly in under a minute.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d16-explainer.master.png",
+        "card": "/templates/d16-explainer-card.avif",
+        "cardFallback": "/templates/d16-explainer-card.webp",
+        "cardSmall": "/templates/d16-explainer-card-sm.webp",
+        "square": "/templates/d16-explainer-square.webp"
+      },
+      "icon": "easel",
+      "keywords": [
+        "explainer",
+        "explain",
+        "how it works",
+        "educational",
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "code": "D17",
+      "slug": "d17-day-in-my-life",
+      "name": "Day in My Life",
+      "kind": "document",
+      "family": "creator",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Content Creator / Influencer"
+      ],
+      "object": "Twin-bell alarm clock",
+      "alt": "A twin-bell alarm clock",
+      "preview": "A day told in moments, from alarm to lights out.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d17-day-in-my-life.master.png",
+        "card": "/templates/d17-day-in-my-life-card.avif",
+        "cardFallback": "/templates/d17-day-in-my-life-card.webp",
+        "cardSmall": "/templates/d17-day-in-my-life-card-sm.webp",
+        "square": "/templates/d17-day-in-my-life-square.webp"
+      },
+      "icon": "clock",
+      "keywords": [
+        "day in my life",
+        "vlog",
+        "routine",
+        "diary",
+        "lifestyle"
+      ]
+    },
+    {
+      "code": "D18",
+      "slug": "d18-tutorial",
+      "name": "Tutorial",
+      "kind": "document",
+      "family": "creator",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Content Creator / Influencer",
+        "UGC Creator"
+      ],
+      "object": "Three stacked numbered blocks (numerals as shapes, no type)",
+      "alt": "Three stacked blocks marked one, two and three",
+      "preview": "Step by step, so anyone can follow along.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d18-tutorial.master.png",
+        "card": "/templates/d18-tutorial-card.avif",
+        "cardFallback": "/templates/d18-tutorial-card.webp",
+        "cardSmall": "/templates/d18-tutorial-card-sm.webp",
+        "square": "/templates/d18-tutorial-square.webp"
+      },
+      "icon": "steps",
+      "keywords": [
+        "tutorial",
+        "how to",
+        "step by step",
+        "guide",
+        "lesson",
+        "youtube"
+      ]
+    },
+    {
+      "code": "D19",
+      "slug": "d19-storytime",
+      "name": "Storytime",
+      "kind": "document",
+      "family": "creator",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Content Creator / Influencer"
+      ],
+      "object": "Vintage ribbon microphone",
+      "alt": "A vintage ribbon microphone",
+      "preview": "A story told straight to camera, with a hook, a turn and a payoff.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d19-storytime.master.png",
+        "card": "/templates/d19-storytime-card.avif",
+        "cardFallback": "/templates/d19-storytime-card.webp",
+        "cardSmall": "/templates/d19-storytime-card-sm.webp",
+        "square": "/templates/d19-storytime-square.webp"
+      },
+      "icon": "mic",
+      "keywords": [
+        "storytime",
+        "story",
+        "talking head",
+        "anecdote",
+        "podcast"
+      ]
+    },
+    {
+      "code": "D20",
+      "slug": "d20-product-review",
+      "name": "Product Review",
+      "kind": "document",
+      "family": "creator",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "UGC Creator"
+      ],
+      "object": "Magnifying glass over a small unlabelled bottle",
+      "alt": "A magnifying glass held over a small unlabelled bottle",
+      "preview": "An honest look at one product, to the brand's brief.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d20-product-review.master.png",
+        "card": "/templates/d20-product-review-card.avif",
+        "cardFallback": "/templates/d20-product-review-card.webp",
+        "cardSmall": "/templates/d20-product-review-card-sm.webp",
+        "square": "/templates/d20-product-review-square.webp"
+      },
+      "icon": "magnifier",
+      "keywords": [
+        "review",
+        "product",
+        "ugc",
+        "brand",
+        "testimonial"
+      ]
+    },
+    {
+      "code": "D21",
+      "slug": "d21-haul-unboxing",
+      "name": "Haul / Unboxing",
+      "kind": "document",
+      "family": "creator",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "UGC Creator"
+      ],
+      "object": "Open shipping box with tissue paper spilling out",
+      "alt": "An open shipping box with tissue paper spilling out",
+      "preview": "The reveal, paced for the first open.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d21-haul-unboxing.master.png",
+        "card": "/templates/d21-haul-unboxing-card.avif",
+        "cardFallback": "/templates/d21-haul-unboxing-card.webp",
+        "cardSmall": "/templates/d21-haul-unboxing-card-sm.webp",
+        "square": "/templates/d21-haul-unboxing-square.webp"
+      },
+      "icon": "box",
+      "keywords": [
+        "haul",
+        "unboxing",
+        "unbox",
+        "shopping",
+        "ugc",
+        "package"
+      ]
+    },
+    {
+      "code": "D22",
+      "slug": "d22-content-guideline",
+      "name": "Content Guideline",
+      "kind": "document",
+      "family": "creator",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "Social Media Manager",
+        "Brand Manager / Marketing Director"
+      ],
+      "object": "Folded guide booklet with a colour swatch strip",
+      "alt": "A folded booklet with a strip of colour swatches",
+      "preview": "The rules of the brand's voice and look, for everyone posting.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d22-content-guideline.master.png",
+        "card": "/templates/d22-content-guideline-card.avif",
+        "cardFallback": "/templates/d22-content-guideline-card.webp",
+        "cardSmall": "/templates/d22-content-guideline-card-sm.webp",
+        "square": "/templates/d22-content-guideline-square.webp"
+      },
+      "icon": "swatch",
+      "keywords": [
+        "brand guidelines",
+        "brand",
+        "guidelines",
+        "tone of voice",
+        "style guide",
+        "social"
+      ]
+    },
+    {
+      "code": "D23",
+      "slug": "d23-press-junket-brief",
+      "name": "Press Junket Brief",
+      "kind": "document",
+      "family": "enterprise",
+      "variant": "a",
+      "stage": "Post-production",
+      "label": "New template",
+      "status": "designed",
+      "icps": [
+        "PR / Communications Agency",
+        "Publicist / Unit Publicist"
+      ],
+      "object": "Press pass on a lanyard, blank card",
+      "alt": "A blank press pass on a lanyard",
+      "preview": "Who's talking to whom, when, and what's on and off the record.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d23-press-junket-brief.master.png",
+        "card": "/templates/d23-press-junket-brief-card.avif",
+        "cardFallback": "/templates/d23-press-junket-brief-card.webp",
+        "cardSmall": "/templates/d23-press-junket-brief-card-sm.webp",
+        "square": "/templates/d23-press-junket-brief-square.webp"
+      },
+      "icon": "badge",
+      "keywords": [
+        "press",
+        "junket",
+        "pr",
+        "interviews",
+        "media",
+        "publicity",
+        "premiere"
+      ]
+    },
+    {
+      "code": "G01",
+      "slug": "g01-lighting-plot",
+      "name": "Lighting Plot",
+      "kind": "document",
+      "family": "camera",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Director of Photography",
+        "Gaffer"
+      ],
+      "object": "Fresnel lamp",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "lamp",
+      "keywords": [
+        "lighting",
+        "lights",
+        "plot",
+        "gaffer",
+        "rig"
+      ]
+    },
+    {
+      "code": "G02",
+      "slug": "g02-power-distribution",
+      "name": "Power Distribution",
+      "kind": "document",
+      "family": "camera",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Gaffer"
+      ],
+      "object": "Cable reel",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "plug",
+      "keywords": [
+        "power",
+        "electric",
+        "distro",
+        "generator"
+      ]
+    },
+    {
+      "code": "G03",
+      "slug": "g03-camera-package-list",
+      "name": "Camera Package List",
+      "kind": "document",
+      "family": "camera",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Director of Photography"
+      ],
+      "object": "Generic cine camera body (invented form)",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "camera",
+      "keywords": [
+        "camera",
+        "package",
+        "lenses",
+        "gear list"
+      ]
+    },
+    {
+      "code": "G04",
+      "slug": "g04-content-calendar",
+      "name": "Content Calendar",
+      "kind": "document",
+      "family": "creator",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Social Media Manager",
+        "Content Creator / Influencer"
+      ],
+      "object": "Flip desk calendar",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "calendar",
+      "keywords": [
+        "content calendar",
+        "posting",
+        "schedule",
+        "social",
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "code": "G05",
+      "slug": "g05-social-media-brief",
+      "name": "Social Media Brief",
+      "kind": "document",
+      "family": "creator",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Social Media Manager"
+      ],
+      "object": "Tabletop tripod with an empty phone clamp",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "phone",
+      "keywords": [
+        "social",
+        "brief",
+        "instagram",
+        "tiktok",
+        "campaign",
+        "posts"
+      ]
+    },
+    {
+      "code": "G06",
+      "slug": "g06-brand-deal-tracker",
+      "name": "Brand Deal Tracker",
+      "kind": "document",
+      "family": "creator",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Content Creator / Influencer"
+      ],
+      "object": "Paper swing tag on string",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "tag",
+      "keywords": [
+        "brand deal",
+        "sponsorship",
+        "partnership",
+        "collab",
+        "influencer"
+      ]
+    },
+    {
+      "code": "G07",
+      "slug": "g07-edit-decision-list",
+      "name": "Edit Decision List",
+      "kind": "document",
+      "family": "post",
+      "variant": "a",
+      "stage": "Post-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Editor (Film / Video)"
+      ],
+      "object": "Film splicer",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "splice",
+      "keywords": [
+        "edit",
+        "edl",
+        "cut",
+        "editor",
+        "timeline"
+      ]
+    },
+    {
+      "code": "G08",
+      "slug": "g08-post-schedule",
+      "name": "Post Schedule",
+      "kind": "document",
+      "family": "post",
+      "variant": "b",
+      "stage": "Post-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Editor (Film / Video)"
+      ],
+      "object": "Wall planner strip",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "planner",
+      "keywords": [
+        "post schedule",
+        "post-production",
+        "deadlines",
+        "delivery"
+      ]
+    },
+    {
+      "code": "G09",
+      "slug": "g09-color-brief",
+      "name": "Color Brief",
+      "kind": "document",
+      "family": "post",
+      "variant": "c",
+      "stage": "Post-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Colorist"
+      ],
+      "object": "Grading trackball",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "trackball",
+      "keywords": [
+        "color",
+        "colour",
+        "grade",
+        "grading",
+        "lut",
+        "look"
+      ]
+    },
+    {
+      "code": "G10",
+      "slug": "g10-vfx-breakdown",
+      "name": "VFX Breakdown",
+      "kind": "document",
+      "family": "post",
+      "variant": "a",
+      "stage": "Post-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "VFX Supervisor"
+      ],
+      "object": "Chrome ball and grey ball pair",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "sphere",
+      "keywords": [
+        "vfx",
+        "visual effects",
+        "cgi",
+        "green screen",
+        "comp"
+      ]
+    },
+    {
+      "code": "G11",
+      "slug": "g11-sound-spotting",
+      "name": "Sound Spotting",
+      "kind": "document",
+      "family": "post",
+      "variant": "b",
+      "stage": "Post-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Sound Designer / Mixer"
+      ],
+      "object": "Studio headphones",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "headphones",
+      "keywords": [
+        "sound",
+        "audio",
+        "spotting",
+        "mix",
+        "foley"
+      ]
+    },
+    {
+      "code": "G12",
+      "slug": "g12-cue-sheet",
+      "name": "Cue Sheet",
+      "kind": "document",
+      "family": "post",
+      "variant": "c",
+      "stage": "Post-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Sound Designer / Mixer",
+        "Music Supervisor"
+      ],
+      "object": "Sheet-music page on a stand",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "music",
+      "keywords": [
+        "music",
+        "cue sheet",
+        "licensing",
+        "score",
+        "songs"
+      ]
+    },
+    {
+      "code": "G13",
+      "slug": "g13-motion-brief",
+      "name": "Motion Brief",
+      "kind": "document",
+      "family": "post",
+      "variant": "a",
+      "stage": "Post-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Motion Designer"
+      ],
+      "object": "Zoetrope",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "zoetrope",
+      "keywords": [
+        "motion",
+        "animation",
+        "titles",
+        "graphics",
+        "after effects"
+      ]
+    },
+    {
+      "code": "G14",
+      "slug": "g14-photo-brief",
+      "name": "Photo Brief",
+      "kind": "document",
+      "family": "photo",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Photographer"
+      ],
+      "object": "Medium-format camera (invented form)",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "camera",
+      "keywords": [
+        "photo",
+        "photography",
+        "photoshoot",
+        "brief",
+        "stills"
+      ]
+    },
+    {
+      "code": "G15",
+      "slug": "g15-contact-sheet",
+      "name": "Contact Sheet",
+      "kind": "document",
+      "family": "photo",
+      "variant": "b",
+      "stage": "Post-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Photographer"
+      ],
+      "object": "Loupe on a contact sheet",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "polaroid",
+      "keywords": [
+        "contact sheet",
+        "selects",
+        "proofs",
+        "photo",
+        "edit"
+      ]
+    },
+    {
+      "code": "G16",
+      "slug": "g16-shot-list-photo",
+      "name": "Shot List (Photo)",
+      "kind": "document",
+      "family": "photo",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Photographer"
+      ],
+      "object": "Handheld light meter",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "viewfinder",
+      "keywords": [
+        "photo",
+        "shot list",
+        "stills",
+        "shots"
+      ]
+    },
+    {
+      "code": "G17",
+      "slug": "g17-usage-license",
+      "name": "Usage License",
+      "kind": "document",
+      "family": "photo",
+      "variant": "a",
+      "stage": "Post-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Photographer"
+      ],
+      "object": "Embossed seal on a certificate",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "seal",
+      "keywords": [
+        "usage",
+        "license",
+        "licence",
+        "rights",
+        "photo"
+      ]
+    },
+    {
+      "code": "G18",
+      "slug": "g18-event-brief",
+      "name": "Event Brief",
+      "kind": "document",
+      "family": "photo",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Event / Press Photographer"
+      ],
+      "object": "Hot-shoe flash",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "flash",
+      "keywords": [
+        "event",
+        "press",
+        "red carpet",
+        "wedding",
+        "coverage"
+      ]
+    },
+    {
+      "code": "G19",
+      "slug": "g19-design-bible",
+      "name": "Design Bible",
+      "kind": "document",
+      "family": "craft",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Production Designer"
+      ],
+      "object": "Fanned swatch book",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "swatch",
+      "keywords": [
+        "production design",
+        "art department",
+        "palette",
+        "world",
+        "sets"
+      ]
+    },
+    {
+      "code": "G20",
+      "slug": "g20-set-drawing",
+      "name": "Set Drawing",
+      "kind": "document",
+      "family": "craft",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Production Designer"
+      ],
+      "object": "Drafting triangle and scale rule",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "ruler",
+      "keywords": [
+        "set",
+        "drawing",
+        "plan",
+        "construction",
+        "art department"
+      ]
+    },
+    {
+      "code": "G21",
+      "slug": "g21-prop-list",
+      "name": "Prop List",
+      "kind": "document",
+      "family": "craft",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Production Designer"
+      ],
+      "object": "Tagged rotary phone",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "rotary",
+      "keywords": [
+        "props",
+        "prop list",
+        "art department",
+        "set dressing"
+      ]
+    },
+    {
+      "code": "G22",
+      "slug": "g22-costume-breakdown",
+      "name": "Costume Breakdown",
+      "kind": "document",
+      "family": "craft",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Costume Designer"
+      ],
+      "object": "Dress form",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "hanger",
+      "keywords": [
+        "costume",
+        "wardrobe",
+        "characters",
+        "fittings"
+      ]
+    },
+    {
+      "code": "G23",
+      "slug": "g23-makeup-sheet",
+      "name": "Makeup Sheet",
+      "kind": "document",
+      "family": "craft",
+      "variant": "b",
+      "stage": "Production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Makeup Artist (MUA)"
+      ],
+      "object": "Brush on a pigment palette",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "brush",
+      "keywords": [
+        "makeup",
+        "mua",
+        "beauty",
+        "looks",
+        "hair"
+      ]
+    },
+    {
+      "code": "G24",
+      "slug": "g24-pull-sheet",
+      "name": "Pull Sheet",
+      "kind": "document",
+      "family": "craft",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Stylist"
+      ],
+      "object": "Garment on a hanger with a pull tag",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "hanger",
+      "keywords": [
+        "pull",
+        "pulls",
+        "stylist",
+        "fashion",
+        "showroom",
+        "returns",
+        "wardrobe"
+      ]
+    },
+    {
+      "code": "G25",
+      "slug": "g25-contract-template",
+      "name": "Contract Template",
+      "kind": "document",
+      "family": "enterprise",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Entertainment Lawyer"
+      ],
+      "object": "Fountain pen",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "pen",
+      "keywords": [
+        "contract",
+        "legal",
+        "agreement",
+        "terms"
+      ]
+    },
+    {
+      "code": "G26",
+      "slug": "g26-deal-memo",
+      "name": "Deal Memo",
+      "kind": "document",
+      "family": "enterprise",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Entertainment Lawyer",
+        "Talent Management Agency"
+      ],
+      "object": "Folded memo with a bulldog clip",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "memo",
+      "keywords": [
+        "deal memo",
+        "deal",
+        "terms",
+        "crew deal",
+        "legal"
+      ]
+    },
+    {
+      "code": "G27",
+      "slug": "g27-rights-tracker",
+      "name": "Rights Tracker",
+      "kind": "document",
+      "family": "enterprise",
+      "variant": "a",
+      "stage": "Post-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Entertainment Lawyer"
+      ],
+      "object": "Rubber stamp",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "stamp",
+      "keywords": [
+        "rights",
+        "clearances",
+        "licensing",
+        "ip",
+        "legal"
+      ]
+    },
+    {
+      "code": "G28",
+      "slug": "g28-nda",
+      "name": "NDA",
+      "kind": "document",
+      "family": "enterprise",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Entertainment Lawyer"
+      ],
+      "object": "Sealed envelope",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "envelope",
+      "keywords": [
+        "nda",
+        "confidential",
+        "non-disclosure",
+        "legal"
+      ]
+    },
+    {
+      "code": "G29",
+      "slug": "g29-submission-tracker",
+      "name": "Submission Tracker",
+      "kind": "document",
+      "family": "performance",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Talent Agent"
+      ],
+      "object": "Headshot in a folder",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "folder",
+      "keywords": [
+        "submissions",
+        "talent",
+        "agent",
+        "auditions"
+      ]
+    },
+    {
+      "code": "G30",
+      "slug": "g30-availability-calendar",
+      "name": "Availability Calendar",
+      "kind": "document",
+      "family": "performance",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Talent Agent",
+        "Talent Management Agency"
+      ],
+      "object": "Flip calendar with a ring",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "calendar",
+      "keywords": [
+        "availability",
+        "holds",
+        "talent",
+        "bookings",
+        "dates"
+      ]
+    },
+    {
+      "code": "G31",
+      "slug": "g31-deal-log",
+      "name": "Deal Log",
+      "kind": "document",
+      "family": "performance",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "In design",
+      "status": "gap",
+      "icps": [
+        "Talent Agent"
+      ],
+      "object": "Ledger book",
+      "alt": null,
+      "preview": null,
+      "thumbnail": null,
+      "icon": "book",
+      "keywords": [
+        "deals",
+        "bookings",
+        "fees",
+        "talent",
+        "agent"
+      ]
+    }
+  ],
+  "familyLabels": {
+    "production": "Production & Direction",
+    "creator": "Creator & Content",
+    "camera": "Camera & On-Set",
+    "post": "Post-Production",
+    "photo": "Photography",
+    "craft": "Design, Styling & Craft",
+    "enterprise": "Enterprise, Brand & PR",
+    "performance": "Talent & Performance"
+  }
+}
