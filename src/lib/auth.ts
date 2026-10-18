@@ -1,6 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { redirect } from "next/navigation";
+import { connection } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
 export type CurrentUser = {
@@ -15,6 +16,8 @@ export type CurrentUser = {
 // components call it. Must be called inside a <Suspense> boundary because it
 // reads cookies.
 export const getCurrentUser = cache(async (): Promise<CurrentUser> => {
+  // Supabase checks token expiry with Date.now(), so keep this out of the prerendered shell.
+  await connection();
   const supabase = await createClient();
   const {
     data: { user },

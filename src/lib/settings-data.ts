@@ -1,5 +1,6 @@
 import "server-only";
 import { redirect } from "next/navigation";
+import { connection } from "next/server";
 import type { UserIdentity } from "@supabase/supabase-js";
 
 import { createClient } from "@/lib/supabase/server";
@@ -9,6 +10,8 @@ import type { GeneralSettings, ProfileSettings } from "@/lib/settings";
 // Row Level Security limits every query to the signed-in user's own rows.
 
 async function requireUser() {
+  // Supabase checks token expiry with Date.now(), so keep this out of the prerendered shell.
+  await connection();
   const supabase = await createClient();
   const {
     data: { user },
