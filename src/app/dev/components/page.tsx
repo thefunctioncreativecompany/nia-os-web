@@ -11,6 +11,14 @@ import { MenusSection, ModalsSection, SheetsSection } from "./_sections/overlays
 import { AlertsSection, FormsSection, NotificationsSection, PickersSection } from "./_sections/feedback";
 import { DialogsSection, ListsSection, ProgressSection, SearchSection } from "./_sections/lists";
 import { AdvancedPickersSection, InboxSection, MediaSection, TablesSection } from "./_sections/media";
+import {
+  AdvancedTabsSection,
+  ChartsSection,
+  ExportSection,
+  MapSection,
+  PanelsSection,
+  PreviewSection,
+} from "./_sections/data";
 
 export const metadata: Metadata = {
   title: "Component library · Nia OS",
@@ -38,6 +46,12 @@ const SECTIONS = [
   { id: "media", label: "17. Gallery / Media" },
   { id: "tables", label: "18. Tables" },
   { id: "inbox", label: "19. Inbox & Notifications" },
+  { id: "charts", label: "20. Charts & Data" },
+  { id: "map", label: "21. Map View" },
+  { id: "advanced-tabs", label: "22. Tabs: Advanced" },
+  { id: "panels", label: "23. Sheets & Panels" },
+  { id: "export", label: "24. Export Document" },
+  { id: "preview", label: "25. Preview Panel" },
 ];
 
 // Every component and variant, side by side for comparing with the nOS Design System
@@ -90,6 +104,12 @@ export default function Page() {
           <MediaSection />
           <TablesSection />
           <InboxSection />
+          <ChartsSection />
+          <MapSection />
+          <AdvancedTabsSection />
+          <PanelsSection />
+          <ExportSection />
+          <PreviewSection />
         </main>
       </div>
     </div>

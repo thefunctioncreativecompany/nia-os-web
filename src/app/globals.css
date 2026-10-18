@@ -144,11 +144,12 @@
   --border: #e2e2e2;
   --input: #e2e2e2;
   --ring: #9c9b96;
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  /* nOS Design System Section 20: ink, teal accent, rust, track grey, muted. */
+  --chart-1: #1a1a1a;
+  --chart-2: #0b7a75;
+  --chart-3: #92400e;
+  --chart-4: #e2e2e2;
+  --chart-5: #73726c;
   /* 12px: cards and auth inputs. The scale below hits Figma's 6/8/12/16/22px. */
   --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
