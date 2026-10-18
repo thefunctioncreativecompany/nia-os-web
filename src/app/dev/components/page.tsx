@@ -19,6 +19,13 @@ import {
   PanelsSection,
   PreviewSection,
 } from "./_sections/data";
+import {
+  CardsSection,
+  CastCrewSection,
+  NavigationSection,
+  ProjectModalsSection,
+  TemplatesSection,
+} from "./_sections/patterns";
 
 export const metadata: Metadata = {
   title: "Component library · Nia OS",
@@ -52,6 +59,11 @@ const SECTIONS = [
   { id: "panels", label: "23. Sheets & Panels" },
   { id: "export", label: "24. Export Document" },
   { id: "preview", label: "25. Preview Panel" },
+  { id: "navigation", label: "26. Navigation & Account" },
+  { id: "cast-crew", label: "27. Cast & Crew" },
+  { id: "cards", label: "28. Cards & Forms" },
+  { id: "templates", label: "29. Templates & Explore" },
+  { id: "project-modals", label: "30. Project Modals" },
 ];
 
 // Every component and variant, side by side for comparing with the nOS Design System
@@ -110,6 +122,11 @@ export default function Page() {
           <PanelsSection />
           <ExportSection />
           <PreviewSection />
+          <NavigationSection />
+          <CastCrewSection />
+          <CardsSection />
+          <TemplatesSection />
+          <ProjectModalsSection />
         </main>
       </div>
     </div>
