@@ -29,14 +29,14 @@ export function SignUpForm() {
         options: {
           // Shown in the sidebar and profile settings.
           data: { full_name: name.trim() },
-          emailRedirectTo: `${window.location.origin}/auth/confirm?next=/dashboard`,
+          emailRedirectTo: `${window.location.origin}/auth/confirm?next=/home`,
         },
       })
       if (error) throw error
       // No session means Supabase wants the email confirmed first.
       router.push(
         data.session
-          ? '/dashboard'
+          ? '/home'
           : `/check-email?type=signup&email=${encodeURIComponent(email)}`
       )
     } catch (error: unknown) {

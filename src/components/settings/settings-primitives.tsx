@@ -40,7 +40,7 @@ export function SettingsToggleRow({
         size="lg"
         checked={checked}
         onCheckedChange={onCheckedChange}
-        className="data-checked:bg-primary data-unchecked:bg-border [&_[data-slot=switch-thumb]]:bg-[#fbfbfa]"
+        className="data-checked:bg-primary data-unchecked:bg-border [&_[data-slot=switch-thumb]]:bg-nia-surface"
       />
     </div>
   );

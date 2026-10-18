@@ -30,7 +30,7 @@ export function LoginForm() {
       if (error) throw error
       // Send them back where they were going, if a protected page sent them here.
       const next = new URLSearchParams(window.location.search).get('next')
-      router.push(safeNextPath(next, '/dashboard'))
+      router.push(safeNextPath(next, '/home'))
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : 'An error occurred')
       setIsLoading(false)

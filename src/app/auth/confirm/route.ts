@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
   const type = searchParams.get('type') as EmailOtpType | null
   const _next = searchParams.get('next')
   // Only allow redirects within this site.
-  const next = safeNextPath(_next, '/dashboard', origin)
+  const next = safeNextPath(_next, '/home', origin)
 
   // Supabase sends people back with an error when a link is expired or used.
   const linkError = searchParams.get('error_description')

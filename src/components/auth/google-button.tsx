@@ -17,7 +17,7 @@ export function GoogleButton() {
     setIsLoading(true);
     const next = safeNextPath(
       new URLSearchParams(window.location.search).get("next"),
-      "/dashboard",
+      "/home",
     );
     const { error } = await createClient().auth.signInWithOAuth({
       provider: "google",

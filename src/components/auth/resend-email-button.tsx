@@ -28,7 +28,7 @@ export function ResendEmailButton({
         ? await supabase.auth.resend({
             type: "signup",
             email,
-            options: { emailRedirectTo: `${origin}/auth/confirm?next=/dashboard` },
+            options: { emailRedirectTo: `${origin}/auth/confirm?next=/home` },
           })
         : await supabase.auth.resetPasswordForEmail(email, {
             redirectTo: `${origin}/auth/confirm?next=/reset-password`,

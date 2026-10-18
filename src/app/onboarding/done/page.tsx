@@ -24,7 +24,7 @@ export default function Page() {
         </div>
         <div className="flex w-full flex-col gap-3">
           <Button asChild className="w-full">
-            <Link href="/dashboard">Go to Dashboard</Link>
+            <Link href="/home">Go to Dashboard</Link>
           </Button>
           {/* Templates aren't built yet. */}
           <Button

@@ -76,9 +76,9 @@ Data:
 - Sessions: start with "Read CLAUDE.md and tell me where we left off"; end by updating Progress,
   then commit and push.
 - Live site: https://nia-os-web-9ahh.vercel.app (production deploys from `main`, ~1 minute).
-- Test account: credentials in `.env.local` as `TEST_USER_EMAIL` / `TEST_USER_PASSWORD`; sign in with
-  them in headless Chrome to verify signed-in screens. A second test account is still needed for the
-  isolation check (until then, isolation is checked by querying as the test account).
+- Test accounts: credentials in `.env.local` as `TEST_USER_EMAIL` / `TEST_USER_PASSWORD` and
+  `TEST_USER2_EMAIL` / `TEST_USER2_PASSWORD`; sign in with them in headless Chrome (turn on focus
+  emulation for inputs) and with supabase-js to verify access rules between accounts.
 - Supabase URL Configuration: Site URL `https://nia-os-web-9ahh.vercel.app`; Redirect URLs exactly
   `https://nia-os-web-9ahh.vercel.app/**` and `http://localhost:3000/**`. Never use
   `*-nia-technologies.vercel.app` URLs (Vercel-protected, shows a login wall).
@@ -121,15 +121,34 @@ Milestone 1 — Accounts
 - [x] 1.2 Password recovery: forgot password, check your email (opens the user's web inbox), new password.
 - [ ] 1.3 Make auth real. Working: email/password, Google, password reset, `profiles`,
   `user_settings`, `workspaces`, `workspace_members`, `workspace_invites` with RLS; new users →
-  onboarding (proxy), logged-out → `/login`. To do: returning users → `/home` (rename from
-  `/dashboard`), create the personal workspace at sign-up (today it's made in onboarding), soft deletes.
+  onboarding (proxy), returning users → `/home` (`/dashboard` redirects), logged-out → `/login`,
+  the bare domain routes by sign-in state. Each account gets "My workspace" on its first project
+  (`my_workspace_id()`), not at sign-up. Projects soft-delete (`deleted_at`).
 - [ ] 1.4 Onboarding. Built as all 9 Figma screens under `/onboarding/*`, saving each step, tested end
   to end locally and live. To do: trim per Decisions above.
 
-Milestone 2 — Projects
-- [ ] 2.1 App shell. Partly built: Figma top navbar with profile menu (Settings, Log out); other tabs
-  disabled.
-- [ ] 2.2–2.5 Not started.
+Milestone 2 — Projects (built from Figma sections 778-2218, 872-42448, 840-26959; Ika chose to do
+these before 0.5)
+- [ ] 2.1 App shell. Navbar: Home and Projects live, Templates/Explore/Inbox "coming soon", search box
+  searches project titles, + opens New Project, profile menu (Settings, Log out). Tabs sit in a
+  Suspense boundary (the active tab depends on the address).
+- [ ] 2.2 Projects list + New Project. Done: `/projects` grid + empty state, search (`?q=`), Create New
+  Project dialog (Blank; From Template disabled), New Blank Project form (name, description, cover,
+  genre, production type). To do: sort (not in Figma), ProjectCard type chip / next shoot date /
+  no-cover gradient (not in Figma), Explore and template rows (later milestones).
+- [ ] 2.3 Project page. Done: `/projects/[id]` with inline-edited title, description, Production Info
+  (auto-save + SavedIndicator), cover change, Edit Project Details (type, stage), Share (invite by
+  email as Can view / Can edit, change role, remove, view-only link at `/share/[token]`), Delete
+  (soft, owner only), Project Overview, Recent Activity. Viewers get a read-only page. To do:
+  Documents list (Milestone 3), Team Members section, Export (3.4), References (2.4). Invites are
+  stored and auto-accepted on sign-up; no invitation emails yet (Resend, 6.1).
+- [ ] 2.4 Reference board. Not started.
+- [ ] 2.5 Home. Done: `/home` welcome, template row (coming soon), Recent Projects, Recent Activity,
+  Upcoming Schedule (empty state), Quick Actions (New Project; Browse Templates / Import Files coming
+  soon). No stat cards (Ika's call). To do: Next shoot hero + Needs you (need Figma, Milestone 4),
+  "Complete your profile" card.
+- Tested with two accounts: 32 database checks (access, sharing, roles, link, invites, storage, soft
+  delete) and a browser run of create → edit → refresh → share → link → viewer → delete.
 
 Milestone 3 — Documents: not started.
 
@@ -144,4 +163,4 @@ Milestone 6 — Share & launch
 - [ ] Everything else not started.
 
 Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
-`20261019000000_onboarding.sql`, `20261019010000_avatar_cleanup.sql`.
+`20261019000000_onboarding.sql`, `20261019010000_avatar_cleanup.sql`, `20261020000000_projects.sql`.

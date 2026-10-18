@@ -3,9 +3,9 @@ import type { JwtPayload } from "@supabase/supabase-js";
 import { NextResponse, type NextRequest } from "next/server";
 
 // Pages that only signed-in users can open.
-const PROTECTED_PATHS = ["/dashboard", "/settings", "/onboarding"];
+const PROTECTED_PATHS = ["/home", "/projects", "/settings", "/onboarding"];
 // Pages new users can't reach until they finish onboarding.
-const APP_PATHS = ["/dashboard", "/settings"];
+const APP_PATHS = ["/home", "/projects", "/settings"];
 
 const matches = (pathname: string, paths: string[]) =>
   paths.some((path) => pathname === path || pathname.startsWith(`${path}/`));
@@ -60,7 +60,7 @@ export async function updateSession(request: NextRequest) {
   // The bare domain has no page of its own: send people to the right place.
   if (pathname === "/") {
     if (!data?.claims) return redirectTo("/login");
-    return redirectTo((await isOnboarded(supabase, data.claims)) ? "/dashboard" : "/onboarding/source");
+    return redirectTo((await isOnboarded(supabase, data.claims)) ? "/home" : "/onboarding/source");
   }
 
   if (!data?.claims && matches(pathname, PROTECTED_PATHS)) {
