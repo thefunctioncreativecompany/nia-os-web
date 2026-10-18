@@ -47,24 +47,29 @@ export async function updateSession(request: NextRequest) {
   const { data } = await supabase.auth.getClaims();
 
   const { pathname, search } = request.nextUrl;
-  if (!data?.claims && matches(pathname, PROTECTED_PATHS)) {
-    const loginUrl = request.nextUrl.clone();
-    loginUrl.pathname = "/login";
-    // Remember where they were going, so sign-in can send them back.
-    loginUrl.search = `?next=${encodeURIComponent(pathname + search)}`;
-    const redirect = NextResponse.redirect(loginUrl);
+  const redirectTo = (path: string, query = "") => {
+    const url = request.nextUrl.clone();
+    url.pathname = path;
+    url.search = query;
+    const redirect = NextResponse.redirect(url);
     // Keep any refreshed session cookies.
     response.cookies.getAll().forEach((cookie) => redirect.cookies.set(cookie));
     return redirect;
+  };
+
+  // The bare domain has no page of its own: send people to the right place.
+  if (pathname === "/") {
+    if (!data?.claims) return redirectTo("/login");
+    return redirectTo((await isOnboarded(supabase, data.claims)) ? "/dashboard" : "/onboarding/source");
+  }
+
+  if (!data?.claims && matches(pathname, PROTECTED_PATHS)) {
+    // Remember where they were going, so sign-in can send them back.
+    return redirectTo("/login", `?next=${encodeURIComponent(pathname + search)}`);
   }
 
   if (data?.claims && matches(pathname, APP_PATHS) && !(await isOnboarded(supabase, data.claims))) {
-    const onboardingUrl = request.nextUrl.clone();
-    onboardingUrl.pathname = "/onboarding/source";
-    onboardingUrl.search = "";
-    const redirect = NextResponse.redirect(onboardingUrl);
-    response.cookies.getAll().forEach((cookie) => redirect.cookies.set(cookie));
-    return redirect;
+    return redirectTo("/onboarding/source");
   }
 
   return response;
