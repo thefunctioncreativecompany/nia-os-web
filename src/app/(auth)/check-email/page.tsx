@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 // with the address in ?email=.
 export default function Page({ searchParams }: PageProps<"/check-email">) {
   return (
-    <AuthLayout caption="Director's Monitor, Pre-Production (2026)" crop="recovery">
+    <AuthLayout>
       <Suspense fallback={<CheckEmail email={null} type="recovery" />}>
         <CheckEmailFromParams searchParams={searchParams} />
       </Suspense>

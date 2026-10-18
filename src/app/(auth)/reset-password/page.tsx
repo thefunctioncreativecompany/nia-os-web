@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <AuthLayout caption="Camera Prep, Lighting Setup (2026)" crop="recovery">
+    <AuthLayout>
       <UpdatePasswordForm />
     </AuthLayout>
   );

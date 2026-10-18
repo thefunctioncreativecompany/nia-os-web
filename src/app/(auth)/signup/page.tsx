@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <AuthLayout caption="Behind the Scenes, Production Design (2026)">
+    <AuthLayout>
       <SignUpForm />
     </AuthLayout>
   );

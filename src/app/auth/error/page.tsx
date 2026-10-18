@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 // Where /auth/confirm sends people when an email or Google sign-in link fails.
 export default function Page({ searchParams }: PageProps<'/auth/error'>) {
   return (
-    <AuthLayout caption="Behind the Scenes, Production Design (2026)">
+    <AuthLayout>
       <div className="flex w-full max-w-[380px] flex-col gap-7">
         <div className="flex flex-col gap-2">
           <h1 className="text-[32px] leading-[1.3] font-bold text-nia-ink">
