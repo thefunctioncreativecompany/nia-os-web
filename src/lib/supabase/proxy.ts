@@ -47,7 +47,7 @@ export async function updateSession(request: NextRequest) {
 
   if (!data?.claims && isProtected) {
     const loginUrl = request.nextUrl.clone();
-    loginUrl.pathname = "/auth/login";
+    loginUrl.pathname = "/login";
     // Remember where they were going, so sign-in can send them back.
     loginUrl.search = `?next=${encodeURIComponent(pathname + search)}`;
     const redirect = NextResponse.redirect(loginUrl);

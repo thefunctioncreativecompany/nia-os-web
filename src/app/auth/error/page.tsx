@@ -1,36 +1,39 @@
 import { Suspense } from 'react'
+import type { Metadata } from 'next'
+import Link from 'next/link'
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { AuthLayout } from '@/components/auth/auth-layout'
+import { authButtonClassName } from '@/components/auth/auth-primitives'
 
+export const metadata: Metadata = {
+  title: 'Something went wrong · Nia OS',
+}
+
+// Where /auth/confirm sends people when an email or Google sign-in link fails.
 export default function Page({ searchParams }: PageProps<'/auth/error'>) {
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <div className="w-full max-w-sm">
-        <div className="flex flex-col gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="font-medium text-lg tracking-normal">
-                Sorry, something went wrong.
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Suspense>
-                <ErrorMessage searchParams={searchParams} />
-              </Suspense>
-            </CardContent>
-          </Card>
+    <AuthLayout caption="Behind the Scenes, Production Design (2026)">
+      <div className="flex w-full max-w-[380px] flex-col gap-7">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-[32px] leading-[1.3] font-bold text-nia-ink">
+            Something went wrong
+          </h1>
+          <p className="text-sm leading-normal break-words text-nia-ink-muted">
+            <Suspense fallback="The link didn't work.">
+              <ErrorMessage searchParams={searchParams} />
+            </Suspense>
+          </p>
         </div>
+        <Button asChild className={authButtonClassName}>
+          <Link href="/login">Back to login</Link>
+        </Button>
       </div>
-    </div>
+    </AuthLayout>
   )
 }
 
 async function ErrorMessage({ searchParams }: Pick<PageProps<'/auth/error'>, 'searchParams'>) {
   const { error } = await searchParams
-
-  return error ? (
-    <p className="text-sm text-muted-foreground">Code error: {error}</p>
-  ) : (
-    <p className="text-sm text-muted-foreground">An unspecified error occurred.</p>
-  )
+  return typeof error === 'string' && error ? error : "The link didn't work."
 }

@@ -1,26 +1,17 @@
 'use client'
 
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-import { cn } from '@/lib/utils'
 import { createClient } from '@/lib/supabase/client'
-import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import Link from 'next/link'
+import { AuthForm } from '@/components/auth/auth-form'
+import { AuthInput, AuthPasswordInput } from '@/components/auth/auth-input'
 
-export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
+export function SignUpForm() {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [repeatPassword, setRepeatPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
@@ -31,88 +22,75 @@ export function SignUpForm({ className, ...props }: React.ComponentPropsWithoutR
     setIsLoading(true)
     setError(null)
 
-    if (password !== repeatPassword) {
-      setError('Passwords do not match')
-      setIsLoading(false)
-      return
-    }
-
     try {
-      const { error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
+          // Shown in the sidebar and profile settings.
+          data: { full_name: name.trim() },
           emailRedirectTo: `${window.location.origin}/auth/confirm?next=/dashboard`,
         },
       })
       if (error) throw error
-      router.push('/auth/sign-up-success')
+      // No session means Supabase wants the email confirmed first.
+      router.push(
+        data.session
+          ? '/dashboard'
+          : `/check-email?type=signup&email=${encodeURIComponent(email)}`
+      )
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : 'An error occurred')
-    } finally {
       setIsLoading(false)
     }
   }
 
   return (
-    <div className={cn('flex flex-col gap-6', className)} {...props}>
-      <Card>
-        <CardHeader>
-          <CardTitle className="font-medium text-lg tracking-normal">Sign up</CardTitle>
-          <CardDescription>Create a new account</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSignUp}>
-            <div className="flex flex-col gap-6">
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="m@example.com"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div className="grid gap-2">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
-                </div>
-                <Input
-                  id="password"
-                  type="password"
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-              <div className="grid gap-2">
-                <div className="flex items-center">
-                  <Label htmlFor="repeat-password">Repeat Password</Label>
-                </div>
-                <Input
-                  id="repeat-password"
-                  type="password"
-                  required
-                  value={repeatPassword}
-                  onChange={(e) => setRepeatPassword(e.target.value)}
-                />
-              </div>
-              {error && <p className="text-sm text-red-500">{error}</p>}
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? 'Creating an account...' : 'Sign up'}
-              </Button>
-            </div>
-            <div className="mt-4 text-center text-sm">
-              Already have an account?{' '}
-              <Link href="/auth/login" className="underline underline-offset-4">
-                Sign in
-              </Link>
-            </div>
-          </form>
-        </CardContent>
-      </Card>
-    </div>
+    <AuthForm
+      title="Create account"
+      description="Join the production workspace"
+      submitLabel="Create account"
+      pendingLabel="Creating account..."
+      isPending={isLoading}
+      error={error}
+      onSubmit={handleSignUp}
+      withGoogle
+      footer={
+        <>
+          Already have an account?{' '}
+          <Link href="/login" className="font-bold text-nia-ink underline">
+            Log in
+          </Link>
+        </>
+      }
+    >
+      <AuthInput
+        id="name"
+        label="Full name"
+        autoComplete="name"
+        required
+        maxLength={80}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <AuthInput
+        id="email"
+        type="email"
+        label="Email"
+        autoComplete="email"
+        required
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <AuthPasswordInput
+        id="password"
+        label="Create a password"
+        autoComplete="new-password"
+        minLength={8}
+        required
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+    </AuthForm>
   )
 }

@@ -5,7 +5,7 @@ import { type NextRequest } from 'next/server'
 import { safeNextPath } from '@/lib/safe-next-path'
 import { createClient } from '@/lib/supabase/server'
 
-// Email links (sign-up confirmation, password reset) land here.
+// Email links (sign-up confirmation, password reset) and Google sign-in land here.
 // Supports both link styles:
 // - Supabase's default emails send a one-time `code`.
 // - Custom email templates send a `token_hash` and `type`.
