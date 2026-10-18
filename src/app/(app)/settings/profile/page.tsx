@@ -1,13 +1,25 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 
+import { getProfileSettings } from "@/lib/settings-data";
 import { ProfileSettingsForm } from "@/components/settings/profile-settings-form";
-import { sampleProfile } from "@/components/settings/sample-profile";
+import { SettingsSkeleton } from "@/components/settings/settings-skeleton";
 
 export const metadata: Metadata = {
   title: "Profile settings · Nia OS",
 };
 
 export default function Page() {
-  // Sample data for now; loaded from Supabase in the next step.
-  return <ProfileSettingsForm initial={sampleProfile} />;
+  return (
+    <Suspense fallback={<SettingsSkeleton cards={3} />}>
+      <Profile />
+    </Suspense>
+  );
+}
+
+async function Profile() {
+  const { userId, email, identities, profile } = await getProfileSettings();
+  return (
+    <ProfileSettingsForm userId={userId} email={email} identities={identities} initial={profile} />
+  );
 }

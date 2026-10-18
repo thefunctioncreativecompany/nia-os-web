@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-// Profile is the first settings tab built; General takes over once it exists.
+// General is the first settings tab.
 export default function Page() {
-  redirect("/settings/profile");
+  redirect("/settings/general");
 }

@@ -51,7 +51,7 @@ export function UserMenu({ user }: { user: CurrentUser }) {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link href="/settings/profile">
+          <Link href="/settings/general">
             <SettingsIcon />
             Settings
           </Link>
