@@ -10,6 +10,7 @@ import {
 import { MenusSection, ModalsSection, SheetsSection } from "./_sections/overlays";
 import { AlertsSection, FormsSection, NotificationsSection, PickersSection } from "./_sections/feedback";
 import { DialogsSection, ListsSection, ProgressSection, SearchSection } from "./_sections/lists";
+import { AdvancedPickersSection, InboxSection, MediaSection, TablesSection } from "./_sections/media";
 
 export const metadata: Metadata = {
   title: "Component library · Nia OS",
@@ -33,6 +34,10 @@ const SECTIONS = [
   { id: "lists", label: "13. Lists" },
   { id: "progress", label: "14. Loading & Progress" },
   { id: "search", label: "15. Search Bars" },
+  { id: "advanced-pickers", label: "16. Pickers: Advanced" },
+  { id: "media", label: "17. Gallery / Media" },
+  { id: "tables", label: "18. Tables" },
+  { id: "inbox", label: "19. Inbox & Notifications" },
 ];
 
 // Every component and variant, side by side for comparing with the nOS Design System
@@ -81,6 +86,10 @@ export default function Page() {
           <ListsSection />
           <ProgressSection />
           <SearchSection />
+          <AdvancedPickersSection />
+          <MediaSection />
+          <TablesSection />
+          <InboxSection />
         </main>
       </div>
     </div>

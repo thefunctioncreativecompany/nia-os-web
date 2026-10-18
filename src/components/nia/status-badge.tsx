@@ -12,16 +12,19 @@ const LABELS: Record<ProductionStatus, string> = {
 };
 
 // Status pill for people, shoot days and projects (Figma: Script Breakdown, Cast & Crew).
+// `children` renames the label while keeping the colour (e.g. "Ready" in the confirmed green).
 export function StatusBadge({
   status,
   className,
+  children,
 }: {
   status: ProductionStatus;
   className?: string;
+  children?: React.ReactNode;
 }) {
   return (
     <Badge variant={status} className={cn(className)}>
-      {LABELS[status]}
+      {children ?? LABELS[status]}
     </Badge>
   );
 }
