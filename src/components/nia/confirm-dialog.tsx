@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, ShieldCheck, type LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import {
@@ -24,6 +24,7 @@ export function ConfirmDialog({
   pendingLabel = "Working…",
   cancelLabel = "Cancel",
   tone = "danger",
+  icon,
   onConfirm,
   children,
 }: {
@@ -32,11 +33,20 @@ export function ConfirmDialog({
   confirmLabel: string;
   pendingLabel?: string;
   cancelLabel?: string;
-  tone?: "danger" | "default";
+  // danger: red (deletes); warning: amber (discard); info: blue (permissions).
+  tone?: "danger" | "warning" | "info" | "default";
+  icon?: LucideIcon;
   onConfirm: () => Promise<void> | void;
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+  const Icon = icon ?? (tone === "info" ? ShieldCheck : AlertCircle);
+  const tint = {
+    danger: "bg-status-cancelled text-nia-danger",
+    warning: "bg-status-pending text-status-pending-foreground",
+    info: "bg-status-on-hold text-status-on-hold-foreground",
+    default: "bg-muted text-foreground",
+  }[tone];
   const [busy, setBusy] = useState(false);
 
   const confirm = async (e: React.MouseEvent) => {
@@ -55,13 +65,8 @@ export function ConfirmDialog({
       <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
       <AlertDialogContent className="max-w-[440px] gap-4">
         <div className="flex items-center gap-3">
-          <span
-            className={cn(
-              "flex size-10 shrink-0 items-center justify-center rounded-full",
-              tone === "danger" ? "bg-status-cancelled text-nia-danger" : "bg-muted text-foreground",
-            )}
-          >
-            <AlertCircle aria-hidden className="size-5" />
+          <span className={cn("flex size-10 shrink-0 items-center justify-center rounded-full", tint)}>
+            <Icon aria-hidden className="size-5" />
           </span>
           <AlertDialogTitle className="text-left text-lg">{title}</AlertDialogTitle>
         </div>
@@ -70,7 +75,7 @@ export function ConfirmDialog({
         </AlertDialogDescription>
         <AlertDialogFooter>
           <AlertDialogCancel disabled={busy}>{cancelLabel}</AlertDialogCancel>
-          <AlertDialogAction variant={tone === "danger" ? "danger" : "default"} disabled={busy} onClick={confirm}>
+          <AlertDialogAction variant={tone === "danger" || tone === "warning" ? "danger" : "default"} disabled={busy} onClick={confirm}>
             {busy ? pendingLabel : confirmLabel}
           </AlertDialogAction>
         </AlertDialogFooter>
