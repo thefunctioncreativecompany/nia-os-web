@@ -46,13 +46,17 @@ frame "Nia OS — Developer Handoff (Ordered by User Journey)".
 
 ## Progress
 
-Done (branch `feat/auth-screens`):
+Live at https://nia-os-web-9ahh.vercel.app (production deploys from `main`).
+
+Done:
 - Auth screens from Figma, wired to Supabase: `/login`, `/signup`, `/forgot-password`,
   `/check-email`, `/reset-password`, plus `/auth/error`. Google sign-in, resend email,
   "Open email app" opens the user's web inbox. Old `/auth/*` pages removed.
+- `/privacy` policy page (needed for Google OAuth). Company name and contact email to be confirmed.
+- Google OAuth client created and published; Google provider enabled in Supabase. Supabase redirect
+  URLs needed: `http://localhost:3000/auth/confirm` and `https://nia-os-web-9ahh.vercel.app/auth/confirm`.
 
 Next:
-- Supabase dashboard: enable the Google provider; add `/auth/confirm` (localhost + Vercel) to Redirect URLs.
 - Settings section (Figma `796:10795`): Profile, General, Connected Apps, Security, Shortcuts.
   Profile (`796:10907`) is planned and first. Decisions: the Figma top navbar replaces the shadcn
   sidebar app-wide; Apple sign-in is set up alongside Google (needs an Apple Developer account);
