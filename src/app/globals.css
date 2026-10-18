@@ -43,6 +43,12 @@
   --color-nia-ink-muted: var(--nia-ink-muted);
   --color-nia-line: var(--nia-line);
   --color-nia-footer: var(--nia-footer);
+  --color-nia-pill: var(--nia-pill);
+  --color-nia-placeholder: var(--nia-placeholder);
+  --color-nia-field-muted: var(--nia-field-muted);
+  --color-nia-chip: var(--nia-chip);
+  --color-nia-success: var(--nia-success);
+  --color-nia-success-bg: var(--nia-success-bg);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -90,6 +96,13 @@
   --nia-ink-muted: #73726c;
   --nia-line: #e2e2e2;
   --nia-footer: #1c1c1c;
+  /* NIA brand colors (Figma: app shell + settings) */
+  --nia-pill: #eeedec;
+  --nia-placeholder: #938f99;
+  --nia-field-muted: #f9f9fa;
+  --nia-chip: #f0efec;
+  --nia-success: #166534;
+  --nia-success-bg: #dcfce7;
 }
 
 .dark {
@@ -132,6 +145,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* DM Sans at the 14pt optical size, as in the Figma designs. */
+    font-variation-settings: "opsz" 14;
   }
   html {
     @apply font-sans;

@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 // Pages that only signed-in users can open.
-const PROTECTED_PATHS = ["/dashboard"];
+const PROTECTED_PATHS = ["/dashboard", "/settings"];
 
 // Refreshes the user's login session (stored in cookies) before each page loads,
 // and sends signed-out visitors away from protected pages.

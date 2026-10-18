@@ -1,0 +1,25 @@
+import Link from "next/link";
+
+import { SettingsTabs } from "@/components/settings/settings-tabs";
+
+// Shared header and tab bar for every settings tab.
+export default function SettingsLayout({ children }: LayoutProps<"/settings">) {
+  return (
+    <div className="flex flex-col gap-8 px-4 pt-12 pb-15 md:px-15">
+      <div className="flex flex-col items-start gap-3">
+        <Link
+          href="/dashboard"
+          className="pb-4 text-sm leading-[1.4] font-bold text-nia-ink-muted hover:text-nia-ink"
+        >
+          ← Back to Home
+        </Link>
+        <h1 className="text-[28px] leading-[1.3] font-bold text-nia-ink">Settings</h1>
+        <p className="text-[15px] leading-[1.4] text-nia-ink-muted">
+          Manage your workspace and preferences
+        </p>
+      </div>
+      <SettingsTabs />
+      {children}
+    </div>
+  );
+}
