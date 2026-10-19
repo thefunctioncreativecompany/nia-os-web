@@ -177,8 +177,9 @@ these before 0.5)
 
 Milestone 3 — Documents
 - [ ] 3.1 Template gallery. Built from TEMPLATES_BUILD.md steps 1–6: 63 templates, search with suggestions,
-  filters, preview pop-up (`?preview=` link), Suggested for you (learns from `template_events`). Next: step 7,
-  the template engine (TEMPLATE_ENGINE.md §8, start with Filming Notice, Figma 840:29449). Fix list and
+  filters, preview pop-up (`?preview=` link), Suggested for you (learns from `template_events`). Step 7, the
+  template engine (TEMPLATE_ENGINE.md §8): part 1 done, the Filming Notice opens at `/templates/D07`
+  with autosave, Undo/Redo and downloads (PDF, Word, Markdown, .txt). Next: part 2, tables. Fix list and
   open items: docs/FEEDBACK.md.
 
 Milestone 4 — Shoot day: not started.

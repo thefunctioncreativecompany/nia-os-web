@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { toast } from "sonner";
 
@@ -25,16 +25,19 @@ const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1
 // (it learns from what is opened, used and searched here). Every screen then lists all
 // templates by category. Compact and Index views were retired (Ika) and live on in the
 // component library. The pop-up lives in the address (?preview=D01), so Back closes it.
-export function TemplatesPage({ templates, groups, familyLabels }: { templates: GalleryTemplate[]; groups: string[]; familyLabels: Record<string, string> }) {
+export function TemplatesPage({ templates, groups, familyLabels, editable }: { templates: GalleryTemplate[]; groups: string[]; familyLabels: Record<string, string>; editable: string[] }) {
+  const router = useRouter();
   const [filter, setFilter] = useState<Filter>("All");
   const [query, setQuery] = useState("");
   const [committed, setCommitted] = useState("");
   const row = useRef<HTMLDivElement>(null);
   const learning = useTemplateProfile();
 
-  // Using a template: the launcher (workflows) and the document editor come in build steps 7–8.
+  // Using a template: documents whose sections the editor can show open in it (build step 7,
+  // `editable`); the launcher (workflows) and the other documents come in later steps.
   const use = (t: GalleryTemplate) => {
     if (t.status === "live") learning.record(t.code, "use");
+    if (editable.includes(t.code)) return router.push(`/templates/${t.code}`);
     toast(t.kind === "workflow" ? "The project launcher comes in a later build step." : `${t.name} opens in the document editor, which is coming soon.`);
   };
 

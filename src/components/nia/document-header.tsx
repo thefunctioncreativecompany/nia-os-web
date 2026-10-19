@@ -32,7 +32,7 @@ export function DocumentHeader({
     <header className={cn("flex flex-col gap-9", className)}>
       <Link
         href={backHref}
-        className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+        className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground print:hidden outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
       >
         ← {backLabel}
       </Link>
@@ -69,12 +69,13 @@ export function DocumentHeader({
   );
 }
 
-// Label row at the top of the preview panel beside a document (Figma "DetailsHeader").
-export function DocumentPreviewHeader({ className }: { className?: string }) {
+// Label row at the top of the preview panel beside a document (Figma "DetailsHeader"), in
+// sentence case (F1). `status` is the document's state, e.g. "Draft" or "Ready to export".
+export function DocumentPreviewHeader({ status = "Ready to export", className }: { status?: string; className?: string }) {
   return (
     <div className={cn("flex items-center justify-between text-micro whitespace-nowrap", className)}>
-      <p className="font-bold text-muted-foreground">PREVIEW</p>
-      <p className="text-nia-placeholder">Ready to Export</p>
+      <p className="font-bold text-muted-foreground">Preview</p>
+      <p role="status" className="text-nia-placeholder">{status}</p>
     </div>
   );
 }

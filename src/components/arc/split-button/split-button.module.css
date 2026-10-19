@@ -1,0 +1,51 @@
+/* uiarc split button in Nia's tokens (the uiarc names are mapped to Nia in globals.css):
+   a pill like Nia's buttons, Obsidian when primary, white with a hairline when secondary. */
+.group { position: relative; display: inline-flex; height: var(--control-height-md); align-items: stretch; border-radius: var(--radius-control); background: var(--foreground); color: var(--background); font-family: var(--font-body); isolation: isolate; }
+.secondary { background: var(--surface); color: var(--foreground); box-shadow: inset 0 0 0 1px var(--border); }
+
+.primary, .trigger { position: relative; display: inline-flex; align-items: center; justify-content: center; margin: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; outline: none; -webkit-tap-highlight-color: transparent; transition: background-color var(--duration-fast) var(--ease-standard); }
+.primary { flex: 1 1 auto; min-width: 0; padding: 0 var(--space-4) 0 var(--space-5); border-radius: var(--radius-control) 0 0 var(--radius-control); font-size: var(--text-small); font-weight: 600; }
+.trigger { width: var(--control-height-md); flex: none; border-radius: 0 var(--radius-control) var(--radius-control) 0; }
+/* The divider between the halves. */
+.trigger::before { position: absolute; top: 25%; bottom: 25%; left: 0; width: 1px; background: currentColor; opacity: .2; content: ""; }
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover, .trigger:hover { background: color-mix(in oklab, currentColor 10%, transparent); }
+}
+.primary:active, .trigger:active, .trigger[data-state="open"] { background: color-mix(in oklab, currentColor 14%, transparent); }
+.primary:focus-visible, .trigger:focus-visible { z-index: 1; box-shadow: 0 0 0 3px var(--focus-ring); }
+.primary:disabled, .trigger:disabled { cursor: not-allowed; opacity: .5; }
+.chevron { transition: transform var(--duration-standard) var(--ease-standard); }
+.trigger[data-state="open"] .chevron { transform: rotate(180deg); }
+
+.primarySlot { display: inline-flex; justify-content: center; }
+.primarySlot[data-morphing] { overflow: hidden; }
+.primaryContent { display: inline-flex; flex: none; align-items: center; gap: var(--space-2); white-space: nowrap; }
+.mainIcon { display: inline-grid; width: 16px; height: 16px; }
+.iconPhase { display: inline-flex; grid-area: 1 / 1; }
+.mainIcon svg { width: 16px; height: 16px; }
+.glyphs { display: inline-flex; white-space: pre; }
+.glyph { display: inline-block; white-space: pre; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.menu { --menu-y: -5px; position: relative; z-index: 60; min-width: 13rem; padding: 5px; border: 1px solid var(--border); border-radius: var(--radius-panel); background: var(--surface-raised); box-shadow: var(--shadow-floating); font-family: var(--font-body); transform-origin: var(--radix-dropdown-menu-content-transform-origin); }
+.menu[data-side="top"] { --menu-y: 5px; }
+.menu[data-state="open"] { animation: menu-fade-in var(--duration-fast) var(--ease-enter) both, menu-rise-in var(--duration-spring) var(--ease-spring) both; }
+.menu[data-state="closed"] { animation: menu-out var(--duration-instant) var(--ease-standard) both; }
+.menu[data-state="open"] .item { animation: menu-item-in var(--duration-standard) var(--ease-enter) both; animation-delay: calc(min(var(--i, 0), 4) * 35ms); }
+.item { position: relative; display: flex; min-height: 36px; align-items: center; gap: 10px; padding: 0 11px; border-radius: calc(var(--radius-panel) - 6px); color: var(--foreground); font-size: var(--text-sm); cursor: pointer; outline: none; transition: background-color var(--duration-instant) var(--ease-standard); }
+.item[data-highlighted] { background: var(--surface-muted); }
+.item[data-disabled] { cursor: not-allowed; opacity: .5; }
+.destructive { color: var(--danger); }
+.destructive[data-highlighted] { background: color-mix(in oklab, var(--danger) 8%, var(--surface-raised)); }
+.icon { display: inline-flex; width: 17px; color: var(--text-secondary); }
+.icon svg { width: 16px; height: 16px; }
+@keyframes menu-fade-in { from { opacity: 0; } }
+@keyframes menu-rise-in { from { transform: translateY(var(--menu-y)) scale(.97); } }
+@keyframes menu-out { to { opacity: 0; } }
+@keyframes menu-item-in { from { opacity: 0; transform: translateY(-2px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .primary, .trigger, .chevron, .item { transition: none; }
+  .menu[data-state="open"] { animation: menu-fade-in var(--duration-instant) linear both; }
+  .menu[data-state="open"] .item { animation: none; }
+}

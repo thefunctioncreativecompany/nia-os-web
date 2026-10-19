@@ -39,7 +39,7 @@ const tabs: Tab[] = [
 // passed in from the server so it can stream in.
 export function Navbar({ user }: { user: React.ReactNode }) {
   return (
-    <header className="relative flex h-20 shrink-0 items-center justify-between gap-4 border-b border-nia-line bg-white px-4 md:px-15">
+    <header className="relative flex h-20 shrink-0 print:hidden items-center justify-between gap-4 border-b border-nia-line bg-white px-4 md:px-15">
       {/* Which tab is active depends on the address, known only at request time; until
           then the tabs show with none highlighted. */}
       <Suspense fallback={<NavTabs segment={null} />}>
@@ -94,7 +94,7 @@ function Dock({ segment }: { segment: string | null }) {
   const router = useRouter();
   const active = tabs.find((tab) => segment !== null && tab.match.includes(segment));
   return (
-    <div data-surface="glass" className="fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+1rem)] z-40 flex justify-center px-4 lg:hidden">
+    <div data-surface="glass" className="fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+1rem)] z-40 flex justify-center px-4 lg:hidden print:hidden">
       <MagnifyingDock
         items={tabs.map((tab) => ({ key: tab.label, label: tab.label, Icon: tab.glyph, disabled: !tab.href }))}
         active={active?.label ?? null}
