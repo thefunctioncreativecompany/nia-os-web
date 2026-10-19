@@ -10,6 +10,10 @@ export function AuthLayout({ hero, children }: { hero: HeroScreen; children: Rea
 
   return (
     <div className="flex min-h-svh w-full flex-col bg-background">
+      {/* Phones hide the photo panel, so the black wordmark sits above the form instead. */}
+      <header className="px-4 pt-6 md:hidden">
+        <Wordmark />
+      </header>
       <div className="flex flex-1">
         <aside className="relative hidden flex-1 flex-col justify-between overflow-hidden bg-nia-footer p-12 md:flex">
           <Image
