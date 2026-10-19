@@ -179,4 +179,5 @@ Milestone 6 — Share & launch
 - [ ] Everything else not started.
 
 Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
-`20261019000000_onboarding.sql`, `20261019010000_avatar_cleanup.sql`, `20261020000000_projects.sql`.
+`20261019000000_onboarding.sql`, `20261019010000_avatar_cleanup.sql`, `20261020000000_projects.sql`,
+`20261021000000_templates.sql`.

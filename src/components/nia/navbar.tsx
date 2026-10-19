@@ -4,13 +4,12 @@ import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSelectedLayoutSegment } from "next/navigation";
-import { Compass, FileText, Folder, House, Inbox, type LucideIcon } from "lucide-react";
+import { Compass, FileText, Folder, House, Inbox, Plus, type LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { NavSearch } from "@/components/nia/nav-search";
 import { MagnifyingDock } from "@/components/nia/magnifying-dock";
-import { Wordmark } from "@/components/nia/wordmark";
 import {
   Tooltip,
   TooltipContent,
@@ -46,10 +45,13 @@ export function Navbar({ user }: { user: React.ReactNode }) {
       <Suspense fallback={<NavTabs segment={null} />}>
         <CurrentNavTabs />
       </Suspense>
-      {/* Phones and tablets: the tabs move to the dock at the bottom, the wordmark sits here. */}
-      <Link href="/home" aria-label="NIA, home" className="rounded-sm lg:hidden">
-        <Wordmark />
-      </Link>
+      {/* Phones and tablets: the tabs move to the dock at the bottom, and starting a new
+          project takes their place (borderless; the bordered + on the right is desktop only). */}
+      <NewProjectDialog>
+        <Button type="button" variant="ghost" size="icon" aria-label="New project" className="-ml-2 text-foreground lg:hidden">
+          <Plus aria-hidden className="size-6" />
+        </Button>
+      </NewProjectDialog>
 
       <div className="flex items-center gap-4 md:gap-6">
         <NavSearch />
@@ -59,7 +61,7 @@ export function Navbar({ user }: { user: React.ReactNode }) {
           variant="outline"
           size="compact"
           aria-label="New project"
-          className="h-8 w-9 rounded-[6px] border-nia-line bg-white p-0 text-lg leading-[1.4] font-medium text-nia-ink hover:bg-nia-field-muted hover:text-nia-ink"
+          className="h-8 w-9 rounded-[6px] border-nia-line max-lg:hidden bg-white p-0 text-lg leading-[1.4] font-medium text-nia-ink hover:bg-nia-field-muted hover:text-nia-ink"
           >
             +
           </Button>

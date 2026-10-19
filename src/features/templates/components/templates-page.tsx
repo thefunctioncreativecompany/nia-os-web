@@ -33,6 +33,10 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
 
   const visible = templates.filter((t) => inFilter(t, filter));
   const featured = visible.filter((t) => t.status !== "gap");
+  // Compact and Index: one section per Figma group, templates not built yet last.
+  const grouped = [...groups, COMING_SOON]
+    .map((group) => ({ group, items: visible.filter((t) => (group === COMING_SOON ? t.status === "gap" : t.status !== "gap" && t.group === group)) }))
+    .filter((g) => g.items.length);
   const results = committed ? rankTemplates(committed, templates, familyLabels).filter((r) => inFilter(r.template, filter)) : null;
   const nudge = (direction: 1 | -1) => {
     const el = row.current;
@@ -135,36 +139,45 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
         </div>
       ) : view === "compact" ? (
         <div className="flex flex-col gap-8.5 px-4 pt-7.5 md:px-11">
-          {[...groups, COMING_SOON].map((group) => {
-            const items = visible.filter((t) => (group === COMING_SOON ? t.status === "gap" : t.status !== "gap" && t.group === group));
-            if (!items.length) return null;
-            const id = `group-${group.replace(/\W+/g, "-").toLowerCase()}`;
-            return (
-              <section key={group} aria-labelledby={id}>
-                <div className="mb-3 flex items-center gap-2.5">
-                  <span aria-hidden className={cn("size-2.5 rounded-xs", group === COMING_SOON ? "bg-muted-foreground/50" : "bg-foreground")} />
-                  <h2 id={id} className="text-lg font-extrabold text-foreground">{group}</h2>
-                  <span className="font-mono text-micro font-semibold text-muted-foreground">{items.length}</span>
-                </div>
-                <div className={compactGrid}>
-                  {items.map((t) => <CompactTile key={t.code} template={t} onOpen={open} />)}
-                </div>
-              </section>
-            );
-          })}
+          {grouped.map(({ group, items }) => (
+            <section key={group} aria-labelledby={groupId("compact", group)}>
+              <GroupHeading id={groupId("compact", group)} group={group} count={items.length} />
+              <div className={compactGrid}>
+                {items.map((t) => <CompactTile key={t.code} template={t} onOpen={open} />)}
+              </div>
+            </section>
+          ))}
           {visible.length === 0 && <p className="text-sm text-muted-foreground">No templates here yet.</p>}
         </div>
       ) : (
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,10.5rem),1fr))] gap-x-5 gap-y-7.5 px-4 pt-9 md:px-11">
-          {[...groups.flatMap((g) => visible.filter((t) => t.status !== "gap" && t.group === g)), ...visible.filter((t) => t.status === "gap")].map((t) => (
-            <IndexItem key={t.code} template={t} onOpen={open} />
+        <div className="flex flex-col gap-10 px-4 pt-7.5 md:px-11">
+          {grouped.map(({ group, items }) => (
+            <section key={group} aria-labelledby={groupId("index", group)}>
+              <GroupHeading id={groupId("index", group)} group={group} count={items.length} />
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,9rem),1fr))] gap-x-5 gap-y-7.5 pt-1.5">
+                {items.map((t) => <IndexItem key={t.code} template={t} onOpen={open} />)}
+              </div>
+            </section>
           ))}
+          {visible.length === 0 && <p className="text-sm text-muted-foreground">No templates here yet.</p>}
         </div>
       )}
 
       <span className="sr-only" aria-live="polite">
         {results ? `${results.length} results for ${committed}` : `${visible.length} templates${filter === "All" ? "" : ` in ${filter}`}`}
       </span>
+    </div>
+  );
+}
+
+const groupId = (view: string, group: string) => `${view}-${group.replace(/\W+/g, "-").toLowerCase()}`;
+
+function GroupHeading({ id, group, count }: { id: string; group: string; count: number }) {
+  return (
+    <div className="mb-3 flex items-center gap-2.5">
+      <span aria-hidden className={cn("size-2.5 rounded-xs", group === COMING_SOON ? "bg-muted-foreground/50" : "bg-foreground")} />
+      <h2 id={id} className="text-lg font-extrabold text-foreground">{group}</h2>
+      <span className="font-mono text-micro font-semibold text-muted-foreground">{count}</span>
     </div>
   );
 }
