@@ -20,8 +20,11 @@ const MAX_STEPS = 80;
 
 type History = { past: SectionValue[][]; present: SectionValue[]; future: SectionValue[][] };
 
-export function useDocument(schema: TemplateSchema, documentId: string | null, initial: SectionValue[]) {
+export function useDocument(schema: TemplateSchema, documentId: string | null, initial: SectionValue[], initialPaid = false) {
   const [history, setHistory] = useState<History>({ past: [], present: initial, future: [] });
+  // Invoices: Mark paid (TEMPLATE_ENGINE.md §5) is the document's status, saved like any change.
+  const [paid, setPaidState] = useState(initialPaid);
+  const paidRef = useRef(initialPaid);
   const [savedAt, setSavedAt] = useState<number | null>(null);
   const lastEdit = useRef<{ key: string; at: number } | null>(null);
   const id = useRef(documentId);
@@ -63,7 +66,7 @@ export function useDocument(schema: TemplateSchema, documentId: string | null, i
     queue.current = queue.current.then(async () => {
       const data = latest.current;
       const filled = filledCount(schema, data);
-      const status = filled > 0 ? 'ready' : 'draft';
+      const status = paidRef.current ? 'paid' : filled > 0 ? 'ready' : 'draft';
       const supabase = createClient();
       if (!id.current) {
         if (filled === 0) return;
@@ -87,7 +90,13 @@ export function useDocument(schema: TemplateSchema, documentId: string | null, i
     if (!changed.current) return;
     const timer = window.setTimeout(save, SAVE_MS);
     return () => window.clearTimeout(timer);
-  }, [history.present, save]);
+  }, [history.present, paid, save]);
+
+  const setPaid = useCallback((next: boolean) => {
+    paidRef.current = next;
+    changed.current = true;
+    setPaidState(next);
+  }, []);
 
   // Leaving the page within the wait still saves the last change.
   useEffect(() => {
@@ -109,6 +118,8 @@ export function useDocument(schema: TemplateSchema, documentId: string | null, i
     canUndo: history.past.length > 0,
     canRedo: history.future.length > 0,
     savedAt,
+    paid,
+    setPaid,
     filled: filledCount(schema, history.present),
   };
 }

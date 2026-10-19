@@ -3,10 +3,12 @@
 import type { CSSProperties } from 'react';
 import { Plus, X } from 'lucide-react';
 
+import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import type { FieldSpec, TableSection } from '../types';
 import { FieldControl } from './field-controls';
-import { blankRow, editableColumns, fieldKind, fieldLabel, type FieldValue, type TableRow } from './sections';
+import { formatMoney } from './format';
+import { blankRow, computeCell, editableColumns, fieldKind, fieldLabel, tableTotal, type FieldValue, type TableRow } from './sections';
 
 // A table section (TEMPLATE_ENGINE.md §4, build step 7 part 2): a typed control in every cell
 // (T5), an automatic number column where the template has one, add and remove rows. Wide
@@ -19,6 +21,8 @@ function width(field: FieldSpec, tall: boolean) {
       return '3.5rem';
     case 'number':
       return '6rem';
+    case 'money':
+      return '8.5rem';
     case 'date':
       return '8.25rem';
     case 'duration':
@@ -36,13 +40,18 @@ function width(field: FieldSpec, tall: boolean) {
   }
 }
 
-const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-export function TableView({ section, rows, onChange }: { section: TableSection; rows: TableRow[]; onChange: (rows: TableRow[], key: string) => void }) {
+export function TableView({ section, rows, onChange, currency = 'USD' }: { section: TableSection; rows: TableRow[]; onChange: (rows: TableRow[], key: string) => void; currency?: string }) {
   const columns = editableColumns(section);
+  // Worked-out columns (Extended = Rate × QTY) show their sum and can't be typed over.
+  const computed = Object.keys(section.computed ?? {});
+  const money = (column: string) => section.money?.includes(column);
   const numbered = !!section.autonumber;
   const tall = !!section.tall;
-  const template = [numbered ? '4rem' : null, ...columns.map((c) => width(c, tall)), '2.25rem'].filter(Boolean).join(' ');
+  const template = [numbered ? '4rem' : null, ...columns.map((c) => width(c, tall)), ...computed.map(() => '8.5rem'), '2.25rem'].filter(Boolean).join(' ');
+  const total = tableTotal(section, rows);
+  const show = (column: string, amount: number) => (money(column) ? formatMoney(amount, currency) : String(amount));
   const base = slug(section.title);
 
   // Picking a Nia user in a people column fills the columns it names when they're still blank
@@ -83,8 +92,13 @@ export function TableView({ section, rows, onChange }: { section: TableSection; 
               </span>
             )}
             {columns.map((c) => (
-              <span key={fieldLabel(c)} role="columnheader" className="truncate px-2 py-2 text-small font-bold text-muted-foreground">
+              <span key={fieldLabel(c)} role="columnheader" className={cn("truncate px-2 py-2 text-small font-bold text-muted-foreground", ['money', 'number'].includes(fieldKind(c)) && 'text-right')}>
                 {fieldLabel(c)}
+              </span>
+            ))}
+            {computed.map((column) => (
+              <span key={column} role="columnheader" className="truncate px-3 py-2 text-right text-small font-bold text-muted-foreground">
+                {column}
               </span>
             ))}
             <span role="columnheader" className="sr-only">
@@ -125,8 +139,20 @@ export function TableView({ section, rows, onChange }: { section: TableSection; 
                           compact
                           tall={tall}
                           minDay={fieldKind(c) === 'date' ? minDayFor(c, row) : undefined}
+                          currency={currency}
                         />
                       </div>
+                    </div>
+                  );
+                })}
+                {computed.map((column) => {
+                  const amount = computeCell(section, row, column);
+                  return (
+                    <div key={column} role="cell" className="flex items-center gap-2 md:justify-end md:px-3 md:py-1">
+                      <span className="w-28 shrink-0 text-small font-bold text-muted-foreground md:hidden">{column}</span>
+                      <output aria-label={`${column}, row ${number}`} className={cn('text-sm font-medium tabular-nums', amount === null ? 'text-nia-placeholder' : 'text-foreground')}>
+                        {amount === null ? '—' : show(column, amount)}
+                      </output>
                     </div>
                   );
                 })}
@@ -144,6 +170,14 @@ export function TableView({ section, rows, onChange }: { section: TableSection; 
             );
           })}
         </div>
+        {section.total && total !== null && (
+          <div role="rowgroup" className="flex items-center justify-end gap-6 rounded-xl border border-border px-3 py-3 md:rounded-none md:border-0 md:border-t md:bg-nia-panel">
+            <span className="text-small font-bold text-muted-foreground">{section.total.label}</span>
+            <output aria-label={section.total.label} className="text-lead font-bold text-foreground tabular-nums">
+              {show(section.total.column, total)}
+            </output>
+          </div>
+        )}
       </div>
       {rows.length === 0 && section.empty && <p className="text-small text-muted-foreground">{section.empty}</p>}
       <Button type="button" variant="outline" size="sm" onClick={addRow} className="w-fit print:hidden">

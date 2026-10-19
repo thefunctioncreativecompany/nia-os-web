@@ -545,16 +545,35 @@
         "Add Line Item",
         "Mark Paid"
       ],
-      "version": "v1.0",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
           "title": "Invoice Metadata",
           "fields": [
             "Invoice #",
-            "Date",
-            "Prepared By",
-            "For"
+            {
+              "label": "Date",
+              "kind": "date"
+            },
+            {
+              "label": "Prepared By",
+              "kind": "people",
+              "single": true
+            },
+            "For",
+            {
+              "label": "Currency",
+              "kind": "choice",
+              "options": [
+                "USD",
+                "EUR",
+                "GBP",
+                "ZAR",
+                "CAD",
+                "AUD"
+              ]
+            }
           ]
         },
         {
@@ -562,8 +581,14 @@
           "title": "Line Items",
           "columns": [
             "Description",
-            "Rate",
-            "QTY",
+            {
+              "label": "Rate",
+              "kind": "money"
+            },
+            {
+              "label": "QTY",
+              "kind": "number"
+            },
             "Extended"
           ],
           "rows": 4,
@@ -588,7 +613,16 @@
           "fields": [
             "Make Payable To",
             "Bank",
-            "Terms"
+            {
+              "label": "Terms",
+              "kind": "choice",
+              "options": [
+                "Due on receipt",
+                "Net 15",
+                "Net 30",
+                "Net 60"
+              ]
+            }
           ]
         }
       ],

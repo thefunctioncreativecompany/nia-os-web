@@ -1,6 +1,6 @@
 'use client';
 
-import { Download, FileText, FileType, Plus, Printer, Redo2, Undo2 } from 'lucide-react';
+import { BadgeCheck, Download, FileText, FileType, Plus, Printer, Redo2, Undo2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 import { DocumentHeader, DocumentPreviewHeader } from '@/components/nia/document-header';
@@ -11,7 +11,7 @@ import { SplitButton } from '@/components/arc/split-button/split-button';
 import type { TemplateSchema } from '../types';
 import { downloadFile, fileName, toMarkdown, toPlainText, toWord } from './export';
 import { SectionView } from './section-views';
-import { blankRow, resolveDocument, type SectionValue, type TableRow } from './sections';
+import { blankRow, documentCurrency, resolveDocument, type SectionValue, type TableRow } from './sections';
 import { useDocument } from './use-document';
 
 // The one editor every document template uses (TEMPLATE_ENGINE.md §3), from the Filming Notice
@@ -21,17 +21,21 @@ export function TemplateEditor({
   schema,
   documentId,
   initialData,
+  initialPaid = false,
 }: {
   schema: TemplateSchema;
   documentId: string | null;
   initialData: SectionValue[];
+  initialPaid?: boolean;
 }) {
-  const doc = useDocument(schema, documentId, initialData);
+  const doc = useDocument(schema, documentId, initialData, initialPaid);
+  const currency = documentCurrency(schema, doc.data);
   // Letters as they read, with [placeholders] filled from the answers above (T5).
   const shown = resolveDocument(schema, doc.data);
   const total = schema.sections.length;
   // The toolbar's Add row adds to the template's (first) table.
-  const addRowTo = schema.actions.includes('Add Row') ? schema.sections.findIndex((s) => s.type === 'table') : -1;
+  const addRowTo = schema.actions.some((a) => a === 'Add Row' || a === 'Add Line Item') ? schema.sections.findIndex((s) => s.type === 'table') : -1;
+  const addRowLabel = schema.actions.includes('Add Line Item') ? 'Add line item' : 'Add row';
   const addRow = () => {
     const section = schema.sections[addRowTo];
     if (section?.type !== 'table') return;
@@ -60,6 +64,12 @@ export function TemplateEditor({
           status={doc.savedAt ? <SavedIndicator savedAt={doc.savedAt} className="print:hidden" /> : undefined}
         />
 
+        {doc.paid && (
+          <p role="status" className="w-fit -rotate-2 rounded-md border-2 border-status-confirmed-foreground px-3 py-1 text-lead font-bold text-status-confirmed-foreground">
+            Paid
+          </p>
+        )}
+
         <div
           role="toolbar"
           aria-label="Document tools"
@@ -76,7 +86,12 @@ export function TemplateEditor({
           <Separator orientation="vertical" className="h-4" />
           {addRowTo >= 0 && (
             <Button variant="outline" size="sm" onClick={addRow}>
-              <Plus aria-hidden /> Add row
+              <Plus aria-hidden /> {addRowLabel}
+            </Button>
+          )}
+          {schema.actions.includes('Mark Paid') && (
+            <Button variant="outline" size="sm" aria-pressed={doc.paid} onClick={() => doc.setPaid(!doc.paid)}>
+              <BadgeCheck aria-hidden /> {doc.paid ? 'Mark unpaid' : 'Mark paid'}
             </Button>
           )}
           {schema.actions.includes('Print') && (
@@ -95,6 +110,7 @@ export function TemplateEditor({
               section={section}
               value={shown[index]}
               onChange={(value, key) => doc.update(index, value, `${index}:${key}`)}
+              currency={currency}
             />
           </section>
         ))}
@@ -105,7 +121,7 @@ export function TemplateEditor({
         className="flex flex-[1_1_360px] flex-col border-border bg-nia-panel px-4 pt-10 pb-15 md:border-l md:pr-15 md:pl-10 lg:max-w-[540px] print:hidden"
       >
         <div className="flex flex-col gap-6 md:sticky md:top-6">
-          <DocumentPreviewHeader status={ready ? 'Ready to export' : 'Draft'} />
+          <DocumentPreviewHeader status={doc.paid ? 'Paid' : ready ? 'Ready to export' : 'Draft'} />
           <div className="flex flex-col gap-4 rounded-xl border border-border bg-white p-6 shadow-card">
             <div className="flex flex-col gap-1.5">
               <p className="text-micro font-bold text-nia-placeholder">Template preview</p>

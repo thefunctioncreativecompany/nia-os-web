@@ -18,7 +18,7 @@ import { createClient } from '@/lib/supabase/client';
 import { TimeWheel, type TimeValue } from '@/components/nia/time-wheel';
 import type { DurationUnit, FieldSpec } from '../types';
 import { fieldKind, fieldLabel, type FieldValue } from './sections';
-import { formatClock, formatDays, isEmail, parseDay, toDay, type DateTimeRange, type Duration, type YesNo } from './format';
+import { formatClock, formatDays, isEmail, parseDay, toAmount, toDay, type DateTimeRange, type Duration, type YesNo } from './format';
 
 // One control per field kind (T5): pick rather than type wherever the answer has a shape.
 // Built from the component library (Input, ChoicePills, Select, Calendar, TimeWheel, Command).
@@ -39,9 +39,11 @@ type ControlProps = {
   tall?: boolean;
   /** For a date with `after`: the earliest day it can be (prevents Date in before Date out). */
   minDay?: string;
+  /** For money: the document's currency. */
+  currency?: string;
 };
 
-export function FieldControl({ id, field, value, onChange, compact = false, tall = false, minDay }: ControlProps) {
+export function FieldControl({ id, field, value, onChange, compact = false, tall = false, minDay, currency = 'USD' }: ControlProps) {
   const label = fieldLabel(field);
   const spec = typeof field === 'string' ? undefined : field;
 
@@ -65,6 +67,8 @@ export function FieldControl({ id, field, value, onChange, compact = false, tall
       return <Assignees id={id} label={label} value={value as PersonRef[]} onChange={onChange} search={findPeople} single={spec?.single} compact={compact} />;
     case 'number':
       return <NumberControl id={id} label={label} value={value as string} onChange={onChange} />;
+    case 'money':
+      return <MoneyControl id={id} label={label} value={value as string} onChange={onChange} currency={currency} />;
     case 'date':
       return <DateControl id={id} label={label} value={value as string} onChange={onChange} minDay={minDay} />;
     case 'duration':
@@ -205,6 +209,26 @@ function NumberControl({ id, label, value, onChange }: { id: string; label: stri
       <button type="button" aria-label={`More ${label.toLowerCase()}`} onClick={() => step(1)} className={button}>
         <Plus aria-hidden className="size-3.5" />
       </button>
+    </div>
+  );
+}
+
+/** An amount in the document's currency: the symbol in front, two decimals once you leave it. */
+function MoneyControl({ id, label, value, onChange, currency }: { id: string; label: string; value: string; onChange: (next: string) => void; currency: string }) {
+  const symbol = new Intl.NumberFormat('en-US', { style: 'currency', currency }).formatToParts(0).find((p) => p.type === 'currency')?.value ?? currency;
+  return (
+    <div className="flex min-w-0 items-center justify-end gap-1">
+      <span aria-hidden className={cn('text-sm', value ? 'text-muted-foreground' : 'text-nia-placeholder')}>{symbol}</span>
+      <Input
+        id={id}
+        aria-label={label}
+        inputMode="decimal"
+        value={value}
+        placeholder="0.00"
+        onChange={(e) => onChange(e.target.value.replace(/[^0-9.]/g, ''))}
+        onBlur={() => value && onChange(toAmount(value).toFixed(2))}
+        className={cn(lineInput, 'w-full min-w-0 text-right tabular-nums')}
+      />
     </div>
   );
 }

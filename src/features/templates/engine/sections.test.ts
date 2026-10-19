@@ -128,3 +128,36 @@ describe('people fields', () => {
     expect(restoreDocument(notice, [{ 'Location Manager': 'Rachel' }])[0]).toMatchObject({ 'Location Manager': [] });
   });
 });
+
+describe('invoice (computed tables)', () => {
+  const invoice = getSchema('D04')!;
+  const lines = invoice.sections[1] as import('../types').TableSection;
+  const data = restoreDocument(invoice, [
+    { Currency: 'ZAR' },
+    [
+      { id: 'a', Description: 'Camera Operator — Day Rate', Rate: '850.00', QTY: '3' },
+      { id: 'b', Description: 'Grip & Electric Package', Rate: '2200', QTY: '1' },
+      { id: 'c', Description: '' },
+    ],
+    {},
+  ]);
+
+  it('works out each line and the total', async () => {
+    const { computeCell, tableTotal, documentCurrency } = await import('./sections');
+    const rows = data[1] as never[];
+    expect(computeCell(lines, rows[0], 'Extended')).toBe(2550);
+    expect(computeCell(lines, rows[2], 'Extended')).toBeNull();
+    expect(tableTotal(lines, rows)).toBe(4750);
+    expect(documentCurrency(invoice, data)).toBe('ZAR');
+    expect(canEdit(invoice)).toBe(true);
+  });
+
+  it('puts amounts and the total in the downloads, in the chosen currency', async () => {
+    const { toMarkdown, toPlainText } = await import('./export');
+    const md = toMarkdown(invoice, data);
+    expect(md).toContain('| Description | Rate | QTY | Extended |');
+    expect(md).toMatch(/\| Camera Operator — Day Rate \| ZAR\s?850\.00 \| 3 \| ZAR\s?2,550\.00 \|/);
+    expect(md).toMatch(/\|  \|  \| \*\*Total Due\*\* \| \*\*ZAR\s?4,750\.00\*\* \|/);
+    expect(toPlainText(invoice, data)).toMatch(/Total Due: ZAR\s?4,750\.00/);
+  });
+});

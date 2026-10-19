@@ -1,5 +1,6 @@
 import type { TemplateSchema } from '../types';
-import { editableColumns, fieldLabel, formatField, resolveDocument, type FieldsValue, type SectionValue, type TableRow } from './sections';
+import { formatMoney } from './format';
+import { computeCell, documentCurrency, editableColumns, fieldLabel, formatField, resolveDocument, tableTotal, type FieldsValue, type SectionValue, type TableRow } from './sections';
 
 /*
  * Downloads besides PDF (Ika, 2026-10-19): Markdown, Word and plain text, built from the same
@@ -8,7 +9,7 @@ import { editableColumns, fieldLabel, formatField, resolveDocument, type FieldsV
 
 type Block = { title: string } & (
   | { kind: 'fields'; rows: [string, string][] }
-  | { kind: 'table'; header: string[]; cells: string[][] }
+  | { kind: 'table'; header: string[]; cells: string[][]; total?: [string, string] }
   | { kind: 'text'; text: string }
 );
 
@@ -17,21 +18,33 @@ const EMPTY = '—';
 // Answers as words (dates and yes/no read naturally) and letters with their placeholders filled.
 function blocks(schema: TemplateSchema, data: SectionValue[]): Block[] {
   const shown = resolveDocument(schema, data);
+  const currency = documentCurrency(schema, data);
   return schema.sections.map((section, i) => {
     const value = shown[i];
     if (section.type === 'fields') {
       const fields = (value ?? {}) as FieldsValue;
-      return { title: section.title, kind: 'fields', rows: section.fields.map((f) => [fieldLabel(f), formatField(f, fields[fieldLabel(f)]) || EMPTY]) };
+      return { title: section.title, kind: 'fields', rows: section.fields.map((f) => [fieldLabel(f), formatField(f, fields[fieldLabel(f)], { currency }) || EMPTY]) };
     }
     if (section.type === 'table') {
       const columns = editableColumns(section);
       const rows = (Array.isArray(value) ? value : []) as TableRow[];
       const numbered = section.autonumber ? [section.autonumber] : [];
+      const computed = Object.keys(section.computed ?? {});
+      const money = (column: string, amount: number) => (section.money?.includes(column) ? formatMoney(amount, currency) : String(amount));
+      const total = tableTotal(section, rows);
       return {
         title: section.title,
         kind: 'table',
-        header: [...numbered, ...columns.map(fieldLabel)],
-        cells: rows.map((row, r) => [...(section.autonumber ? [String(r + 1).padStart(2, '0')] : []), ...columns.map((c) => formatField(c, row[fieldLabel(c)]) || EMPTY)]),
+        header: [...numbered, ...columns.map(fieldLabel), ...computed],
+        cells: rows.map((row, r) => [
+          ...(section.autonumber ? [String(r + 1).padStart(2, '0')] : []),
+          ...columns.map((c) => formatField(c, row[fieldLabel(c)], { currency }) || EMPTY),
+          ...computed.map((column) => {
+            const amount = computeCell(section, row, column);
+            return amount === null ? EMPTY : money(column, amount);
+          }),
+        ]),
+        total: section.total && total !== null ? [section.total.label, money(section.total.column, total)] : undefined,
       };
     }
     return { title: section.title, kind: 'text', text: typeof value === 'string' && value.trim() ? value.trim() : EMPTY };
@@ -46,7 +59,8 @@ export function toMarkdown(schema: TemplateSchema, data: SectionValue[]) {
     if (b.kind === 'fields') return `## ${b.title}\n\n${b.rows.map(([label, value]) => `- **${label}:** ${value}`).join('\n')}`;
     if (b.kind === 'table') {
       const line = (cells: string[]) => `| ${cells.map(cell).join(' | ')} |`;
-      return `## ${b.title}\n\n${[line(b.header), line(b.header.map(() => '---')), ...b.cells.map(line)].join('\n')}`;
+      const total = b.total ? [line([...b.header.slice(2).map(() => ''), `**${b.total[0]}**`, `**${b.total[1]}**`].slice(-b.header.length))] : [];
+      return `## ${b.title}\n\n${[line(b.header), line(b.header.map(() => '---')), ...b.cells.map(line), ...total].join('\n')}`;
     }
     return `## ${b.title}\n\n${b.text}`;
   });
@@ -59,7 +73,7 @@ export function toPlainText(schema: TemplateSchema, data: SectionValue[]) {
     if (b.kind === 'fields') return `${underline(b.title, '-')}\n${b.rows.map(([label, value]) => `${label}: ${value}`).join('\n')}`;
     if (b.kind === 'table') {
       const rows = b.cells.map((cells, r) => `${r + 1}. ${cells.map((c, i) => `${b.header[i]}: ${c}`).join(' · ')}`);
-      return `${underline(b.title, '-')}\n${rows.join('\n') || EMPTY}`;
+      return `${underline(b.title, '-')}\n${rows.join('\n') || EMPTY}${b.total ? `\n${b.total[0]}: ${b.total[1]}` : ''}`;
     }
     return `${underline(b.title, '-')}\n${b.text}`;
   });
@@ -79,6 +93,7 @@ export async function toWord(schema: TemplateSchema, data: SectionValue[]): Prom
       const row = (cells: string[], bold = false) =>
         new Row({ children: cells.map((c) => new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: c, bold })] })] })) });
       children.push(new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: [row(b.header, true), ...b.cells.map((c) => row(c))] }));
+      if (b.total) children.push(new Paragraph({ children: [new TextRun({ text: `${b.total[0]}: ${b.total[1]}`, bold: true })], spacing: { before: 120 } }));
     } else {
       for (const line of b.text.split('\n')) children.push(new Paragraph({ text: line }));
     }

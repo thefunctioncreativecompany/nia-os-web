@@ -64,3 +64,18 @@ export function formatDuration(value: Duration) {
   const unit = Number(amount) === 1 ? value.unit.slice(0, -1) : value.unit;
   return `${amount} ${unit}`;
 }
+
+/** "850" or "850.5" → a number, ignoring anything that isn't part of one. */
+export const toAmount = (value: unknown) => {
+  const n = parseFloat(String(value ?? '').replace(/[^0-9.\-]/g, ''));
+  return Number.isFinite(n) ? n : 0;
+};
+
+/** 15400 → "$15,400.00" in the document's currency (USD unless it says otherwise). */
+export function formatMoney(amount: number, currency = 'USD') {
+  try {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency, minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount);
+  } catch {
+    return amount.toFixed(2);
+  }
+}

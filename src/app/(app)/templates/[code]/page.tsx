@@ -30,7 +30,7 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
   if (!canEdit(schema)) notFound();
 
   const { doc } = await searchParams;
-  let saved: { id: string; data: unknown } | null = null;
+  let saved: { id: string; data: unknown; status: string } | null = null;
   if (typeof doc === "string") {
     if (!/^[0-9a-f-]{36}$/.test(doc)) notFound();
     // Supabase checks token expiry with Date.now(), so keep this out of the prerendered shell.
@@ -42,7 +42,7 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
     if (!user) redirect("/login");
     const { data } = await supabase
       .from("documents")
-      .select("id, data")
+      .select("id, data, status")
       .eq("id", doc)
       .eq("template_code", schema.code)
       .is("deleted_at", null)
@@ -51,7 +51,7 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
     saved = data;
   }
 
-  return <TemplateEditor key={saved?.id ?? "new"} schema={schema} documentId={saved?.id ?? null} initialData={restoreDocument(schema, saved?.data)} />;
+  return <TemplateEditor key={saved?.id ?? "new"} schema={schema} documentId={saved?.id ?? null} initialData={restoreDocument(schema, saved?.data)} initialPaid={saved?.status === "paid"} />;
 }
 
 function EditorSkeleton() {

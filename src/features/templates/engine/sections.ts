@@ -1,6 +1,6 @@
 import type { FieldKind, FieldSpec, LetterSection, Section, SectionType, TableSection, TemplateSchema } from '../types';
 import type { PersonRef } from '@/components/nia/assignees';
-import { formatDateTimeRange, formatDays, formatDuration, formatYesNo, type DateTimeRange, type Duration, type YesNo } from './format';
+import { formatDateTimeRange, formatDays, formatDuration, formatMoney, formatYesNo, toAmount, type DateTimeRange, type Duration, type YesNo } from './format';
 
 /*
  * The template engine's data rules (TEMPLATE_ENGINE.md §4): a blank value for each section
@@ -18,7 +18,7 @@ export type SectionValue = FieldsValue | TableRow[] | string;
 export const ENGINE_TYPES: ReadonlySet<SectionType> = new Set(['fields', 'text', 'letter', 'table']);
 
 /** Templates whose controls have been reviewed with Ika join here (build step 7 and T5). */
-const READY = new Set(['D07', 'D03', 'D06', 'D08', 'D13', 'D14', 'D10']);
+const READY = new Set(['D07', 'D03', 'D06', 'D08', 'D13', 'D14', 'D10', 'D04']);
 
 export const canEdit = (schema: TemplateSchema | null): schema is TemplateSchema =>
   !!schema && READY.has(schema.code) && schema.sections.every((s) => ENGINE_TYPES.has(s.type));
@@ -54,9 +54,11 @@ function restoreField(field: FieldSpec, saved: unknown): FieldValue {
 }
 
 /** The answer as words: what the downloads print and what fills a letter. */
-export function formatField(field: FieldSpec, value: FieldValue | undefined, { datesOnly = false } = {}): string {
+export function formatField(field: FieldSpec, value: FieldValue | undefined, { datesOnly = false, currency = 'USD' } = {}): string {
   if (value === undefined) return '';
   switch (fieldKind(field)) {
+    case 'money':
+      return typeof value === 'string' && value.trim() ? formatMoney(toAmount(value), currency) : '';
     case 'dateTimeRange':
       return formatDateTimeRange(value as DateTimeRange, { datesOnly });
     case 'yesNo':
@@ -78,8 +80,35 @@ export function formatField(field: FieldSpec, value: FieldValue | undefined, { d
 // the blank document is prepared ahead of time, where random values aren't allowed.
 const uid = () => crypto.randomUUID();
 
-/** Columns people fill in: everything but the automatic number. */
-export const editableColumns = (section: TableSection) => section.columns.filter((c) => fieldLabel(c) !== section.autonumber);
+/** Columns people fill in: everything but the automatic number and worked-out columns. */
+export const editableColumns = (section: TableSection) =>
+  section.columns.filter((c) => fieldLabel(c) !== section.autonumber && !section.computed?.[fieldLabel(c)]);
+
+/** A worked-out cell, e.g. Extended = Rate × QTY; null when neither side has a number yet. */
+export function computeCell(section: TableSection, row: TableRow, column: string): number | null {
+  const parts = section.computed?.[column];
+  if (!parts) return null;
+  const [a, b] = parts;
+  if (!String(row[a] ?? '').trim() && !String(row[b] ?? '').trim()) return null;
+  return toAmount(row[a]) * toAmount(row[b]);
+}
+
+/** The table's total (e.g. Total Due), or null if it has none. */
+export function tableTotal(section: TableSection, rows: TableRow[]): number | null {
+  if (!section.total) return null;
+  const column = section.total.column;
+  return rows.reduce((sum, row) => sum + (section.computed?.[column] ? computeCell(section, row, column) ?? 0 : toAmount(row[column])), 0);
+}
+
+/** The document's currency: a field called "Currency" if it has one, otherwise US dollars. */
+export function documentCurrency(schema: TemplateSchema, data: SectionValue[]) {
+  for (const [i, s] of schema.sections.entries()) {
+    if (s.type !== 'fields') continue;
+    const value = (data[i] as FieldsValue)?.Currency;
+    if (typeof value === 'string' && /^[A-Z]{3}$/.test(value)) return value;
+  }
+  return 'USD';
+}
 
 export function blankRow(section: TableSection, id: string = uid()): TableRow {
   return { id, ...Object.fromEntries(editableColumns(section).map((c) => [fieldLabel(c), blankField(c)])) };
