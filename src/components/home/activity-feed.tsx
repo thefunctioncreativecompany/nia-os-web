@@ -23,7 +23,7 @@ type Row =
 // the same kind of change (as in notify_project_member / notify_project_activity) and within
 // this window. That change shows once, as the notification.
 const SAME_CHANGE_MS = 5_000;
-const NOTIFIED = { shared: ["shared"], activity: ["renamed", "updated", "cover_changed", "link_on", "link_off"] };
+const NOTIFIED = { shared: ["shared"], activity: ["renamed", "updated", "cover_changed", "link_on", "link_off", "doc_added", "doc_removed", "doc_deleted", "files_added"] };
 const LIMIT = 12;
 
 // Activity on Home (H3): what's for you (shared with you, collaborators' changes, from

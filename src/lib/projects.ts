@@ -171,6 +171,15 @@ export function describeActivity(item: Pick<ActivityItem, "action" | "detail" | 
       return { verb: "turned off the share link for", object: project };
     case "deleted":
       return { verb: "deleted", object: item.detail || project };
+    // Documents and files (audit #9).
+    case "doc_added":
+      return { verb: `added ${item.detail || "a document"} to`, object: project };
+    case "doc_removed":
+      return { verb: `removed ${item.detail || "a document"} from`, object: project };
+    case "doc_deleted":
+      return { verb: `deleted ${item.detail || "a document"} from`, object: project };
+    case "files_added":
+      return { verb: `uploaded ${item.detail || "files"} to`, object: project };
     default:
       return { verb: "changed", object: project };
   }
