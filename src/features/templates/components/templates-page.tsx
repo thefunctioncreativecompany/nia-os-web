@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, GalleryHorizontalEnd, LayoutGrid, Rows3, Search, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, GalleryHorizontalEnd, LayoutGrid, Rows3, X } from "lucide-react";
 import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
@@ -11,13 +11,14 @@ import { COMING_SOON, FILTERS, inFilter, type Filter, type GalleryTemplate } fro
 import { CompactTile } from "@/features/templates/components/compact-tile";
 import { IndexItem } from "@/features/templates/components/index-item";
 import { TemplateCard } from "@/features/templates/components/template-card";
+import { TemplateSearch } from "@/features/templates/components/template-search";
 
 type View = "showcase" | "compact" | "index";
 
 const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1fr))] gap-3.5";
 
 // The Templates page (TEMPLATES_BUILD.md §2, build steps 2–3): title, search with the live
-// template count, filters, and three views. Search suggestions, the preview pop-up and
+// template count and suggestions (step 4), filters, and three views. The preview pop-up and
 // "Suggested for you" come in the next build steps.
 export function TemplatesPage({ templates, groups, familyLabels }: { templates: GalleryTemplate[]; groups: string[]; familyLabels: Record<string, string> }) {
   const [view, setView] = useState<View>("showcase");
@@ -52,34 +53,17 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
       <div className="flex flex-col gap-4.5 px-4 md:px-11">
         <h1 className="text-display font-extrabold tracking-tight text-foreground">Templates</h1>
 
-        <form
-          role="search"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setCommitted(query.trim());
+        <TemplateSearch
+          templates={templates}
+          familyLabels={familyLabels}
+          query={query}
+          onQueryChange={(next) => {
+            setQuery(next);
+            if (!next) setCommitted("");
           }}
-          className="flex h-14 w-full max-w-190 items-center gap-3 rounded-2xl border border-border bg-white pr-4 pl-4.5 transition-[border-color,box-shadow] duration-fast focus-within:border-foreground focus-within:ring-4 focus-within:ring-foreground/8"
-        >
-          <Search aria-hidden className="size-4.5 shrink-0 text-muted-foreground" />
-          <label htmlFor="tpl-search" className="sr-only">Search templates</label>
-          <input
-            id="tpl-search"
-            type="search"
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              if (!e.target.value) setCommitted("");
-            }}
-            placeholder={`Search ${templates.length} templates`}
-            autoComplete="off"
-            className="min-w-0 flex-1 bg-transparent text-lead text-foreground outline-none placeholder:text-muted-foreground [&::-webkit-search-cancel-button]:hidden"
-          />
-          {query && (
-            <button type="button" onClick={clear} aria-label="Clear search" className="flex size-7 items-center justify-center rounded-full bg-muted text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
-              <X aria-hidden className="size-3" />
-            </button>
-          )}
-        </form>
+          onCommit={setCommitted}
+          onPick={open}
+        />
 
         <div className="flex flex-wrap items-center justify-between gap-3.5">
           <FilterChips templates={templates} filter={filter} onChange={setFilter} />
