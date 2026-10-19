@@ -1,0 +1,2589 @@
+{
+  "$comment": "Sections of the 31 document templates, for the template engine (TEMPLATE_ENGINE.md). Extracted from design/prototypes/CDWorkspace.html (TEMPLATE_SCHEMAS); figma frame IDs from templates.manifest.json.",
+  "version": 1,
+  "templates": [
+    {
+      "code": "D01",
+      "name": "Call Sheet",
+      "group": "Production Management & Operations",
+      "description": "The daily blueprint for a shoot, sent to cast and crew the night before: call times, locations, the scene schedule, cast calls and department contacts.",
+      "contents": [
+        "Call Time: exact arrival times for all departments",
+        "Locations: primary and backup shooting locations",
+        "Schedule: shooting order and estimated wrap time",
+        "Cast Calls: individual call times for talent"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Section",
+        "Add Row",
+        "Send to Crew",
+        "Print"
+      ],
+      "version": "v2.4",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Daily Shoot Info",
+          "fields": [
+            "Production Company",
+            "Title",
+            "Call Time",
+            "Director",
+            "Producer",
+            "Exec. Producer",
+            "1st AD",
+            "Shoot Date",
+            "BKFST",
+            "Lunch",
+            "Sunrise / Sunset",
+            "Weather"
+          ]
+        },
+        {
+          "type": "fields",
+          "title": "Locations",
+          "fields": [
+            "Production Office",
+            "Basecamp",
+            "Location",
+            "Hospital",
+            "Crew Parking"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Shooting Schedule",
+          "columns": [
+            "Scenes",
+            "Pages",
+            "Set & Description",
+            "D/N",
+            "Cast",
+            "Location"
+          ],
+          "rows": 3,
+          "empty": "No schedule yet. Add scenes to build the day."
+        },
+        {
+          "type": "table",
+          "title": "Cast & Talent Calls",
+          "columns": [
+            "#",
+            "Cast",
+            "Role",
+            "Call",
+            "Pick Up",
+            "MU/WD",
+            "Set Call"
+          ],
+          "rows": 3,
+          "autonumber": "#",
+          "empty": "No cast calls yet. Pull talent from Cast & Crew."
+        },
+        {
+          "type": "text",
+          "title": "Atmosphere, Extras & Stand-ins",
+          "placeholder": "Background actors, body doubles, atmosphere or special notes…"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:7887",
+        "editor": "840:27971"
+      }
+    },
+    {
+      "code": "D24",
+      "name": "Call Sheet – Detailed",
+      "group": "Production Management & Operations",
+      "description": "A call sheet you build section by section: production info, schedule, locations, cast, alerts, transport and contacts.",
+      "contents": [
+        "Departmental Grid: crew roles and contact information",
+        "Transport Notes: vehicles, parking and travel times",
+        "Scene Schedule: timeline with setup and wrap times",
+        "Cast/Character: talent calls, character notes and wardrobe"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Section",
+        "Send to Crew",
+        "Print"
+      ],
+      "version": "v1.4",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Production Info",
+          "fields": [
+            "Project Title",
+            "Production Company",
+            "Director",
+            "Producer",
+            "Shoot Day",
+            "Date",
+            "General Call",
+            "Weather",
+            "Sunrise / Sunset"
+          ],
+          "optional": true,
+          "hint": "Company, crew and production details"
+        },
+        {
+          "type": "table",
+          "title": "Schedule",
+          "columns": [
+            "Time / Scene",
+            "Description",
+            "Location",
+            "Est."
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Scene breakdown with times and locations"
+        },
+        {
+          "type": "fields",
+          "title": "Locations",
+          "fields": [
+            "Set Location",
+            "Parking",
+            "Nearest Hospital",
+            "Base Camp",
+            "Catering"
+          ],
+          "optional": true,
+          "hint": "Set locations, parking and nearby facilities"
+        },
+        {
+          "type": "table",
+          "title": "Cast",
+          "columns": [
+            "#",
+            "Name",
+            "Role",
+            "Status",
+            "Pickup",
+            "Call"
+          ],
+          "rows": 3,
+          "autonumber": "#",
+          "optional": true,
+          "hint": "Cast members, roles and call times"
+        },
+        {
+          "type": "text",
+          "title": "Alert / Notice",
+          "placeholder": "Important announcements and reminders…",
+          "optional": true,
+          "hint": "Important announcements and reminders"
+        },
+        {
+          "type": "text",
+          "title": "Transport Notes",
+          "placeholder": "Shuttle times, driver contacts, pickup details…",
+          "optional": true,
+          "hint": "Shuttle times, driver contacts, pickup details"
+        },
+        {
+          "type": "table",
+          "title": "Department Contacts",
+          "columns": [
+            "Dept",
+            "Name",
+            "Phone"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Department heads and phone numbers"
+        },
+        {
+          "type": "table",
+          "title": "Key Contacts",
+          "columns": [
+            "Role",
+            "Name",
+            "Phone"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Director, AD and essential crew contacts"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:8585",
+        "empty": "796:8999"
+      }
+    },
+    {
+      "code": "D05",
+      "name": "Script Breakdown Sheet",
+      "group": "Production Management & Operations",
+      "description": "Breaks a script down scene by scene into everything production must plan, budget and schedule.",
+      "contents": [
+        "Scene: detailed scene-by-scene breakdown",
+        "Location: primary and secondary set locations",
+        "Day/Night: time of day and lighting",
+        "Cast categories: principal, supporting and background"
+      ],
+      "builder": false,
+      "actions": [
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Breakdown Metadata",
+          "fields": [
+            "Breakdown Sheet #",
+            "Page Count",
+            "Date",
+            "Production Company",
+            "Production Title",
+            "Scene #",
+            "Scene Name",
+            "Script Page",
+            "Location",
+            "Int / Ext",
+            "Day / Night"
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Scene Synopsis / Notes",
+          "placeholder": "Scene synopsis, dramatic beats or continuity notes…"
+        },
+        {
+          "type": "categories",
+          "title": "Breakdown Categories",
+          "items": [
+            "Cast",
+            "Stunts",
+            "Extras / Atmosphere",
+            "Special Effects",
+            "Props",
+            "Vehicles / Animals",
+            "Wardrobe",
+            "Makeup / Hair",
+            "Sound Effects / Music",
+            "Special Equipment",
+            "Production Notes"
+          ]
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "1252:22",
+        "editor": "840:28209"
+      }
+    },
+    {
+      "code": "D10",
+      "name": "3-Column AV Script",
+      "group": "Production Management & Operations",
+      "description": "Shot numbers, audio and video in parallel columns, so sound and picture are planned together shot by shot.",
+      "contents": [
+        "Shot #: sequential shot identification",
+        "Audio: dialogue, FX and music cues",
+        "Video: action, camera direction and lighting"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.1",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Script Info",
+          "fields": [
+            "Title",
+            "Page"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "AV Script Blueprint",
+          "columns": [
+            "Shot #",
+            "Audio",
+            "Video"
+          ],
+          "rows": 5,
+          "autonumber": "Shot #",
+          "tall": true
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:8048",
+        "editor": "840:28419"
+      }
+    },
+    {
+      "code": "D13",
+      "name": "Continuity Log",
+      "group": "Production Management & Operations",
+      "description": "Tracks visual and narrative consistency across takes: props, wardrobe, positions and timing.",
+      "contents": [
+        "Scene: identifiers for every setup",
+        "Shot: angle, framing and movement",
+        "Take: take numbers and approvals",
+        "Length: duration and playback notes",
+        "Notes: wardrobe, hair, makeup and prop continuity"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.4",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Template Info",
+          "fields": [
+            "Title",
+            "Page",
+            "Scene",
+            "Script Page",
+            "Date"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Log Table",
+          "columns": [
+            "Scene",
+            "Shot",
+            "Take",
+            "Length",
+            "Notes"
+          ],
+          "rows": 6
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:8166",
+        "editor": "840:28574"
+      }
+    },
+    {
+      "code": "D08",
+      "name": "Equipment Rental Log",
+      "group": "Production Management & Operations",
+      "description": "Every piece of rented gear checked out and back in: serials, vendors, dates and return status.",
+      "contents": [
+        "QTY: quantity of each item",
+        "Equipment: item, model and type",
+        "Serial #: serial number per item",
+        "Vendor: rental house and contact",
+        "Dates: pickup and return"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.4",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Template Info",
+          "fields": [
+            "Production Title",
+            "Page"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Rental Log",
+          "columns": [
+            "QTY",
+            "Equipment",
+            "Serial #",
+            "Vendor",
+            "Date Out",
+            "Date In",
+            "Status"
+          ],
+          "rows": 6
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:8307",
+        "editor": "840:28744"
+      }
+    },
+    {
+      "code": "D03",
+      "name": "Crew Contact List",
+      "group": "Production Management & Operations",
+      "description": "One directory of everyone on the production: role, phone, email and notes.",
+      "contents": [
+        "Position: role or department",
+        "Name: full name",
+        "Phone: primary mobile",
+        "Email: for scheduling and follow-up",
+        "Notes: call times or special instructions"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.4",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Template Info",
+          "fields": [
+            "Production Title",
+            "Page"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Crew Contacts",
+          "columns": [
+            "Position",
+            "Name",
+            "Phone",
+            "Email",
+            "Notes"
+          ],
+          "rows": 6
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:8453",
+        "editor": "840:28931"
+      }
+    },
+    {
+      "code": "D04",
+      "name": "Invoice",
+      "group": "Production Management & Operations",
+      "description": "Bills for crew fees, equipment, locations and other production costs, itemised line by line.",
+      "contents": [
+        "Invoice #: unique billing code",
+        "Line Items: itemised entries and hours",
+        "Total: sum of all line items",
+        "Payment Details: pay-to and bank"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Line Item",
+        "Mark Paid"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Invoice Metadata",
+          "fields": [
+            "Invoice #",
+            "Date",
+            "Prepared By",
+            "For"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Line Items",
+          "columns": [
+            "Description",
+            "Rate",
+            "QTY",
+            "Extended"
+          ],
+          "rows": 4,
+          "computed": {
+            "Extended": [
+              "Rate",
+              "QTY"
+            ]
+          },
+          "money": [
+            "Rate",
+            "Extended"
+          ],
+          "total": {
+            "column": "Extended",
+            "label": "Total Due"
+          }
+        },
+        {
+          "type": "fields",
+          "title": "Payment Details",
+          "fields": [
+            "Make Payable To",
+            "Bank",
+            "Terms"
+          ]
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9289",
+        "editor": "840:29272"
+      }
+    },
+    {
+      "code": "D07",
+      "name": "Filming Notice",
+      "group": "Production Management & Operations",
+      "description": "A formal notice to neighbours and businesses about filming nearby: dates, times, parking and who to contact.",
+      "contents": [
+        "Location: streets and boundaries affected",
+        "Dates/Times: shooting and prep windows",
+        "Parking: restrictions and towing alerts",
+        "Contact: location manager and permit office"
+      ],
+      "builder": false,
+      "actions": [
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Notice Metadata",
+          "fields": [
+            "Production Company",
+            "Title / Type of Production",
+            "Location",
+            "Dates / Times",
+            "Parking Restrictions",
+            "Intermittent Traffic Control",
+            "Location Manager",
+            "Phone Contact",
+            "Email Contact",
+            "Film Permit Office"
+          ]
+        },
+        {
+          "type": "letter",
+          "title": "Notice Body",
+          "default": "Dear Business Owners & Residents,\n\n[Production Company Name] will be filming scenes for the upcoming production \"[Production Title]\" in your neighbourhood on [Dates]. We appreciate your cooperation and support during this process.\n\nIf you have any questions, please contact our Location Manager at the details above.\n\nThank you,\n[Location Manager]"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9424",
+        "editor": "840:29449"
+      }
+    },
+    {
+      "code": "D14",
+      "name": "Shot Logging Sheet",
+      "group": "Production Management & Operations",
+      "description": "Catalogues every take for the edit: file names, descriptions, durations, comments and circled takes.",
+      "contents": [
+        "File/Take: card and file names",
+        "Description: angle and visual detail",
+        "Length: timecode and duration",
+        "Comments: performance, focus and sync notes",
+        "Use: circled takes for the edit"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Log Metadata",
+          "fields": [
+            "Production Title",
+            "Page",
+            "Card",
+            "Scene",
+            "Script Page",
+            "Date"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Shot Logs",
+          "columns": [
+            "File / Take",
+            "Description",
+            "Length",
+            "Comments",
+            "Use"
+          ],
+          "rows": 6,
+          "checkbox": [
+            "Use"
+          ]
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9536",
+        "editor": "840:29595"
+      }
+    },
+    {
+      "code": "D09",
+      "name": "Storyboard – 9 Frame",
+      "group": "Production Management & Operations",
+      "description": "A nine-panel grid for sketching compositions and scene flow, with notes under every frame.",
+      "contents": [
+        "9 Frame Grid: pre-visualisation panels",
+        "Shot Descriptions: dialogue, camera moves and notes",
+        "Scene/Page Tracking: synced to the script"
+      ],
+      "builder": false,
+      "actions": [
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Template Info",
+          "fields": [
+            "Title",
+            "Page",
+            "Scene",
+            "Script Page"
+          ]
+        },
+        {
+          "type": "frames",
+          "title": "Visual Panels Grid",
+          "count": 9,
+          "aspect": "16 / 9",
+          "placeholder": "Shot notes & dialogue…"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9149",
+        "editor": "840:29098"
+      }
+    },
+    {
+      "code": "D06",
+      "name": "Shotlist",
+      "group": "Production Management & Operations",
+      "description": "Every shot needed for a scene or day: number, interior or exterior, type, angle, movement and description.",
+      "contents": [
+        "Shot #: sequential setup numbers",
+        "I/E: interior or exterior",
+        "Type: camera profile and focal range",
+        "Angle: wide, medium, close-up",
+        "Move: static, pan, tilt, tracking, crane",
+        "Description: action and continuity goals"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Template Info",
+          "fields": [
+            "Title",
+            "Page",
+            "Scene",
+            "Script Page"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Camera & Technical Coverage List",
+          "columns": [
+            "Shot #",
+            "I/E",
+            "Type",
+            "Angle",
+            "Move",
+            "Description"
+          ],
+          "rows": 6,
+          "autonumber": "Shot #"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9686",
+        "editor": "840:29808"
+      }
+    },
+    {
+      "code": "D22",
+      "name": "Content Production Guideline",
+      "group": "Strategy & Development",
+      "description": "Sets the creative and technical rules for BTS, EPK and social content captured during a production.",
+      "contents": [
+        "BTS Video Capture: rules for B-roll and candid moments",
+        "EPK Standards: interview panels and lighting",
+        "Technical Delivery: codecs, transfers and metadata"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Production Metadata",
+          "fields": [
+            "Client",
+            "Production Company",
+            "Production Dates",
+            "Content Type (BTS/EPK/PAVs)",
+            "Locations",
+            "Crew Members"
+          ]
+        },
+        {
+          "type": "text",
+          "title": "BTS Videos Brief",
+          "placeholder": "Describe the behind-the-scenes content requirements…"
+        },
+        {
+          "type": "fields",
+          "title": "EPK Interview Setup",
+          "fields": [
+            "Production Day",
+            "Venue",
+            "Mandatory Cast",
+            "Optional Cast"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Special Concepts",
+          "columns": [
+            "Concept Name / Format",
+            "Talent / Delivery"
+          ],
+          "rows": 2
+        },
+        {
+          "type": "checklist",
+          "title": "Daily Checklist",
+          "groups": [
+            {
+              "label": "Before Set",
+              "items": [
+                "Verify camera/sound package check"
+              ]
+            },
+            {
+              "label": "On Set",
+              "items": [
+                "Monitor social formats coverage"
+              ]
+            },
+            {
+              "label": "After Set",
+              "items": [
+                "Upload high-res raw masters"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Technical Notes",
+          "placeholder": "Format specs, proxy requirements or colour pipeline constraints…"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "932:8862",
+        "active": "932:9008",
+        "editor": "932:9158"
+      }
+    },
+    {
+      "code": "D11",
+      "name": "Series Bible",
+      "group": "Strategy & Development",
+      "description": "The foundation of an episodic series: concept, premise, synopsis, themes and characters.",
+      "contents": [
+        "Concept & Premise: logline, genre and format",
+        "Thematic Core: dramatic question and controlling idea",
+        "Character Registry: profiles, backstories and arcs"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "The Concept",
+          "fields": [
+            "Working Title",
+            "Genre",
+            "Format",
+            "Language",
+            "Production Company",
+            "Created By",
+            "Headwriter"
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Logline",
+          "placeholder": "Write your series logline…"
+        },
+        {
+          "type": "fields",
+          "title": "Core Premise",
+          "fields": [
+            "Dramatic Question",
+            "Controlling Idea"
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Series Synopsis",
+          "placeholder": "The overarching narrative of the season…"
+        },
+        {
+          "type": "text",
+          "title": "Themes",
+          "placeholder": "Themes and central arguments (e.g. Tradition vs Modernity)…"
+        },
+        {
+          "type": "table",
+          "title": "Characters",
+          "columns": [
+            "Name / Role",
+            "Description / Arc"
+          ],
+          "rows": 3,
+          "tall": true
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "932:9286",
+        "active": "932:9418",
+        "editor": "932:9555"
+      }
+    },
+    {
+      "code": "D12",
+      "name": "Casting Deck",
+      "group": "Strategy & Development",
+      "description": "Characters matched to actors and agents, with each role's status from open to confirmed.",
+      "contents": [
+        "Talent Roster: characters mapped to actors and reps",
+        "Status: open, shortlisted or confirmed",
+        "Casting Pipeline: export for producer review"
+      ],
+      "builder": false,
+      "actions": [
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Project Info",
+          "fields": [
+            "Project Title",
+            "Genre",
+            "Production Company",
+            "Casting Director",
+            "Date"
+          ]
+        },
+        {
+          "type": "cards",
+          "title": "Character Roster",
+          "count": 2,
+          "nameLabel": "Character Name / Archetype",
+          "statuses": [
+            "Open",
+            "Shortlisted",
+            "Confirmed"
+          ],
+          "descPlaceholder": "Core motivation, attitude and visual look…",
+          "fields": [
+            "Actor",
+            "Agent"
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Casting Notes",
+          "placeholder": "Casting director notes…"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "932:9677",
+        "active": "932:9806",
+        "editor": "932:9974"
+      }
+    },
+    {
+      "code": "D02",
+      "name": "Production Budget",
+      "group": "Strategy & Development",
+      "description": "Above-the-line, below-the-line and additional costs, with subtotals, contingency and a grand total.",
+      "contents": [
+        "Above the Line: creative leads and rights",
+        "Below the Line: crew, equipment, locations and logistics",
+        "Summary: subtotals, 10% contingency and grand total"
+      ],
+      "builder": false,
+      "actions": [
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Budget Overview",
+          "fields": [
+            "Production Title",
+            "Production Company",
+            "Producer",
+            "Prepared By",
+            "Date",
+            "Shoot Days",
+            "Currency",
+            "Budget Version"
+          ]
+        },
+        {
+          "type": "budget",
+          "title": "Budget",
+          "contingency": 0.1,
+          "groups": [
+            {
+              "label": "Above the Line (ATL)",
+              "rows": [
+                [
+                  "Director",
+                  "Director's Fee"
+                ],
+                [
+                  "Producer",
+                  "Producer's Fee"
+                ],
+                [
+                  "Writer",
+                  "Script & Rewrites"
+                ],
+                [
+                  "Principal Cast",
+                  "Lead Talent"
+                ],
+                [
+                  "Development",
+                  "Research & Development"
+                ],
+                [
+                  "Rights & Licensing",
+                  "Underlying Rights"
+                ],
+                [
+                  "Story Rights",
+                  "Acquisition"
+                ]
+              ]
+            },
+            {
+              "label": "Below the Line (BTL)",
+              "rows": [
+                [
+                  "Cinematography",
+                  "DP & Camera Crew"
+                ],
+                [
+                  "Production Design",
+                  "Art Department"
+                ],
+                [
+                  "Editing",
+                  "Post-Production Edit"
+                ],
+                [
+                  "Costume & Makeup",
+                  "Wardrobe & HMU"
+                ],
+                [
+                  "Music",
+                  "Score & Licensing"
+                ],
+                [
+                  "Equipment",
+                  "Camera, Lighting, Grip"
+                ],
+                [
+                  "Locations",
+                  "Location Fees & Permits"
+                ],
+                [
+                  "Transport",
+                  "Vehicles & Logistics"
+                ],
+                [
+                  "Construction",
+                  "Set Build & Strike"
+                ],
+                [
+                  "Catering",
+                  "Craft Services & Meals"
+                ],
+                [
+                  "Travel",
+                  "Accommodations & Flights"
+                ],
+                [
+                  "Production Mgmt",
+                  "PM & Finance Crew"
+                ],
+                [
+                  "Fringe Benefits",
+                  "Payroll Taxes & Benefits"
+                ]
+              ]
+            },
+            {
+              "label": "Additional",
+              "rows": [
+                [
+                  "Legal Fees",
+                  "Attorney & Contracts"
+                ],
+                [
+                  "Insurance",
+                  "Production Insurance"
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9836",
+        "editor": "840:30009",
+        "empty": "932:10124",
+        "active": "932:10248"
+      }
+    },
+    {
+      "code": "D23",
+      "name": "Press Junket Brief",
+      "group": "Strategy & Development",
+      "description": "The plan for a press day: venue, rooms, talent pairings, capture setup, special formats and the timeline.",
+      "contents": [
+        "Event Details: venue and room assignments",
+        "Talent Pairings: cast mapped to media setups",
+        "Camera & Audio: standard packages and routing"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Event Details",
+          "fields": [
+            "Project Title",
+            "Junket Date",
+            "Setup Date",
+            "Location / Venue"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Room Assignments",
+          "columns": [
+            "Room Name",
+            "Size",
+            "Purpose / Setup"
+          ],
+          "rows": 2,
+          "empty": "No rooms assigned yet."
+        },
+        {
+          "type": "table",
+          "title": "Talent Pairings",
+          "columns": [
+            "Talent",
+            "Room",
+            "Outlets / Slot"
+          ],
+          "rows": 2,
+          "empty": "No pairings yet. Group talent with broadcast rooms."
+        },
+        {
+          "type": "checklist",
+          "title": "Capture Setup",
+          "groups": [
+            {
+              "label": "Packages",
+              "items": [
+                "Broadcast Room Package",
+                "Audio Room Package"
+              ]
+            },
+            {
+              "label": "Photography Coverage",
+              "items": [
+                "Solo talent portraits",
+                "Cast group shot with Director",
+                "Ensemble candid setup"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Special Concepts & Formats",
+          "columns": [
+            "Concept Name / Format",
+            "Talent Required"
+          ],
+          "rows": 2
+        },
+        {
+          "type": "table",
+          "title": "Timeline Schedule",
+          "columns": [
+            "Time",
+            "Activity",
+            "Room"
+          ],
+          "rows": 3,
+          "empty": "No timeline items yet."
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "932:10533",
+        "active": "932:10671",
+        "editor": "932:10827"
+      }
+    },
+    {
+      "code": "D25",
+      "name": "Talent Roster Report",
+      "group": "Strategy & Development",
+      "description": "A quarterly report on an agency's roster: reach, new signings, active campaigns, highlights and what's next.",
+      "contents": [
+        "Overview: key metrics and combined reach",
+        "Highlights: bookings, campaigns and awards",
+        "Roster: active talent with performance notes"
+      ],
+      "builder": false,
+      "actions": [
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Report Overview",
+          "fields": [
+            "Agency / Company Name",
+            "Report Period",
+            "Date of Release"
+          ]
+        },
+        {
+          "type": "metrics",
+          "title": "Key Metrics",
+          "items": [
+            "Total Reach",
+            "New Signings",
+            "Active Campaigns"
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Highlights",
+          "placeholder": "Outstanding brand campaigns or key role bookings…"
+        },
+        {
+          "type": "text",
+          "title": "Client Spotlights",
+          "placeholder": "Talent bios, awards and campaigns…"
+        },
+        {
+          "type": "text",
+          "title": "Looking Ahead (Next Quarter)",
+          "placeholder": "Upcoming brand audits, negotiations or tours…"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "932:10953",
+        "active": "932:11066",
+        "editor": "932:11193"
+      }
+    },
+    {
+      "code": "D15",
+      "name": "GRWM",
+      "group": "UGC & Social Content",
+      "description": "Plans a Get Ready With Me video: hook, products, look, outfit, talking points, audio and posting.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Hook & Intro: grab visual attention in the first 3 seconds"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Hook & Intro",
+          "placeholder": "Grab visual attention in the first 3 seconds…",
+          "optional": true,
+          "hint": "Grab visual attention in the first 3 seconds"
+        },
+        {
+          "type": "table",
+          "title": "Products & Tools",
+          "columns": [
+            "Product",
+            "Brand",
+            "Price",
+            "Link"
+          ],
+          "rows": 3,
+          "optional": true,
+          "hint": "Cosmetics, tools, and branding specs"
+        },
+        {
+          "type": "table",
+          "title": "Look Breakdown",
+          "columns": [
+            "Step",
+            "Action",
+            "Duration"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Step-by-step beauty or style progression",
+          "autonumber": "Step"
+        },
+        {
+          "type": "text",
+          "title": "Outfit Details",
+          "placeholder": "Complete outfit tags, materials, and fits…",
+          "optional": true,
+          "hint": "Complete outfit tags, materials, and fits"
+        },
+        {
+          "type": "text",
+          "title": "Talking Points",
+          "placeholder": "Relatable storytelling or Q&A prompts…",
+          "optional": true,
+          "hint": "Relatable storytelling or Q&A prompts"
+        },
+        {
+          "type": "text",
+          "title": "Music & Audio",
+          "placeholder": "Trending sounds or voiceover tracks…",
+          "optional": true,
+          "hint": "Trending sounds or voiceover tracks"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Hashtags",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Target audience categorization"
+        },
+        {
+          "type": "fields",
+          "title": "Posting Schedule",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Optimal upload timing guidelines"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:153",
+        "populated": "854:2672"
+      }
+    },
+    {
+      "code": "D16",
+      "name": "Explainer Video",
+      "group": "UGC & Social Content",
+      "description": "Explains one idea clearly: hook, key points, script, visuals, B-roll, pacing and call to action.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Topic & Hook: introduce the problem statement immediately"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Topic & Hook",
+          "placeholder": "Introduce the problem statement immediately…",
+          "optional": true,
+          "hint": "Introduce the problem statement immediately"
+        },
+        {
+          "type": "table",
+          "title": "Key Points",
+          "columns": [
+            "#",
+            "Point"
+          ],
+          "rows": 3,
+          "optional": true,
+          "hint": "The core 3 pillars of your main thesis",
+          "autonumber": "#"
+        },
+        {
+          "type": "text",
+          "title": "Script / Voiceover",
+          "placeholder": "Word-for-word narrative block options…",
+          "optional": true,
+          "hint": "Word-for-word narrative block options"
+        },
+        {
+          "type": "text",
+          "title": "Visual Aids & Graphics",
+          "placeholder": "On-screen overlays, text, and illustrations…",
+          "optional": true,
+          "hint": "On-screen overlays, text, and illustrations"
+        },
+        {
+          "type": "table",
+          "title": "B-Roll Shots",
+          "columns": [
+            "#",
+            "Shot",
+            "Angle / Move",
+            "Duration"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Supporting lifestyle or interface B-roll",
+          "autonumber": "#"
+        },
+        {
+          "type": "table",
+          "title": "Duration & Pacing",
+          "columns": [
+            "Timestamp",
+            "Beat"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Optimal video segment duration bounds"
+        },
+        {
+          "type": "text",
+          "title": "CTA & Links",
+          "placeholder": "Direct response cues and link attributes…",
+          "optional": true,
+          "hint": "Direct response cues and link attributes"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Hashtags",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Algorithm indexing tags"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:315",
+        "populated": "854:2845"
+      }
+    },
+    {
+      "code": "D26",
+      "name": "Skit / Comedy Sketch",
+      "group": "UGC & Social Content",
+      "description": "Drafts a sketch: premise, characters, dialogue, props, shots, sound and comic timing.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Concept & Premise: the central joke or situational conflict"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Concept & Premise",
+          "placeholder": "The central joke or situational conflict…",
+          "optional": true,
+          "hint": "The central joke or situational conflict"
+        },
+        {
+          "type": "table",
+          "title": "Characters & Roles",
+          "columns": [
+            "Character",
+            "Played by",
+            "Quirk"
+          ],
+          "rows": 3,
+          "optional": true,
+          "hint": "Who is in the scene and their quirks"
+        },
+        {
+          "type": "text",
+          "title": "Script & Dialogue",
+          "placeholder": "The written script and line cues…",
+          "optional": true,
+          "hint": "The written script and line cues"
+        },
+        {
+          "type": "text",
+          "title": "Props & Wardrobe",
+          "placeholder": "Visual markers that sell the characters…",
+          "optional": true,
+          "hint": "Visual markers that sell the characters"
+        },
+        {
+          "type": "table",
+          "title": "Shot List",
+          "columns": [
+            "#",
+            "Shot",
+            "Angle / Move",
+            "Duration"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Camera movements, closeups, and angles",
+          "autonumber": "#"
+        },
+        {
+          "type": "text",
+          "title": "Sound & Music",
+          "placeholder": "Foley, punchline stings, and background music…",
+          "optional": true,
+          "hint": "Foley, punchline stings, and background music"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Format",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Aspect ratio and platform optimization"
+        },
+        {
+          "type": "fields",
+          "title": "Posting Schedule",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Social calendar sync markers"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:477",
+        "populated": "854:3194"
+      }
+    },
+    {
+      "code": "D20",
+      "name": "Product Review",
+      "group": "UGC & Social Content",
+      "description": "An honest review: product info, hook, features, pros and cons, demo shots, verdict and links.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Product Info: price, brand name, and launch specs"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Product Info",
+          "fields": [
+            "Product",
+            "Brand",
+            "Price",
+            "Launch date"
+          ],
+          "optional": true,
+          "hint": "Price, brand name, and launch specs"
+        },
+        {
+          "type": "text",
+          "title": "Hook & Intro",
+          "placeholder": "The initial reaction or problem statement hook…",
+          "optional": true,
+          "hint": "The initial reaction or problem statement hook"
+        },
+        {
+          "type": "table",
+          "title": "Key Features",
+          "columns": [
+            "#",
+            "Point"
+          ],
+          "rows": 3,
+          "optional": true,
+          "hint": "Functionality breakdowns and testing",
+          "autonumber": "#"
+        },
+        {
+          "type": "table",
+          "title": "Pros & Cons",
+          "columns": [
+            "Pros",
+            "Cons"
+          ],
+          "rows": 3,
+          "optional": true,
+          "hint": "Objective product performance trade-offs"
+        },
+        {
+          "type": "table",
+          "title": "Demo / B-Roll Shots",
+          "columns": [
+            "#",
+            "Shot",
+            "Angle / Move",
+            "Duration"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Product in use, tactile handling angles",
+          "autonumber": "#"
+        },
+        {
+          "type": "fields",
+          "title": "Verdict & Rating",
+          "fields": [
+            "Rating (out of 10)",
+            "Verdict"
+          ],
+          "optional": true,
+          "hint": "Final recommendations and scores"
+        },
+        {
+          "type": "text",
+          "title": "Affiliate Links & CTA",
+          "placeholder": "Monetization parameters and prompt…",
+          "optional": true,
+          "hint": "Monetization parameters and prompt"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Hashtags",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Social target indexing keywords"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:639",
+        "populated": "854:3017"
+      }
+    },
+    {
+      "code": "D17",
+      "name": "Day in My Life",
+      "group": "UGC & Social Content",
+      "description": "A day told in moments: schedule, locations, shot plan, talking points, music and voiceover.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Daily Schedule: chronological timestamps of key activities"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "table",
+          "title": "Daily Schedule",
+          "columns": [
+            "Time",
+            "Activity",
+            "Location"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Chronological timestamps of key activities"
+        },
+        {
+          "type": "table",
+          "title": "Location List",
+          "columns": [
+            "Location",
+            "Purpose",
+            "Notes"
+          ],
+          "rows": 3,
+          "optional": true,
+          "hint": "Where the day takes place (home, cafe, office)"
+        },
+        {
+          "type": "table",
+          "title": "Shot Plan",
+          "columns": [
+            "#",
+            "Shot",
+            "Angle / Move",
+            "Duration"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Transition ideas and dynamic tripod setups",
+          "autonumber": "#"
+        },
+        {
+          "type": "text",
+          "title": "Talking Points",
+          "placeholder": "Topics of discussion or inner monologue…",
+          "optional": true,
+          "hint": "Topics of discussion or inner monologue"
+        },
+        {
+          "type": "text",
+          "title": "Music & Transitions",
+          "placeholder": "Rhythm sync options and sound matching…",
+          "optional": true,
+          "hint": "Rhythm sync options and sound matching"
+        },
+        {
+          "type": "text",
+          "title": "Voiceover Notes",
+          "placeholder": "Post-edit narrative voice script…",
+          "optional": true,
+          "hint": "Post-edit narrative voice script"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Format",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Vertical video output requirements"
+        },
+        {
+          "type": "fields",
+          "title": "Posting Schedule",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Publishing strategy timing blocks"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:801",
+        "populated": "854:3364"
+      }
+    },
+    {
+      "code": "D18",
+      "name": "Tutorial / How-To",
+      "group": "UGC & Social Content",
+      "description": "Step-by-step teaching: objective, outline, tools, screen notes, voiceover, thumbnail and links.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Topic & Objective: define key takeaways and tutorial target"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Topic & Objective",
+          "placeholder": "Define key takeaways and tutorial target…",
+          "optional": true,
+          "hint": "Define key takeaways and tutorial target"
+        },
+        {
+          "type": "table",
+          "title": "Step-by-Step Outline",
+          "columns": [
+            "Step",
+            "Action",
+            "Duration"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Chronological flow of visual steps",
+          "autonumber": "Step"
+        },
+        {
+          "type": "text",
+          "title": "Equipment & Tools",
+          "placeholder": "Hardware, setup, software to capture…",
+          "optional": true,
+          "hint": "Hardware, setup, software to capture"
+        },
+        {
+          "type": "text",
+          "title": "Screen Recording Notes",
+          "placeholder": "Timing and annotations for overlays…",
+          "optional": true,
+          "hint": "Timing and annotations for overlays"
+        },
+        {
+          "type": "text",
+          "title": "Voiceover Script",
+          "placeholder": "Sync talking tracks with on-screen actions…",
+          "optional": true,
+          "hint": "Sync talking tracks with on-screen actions"
+        },
+        {
+          "type": "fields",
+          "title": "Thumbnail & Title",
+          "fields": [
+            "Title",
+            "Thumbnail idea",
+            "Text on thumbnail"
+          ],
+          "optional": true,
+          "hint": "Clickable ideas to drive engagement"
+        },
+        {
+          "type": "text",
+          "title": "CTA & Links",
+          "placeholder": "Guides to resource centers or sign-ups…",
+          "optional": true,
+          "hint": "Guides to resource centers or sign-ups"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Hashtags",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Search discovery tags for indexing"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:1126",
+        "populated": "854:3529"
+      }
+    },
+    {
+      "code": "D21",
+      "name": "Haul / Unboxing",
+      "group": "UGC & Social Content",
+      "description": "The reveal, paced: products, opening, first impressions, reviews, value, favourites and links.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Products List: inventory items with price & brand specs"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "table",
+          "title": "Products List",
+          "columns": [
+            "Product",
+            "Brand",
+            "Price",
+            "Link"
+          ],
+          "rows": 3,
+          "optional": true,
+          "hint": "Inventory items with price & brand specs"
+        },
+        {
+          "type": "text",
+          "title": "Opening Sequence",
+          "placeholder": "Satisfying package slice and initial unbox…",
+          "optional": true,
+          "hint": "Satisfying package slice and initial unbox"
+        },
+        {
+          "type": "text",
+          "title": "First Impressions",
+          "placeholder": "Genuine sensory reviews of look and texture…",
+          "optional": true,
+          "hint": "Genuine sensory reviews of look and texture"
+        },
+        {
+          "type": "text",
+          "title": "Detailed Reviews",
+          "placeholder": "In-depth functional breakdown of items…",
+          "optional": true,
+          "hint": "In-depth functional breakdown of items"
+        },
+        {
+          "type": "table",
+          "title": "Price & Value",
+          "columns": [
+            "Item",
+            "Price",
+            "Value note"
+          ],
+          "rows": 3,
+          "optional": true,
+          "hint": "Cost comparisons and cost-per-use tips"
+        },
+        {
+          "type": "text",
+          "title": "Favorites & Picks",
+          "placeholder": "The must-buy recommendations of the haul…",
+          "optional": true,
+          "hint": "The must-buy recommendations of the haul"
+        },
+        {
+          "type": "text",
+          "title": "Affiliate Links",
+          "placeholder": "Link parameters for passive income tracking…",
+          "optional": true,
+          "hint": "Link parameters for passive income tracking"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Posting",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Optimal category filters and tag guidelines"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:1294",
+        "populated": "854:3694"
+      }
+    },
+    {
+      "code": "D19",
+      "name": "Storytime",
+      "group": "UGC & Social Content",
+      "description": "A story told to camera: hook, arc, key moments, cutaways, music, pacing and thumbnail.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Story Hook: enthralling first line to minimize swipe-away"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Story Hook",
+          "placeholder": "Enthralling first line to minimize swipe-away…",
+          "optional": true,
+          "hint": "Enthralling first line to minimize swipe-away"
+        },
+        {
+          "type": "text",
+          "title": "Narrative Arc",
+          "placeholder": "Rising action, climax, and satisfying resolution…",
+          "optional": true,
+          "hint": "Rising action, climax, and satisfying resolution"
+        },
+        {
+          "type": "table",
+          "title": "Key Moments",
+          "columns": [
+            "#",
+            "Point"
+          ],
+          "rows": 3,
+          "optional": true,
+          "hint": "High points & emotional pivots to map",
+          "autonumber": "#"
+        },
+        {
+          "type": "table",
+          "title": "Visual Cutaways",
+          "columns": [
+            "#",
+            "Shot",
+            "Angle / Move",
+            "Duration"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "B-roll prompts, text popups, and expressions",
+          "autonumber": "#"
+        },
+        {
+          "type": "text",
+          "title": "Background Music",
+          "placeholder": "Trending audio suggestions to match pacing…",
+          "optional": true,
+          "hint": "Trending audio suggestions to match pacing"
+        },
+        {
+          "type": "table",
+          "title": "Pacing & Duration",
+          "columns": [
+            "Timestamp",
+            "Beat"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Timestamp checkpoints to secure high watch-time"
+        },
+        {
+          "type": "fields",
+          "title": "Thumbnail & Title",
+          "fields": [
+            "Title",
+            "Thumbnail idea",
+            "Text on thumbnail"
+          ],
+          "optional": true,
+          "hint": "Dramatic text and visual previews to hook viewers"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Hashtags",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Relatable storytelling algorithms categorizations"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:1462",
+        "populated": "854:3859"
+      }
+    },
+    {
+      "code": "D27",
+      "name": "Recipe / Cook With Me",
+      "group": "UGC & Social Content",
+      "description": "A recipe video: overview, ingredients, equipment, steps, plating, voiceover tips and nutrition.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Recipe Overview: name, serving sizes, and prep timeline"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Recipe Overview",
+          "fields": [
+            "Dish",
+            "Serves",
+            "Prep time",
+            "Cook time"
+          ],
+          "optional": true,
+          "hint": "Name, serving sizes, and prep timeline"
+        },
+        {
+          "type": "table",
+          "title": "Ingredients List",
+          "columns": [
+            "Ingredient",
+            "Amount",
+            "Substitution"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Precise measurements and substitutions"
+        },
+        {
+          "type": "text",
+          "title": "Equipment Needed",
+          "placeholder": "Pans, blenders, kitchen accessories required…",
+          "optional": true,
+          "hint": "Pans, blenders, kitchen accessories required"
+        },
+        {
+          "type": "table",
+          "title": "Step-by-Step Process",
+          "columns": [
+            "Step",
+            "Action",
+            "Duration"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Chopping, mixing, cooking instructions",
+          "autonumber": "Step"
+        },
+        {
+          "type": "text",
+          "title": "Plating & Styling",
+          "placeholder": "The hero final aesthetics, lighting & garnishes…",
+          "optional": true,
+          "hint": "The hero final aesthetics, lighting & garnishes"
+        },
+        {
+          "type": "text",
+          "title": "Voiceover & Tips",
+          "placeholder": "Cooking hacks, sound notes & anecdotes…",
+          "optional": true,
+          "hint": "Cooking hacks, sound notes & anecdotes"
+        },
+        {
+          "type": "fields",
+          "title": "Nutrition Info",
+          "fields": [
+            "Calories",
+            "Protein",
+            "Carbs",
+            "Fat",
+            "Dietary flags"
+          ],
+          "optional": true,
+          "hint": "Estimated macros, calories, dietary flags"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Posting",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Foodie communities hashtags & optimization"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:1630",
+        "populated": "857:39"
+      }
+    },
+    {
+      "code": "D28",
+      "name": "Workout / Fitness",
+      "group": "UGC & Social Content",
+      "description": "A workout video: type, exercises, sets and reps, equipment, warm-up, music and coaching cues.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Workout Type & Title: define focus (hiit, strength, yoga) and target goals"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Workout Type & Title",
+          "fields": [
+            "Title",
+            "Type",
+            "Goal",
+            "Level"
+          ],
+          "optional": true,
+          "hint": "Define focus (HIIT, Strength, Yoga) and target goals"
+        },
+        {
+          "type": "table",
+          "title": "Exercise List",
+          "columns": [
+            "Exercise",
+            "Form notes",
+            "Modification"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Outline movements, form notes, and modifications"
+        },
+        {
+          "type": "table",
+          "title": "Sets & Reps",
+          "columns": [
+            "Exercise",
+            "Sets",
+            "Reps",
+            "Rest"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Pacing, timing intervals, and rest periods"
+        },
+        {
+          "type": "text",
+          "title": "Equipment Needed",
+          "placeholder": "Gear specs, weights, and setup requirements…",
+          "optional": true,
+          "hint": "Gear specs, weights, and setup requirements"
+        },
+        {
+          "type": "text",
+          "title": "Warm-Up & Cool Down",
+          "placeholder": "Intro stretch and recovery mobility guides…",
+          "optional": true,
+          "hint": "Intro stretch and recovery mobility guides"
+        },
+        {
+          "type": "text",
+          "title": "Music & Energy",
+          "placeholder": "BPM guidelines and audio motivation syncing…",
+          "optional": true,
+          "hint": "BPM guidelines and audio motivation syncing"
+        },
+        {
+          "type": "text",
+          "title": "Voiceover Cues",
+          "placeholder": "Key motivational triggers and performance tips…",
+          "optional": true,
+          "hint": "Key motivational triggers and performance tips"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Posting",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Optimized tags, thumbnail hooks, and crop notes"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:2007",
+        "populated": "857:210"
+      }
+    },
+    {
+      "code": "D29",
+      "name": "Room / Space Tour",
+      "group": "UGC & Social Content",
+      "description": "An interior walkthrough: overview, room order, details, styling, lighting, transitions and music.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Space Overview: initial 3-second establishing wide shot hook"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "text",
+          "title": "Space Overview",
+          "placeholder": "Initial 3-second establishing wide shot hook…",
+          "optional": true,
+          "hint": "Initial 3-second establishing wide shot hook"
+        },
+        {
+          "type": "table",
+          "title": "Room Sequence",
+          "columns": [
+            "Order",
+            "Room",
+            "Focus"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Logical progression flow from entry to details",
+          "autonumber": "Order"
+        },
+        {
+          "type": "table",
+          "title": "Key Features & Details",
+          "columns": [
+            "#",
+            "Point"
+          ],
+          "rows": 3,
+          "optional": true,
+          "hint": "Close-ups on unique textures, tech, or styling",
+          "autonumber": "#"
+        },
+        {
+          "type": "text",
+          "title": "Styling & Decor Notes",
+          "placeholder": "Mention brands, item links, and design aesthetic…",
+          "optional": true,
+          "hint": "Mention brands, item links, and design aesthetic"
+        },
+        {
+          "type": "text",
+          "title": "Lighting Setup",
+          "placeholder": "Golden hour tracking, softbox placement, or ambient…",
+          "optional": true,
+          "hint": "Golden hour tracking, softbox placement, or ambient"
+        },
+        {
+          "type": "text",
+          "title": "Transition Plan",
+          "placeholder": "Match-cuts, whip pans, and snap movements…",
+          "optional": true,
+          "hint": "Match-cuts, whip pans, and snap movements"
+        },
+        {
+          "type": "text",
+          "title": "Background Music",
+          "placeholder": "Vibe check, trending sound loops, or ASMR track…",
+          "optional": true,
+          "hint": "Vibe check, trending sound loops, or ASMR track"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Hashtags",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Home Decor tags, interior design search keys"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:2170",
+        "populated": "857:381"
+      }
+    },
+    {
+      "code": "D30",
+      "name": "Q&A / FAQ",
+      "group": "UGC & Social Content",
+      "description": "Answers your audience: questions, answers, visuals, hook, order, interaction and follow-up.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Question Collection: aggregate hot prompts, comments, or faq list"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "table",
+          "title": "Question Collection",
+          "columns": [
+            "#",
+            "Question",
+            "Source"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Aggregate hot prompts, comments, or FAQ list",
+          "autonumber": "#"
+        },
+        {
+          "type": "text",
+          "title": "Answer Prep",
+          "placeholder": "Key takeaways, bullet points, and concise responses…",
+          "optional": true,
+          "hint": "Key takeaways, bullet points, and concise responses"
+        },
+        {
+          "type": "text",
+          "title": "Visual Aids",
+          "placeholder": "Green screen overlays, product close-ups, text popups…",
+          "optional": true,
+          "hint": "Green screen overlays, product close-ups, text popups"
+        },
+        {
+          "type": "text",
+          "title": "Intro & Hook",
+          "placeholder": "Addressing the viewer directly with a hot topic…",
+          "optional": true,
+          "hint": "Addressing the viewer directly with a hot topic"
+        },
+        {
+          "type": "table",
+          "title": "Segment Order",
+          "columns": [
+            "Step",
+            "Action",
+            "Duration"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Pacing from simplest question to deep dive climax",
+          "autonumber": "Step"
+        },
+        {
+          "type": "text",
+          "title": "Audience Interaction",
+          "placeholder": "End screen poll prompts, pinned comment call-outs…",
+          "optional": true,
+          "hint": "End screen poll prompts, pinned comment call-outs"
+        },
+        {
+          "type": "text",
+          "title": "CTA & Follow-Up",
+          "placeholder": "Guide traffic to newsletter, link in bio, or sub…",
+          "optional": true,
+          "hint": "Guide traffic to newsletter, link in bio, or sub"
+        },
+        {
+          "type": "fields",
+          "title": "Platform & Posting",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "Educational keywords, community hashtags"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:2333",
+        "populated": "857:552"
+      }
+    },
+    {
+      "code": "D31",
+      "name": "Challenge / Trend",
+      "group": "UGC & Social Content",
+      "description": "Your spin on a trend: reference, twist, setup, shot sequence, audio sync, pacing and timing.",
+      "contents": [
+        "Format: paced for TikTok, Reels and YouTube Shorts",
+        "Builder: add only the sections this video needs",
+        "Trend Reference: original link, core dynamic, audio source file"
+      ],
+      "builder": true,
+      "actions": [
+        "Add Block",
+        "Print"
+      ],
+      "version": "v2.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Trend Reference",
+          "fields": [
+            "Original link",
+            "Audio source",
+            "Core dynamic"
+          ],
+          "optional": true,
+          "hint": "Original link, core dynamic, audio source file"
+        },
+        {
+          "type": "text",
+          "title": "Concept & Twist",
+          "placeholder": "Your unique adaptation, humor element, or niche…",
+          "optional": true,
+          "hint": "Your unique adaptation, humor element, or niche"
+        },
+        {
+          "type": "text",
+          "title": "Props & Setup",
+          "placeholder": "Wardrobe changes, fast cuts, specific set locations…",
+          "optional": true,
+          "hint": "Wardrobe changes, fast cuts, specific set locations"
+        },
+        {
+          "type": "table",
+          "title": "Shot Sequence",
+          "columns": [
+            "#",
+            "Shot",
+            "Angle / Move",
+            "Duration"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Frame-by-frame guide mimicking the viral pattern",
+          "autonumber": "#"
+        },
+        {
+          "type": "text",
+          "title": "Audio & Sound",
+          "placeholder": "Exact timestamp sync for beat drops and SFX…",
+          "optional": true,
+          "hint": "Exact timestamp sync for beat drops and SFX"
+        },
+        {
+          "type": "table",
+          "title": "Duration & Pacing",
+          "columns": [
+            "Timestamp",
+            "Beat"
+          ],
+          "rows": 4,
+          "optional": true,
+          "hint": "Fast loop target, micro-retention tricks"
+        },
+        {
+          "type": "fields",
+          "title": "Hashtags & Discovery",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "High-velocity challenge terms, SEO discovery"
+        },
+        {
+          "type": "fields",
+          "title": "Posting Schedule",
+          "fields": [
+            "Platform",
+            "Format",
+            "Post date",
+            "Time",
+            "Hashtags"
+          ],
+          "optional": true,
+          "hint": "High-engagement upload hour, trending day push"
+        }
+      ],
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:2496",
+        "populated": "857:723"
+      }
+    }
+  ]
+}

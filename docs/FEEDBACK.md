@@ -24,9 +24,14 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 | 6 | Onboarding: profession list (scrollable, common roles first, then grouped by sector) | ⬜ | Draft in Claude Design first |
 | 7 | Onboarding: "How will you use Nia?" primary use case step | ⬜ | Draft in Claude Design first |
 | 8 | Collaborators end to end: invite by email or in-app (accept once), "Shared with you" on Projects, contributions, live updates and notifications | ⬜ | Needs invitation emails (Resend) and a notifications table |
-| 9 | Templates gallery: search with suggestions + results view | ⬜ | Slice 2 of BUILD_PLAN 3.1 |
-| 10 | Template 01 opens the project launcher | ⬜ | Slice 3 of BUILD_PLAN 3.1 |
-| 10b | Template detail pop-up (like Storyflow's): family label, title, "Use this template", large preview, description, keyword chips, About, How to use (numbered steps), FAQ, Related templates, previous/next and expand buttons. Light mode only | ⬜ | Copy per template goes in the manifest; draft the layout in Claude Design first |
+| 5c | Black wordmark above the form on phones (sign-in and onboarding) | ✅ | |
+| T | Templates rebuild from `TEMPLATES_BUILD.md` (63 templates, flat black and white, Showcase / Compact / Index, search, preview pop-up, Suggested for you, template engine, Editorial Shoot workflow). Runs before Fix 6, one build step at a time | 🔄 | Step 1 (data) in progress. Replaces 9, 10 and 10b below |
+| T1 | Templates page: heading "Start from a proven path" becomes "Templates"; remove the "New template" label on cards | ⬜ | Done with build step 2 (gallery shell), which uses the large "Templates" title |
+| U1 | Home: updates, notifications and inbox as swipe rows (uiarc `swipe-actions`: swipe to archive / mark read, full swipe commits) | ⏸ | Component installed in `src/components/arc/`, restyle to Nia theme; needs a notifications table (shared with Fix 8) |
+| U2 | Profile menu behind the avatar (uiarc `user-menu`): name, email, Settings, Log out; bottom sheet on phones | ⏸ | Component installed; theme switch hidden (no dark mode yet) |
+| 9 | Templates gallery: search with suggestions + results view | ⬜ | Now build step 4 of T |
+| 10 | Template 01 opens the project launcher | ⬜ | Now build step 8 of T |
+| 10b | Template detail pop-up (like Storyflow's) | ⬜ | Now build step 5 of T (layout is in the prototype; copy in the manifest's `details`) |
 | 11 | Project sections (add/edit/delete), incl. References with a gallery view | ⏸ | BUILD_PLAN 3.2; Claude Design first |
 | 12 | Project tabs (two projects open at once) | ⏸ | BUILD_PLAN 3.3; Claude Design first |
 | 13 | Editorial Shoot workflow (map + steps) with collaboration | ⬜ | After 10 and 11 |

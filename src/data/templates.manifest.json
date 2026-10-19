@@ -1,9 +1,9 @@
 {
-  "$comment": "Nia template catalogue for the Templates gallery. Source: ICP Mapping & Workflow Strategy (Aug 2026) + Template 01. See TEMPLATE_THUMBNAILS.md.",
+  "$comment": "Nia template catalogue for the Templates gallery. Sources: ICP Mapping & Workflow Strategy (Aug 2026), Figma templates (file jaF49U0T0DQ5lNB6h4wJvp, frames 744:523, 796:7731, 840:27970, 859:31, 932:8861), Template 01. Document templates' sections live in template-schemas.json (match on 'schema'). 'related' = 3 templates shown in the preview modal (workflow links + shared roles/keywords). 'details' = preview modal copy (about, howTo, faq); edit freely. 'related' = 3 templates shown in the preview modal (workflow links + shared roles/keywords). 'details' = preview modal copy (about, howTo, faq); edit freely.",
   "version": 1,
   "statuses": {
-    "live": "Opens the launcher (has steps/map)",
-    "designed": "Template exists; thumbnail to be rendered",
+    "live": "Built (or buildable now from Figma): opens the launcher (workflows) or the template editor (documents)",
+    "designed": "Template exists but has no editor yet",
     "gap": "Template not designed yet: gradient card, 'In design', not clickable"
   },
   "labels": [
@@ -72,7 +72,7 @@
     }
   },
   "todo": [
-    "The ICP doc counts 27 designed templates but names 23 (D01–D23). Add the 4 missing ones.",
+    "Production Budget has two Figma versions: ATL/BTL (796:9836, used here) and a tiered 'Budget Framework' (932:10124). Decide which is canonical.",
     "Review every 'stage' value: each is the stage where the template is mainly used."
   ],
   "templates": [
@@ -116,7 +116,56 @@
         "creative direction",
         "shot plan",
         "callsheet"
-      ]
+      ],
+      "group": "Workflows",
+      "tags": [],
+      "sku": "ES-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/film.webp",
+        "black": "/templates/icons/black/film.webp"
+      },
+      "related": [
+        "D01",
+        "D06",
+        "D09"
+      ],
+      "details": {
+        "about": [
+          "From first idea to call sheet: vision, references, casting, shot plan and the day itself.",
+          "Made for Creative Director, Photographer and Stylist roles. It runs the pre-production of a fashion or editorial shoot as eleven steps across four stages: Blueprint, Pre-production, Shoot and Safeguards.",
+          "Work through it as a map or a list. Each step builds on the ones before it, and the call sheet compiles itself from your shot plan and team."
+        ],
+        "howTo": [
+          "Open the template and name the project: Nia sets up the workspace.",
+          "Start with Vision, then build the Concept Blueprint and Mood References.",
+          "Cast, style, scout and assemble the team in Pre-production.",
+          "Plan every shot in Shot Planning: order, location, cast, setup and running time.",
+          "Open Callsheet Distribution: the day compiles from the shot plan and team. Export it as a PDF.",
+          "Finish with Contingency and Gear Inventory before the shoot."
+        ],
+        "faq": [
+          {
+            "q": "What is an Editorial Shoot?",
+            "a": "From first idea to call sheet: vision, references, casting, shot plan and the day itself."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Creative Director, Photographer and Stylist. It sits in Workflows and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Call Sheet?",
+            "a": "Editorial Shoot covers from first idea to call sheet. Call Sheet covers the daily blueprint for a shoot, sent to cast and crew the night before. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Call Sheet and Shotlist, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D01",
@@ -127,7 +176,7 @@
       "variant": "b",
       "stage": "Production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Line Producer",
         "1st Assistant Director",
@@ -135,7 +184,7 @@
       ],
       "object": "Aluminium clipboard holding one ruled sheet",
       "alt": "An aluminium clipboard holding a single ruled sheet",
-      "preview": "Who's called, when and where. One sheet the whole crew works from.",
+      "preview": "The daily blueprint for a shoot, sent to cast and crew the night before: call times, locations, the scene schedule, cast calls and department contacts.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d01-call-sheet.master.png",
         "card": "/templates/d01-call-sheet-card.avif",
@@ -152,7 +201,62 @@
         "schedule",
         "daily",
         "on set"
-      ]
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D01",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:7887",
+        "editor": "840:27971"
+      },
+      "tags": [],
+      "sku": "CS-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/clipboard.webp",
+        "black": "/templates/icons/black/clipboard.webp"
+      },
+      "related": [
+        "D24",
+        "D03",
+        "D07"
+      ],
+      "details": {
+        "about": [
+          "The daily blueprint for a shoot, sent to cast and crew the night before: call times, locations, the scene schedule, cast calls and department contacts.",
+          "Made for Line Producer, 1st Assistant Director and Production Manager roles. Call Time: exact arrival times for all departments. Locations: primary and backup shooting locations.",
+          "It's laid out as Daily Shoot Info, Locations, Shooting Schedule, Cast & Talent Calls and Atmosphere, Extras & Stand-ins."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Daily Shoot Info: production company, title, call time and more.",
+          "Fill in Locations: production office, basecamp, location and more.",
+          "Add a row to Shooting Schedule for each entry, with Scenes, Pages and Set & Description.",
+          "Add a row to Cast & Talent Calls for each entry, with Cast, Role and Call.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Call Sheet?",
+            "a": "The daily blueprint for a shoot, sent to cast and crew the night before: call times, locations, the scene schedule, cast calls and department contacts."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Line Producer, 1st Assistant Director and Production Manager. It sits in Production Management & Operations and is used mainly in production."
+          },
+          {
+            "q": "How is it different from Call Sheet – Detailed?",
+            "a": "Call Sheet covers the daily blueprint for a shoot, sent to cast and crew the night before. Call Sheet – Detailed covers a call sheet you build section by section. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Call Sheet – Detailed and Crew Contact List, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D02",
@@ -163,14 +267,14 @@
       "variant": "c",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Line Producer",
         "Executive Producer"
       ],
       "object": "1970s desk adding machine with a curl of paper tape",
       "alt": "A vintage desk adding machine with paper tape curling out",
-      "preview": "Every line of spend, from first estimate to wrap actuals.",
+      "preview": "Above-the-line, below-the-line and additional costs, with subtotals, contingency and a grand total.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d02-production-budget.master.png",
         "card": "/templates/d02-production-budget-card.avif",
@@ -188,25 +292,82 @@
         "estimate",
         "quote",
         "actuals"
-      ]
+      ],
+      "group": "Strategy & Development",
+      "schema": "D02",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9836",
+        "editor": "840:30009",
+        "empty": "932:10124",
+        "active": "932:10248"
+      },
+      "tags": [
+        "Administrative"
+      ],
+      "sku": "PB-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/calculator.webp",
+        "black": "/templates/icons/black/calculator.webp"
+      },
+      "related": [
+        "D04",
+        "D08",
+        "D11"
+      ],
+      "details": {
+        "about": [
+          "Above-the-line, below-the-line and additional costs, with subtotals, contingency and a grand total.",
+          "Made for Line Producer and Executive Producer roles. Above the Line: creative leads and rights. Below the Line: crew, equipment, locations and logistics.",
+          "It's laid out as Budget Overview and Budget."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Budget Overview: production title, production company, producer and more.",
+          "Enter rates and units: subtotals, the contingency and the grand total work themselves out.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Production Budget?",
+            "a": "Above-the-line, below-the-line and additional costs, with subtotals, contingency and a grand total."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Line Producer and Executive Producer. It sits in Strategy & Development and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Invoice?",
+            "a": "Production Budget covers above-the-line, below-the-line and additional costs, with subtotals, contingency and a grand total. Invoice covers bills for crew fees, equipment, locations and other production costs, itemised line by line. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Invoice and Equipment Rental Log, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D03",
       "slug": "d03-crew-contacts",
-      "name": "Crew Contacts",
+      "name": "Crew Contact List",
       "kind": "document",
       "family": "production",
       "variant": "a",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Line Producer",
         "Production Manager"
       ],
       "object": "Rotary card file",
       "alt": "A rotary card file with fanned index cards",
-      "preview": "The whole crew in one place: roles, numbers, agents and availability.",
+      "preview": "One directory of everyone on the production: role, phone, email and notes.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d03-crew-contacts.master.png",
         "card": "/templates/d03-crew-contacts-card.avif",
@@ -222,7 +383,62 @@
         "phone list",
         "directory",
         "hiring"
-      ]
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D03",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:8453",
+        "editor": "840:28931"
+      },
+      "tags": [
+        "Administrative"
+      ],
+      "sku": "CC-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/cards.webp",
+        "black": "/templates/icons/black/cards.webp"
+      },
+      "related": [
+        "D01",
+        "D04",
+        "D24"
+      ],
+      "details": {
+        "about": [
+          "One directory of everyone on the production: role, phone, email and notes.",
+          "Made for Line Producer and Production Manager roles. Position: role or department. Name: full name.",
+          "It's laid out as Template Info and Crew Contacts."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Template Info: production title and page.",
+          "Add a row to Crew Contacts for each entry, with Position, Name and Phone.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Crew Contact List?",
+            "a": "One directory of everyone on the production: role, phone, email and notes."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Line Producer and Production Manager. It sits in Production Management & Operations and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Call Sheet?",
+            "a": "Crew Contact List covers one directory of everyone on the production. Call Sheet covers the daily blueprint for a shoot, sent to cast and crew the night before. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Call Sheet and Invoice, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D04",
@@ -233,14 +449,14 @@
       "variant": "b",
       "stage": "Post-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Line Producer",
         "Production Manager"
       ],
       "object": "Carbon-copy invoice pad, top sheet curling up",
       "alt": "A carbon-copy pad with its top sheet curling up",
-      "preview": "Bill clearly and get paid. Itemised, numbered and ready to send.",
+      "preview": "Bills for crew fees, equipment, locations and other production costs, itemised line by line.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d04-invoice.master.png",
         "card": "/templates/d04-invoice-card.avif",
@@ -257,25 +473,81 @@
         "pay",
         "paid",
         "fees"
-      ]
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D04",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9289",
+        "editor": "840:29272"
+      },
+      "tags": [
+        "Administrative"
+      ],
+      "sku": "IN-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/receipt.webp",
+        "black": "/templates/icons/black/receipt.webp"
+      },
+      "related": [
+        "D03",
+        "D02",
+        "D01"
+      ],
+      "details": {
+        "about": [
+          "Bills for crew fees, equipment, locations and other production costs, itemised line by line.",
+          "Made for Line Producer and Production Manager roles. Invoice #: unique billing code. Line Items: itemised entries and hours.",
+          "It's laid out as Invoice Metadata, Line Items and Payment Details."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Invoice Metadata: invoice #, date, prepared by and more.",
+          "Add a row to Line Items for each entry, with Description, Rate and QTY.",
+          "Fill in Payment Details: make payable to, bank and terms.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is an Invoice?",
+            "a": "Bills for crew fees, equipment, locations and other production costs, itemised line by line."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Line Producer and Production Manager. It sits in Production Management & Operations and is used mainly in post-production."
+          },
+          {
+            "q": "How is it different from Crew Contact List?",
+            "a": "Invoice covers bills for crew fees, equipment, locations and other production costs, itemised line by line. Crew Contact List covers one directory of everyone on the production. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Crew Contact List and Production Budget, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D05",
       "slug": "d05-script-breakdown",
-      "name": "Script Breakdown",
+      "name": "Script Breakdown Sheet",
       "kind": "document",
       "family": "production",
       "variant": "c",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "1st Assistant Director",
         "Script Supervisor"
       ],
       "object": "Brad-bound script with coloured index tabs",
       "alt": "A brad-bound script with coloured tabs along its edge",
-      "preview": "Every scene broken into cast, props, wardrobe, locations and time.",
+      "preview": "Breaks a script down scene by scene into everything production must plan, budget and schedule.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d05-script-breakdown.master.png",
         "card": "/templates/d05-script-breakdown-card.avif",
@@ -291,7 +563,61 @@
         "props",
         "elements",
         "schedule"
-      ]
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D05",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "1252:22",
+        "editor": "840:28209"
+      },
+      "tags": [],
+      "sku": "BD-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/script.webp",
+        "black": "/templates/icons/black/script.webp"
+      },
+      "related": [
+        "D01",
+        "D13",
+        "D06"
+      ],
+      "details": {
+        "about": [
+          "Breaks a script down scene by scene into everything production must plan, budget and schedule.",
+          "Made for 1st Assistant Director and Script Supervisor roles. Scene: detailed scene-by-scene breakdown. Location: primary and secondary set locations.",
+          "It's laid out as Breakdown Metadata, Scene Synopsis / Notes and Breakdown Categories."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Breakdown Metadata: breakdown sheet #, page count, date and more.",
+          "Write the scene synopsis / notes.",
+          "Note what the scene needs under each of the breakdown categories.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Script Breakdown Sheet?",
+            "a": "Breaks a script down scene by scene into everything production must plan, budget and schedule."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly 1st Assistant Director and Script Supervisor. It sits in Production Management & Operations and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Call Sheet?",
+            "a": "Script Breakdown Sheet covers breaks a script down scene by scene into everything production must plan, budget and schedule. Call Sheet covers the daily blueprint for a shoot, sent to cast and crew the night before. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Call Sheet and Continuity Log, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D06",
@@ -302,7 +628,7 @@
       "variant": "a",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Director",
         "1st Assistant Director",
@@ -310,7 +636,7 @@
       ],
       "object": "Director's viewfinder on a neck cord",
       "alt": "A director's viewfinder hanging from a cord",
-      "preview": "Every frame in order, with lens, movement and coverage.",
+      "preview": "Every shot needed for a scene or day: number, interior or exterior, type, angle, movement and description.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d06-shotlist.master.png",
         "card": "/templates/d06-shotlist-card.avif",
@@ -326,7 +652,62 @@
         "frames",
         "angles",
         "lens"
-      ]
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D06",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9686",
+        "editor": "840:29808"
+      },
+      "tags": [
+        "Camera & Visual"
+      ],
+      "sku": "SH-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/viewfinder.webp",
+        "black": "/templates/icons/black/viewfinder.webp"
+      },
+      "related": [
+        "D09",
+        "D05",
+        "D01"
+      ],
+      "details": {
+        "about": [
+          "Every shot needed for a scene or day: number, interior or exterior, type, angle, movement and description.",
+          "Made for Director, 1st Assistant Director and Director of Photography roles. Shot #: sequential setup numbers. I/E: interior or exterior.",
+          "It's laid out as Template Info and Camera & Technical Coverage List."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Template Info: title, page, scene and more.",
+          "Add a row to Camera & Technical Coverage List for each entry, with I/E, Type and Angle.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Shotlist?",
+            "a": "Every shot needed for a scene or day: number, interior or exterior, type, angle, movement and description."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Director, 1st Assistant Director and Director of Photography. It sits in Production Management & Operations and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Storyboard – 9 Frame?",
+            "a": "Shotlist covers every shot needed for a scene or day. Storyboard – 9 Frame covers a nine-panel grid for sketching compositions and scene flow, with notes under every frame. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Storyboard – 9 Frame and Script Breakdown Sheet, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D07",
@@ -337,7 +718,7 @@
       "variant": "b",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "1st Assistant Director",
         "Production Manager",
@@ -345,7 +726,7 @@
       ],
       "object": "Small folding A-frame street sign, blank face",
       "alt": "A small folding A-frame street sign",
-      "preview": "Tell neighbours and councils what's happening, where and when.",
+      "preview": "A formal notice to neighbours and businesses about filming nearby: dates, times, parking and who to contact.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d07-filming-notice.master.png",
         "card": "/templates/d07-filming-notice-card.avif",
@@ -362,18 +743,73 @@
         "location",
         "street",
         "filming"
-      ]
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D07",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9424",
+        "editor": "840:29449"
+      },
+      "tags": [
+        "Administrative"
+      ],
+      "sku": "FN-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/sign.webp",
+        "black": "/templates/icons/black/sign.webp"
+      },
+      "related": [
+        "D01",
+        "D24",
+        "D03"
+      ],
+      "details": {
+        "about": [
+          "A formal notice to neighbours and businesses about filming nearby: dates, times, parking and who to contact.",
+          "Made for 1st Assistant Director, Production Manager and Location Manager roles. Location: streets and boundaries affected. Dates/Times: shooting and prep windows.",
+          "It's laid out as Notice Metadata and Notice Body."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Notice Metadata: production company, title / type of production, location and more.",
+          "Edit the notice body and put in your details.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Filming Notice?",
+            "a": "A formal notice to neighbours and businesses about filming nearby: dates, times, parking and who to contact."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly 1st Assistant Director, Production Manager and Location Manager. It sits in Production Management & Operations and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Call Sheet?",
+            "a": "Filming Notice covers a formal notice to neighbours and businesses about filming nearby. Call Sheet covers the daily blueprint for a shoot, sent to cast and crew the night before. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Call Sheet and Call Sheet – Detailed, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D08",
       "slug": "d08-equipment-rental",
-      "name": "Equipment Rental",
+      "name": "Equipment Rental Log",
       "kind": "document",
       "family": "production",
       "variant": "c",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Production Manager",
         "Director of Photography",
@@ -381,7 +817,7 @@
       ],
       "object": "Cine prime lens with a paper luggage tag",
       "alt": "A cinema prime lens with a paper tag tied to it",
-      "preview": "What's booked, from whom, for which days, and what it costs.",
+      "preview": "Every piece of rented gear checked out and back in: serials, vendors, dates and return status.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d08-equipment-rental.master.png",
         "card": "/templates/d08-equipment-rental-card.avif",
@@ -398,25 +834,80 @@
         "kit",
         "camera",
         "lights"
-      ]
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D08",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:8307",
+        "editor": "840:28744"
+      },
+      "tags": [
+        "Camera & Visual"
+      ],
+      "sku": "ER-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/lens.webp",
+        "black": "/templates/icons/black/lens.webp"
+      },
+      "related": [
+        "D02",
+        "D03",
+        "D06"
+      ],
+      "details": {
+        "about": [
+          "Every piece of rented gear checked out and back in: serials, vendors, dates and return status.",
+          "Made for Production Manager, Director of Photography and Gaffer roles. QTY: quantity of each item. Equipment: item, model and type.",
+          "It's laid out as Template Info and Rental Log."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Template Info: production title and page.",
+          "Add a row to Rental Log for each entry, with QTY, Equipment and Serial #.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is an Equipment Rental Log?",
+            "a": "Every piece of rented gear checked out and back in: serials, vendors, dates and return status."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Production Manager, Director of Photography and Gaffer. It sits in Production Management & Operations and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Production Budget?",
+            "a": "Equipment Rental Log covers every piece of rented gear checked out and back in. Production Budget covers above-the-line, below-the-line and additional costs, with subtotals, contingency and a grand total. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Production Budget and Crew Contact List, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D09",
       "slug": "d09-storyboard",
-      "name": "Storyboard",
+      "name": "Storyboard – 9 Frame",
       "kind": "document",
       "family": "production",
       "variant": "a",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Director",
         "Production Designer"
       ],
       "object": "Fan of three storyboard panel cards with abstract sketches",
       "alt": "Three storyboard cards fanned out",
-      "preview": "The film frame by frame, before anyone picks up a camera.",
+      "preview": "A nine-panel grid for sketching compositions and scene flow, with notes under every frame.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d09-storyboard.master.png",
         "card": "/templates/d09-storyboard-card.avif",
@@ -432,24 +923,79 @@
         "visualise",
         "boards",
         "animatic"
-      ]
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D09",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9149",
+        "editor": "840:29098"
+      },
+      "tags": [
+        "Camera & Visual"
+      ],
+      "sku": "SB-09",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/storyboard.webp",
+        "black": "/templates/icons/black/storyboard.webp"
+      },
+      "related": [
+        "D06",
+        "D10",
+        "T01"
+      ],
+      "details": {
+        "about": [
+          "A nine-panel grid for sketching compositions and scene flow, with notes under every frame.",
+          "Made for Director and Production Designer roles. 9 Frame Grid: pre-visualisation panels. Shot Descriptions: dialogue, camera moves and notes.",
+          "It's laid out as Template Info and Visual Panels Grid."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Template Info: title, page, scene and more.",
+          "Add an image and a note for each frame in the visual panels grid.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Storyboard – 9 Frame?",
+            "a": "A nine-panel grid for sketching compositions and scene flow, with notes under every frame."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Director and Production Designer. It sits in Production Management & Operations and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Shotlist?",
+            "a": "Storyboard – 9 Frame covers a nine-panel grid for sketching compositions and scene flow, with notes under every frame. Shotlist covers every shot needed for a scene or day. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Shotlist and 3-Column AV Script, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D10",
       "slug": "d10-av-script",
-      "name": "AV Script",
+      "name": "3-Column AV Script",
       "kind": "document",
       "family": "production",
       "variant": "b",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Director"
       ],
       "object": "Open booklet: a frame on the left page, a waveform on the right",
       "alt": "An open booklet with a picture frame on one page and a sound wave on the other",
-      "preview": "Picture and sound side by side, line by line.",
+      "preview": "Shot numbers, audio and video in parallel columns, so sound and picture are planned together shot by shot.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d10-av-script.master.png",
         "card": "/templates/d10-av-script-card.avif",
@@ -465,7 +1011,62 @@
         "audio visual",
         "commercial",
         "ad script"
-      ]
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D10",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:8048",
+        "editor": "840:28419"
+      },
+      "tags": [
+        "Camera & Visual"
+      ],
+      "sku": "AV-03",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/wave.webp",
+        "black": "/templates/icons/black/wave.webp"
+      },
+      "related": [
+        "D09",
+        "D06",
+        "D03"
+      ],
+      "details": {
+        "about": [
+          "Shot numbers, audio and video in parallel columns, so sound and picture are planned together shot by shot.",
+          "Made for Director roles. Shot #: sequential shot identification. Audio: dialogue, FX and music cues.",
+          "It's laid out as Script Info and AV Script Blueprint."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Script Info: title and page.",
+          "Add a row to AV Script Blueprint for each entry, with Audio and Video.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a 3-Column AV Script?",
+            "a": "Shot numbers, audio and video in parallel columns, so sound and picture are planned together shot by shot."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Director. It sits in Production Management & Operations and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Storyboard – 9 Frame?",
+            "a": "3-Column AV Script covers shot numbers, audio and video in parallel columns, so sound and picture are planned together shot by shot. Storyboard – 9 Frame covers a nine-panel grid for sketching compositions and scene flow, with notes under every frame. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Storyboard – 9 Frame and Shotlist, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D11",
@@ -476,14 +1077,14 @@
       "variant": "c",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Director",
         "Executive Producer"
       ],
       "object": "Thick cloth hardback with a ribbon bookmark",
       "alt": "A thick cloth-bound book with a ribbon bookmark",
-      "preview": "The world, the characters and the rules every episode follows.",
+      "preview": "The foundation of an episodic series: concept, premise, synopsis, themes and characters.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d11-series-bible.master.png",
         "card": "/templates/d11-series-bible-card.avif",
@@ -500,7 +1101,63 @@
         "characters",
         "world",
         "pitch"
-      ]
+      ],
+      "group": "Strategy & Development",
+      "schema": "D11",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "932:9286",
+        "active": "932:9418",
+        "editor": "932:9555"
+      },
+      "tags": [],
+      "sku": "BI-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/book.webp",
+        "black": "/templates/icons/black/book.webp"
+      },
+      "related": [
+        "D12",
+        "D02",
+        "D06"
+      ],
+      "details": {
+        "about": [
+          "The foundation of an episodic series: concept, premise, synopsis, themes and characters.",
+          "Made for Director and Executive Producer roles. Concept & Premise: logline, genre and format. Thematic Core: dramatic question and controlling idea.",
+          "It's laid out as The Concept, Logline, Core Premise, Series Synopsis, Themes and Characters."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in The Concept: working title, genre, format and more.",
+          "Write the logline.",
+          "Fill in Core Premise: dramatic question and controlling idea.",
+          "Write the series synopsis.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Series Bible?",
+            "a": "The foundation of an episodic series: concept, premise, synopsis, themes and characters."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Director and Executive Producer. It sits in Strategy & Development and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Casting Deck?",
+            "a": "Series Bible covers the foundation of an episodic series. Casting Deck covers characters matched to actors and agents, with each role's status from open to confirmed. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Casting Deck and Production Budget, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D12",
@@ -511,7 +1168,7 @@
       "variant": "a",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Casting Director",
         "Executive Producer",
@@ -519,7 +1176,7 @@
       ],
       "object": "Fan of unbranded instant-film prints",
       "alt": "A fan of instant-film prints",
-      "preview": "Shortlisted talent, side by side, ready for the room.",
+      "preview": "Characters matched to actors and agents, with each role's status from open to confirmed.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d12-casting-deck.master.png",
         "card": "/templates/d12-casting-deck-card.avif",
@@ -535,7 +1192,62 @@
         "models",
         "shortlist",
         "auditions"
-      ]
+      ],
+      "group": "Strategy & Development",
+      "schema": "D12",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "932:9677",
+        "active": "932:9806",
+        "editor": "932:9974"
+      },
+      "tags": [],
+      "sku": "CD-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/polaroid.webp",
+        "black": "/templates/icons/black/polaroid.webp"
+      },
+      "related": [
+        "D11",
+        "D25",
+        "T01"
+      ],
+      "details": {
+        "about": [
+          "Characters matched to actors and agents, with each role's status from open to confirmed.",
+          "Made for Casting Director, Executive Producer and Talent Management Agency roles. Talent Roster: characters mapped to actors and reps. Status: open, shortlisted or confirmed.",
+          "It's laid out as Project Info, Character Roster and Casting Notes."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Project Info: project title, genre, production company and more.",
+          "Add each character to the character roster, with actor, agent and status.",
+          "Write the casting notes.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Casting Deck?",
+            "a": "Characters matched to actors and agents, with each role's status from open to confirmed."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Casting Director, Executive Producer and Talent Management Agency. It sits in Strategy & Development and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Series Bible?",
+            "a": "Casting Deck covers characters matched to actors and agents, with each role's status from open to confirmed. Series Bible covers the foundation of an episodic series. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Series Bible and Talent Roster Report, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D13",
@@ -546,14 +1258,14 @@
       "variant": "b",
       "stage": "Production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Script Supervisor",
         "Costume Designer"
       ],
       "object": "Spiral notebook with one instant print clipped to it",
       "alt": "A spiral notebook with an instant print clipped to the cover",
-      "preview": "What was worn, held and said, take by take.",
+      "preview": "Tracks visual and narrative consistency across takes: props, wardrobe, positions and timing.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d13-continuity-log.master.png",
         "card": "/templates/d13-continuity-log-card.avif",
@@ -568,25 +1280,80 @@
         "props",
         "takes",
         "matching"
-      ]
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D13",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:8166",
+        "editor": "840:28574"
+      },
+      "tags": [
+        "Camera & Visual"
+      ],
+      "sku": "CL-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/notebook.webp",
+        "black": "/templates/icons/black/notebook.webp"
+      },
+      "related": [
+        "D05",
+        "D14",
+        "D01"
+      ],
+      "details": {
+        "about": [
+          "Tracks visual and narrative consistency across takes: props, wardrobe, positions and timing.",
+          "Made for Script Supervisor and Costume Designer roles. Scene: identifiers for every setup. Shot: angle, framing and movement.",
+          "It's laid out as Template Info and Log Table."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Template Info: title, page, scene and more.",
+          "Add a row to Log Table for each entry, with Scene, Shot and Take.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Continuity Log?",
+            "a": "Tracks visual and narrative consistency across takes: props, wardrobe, positions and timing."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Script Supervisor and Costume Designer. It sits in Production Management & Operations and is used mainly in production."
+          },
+          {
+            "q": "How is it different from Script Breakdown Sheet?",
+            "a": "Continuity Log covers tracks visual and narrative consistency across takes. Script Breakdown Sheet covers breaks a script down scene by scene into everything production must plan, budget and schedule. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Script Breakdown Sheet and Shot Logging Sheet, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D14",
       "slug": "d14-shot-logging",
-      "name": "Shot Logging",
+      "name": "Shot Logging Sheet",
       "kind": "document",
       "family": "production",
       "variant": "c",
       "stage": "Production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Director of Photography",
         "DIT"
       ],
       "object": "Clapperboard slate with blank chalk fields",
       "alt": "A clapperboard slate with blank chalk fields",
-      "preview": "Every take logged: lens, settings, notes and circled selects.",
+      "preview": "Catalogues every take for the edit: file names, descriptions, durations, comments and circled takes.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d14-shot-logging.master.png",
         "card": "/templates/d14-shot-logging-card.avif",
@@ -602,7 +1369,62 @@
         "clapper",
         "camera report",
         "dailies"
-      ]
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D14",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:9536",
+        "editor": "840:29595"
+      },
+      "tags": [
+        "Camera & Visual"
+      ],
+      "sku": "SL-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/clapper.webp",
+        "black": "/templates/icons/black/clapper.webp"
+      },
+      "related": [
+        "D06",
+        "D13",
+        "D08"
+      ],
+      "details": {
+        "about": [
+          "Catalogues every take for the edit: file names, descriptions, durations, comments and circled takes.",
+          "Made for Director of Photography and DIT roles. File/Take: card and file names. Description: angle and visual detail.",
+          "It's laid out as Log Metadata and Shot Logs."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Log Metadata: production title, page, card and more.",
+          "Add a row to Shot Logs for each entry, with File / Take, Description and Length.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Shot Logging Sheet?",
+            "a": "Catalogues every take for the edit: file names, descriptions, durations, comments and circled takes."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Director of Photography and DIT. It sits in Production Management & Operations and is used mainly in production."
+          },
+          {
+            "q": "How is it different from Shotlist?",
+            "a": "Shot Logging Sheet covers catalogues every take for the edit. Shotlist covers every shot needed for a scene or day. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Shotlist and Continuity Log, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D15",
@@ -613,13 +1435,13 @@
       "variant": "a",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Content Creator / Influencer"
       ],
       "object": "Open compact mirror",
       "alt": "An open compact mirror",
-      "preview": "Get Ready With Me, planned beat by beat from mirror to door.",
+      "preview": "Plans a Get Ready With Me video: hook, products, look, outfit, talking points, audio and posting.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d15-grwm.master.png",
         "card": "/templates/d15-grwm-card.avif",
@@ -637,25 +1459,81 @@
         "routine",
         "tiktok",
         "reels"
-      ]
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D15",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:153",
+        "populated": "854:2672"
+      },
+      "tags": [],
+      "sku": "GR-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/mirror.webp",
+        "black": "/templates/icons/black/mirror.webp"
+      },
+      "related": [
+        "D20",
+        "D16",
+        "D17"
+      ],
+      "details": {
+        "about": [
+          "Plans a Get Ready With Me video: hook, products, look, outfit, talking points, audio and posting.",
+          "Made for Content Creator / Influencer roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Hook & Intro, Products & Tools, Look Breakdown, Outfit Details, Talking Points, Music & Audio, Platform & Hashtags and Posting Schedule."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Hook & Intro, Products & Tools and Look Breakdown.",
+          "Write the hook & intro.",
+          "Add a row to Products & Tools for each entry, with Product, Brand and Price.",
+          "Add a row to Look Breakdown for each entry, with Action and Duration.",
+          "Write the outfit details.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a GRWM?",
+            "a": "Plans a Get Ready With Me video: hook, products, look, outfit, talking points, audio and posting."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Product Review?",
+            "a": "GRWM covers plans a get ready with me video. Product Review covers an honest review. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Product Review and Explainer Video, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D16",
       "slug": "d16-explainer",
-      "name": "Explainer",
+      "name": "Explainer Video",
       "kind": "document",
       "family": "creator",
       "variant": "b",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Content Creator / Influencer",
         "UGC Creator"
       ],
       "object": "Small easel with a flip chart",
       "alt": "A small easel holding a flip chart",
-      "preview": "One idea, explained clearly in under a minute.",
+      "preview": "Explains one idea clearly: hook, key points, script, visuals, B-roll, pacing and call to action.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d16-explainer.master.png",
         "card": "/templates/d16-explainer-card.avif",
@@ -671,7 +1549,63 @@
         "educational",
         "tiktok",
         "youtube"
-      ]
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D16",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:315",
+        "populated": "854:2845"
+      },
+      "tags": [],
+      "sku": "EX-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/easel.webp",
+        "black": "/templates/icons/black/easel.webp"
+      },
+      "related": [
+        "D18",
+        "D27",
+        "D15"
+      ],
+      "details": {
+        "about": [
+          "Explains one idea clearly: hook, key points, script, visuals, B-roll, pacing and call to action.",
+          "Made for Content Creator / Influencer and UGC Creator roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Topic & Hook, Key Points, Script / Voiceover, Visual Aids & Graphics, B-Roll Shots, Duration & Pacing, CTA & Links and Platform & Hashtags."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Topic & Hook, Key Points and Script / Voiceover.",
+          "Write the topic & hook.",
+          "Add a row to Key Points for each entry, with Point.",
+          "Write the script / voiceover.",
+          "Write the visual aids & graphics.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is an Explainer Video?",
+            "a": "Explains one idea clearly: hook, key points, script, visuals, B-roll, pacing and call to action."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer and UGC Creator. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Tutorial / How-To?",
+            "a": "Explainer Video covers explains one idea clearly. Tutorial / How-To covers step-by-step teaching. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Tutorial / How-To and Recipe / Cook With Me, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D17",
@@ -682,13 +1616,13 @@
       "variant": "c",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Content Creator / Influencer"
       ],
       "object": "Twin-bell alarm clock",
       "alt": "A twin-bell alarm clock",
-      "preview": "A day told in moments, from alarm to lights out.",
+      "preview": "A day told in moments: schedule, locations, shot plan, talking points, music and voiceover.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d17-day-in-my-life.master.png",
         "card": "/templates/d17-day-in-my-life-card.avif",
@@ -703,25 +1637,81 @@
         "routine",
         "diary",
         "lifestyle"
-      ]
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D17",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:801",
+        "populated": "854:3364"
+      },
+      "tags": [],
+      "sku": "DL-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/clock.webp",
+        "black": "/templates/icons/black/clock.webp"
+      },
+      "related": [
+        "D19",
+        "D28",
+        "D15"
+      ],
+      "details": {
+        "about": [
+          "A day told in moments: schedule, locations, shot plan, talking points, music and voiceover.",
+          "Made for Content Creator / Influencer roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Daily Schedule, Location List, Shot Plan, Talking Points, Music & Transitions, Voiceover Notes, Platform & Format and Posting Schedule."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Daily Schedule, Location List and Shot Plan.",
+          "Add a row to Daily Schedule for each entry, with Time, Activity and Location.",
+          "Add a row to Location List for each entry, with Location, Purpose and Notes.",
+          "Add a row to Shot Plan for each entry, with Shot, Angle / Move and Duration.",
+          "Write the talking points.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Day in My Life?",
+            "a": "A day told in moments: schedule, locations, shot plan, talking points, music and voiceover."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Storytime?",
+            "a": "Day in My Life covers a day told in moments. Storytime covers a story told to camera. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Storytime and Workout / Fitness, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D18",
       "slug": "d18-tutorial",
-      "name": "Tutorial",
+      "name": "Tutorial / How-To",
       "kind": "document",
       "family": "creator",
       "variant": "a",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Content Creator / Influencer",
         "UGC Creator"
       ],
       "object": "Three stacked numbered blocks (numerals as shapes, no type)",
       "alt": "Three stacked blocks marked one, two and three",
-      "preview": "Step by step, so anyone can follow along.",
+      "preview": "Step-by-step teaching: objective, outline, tools, screen notes, voiceover, thumbnail and links.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d18-tutorial.master.png",
         "card": "/templates/d18-tutorial-card.avif",
@@ -737,7 +1727,63 @@
         "guide",
         "lesson",
         "youtube"
-      ]
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D18",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:1126",
+        "populated": "854:3529"
+      },
+      "tags": [],
+      "sku": "TU-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/steps.webp",
+        "black": "/templates/icons/black/steps.webp"
+      },
+      "related": [
+        "D16",
+        "D27",
+        "D15"
+      ],
+      "details": {
+        "about": [
+          "Step-by-step teaching: objective, outline, tools, screen notes, voiceover, thumbnail and links.",
+          "Made for Content Creator / Influencer and UGC Creator roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Topic & Objective, Step-by-Step Outline, Equipment & Tools, Screen Recording Notes, Voiceover Script, Thumbnail & Title, CTA & Links and Platform & Hashtags."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Topic & Objective, Step-by-Step Outline and Equipment & Tools.",
+          "Write the topic & objective.",
+          "Add a row to Step-by-Step Outline for each entry, with Action and Duration.",
+          "Write the equipment & tools.",
+          "Write the screen recording notes.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Tutorial / How-To?",
+            "a": "Step-by-step teaching: objective, outline, tools, screen notes, voiceover, thumbnail and links."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer and UGC Creator. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Explainer Video?",
+            "a": "Tutorial / How-To covers step-by-step teaching. Explainer Video covers explains one idea clearly. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Explainer Video and Recipe / Cook With Me, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D19",
@@ -748,13 +1794,13 @@
       "variant": "b",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Content Creator / Influencer"
       ],
       "object": "Vintage ribbon microphone",
       "alt": "A vintage ribbon microphone",
-      "preview": "A story told straight to camera, with a hook, a turn and a payoff.",
+      "preview": "A story told to camera: hook, arc, key moments, cutaways, music, pacing and thumbnail.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d19-storytime.master.png",
         "card": "/templates/d19-storytime-card.avif",
@@ -769,7 +1815,63 @@
         "talking head",
         "anecdote",
         "podcast"
-      ]
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D19",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:1462",
+        "populated": "854:3859"
+      },
+      "tags": [],
+      "sku": "ST-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/mic.webp",
+        "black": "/templates/icons/black/mic.webp"
+      },
+      "related": [
+        "D17",
+        "D30",
+        "D15"
+      ],
+      "details": {
+        "about": [
+          "A story told to camera: hook, arc, key moments, cutaways, music, pacing and thumbnail.",
+          "Made for Content Creator / Influencer roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Story Hook, Narrative Arc, Key Moments, Visual Cutaways, Background Music, Pacing & Duration, Thumbnail & Title and Platform & Hashtags."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Story Hook, Narrative Arc and Key Moments.",
+          "Write the story hook.",
+          "Write the narrative arc.",
+          "Add a row to Key Moments for each entry, with Point.",
+          "Add a row to Visual Cutaways for each entry, with Shot, Angle / Move and Duration.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Storytime?",
+            "a": "A story told to camera: hook, arc, key moments, cutaways, music, pacing and thumbnail."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Day in My Life?",
+            "a": "Storytime covers a story told to camera. Day in My Life covers a day told in moments. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Day in My Life and Q&A / FAQ, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D20",
@@ -780,13 +1882,13 @@
       "variant": "c",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "UGC Creator"
       ],
       "object": "Magnifying glass over a small unlabelled bottle",
       "alt": "A magnifying glass held over a small unlabelled bottle",
-      "preview": "An honest look at one product, to the brand's brief.",
+      "preview": "An honest review: product info, hook, features, pros and cons, demo shots, verdict and links.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d20-product-review.master.png",
         "card": "/templates/d20-product-review-card.avif",
@@ -801,7 +1903,63 @@
         "ugc",
         "brand",
         "testimonial"
-      ]
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D20",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:639",
+        "populated": "854:3017"
+      },
+      "tags": [],
+      "sku": "PR-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/magnifier.webp",
+        "black": "/templates/icons/black/magnifier.webp"
+      },
+      "related": [
+        "D21",
+        "D15",
+        "D16"
+      ],
+      "details": {
+        "about": [
+          "An honest review: product info, hook, features, pros and cons, demo shots, verdict and links.",
+          "Made for UGC Creator roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Product Info, Hook & Intro, Key Features, Pros & Cons, Demo / B-Roll Shots, Verdict & Rating, Affiliate Links & CTA and Platform & Hashtags."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Product Info, Hook & Intro and Key Features.",
+          "Fill in Product Info: product, brand, price and more.",
+          "Write the hook & intro.",
+          "Add a row to Key Features for each entry, with Point.",
+          "Add a row to Pros & Cons for each entry, with Pros and Cons.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Product Review?",
+            "a": "An honest review: product info, hook, features, pros and cons, demo shots, verdict and links."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly UGC Creator. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Haul / Unboxing?",
+            "a": "Product Review covers an honest review. Haul / Unboxing covers the reveal, paced. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Haul / Unboxing and GRWM, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D21",
@@ -812,13 +1970,13 @@
       "variant": "a",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "UGC Creator"
       ],
       "object": "Open shipping box with tissue paper spilling out",
       "alt": "An open shipping box with tissue paper spilling out",
-      "preview": "The reveal, paced for the first open.",
+      "preview": "The reveal, paced: products, opening, first impressions, reviews, value, favourites and links.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d21-haul-unboxing.master.png",
         "card": "/templates/d21-haul-unboxing-card.avif",
@@ -834,25 +1992,81 @@
         "shopping",
         "ugc",
         "package"
-      ]
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D21",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:1294",
+        "populated": "854:3694"
+      },
+      "tags": [],
+      "sku": "HU-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/box.webp",
+        "black": "/templates/icons/black/box.webp"
+      },
+      "related": [
+        "D20",
+        "D29",
+        "D16"
+      ],
+      "details": {
+        "about": [
+          "The reveal, paced: products, opening, first impressions, reviews, value, favourites and links.",
+          "Made for UGC Creator roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Products List, Opening Sequence, First Impressions, Detailed Reviews, Price & Value, Favorites & Picks, Affiliate Links and Platform & Posting."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Products List, Opening Sequence and First Impressions.",
+          "Add a row to Products List for each entry, with Product, Brand and Price.",
+          "Write the opening sequence.",
+          "Write the first impressions.",
+          "Write the detailed reviews.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Haul / Unboxing?",
+            "a": "The reveal, paced: products, opening, first impressions, reviews, value, favourites and links."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly UGC Creator. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Product Review?",
+            "a": "Haul / Unboxing covers the reveal, paced. Product Review covers an honest review. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Product Review and Room / Space Tour, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D22",
       "slug": "d22-content-guideline",
-      "name": "Content Guideline",
+      "name": "Content Production Guideline",
       "kind": "document",
       "family": "creator",
       "variant": "b",
       "stage": "Pre-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "Social Media Manager",
         "Brand Manager / Marketing Director"
       ],
       "object": "Folded guide booklet with a colour swatch strip",
       "alt": "A folded booklet with a strip of colour swatches",
-      "preview": "The rules of the brand's voice and look, for everyone posting.",
+      "preview": "Sets the creative and technical rules for BTS, EPK and social content captured during a production.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d22-content-guideline.master.png",
         "card": "/templates/d22-content-guideline-card.avif",
@@ -868,7 +2082,63 @@
         "tone of voice",
         "style guide",
         "social"
-      ]
+      ],
+      "group": "Strategy & Development",
+      "schema": "D22",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "932:8862",
+        "active": "932:9008",
+        "editor": "932:9158"
+      },
+      "tags": [],
+      "sku": "CG-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/swatch.webp",
+        "black": "/templates/icons/black/swatch.webp"
+      },
+      "related": [
+        "D23",
+        "G05",
+        "D02"
+      ],
+      "details": {
+        "about": [
+          "Sets the creative and technical rules for BTS, EPK and social content captured during a production.",
+          "Made for Social Media Manager and Brand Manager / Marketing Director roles. BTS Video Capture: rules for B-roll and candid moments. EPK Standards: interview panels and lighting.",
+          "It's laid out as Production Metadata, BTS Videos Brief, EPK Interview Setup, Special Concepts, Daily Checklist and Technical Notes."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Production Metadata: client, production company, production dates and more.",
+          "Write the bts videos brief.",
+          "Fill in EPK Interview Setup: production day, venue, mandatory cast and more.",
+          "Add a row to Special Concepts for each entry, with Concept Name / Format and Talent / Delivery.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Content Production Guideline?",
+            "a": "Sets the creative and technical rules for BTS, EPK and social content captured during a production."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Social Media Manager and Brand Manager / Marketing Director. It sits in Strategy & Development and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Press Junket Brief?",
+            "a": "Content Production Guideline covers sets the creative and technical rules for bts, epk and social content captured during a production. Press Junket Brief covers the plan for a press day. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Press Junket Brief and Social Media Brief, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "D23",
@@ -879,14 +2149,14 @@
       "variant": "a",
       "stage": "Post-production",
       "label": "New template",
-      "status": "designed",
+      "status": "live",
       "icps": [
         "PR / Communications Agency",
         "Publicist / Unit Publicist"
       ],
       "object": "Press pass on a lanyard, blank card",
       "alt": "A blank press pass on a lanyard",
-      "preview": "Who's talking to whom, when, and what's on and off the record.",
+      "preview": "The plan for a press day: venue, rooms, talent pairings, capture setup, special formats and the timeline.",
       "thumbnail": {
         "master": "design/thumbnails/masters/d23-press-junket-brief.master.png",
         "card": "/templates/d23-press-junket-brief-card.avif",
@@ -903,7 +2173,785 @@
         "media",
         "publicity",
         "premiere"
-      ]
+      ],
+      "group": "Strategy & Development",
+      "schema": "D23",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "932:10533",
+        "active": "932:10671",
+        "editor": "932:10827"
+      },
+      "tags": [],
+      "sku": "PJ-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/badge.webp",
+        "black": "/templates/icons/black/badge.webp"
+      },
+      "related": [
+        "D22",
+        "D25",
+        "D02"
+      ],
+      "details": {
+        "about": [
+          "The plan for a press day: venue, rooms, talent pairings, capture setup, special formats and the timeline.",
+          "Made for PR / Communications Agency and Publicist / Unit Publicist roles. Event Details: venue and room assignments. Talent Pairings: cast mapped to media setups.",
+          "It's laid out as Event Details, Room Assignments, Talent Pairings, Capture Setup, Special Concepts & Formats and Timeline Schedule."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Event Details: project title, junket date, setup date and more.",
+          "Add a row to Room Assignments for each entry, with Room Name, Size and Purpose / Setup.",
+          "Add a row to Talent Pairings for each entry, with Talent, Room and Outlets / Slot.",
+          "Tick off the capture setup as each item is done.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Press Junket Brief?",
+            "a": "The plan for a press day: venue, rooms, talent pairings, capture setup, special formats and the timeline."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly PR / Communications Agency and Publicist / Unit Publicist. It sits in Strategy & Development and is used mainly in post-production."
+          },
+          {
+            "q": "How is it different from Content Production Guideline?",
+            "a": "Press Junket Brief covers the plan for a press day. Content Production Guideline covers sets the creative and technical rules for bts, epk and social content captured during a production. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Content Production Guideline and Talent Roster Report, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
+    },
+    {
+      "code": "D24",
+      "slug": "d24-call-sheet-detailed",
+      "name": "Call Sheet – Detailed",
+      "kind": "document",
+      "family": "production",
+      "variant": "a",
+      "stage": "Production",
+      "label": "New template",
+      "status": "live",
+      "icps": [
+        "Line Producer",
+        "1st Assistant Director",
+        "Production Manager"
+      ],
+      "object": "Clipboard with a tabbed, multi-section call sheet",
+      "alt": "Clipboard with a tabbed, multi-section call sheet",
+      "preview": "A call sheet you build section by section: production info, schedule, locations, cast, alerts, transport and contacts.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d24-call-sheet-detailed.master.png",
+        "card": "/templates/d24-call-sheet-detailed-card.avif",
+        "cardFallback": "/templates/d24-call-sheet-detailed-card.webp",
+        "cardSmall": "/templates/d24-call-sheet-detailed-card-sm.webp",
+        "square": "/templates/d24-call-sheet-detailed-square.webp"
+      },
+      "icon": "clipboard",
+      "keywords": [
+        "call sheet",
+        "detailed",
+        "transport",
+        "department contacts",
+        "schedule",
+        "builder"
+      ],
+      "group": "Production Management & Operations",
+      "schema": "D24",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "detail": "796:8585",
+        "empty": "796:8999"
+      },
+      "tags": [],
+      "sku": "CS-02",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/clipboard.webp",
+        "black": "/templates/icons/black/clipboard.webp"
+      },
+      "related": [
+        "D01",
+        "D03",
+        "D04"
+      ],
+      "details": {
+        "about": [
+          "A call sheet you build section by section: production info, schedule, locations, cast, alerts, transport and contacts.",
+          "Made for Line Producer, 1st Assistant Director and Production Manager roles. Departmental Grid: crew roles and contact information. Transport Notes: vehicles, parking and travel times.",
+          "Start empty and add only the sections you need: Production Info, Schedule, Locations, Cast, Alert / Notice, Transport Notes, Department Contacts and Key Contacts."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Production Info, Schedule and Locations.",
+          "Fill in Production Info: project title, production company, director and more.",
+          "Add a row to Schedule for each entry, with Time / Scene, Description and Location.",
+          "Fill in Locations: set location, parking, nearest hospital and more.",
+          "Add a row to Cast for each entry, with Name, Role and Status.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Call Sheet – Detailed?",
+            "a": "A call sheet you build section by section: production info, schedule, locations, cast, alerts, transport and contacts."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Line Producer, 1st Assistant Director and Production Manager. It sits in Production Management & Operations and is used mainly in production."
+          },
+          {
+            "q": "How is it different from Call Sheet?",
+            "a": "Call Sheet – Detailed covers a call sheet you build section by section. Call Sheet covers the daily blueprint for a shoot, sent to cast and crew the night before. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Call Sheet and Crew Contact List, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
+    },
+    {
+      "code": "D25",
+      "slug": "d25-talent-roster-report",
+      "name": "Talent Roster Report",
+      "kind": "document",
+      "family": "performance",
+      "variant": "a",
+      "stage": "Post-production",
+      "label": "New template",
+      "status": "live",
+      "icps": [
+        "Talent Management Agency",
+        "Talent Agent"
+      ],
+      "object": "Bound report with a rising bar chart on the cover",
+      "alt": "Bound report with a rising bar chart on the cover",
+      "preview": "A quarterly report on an agency's roster: reach, new signings, active campaigns, highlights and what's next.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d25-talent-roster-report.master.png",
+        "card": "/templates/d25-talent-roster-report-card.avif",
+        "cardFallback": "/templates/d25-talent-roster-report-card.webp",
+        "cardSmall": "/templates/d25-talent-roster-report-card-sm.webp",
+        "square": "/templates/d25-talent-roster-report-square.webp"
+      },
+      "icon": "chart",
+      "keywords": [
+        "talent",
+        "roster",
+        "report",
+        "agency",
+        "quarterly",
+        "reach",
+        "signings",
+        "campaigns"
+      ],
+      "group": "Strategy & Development",
+      "schema": "D25",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "932:10953",
+        "active": "932:11066",
+        "editor": "932:11193"
+      },
+      "tags": [
+        "Administrative"
+      ],
+      "sku": "TR-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/chart.webp",
+        "black": "/templates/icons/black/chart.webp"
+      },
+      "related": [
+        "D12",
+        "D23",
+        "D02"
+      ],
+      "details": {
+        "about": [
+          "A quarterly report on an agency's roster: reach, new signings, active campaigns, highlights and what's next.",
+          "Made for Talent Management Agency and Talent Agent roles. Overview: key metrics and combined reach. Highlights: bookings, campaigns and awards.",
+          "It's laid out as Report Overview, Key Metrics, Highlights, Client Spotlights and Looking Ahead (Next Quarter)."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Report Overview: agency / company name, report period and date of release.",
+          "Enter the key metrics: total reach, new signings and active campaigns.",
+          "Write the highlights.",
+          "Write the client spotlights.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Talent Roster Report?",
+            "a": "A quarterly report on an agency's roster: reach, new signings, active campaigns, highlights and what's next."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Talent Management Agency and Talent Agent. It sits in Strategy & Development and is used mainly in post-production."
+          },
+          {
+            "q": "How is it different from Casting Deck?",
+            "a": "Talent Roster Report covers a quarterly report on an agency's roster. Casting Deck covers characters matched to actors and agents, with each role's status from open to confirmed. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Casting Deck and Press Junket Brief, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
+    },
+    {
+      "code": "D26",
+      "slug": "d26-skit-comedy-sketch",
+      "name": "Skit / Comedy Sketch",
+      "kind": "document",
+      "family": "creator",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "live",
+      "icps": [
+        "Content Creator / Influencer"
+      ],
+      "object": "Theatre comedy mask",
+      "alt": "Theatre comedy mask",
+      "preview": "Drafts a sketch: premise, characters, dialogue, props, shots, sound and comic timing.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d26-skit-comedy-sketch.master.png",
+        "card": "/templates/d26-skit-comedy-sketch-card.avif",
+        "cardFallback": "/templates/d26-skit-comedy-sketch-card.webp",
+        "cardSmall": "/templates/d26-skit-comedy-sketch-card-sm.webp",
+        "square": "/templates/d26-skit-comedy-sketch-square.webp"
+      },
+      "icon": "mask",
+      "keywords": [
+        "skit",
+        "comedy",
+        "sketch",
+        "funny",
+        "characters",
+        "dialogue",
+        "tiktok"
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D26",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:477",
+        "populated": "854:3194"
+      },
+      "tags": [],
+      "sku": "SK-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/mask.webp",
+        "black": "/templates/icons/black/mask.webp"
+      },
+      "related": [
+        "D31",
+        "D15",
+        "D16"
+      ],
+      "details": {
+        "about": [
+          "Drafts a sketch: premise, characters, dialogue, props, shots, sound and comic timing.",
+          "Made for Content Creator / Influencer roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Concept & Premise, Characters & Roles, Script & Dialogue, Props & Wardrobe, Shot List, Sound & Music, Platform & Format and Posting Schedule."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Concept & Premise, Characters & Roles and Script & Dialogue.",
+          "Write the concept & premise.",
+          "Add a row to Characters & Roles for each entry, with Character, Played by and Quirk.",
+          "Write the script & dialogue.",
+          "Write the props & wardrobe.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Skit / Comedy Sketch?",
+            "a": "Drafts a sketch: premise, characters, dialogue, props, shots, sound and comic timing."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Challenge / Trend?",
+            "a": "Skit / Comedy Sketch covers drafts a sketch. Challenge / Trend covers your spin on a trend. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Challenge / Trend and GRWM, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
+    },
+    {
+      "code": "D27",
+      "slug": "d27-recipe-cook-with-me",
+      "name": "Recipe / Cook With Me",
+      "kind": "document",
+      "family": "creator",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "live",
+      "icps": [
+        "Content Creator / Influencer",
+        "UGC Creator"
+      ],
+      "object": "Cast-iron pot with a wooden spoon",
+      "alt": "Cast-iron pot with a wooden spoon",
+      "preview": "A recipe video: overview, ingredients, equipment, steps, plating, voiceover tips and nutrition.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d27-recipe-cook-with-me.master.png",
+        "card": "/templates/d27-recipe-cook-with-me-card.avif",
+        "cardFallback": "/templates/d27-recipe-cook-with-me-card.webp",
+        "cardSmall": "/templates/d27-recipe-cook-with-me-card-sm.webp",
+        "square": "/templates/d27-recipe-cook-with-me-square.webp"
+      },
+      "icon": "pot",
+      "keywords": [
+        "recipe",
+        "cooking",
+        "cook with me",
+        "food",
+        "ingredients",
+        "kitchen"
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D27",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:1630",
+        "populated": "857:39"
+      },
+      "tags": [],
+      "sku": "RC-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/pot.webp",
+        "black": "/templates/icons/black/pot.webp"
+      },
+      "related": [
+        "D18",
+        "D16",
+        "D15"
+      ],
+      "details": {
+        "about": [
+          "A recipe video: overview, ingredients, equipment, steps, plating, voiceover tips and nutrition.",
+          "Made for Content Creator / Influencer and UGC Creator roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Recipe Overview, Ingredients List, Equipment Needed, Step-by-Step Process, Plating & Styling, Voiceover & Tips, Nutrition Info and Platform & Posting."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Recipe Overview, Ingredients List and Equipment Needed.",
+          "Fill in Recipe Overview: dish, serves, prep time and more.",
+          "Add a row to Ingredients List for each entry, with Ingredient, Amount and Substitution.",
+          "Write the equipment needed.",
+          "Add a row to Step-by-Step Process for each entry, with Action and Duration.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Recipe / Cook With Me?",
+            "a": "A recipe video: overview, ingredients, equipment, steps, plating, voiceover tips and nutrition."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer and UGC Creator. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Tutorial / How-To?",
+            "a": "Recipe / Cook With Me covers a recipe video. Tutorial / How-To covers step-by-step teaching. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Tutorial / How-To and Explainer Video, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
+    },
+    {
+      "code": "D28",
+      "slug": "d28-workout-fitness",
+      "name": "Workout / Fitness",
+      "kind": "document",
+      "family": "creator",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "live",
+      "icps": [
+        "Content Creator / Influencer"
+      ],
+      "object": "A single hex dumbbell",
+      "alt": "A single hex dumbbell",
+      "preview": "A workout video: type, exercises, sets and reps, equipment, warm-up, music and coaching cues.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d28-workout-fitness.master.png",
+        "card": "/templates/d28-workout-fitness-card.avif",
+        "cardFallback": "/templates/d28-workout-fitness-card.webp",
+        "cardSmall": "/templates/d28-workout-fitness-card-sm.webp",
+        "square": "/templates/d28-workout-fitness-square.webp"
+      },
+      "icon": "dumbbell",
+      "keywords": [
+        "workout",
+        "fitness",
+        "gym",
+        "exercise",
+        "hiit",
+        "yoga",
+        "training"
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D28",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:2007",
+        "populated": "857:210"
+      },
+      "tags": [],
+      "sku": "WO-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/dumbbell.webp",
+        "black": "/templates/icons/black/dumbbell.webp"
+      },
+      "related": [
+        "D17",
+        "D15",
+        "D16"
+      ],
+      "details": {
+        "about": [
+          "A workout video: type, exercises, sets and reps, equipment, warm-up, music and coaching cues.",
+          "Made for Content Creator / Influencer roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Workout Type & Title, Exercise List, Sets & Reps, Equipment Needed, Warm-Up & Cool Down, Music & Energy, Voiceover Cues and Platform & Posting."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Workout Type & Title, Exercise List and Sets & Reps.",
+          "Fill in Workout Type & Title: title, type, goal and more.",
+          "Add a row to Exercise List for each entry, with Exercise, Form notes and Modification.",
+          "Add a row to Sets & Reps for each entry, with Exercise, Sets and Reps.",
+          "Write the equipment needed.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Workout / Fitness?",
+            "a": "A workout video: type, exercises, sets and reps, equipment, warm-up, music and coaching cues."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Day in My Life?",
+            "a": "Workout / Fitness covers a workout video. Day in My Life covers a day told in moments. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Day in My Life and GRWM, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
+    },
+    {
+      "code": "D29",
+      "slug": "d29-room-space-tour",
+      "name": "Room / Space Tour",
+      "kind": "document",
+      "family": "creator",
+      "variant": "c",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "live",
+      "icps": [
+        "Content Creator / Influencer"
+      ],
+      "object": "Miniature room box with a chair and lamp",
+      "alt": "Miniature room box with a chair and lamp",
+      "preview": "An interior walkthrough: overview, room order, details, styling, lighting, transitions and music.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d29-room-space-tour.master.png",
+        "card": "/templates/d29-room-space-tour-card.avif",
+        "cardFallback": "/templates/d29-room-space-tour-card.webp",
+        "cardSmall": "/templates/d29-room-space-tour-card-sm.webp",
+        "square": "/templates/d29-room-space-tour-square.webp"
+      },
+      "icon": "home",
+      "keywords": [
+        "room tour",
+        "home",
+        "interior",
+        "decor",
+        "desk setup",
+        "apartment"
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D29",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:2170",
+        "populated": "857:381"
+      },
+      "tags": [],
+      "sku": "RT-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/home.webp",
+        "black": "/templates/icons/black/home.webp"
+      },
+      "related": [
+        "D21",
+        "D15",
+        "D16"
+      ],
+      "details": {
+        "about": [
+          "An interior walkthrough: overview, room order, details, styling, lighting, transitions and music.",
+          "Made for Content Creator / Influencer roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Space Overview, Room Sequence, Key Features & Details, Styling & Decor Notes, Lighting Setup, Transition Plan, Background Music and Platform & Hashtags."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Space Overview, Room Sequence and Key Features & Details.",
+          "Write the space overview.",
+          "Add a row to Room Sequence for each entry, with Room and Focus.",
+          "Add a row to Key Features & Details for each entry, with Point.",
+          "Write the styling & decor notes.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Room / Space Tour?",
+            "a": "An interior walkthrough: overview, room order, details, styling, lighting, transitions and music."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Haul / Unboxing?",
+            "a": "Room / Space Tour covers an interior walkthrough. Haul / Unboxing covers the reveal, paced. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Haul / Unboxing and GRWM, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
+    },
+    {
+      "code": "D30",
+      "slug": "d30-q-a-faq",
+      "name": "Q&A / FAQ",
+      "kind": "document",
+      "family": "creator",
+      "variant": "a",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "live",
+      "icps": [
+        "Content Creator / Influencer"
+      ],
+      "object": "Two stacked speech-bubble cards",
+      "alt": "Two stacked speech-bubble cards",
+      "preview": "Answers your audience: questions, answers, visuals, hook, order, interaction and follow-up.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d30-q-a-faq.master.png",
+        "card": "/templates/d30-q-a-faq-card.avif",
+        "cardFallback": "/templates/d30-q-a-faq-card.webp",
+        "cardSmall": "/templates/d30-q-a-faq-card-sm.webp",
+        "square": "/templates/d30-q-a-faq-square.webp"
+      },
+      "icon": "chat",
+      "keywords": [
+        "q&a",
+        "faq",
+        "questions",
+        "answers",
+        "ask me anything",
+        "community"
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D30",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:2333",
+        "populated": "857:552"
+      },
+      "tags": [],
+      "sku": "QA-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/chat.webp",
+        "black": "/templates/icons/black/chat.webp"
+      },
+      "related": [
+        "D19",
+        "D15",
+        "D16"
+      ],
+      "details": {
+        "about": [
+          "Answers your audience: questions, answers, visuals, hook, order, interaction and follow-up.",
+          "Made for Content Creator / Influencer roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Question Collection, Answer Prep, Visual Aids, Intro & Hook, Segment Order, Audience Interaction, CTA & Follow-Up and Platform & Posting."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Question Collection, Answer Prep and Visual Aids.",
+          "Add a row to Question Collection for each entry, with Question and Source.",
+          "Write the answer prep.",
+          "Write the visual aids.",
+          "Write the intro & hook.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Q&A / FAQ?",
+            "a": "Answers your audience: questions, answers, visuals, hook, order, interaction and follow-up."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Storytime?",
+            "a": "Q&A / FAQ covers answers your audience. Storytime covers a story told to camera. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Storytime and GRWM, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
+    },
+    {
+      "code": "D31",
+      "slug": "d31-challenge-trend",
+      "name": "Challenge / Trend",
+      "kind": "document",
+      "family": "creator",
+      "variant": "b",
+      "stage": "Pre-production",
+      "label": "New template",
+      "status": "live",
+      "icps": [
+        "Content Creator / Influencer"
+      ],
+      "object": "Spinning record with a lightning-bolt sticker",
+      "alt": "Spinning record with a lightning-bolt sticker",
+      "preview": "Your spin on a trend: reference, twist, setup, shot sequence, audio sync, pacing and timing.",
+      "thumbnail": {
+        "master": "design/thumbnails/masters/d31-challenge-trend.master.png",
+        "card": "/templates/d31-challenge-trend-card.avif",
+        "cardFallback": "/templates/d31-challenge-trend-card.webp",
+        "cardSmall": "/templates/d31-challenge-trend-card-sm.webp",
+        "square": "/templates/d31-challenge-trend-square.webp"
+      },
+      "icon": "spark",
+      "keywords": [
+        "challenge",
+        "trend",
+        "viral",
+        "tiktok",
+        "audio",
+        "dance"
+      ],
+      "group": "UGC & Social Content",
+      "schema": "D31",
+      "figma": {
+        "file": "jaF49U0T0DQ5lNB6h4wJvp",
+        "empty": "854:2496",
+        "populated": "857:723"
+      },
+      "tags": [],
+      "sku": "CH-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/spark.webp",
+        "black": "/templates/icons/black/spark.webp"
+      },
+      "related": [
+        "D26",
+        "D15",
+        "D16"
+      ],
+      "details": {
+        "about": [
+          "Your spin on a trend: reference, twist, setup, shot sequence, audio sync, pacing and timing.",
+          "Made for Content Creator / Influencer roles. Format: paced for TikTok, Reels and YouTube Shorts. Builder: add only the sections this video needs.",
+          "Start empty and add only the sections you need: Trend Reference, Concept & Twist, Props & Setup, Shot Sequence, Audio & Sound, Duration & Pacing, Hashtags & Discovery and Posting Schedule."
+        ],
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Add the sections this one needs from Add sections, for example Trend Reference, Concept & Twist and Props & Setup.",
+          "Fill in Trend Reference: original link, audio source and core dynamic.",
+          "Write the concept & twist.",
+          "Write the props & setup.",
+          "Add a row to Shot Sequence for each entry, with Shot, Angle / Move and Duration.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Challenge / Trend?",
+            "a": "Your spin on a trend: reference, twist, setup, shot sequence, audio sync, pacing and timing."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Skit / Comedy Sketch?",
+            "a": "Challenge / Trend covers your spin on a trend. Skit / Comedy Sketch covers drafts a sketch. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Skit / Comedy Sketch and GRWM, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      }
     },
     {
       "code": "G01",
@@ -930,7 +2978,26 @@
         "plot",
         "gaffer",
         "rig"
-      ]
+      ],
+      "tags": [],
+      "sku": "LP-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/lamp.webp",
+        "black": "/templates/icons/black/lamp.webp"
+      },
+      "related": [
+        "D08",
+        "D06",
+        "D14"
+      ],
+      "details": {
+        "about": [
+          "Lighting Plot is in design. It's planned for Director of Photography and Gaffer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G02",
@@ -955,7 +3022,26 @@
         "electric",
         "distro",
         "generator"
-      ]
+      ],
+      "tags": [],
+      "sku": "PD-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/plug.webp",
+        "black": "/templates/icons/black/plug.webp"
+      },
+      "related": [
+        "D08",
+        "T01",
+        "D02"
+      ],
+      "details": {
+        "about": [
+          "Power Distribution is in design. It's planned for Gaffer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G03",
@@ -980,7 +3066,26 @@
         "package",
         "lenses",
         "gear list"
-      ]
+      ],
+      "tags": [],
+      "sku": "CP-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/camera.webp",
+        "black": "/templates/icons/black/camera.webp"
+      },
+      "related": [
+        "D08",
+        "D06",
+        "D14"
+      ],
+      "details": {
+        "about": [
+          "Camera Package List is in design. It's planned for Director of Photography.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G04",
@@ -1008,7 +3113,26 @@
         "social",
         "instagram",
         "tiktok"
-      ]
+      ],
+      "tags": [],
+      "sku": "CA-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/calendar.webp",
+        "black": "/templates/icons/black/calendar.webp"
+      },
+      "related": [
+        "D15",
+        "D16",
+        "D22"
+      ],
+      "details": {
+        "about": [
+          "Content Calendar is in design. It's planned for Social Media Manager and Content Creator / Influencer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G05",
@@ -1035,7 +3159,26 @@
         "tiktok",
         "campaign",
         "posts"
-      ]
+      ],
+      "tags": [],
+      "sku": "SM-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/phone.webp",
+        "black": "/templates/icons/black/phone.webp"
+      },
+      "related": [
+        "D22",
+        "D15",
+        "D16"
+      ],
+      "details": {
+        "about": [
+          "Social Media Brief is in design. It's planned for Social Media Manager.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G06",
@@ -1061,7 +3204,26 @@
         "partnership",
         "collab",
         "influencer"
-      ]
+      ],
+      "tags": [],
+      "sku": "BD-02",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/tag.webp",
+        "black": "/templates/icons/black/tag.webp"
+      },
+      "related": [
+        "D20",
+        "D15",
+        "D16"
+      ],
+      "details": {
+        "about": [
+          "Brand Deal Tracker is in design. It's planned for Content Creator / Influencer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G07",
@@ -1087,7 +3249,26 @@
         "cut",
         "editor",
         "timeline"
-      ]
+      ],
+      "tags": [],
+      "sku": "ED-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/splice.webp",
+        "black": "/templates/icons/black/splice.webp"
+      },
+      "related": [
+        "D04",
+        "D23",
+        "D25"
+      ],
+      "details": {
+        "about": [
+          "Edit Decision List is in design. It's planned for Editor (Film / Video).",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G08",
@@ -1112,7 +3293,26 @@
         "post-production",
         "deadlines",
         "delivery"
-      ]
+      ],
+      "tags": [],
+      "sku": "PS-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/planner.webp",
+        "black": "/templates/icons/black/planner.webp"
+      },
+      "related": [
+        "D04",
+        "D23",
+        "D25"
+      ],
+      "details": {
+        "about": [
+          "Post Schedule is in design. It's planned for Editor (Film / Video).",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G09",
@@ -1139,7 +3339,26 @@
         "grading",
         "lut",
         "look"
-      ]
+      ],
+      "tags": [],
+      "sku": "CB-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/trackball.webp",
+        "black": "/templates/icons/black/trackball.webp"
+      },
+      "related": [
+        "D04",
+        "D23",
+        "D25"
+      ],
+      "details": {
+        "about": [
+          "Color Brief is in design. It's planned for Colorist.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G10",
@@ -1165,7 +3384,26 @@
         "cgi",
         "green screen",
         "comp"
-      ]
+      ],
+      "tags": [],
+      "sku": "VX-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/sphere.webp",
+        "black": "/templates/icons/black/sphere.webp"
+      },
+      "related": [
+        "D04",
+        "D23",
+        "D25"
+      ],
+      "details": {
+        "about": [
+          "VFX Breakdown is in design. It's planned for VFX Supervisor.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G11",
@@ -1191,7 +3429,26 @@
         "spotting",
         "mix",
         "foley"
-      ]
+      ],
+      "tags": [],
+      "sku": "SS-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/headphones.webp",
+        "black": "/templates/icons/black/headphones.webp"
+      },
+      "related": [
+        "D31",
+        "D04",
+        "D23"
+      ],
+      "details": {
+        "about": [
+          "Sound Spotting is in design. It's planned for Sound Designer / Mixer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G12",
@@ -1218,7 +3475,26 @@
         "licensing",
         "score",
         "songs"
-      ]
+      ],
+      "tags": [],
+      "sku": "CU-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/music.webp",
+        "black": "/templates/icons/black/music.webp"
+      },
+      "related": [
+        "D04",
+        "D23",
+        "D25"
+      ],
+      "details": {
+        "about": [
+          "Cue Sheet is in design. It's planned for Sound Designer / Mixer and Music Supervisor.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G13",
@@ -1244,7 +3520,26 @@
         "titles",
         "graphics",
         "after effects"
-      ]
+      ],
+      "tags": [],
+      "sku": "MB-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/zoetrope.webp",
+        "black": "/templates/icons/black/zoetrope.webp"
+      },
+      "related": [
+        "D04",
+        "D23",
+        "D25"
+      ],
+      "details": {
+        "about": [
+          "Motion Brief is in design. It's planned for Motion Designer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G14",
@@ -1270,7 +3565,26 @@
         "photoshoot",
         "brief",
         "stills"
-      ]
+      ],
+      "tags": [],
+      "sku": "PH-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/camera.webp",
+        "black": "/templates/icons/black/camera.webp"
+      },
+      "related": [
+        "T01",
+        "G16",
+        "D02"
+      ],
+      "details": {
+        "about": [
+          "Photo Brief is in design. It's planned for Photographer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G15",
@@ -1296,7 +3610,26 @@
         "proofs",
         "photo",
         "edit"
-      ]
+      ],
+      "tags": [],
+      "sku": "CT-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/polaroid.webp",
+        "black": "/templates/icons/black/polaroid.webp"
+      },
+      "related": [
+        "T01",
+        "D04",
+        "D23"
+      ],
+      "details": {
+        "about": [
+          "Contact Sheet is in design. It's planned for Photographer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G16",
@@ -1321,7 +3654,26 @@
         "shot list",
         "stills",
         "shots"
-      ]
+      ],
+      "tags": [],
+      "sku": "SH-02",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/viewfinder.webp",
+        "black": "/templates/icons/black/viewfinder.webp"
+      },
+      "related": [
+        "T01",
+        "D06",
+        "G14"
+      ],
+      "details": {
+        "about": [
+          "Shot List (Photo) is in design. It's planned for Photographer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G17",
@@ -1347,7 +3699,26 @@
         "licence",
         "rights",
         "photo"
-      ]
+      ],
+      "tags": [],
+      "sku": "UL-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/seal.webp",
+        "black": "/templates/icons/black/seal.webp"
+      },
+      "related": [
+        "T01",
+        "D04",
+        "D23"
+      ],
+      "details": {
+        "about": [
+          "Usage License is in design. It's planned for Photographer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G18",
@@ -1373,7 +3744,26 @@
         "red carpet",
         "wedding",
         "coverage"
-      ]
+      ],
+      "tags": [],
+      "sku": "EB-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/flash.webp",
+        "black": "/templates/icons/black/flash.webp"
+      },
+      "related": [
+        "D06",
+        "D23",
+        "T01"
+      ],
+      "details": {
+        "about": [
+          "Event Brief is in design. It's planned for Event / Press Photographer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G19",
@@ -1399,7 +3789,26 @@
         "palette",
         "world",
         "sets"
-      ]
+      ],
+      "tags": [],
+      "sku": "DB-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/swatch.webp",
+        "black": "/templates/icons/black/swatch.webp"
+      },
+      "related": [
+        "D09",
+        "D11",
+        "T01"
+      ],
+      "details": {
+        "about": [
+          "Design Bible is in design. It's planned for Production Designer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G20",
@@ -1425,7 +3834,26 @@
         "plan",
         "construction",
         "art department"
-      ]
+      ],
+      "tags": [],
+      "sku": "SD-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/ruler.webp",
+        "black": "/templates/icons/black/ruler.webp"
+      },
+      "related": [
+        "D09",
+        "T01",
+        "D02"
+      ],
+      "details": {
+        "about": [
+          "Set Drawing is in design. It's planned for Production Designer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G21",
@@ -1450,7 +3878,26 @@
         "prop list",
         "art department",
         "set dressing"
-      ]
+      ],
+      "tags": [],
+      "sku": "PL-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/rotary.webp",
+        "black": "/templates/icons/black/rotary.webp"
+      },
+      "related": [
+        "D09",
+        "D05",
+        "D13"
+      ],
+      "details": {
+        "about": [
+          "Prop List is in design. It's planned for Production Designer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G22",
@@ -1475,7 +3922,26 @@
         "wardrobe",
         "characters",
         "fittings"
-      ]
+      ],
+      "tags": [],
+      "sku": "CO-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/hanger.webp",
+        "black": "/templates/icons/black/hanger.webp"
+      },
+      "related": [
+        "D13",
+        "D11",
+        "D26"
+      ],
+      "details": {
+        "about": [
+          "Costume Breakdown is in design. It's planned for Costume Designer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G23",
@@ -1501,7 +3967,26 @@
         "beauty",
         "looks",
         "hair"
-      ]
+      ],
+      "tags": [],
+      "sku": "MU-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/brush.webp",
+        "black": "/templates/icons/black/brush.webp"
+      },
+      "related": [
+        "D15",
+        "D01",
+        "D13"
+      ],
+      "details": {
+        "about": [
+          "Makeup Sheet is in design. It's planned for Makeup Artist (MUA).",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G24",
@@ -1529,7 +4014,26 @@
         "showroom",
         "returns",
         "wardrobe"
-      ]
+      ],
+      "tags": [],
+      "sku": "PU-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/hanger.webp",
+        "black": "/templates/icons/black/hanger.webp"
+      },
+      "related": [
+        "T01",
+        "D13",
+        "D02"
+      ],
+      "details": {
+        "about": [
+          "Pull Sheet is in design. It's planned for Stylist.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G25",
@@ -1554,7 +4058,26 @@
         "legal",
         "agreement",
         "terms"
-      ]
+      ],
+      "tags": [],
+      "sku": "CN-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/pen.webp",
+        "black": "/templates/icons/black/pen.webp"
+      },
+      "related": [
+        "G26",
+        "D23",
+        "T01"
+      ],
+      "details": {
+        "about": [
+          "Contract Template is in design. It's planned for Entertainment Lawyer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G26",
@@ -1581,7 +4104,26 @@
         "terms",
         "crew deal",
         "legal"
-      ]
+      ],
+      "tags": [],
+      "sku": "DM-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/memo.webp",
+        "black": "/templates/icons/black/memo.webp"
+      },
+      "related": [
+        "D12",
+        "D25",
+        "G25"
+      ],
+      "details": {
+        "about": [
+          "Deal Memo is in design. It's planned for Entertainment Lawyer and Talent Management Agency.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G27",
@@ -1607,7 +4149,26 @@
         "licensing",
         "ip",
         "legal"
-      ]
+      ],
+      "tags": [],
+      "sku": "RI-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/stamp.webp",
+        "black": "/templates/icons/black/stamp.webp"
+      },
+      "related": [
+        "D23",
+        "D04",
+        "D25"
+      ],
+      "details": {
+        "about": [
+          "Rights Tracker is in design. It's planned for Entertainment Lawyer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G28",
@@ -1632,7 +4193,26 @@
         "confidential",
         "non-disclosure",
         "legal"
-      ]
+      ],
+      "tags": [],
+      "sku": "ND-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/envelope.webp",
+        "black": "/templates/icons/black/envelope.webp"
+      },
+      "related": [
+        "D23",
+        "T01",
+        "D02"
+      ],
+      "details": {
+        "about": [
+          "NDA is in design. It's planned for Entertainment Lawyer.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G29",
@@ -1657,7 +4237,26 @@
         "talent",
         "agent",
         "auditions"
-      ]
+      ],
+      "tags": [],
+      "sku": "SU-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/folder.webp",
+        "black": "/templates/icons/black/folder.webp"
+      },
+      "related": [
+        "D25",
+        "D12",
+        "G31"
+      ],
+      "details": {
+        "about": [
+          "Submission Tracker is in design. It's planned for Talent Agent.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G30",
@@ -1684,7 +4283,26 @@
         "talent",
         "bookings",
         "dates"
-      ]
+      ],
+      "tags": [],
+      "sku": "AC-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/calendar.webp",
+        "black": "/templates/icons/black/calendar.webp"
+      },
+      "related": [
+        "D25",
+        "D12",
+        "G31"
+      ],
+      "details": {
+        "about": [
+          "Availability Calendar is in design. It's planned for Talent Agent and Talent Management Agency.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     },
     {
       "code": "G31",
@@ -1710,7 +4328,26 @@
         "fees",
         "talent",
         "agent"
-      ]
+      ],
+      "tags": [],
+      "sku": "DG-01",
+      "iconRenders": {
+        "clay": "/templates/icons/clay/book.webp",
+        "black": "/templates/icons/black/book.webp"
+      },
+      "related": [
+        "D25",
+        "D12",
+        "G29"
+      ],
+      "details": {
+        "about": [
+          "Deal Log is in design. It's planned for Talent Agent.",
+          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+        ],
+        "howTo": [],
+        "faq": []
+      }
     }
   ],
   "familyLabels": {
@@ -1722,5 +4359,15 @@
     "craft": "Design, Styling & Craft",
     "enterprise": "Enterprise, Brand & PR",
     "performance": "Talent & Performance"
-  }
+  },
+  "groups": [
+    "Workflows",
+    "Production Management & Operations",
+    "Strategy & Development",
+    "UGC & Social Content"
+  ],
+  "tags": [
+    "Administrative",
+    "Camera & Visual"
+  ]
 }
