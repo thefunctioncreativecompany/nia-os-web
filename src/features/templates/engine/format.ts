@@ -1,3 +1,5 @@
+import type { DurationUnit } from '../types';
+
 /*
  * How typed answers read on screen, in the downloads and in letters (T5). Values are stored in a
  * standard form (dates YYYY-MM-DD, times HH:MM in 24 hours) so later autofill from voice memos
@@ -52,3 +54,13 @@ export function formatYesNo(value: YesNo) {
 }
 
 export const isEmail = (value: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value.trim());
+
+export type Duration = { amount: string; unit: DurationUnit };
+
+/** "3 minutes", "1 hour", "1.5 days". */
+export function formatDuration(value: Duration) {
+  const amount = value.amount.trim();
+  if (!amount) return '';
+  const unit = Number(amount) === 1 ? value.unit.slice(0, -1) : value.unit;
+  return `${amount} ${unit}`;
+}

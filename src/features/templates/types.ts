@@ -50,12 +50,14 @@ export interface Manifest {
 export type SectionType = 'fields' | 'table' | 'text' | 'letter' | 'categories' | 'frames' | 'checklist' | 'cards' | 'budget' | 'metrics';
 
 interface SectionBase { type: SectionType; title: string; optional?: boolean; hint?: string }
-/** A field's control (T5): plain text unless it has a shape, so it can be picked rather than typed. */
-export type FieldKind = 'text' | 'choice' | 'dateTimeRange' | 'yesNo' | 'phone' | 'email';
-export type FieldSpec = string | { label: string; kind: FieldKind; options?: string[]; placeholder?: string };
+/** A field's or column's control (T5): plain text unless the answer has a shape, so it can be
+ *  picked rather than typed. `units` for durations; `after` names a date it can't be before. */
+export type FieldKind = 'text' | 'choice' | 'role' | 'number' | 'date' | 'dateTimeRange' | 'duration' | 'yesNo' | 'check' | 'phone' | 'email';
+export type DurationUnit = 'seconds' | 'minutes' | 'hours' | 'days';
+export type FieldSpec = string | { label: string; kind: FieldKind; options?: string[]; placeholder?: string; units?: DurationUnit[]; after?: string };
 export interface FieldsSection extends SectionBase { type: 'fields'; fields: FieldSpec[] }
 export interface TableSection extends SectionBase {
-  type: 'table'; columns: string[]; rows: number; empty?: string; autonumber?: string; tall?: boolean;
+  type: 'table'; columns: FieldSpec[]; rows: number; empty?: string; autonumber?: string; tall?: boolean;
   computed?: Record<string, [string, string]>; money?: string[]; checkbox?: string[]; total?: { column: string; label: string };
 }
 export interface TextSection extends SectionBase { type: 'text'; placeholder: string }

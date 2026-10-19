@@ -3,7 +3,8 @@
 import { Textarea } from '@/components/ui/textarea';
 import type { Section } from '../types';
 import { FieldControl } from './field-controls';
-import { fieldLabel, type FieldsValue, type SectionValue } from './sections';
+import { fieldLabel, type FieldsValue, type SectionValue, type TableRow } from './sections';
+import { TableView } from './table-view';
 
 // One editor per section type (TEMPLATE_ENGINE.md §4). Step 1: fields, text and letter, from
 // the Filming Notice editor in Figma (840:29449): label beside value (each field's own control,
@@ -36,6 +37,8 @@ export function SectionView({ section, value, onChange }: Props) {
         </div>
       );
     }
+    case 'table':
+      return <TableView section={section} rows={value as TableRow[]} onChange={(rows, key) => onChange(rows, key)} />;
     case 'letter':
       return (
         <Textarea

@@ -1,5 +1,5 @@
 {
-  "$comment": "Sections of the 31 document templates, for the template engine (TEMPLATE_ENGINE.md). Extracted from design/prototypes/CDWorkspace.html (TEMPLATE_SCHEMAS); figma frame IDs from templates.manifest.json. A field is a label (plain text) or { label, kind } for a real control: choice (with options), dateTimeRange, yesNo (with a note placeholder), phone, email. A letter's `fills` map its [placeholders] to the fields that fill them.",
+  "$comment": "Sections of the 31 document templates, for the template engine (TEMPLATE_ENGINE.md). Extracted from design/prototypes/CDWorkspace.html (TEMPLATE_SCHEMAS); figma frame IDs from templates.manifest.json. A field or table column is a label (plain text) or { label, kind } for a real control: choice (options), role (production roles), number, date (`after`: a date it can't be before), dateTimeRange, duration (`units`), yesNo (note placeholder), check, phone, email. A letter's `fills` map its [placeholders] to the fields that fill them.",
   "version": 1,
   "templates": [
     {
@@ -301,7 +301,10 @@
           "title": "Script Info",
           "fields": [
             "Title",
-            "Page"
+            {
+              "label": "Page",
+              "kind": "number"
+            }
           ]
         },
         {
@@ -340,17 +343,26 @@
         "Add Row",
         "Print"
       ],
-      "version": "v1.4",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
           "title": "Template Info",
           "fields": [
             "Title",
-            "Page",
+            {
+              "label": "Page",
+              "kind": "number"
+            },
             "Scene",
-            "Script Page",
-            "Date"
+            {
+              "label": "Script Page",
+              "kind": "number"
+            },
+            {
+              "label": "Date",
+              "kind": "date"
+            }
           ]
         },
         {
@@ -359,8 +371,18 @@
           "columns": [
             "Scene",
             "Shot",
-            "Take",
-            "Length",
+            {
+              "label": "Take",
+              "kind": "number"
+            },
+            {
+              "label": "Length",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            },
             "Notes"
           ],
           "rows": 6
@@ -389,27 +411,49 @@
         "Add Row",
         "Print"
       ],
-      "version": "v1.4",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
           "title": "Template Info",
           "fields": [
             "Production Title",
-            "Page"
+            {
+              "label": "Page",
+              "kind": "number"
+            }
           ]
         },
         {
           "type": "table",
           "title": "Rental Log",
           "columns": [
-            "QTY",
+            {
+              "label": "QTY",
+              "kind": "number"
+            },
             "Equipment",
             "Serial #",
             "Vendor",
-            "Date Out",
-            "Date In",
-            "Status"
+            {
+              "label": "Date Out",
+              "kind": "date"
+            },
+            {
+              "label": "Date In",
+              "kind": "date",
+              "after": "Date Out"
+            },
+            {
+              "label": "Status",
+              "kind": "choice",
+              "options": [
+                "Reserved",
+                "Out",
+                "Returned",
+                "Damaged"
+              ]
+            }
           ],
           "rows": 6
         }
@@ -437,24 +481,36 @@
         "Add Row",
         "Print"
       ],
-      "version": "v1.4",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
           "title": "Template Info",
           "fields": [
             "Production Title",
-            "Page"
+            {
+              "label": "Page",
+              "kind": "number"
+            }
           ]
         },
         {
           "type": "table",
           "title": "Crew Contacts",
           "columns": [
-            "Position",
+            {
+              "label": "Position",
+              "kind": "role"
+            },
             "Name",
-            "Phone",
-            "Email",
+            {
+              "label": "Phone",
+              "kind": "phone"
+            },
+            {
+              "label": "Email",
+              "kind": "email"
+            },
             "Notes"
           ],
           "rows": 6
@@ -558,14 +614,44 @@
           "fields": [
             "Production Company",
             "Title",
-            { "label": "Type of Production", "kind": "choice", "options": ["Feature film", "Short film", "Series", "Commercial", "Music video", "Documentary", "Social content", "Other"] },
+            {
+              "label": "Type of Production",
+              "kind": "choice",
+              "options": [
+                "Feature film",
+                "Short film",
+                "Series",
+                "Commercial",
+                "Music video",
+                "Documentary",
+                "Social content",
+                "Other"
+              ]
+            },
             "Location",
-            { "label": "Dates / Times", "kind": "dateTimeRange" },
-            { "label": "Parking Restrictions", "kind": "yesNo", "placeholder": "Where and when, e.g. no parking on Observatory Rd 4 AM to midnight" },
-            { "label": "Intermittent Traffic Control", "kind": "yesNo", "placeholder": "Where, e.g. flaggers on Vermont Ave" },
+            {
+              "label": "Dates / Times",
+              "kind": "dateTimeRange"
+            },
+            {
+              "label": "Parking Restrictions",
+              "kind": "yesNo",
+              "placeholder": "Where and when, e.g. no parking on Observatory Rd 4 AM to midnight"
+            },
+            {
+              "label": "Intermittent Traffic Control",
+              "kind": "yesNo",
+              "placeholder": "Where, e.g. flaggers on Vermont Ave"
+            },
             "Location Manager",
-            { "label": "Phone Contact", "kind": "phone" },
-            { "label": "Email Contact", "kind": "email" },
+            {
+              "label": "Phone Contact",
+              "kind": "phone"
+            },
+            {
+              "label": "Email Contact",
+              "kind": "email"
+            },
             "Film Permit Office"
           ]
         },
@@ -604,18 +690,27 @@
         "Add Row",
         "Print"
       ],
-      "version": "v1.0",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
           "title": "Log Metadata",
           "fields": [
             "Production Title",
-            "Page",
+            {
+              "label": "Page",
+              "kind": "number"
+            },
             "Card",
             "Scene",
-            "Script Page",
-            "Date"
+            {
+              "label": "Script Page",
+              "kind": "number"
+            },
+            {
+              "label": "Date",
+              "kind": "date"
+            }
           ]
         },
         {
@@ -624,9 +719,19 @@
           "columns": [
             "File / Take",
             "Description",
-            "Length",
+            {
+              "label": "Length",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            },
             "Comments",
-            "Use"
+            {
+              "label": "Use",
+              "kind": "check"
+            }
           ],
           "rows": 6,
           "checkbox": [
@@ -698,16 +803,22 @@
         "Add Row",
         "Print"
       ],
-      "version": "v1.0",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
           "title": "Template Info",
           "fields": [
             "Title",
-            "Page",
+            {
+              "label": "Page",
+              "kind": "number"
+            },
             "Scene",
-            "Script Page"
+            {
+              "label": "Script Page",
+              "kind": "number"
+            }
           ]
         },
         {
@@ -715,10 +826,55 @@
           "title": "Camera & Technical Coverage List",
           "columns": [
             "Shot #",
-            "I/E",
-            "Type",
-            "Angle",
-            "Move",
+            {
+              "label": "I/E",
+              "kind": "choice",
+              "options": [
+                "INT",
+                "EXT",
+                "INT/EXT"
+              ]
+            },
+            {
+              "label": "Type",
+              "kind": "choice",
+              "options": [
+                "Wide",
+                "Medium",
+                "Close-up",
+                "Extreme close-up",
+                "Insert",
+                "Over-the-shoulder",
+                "POV",
+                "Two-shot"
+              ]
+            },
+            {
+              "label": "Angle",
+              "kind": "choice",
+              "options": [
+                "Eye level",
+                "High",
+                "Low",
+                "Overhead",
+                "Dutch"
+              ]
+            },
+            {
+              "label": "Move",
+              "kind": "choice",
+              "options": [
+                "Static",
+                "Pan",
+                "Tilt",
+                "Dolly",
+                "Tracking",
+                "Handheld",
+                "Crane",
+                "Steadicam",
+                "Zoom"
+              ]
+            },
             "Description"
           ],
           "rows": 6,

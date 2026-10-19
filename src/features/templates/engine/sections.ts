@@ -1,26 +1,30 @@
-import type { FieldKind, FieldSpec, LetterSection, Section, SectionType, TemplateSchema } from '../types';
-import { formatDateTimeRange, formatYesNo, type DateTimeRange, type YesNo } from './format';
+import type { FieldKind, FieldSpec, LetterSection, Section, SectionType, TableSection, TemplateSchema } from '../types';
+import { formatDateTimeRange, formatDays, formatDuration, formatYesNo, type DateTimeRange, type Duration, type YesNo } from './format';
 
 /*
  * The template engine's data rules (TEMPLATE_ENGINE.md §4): a blank value for each section
- * type, and whether a section counts as filled in. Section types join `ENGINE_TYPES` as their
- * editors are built (step 1: fields, text, letter), and a template opens in the editor only
- * once every one of its sections can be edited.
+ * type, and whether a section counts as filled in.
  *
- * Fields have kinds (T5): text, or a real control with a stored shape (see format.ts).
+ * Fields and table columns have kinds (T5): text, or a real control with a stored shape (see
+ * format.ts), so answers can be picked rather than typed and later filled from voice memos.
  */
 
-export type FieldValue = string | DateTimeRange | YesNo;
+export type FieldValue = string | boolean | DateTimeRange | Duration | YesNo;
 export type FieldsValue = Record<string, FieldValue>;
-export type SectionValue = FieldsValue | string;
+export type TableRow = { id: string } & Record<string, FieldValue>;
+export type SectionValue = FieldsValue | TableRow[] | string;
 
-export const ENGINE_TYPES: ReadonlySet<SectionType> = new Set(['fields', 'text', 'letter']);
+export const ENGINE_TYPES: ReadonlySet<SectionType> = new Set(['fields', 'text', 'letter', 'table']);
+
+/** Templates whose controls have been reviewed with Ika join here (build step 7 and T5). */
+const READY = new Set(['D07', 'D03', 'D06', 'D08', 'D13', 'D14', 'D10']);
 
 export const canEdit = (schema: TemplateSchema | null): schema is TemplateSchema =>
-  !!schema && schema.sections.every((s) => ENGINE_TYPES.has(s.type));
+  !!schema && READY.has(schema.code) && schema.sections.every((s) => ENGINE_TYPES.has(s.type));
 
 export const fieldLabel = (field: FieldSpec) => (typeof field === 'string' ? field : field.label);
 export const fieldKind = (field: FieldSpec): FieldKind => (typeof field === 'string' ? 'text' : field.kind);
+const unitsOf = (field: FieldSpec) => (typeof field === 'string' ? undefined : field.units) ?? ['minutes', 'hours', 'days'];
 
 export function blankField(field: FieldSpec): FieldValue {
   switch (fieldKind(field)) {
@@ -28,6 +32,10 @@ export function blankField(field: FieldSpec): FieldValue {
       return { from: '', to: '', start: '', end: '' };
     case 'yesNo':
       return { answer: '', note: '' };
+    case 'duration':
+      return { amount: '', unit: unitsOf(field)[0] };
+    case 'check':
+      return false;
     default:
       return '';
   }
@@ -37,6 +45,7 @@ export function blankField(field: FieldSpec): FieldValue {
 function restoreField(field: FieldSpec, saved: unknown): FieldValue {
   const blank = blankField(field);
   if (typeof blank === 'string') return typeof saved === 'string' ? saved : blank;
+  if (typeof blank === 'boolean') return typeof saved === 'boolean' ? saved : blank;
   return saved && typeof saved === 'object' ? ({ ...blank, ...saved } as FieldValue) : blank;
 }
 
@@ -48,15 +57,34 @@ export function formatField(field: FieldSpec, value: FieldValue | undefined, { d
       return formatDateTimeRange(value as DateTimeRange, { datesOnly });
     case 'yesNo':
       return formatYesNo(value as YesNo);
+    case 'duration':
+      return formatDuration(value as Duration);
+    case 'date':
+      return formatDays(value as string, value as string);
+    case 'check':
+      return value === true ? 'Yes' : '';
     default:
       return typeof value === 'string' ? value.trim() : '';
   }
+}
+
+// Rows added while editing get a random id. A template's starting rows are numbered instead:
+// the blank document is prepared ahead of time, where random values aren't allowed.
+const uid = () => crypto.randomUUID();
+
+/** Columns people fill in: everything but the automatic number. */
+export const editableColumns = (section: TableSection) => section.columns.filter((c) => fieldLabel(c) !== section.autonumber);
+
+export function blankRow(section: TableSection, id: string = uid()): TableRow {
+  return { id, ...Object.fromEntries(editableColumns(section).map((c) => [fieldLabel(c), blankField(c)])) };
 }
 
 export function initSection(section: Section): SectionValue {
   switch (section.type) {
     case 'fields':
       return Object.fromEntries(section.fields.map((f) => [fieldLabel(f), blankField(f)]));
+    case 'table':
+      return Array.from({ length: section.rows || 3 }, (_, i) => blankRow(section, `row-${i + 1}`));
     case 'letter':
       return section.default;
     default:
@@ -72,6 +100,10 @@ export function hasContent(section: Section, value: SectionValue | undefined): b
     case 'fields': {
       const fields = (value ?? {}) as FieldsValue;
       return section.fields.some((f) => filled(formatField(f, fields[fieldLabel(f)])));
+    }
+    case 'table': {
+      const rows = Array.isArray(value) ? value : [];
+      return rows.some((row) => editableColumns(section).some((c) => filled(formatField(c, row[fieldLabel(c)]))));
     }
     case 'text':
       return filled(value);
@@ -117,7 +149,7 @@ export const filledCount = (schema: TemplateSchema, data: SectionValue[]) => {
   return schema.sections.filter((s, i) => hasContent(s, shown[i])).length;
 };
 
-/** Saved data with any section or field the template has gained since filled in blank. */
+/** Saved data with any section, field or column the template has gained since filled in blank. */
 export function restoreDocument(schema: TemplateSchema, saved: unknown): SectionValue[] {
   const list = Array.isArray(saved) ? saved : [];
   return schema.sections.map((s, i) => {
@@ -125,6 +157,13 @@ export function restoreDocument(schema: TemplateSchema, saved: unknown): Section
     if (s.type === 'fields') {
       const old = value && typeof value === 'object' ? (value as Record<string, unknown>) : {};
       return Object.fromEntries(s.fields.map((f) => [fieldLabel(f), restoreField(f, old[fieldLabel(f)])]));
+    }
+    if (s.type === 'table') {
+      if (!Array.isArray(value)) return initSection(s);
+      return value.map((row: Record<string, unknown>, r) => ({
+        id: typeof row?.id === 'string' ? row.id : `row-${r + 1}`,
+        ...Object.fromEntries(editableColumns(s).map((c) => [fieldLabel(c), restoreField(c, row?.[fieldLabel(c)])])),
+      }));
     }
     return typeof value === 'string' ? value : initSection(s);
   });

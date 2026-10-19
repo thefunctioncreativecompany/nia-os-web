@@ -1,6 +1,6 @@
 'use client';
 
-import { Download, FileText, FileType, Printer, Redo2, Undo2 } from 'lucide-react';
+import { Download, FileText, FileType, Plus, Printer, Redo2, Undo2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 import { DocumentHeader, DocumentPreviewHeader } from '@/components/nia/document-header';
@@ -11,7 +11,7 @@ import { SplitButton } from '@/components/arc/split-button/split-button';
 import type { TemplateSchema } from '../types';
 import { downloadFile, fileName, toMarkdown, toPlainText, toWord } from './export';
 import { SectionView } from './section-views';
-import { resolveDocument, type SectionValue } from './sections';
+import { blankRow, resolveDocument, type SectionValue, type TableRow } from './sections';
 import { useDocument } from './use-document';
 
 // The one editor every document template uses (TEMPLATE_ENGINE.md §3), from the Filming Notice
@@ -30,6 +30,13 @@ export function TemplateEditor({
   // Letters as they read, with [placeholders] filled from the answers above (T5).
   const shown = resolveDocument(schema, doc.data);
   const total = schema.sections.length;
+  // The toolbar's Add row adds to the template's (first) table.
+  const addRowTo = schema.actions.includes('Add Row') ? schema.sections.findIndex((s) => s.type === 'table') : -1;
+  const addRow = () => {
+    const section = schema.sections[addRowTo];
+    if (section?.type !== 'table') return;
+    doc.update(addRowTo, [...(doc.data[addRowTo] as TableRow[]), blankRow(section)], `add-${crypto.randomUUID()}`);
+  };
   const ready = doc.filled > 0;
 
   const download = async (kind: 'md' | 'docx' | 'txt') => {
@@ -67,6 +74,11 @@ export function TemplateEditor({
             </Button>
           </div>
           <Separator orientation="vertical" className="h-4" />
+          {addRowTo >= 0 && (
+            <Button variant="outline" size="sm" onClick={addRow}>
+              <Plus aria-hidden /> Add row
+            </Button>
+          )}
           {schema.actions.includes('Print') && (
             <Button variant="outline" size="sm" onClick={() => window.print()}>
               <Printer aria-hidden /> Print

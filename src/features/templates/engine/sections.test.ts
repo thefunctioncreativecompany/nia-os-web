@@ -9,9 +9,10 @@ const getSchema = (code: string) => (schemas as unknown as { templates: Template
 const notice = getSchema('D07')!;
 
 describe('template engine sections', () => {
-  it('opens the Filming Notice, and not templates with sections still to build', () => {
+  it('opens reviewed templates, and not ones still to build', () => {
     expect(canEdit(notice)).toBe(true);
-    expect(canEdit(getSchema('D10'))).toBe(false);
+    for (const code of ['D03', 'D06', 'D08', 'D13', 'D14', 'D10']) expect(canEdit(getSchema(code))).toBe(true);
+    expect(canEdit(getSchema('D01'))).toBe(false);
     expect(canEdit(null)).toBe(false);
   });
 
@@ -85,5 +86,35 @@ describe('typed answers (T5)', () => {
     const restored = restoreDocument(notice, [{ Location: 'Griffith Park', 'Dates / Times': 'Aug 12' }]);
     expect((restored[0] as Record<string, unknown>).Location).toBe('Griffith Park');
     expect((restored[0] as Record<string, unknown>)['Dates / Times']).toEqual({ from: '', to: '', start: '', end: '' });
+  });
+});
+
+describe('tables (step 7 part 2)', () => {
+  const rental = getSchema('D08')!;
+  const table = rental.sections[1] as import('../types').TableSection;
+
+  it('starts with blank typed rows', () => {
+    const rows = initDocument(rental)[1] as Record<string, unknown>[];
+    expect(rows).toHaveLength(table.rows);
+    expect(rows[0]).toMatchObject({ QTY: '', 'Date Out': '', Status: '' });
+    expect(typeof rows[0].id).toBe('string');
+    expect(hasContent(table, rows as never)).toBe(false);
+  });
+
+  it('counts a row once a cell is filled, and keeps rows through a save', () => {
+    const data = restoreDocument(rental, [{}, [{ id: 'a', QTY: '2', Equipment: 'ARRI SkyPanel', 'Date Out': '2026-08-12', Status: 'Out' }]]);
+    expect(hasContent(table, data[1])).toBe(true);
+    expect((data[1] as Record<string, unknown>[])[0]).toMatchObject({ id: 'a', QTY: '2', 'Date In': '', Status: 'Out' });
+  });
+
+  it('writes tables into the downloads', async () => {
+    const { toMarkdown, toPlainText } = await import('./export');
+    const shot = getSchema('D14')!;
+    const data = restoreDocument(shot, [{}, [{ id: 'a', 'File / Take': 'A001_C003', Length: { amount: '42', unit: 'seconds' }, Use: true }]]);
+    const md = toMarkdown(shot, data);
+    expect(md).toContain('| File / Take | Description | Length | Comments | Use |');
+    expect(md).toContain('| A001_C003 | — | 42 seconds | — | Yes |');
+    expect(toPlainText(shot, data)).toContain('1. File / Take: A001_C003 · Description: — · Length: 42 seconds');
+    expect(toMarkdown(getSchema('D06')!, restoreDocument(getSchema('D06')!, [{}, [{ id: 'x', 'I/E': 'EXT' }]]))).toContain('| 01 | EXT |');
   });
 });

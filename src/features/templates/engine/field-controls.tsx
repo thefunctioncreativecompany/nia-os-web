@@ -1,63 +1,97 @@
 'use client';
 
 import { useState } from 'react';
-import { CalendarDays, Clock, X } from 'lucide-react';
+import { CalendarDays, Check, ChevronDown, Clock, Minus, Plus, X } from 'lucide-react';
 
+import { PROFESSION_SECTORS } from '@/lib/onboarding';
 import { cn } from '@/lib/utils';
 import { Calendar } from '@/components/ui/calendar';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { Input } from '@/components/ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 import { ChoicePills } from '@/components/nia/choice-pills';
 import { TimeWheel, type TimeValue } from '@/components/nia/time-wheel';
-import type { FieldSpec } from '../types';
+import type { DurationUnit, FieldSpec } from '../types';
 import { fieldKind, fieldLabel, type FieldValue } from './sections';
-import { formatClock, formatDays, isEmail, parseDay, toDay, type DateTimeRange, type YesNo } from './format';
+import { formatClock, formatDays, isEmail, parseDay, toDay, type DateTimeRange, type Duration, type YesNo } from './format';
 
 // One control per field kind (T5): pick rather than type wherever the answer has a shape.
-// Built from the component library (Input, ChoicePills, Calendar, TimeWheel in a Popover).
+// Built from the component library (Input, ChoicePills, Select, Calendar, TimeWheel, Command).
+// `compact` is the table-cell version: no pill rows, choices in a menu.
 
 const lineInput =
   'h-auto rounded-md border-transparent px-1.5 py-0.5 text-sm leading-normal font-medium text-foreground shadow-none hover:bg-muted/70 focus-visible:border-transparent md:text-sm placeholder:text-nia-placeholder print:px-0';
 const pickerTrigger =
-  'inline-flex h-8 items-center gap-2 rounded-md px-1.5 text-sm font-medium text-foreground outline-none transition-colors duration-fast hover:bg-muted/70 focus-visible:ring-3 focus-visible:ring-ring/50 data-[state=open]:bg-muted/70';
+  'inline-flex h-8 min-w-0 items-center gap-2 rounded-md px-1.5 text-sm font-medium text-foreground outline-none transition-colors duration-fast hover:bg-muted/70 focus-visible:ring-3 focus-visible:ring-ring/50 data-[state=open]:bg-muted/70';
+const smallPills = 'gap-1.5 py-0.5 [&>button]:px-3 [&>button]:py-1 [&>button]:text-small';
 
-export function FieldControl({ id, field, value, onChange }: { id: string; field: FieldSpec; value: FieldValue; onChange: (next: FieldValue) => void }) {
+type ControlProps = {
+  id: string;
+  field: FieldSpec;
+  value: FieldValue;
+  onChange: (next: FieldValue) => void;
+  compact?: boolean;
+  tall?: boolean;
+  /** For a date with `after`: the earliest day it can be (prevents Date in before Date out). */
+  minDay?: string;
+};
+
+export function FieldControl({ id, field, value, onChange, compact = false, tall = false, minDay }: ControlProps) {
   const label = fieldLabel(field);
-  const options = typeof field === 'string' ? undefined : field.options;
-  const placeholder = typeof field === 'string' ? undefined : field.placeholder;
+  const spec = typeof field === 'string' ? undefined : field;
 
   switch (fieldKind(field)) {
     case 'choice':
-      return (
+      return compact ? (
+        <ChoiceMenu id={id} label={label} options={spec?.options ?? []} value={value as string} onChange={onChange} />
+      ) : (
         <ChoicePills
           label={label}
           value={(value as string) || null}
           // Tapping the chosen one again clears it.
           onChange={(next) => onChange(next === value ? '' : next)}
-          options={(options ?? []).map((o) => ({ value: o, label: o }))}
-          className="gap-1.5 py-0.5 [&>button]:px-3 [&>button]:py-1 [&>button]:text-small"
+          options={(spec?.options ?? []).map((o) => ({ value: o, label: o }))}
+          className={smallPills}
         />
       );
+    case 'role':
+      return <RolePicker id={id} label={label} value={value as string} onChange={onChange} />;
+    case 'number':
+      return <NumberControl id={id} label={label} value={value as string} onChange={onChange} />;
+    case 'date':
+      return <DateControl id={id} label={label} value={value as string} onChange={onChange} minDay={minDay} />;
+    case 'duration':
+      return <DurationControl id={id} label={label} units={spec?.units} value={value as Duration} onChange={onChange} />;
+    case 'check':
+      return <Checkbox id={id} aria-label={label} checked={value === true} onCheckedChange={(on) => onChange(on === true)} className="mx-1.5" />;
     case 'dateTimeRange':
       return <DateTimeRangeControl id={id} label={label} value={value as DateTimeRange} onChange={onChange} />;
     case 'yesNo':
-      return <YesNoControl id={id} label={label} placeholder={placeholder} value={value as YesNo} onChange={onChange} />;
+      return <YesNoControl id={id} label={label} placeholder={spec?.placeholder} value={value as YesNo} onChange={onChange} />;
     case 'phone':
-      return <Input id={id} type="tel" inputMode="tel" autoComplete="tel" value={value as string} placeholder="—" onChange={(e) => onChange(e.target.value)} className={lineInput} />;
+      return <Input id={id} aria-label={compact ? label : undefined} type="tel" inputMode="tel" autoComplete="tel" value={value as string} placeholder="—" onChange={(e) => onChange(e.target.value)} className={lineInput} />;
     case 'email':
-      return <EmailControl id={id} value={value as string} onChange={onChange} />;
+      return <EmailControl id={id} label={compact ? label : undefined} value={value as string} onChange={onChange} />;
     default:
-      return <Input id={id} value={value as string} placeholder="—" onChange={(e) => onChange(e.target.value)} className={lineInput} />;
+      return tall ? (
+        <Textarea id={id} aria-label={label} value={value as string} placeholder="—" rows={2} onChange={(e) => onChange(e.target.value)} className={cn(lineInput, 'min-h-16 resize-none')} />
+      ) : (
+        <Input id={id} aria-label={compact ? label : undefined} value={value as string} placeholder="—" onChange={(e) => onChange(e.target.value)} className={lineInput} />
+      );
   }
 }
 
-function EmailControl({ id, value, onChange }: { id: string; value: string; onChange: (next: string) => void }) {
+function EmailControl({ id, label, value, onChange }: { id: string; label?: string; value: string; onChange: (next: string) => void }) {
   const [checked, setChecked] = useState(false);
   const invalid = checked && value.trim() !== '' && !isEmail(value);
   return (
     <div className="flex min-w-0 flex-1 flex-col">
       <Input
         id={id}
+        aria-label={label}
         type="email"
         inputMode="email"
         autoComplete="email"
@@ -78,6 +112,154 @@ function EmailControl({ id, value, onChange }: { id: string; value: string; onCh
   );
 }
 
+const NONE = '__none';
+
+function ChoiceMenu({ id, label, options, value, onChange }: { id: string; label: string; options: string[]; value: string; onChange: (next: string) => void }) {
+  return (
+    <Select value={value || NONE} onValueChange={(next) => onChange(next === NONE ? '' : next)}>
+      <SelectTrigger id={id} aria-label={label} className={cn("h-8 w-full min-w-0 border-transparent px-1.5 text-sm font-medium shadow-none hover:bg-muted/70 print:[&>svg]:hidden", !value && "text-nia-placeholder")}>
+        <SelectValue placeholder="—" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value={NONE} className="text-muted-foreground">
+          —
+        </SelectItem>
+        {options.map((o) => (
+          <SelectItem key={o} value={o}>
+            {o}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  );
+}
+
+/** Production roles from onboarding, searchable and grouped by sector. */
+function RolePicker({ id, label, value, onChange }: { id: string; label: string; value: string; onChange: (next: string) => void }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger id={id} aria-label={value ? `${label}: ${value}` : `${label}: choose`} className={cn(pickerTrigger, 'w-full justify-between')}>
+        <span className={cn('truncate', !value && 'text-nia-placeholder')}>{value || '—'}</span>
+        <ChevronDown aria-hidden className="size-4 shrink-0 text-muted-foreground print:hidden" />
+      </PopoverTrigger>
+      <PopoverContent align="start" className="w-72 p-0">
+        <Command>
+          <CommandInput placeholder="Search roles" />
+          <CommandList>
+            <CommandEmpty>No role by that name.</CommandEmpty>
+            {value && (
+              <CommandGroup>
+                <CommandItem onSelect={() => { onChange(''); setOpen(false); }} className="text-muted-foreground">
+                  Clear
+                </CommandItem>
+              </CommandGroup>
+            )}
+            {PROFESSION_SECTORS.map(({ sector, roles }) => (
+              <CommandGroup key={sector} heading={sector}>
+                {roles.map((role) => (
+                  <CommandItem key={role} value={role} onSelect={() => { onChange(role); setOpen(false); }}>
+                    {role}
+                    {role === value && <Check aria-hidden className="ml-auto size-4" />}
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            ))}
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
+}
+
+/** − 3 + : tap rather than type; typing still works. Whole numbers from 0. */
+function NumberControl({ id, label, value, onChange }: { id: string; label: string; value: string; onChange: (next: string) => void }) {
+  const n = Number(value) || 0;
+  const step = (by: number) => onChange(String(Math.max(0, n + by)));
+  const button = 'inline-flex size-6 shrink-0 items-center justify-center rounded-md text-muted-foreground outline-none hover:bg-muted/70 hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 disabled:opacity-40 print:hidden';
+  return (
+    <div className="flex items-center gap-0.5">
+      {/* Hidden (keeping its place) until there is something to take away, so a blank reads "— +". */}
+      <button type="button" aria-label={`Fewer ${label.toLowerCase()}`} disabled={n <= 0} onClick={() => step(-1)} className={cn(button, n <= 0 && 'invisible')}>
+        <Minus aria-hidden className="size-3.5" />
+      </button>
+      <Input
+        id={id}
+        aria-label={label}
+        inputMode="numeric"
+        value={value}
+        placeholder="—"
+        onChange={(e) => onChange(e.target.value.replace(/[^0-9]/g, ''))}
+        className={cn(lineInput, 'w-10 px-0.5 text-center tabular-nums')}
+      />
+      <button type="button" aria-label={`More ${label.toLowerCase()}`} onClick={() => step(1)} className={button}>
+        <Plus aria-hidden className="size-3.5" />
+      </button>
+    </div>
+  );
+}
+
+function DateControl({ id, label, value, onChange, minDay }: { id: string; label: string; value: string; onChange: (next: string) => void; minDay?: string }) {
+  const [open, setOpen] = useState(false);
+  const day = parseDay(value) ?? undefined;
+  const min = minDay ? parseDay(minDay) : null;
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger id={id} aria-label={value ? `${label}: ${formatDays(value, value)}` : `${label}: pick a date`} className={pickerTrigger}>
+        <CalendarDays aria-hidden className="size-4 shrink-0 text-muted-foreground print:hidden" />
+        <span className={cn('truncate', !value && 'text-nia-placeholder')}>{value ? formatDays(value, value) : 'Pick date'}</span>
+      </PopoverTrigger>
+      <PopoverContent align="start" className="w-auto p-2">
+        <Calendar
+          mode="single"
+          selected={day}
+          defaultMonth={day ?? min ?? undefined}
+          // A day before the one it must follow can't be picked (e.g. Date in before Date out).
+          disabled={min ? { before: min } : undefined}
+          onSelect={(next) => {
+            onChange(next ? toDay(next) : '');
+            setOpen(false);
+          }}
+        />
+        {value && (
+          <button type="button" onClick={() => { onChange(''); setOpen(false); }} className="mt-1 w-full rounded-md py-1.5 text-small text-muted-foreground hover:bg-muted/70 hover:text-foreground">
+            Clear date
+          </button>
+        )}
+      </PopoverContent>
+    </Popover>
+  );
+}
+
+/** An amount and a unit: 3 minutes, 2 hours, 4 days (Ika, 2026-10-19). */
+function DurationControl({ id, label, units = ['minutes', 'hours', 'days'], value, onChange }: { id: string; label: string; units?: DurationUnit[]; value: Duration; onChange: (next: Duration) => void }) {
+  return (
+    <div className="flex min-w-0 items-center gap-1">
+      <Input
+        id={id}
+        aria-label={`${label}: amount`}
+        inputMode="decimal"
+        value={value.amount}
+        placeholder="—"
+        onChange={(e) => onChange({ ...value, amount: e.target.value.replace(/[^0-9.]/g, '') })}
+        className={cn(lineInput, 'w-14 text-right tabular-nums')}
+      />
+      <Select value={value.unit} onValueChange={(unit) => onChange({ ...value, unit: unit as DurationUnit })}>
+        <SelectTrigger aria-label={`${label}: unit`} className="h-8 w-auto min-w-0 border-transparent px-1.5 text-sm font-medium shadow-none hover:bg-muted/70 print:[&>svg]:hidden">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          {units.map((u) => (
+            <SelectItem key={u} value={u}>
+              {u}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
+  );
+}
+
 // "05:00" ↔ the time wheel's 12-hour value.
 const toWheel = (value: string): TimeValue => {
   const [h, m] = value ? value.split(':').map(Number) : [9, 0];
@@ -90,7 +272,7 @@ function TimePick({ id, label, value, onChange }: { id: string; label: string; v
   return (
     <Popover>
       <PopoverTrigger id={id} aria-label={value ? `${label}: ${formatClock(value)}` : label} className={pickerTrigger}>
-        <Clock aria-hidden className="size-4 text-muted-foreground" />
+        <Clock aria-hidden className="size-4 text-muted-foreground print:hidden" />
         <span className={cn('tabular-nums', !value && 'text-nia-placeholder')}>{value ? formatClock(value) : label}</span>
       </PopoverTrigger>
       <PopoverContent align="start" className="w-auto p-2">
@@ -109,7 +291,7 @@ function DateTimeRangeControl({ id, label, value, onChange }: { id: string; labe
     <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-1 gap-y-1">
       <Popover>
         <PopoverTrigger id={id} aria-label={value.from ? `${label}: ${formatDays(value.from, value.to)}` : `${label}: pick dates`} className={pickerTrigger}>
-          <CalendarDays aria-hidden className="size-4 text-muted-foreground" />
+          <CalendarDays aria-hidden className="size-4 text-muted-foreground print:hidden" />
           <span className={cn(!value.from && 'text-nia-placeholder')}>{value.from ? formatDays(value.from, value.to) : 'Pick dates'}</span>
         </PopoverTrigger>
         <PopoverContent align="start" className="w-auto p-2">
@@ -149,7 +331,7 @@ function YesNoControl({ id, label, placeholder, value, onChange }: { id: string;
           { value: 'yes' as const, label: 'Yes' },
           { value: 'no' as const, label: 'No' },
         ]}
-        className="shrink-0 gap-1.5 py-0.5 [&>button]:px-3 [&>button]:py-1 [&>button]:text-small"
+        className={cn('shrink-0', smallPills)}
       />
       {value.answer === 'yes' && (
         <Input

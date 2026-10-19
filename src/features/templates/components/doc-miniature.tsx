@@ -70,7 +70,7 @@ function MiniSection({ section: s }: { section: Section }) {
       </div>
     );
   } else if (s.type === "table" || s.type === "budget") {
-    const cols = s.type === "table" ? s.columns : ["Category", "Description", "Rate", "Units", "Subtotal"];
+    const cols = s.type === "table" ? s.columns.map(fieldLabel) : ["Category", "Description", "Rate", "Units", "Subtotal"];
     const grid = { gridTemplateColumns: `repeat(${cols.length}, minmax(0, 1fr))` };
     body = (
       <div className="rounded-xs border border-foreground/14">
