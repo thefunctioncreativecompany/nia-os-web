@@ -1,26 +1,27 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { FileText, Inbox } from "lucide-react";
 
 import { getCurrentUser } from "@/lib/auth";
 import { getTemplate } from "@/features/templates/catalog";
-import { iconFor } from "@/features/templates/gallery";
+import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { listActivity, listProjects } from "@/lib/projects-data";
+import { Card } from "@/components/arc/card/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/nia/empty-state";
-import { TemplateCard } from "@/components/nia/template-card";
-import { ActivityList } from "@/components/projects/activity-list";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
-import { Updates } from "@/components/home/updates";
+import { ActivityFeed } from "@/components/home/activity-feed";
 import { ProjectGrid } from "@/components/projects/project-grid";
 
 export const metadata: Metadata = {
   title: "Home · Nia OS",
 };
 
-// The template row: each card opens that template's preview on the Templates page.
+// The template row (H2): the "Suggested for you" cards; Preview opens that template's preview
+// on the Templates page.
 const TEMPLATE_CODES = ["D01", "D13", "D07", "D24", "D08", "D14", "D05", "D03", "D09", "D10"];
 const TEMPLATES = TEMPLATE_CODES.map(getTemplate).filter((t) => t !== null);
 
@@ -42,21 +43,30 @@ export default function Page() {
             Start from a Template
           </h2>
         </div>
-        <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-1 md:mx-0 md:px-0">
+        <div className="-mx-4 flex snap-x scroll-px-4 gap-3.5 overflow-x-auto px-4 pb-2 md:mx-0 md:scroll-px-0 md:px-0">
           {TEMPLATES.map((template) => (
-            <TemplateCard
+            <Card
               key={template.code}
-              href={`/templates?preview=${template.code}`}
-              size="compact"
-              name={template.name}
-              icon={iconFor(template.icon)}
-              className="h-[78px] w-[126px] shrink-0"
+              title={template.name}
+              className="w-60 shrink-0 snap-start"
+              media={
+                <div className="flex aspect-[16/10] w-full items-center justify-center bg-white">
+                  <FlatIcon name={template.icon} size="md" className="size-11" />
+                </div>
+              }
+              avatar={<Image src="/icon.png" alt="" width={24} height={24} className="size-6 rounded-full" />}
+              meta={template.stage}
+              action={
+                <Button asChild variant="outline" size="compact">
+                  <Link href={`/templates?preview=${template.code}`} aria-label={`Preview ${template.name}`}>
+                    Preview
+                  </Link>
+                </Button>
+              }
             />
           ))}
         </div>
       </section>
-
-      <Updates />
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         <h2 id="recent-projects" className="text-xl leading-[1.4] font-bold text-foreground">
@@ -68,16 +78,9 @@ export default function Page() {
       </section>
 
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.62fr)]">
-        <section aria-labelledby="recent-activity" className="flex flex-col gap-5">
-          <div className="flex items-center justify-between">
-            <h2 id="recent-activity" className="text-xl leading-[1.4] font-bold text-foreground">
-              Recent Activity
-            </h2>
-          </div>
-          <Suspense fallback={<Skeleton className="h-60 rounded-xl" />}>
-            <RecentActivity />
-          </Suspense>
-        </section>
+        <Suspense fallback={<Skeleton className="h-60 rounded-xl" />}>
+          <RecentActivity />
+        </Suspense>
 
         <div className="flex flex-col gap-10">
           <section aria-labelledby="schedule" className="flex flex-col gap-5">
@@ -147,6 +150,6 @@ async function RecentProjects() {
 }
 
 async function RecentActivity() {
-  const { items, now } = await listActivity({ limit: 5 });
-  return <ActivityList items={items} now={now} bordered linkProjects />;
+  const { items, now } = await listActivity({ limit: 12 });
+  return <ActivityFeed items={items} now={now} />;
 }
