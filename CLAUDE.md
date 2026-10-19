@@ -165,7 +165,8 @@ these before 0.5)
   email as Can view / Can edit, change role, remove, view-only link at `/share/[token]`), Delete
   (soft, owner only), Project Overview, Recent Activity. Viewers get a read-only page. To do:
   Documents list (Milestone 3), Team Members section, Export (3.4), References (2.4). Invites are
-  stored and auto-accepted on sign-up; no invitation emails yet (Resend, 6.1).
+  stored and auto-accepted on sign-up, and emailed through Resend (`RESEND_API_KEY`). The page
+  updates live when collaborators change it; Home shows Updates (notifications).
 - [ ] 2.4 Reference board. Not started.
 - [ ] 2.5 Home. Done: `/home` welcome, template row (coming soon), Recent Projects, Recent Activity,
   Upcoming Schedule (empty state), Quick Actions (New Project; Browse Templates / Import Files coming
@@ -192,4 +193,5 @@ Milestone 6 — Share & launch
 
 Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261019000000_onboarding.sql`, `20261019010000_avatar_cleanup.sql`, `20261020000000_projects.sql`,
-`20261021000000_templates.sql`, `20261021010000_documents_soft_delete.sql`, `20261022000000_notifications.sql`.
+`20261021000000_templates.sql`, `20261021010000_documents_soft_delete.sql`, `20261022000000_notifications.sql`,
+`20261023000000_projects_realtime.sql`.

@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ActivityList } from "@/components/projects/activity-list";
 import { ProjectActions } from "@/components/projects/project-actions";
 import { ProjectEditor } from "@/components/projects/project-editor";
+import { ProjectLive } from "@/components/projects/project-live";
 
 export const metadata: Metadata = {
   title: "Project · Nia OS",
@@ -31,6 +32,7 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
 
   return (
     <div className="flex flex-1 flex-wrap">
+      <ProjectLive projectId={id} />
       <div className="min-w-0 flex-[999_1_560px] px-4 pt-10 pb-15 md:pr-10 md:pl-15">
         <ProjectEditor project={project} canEdit={role !== "viewer"} />
       </div>
