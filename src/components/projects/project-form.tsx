@@ -11,6 +11,7 @@ import { checkCoverFile, shrinkImage } from "@/lib/images";
 import { GENRES, PRODUCTION_TYPES } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
+import { useCoverCropper } from "@/components/projects/use-cover-cropper";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -52,6 +53,12 @@ export function ProjectForm() {
   const [cover, setCover] = useState<{ file: File; url: string } | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
+  const cropper = useCoverCropper((file) => {
+    if (cover) URL.revokeObjectURL(cover.url);
+    setCover({ file, url: URL.createObjectURL(file) });
+  });
+
+  // Check the picked picture, then let them frame it before it's used.
   const pickCover = (file: File | undefined) => {
     if (!file) return;
     const problem = checkCoverFile(file);
@@ -59,8 +66,7 @@ export function ProjectForm() {
       toast.error(problem);
       return;
     }
-    if (cover) URL.revokeObjectURL(cover.url);
-    setCover({ file, url: URL.createObjectURL(file) });
+    cropper.start(file);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -172,6 +178,7 @@ export function ProjectForm() {
             </>
           )}
         </button>
+        {cropper.dialog}
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">

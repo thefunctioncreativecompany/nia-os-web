@@ -15,10 +15,10 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 
 | # | Fix | Status | Notes |
 |---|-----|--------|-------|
-| 1 | Sign-up email: Nia-branded email, link that works on any device, plus a 6-digit code to type in (fixes "PKCE code verifier not found") | 🔄 | Resend SMTP + templates set in Supabase (done by Ika). Waiting on Ika's phone test: new sign-up via link and via code |
+| 1 | Sign-up email: Nia-branded email, link that works on any device, plus a 6-digit code to type in (fixes "PKCE code verifier not found") | ⏸ | **Come back to this.** Done: Resend SMTP, branded templates, Site URL fixed to 9ahh. Open: last test sent no email — check junk, Resend → Emails, Supabase → Logs → Auth (rate limit? reused address?); then test link + code on phone; add DMARC; remove old nia-technologies redirect URLs |
 | 2 | Favicon: Nia logo | ✅ | Logo saved in `design/brand/nia-logo.png` |
 | 3 | Date picker on every date field, from the component library | ✅ | Project Production Info "Date" (the only date field today); new date fields must use `EditableDate` / `DateField` |
-| 4 | Crop/adjust project cover and profile photo | ⬜ | Profile photo crop exists in onboarding; reuse it |
+| 4 | Crop/adjust project cover and profile photo | ✅ | Shared `PhotoEditor` (round for photos, 19:10 for covers): new project, project page (Change cover + Adjust), Settings profile photo, onboarding |
 | 5 | Shared links show the project cover as the preview image and the project title as the link title | ⬜ | |
 | 6 | Onboarding: profession list (scrollable, common roles first, then grouped by sector) | ⬜ | Draft in Claude Design first |
 | 7 | Onboarding: "How will you use Nia?" primary use case step | ⬜ | Draft in Claude Design first |

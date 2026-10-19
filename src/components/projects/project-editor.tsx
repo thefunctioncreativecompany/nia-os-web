@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Camera } from "lucide-react";
+import { Camera, Crop } from "lucide-react";
 import { toast } from "sonner";
 
 import { checkCoverFile } from "@/lib/images";
@@ -15,6 +15,7 @@ import { SavedIndicator } from "@/components/nia/saved-indicator";
 import { EditableDate } from "@/components/projects/editable-date";
 import { EditableText } from "@/components/projects/editable-text";
 import { uploadCover } from "@/components/projects/project-form";
+import { useCoverCropper } from "@/components/projects/use-cover-cropper";
 
 // Storage path of a cover URL, if it's in this project's folder (so it can be removed).
 function coverPath(url: string | null, projectId: string) {
@@ -49,13 +50,18 @@ export function ProjectEditor({ project: initial, canEdit }: { project: Project;
     router.refresh();
   };
 
-  const changeCover = async (file: File | undefined) => {
+  // Check a picked picture, then let them frame it before it uploads.
+  const pickCover = (file: File | undefined) => {
     if (!file) return;
     const problem = checkCoverFile(file);
     if (problem) {
       toast.error(problem);
       return;
     }
+    cropper.start(file);
+  };
+
+  const changeCover = async (file: File) => {
     setIsUploading(true);
     try {
       const previous = project.coverUrl;
@@ -69,6 +75,8 @@ export function ProjectEditor({ project: initial, canEdit }: { project: Project;
       setIsUploading(false);
     }
   };
+
+  const cropper = useCoverCropper((file) => changeCover(file));
 
   return (
     <div className="flex flex-col gap-9">
@@ -91,10 +99,11 @@ export function ProjectEditor({ project: initial, canEdit }: { project: Project;
           tabIndex={-1}
           aria-hidden
           onChange={(e) => {
-            changeCover(e.target.files?.[0]);
+            pickCover(e.target.files?.[0]);
             e.target.value = "";
           }}
         />
+        {cropper.dialog}
         {project.coverUrl ? (
           <div className="group relative aspect-[16/7] w-full overflow-hidden rounded-[20px] bg-muted">
             <Image
@@ -114,6 +123,16 @@ export function ProjectEditor({ project: initial, canEdit }: { project: Project;
               >
                 <Camera aria-hidden className="size-4" />
                 {isUploading ? "Uploading…" : "Change cover"}
+              </button>
+            )}
+            {canEdit && !isUploading && (
+              <button
+                type="button"
+                onClick={() => project.coverUrl && cropper.start(project.coverUrl)}
+                className="absolute right-40 bottom-4 flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-small font-semibold text-foreground shadow-sm outline-none transition-opacity duration-fast focus-visible:ring-3 focus-visible:ring-ring/50 md:opacity-0 md:group-hover:opacity-100 md:focus-visible:opacity-100"
+              >
+                <Crop aria-hidden className="size-4" />
+                Adjust
               </button>
             )}
           </div>

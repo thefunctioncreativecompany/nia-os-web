@@ -12,6 +12,7 @@ import {
   type ProfileSettings,
 } from "@/lib/settings";
 import { AVATAR_BUCKET, MAX_AVATAR_BYTES, avatarPath } from "@/lib/avatars";
+import { PhotoEditor } from "@/components/nia/photo-editor";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -261,6 +262,8 @@ function AvatarPicker({
   onPick: (file: File, previewUrl: string) => void;
 }) {
   const fileInput = useRef<HTMLInputElement>(null);
+  // The picked photo waiting in the cropper.
+  const [editing, setEditing] = useState<string | null>(null);
 
   // Free the temporary preview URL when it's replaced.
   useEffect(() => {
@@ -281,7 +284,12 @@ function AvatarPicker({
       toast.error("Please choose an image smaller than 5 MB.");
       return;
     }
-    onPick(file, URL.createObjectURL(file));
+    setEditing(URL.createObjectURL(file));
+  };
+
+  const closeEditor = () => {
+    if (editing) URL.revokeObjectURL(editing);
+    setEditing(null);
   };
 
   return (
@@ -312,6 +320,18 @@ function AvatarPicker({
         className="hidden"
         onChange={handleFile}
       />
+      {editing && (
+        <PhotoEditor
+          open
+          title="Frame your photo"
+          src={editing}
+          onCancel={closeEditor}
+          onApply={({ blob }) => {
+            closeEditor();
+            onPick(new File([blob], "avatar.jpg", { type: "image/jpeg" }), URL.createObjectURL(blob));
+          }}
+        />
+      )}
     </div>
   );
 }

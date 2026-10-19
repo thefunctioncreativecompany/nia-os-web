@@ -16,24 +16,31 @@ import {
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 
-const OUTPUT_SIZE = 512;
-
 export type PhotoAdjustments = { crop: Point; zoom: number; rotation: number };
 export const DEFAULT_ADJUSTMENTS: PhotoAdjustments = { crop: { x: 0, y: 0 }, zoom: 1, rotation: 0 };
 
-// Round crop with zoom and rotate. Returns a square JPEG of the framed area.
+// Crop with zoom and rotate: round for profile photos, rectangular for covers. Returns a
+// JPEG of the framed area, `outputWidth` pixels wide.
 export function PhotoEditor({
   open,
   title,
+  description = "Drag to reposition. Zoom and rotate to frame your face.",
   src,
-  initial,
+  initial = DEFAULT_ADJUSTMENTS,
+  aspect = 1,
+  shape = "round",
+  outputWidth = 512,
   onCancel,
   onApply,
 }: {
   open: boolean;
   title: string;
+  description?: string;
   src: string;
-  initial: PhotoAdjustments;
+  initial?: PhotoAdjustments;
+  aspect?: number;
+  shape?: "round" | "rect";
+  outputWidth?: number;
   onCancel: () => void;
   onApply: (result: { blob: Blob; adjustments: PhotoAdjustments }) => void;
 }) {
@@ -47,7 +54,7 @@ export function PhotoEditor({
     if (!area) return;
     setIsWorking(true);
     try {
-      const blob = await cropToJpeg(src, area, rotation);
+      const blob = await cropToJpeg(src, area, rotation, outputWidth, Math.round(outputWidth / aspect));
       onApply({ blob, adjustments: { crop, zoom, rotation } });
     } finally {
       setIsWorking(false);
@@ -56,10 +63,10 @@ export function PhotoEditor({
 
   return (
     <Dialog open={open} onOpenChange={(next) => !next && onCancel()}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className={shape === "rect" ? "sm:max-w-xl" : "sm:max-w-md"}>
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
-          <DialogDescription>Drag to reposition. Zoom and rotate to frame your face.</DialogDescription>
+          <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
         <div className="relative h-72 overflow-hidden rounded-lg bg-nia-footer">
           <Cropper
@@ -67,8 +74,8 @@ export function PhotoEditor({
             crop={crop}
             zoom={zoom}
             rotation={rotation}
-            aspect={1}
-            cropShape="round"
+            aspect={aspect}
+            cropShape={shape}
             showGrid={false}
             onCropChange={setCrop}
             onZoomChange={setZoom}
@@ -112,8 +119,10 @@ export function PhotoEditor({
   );
 }
 
-async function cropToJpeg(src: string, area: Area, rotation: number) {
+async function cropToJpeg(src: string, area: Area, rotation: number, width: number, height: number) {
   const image = new Image();
+  // Saved photos come from Storage on another domain; ask for them in a way the canvas can read.
+  if (/^https?:/.test(src)) image.crossOrigin = "anonymous";
   image.src = src;
   await image.decode();
 
@@ -130,13 +139,13 @@ async function cropToJpeg(src: string, area: Area, rotation: number) {
   rotatedContext.drawImage(image, -image.width / 2, -image.height / 2);
 
   const output = document.createElement("canvas");
-  output.width = OUTPUT_SIZE;
-  output.height = OUTPUT_SIZE;
+  output.width = width;
+  output.height = height;
   const context = output.getContext("2d")!;
   // JPEG has no transparency; give see-through PNGs a white background.
   context.fillStyle = "#fff";
-  context.fillRect(0, 0, OUTPUT_SIZE, OUTPUT_SIZE);
-  context.drawImage(rotated, area.x, area.y, area.width, area.height, 0, 0, OUTPUT_SIZE, OUTPUT_SIZE);
+  context.fillRect(0, 0, width, height);
+  context.drawImage(rotated, area.x, area.y, area.width, area.height, 0, 0, width, height);
 
   return new Promise<Blob>((resolve, reject) =>
     output.toBlob(

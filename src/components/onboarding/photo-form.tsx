@@ -18,7 +18,7 @@ import {
   DEFAULT_ADJUSTMENTS,
   PhotoEditor,
   type PhotoAdjustments,
-} from "@/components/onboarding/photo-editor";
+} from "@/components/nia/photo-editor";
 import { useStepSubmit } from "@/components/onboarding/use-step-submit";
 
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/gif"];
