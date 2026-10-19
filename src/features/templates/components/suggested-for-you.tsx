@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 
+import { cn } from "@/lib/utils";
+
 import { Card } from "@/components/arc/card/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -24,7 +26,9 @@ export function SuggestedForYou({
   onRoleChange,
   onReset,
   onPreview,
+  className,
 }: {
+  className?: string;
   templates: GalleryTemplate[];
   profile: UserTemplateProfile;
   ready: boolean;
@@ -41,7 +45,7 @@ export function SuggestedForYou({
   const learned = profile.events.length > 0;
 
   return (
-    <section aria-labelledby="suggested" className="px-4 md:px-11">
+    <section aria-labelledby="suggested" className={cn("px-4 md:px-11", className)}>
       <div className="mb-3.5 flex flex-wrap items-end justify-between gap-3.5">
         <div>
           <h2 id="suggested" className="text-lg font-extrabold text-foreground">Suggested for you</h2>

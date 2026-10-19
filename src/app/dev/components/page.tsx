@@ -26,6 +26,7 @@ import {
   ProjectModalsSection,
   TemplatesSection,
 } from "./_sections/patterns";
+import { TemplateViewsSection } from "./_sections/templates-views";
 
 export const metadata: Metadata = {
   title: "Component library · Nia OS",
@@ -64,6 +65,7 @@ const SECTIONS = [
   { id: "cards", label: "28. Cards & Forms" },
   { id: "templates", label: "29. Templates & Explore" },
   { id: "project-modals", label: "30. Project Modals" },
+  { id: "template-views", label: "31. Templates: retired views" },
 ];
 
 // Every component and variant, side by side for comparing with the nOS Design System
@@ -127,6 +129,7 @@ export default function Page() {
           <CardsSection />
           <TemplatesSection />
           <ProjectModalsSection />
+          <TemplateViewsSection />
         </main>
       </div>
     </div>

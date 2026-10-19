@@ -18,8 +18,11 @@ export function TemplateCard({
   onPreview,
   onUse,
   badge,
+  size = "default",
   className,
 }: {
+  // "small": the phone row; a smaller icon and no mini map so nothing overlaps.
+  size?: "default" | "small";
   template: GalleryTemplate;
   onPreview: (template: GalleryTemplate, viaHover?: boolean) => void;
   onUse: (template: GalleryTemplate) => void;
@@ -27,7 +30,8 @@ export function TemplateCard({
   className?: string;
 }) {
   const open = template.status !== "gap";
-  const workflow = template.kind === "workflow" ? WORKFLOWS[template.slug] : undefined;
+  const small = size === "small";
+  const workflow = template.kind === "workflow" && !small ? WORKFLOWS[template.slug] : undefined;
   const hover = useHoverIntent(() => onPreview(template, true));
 
   return (
@@ -53,8 +57,8 @@ export function TemplateCard({
         >
           <FlatIcon
             name={template.icon}
-            size="xl"
-            className={cn("-mt-12 transition-transform duration-slow ease-out", open ? "group-hover:-translate-y-1" : "opacity-30")}
+            size={small ? "md" : "xl"}
+            className={cn(small ? "-mt-10 size-16" : "-mt-12", "transition-transform duration-slow ease-out", open ? "group-hover:-translate-y-1" : "opacity-30")}
           />
           {!open && (
             <span className="absolute top-4 left-4 rounded-full border border-foreground px-3 py-1.5 text-micro font-semibold text-foreground">
@@ -62,7 +66,7 @@ export function TemplateCard({
             </span>
           )}
           {template.preview && (
-            <p className={cn("absolute bottom-5 left-5.5 line-clamp-2 text-lead leading-normal text-foreground/80", workflow ? "right-43" : "right-5.5")}>
+            <p className={cn("absolute line-clamp-2 leading-normal text-foreground/80", small ? "right-4 bottom-3.5 left-4 text-small" : "bottom-5 left-5.5 text-lead", workflow ? "right-43" : !small && "right-5.5")}>
               {template.preview}
             </p>
           )}
