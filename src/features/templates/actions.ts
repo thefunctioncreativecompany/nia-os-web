@@ -4,6 +4,7 @@ import { catalog, getSchema, getTemplate } from "./catalog";
 import { relatedTemplates } from "./recommend";
 import { toGallery, type GalleryTemplate } from "./gallery";
 import type { TemplateDetails, TemplateSchema } from "./types";
+import { canEdit } from "./engine/sections";
 
 export type TemplatePreview = {
   details: TemplateDetails;
@@ -24,4 +25,10 @@ export async function loadTemplatePreview(code: string): Promise<TemplatePreview
     related: relatedTemplates(template, catalog).map(toGallery),
     schema: schema && { group: schema.group, name: schema.name, builder: schema.builder, actions: schema.actions, sections: schema.sections },
   };
+}
+
+// The templates that open in the editor today, for "From Template" in the New Project dialog.
+// Public catalogue data, so no sign-in check is needed.
+export async function loadWorkingTemplates(): Promise<GalleryTemplate[]> {
+  return catalog.filter((t) => t.status === "live" && canEdit(getSchema(t.code))).map((t) => ({ ...toGallery(t), ready: true }));
 }

@@ -195,6 +195,13 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
           onNavigate={navigatePreview}
           onClose={closePreview}
           onUse={(t) => {
+            // Going to the editor replaces the preview's place in the history. Closing first would
+            // step Back, and that would land after (and undo) the trip to the editor.
+            if (t.ready) {
+              pushed.current = false;
+              learning.record(t.code, "use");
+              return router.replace(`/templates/${t.code}`);
+            }
             closePreview();
             use(t);
           }}
