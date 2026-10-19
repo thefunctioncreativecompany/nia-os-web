@@ -140,11 +140,6 @@
 
 /* Motion (BUILD_PLAN.md): fast for taps and hovers, base for panels and modals, slow for
    page changes. Pair with ease-out when something enters. */
-/* Bottom fade on template artwork so white text stays readable (Section 8). */
-@utility template-fade {
-  background: linear-gradient(to top, rgb(8 6 4 / 0.62) 0%, rgb(8 6 4 / 0.18) 34%, rgb(8 6 4 / 0) 52%);
-}
-
 @utility duration-fast {
   --tw-duration: var(--duration-fast);
   transition-duration: var(--duration-fast);

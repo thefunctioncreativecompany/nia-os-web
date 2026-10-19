@@ -1,4 +1,4 @@
-import type { SearchResult, TemplateEntry } from './types';
+import type { SearchableTemplate, SearchResult, TemplateEntry } from './types';
 
 /**
  * Plain-language template search. Each word is expanded with everyday synonyms,
@@ -26,7 +26,7 @@ export const SYNONYMS: Record<string, string[]> = {
 const STATUS_BOOST: Record<TemplateEntry['status'], number> = { live: 3, designed: 1, gap: 0 };
 const words = (s: string) => s.toLowerCase().split(/[^a-z0-9']+/).filter(Boolean);
 
-export function rankTemplates(query: string, list: TemplateEntry[], familyLabels: Record<string, string> = {}): SearchResult[] {
+export function rankTemplates<T extends SearchableTemplate>(query: string, list: T[], familyLabels: Record<string, string> = {}): SearchResult<T>[] {
   const q = query.toLowerCase().replace(/[^a-z0-9\s'-]/g, ' ').split(/\s+/).filter(w => w.length >= 2 && !STOPWORDS.has(w));
   if (!q.length) return [];
   return list

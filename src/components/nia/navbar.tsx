@@ -71,7 +71,7 @@ function NavTabs({ segment }: { segment: string | null }) {
   return (
     <nav aria-label="Main" className="flex items-center gap-5 md:gap-8">
       {tabs.map((tab) => {
-        const icon = <Image src={tab.icon} alt="" width={18} height={18} />;
+        const icon = <Image src={tab.icon} alt="" width={18} height={18} className="shrink-0" />;
 
         if (isActive(tab) && tab.href) {
           return (
@@ -79,10 +79,11 @@ function NavTabs({ segment }: { segment: string | null }) {
               key={tab.label}
               href={tab.href}
               aria-current="page"
-              className="flex h-9.5 min-w-25 items-center justify-center gap-1.25 rounded-full bg-gold/15 px-4 text-lead font-medium whitespace-nowrap text-foreground"
+              className="flex h-9.5 shrink-0 items-center justify-center gap-1.25 rounded-full bg-gold/15 px-3 text-lead font-medium whitespace-nowrap text-foreground sm:min-w-25 sm:px-4"
             >
               {icon}
-              {tab.label}
+              {/* Phones show the active tab as its icon on the gold pill, so every tab fits. */}
+              <span className="max-sm:sr-only">{tab.label}</span>
             </Link>
           );
         }

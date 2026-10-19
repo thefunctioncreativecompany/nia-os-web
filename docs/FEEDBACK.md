@@ -25,12 +25,15 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 | 7 | Onboarding: "How will you use Nia?" primary use case step | ⬜ | Draft in Claude Design first |
 | 8 | Collaborators end to end: invite by email or in-app (accept once), "Shared with you" on Projects, contributions, live updates and notifications | ⬜ | Needs invitation emails (Resend) and a notifications table |
 | 5c | Black wordmark above the form on phones (sign-in and onboarding) | ✅ | |
-| T | Templates rebuild from `TEMPLATES_BUILD.md` (63 templates, flat black and white, Showcase / Compact / Index, search, preview pop-up, Suggested for you, template engine, Editorial Shoot workflow). Runs before Fix 6, one build step at a time | 🔄 | Step 1 (data) in progress. Replaces 9, 10 and 10b below |
-| T1 | Templates page: heading "Start from a proven path" becomes "Templates"; remove the "New template" label on cards | ⬜ | Done with build step 2 (gallery shell), which uses the large "Templates" title |
+| T | Templates rebuild from `TEMPLATES_BUILD.md` (63 templates, flat black and white, Showcase / Compact / Index, search, preview pop-up, Suggested for you, template engine, Editorial Shoot workflow). Runs before Fix 6, one build step at a time | 🔄 | Steps 1–3 done: data; gallery with "Templates" title, "Search 63 templates" box (search on Enter, best match + also relevant), filter chips incl. Administrative and Camera & Visual, Showcase / Compact / Index, flat black line icons (Lucide). Next: step 4 search suggestions. Replaces 9, 10 and 10b below |
+| T1 | Templates page: heading "Start from a proven path" becomes "Templates"; remove the "New template" label on cards | ✅ | Done with build step 2 |
 | U1 | Home: updates, notifications and inbox as swipe rows (uiarc `swipe-actions`: swipe to archive / mark read, full swipe commits) | ⏸ | Component installed in `src/components/arc/`, restyle to Nia theme; needs a notifications table (shared with Fix 8) |
 | U2 | Profile menu behind the avatar (uiarc `user-menu`): name, email, Settings, Log out; bottom sheet on phones | ⏸ | Component installed; theme switch hidden (no dark mode yet) |
 | U3 | Navbar search as uiarc `expanding-search`: icon that grows into a field, recent projects first, matches as you type; full-width on phones | ✅ | `src/components/nia/nav-search.tsx`. uiarc names map to Nia tokens in `globals.css`, motion in `src/components/arc/motion-tokens.ts`; `next.config.ts` keeps CSS modules out of the Tailwind loader |
-| U4 | Active navbar tab pill fits its label ("Templates" was squeezed into a fixed 100px) | ✅ | |
+| U4 | Active navbar tab pill fits its label ("Templates" was squeezed into a fixed 100px) | ✅ | On phones the active tab is its icon on the gold pill so all five tabs fit |
+| R1 | References on a project: starts with an empty "add" card; upload images and videos; shown as a ring carousel (drag or swipe round, arrow keys, gentle press on hover); open any one full page to view or play | ⬜ | Part of Fix 11 (project sections). Carousel code supplied (Bencho lab ring); pictures come from the project's own uploads, never sample art. Needs storage for project files (BUILD_PLAN 3.2 `project_files`) |
+| W1 | Set up your workspace on Home for new accounts: a step-by-step checklist (uiarc `stepper`) that remembers what was already filled in at sign-up and onboarding (name, username, photo, profession, workspace) and only asks for the rest | ⬜ | Stepper code supplied; steps to agree with Ika (Claude Design draft first) |
+| C1 | uiarc `card` for "Suggested for you" under the main Templates cards, and for a new "Shared with you" row of projects others shared with me; "View" opens the full project | ⬜ | Suggested for you = templates build step 6; Shared with you overlaps Fix 8 |
 | G1 | Google sign-in says "continue to nvgmkyvowtmdjwnfucsn.supabase.co"; should say "Nia Operating System" | ⏸ | Ika: Google Auth Platform → Branding (app name, logo, home page, privacy page) and brand verification. Showing the name instead of the Supabase address also needs Google to see a domain you own, i.e. a Supabase custom domain (paid add-on), e.g. `auth.niatechnologies.co` |
 | 9 | Templates gallery: search with suggestions + results view | ⬜ | Now build step 4 of T |
 | 10 | Template 01 opens the project launcher | ⬜ | Now build step 8 of T |
@@ -39,6 +42,7 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 | 12 | Project tabs (two projects open at once) | ⏸ | BUILD_PLAN 3.3; Claude Design first |
 | 13 | Editorial Shoot workflow (map + steps) with collaboration | ⬜ | After 10 and 11 |
 | 14 | Review the build history for missed features/fixes and schedule them | ⬜ | Known so far: switched-off share link returns 200; calendar range band; plan boxes 1.3–2.5 need final checks; test scripts to move into the repo |
+| G2 | Find which Google account owns the Google sign-in setup (needed for G1) | ⏸ | Supabase → Authentication → Sign In / Providers → Google shows the Client ID (ends in `.apps.googleusercontent.com`). Sign in to console.cloud.google.com with each Google account you use → APIs & Services → Credentials, and look for that Client ID. The account that has it owns the setup |
 
 ## Done
 
