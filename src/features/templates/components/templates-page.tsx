@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, GalleryHorizontalEnd, LayoutGrid, Rows3, X } from "lucide-react";
 import { toast } from "sonner";
 
@@ -12,14 +13,16 @@ import { CompactTile } from "@/features/templates/components/compact-tile";
 import { IndexItem } from "@/features/templates/components/index-item";
 import { TemplateCard } from "@/features/templates/components/template-card";
 import { TemplateSearch } from "@/features/templates/components/template-search";
+import { PreviewModal } from "@/features/templates/components/preview-modal";
 
 type View = "showcase" | "compact" | "index";
 
 const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1fr))] gap-3.5";
 
-// The Templates page (TEMPLATES_BUILD.md §2, build steps 2–3): title, search with the live
-// template count and suggestions (step 4), filters, and three views. The preview pop-up and
-// "Suggested for you" come in the next build steps.
+// The Templates page (TEMPLATES_BUILD.md §2, build steps 2–5): title, search with the live
+// template count and suggestions, filters, three views, and the preview pop-up. The pop-up
+// lives in the address (?preview=D01) so Back closes it and links can be shared.
+// "Suggested for you" comes in the next build step.
 export function TemplatesPage({ templates, groups, familyLabels }: { templates: GalleryTemplate[]; groups: string[]; familyLabels: Record<string, string> }) {
   const [view, setView] = useState<View>("showcase");
   const [filter, setFilter] = useState<Filter>("All");
@@ -27,9 +30,43 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
   const [committed, setCommitted] = useState("");
   const row = useRef<HTMLDivElement>(null);
 
-  // Opening a template: the preview pop-up (build step 5) and the launcher / editor (steps 7–8) come next.
-  const open = (t: GalleryTemplate) => {
+  // Using a template: the launcher (workflows) and the document editor come in build steps 7–8.
+  const use = (t: GalleryTemplate) => {
     toast(t.kind === "workflow" ? "The project launcher comes in a later build step." : `${t.name} opens in the document editor, which is coming soon.`);
+  };
+
+  // The pop-up steps through the list it was opened from (a shelf, the results, the row).
+  const [previewList, setPreviewList] = useState<GalleryTemplate[]>(templates);
+  const pushed = useRef(false);
+  const quietUntil = useRef(0);
+  const openPreview = (t: GalleryTemplate, list: GalleryTemplate[], viaHover = false) => {
+    const showing = new URLSearchParams(window.location.search).has("preview");
+    // Hover never replaces an open pop-up, and waits 1.5s after one closes.
+    if (viaHover && (showing || Date.now() < quietUntil.current)) return;
+    setPreviewList(list);
+    const url = new URL(window.location.href);
+    url.searchParams.set("preview", t.code);
+    if (showing) window.history.replaceState(null, "", url);
+    else {
+      window.history.pushState(null, "", url);
+      pushed.current = true;
+    }
+  };
+  const navigatePreview = (t: GalleryTemplate) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("preview", t.code);
+    window.history.replaceState(null, "", url);
+  };
+  const closePreview = () => {
+    quietUntil.current = Date.now() + 1500;
+    if (pushed.current) {
+      pushed.current = false;
+      window.history.back();
+    } else {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("preview");
+      window.history.replaceState(null, "", url);
+    }
   };
 
   const visible = templates.filter((t) => inFilter(t, filter));
@@ -62,7 +99,7 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
             if (!next) setCommitted("");
           }}
           onCommit={setCommitted}
-          onPick={open}
+          onPick={(t) => openPreview(t, rankTemplates(query, templates, familyLabels).map((r) => r.template))}
         />
 
         <div className="flex flex-wrap items-center justify-between gap-3.5">
@@ -99,13 +136,13 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
           {results.length ? (
             <div className="flex flex-wrap items-start gap-7">
               <div className="max-w-140 flex-[1_1_28.75rem]">
-                <TemplateCard template={results[0].template} onOpen={open} badge="Best match" className="w-full" />
+                <TemplateCard template={results[0].template} onPreview={(x, viaHover) => openPreview(x, results.map((r) => r.template), viaHover)} onUse={use} badge="Best match" className="w-full" />
               </div>
               {results.length > 1 && (
                 <div className="min-w-0 flex-[1_1_22.5rem]">
-                  <p className="mb-3 font-mono text-micro font-semibold tracking-wider text-muted-foreground uppercase">Also relevant</p>
+                  <p className="mb-3 text-micro font-semibold text-muted-foreground">Also relevant</p>
                   <div className={compactGrid}>
-                    {results.slice(1, 13).map((r) => <CompactTile key={r.template.code} template={r.template} onOpen={open} />)}
+                    {results.slice(1, 13).map((r) => <CompactTile key={r.template.code} template={r.template} onPreview={(x, viaHover) => openPreview(x, results.map((x) => x.template), viaHover)} />)}
                   </div>
                 </div>
               )}
@@ -118,7 +155,7 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
         </section>
       ) : view === "showcase" ? (
         <div ref={row} className="flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 pt-7 pb-13 [scrollbar-width:none] md:scroll-px-11 md:px-11">
-          {featured.map((t) => <TemplateCard key={t.code} template={t} onOpen={open} />)}
+          {featured.map((t) => <TemplateCard key={t.code} template={t} onPreview={(x, viaHover) => openPreview(x, featured, viaHover)} onUse={use} />)}
           {featured.length === 0 && <p className="text-sm text-muted-foreground">No templates here yet.</p>}
         </div>
       ) : view === "compact" ? (
@@ -127,7 +164,7 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
             <section key={group} aria-labelledby={groupId("compact", group)}>
               <GroupHeading id={groupId("compact", group)} group={group} count={items.length} />
               <div className={compactGrid}>
-                {items.map((t) => <CompactTile key={t.code} template={t} onOpen={open} />)}
+                {items.map((t) => <CompactTile key={t.code} template={t} onPreview={(x, viaHover) => openPreview(x, items, viaHover)} />)}
               </div>
             </section>
           ))}
@@ -139,7 +176,7 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
             <section key={group} aria-labelledby={groupId("index", group)}>
               <GroupHeading id={groupId("index", group)} group={group} count={items.length} />
               <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,9rem),1fr))] gap-x-5 gap-y-7.5 pt-1.5">
-                {items.map((t) => <IndexItem key={t.code} template={t} onOpen={open} />)}
+                {items.map((t) => <IndexItem key={t.code} template={t} onPreview={(x, viaHover) => openPreview(x, grouped.flatMap((g) => g.items), viaHover)} />)}
               </div>
             </section>
           ))}
@@ -147,11 +184,44 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
         </div>
       )}
 
+      {/* The address says which template is open; reading it needs its own Suspense boundary. */}
+      <Suspense fallback={null}>
+        <PreviewFromAddress
+          templates={templates}
+          list={previewList}
+          onNavigate={navigatePreview}
+          onClose={closePreview}
+          onUse={(t) => {
+            closePreview();
+            use(t);
+          }}
+        />
+      </Suspense>
+
       <span className="sr-only" aria-live="polite">
         {results ? `${results.length} results for ${committed}` : `${visible.length} templates${filter === "All" ? "" : ` in ${filter}`}`}
       </span>
     </div>
   );
+}
+
+function PreviewFromAddress({
+  templates,
+  list,
+  ...actions
+}: {
+  templates: GalleryTemplate[];
+  list: GalleryTemplate[];
+  onNavigate: (t: GalleryTemplate) => void;
+  onClose: () => void;
+  onUse: (t: GalleryTemplate) => void;
+}) {
+  const code = useSearchParams().get("preview");
+  const template = code ? templates.find((t) => t.code === code) : undefined;
+  if (!template) return null;
+  // A shared link opens with the whole catalogue to step through.
+  const within = list.some((t) => t.code === template.code) ? list : templates;
+  return <PreviewModal template={template} list={within} {...actions} />;
 }
 
 const groupId = (view: string, group: string) => `${view}-${group.replace(/\W+/g, "-").toLowerCase()}`;
@@ -161,7 +231,7 @@ function GroupHeading({ id, group, count }: { id: string; group: string; count: 
     <div className="mb-3 flex items-center gap-2.5">
       <span aria-hidden className={cn("size-2.5 rounded-xs", group === COMING_SOON ? "bg-muted-foreground/50" : "bg-foreground")} />
       <h2 id={id} className="text-lg font-extrabold text-foreground">{group}</h2>
-      <span className="font-mono text-micro font-semibold text-muted-foreground">{count}</span>
+      <span className="text-micro font-semibold text-muted-foreground">{count}</span>
     </div>
   );
 }
@@ -183,7 +253,7 @@ function FilterChips({ templates, filter, onChange }: { templates: GalleryTempla
             )}
           >
             {f}
-            <span className={cn("font-mono text-meta", on ? "text-foreground" : "text-muted-foreground")}>
+            <span className={cn("text-meta", on ? "text-foreground" : "text-muted-foreground")}>
               {templates.filter((t) => inFilter(t, f)).length}
             </span>
           </button>

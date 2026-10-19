@@ -143,7 +143,7 @@ export function TemplateSearch({
                   {r.template.stage} · for {r.template.icps.slice(0, 2).join(", ")}
                 </span>
               </span>
-              <span className="hidden shrink-0 font-mono text-tiny font-semibold tracking-wider text-foreground uppercase sm:block">{r.matched.join(" · ")}</span>
+              <span className="hidden shrink-0 text-micro font-semibold text-foreground sm:block">{r.matched.join(" · ")}</span>
             </div>
           ))}
           <div
@@ -159,7 +159,7 @@ export function TemplateSearch({
             )}
           >
             <span>See all results for &ldquo;{query.trim()}&rdquo;</span>
-            <span aria-hidden className="font-mono text-meta text-muted-foreground">ENTER ↵</span>
+            <span aria-hidden className="text-meta text-muted-foreground">Enter ↵</span>
           </div>
         </div>
       )}
@@ -169,7 +169,7 @@ export function TemplateSearch({
 
 function Tag({ children, muted = false }: { children: React.ReactNode; muted?: boolean }) {
   return (
-    <span className={cn("rounded-full border px-2 py-0.5 font-mono text-tiny font-semibold tracking-wider uppercase", muted ? "border-border text-muted-foreground" : "border-foreground text-foreground")}>
+    <span className={cn("rounded-full border px-2 py-0.5 text-micro font-semibold", muted ? "border-border text-muted-foreground" : "border-foreground text-foreground")}>
       {children}
     </span>
   );
