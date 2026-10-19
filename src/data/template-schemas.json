@@ -1,5 +1,5 @@
 {
-  "$comment": "Sections of the 31 document templates, for the template engine (TEMPLATE_ENGINE.md). Extracted from design/prototypes/CDWorkspace.html (TEMPLATE_SCHEMAS); figma frame IDs from templates.manifest.json. A field or table column is a label (plain text) or { label, kind } for a real control: choice (options), role (production roles), number, date (`after`: a date it can't be before), dateTimeRange, duration (`units`), yesNo (note placeholder), check, phone, email. A letter's `fills` map its [placeholders] to the fields that fill them.",
+  "$comment": "Sections of the 31 document templates, for the template engine (TEMPLATE_ENGINE.md). Extracted from design/prototypes/CDWorkspace.html (TEMPLATE_SCHEMAS); figma frame IDs from templates.manifest.json. A field or table column is a label (plain text) or { label, kind } for a real control: choice (options), role (production roles), people (`single`; `fills` columns from a picked Nia user's role), number, date (`after`: a date it can't be before), dateTimeRange, duration (`units`), yesNo (note placeholder), check, phone, email. A letter's `fills` map its [placeholders] to the fields that fill them.",
   "version": 1,
   "templates": [
     {
@@ -502,7 +502,14 @@
               "label": "Position",
               "kind": "role"
             },
-            "Name",
+            {
+              "label": "Name",
+              "kind": "people",
+              "single": true,
+              "fills": {
+                "Position": "role"
+              }
+            },
             {
               "label": "Phone",
               "kind": "phone"
@@ -643,7 +650,11 @@
               "kind": "yesNo",
               "placeholder": "Where, e.g. flaggers on Vermont Ave"
             },
-            "Location Manager",
+            {
+              "label": "Location Manager",
+              "kind": "people",
+              "single": true
+            },
             {
               "label": "Phone Contact",
               "kind": "phone"

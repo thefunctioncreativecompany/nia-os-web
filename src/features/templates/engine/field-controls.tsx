@@ -12,7 +12,9 @@ import { Input } from '@/components/ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { Assignees, type PersonMatch, type PersonRef } from '@/components/nia/assignees';
 import { ChoicePills } from '@/components/nia/choice-pills';
+import { createClient } from '@/lib/supabase/client';
 import { TimeWheel, type TimeValue } from '@/components/nia/time-wheel';
 import type { DurationUnit, FieldSpec } from '../types';
 import { fieldKind, fieldLabel, type FieldValue } from './sections';
@@ -59,6 +61,8 @@ export function FieldControl({ id, field, value, onChange, compact = false, tall
       );
     case 'role':
       return <RolePicker id={id} label={label} value={value as string} onChange={onChange} />;
+    case 'people':
+      return <Assignees id={id} label={label} value={value as PersonRef[]} onChange={onChange} search={findPeople} single={spec?.single} compact={compact} />;
     case 'number':
       return <NumberControl id={id} label={label} value={value as string} onChange={onChange} />;
     case 'date':
@@ -110,6 +114,12 @@ function EmailControl({ id, label, value, onChange }: { id: string; label?: stri
       )}
     </div>
   );
+}
+
+// Nia profiles by @username, exact email, or (among collaborators) name: see find_people.
+async function findPeople(q: string): Promise<PersonMatch[]> {
+  const { data, error } = await createClient().rpc('find_people', { q });
+  return error ? [] : (data as PersonMatch[]);
 }
 
 const NONE = '__none';

@@ -27,6 +27,8 @@ function width(field: FieldSpec, tall: boolean) {
       return 'minmax(6.5rem, 0.8fr)';
     case 'role':
       return 'minmax(9rem, 1fr)';
+    case 'people':
+      return 'minmax(10rem, 1.2fr)';
     case 'email':
       return 'minmax(10rem, 1.2fr)';
     default:
@@ -43,8 +45,22 @@ export function TableView({ section, rows, onChange }: { section: TableSection; 
   const template = [numbered ? '4rem' : null, ...columns.map((c) => width(c, tall)), '2.25rem'].filter(Boolean).join(' ');
   const base = slug(section.title);
 
-  const setCell = (rowId: string, label: string, value: FieldValue) =>
-    onChange(rows.map((r) => (r.id === rowId ? { ...r, [label]: value } : r)), `${rowId}:${label}`);
+  // Picking a Nia user in a people column fills the columns it names when they're still blank
+  // (Crew Contact List: Position ← their role).
+  const setCell = (rowId: string, label: string, value: FieldValue) => {
+    const spec = columns.find((c) => fieldLabel(c) === label);
+    const fills = typeof spec === 'object' ? spec.fills : undefined;
+    const person = Array.isArray(value) ? value[0] : undefined;
+    onChange(
+      rows.map((r) => {
+        if (r.id !== rowId) return r;
+        const next: TableRow = { ...r, [label]: value };
+        for (const [column, from] of Object.entries(fills ?? {})) if (person?.[from] && !r[column]) next[column] = person[from]!;
+        return next;
+      }),
+      `${rowId}:${label}`,
+    );
+  };
   // Structural changes are always their own Undo step.
   const addRow = () => onChange([...rows, blankRow(section)], `add-${crypto.randomUUID()}`);
   const removeRow = (rowId: string) => onChange(rows.filter((r) => r.id !== rowId), `remove-${rowId}`);

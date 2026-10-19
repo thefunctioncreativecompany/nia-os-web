@@ -118,3 +118,13 @@ describe('tables (step 7 part 2)', () => {
     expect(toMarkdown(getSchema('D06')!, restoreDocument(getSchema('D06')!, [{}, [{ id: 'x', 'I/E': 'EXT' }]]))).toContain('| 01 | EXT |');
   });
 });
+
+describe('people fields', () => {
+  it('stores people, reads them as names and fills the letter', () => {
+    const data = restoreDocument(notice, [{ 'Location Manager': [{ name: 'Rachel Torres', userId: 'u1', username: 'rachel' }, { name: '' }] }]);
+    const fields = data[0] as Record<string, unknown>;
+    expect(fields['Location Manager']).toEqual([{ name: 'Rachel Torres', userId: 'u1', username: 'rachel' }]);
+    expect(resolveDocument(notice, data)[1]).toContain('Thank you,\nRachel Torres');
+    expect(restoreDocument(notice, [{ 'Location Manager': 'Rachel' }])[0]).toMatchObject({ 'Location Manager': [] });
+  });
+});

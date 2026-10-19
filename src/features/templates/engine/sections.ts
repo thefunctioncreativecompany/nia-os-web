@@ -1,4 +1,5 @@
 import type { FieldKind, FieldSpec, LetterSection, Section, SectionType, TableSection, TemplateSchema } from '../types';
+import type { PersonRef } from '@/components/nia/assignees';
 import { formatDateTimeRange, formatDays, formatDuration, formatYesNo, type DateTimeRange, type Duration, type YesNo } from './format';
 
 /*
@@ -9,7 +10,7 @@ import { formatDateTimeRange, formatDays, formatDuration, formatYesNo, type Date
  * format.ts), so answers can be picked rather than typed and later filled from voice memos.
  */
 
-export type FieldValue = string | boolean | DateTimeRange | Duration | YesNo;
+export type FieldValue = string | boolean | DateTimeRange | Duration | YesNo | PersonRef[];
 export type FieldsValue = Record<string, FieldValue>;
 export type TableRow = { id: string } & Record<string, FieldValue>;
 export type SectionValue = FieldsValue | TableRow[] | string;
@@ -36,6 +37,8 @@ export function blankField(field: FieldSpec): FieldValue {
       return { amount: '', unit: unitsOf(field)[0] };
     case 'check':
       return false;
+    case 'people':
+      return [];
     default:
       return '';
   }
@@ -44,6 +47,7 @@ export function blankField(field: FieldSpec): FieldValue {
 /** A saved answer if it has the field's shape, otherwise a blank one. */
 function restoreField(field: FieldSpec, saved: unknown): FieldValue {
   const blank = blankField(field);
+  if (Array.isArray(blank)) return Array.isArray(saved) ? saved.filter((p) => typeof p?.name === 'string' && p.name.trim()) : blank;
   if (typeof blank === 'string') return typeof saved === 'string' ? saved : blank;
   if (typeof blank === 'boolean') return typeof saved === 'boolean' ? saved : blank;
   return saved && typeof saved === 'object' ? ({ ...blank, ...saved } as FieldValue) : blank;
@@ -63,6 +67,8 @@ export function formatField(field: FieldSpec, value: FieldValue | undefined, { d
       return formatDays(value as string, value as string);
     case 'check':
       return value === true ? 'Yes' : '';
+    case 'people':
+      return Array.isArray(value) ? value.map((p) => p.name).join(', ') : '';
     default:
       return typeof value === 'string' ? value.trim() : '';
   }

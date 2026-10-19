@@ -52,9 +52,12 @@ export type SectionType = 'fields' | 'table' | 'text' | 'letter' | 'categories' 
 interface SectionBase { type: SectionType; title: string; optional?: boolean; hint?: string }
 /** A field's or column's control (T5): plain text unless the answer has a shape, so it can be
  *  picked rather than typed. `units` for durations; `after` names a date it can't be before. */
-export type FieldKind = 'text' | 'choice' | 'role' | 'number' | 'date' | 'dateTimeRange' | 'duration' | 'yesNo' | 'check' | 'phone' | 'email';
+export type FieldKind = 'text' | 'choice' | 'role' | 'people' | 'number' | 'date' | 'dateTimeRange' | 'duration' | 'yesNo' | 'check' | 'phone' | 'email';
 export type DurationUnit = 'seconds' | 'minutes' | 'hours' | 'days';
-export type FieldSpec = string | { label: string; kind: FieldKind; options?: string[]; placeholder?: string; units?: DurationUnit[]; after?: string };
+/** People fields: `single` holds one person; `fills` names columns a picked Nia user fills when blank (e.g. Position ← their role). */
+export type FieldSpec =
+  | string
+  | { label: string; kind: FieldKind; options?: string[]; placeholder?: string; units?: DurationUnit[]; after?: string; single?: boolean; fills?: Record<string, 'role'> };
 export interface FieldsSection extends SectionBase { type: 'fields'; fields: FieldSpec[] }
 export interface TableSection extends SectionBase {
   type: 'table'; columns: FieldSpec[]; rows: number; empty?: string; autonumber?: string; tall?: boolean;
