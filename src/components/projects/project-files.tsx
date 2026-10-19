@@ -107,6 +107,42 @@ function send(file: File, path: string, token: string, onProgress: (p: number) =
   });
 }
 
+/**
+ * Uploads one file to a project: the file, a first-page picture for a PDF (best effort: a locked
+ * PDF just shows its icon), then its record with a tag. Used by the upload box and by the
+ * New project form (audit #12). Throws with a readable message if it fails.
+ */
+export async function uploadProjectFile(projectId: string, file: File, token: string, tag: FileTag | "auto" = "auto", onProgress: (p: number) => void = () => {}, key: string = crypto.randomUUID()) {
+  const supabase = createClient();
+  const kind = kindOf(file.type);
+  const safe = file.name.replace(/[^\w.\-]+/g, "-").slice(-120) || "file";
+  const path = `${projectId}/${key}-${safe}`;
+  await send(file, path, token, onProgress);
+  let thumb: string | null = null;
+  if (file.type === "application/pdf") {
+    const picture = await pdfFirstPage(file);
+    if (picture) {
+      const thumbPath = `${projectId}/${key}-preview.png`;
+      const { error: thumbError } = await supabase.storage.from("project-files").upload(thumbPath, picture, { contentType: "image/png" });
+      if (!thumbError) thumb = thumbPath;
+    }
+  }
+  const { error } = await supabase.from("project_files").insert({
+    project_id: projectId,
+    name: file.name.slice(0, 255),
+    path,
+    mime: file.type,
+    size: file.size,
+    kind,
+    tag: tag === "auto" ? AUTO_TAG[kind] : tag,
+    thumb_path: thumb,
+  });
+  if (error) throw new Error(error.message);
+}
+
+export const MAX_UPLOAD_MB = MAX_MB;
+export { ACCEPT as UPLOAD_ACCEPT };
+
 /** The upload box. `tag`: what new files are tagged ("auto" picks by kind). Also used by Add document. */
 export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT, hint }: { projectId: string; onUploaded: () => void; tag?: FileTag | "auto"; accept?: string; hint?: string }) {
   const reduced = useReducedMotion() ?? false;
@@ -137,31 +173,8 @@ export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT,
     const set = (key: string, patch: Partial<Upload>) => setUploads((list) => list.map((u) => (u.key === key ? { ...u, ...patch } : u)));
     await Promise.all(
       batch.map(async ({ file, up }) => {
-        const safe = file.name.replace(/[^\w.\-]+/g, "-").slice(-120) || "file";
-        const path = `${projectId}/${up.key}-${safe}`;
         try {
-          await send(file, path, session.access_token, (p) => set(up.key, { progress: p }));
-          // A PDF's first page becomes its cover (best effort: a locked PDF just shows its icon).
-          let thumb: string | null = null;
-          if (file.type === "application/pdf") {
-            const picture = await pdfFirstPage(file);
-            if (picture) {
-              const thumbPath = `${projectId}/${up.key}-preview.png`;
-              const { error: thumbError } = await supabase.storage.from("project-files").upload(thumbPath, picture, { contentType: "image/png" });
-              if (!thumbError) thumb = thumbPath;
-            }
-          }
-          const { error } = await supabase.from("project_files").insert({
-            project_id: projectId,
-            name: file.name.slice(0, 255),
-            path,
-            mime: file.type,
-            size: file.size,
-            kind: up.kind,
-            tag: tag === "auto" ? AUTO_TAG[up.kind] : tag,
-            thumb_path: thumb,
-          });
-          if (error) throw error;
+          await uploadProjectFile(projectId, file, session.access_token, tag, (p) => set(up.key, { progress: p }), up.key);
           set(up.key, { progress: 1, done: true });
         } catch (e) {
           toast.error(`${file.name}: ${e instanceof Error ? e.message : "couldn't upload"}`);

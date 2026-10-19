@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Camera } from "lucide-react";
+import { Camera, Upload, X } from "lucide-react";
 import { toast } from "sonner";
 
 import { checkCoverFile, shrinkImage } from "@/lib/images";
@@ -12,6 +12,7 @@ import { GENRES, PRODUCTION_TYPES } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { useCoverCropper } from "@/components/projects/use-cover-cropper";
+import { MAX_UPLOAD_MB, UPLOAD_ACCEPT, uploadProjectFile } from "@/components/projects/project-files";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -52,6 +53,15 @@ export function ProjectForm() {
   const [productionType, setProductionType] = useState<string>("Film");
   const [cover, setCover] = useState<{ file: File; url: string } | null>(null);
   const [isSaving, setIsSaving] = useState(false);
+  // Files to upload once the project exists (audit #12): briefs, scripts, stills, voice memos.
+  const [files, setFiles] = useState<File[]>([]);
+  const [uploading, setUploading] = useState<{ done: number; of: number } | null>(null);
+  const filesInput = useRef<HTMLInputElement>(null);
+  const addFiles = (picked: File[]) => {
+    const tooBig = picked.filter((f) => f.size > MAX_UPLOAD_MB * 1e6);
+    if (tooBig.length) toast.error(`${tooBig.map((f) => f.name).join(", ")} ${tooBig.length === 1 ? "is" : "are"} over ${MAX_UPLOAD_MB} MB`);
+    setFiles((list) => [...list, ...picked.filter((f) => f.size <= MAX_UPLOAD_MB * 1e6 && !list.some((x) => x.name === f.name && x.size === f.size))]);
+  };
 
   const cropper = useCoverCropper((file) => {
     if (cover) URL.revokeObjectURL(cover.url);
@@ -96,6 +106,22 @@ export function ProjectForm() {
         } catch {
           toast.error("Project created, but the cover didn't upload. Add it from the project page.");
         }
+      }
+      if (files.length) {
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
+        let failed = 0;
+        for (const [i, file] of files.entries()) {
+          setUploading({ done: i, of: files.length });
+          try {
+            if (!session) throw new Error("signed out");
+            await uploadProjectFile(project.id, file, session.access_token);
+          } catch {
+            failed += 1;
+          }
+        }
+        if (failed) toast.error(`Project created, but ${failed} ${failed === 1 ? "file" : "files"} didn't upload. Add ${failed === 1 ? "it" : "them"} from the project page.`);
       }
       router.push(`/projects/${project.id}`);
     } catch (error: unknown) {
@@ -218,6 +244,59 @@ export function ProjectForm() {
         </div>
       </div>
 
+      <div className="flex flex-col gap-2">
+        <span id="project-files-label" className={fieldLabelClassName}>
+          Files <span className="font-normal">(optional)</span>
+        </span>
+        <input
+          ref={filesInput}
+          type="file"
+          multiple
+          accept={UPLOAD_ACCEPT}
+          className="sr-only"
+          tabIndex={-1}
+          aria-hidden
+          onChange={(e) => {
+            addFiles([...(e.target.files ?? [])]);
+            e.target.value = "";
+          }}
+        />
+        <button
+          type="button"
+          aria-labelledby="project-files-label"
+          onClick={() => filesInput.current?.click()}
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={(e) => {
+            e.preventDefault();
+            addFiles([...e.dataTransfer.files]);
+          }}
+          className="flex flex-col items-center gap-1 rounded-lg bg-nia-panel px-4 py-5 text-center outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50"
+        >
+          <span className="flex items-center gap-2 text-sm font-semibold text-foreground">
+            <Upload aria-hidden className="size-4" /> Add briefs, scripts, stills or voice memos
+          </span>
+          <span className="text-caption text-muted-foreground">They upload into the project when it&rsquo;s created · up to {MAX_UPLOAD_MB} MB each</span>
+        </button>
+        {files.length > 0 && (
+          <ul className="flex flex-col gap-1">
+            {files.map((f, i) => (
+              <li key={`${f.name}-${f.size}`} className="flex items-center gap-2 rounded-md border border-border px-3 py-2 text-small">
+                <span className="min-w-0 flex-1 truncate text-foreground">{f.name}</span>
+                <span className="shrink-0 text-muted-foreground">{f.size >= 1e6 ? `${(f.size / 1e6).toFixed(1)} MB` : `${Math.max(1, Math.round(f.size / 1e3))} KB`}</span>
+                <button
+                  type="button"
+                  aria-label={`Don't add ${f.name}`}
+                  onClick={() => setFiles((list) => list.filter((_, j) => j !== i))}
+                  className="inline-flex size-6 items-center justify-center rounded-md text-muted-foreground outline-none hover:bg-muted hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+                >
+                  <X aria-hidden className="size-3.5" />
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       <div className="flex justify-end gap-4">
         <Button asChild variant="outline" className="h-auto rounded-lg px-6 py-3 text-lead font-semibold">
           <Link href="/projects">Cancel</Link>
@@ -227,7 +306,7 @@ export function ProjectForm() {
           disabled={isSaving || !title.trim()}
           className="h-auto rounded-lg px-6 py-3 text-lead font-semibold"
         >
-          {isSaving ? "Creating…" : "Create Project"}
+          {uploading ? `Uploading ${uploading.done + 1} of ${uploading.of}…` : isSaving ? "Creating…" : "Create Project"}
         </Button>
       </div>
     </form>
