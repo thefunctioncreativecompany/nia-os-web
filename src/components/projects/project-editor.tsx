@@ -12,6 +12,7 @@ import { PRODUCTION_INFO, type Project } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { SavedIndicator } from "@/components/nia/saved-indicator";
+import { EditableDate } from "@/components/projects/editable-date";
 import { EditableText } from "@/components/projects/editable-text";
 import { uploadCover } from "@/components/projects/project-form";
 
@@ -160,6 +161,15 @@ export function ProjectEditor({ project: initial, canEdit }: { project: Project;
             <div key={row.field} className="flex items-center gap-4">
               <dt className="w-[120px] shrink-0 leading-[1.4] font-bold text-muted-foreground">{row.label}</dt>
               <dd className="min-w-0 flex-1">
+                {row.field === "productionDate" ? (
+                  <EditableDate
+                    label={row.label}
+                    value={project.productionDate}
+                    readOnly={!canEdit}
+                    onSave={(next) => save(row.column, row.field, next)}
+                    className="px-1.5 py-1 leading-normal font-medium text-foreground"
+                  />
+                ) : (
                 <EditableText
                   label={row.label}
                   value={project[row.field]}
@@ -170,6 +180,7 @@ export function ProjectEditor({ project: initial, canEdit }: { project: Project;
                   onSave={(next) => save(row.column, row.field, next)}
                   className="px-1.5 py-1 leading-normal font-medium text-foreground"
                 />
+                )}
               </dd>
             </div>
           ))}

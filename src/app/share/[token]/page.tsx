@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
 
+import { formatDay } from "@/lib/dates";
 import { PRODUCTION_INFO } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/server";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -90,7 +91,7 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
           {PRODUCTION_INFO.map((row) => (
             <div key={row.field} className="flex gap-4">
               <dt className="w-[120px] shrink-0 leading-[1.4] font-bold text-muted-foreground">{row.label}</dt>
-              <dd className="leading-normal font-medium text-foreground">{data[COLUMN_FOR[row.field]] || "—"}</dd>
+              <dd className="leading-normal font-medium text-foreground">{(row.field === "productionDate" ? formatDay(data.production_date) : data[COLUMN_FOR[row.field]]) || "—"}</dd>
             </div>
           ))}
         </dl>

@@ -17,7 +17,7 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 |---|-----|--------|-------|
 | 1 | Sign-up email: Nia-branded email, link that works on any device, plus a 6-digit code to type in (fixes "PKCE code verifier not found") | 🔄 | Ika pastes the email templates into Supabase → Authentication → Email Templates |
 | 2 | Favicon: Nia logo | ✅ | Logo saved in `design/brand/nia-logo.png` |
-| 3 | Date picker on every date field, from the component library | ⬜ | |
+| 3 | Date picker on every date field, from the component library | ✅ | Project Production Info "Date" (the only date field today); new date fields must use `EditableDate` / `DateField` |
 | 4 | Crop/adjust project cover and profile photo | ⬜ | Profile photo crop exists in onboarding; reuse it |
 | 5 | Shared links show the project cover as the preview image and the project title as the link title | ⬜ | |
 | 6 | Onboarding: profession list (scrollable, common roles first, then grouped by sector) | ⬜ | Draft in Claude Design first |
