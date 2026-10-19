@@ -75,7 +75,9 @@ export interface TemplateSchema {
 export type TemplateEventType = 'view' | 'use' | 'complete' | 'search';
 export interface TemplateEvent { code: string; type: TemplateEventType; at: number }   // at = epoch ms
 export interface UserTemplateProfile { role: string | null; events: TemplateEvent[] }
-export interface Suggestion { template: TemplateEntry; score: number; why: string }
+/** The fields suggestions read, so the gallery can rank a slimmed-down list. */
+export type SuggestableTemplate = Pick<TemplateEntry, 'code' | 'name' | 'related' | 'icps' | 'group' | 'stage' | 'status'>;
+export interface Suggestion<T extends SuggestableTemplate = TemplateEntry> { template: T; score: number; why: string }
 /** The fields search reads, so the gallery can search a slimmed-down list. */
 export type SearchableTemplate = Pick<TemplateEntry, 'name' | 'keywords' | 'icps' | 'stage' | 'family' | 'preview' | 'object' | 'status'>;
 export interface SearchResult<T extends SearchableTemplate = TemplateEntry> { template: T; score: number; matched: string[]; of: number }

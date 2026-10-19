@@ -63,11 +63,11 @@ import type { Stage, TemplateEntry } from "./types";
 // server and sends only this to the browser (the pop-up copy in `details` stays behind).
 export type GalleryTemplate = Pick<
   TemplateEntry,
-  "code" | "sku" | "slug" | "name" | "kind" | "family" | "stage" | "status" | "icon" | "preview" | "keywords" | "icps" | "object" | "group" | "tags"
+  "code" | "sku" | "slug" | "name" | "kind" | "family" | "stage" | "status" | "icon" | "preview" | "keywords" | "icps" | "object" | "group" | "tags" | "related"
 >;
 
-export const toGallery = ({ code, sku, slug, name, kind, family, stage, status, icon, preview, keywords, icps, object, group, tags }: TemplateEntry): GalleryTemplate => ({
-  code, sku, slug, name, kind, family, stage, status, icon, preview, keywords, icps, object, group, tags,
+export const toGallery = ({ code, sku, slug, name, kind, family, stage, status, icon, preview, keywords, icps, object, group, tags, related }: TemplateEntry): GalleryTemplate => ({
+  code, sku, slug, name, kind, family, stage, status, icon, preview, keywords, icps, object, group, tags, related,
 });
 
 export const STAGES: Stage[] = ["Pre-production", "Production", "Post-production"];

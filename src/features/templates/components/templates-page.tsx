@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, GalleryHorizontalEnd, LayoutGrid, Rows3, X } from "lucide-react";
 import { toast } from "sonner";
@@ -14,6 +14,8 @@ import { IndexItem } from "@/features/templates/components/index-item";
 import { TemplateCard } from "@/features/templates/components/template-card";
 import { TemplateSearch } from "@/features/templates/components/template-search";
 import { PreviewModal } from "@/features/templates/components/preview-modal";
+import { SuggestedForYou } from "@/features/templates/components/suggested-for-you";
+import { useTemplateProfile } from "@/features/templates/use-template-profile";
 
 type View = "showcase" | "compact" | "index";
 
@@ -22,16 +24,19 @@ const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1
 // The Templates page (TEMPLATES_BUILD.md §2, build steps 2–5): title, search with the live
 // template count and suggestions, filters, three views, and the preview pop-up. The pop-up
 // lives in the address (?preview=D01) so Back closes it and links can be shared.
-// "Suggested for you" comes in the next build step.
+// "Suggested for you" (step 6) sits under the Showcase row and learns from what is opened,
+// used and searched here.
 export function TemplatesPage({ templates, groups, familyLabels }: { templates: GalleryTemplate[]; groups: string[]; familyLabels: Record<string, string> }) {
   const [view, setView] = useState<View>("showcase");
   const [filter, setFilter] = useState<Filter>("All");
   const [query, setQuery] = useState("");
   const [committed, setCommitted] = useState("");
   const row = useRef<HTMLDivElement>(null);
+  const learning = useTemplateProfile();
 
   // Using a template: the launcher (workflows) and the document editor come in build steps 7–8.
   const use = (t: GalleryTemplate) => {
+    if (t.status === "live") learning.record(t.code, "use");
     toast(t.kind === "workflow" ? "The project launcher comes in a later build step." : `${t.name} opens in the document editor, which is coming soon.`);
   };
 
@@ -98,7 +103,11 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
             setQuery(next);
             if (!next) setCommitted("");
           }}
-          onCommit={setCommitted}
+          onCommit={(q) => {
+            setCommitted(q);
+            // Searches are kept (with the best match) to tune search later; they don't change suggestions.
+            if (q) learning.record(rankTemplates(q, templates, familyLabels)[0]?.template.code ?? "", "search", q);
+          }}
           onPick={(t) => openPreview(t, rankTemplates(query, templates, familyLabels).map((r) => r.template))}
         />
 
@@ -154,10 +163,20 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
           )}
         </section>
       ) : view === "showcase" ? (
-        <div ref={row} className="flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 pt-7 pb-13 [scrollbar-width:none] md:scroll-px-11 md:px-11">
-          {featured.map((t) => <TemplateCard key={t.code} template={t} onPreview={(x, viaHover) => openPreview(x, featured, viaHover)} onUse={use} />)}
-          {featured.length === 0 && <p className="text-sm text-muted-foreground">No templates here yet.</p>}
-        </div>
+        <>
+          <div ref={row} className="flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 pt-7 pb-13 [scrollbar-width:none] md:scroll-px-11 md:px-11">
+            {featured.map((t) => <TemplateCard key={t.code} template={t} onPreview={(x, viaHover) => openPreview(x, featured, viaHover)} onUse={use} />)}
+            {featured.length === 0 && <p className="text-sm text-muted-foreground">No templates here yet.</p>}
+          </div>
+          <SuggestedForYou
+            templates={templates}
+            profile={learning.profile}
+            ready={learning.ready}
+            onRoleChange={learning.setRole}
+            onReset={learning.reset}
+            onPreview={(t, list, viaHover) => openPreview(t, list, viaHover)}
+          />
+        </>
       ) : view === "compact" ? (
         <div className="flex flex-col gap-8.5 px-4 pt-7.5 md:px-11">
           {grouped.map(({ group, items }) => (
@@ -189,6 +208,7 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
         <PreviewFromAddress
           templates={templates}
           list={previewList}
+          onView={(code) => learning.record(code, "view")}
           onNavigate={navigatePreview}
           onClose={closePreview}
           onUse={(t) => {
@@ -208,16 +228,25 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
 function PreviewFromAddress({
   templates,
   list,
+  onView,
   ...actions
 }: {
   templates: GalleryTemplate[];
   list: GalleryTemplate[];
+  onView: (code: string) => void;
   onNavigate: (t: GalleryTemplate) => void;
   onClose: () => void;
   onUse: (t: GalleryTemplate) => void;
 }) {
   const code = useSearchParams().get("preview");
   const template = code ? templates.find((t) => t.code === code) : undefined;
+  // Every template shown counts as a view, however it was opened (click, hover, a shared link).
+  const shown = template?.code;
+  useEffect(() => {
+    if (shown) onView(shown);
+    // onView is a fresh function each render; only a newly shown template should record.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shown]);
   if (!template) return null;
   // A shared link opens with the whole catalogue to step through.
   const within = list.some((t) => t.code === template.code) ? list : templates;

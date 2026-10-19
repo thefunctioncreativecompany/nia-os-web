@@ -1,4 +1,4 @@
-import type { Stage, Suggestion, TemplateEntry, TemplateEvent, UserTemplateProfile } from './types';
+import type { Stage, Suggestion, SuggestableTemplate, TemplateEntry, TemplateEvent, UserTemplateProfile } from './types';
 
 /**
  * "Suggested for you": Nia learns from what a person opens and uses, plus the role (ICP)
@@ -22,7 +22,7 @@ const DAY = 864e5;
 
 export const roleLabel = (r: string) => (/[/(]/.test(r) ? `${r} roles` : r.endsWith('s') ? r : `${r}s`);
 
-export function suggestTemplates(catalog: TemplateEntry[], { role, events }: UserTemplateProfile, limit = 6, now = Date.now()): Suggestion[] {
+export function suggestTemplates<T extends SuggestableTemplate>(catalog: T[], { role, events }: UserTemplateProfile, limit = 6, now = Date.now()): Suggestion<T>[] {
   const by = new Map(catalog.map(t => [t.code, t] as const));
   const used = new Map<string, number>();
   const recentlyUsed = new Set<string>();
@@ -60,7 +60,7 @@ export function suggestTemplates(catalog: TemplateEntry[], { role, events }: Use
     });
 
   const personal = scored.filter(r => r.score > 0.5).sort((a, b) => b.score - a.score);
-  const fill = STARTERS.map(code => scored.find(r => r.template.code === code)).filter((r): r is Suggestion => !!r && !personal.includes(r));
+  const fill = STARTERS.map(code => scored.find(r => r.template.code === code)).filter((r): r is Suggestion<T> => !!r && !personal.includes(r));
   return [...personal, ...fill].slice(0, limit);
 }
 
