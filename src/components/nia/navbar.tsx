@@ -27,7 +27,7 @@ type Tab = {
 const tabs: Tab[] = [
   { label: "Home", icon: "/app/home.svg", href: "/home", match: ["home", "settings"] },
   { label: "Projects", icon: "/app/folder.svg", href: "/projects", match: ["projects"] },
-  { label: "Templates", icon: "/app/file-text.svg", href: null, match: [] },
+  { label: "Templates", icon: "/app/file-text.svg", href: "/templates", match: ["templates"] },
   { label: "Explore", icon: "/app/explore.svg", href: null, match: [] },
   { label: "Inbox", icon: "/app/inbox.svg", href: null, match: [] },
 ];

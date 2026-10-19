@@ -3,9 +3,9 @@ import type { JwtPayload } from "@supabase/supabase-js";
 import { NextResponse, type NextRequest } from "next/server";
 
 // Pages that only signed-in users can open.
-const PROTECTED_PATHS = ["/home", "/projects", "/settings", "/onboarding"];
+const PROTECTED_PATHS = ["/home", "/projects", "/templates", "/settings", "/onboarding"];
 // Pages new users can't reach until they finish onboarding.
-const APP_PATHS = ["/home", "/projects", "/settings"];
+const APP_PATHS = ["/home", "/projects", "/templates", "/settings"];
 
 const matches = (pathname: string, paths: string[]) =>
   paths.some((path) => pathname === path || pathname.startsWith(`${path}/`));

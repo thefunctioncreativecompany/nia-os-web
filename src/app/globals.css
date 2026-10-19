@@ -107,10 +107,44 @@
   /* Menus, popovers and dropdown panels (design system Section 5). */
   --shadow-menu: 0 8px 24px 0 rgb(0 0 0 / 0.08), 0 1px 2px 0 rgb(0 0 0 / 0.04);
   --shadow-elevation-2: 0 1px 2px 0 rgb(0 0 0 / 0.3), 0 2px 6px 2px rgb(0 0 0 / 0.15);
+  /* Template cards (TEMPLATE_THUMBNAILS.md Section 8). */
+  --shadow-card: 0 8px 24px rgb(15 14 12 / 0.1);
+  --shadow-card-hover: 0 24px 54px rgb(15 14 12 / 0.22);
+  --text-title: 1.3125rem;
+  --text-title--line-height: 1.2;
+  --color-family-production-light: var(--family-production-light);
+  --color-family-production-core: var(--family-production-core);
+  --color-family-production-deep: var(--family-production-deep);
+  --color-family-camera-light: var(--family-camera-light);
+  --color-family-camera-core: var(--family-camera-core);
+  --color-family-camera-deep: var(--family-camera-deep);
+  --color-family-creator-light: var(--family-creator-light);
+  --color-family-creator-core: var(--family-creator-core);
+  --color-family-creator-deep: var(--family-creator-deep);
+  --color-family-post-light: var(--family-post-light);
+  --color-family-post-core: var(--family-post-core);
+  --color-family-post-deep: var(--family-post-deep);
+  --color-family-craft-light: var(--family-craft-light);
+  --color-family-craft-core: var(--family-craft-core);
+  --color-family-craft-deep: var(--family-craft-deep);
+  --color-family-photo-light: var(--family-photo-light);
+  --color-family-photo-core: var(--family-photo-core);
+  --color-family-photo-deep: var(--family-photo-deep);
+  --color-family-enterprise-light: var(--family-enterprise-light);
+  --color-family-enterprise-core: var(--family-enterprise-core);
+  --color-family-enterprise-deep: var(--family-enterprise-deep);
+  --color-family-performance-light: var(--family-performance-light);
+  --color-family-performance-core: var(--family-performance-core);
+  --color-family-performance-deep: var(--family-performance-deep);
 }
 
 /* Motion (BUILD_PLAN.md): fast for taps and hovers, base for panels and modals, slow for
    page changes. Pair with ease-out when something enters. */
+/* Bottom fade on template artwork so white text stays readable (Section 8). */
+@utility template-fade {
+  background: linear-gradient(to top, rgb(8 6 4 / 0.62) 0%, rgb(8 6 4 / 0.18) 34%, rgb(8 6 4 / 0) 52%);
+}
+
 @utility duration-fast {
   --tw-duration: var(--duration-fast);
   transition-duration: var(--duration-fast);
@@ -177,6 +211,32 @@
   --nia-success: #166534;
   --nia-success-bg: #dcfce7;
   --nia-positive: #10b981;
+  /* Template family colours (TEMPLATE_THUMBNAILS.md Section 6). Artwork only: card
+     gradients, dots and tints, never buttons or active states. */
+  --family-production-light: #A6E2DB;
+  --family-production-core: #2E9A93;
+  --family-production-deep: #052826;
+  --family-camera-light: #C9DCEB;
+  --family-camera-core: #6C93B5;
+  --family-camera-deep: #0E1E2E;
+  --family-creator-light: #F6B08A;
+  --family-creator-core: #E05018;
+  --family-creator-deep: #2A0C08;
+  --family-post-light: #CDBDF0;
+  --family-post-core: #7A5BC4;
+  --family-post-deep: #120A2A;
+  --family-craft-light: #F0D6DB;
+  --family-craft-core: #BE919D;
+  --family-craft-deep: #261A21;
+  --family-photo-light: #F1E6C8;
+  --family-photo-core: #C2AF80;
+  --family-photo-deep: #352D1B;
+  --family-enterprise-light: #E4E2DC;
+  --family-enterprise-core: #9C9A93;
+  --family-enterprise-deep: #0F0E0C;
+  --family-performance-light: #D3E2C2;
+  --family-performance-core: #7FA36A;
+  --family-performance-deep: #121C0F;
   /* Figma card surface, side panel, destructive action and dashed-placeholder line. */
   --nia-surface: #fbfbfa;
   --nia-panel: #f9f9fa;
