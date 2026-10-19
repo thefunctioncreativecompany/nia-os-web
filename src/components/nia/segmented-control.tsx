@@ -30,7 +30,7 @@ export function SegmentedControl({
           <TabsTrigger
             key={segment.value}
             value={segment.value}
-            className="group/segment gap-2 rounded-md text-small text-muted-foreground data-active:bg-foreground data-active:font-bold data-active:text-primary-foreground"
+            className="group/segment gap-2 rounded-md text-small text-muted-foreground data-active:bg-foreground data-active:font-bold data-active:text-primary-foreground data-active:hover:text-primary-foreground"
           >
             {segment.label}
             {segment.count !== undefined && (

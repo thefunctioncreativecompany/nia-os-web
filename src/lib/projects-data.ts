@@ -126,19 +126,32 @@ export async function listProjectDocuments(projectId: string): Promise<ProjectDo
 }
 
 export type FileKind = "image" | "document" | "audio" | "video";
-export type ProjectFile = { id: string; name: string; path: string; mime: string; size: number; kind: FileKind; createdAt: string; url: string | null };
+export type FileTag = "reference" | "raw" | "wip" | "final" | "brief";
+export type ProjectFile = { id: string; name: string; path: string; mime: string; size: number; kind: FileKind; tag: FileTag | null; createdAt: string; url: string | null; thumbUrl: string | null };
 
 /** Files uploaded to this project, each with a link that works for an hour (the bucket is private). */
 export async function listProjectFiles(projectId: string): Promise<ProjectFile[]> {
   const { supabase } = await requireUser();
   const { data, error } = await supabase
     .from("project_files")
-    .select("id, name, path, mime, size, kind, created_at")
+    .select("id, name, path, mime, size, kind, tag, thumb_path, created_at")
     .eq("project_id", projectId)
     .is("deleted_at", null)
     .order("created_at", { ascending: false });
   if (error) throw new Error(`Couldn't load this project's files: ${error.message}`);
-  const signed = data.length ? (await supabase.storage.from("project-files").createSignedUrls(data.map((f) => f.path), 60 * 60)).data ?? [] : [];
+  const paths = data.flatMap((f) => (f.thumb_path ? [f.path, f.thumb_path] : [f.path]));
+  const signed = paths.length ? (await supabase.storage.from("project-files").createSignedUrls(paths, 60 * 60)).data ?? [] : [];
   const urls = new Map(signed.map((s) => [s.path, s.signedUrl] as const));
-  return data.map((f) => ({ id: f.id, name: f.name, path: f.path, mime: f.mime, size: f.size, kind: f.kind as FileKind, createdAt: f.created_at, url: urls.get(f.path) ?? null }));
+  return data.map((f) => ({
+    id: f.id,
+    name: f.name,
+    path: f.path,
+    mime: f.mime,
+    size: f.size,
+    kind: f.kind as FileKind,
+    tag: (f.tag as FileTag | null) ?? null,
+    createdAt: f.created_at,
+    url: urls.get(f.path) ?? null,
+    thumbUrl: f.thumb_path ? urls.get(f.thumb_path) ?? null : null,
+  }));
 }

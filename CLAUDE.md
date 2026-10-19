@@ -207,4 +207,5 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261019000000_onboarding.sql`, `20261019010000_avatar_cleanup.sql`, `20261020000000_projects.sql`,
 `20261021000000_templates.sql`, `20261021010000_documents_soft_delete.sql`, `20261022000000_notifications.sql`,
 `20261023000000_projects_realtime.sql`, `20261024000000_find_people.sql`, `20261025000000_documents_project_check.sql`,
-`20261025010000_project_files.sql`, `20261025020000_project_files_remove.sql`.
+`20261025010000_project_files.sql`, `20261025020000_project_files_remove.sql`,
+`20261025030000_project_files_tags.sql`.
