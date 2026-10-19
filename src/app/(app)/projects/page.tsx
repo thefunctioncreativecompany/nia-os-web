@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { ProjectGrid } from "@/components/projects/project-grid";
+import { SharedProjects } from "@/components/projects/shared-projects";
 
 export const metadata: Metadata = {
   title: "Projects · Nia OS",
@@ -26,9 +27,12 @@ export default function Page({ searchParams }: PageProps<"/projects">) {
 async function Projects({ searchParams }: Pick<PageProps<"/projects">, "searchParams">) {
   const { q } = await searchParams;
   const query = typeof q === "string" ? q : "";
-  const { projects, now } = await listProjects(query);
+  const { projects: all, now, userId } = await listProjects(query);
+  // My Projects are the ones this person owns; the rest were shared with them.
+  const projects = all.filter((p) => p.ownerId === userId);
+  const shared = all.filter((p) => p.ownerId !== userId);
 
-  if (!query && projects.length === 0) {
+  if (!query && all.length === 0) {
     // Figma "Screen 1 - Empty State".
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-6 py-15 text-center">
@@ -54,7 +58,7 @@ async function Projects({ searchParams }: Pick<PageProps<"/projects">, "searchPa
         <h1 className="text-h2 font-bold text-foreground">My Projects</h1>
         {query && (
           <p className="text-sm text-muted-foreground">
-            {projects.length} {projects.length === 1 ? "project matches" : "projects match"} “{query}” ·{" "}
+            {all.length} {all.length === 1 ? "project matches" : "projects match"} “{query}” ·{" "}
             <Link href="/projects" className="font-semibold text-foreground hover:underline">
               Clear search
             </Link>
@@ -62,6 +66,7 @@ async function Projects({ searchParams }: Pick<PageProps<"/projects">, "searchPa
         )}
       </div>
       <ProjectGrid projects={projects} now={now} />
+      {shared.length > 0 && <SharedProjects projects={shared} now={now} />}
     </div>
   );
 }

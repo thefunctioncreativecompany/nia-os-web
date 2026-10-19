@@ -27,7 +27,7 @@ const requireUser = cache(async () => {
 });
 
 export async function listProjects(query?: string, limit?: number) {
-  const { supabase, now } = await requireUser();
+  const { supabase, user, now } = await requireUser();
   let request = supabase
     .from("projects")
     .select(PROJECT_COLUMNS)
@@ -38,7 +38,8 @@ export async function listProjects(query?: string, limit?: number) {
   if (limit) request = request.limit(limit);
   const { data, error } = await request;
   if (error) throw new Error(`Couldn't load your projects: ${error.message}`);
-  return { projects: data.map(toProject), now };
+  // userId lets a page split the person's own projects from ones shared with them.
+  return { projects: data.map(toProject), now, userId: user.id };
 }
 
 export const getProject = cache(
