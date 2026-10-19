@@ -1,28 +1,29 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText, Inbox } from "lucide-react";
+import { Inbox } from "lucide-react";
 
 import { getCurrentUser } from "@/lib/auth";
-import { getTemplate } from "@/features/templates/catalog";
-import { FlatIcon } from "@/features/templates/components/flat-icon";
+import { catalog, getSchema } from "@/features/templates/catalog";
+import { canEdit } from "@/features/templates/engine/sections";
+import { toGallery } from "@/features/templates/gallery";
 import { listActivity, listProjects } from "@/lib/projects-data";
-import { Card } from "@/components/arc/card/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/nia/empty-state";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { ActivityFeed } from "@/components/home/activity-feed";
+import { HomeTemplates } from "@/components/home/home-templates";
 import { ProjectGrid } from "@/components/projects/project-grid";
 
 export const metadata: Metadata = {
   title: "Home · Nia OS",
 };
 
-// The template row (H2): the "Suggested for you" cards; Preview opens that template's preview
-// on the Templates page.
-const TEMPLATE_CODES = ["D01", "D13", "D07", "D24", "D08", "D14", "D05", "D03", "D09", "D10"];
-const TEMPLATES = TEMPLATE_CODES.map(getTemplate).filter((t) => t !== null);
+// "Start from a template" (H4): the live catalogue, ordered in the browser by what the person
+// viewed and what's suggested for them; `EDITABLE` open in the editor.
+const TEMPLATES = catalog.filter((t) => t.status === "live").map(toGallery);
+const EDITABLE = TEMPLATES.filter((t) => canEdit(getSchema(t.code))).map((t) => t.code);
 
 // Home (Figma 872:42636 empty, 872:42800 active), without the old stat cards.
 export default function Page() {
@@ -35,36 +36,7 @@ export default function Page() {
         <p className="text-lead text-muted-foreground">What would you like to create today?</p>
       </header>
 
-      <section aria-labelledby="templates" className="flex flex-col gap-4">
-        <div className="flex items-center gap-2">
-          <FileText aria-hidden className="size-[18px] text-muted-foreground" />
-          <h2 id="templates" className="text-base leading-normal font-bold text-foreground">
-            Start from a Template
-          </h2>
-        </div>
-        <div className="-mx-4 -my-5 flex snap-x scroll-px-4 gap-3.5 overflow-x-auto px-4 py-5 md:-mx-6 md:scroll-px-6 md:px-6">
-          {TEMPLATES.map((template) => (
-            <Card
-              key={template.code}
-              title={template.name}
-              className="w-53 shrink-0 snap-start"
-              media={
-                <div className="flex aspect-[16/10] w-full items-center justify-center bg-white">
-                  <FlatIcon name={template.icon} size="md" className="size-11" />
-                </div>
-              }
-              meta={template.stage}
-              action={
-                <Button asChild variant="outline" size="compact">
-                  <Link href={`/templates?preview=${template.code}`} aria-label={`Preview ${template.name}`}>
-                    Preview
-                  </Link>
-                </Button>
-              }
-            />
-          ))}
-        </div>
-      </section>
+      <HomeTemplates templates={TEMPLATES} editable={EDITABLE} />
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         <h2 id="recent-projects" className="text-xl leading-[1.4] font-bold text-foreground">
