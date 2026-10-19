@@ -14,6 +14,7 @@ import { EmptyState } from "@/components/nia/empty-state";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { ActivityFeed } from "@/components/home/activity-feed";
 import { HomeTemplates } from "@/components/home/home-templates";
+import { ImportFilesDialog } from "@/components/home/import-files-dialog";
 import { ProjectGrid } from "@/components/projects/project-grid";
 
 export const metadata: Metadata = {
@@ -70,12 +71,12 @@ export default function Page() {
               <NewProjectDialog>
                 <Button>+ New Project</Button>
               </NewProjectDialog>
-              <Button variant="outline" disabled title="Coming soon">
-                Browse Templates
+              <Button asChild variant="outline">
+                <Link href="/templates">Browse templates</Link>
               </Button>
-              <Button variant="outline" disabled title="Coming soon">
-                Import Files
-              </Button>
+              <ImportFilesDialog>
+                <Button variant="outline">Import files</Button>
+              </ImportFilesDialog>
             </div>
           </section>
         </div>

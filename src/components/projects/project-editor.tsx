@@ -149,6 +149,8 @@ export function ProjectEditor({ project: initial, canEdit }: { project: Project;
         )}
 
         <div className="flex flex-col gap-3">
+          {/* The project's title is the page's main heading (audit #5). */}
+          <h1 className="contents">
           <EditableText
             label="Title"
             value={project.title}
@@ -158,6 +160,7 @@ export function ProjectEditor({ project: initial, canEdit }: { project: Project;
             onSave={(next) => save("title", "title", next)}
             className={cn("text-h1 font-bold text-foreground", !project.title && "italic")}
           />
+          </h1>
           <EditableText
             label="Description"
             multiline

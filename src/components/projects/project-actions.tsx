@@ -29,9 +29,10 @@ export function ProjectActions({ project, role }: { project: Project; role: Proj
             {role === "owner" ? "Share Project" : "People with access"}
           </button>
         </ShareProjectDialog>
-        <button type="button" disabled title="Export arrives with documents" className={rowClassName}>
-          Export Reports · Coming soon
-        </button>
+        {/* Each document downloads as PDF, Word, Markdown or text from its own page. */}
+        <a href="#documents" className={rowClassName}>
+          Download documents
+        </a>
         {role === "owner" && (
           <DeleteProjectDialog projectId={project.id} title={project.title}>
             <button type="button" className={cn(rowClassName, "text-nia-danger")}>
