@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { FileText, Inbox } from "lucide-react";
 
@@ -43,18 +42,17 @@ export default function Page() {
             Start from a Template
           </h2>
         </div>
-        <div className="-mx-4 flex snap-x scroll-px-4 gap-3.5 overflow-x-auto px-4 pb-2 md:mx-0 md:scroll-px-0 md:px-0">
+        <div className="-mx-4 -my-5 flex snap-x scroll-px-4 gap-3.5 overflow-x-auto px-4 py-5 md:-mx-6 md:scroll-px-6 md:px-6">
           {TEMPLATES.map((template) => (
             <Card
               key={template.code}
               title={template.name}
-              className="w-60 shrink-0 snap-start"
+              className="w-53 shrink-0 snap-start"
               media={
                 <div className="flex aspect-[16/10] w-full items-center justify-center bg-white">
                   <FlatIcon name={template.icon} size="md" className="size-11" />
                 </div>
               }
-              avatar={<Image src="/icon.png" alt="" width={24} height={24} className="size-6 rounded-full" />}
               meta={template.stage}
               action={
                 <Button asChild variant="outline" size="compact">
