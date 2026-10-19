@@ -46,14 +46,14 @@ export function Navbar({ user }: { user: React.ReactNode }) {
         <CurrentNavTabs />
       </Suspense>
       {/* Phones and tablets: the tabs move to the dock at the bottom, and starting a new
-          project takes their place (borderless; the bordered + on the right is desktop only). */}
+          project takes their place: a round silver-glass + (the square + on the right is desktop only). */}
       <NewProjectDialog>
-        <Button type="button" variant="ghost" size="icon" aria-label="New project" className="-ml-2 text-foreground lg:hidden">
-          <Plus aria-hidden className="size-6" />
+        <Button type="button" variant="ghost" size="icon" aria-label="New project" className="glass-silver size-10 shrink-0 rounded-full text-foreground lg:hidden">
+          <Plus aria-hidden className="size-5" />
         </Button>
       </NewProjectDialog>
 
-      <div className="flex items-center gap-4 md:gap-6">
+      <div className="flex items-center gap-3 max-lg:min-w-0 max-lg:flex-1 md:gap-6">
         <NavSearch />
         <NewProjectDialog>
           <Button

@@ -43,6 +43,8 @@ export interface ExpandingSearchProps {
   anchor?: "start" | "end";
   /** A short tip under the empty state. */
   emptyHint?: string;
+  /** Nia: stay a field (never fold back into the icon). Closing clears the query and the results. */
+  alwaysOpen?: boolean;
   className?: string;
 }
 
@@ -183,18 +185,18 @@ function Listbox({ id, label, groups, query, activeIndex, optionId, reduced, key
   </div>;
 }
 
-export function ExpandingSearch({ label, items, suggestions = [], suggestionsLabel = "Recent", placeholder, onSelect, onExpandedChange, expandedWidth = 360, maxResults = 6, anchor = "end", emptyHint = "Try a shorter word or check the spelling.", className }: ExpandingSearchProps) {
+export function ExpandingSearch({ label, items, suggestions = [], suggestionsLabel = "Recent", placeholder, onSelect, onExpandedChange, expandedWidth = 360, maxResults = 6, anchor = "end", emptyHint = "Try a shorter word or check the spelling.", alwaysOpen = false, className }: ExpandingSearchProps) {
   const id = useId();
   const reduced = useReducedMotion() ?? false;
   const rootRef = useRef<HTMLDivElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(alwaysOpen);
   const [focused, setFocused] = useState(false);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(-1);
-  const open = useRef(false);
+  const open = useRef(alwaysOpen);
   const size = useRef({ collapsed: FALLBACK_SIZE, expanded: expandedWidth });
   const width = useMotionValue(FALLBACK_SIZE);
   /** True while the last highlight move came from the keyboard, so only keyboard moves scroll the list. */
@@ -242,6 +244,12 @@ export function ExpandingSearch({ label, items, suggestions = [], suggestionsLab
   }
 
   function collapse(returnFocus: boolean) {
+    if (alwaysOpen) {
+      // Nia: an always-open field just empties and lets go of focus.
+      flushSync(() => { setFocused(false); setQuery(""); setActive(-1); });
+      if (returnFocus) inputRef.current?.blur();
+      return;
+    }
     if (!open.current) return;
     open.current = false;
     flushSync(() => { setExpanded(false); setFocused(false); setQuery(""); setActive(-1); });

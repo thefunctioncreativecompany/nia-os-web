@@ -38,6 +38,7 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 | U6 | Phones and tablets: the NIA wordmark in the top bar becomes a borderless + that starts a new project (the bordered + stays on desktop) | ✅ | |
 | T2 | Templates Index view: section titles (Workflows, Production Management & Operations, …, Coming soon) and template names instead of product codes | ✅ | Two per row on phones |
 | H1 | Home: the template row links to the real templates (opens each one's preview on the Templates page) | ✅ | Names and icons come from the manifest; "Coming soon" tag removed |
+| U7 | Phones and tablets: search is a field filling the top bar; the + is a round button; both in a light silver-glass finish (`glass-silver`) | ✅ | Desktop unchanged |
 | G1 | Google sign-in says "continue to nvgmkyvowtmdjwnfucsn.supabase.co"; should say "Nia Operating System" | ⏸ | Ika: Google Auth Platform → Branding (app name, logo, home page, privacy page) and brand verification. Showing the name instead of the Supabase address also needs Google to see a domain you own, i.e. a Supabase custom domain (paid add-on), e.g. `auth.niatechnologies.co` |
 | 9 | Templates gallery: search with suggestions + results view | ✅ | Build step 4 of T |
 | 10 | Template 01 opens the project launcher | ⬜ | Now build step 8 of T |
