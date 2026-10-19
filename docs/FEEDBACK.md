@@ -21,7 +21,7 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 | 4 | Crop/adjust project cover and profile photo | ✅ | Shared `PhotoEditor` (round for photos, 19:10 for covers): new project, project page (Change cover + Adjust), Settings profile photo, onboarding |
 | 5 | Shared links show the project cover as the preview image and the project title as the link title | ✅ | Projects without a cover show the NIA card (`public/brand/share-preview.png`) |
 | 5b | New NIA wordmark as the main logo on the onboarding screens (and the share-link fallback image) | ✅ | `<Wordmark>` (`src/components/nia/wordmark.tsx`) on sign-in/onboarding heroes, share page and privacy page; originals in `design/brand/`. The round mark (`nia-mark-white-source.svg`) is saved, not used yet |
-| 6 | Onboarding: profession list (scrollable, common roles first, then grouped by sector) | ⬜ | Draft in Claude Design first |
+| 6 | Onboarding: profession list (scrollable, common roles first, then grouped by sector) | ✅ | Six common roles as tiles (incl. Production Assistant), then all roles by sector with a filter; names match the templates' roles so Suggested for you works from onboarding. Built without a Claude Design draft (Ika asked to go ahead) |
 | 7 | Onboarding: "How will you use Nia?" primary use case step | ⬜ | Draft in Claude Design first |
 | 8 | Collaborators end to end: invite by email or in-app (accept once), "Shared with you" on Projects, contributions, live updates and notifications | ⬜ | Needs invitation emails (Resend) and a notifications table |
 | 5c | Black wordmark above the form on phones (sign-in and onboarding) | ✅ | |

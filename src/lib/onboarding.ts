@@ -39,17 +39,51 @@ export const HEARD_ABOUT_OPTIONS = [
   "Other",
 ] as const;
 
-export const PROFESSIONS = [
-  "Director",
+// Roles by sector (Fix 6). Names match the template roles (templates.manifest.json `icps`) so
+// "Suggested for you" works from onboarding; a few common roles the templates don't name yet
+// (Producer, Production Assistant, Camera Operator…) are here too and get starter suggestions.
+export const PROFESSION_SECTORS: { sector: string; roles: string[] }[] = [
+  {
+    sector: "Production & Direction",
+    roles: [
+      "Producer",
+      "Executive Producer",
+      "Line Producer",
+      "Production Manager",
+      "Production Coordinator",
+      "Production Assistant",
+      "Director",
+      "Creative Director",
+      "1st Assistant Director",
+      "Script Supervisor",
+      "Location Manager",
+      "Casting Director",
+      "Screenwriter",
+    ],
+  },
+  { sector: "Camera & On-Set", roles: ["Director of Photography", "Camera Operator", "Camera Assistant", "Gaffer", "DIT"] },
+  {
+    sector: "Post-Production",
+    roles: ["Editor (Film / Video)", "Colorist", "VFX Supervisor", "Sound Designer / Mixer", "Music Supervisor", "Motion Designer"],
+  },
+  { sector: "Design, Styling & Craft", roles: ["Production Designer", "Costume Designer", "Stylist", "Makeup Artist (MUA)"] },
+  { sector: "Photography", roles: ["Photographer", "Event / Press Photographer"] },
+  { sector: "Creator & Content", roles: ["Content Creator / Influencer", "UGC Creator", "Social Media Manager"] },
+  { sector: "Talent & Performance", roles: ["Talent Agent", "Talent Management Agency", "Actor / Performer"] },
+  {
+    sector: "Enterprise, Brand & PR",
+    roles: ["Brand Manager / Marketing Director", "PR / Communications Agency", "Publicist / Unit Publicist", "Entertainment Lawyer"],
+  },
+];
+
+// The most common roles, shown first as tiles (junior roles included).
+export const COMMON_PROFESSIONS = [
   "Producer",
-  "Cinematographer",
-  "Editor",
-  "Production Designer",
-  "Sound Designer",
-  "VFX Supervisor",
-  "Screenwriter",
+  "Director",
+  "Director of Photography",
+  "Editor (Film / Video)",
+  "Content Creator / Influencer",
   "Production Assistant",
-  "Colorist",
 ] as const;
 
 export const USERNAME_PATTERN = /^[a-z0-9._]{3,30}$/;
