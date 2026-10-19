@@ -380,10 +380,10 @@ export function UserMenu({ user, status: statusProp, defaultStatus = "available"
         {showTheme && <Segmented label="Theme" icon={<SunMoon size={16} strokeWidth={1.75} />} value={theme} onChange={changeTheme} options={themes} variants={row} />}
       </>}
       <div className={styles.separator} role="separator" />
-      <motion.button type="button" role="menuitem" tabIndex={-1} className={styles.item} data-stop="item" data-tone="danger" data-label="Sign out" variants={row}
+      <motion.button type="button" role="menuitem" tabIndex={-1} className={styles.item} data-stop="item" data-tone="danger" data-label="Log out" variants={row}
         aria-busy={signingOut || undefined} onPointerMove={onItemPointerMove} onClick={signOut}>
         <span className={styles.icon} aria-hidden="true">{signingOut ? <LoaderCircle className={styles.spinner} size={16} strokeWidth={1.75} /> : <LogOut size={16} strokeWidth={1.75} />}</span>
-        <span className={styles.itemLabel}><Rise text={signingOut ? "Signing out" : "Sign out"} reduced={reduced} /></span>
+        <span className={styles.itemLabel}><Rise text={signingOut ? "Logging out" : "Log out"} reduced={reduced} /></span>
         {signOutKeys && <Keys keys={signOutKeys} />}
       </motion.button>
     </div>
