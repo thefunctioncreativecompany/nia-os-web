@@ -77,6 +77,16 @@ Data:
   `--grain-1…12` are sampled from grainient.supply freebies and rebuilt in CSS.
 - (2026-10-19) Phones and tablets: magnifying dock for navigation; top bar = round + and a search field
   with a silver-gradient rim.
+- (2026-10-19) Templates use real controls instead of typing wherever a field has a shape (dates,
+  times, durations, numbers, money, yes/no, choices, tags, people), saved in a standard format so
+  voice-memo and document autofill can fill them later.
+- (2026-10-19) Real films and series to learn from (e.g. Sinners: synopsis, credits, budget, script
+  link) live in Explore, not Templates. No IMDb scraping (its terms forbid it; its datasets are
+  non-commercial): Wikidata/Wikipedia first, posters only with a TMDB or IMDb licence; scripts are
+  linked where the studio publishes them, never copied. "Start a project from this" is an AI proposal.
+- (2026-10-19) Project page follows Figma 824:23124 (cover, title, description left; Details, Behind
+  the production, Stills, References right; stacked on phones and tablets). Today's actions, overview
+  and activity move to a "Manage" tab beside "Details" on the right.
 
 ## Working notes
 
