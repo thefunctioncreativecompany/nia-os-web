@@ -24,13 +24,17 @@ export default function Page({ params, searchParams }: PageProps<"/templates/[co
   );
 }
 
+type Saved = { id: string; data: unknown; status: string; project: { id: string; title: string } | null };
+
 async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code]">, "params" | "searchParams">) {
   const { code } = await params;
   const schema = getSchema(code);
   if (!canEdit(schema)) notFound();
 
   const { doc } = await searchParams;
-  let saved: { id: string; data: unknown; status: string } | null = null;
+  let saved = null as Saved | null;
+  let startIn: { id: string; title: string } | null = null;
+  const { project: projectParam } = await searchParams;
   if (typeof doc === "string") {
     if (!/^[0-9a-f-]{36}$/.test(doc)) notFound();
     // Supabase checks token expiry with Date.now(), so keep this out of the prerendered shell.
@@ -42,16 +46,25 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
     if (!user) redirect("/login");
     const { data } = await supabase
       .from("documents")
-      .select("id, data, status")
+      .select("id, data, status, project:projects(id, title)")
       .eq("id", doc)
       .eq("template_code", schema.code)
       .is("deleted_at", null)
       .maybeSingle();
     if (!data) notFound();
-    saved = data;
+    saved = data as unknown as Saved;
+  } else if (typeof projectParam === "string" && /^[0-9a-f-]{36}$/.test(projectParam)) {
+    // Started from a project ("Add document"): it's filed there on the first save, if they can edit it.
+    await connection();
+    const supabase = await createClient();
+    const [{ data: project }, { data: canEditIt }] = await Promise.all([
+      supabase.from("projects").select("id, title").eq("id", projectParam).is("deleted_at", null).maybeSingle(),
+      supabase.rpc("can_edit_project", { pid: projectParam }),
+    ]);
+    if (project && canEditIt) startIn = { id: project.id, title: project.title || "Untitled project" };
   }
 
-  return <TemplateEditor key={saved?.id ?? "new"} schema={schema} documentId={saved?.id ?? null} initialData={restoreDocument(schema, saved?.data)} initialPaid={saved?.status === "paid"} />;
+  return <TemplateEditor key={saved?.id ?? "new"} schema={schema} documentId={saved?.id ?? null} initialData={restoreDocument(schema, saved?.data)} initialPaid={saved?.status === "paid"} initialProject={saved?.project ?? startIn} />;
 }
 
 function EditorSkeleton() {

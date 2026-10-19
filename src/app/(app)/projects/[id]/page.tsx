@@ -1,13 +1,19 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 
-import { countProjectPeople, getProject, listActivity } from "@/lib/projects-data";
+import { countProjectPeople, getProject, listActivity, listProjectDocuments, listProjectFiles } from "@/lib/projects-data";
 import { timeAgo } from "@/lib/projects";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ActivityList } from "@/components/projects/activity-list";
 import { ProjectActions } from "@/components/projects/project-actions";
 import { ProjectEditor } from "@/components/projects/project-editor";
 import { ProjectLive } from "@/components/projects/project-live";
+import { ProjectDocuments } from "@/components/projects/project-documents";
+import { ProjectFiles } from "@/components/projects/project-files";
+import { catalog } from "@/features/templates/catalog";
+
+// Each template's icon, for the documents list.
+const ICONS = Object.fromEntries(catalog.map((t) => [t.code, t.icon]));
 
 export const metadata: Metadata = {
   title: "Project · Nia OS",
@@ -24,17 +30,24 @@ export default function Page({ params }: PageProps<"/projects/[id]">) {
 
 async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params">) {
   const { id } = await params;
-  const [{ project, role, now }, activity, people] = await Promise.all([
+  const [{ project, role, now }, activity, people, documents, files] = await Promise.all([
     getProject(id),
     listActivity({ projectId: id, limit: 8 }),
     countProjectPeople(id),
+    listProjectDocuments(id),
+    listProjectFiles(id),
   ]);
+  const canEdit = role !== "viewer";
 
   return (
     <div className="flex flex-1 flex-wrap">
       <ProjectLive projectId={id} />
       <div className="min-w-0 flex-[999_1_560px] px-4 pt-10 pb-15 md:pr-10 md:pl-15">
-        <ProjectEditor project={project} canEdit={role !== "viewer"} />
+        <div className="flex flex-col gap-12">
+          <ProjectEditor project={project} canEdit={canEdit} />
+          <ProjectDocuments projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} now={now} />
+          <ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />
+        </div>
       </div>
       <aside className="flex flex-[1_1_360px] flex-col gap-6 border-border bg-nia-panel px-4 pt-10 pb-15 md:border-l md:pr-15 md:pl-10 lg:max-w-[540px]">
         <ProjectActions project={project} role={role} />

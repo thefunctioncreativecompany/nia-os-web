@@ -109,3 +109,36 @@ export async function countProjectPeople(projectId: string) {
   const { data } = await supabase.rpc("project_people", { pid: projectId });
   return (data ?? []).filter((person: { kind: string }) => person.kind !== "invite").length;
 }
+
+export type ProjectDocument = { id: string; templateCode: string; title: string; status: string; updatedAt: string; canRemove: boolean };
+
+/** Documents made from templates and saved to this project (build step 8). */
+export async function listProjectDocuments(projectId: string): Promise<ProjectDocument[]> {
+  const { supabase } = await requireUser();
+  const { data, error } = await supabase
+    .from("documents")
+    .select("id, template_code, title, status, updated_at")
+    .eq("project_id", projectId)
+    .is("deleted_at", null)
+    .order("updated_at", { ascending: false });
+  if (error) throw new Error(`Couldn't load this project's documents: ${error.message}`);
+  return data.map((d) => ({ id: d.id, templateCode: d.template_code, title: d.title, status: d.status, updatedAt: d.updated_at, canRemove: true }));
+}
+
+export type FileKind = "image" | "document" | "audio" | "video";
+export type ProjectFile = { id: string; name: string; path: string; mime: string; size: number; kind: FileKind; createdAt: string; url: string | null };
+
+/** Files uploaded to this project, each with a link that works for an hour (the bucket is private). */
+export async function listProjectFiles(projectId: string): Promise<ProjectFile[]> {
+  const { supabase } = await requireUser();
+  const { data, error } = await supabase
+    .from("project_files")
+    .select("id, name, path, mime, size, kind, created_at")
+    .eq("project_id", projectId)
+    .is("deleted_at", null)
+    .order("created_at", { ascending: false });
+  if (error) throw new Error(`Couldn't load this project's files: ${error.message}`);
+  const signed = data.length ? (await supabase.storage.from("project-files").createSignedUrls(data.map((f) => f.path), 60 * 60)).data ?? [] : [];
+  const urls = new Map(signed.map((s) => [s.path, s.signedUrl] as const));
+  return data.map((f) => ({ id: f.id, name: f.name, path: f.path, mime: f.mime, size: f.size, kind: f.kind as FileKind, createdAt: f.created_at, url: urls.get(f.path) ?? null }));
+}

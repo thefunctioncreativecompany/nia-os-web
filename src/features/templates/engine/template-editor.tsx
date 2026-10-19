@@ -1,6 +1,8 @@
 'use client';
 
-import { BadgeCheck, Download, FileText, FileType, Plus, Printer, Redo2, Undo2 } from 'lucide-react';
+import { useState } from 'react';
+import Link from 'next/link';
+import { BadgeCheck, Download, FileText, FileType, FolderCheck, FolderPlus, Plus, Printer, Redo2, Undo2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 import { DocumentHeader, DocumentPreviewHeader } from '@/components/nia/document-header';
@@ -13,7 +15,8 @@ import { downloadFile, fileName, toMarkdown, toPlainText, toWord } from './expor
 import { SectionView } from './section-views';
 import { blankRow, documentCurrency, resolveDocument, type SectionValue, type TableRow } from './sections';
 import { DocumentContext } from './document-context';
-import { useDocument } from './use-document';
+import { SaveToProjectDialog } from './save-to-project';
+import { useDocument, type DocumentProject } from './use-document';
 
 // The one editor every document template uses (TEMPLATE_ENGINE.md §3), from the Filming Notice
 // editor in Figma (840:29449): the document on the left, preview and downloads on the right.
@@ -23,13 +26,17 @@ export function TemplateEditor({
   documentId,
   initialData,
   initialPaid = false,
+  initialProject = null,
 }: {
   schema: TemplateSchema;
   documentId: string | null;
   initialData: SectionValue[];
   initialPaid?: boolean;
+  /** The project it's filed under (a saved document, or `?project=` when started from a project). */
+  initialProject?: DocumentProject | null;
 }) {
-  const doc = useDocument(schema, documentId, initialData, initialPaid);
+  const doc = useDocument(schema, documentId, initialData, initialPaid, initialProject);
+  const [choosing, setChoosing] = useState(false);
   const currency = documentCurrency(schema, doc.data);
   // Letters as they read, with [placeholders] filled from the answers above (T5).
   const shown = resolveDocument(schema, doc.data);
@@ -59,8 +66,8 @@ export function TemplateEditor({
     <div className="flex flex-1 flex-wrap">
       <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-7 px-4 pt-10 pb-15 md:pr-10 md:pl-15 print:p-0">
         <DocumentHeader
-          backHref="/templates"
-          backLabel="Back to Templates"
+          backHref={doc.project ? `/projects/${doc.project.id}` : '/templates'}
+          backLabel={doc.project ? `Back to ${doc.project.title}` : 'Back to Templates'}
           title={schema.name}
           description={schema.description}
           status={doc.savedAt ? <SavedIndicator savedAt={doc.savedAt} className="print:hidden" /> : undefined}
@@ -152,6 +159,54 @@ export function TemplateEditor({
               <span>{schema.version}</span>
             </div>
           </div>
+          {doc.project ? (
+            <div className="flex flex-col gap-3 rounded-xl border border-border bg-white p-4">
+              <div className="flex items-center gap-3">
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-nia-panel">
+                  <FolderCheck aria-hidden className="size-4.5" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-caption text-muted-foreground">Saved to</span>
+                  <Link href={`/projects/${doc.project.id}`} className="block truncate text-sm font-bold text-foreground hover:underline">
+                    {doc.project.title}
+                  </Link>
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <Button asChild size="compact" className="rounded-lg">
+                  <Link href={`/projects/${doc.project.id}`}>Open project</Link>
+                </Button>
+                <Button variant="outline" size="compact" className="rounded-lg" onClick={() => setChoosing(true)}>
+                  Move
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="compact"
+                  className="rounded-lg text-muted-foreground"
+                  onClick={async () => {
+                    const was = doc.project;
+                    if (await doc.fileTo(null)) toast.success(`Removed from ${was?.title}. It stays in your drafts.`);
+                  }}
+                >
+                  Remove from project
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <Button className="w-full rounded-xl" onClick={() => setChoosing(true)}>
+              <FolderPlus aria-hidden /> Save to project
+            </Button>
+          )}
+          <SaveToProjectDialog
+            open={choosing}
+            onOpenChange={setChoosing}
+            current={doc.project}
+            onPick={async (project) => {
+              const ok = await doc.fileTo(project);
+              if (ok) toast.success(`Saved to ${project.title}`);
+              return ok;
+            }}
+          />
           <SplitButton
             variant="secondary"
             className="w-full"
