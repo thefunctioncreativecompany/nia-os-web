@@ -37,7 +37,7 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 | U5 | Phone and tablet navigation as Bencho's magnifying dock (MIT): glass bar fixed at the bottom with Home, Projects, Templates, Explore and Inbox (coming soon), magnifies under the finger or pointer, one travelling label; the NIA wordmark takes the tabs' place in the top bar | ✅ | `src/components/nia/magnifying-dock.tsx`, styles in `globals.css` (Bencho's names mapped to Nia tokens on the dock itself; Nia timings, no overshoot) |
 | U6 | Phones and tablets: the NIA wordmark in the top bar becomes a borderless + that starts a new project (the bordered + stays on desktop) | ✅ | |
 | T2 | Templates Index view: section titles (Workflows, Production Management & Operations, …, Coming soon) and template names instead of product codes | ✅ | Two per row on phones |
-| H1 | Home: the template row links to the real templates (opens each one's preview on the Templates page) | ⬜ | After build step 5 (the preview pop-up and its `?preview=` link) |
+| H1 | Home: the template row links to the real templates (opens each one's preview on the Templates page) | ✅ | Names and icons come from the manifest; "Coming soon" tag removed |
 | G1 | Google sign-in says "continue to nvgmkyvowtmdjwnfucsn.supabase.co"; should say "Nia Operating System" | ⏸ | Ika: Google Auth Platform → Branding (app name, logo, home page, privacy page) and brand verification. Showing the name instead of the Supabase address also needs Google to see a domain you own, i.e. a Supabase custom domain (paid add-on), e.g. `auth.niatechnologies.co` |
 | 9 | Templates gallery: search with suggestions + results view | ✅ | Build step 4 of T |
 | 10 | Template 01 opens the project launcher | ⬜ | Now build step 8 of T |

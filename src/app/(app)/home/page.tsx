@@ -1,21 +1,11 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  Camera,
-  Clapperboard,
-  ClipboardList,
-  Columns3,
-  FileSearch,
-  FileText,
-  Inbox,
-  LayoutGrid,
-  Megaphone,
-  RotateCcw,
-  Users,
-} from "lucide-react";
+import { FileText, Inbox } from "lucide-react";
 
 import { getCurrentUser } from "@/lib/auth";
+import { getTemplate } from "@/features/templates/catalog";
+import { iconFor } from "@/features/templates/gallery";
 import { listActivity, listProjects } from "@/lib/projects-data";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -29,19 +19,9 @@ export const metadata: Metadata = {
   title: "Home · Nia OS",
 };
 
-// Shown as "coming soon" until the template library (BUILD_PLAN Milestone 3).
-const TEMPLATES = [
-  { name: "Call Sheet", icon: FileText },
-  { name: "Continuity Log", icon: RotateCcw },
-  { name: "Filming Notice", icon: Megaphone },
-  { name: "Call Sheet - Detailed", icon: ClipboardList },
-  { name: "Equipment Log", icon: Camera },
-  { name: "Shot Logging", icon: Clapperboard },
-  { name: "Script Breakdown", icon: FileSearch },
-  { name: "Crew Contact List", icon: Users },
-  { name: "Storyboard", icon: LayoutGrid },
-  { name: "3-Column AV Script", icon: Columns3 },
-];
+// The template row: each card opens that template's preview on the Templates page.
+const TEMPLATE_CODES = ["D01", "D13", "D07", "D24", "D08", "D14", "D05", "D03", "D09", "D10"];
+const TEMPLATES = TEMPLATE_CODES.map(getTemplate).filter((t) => t !== null);
 
 // Home (Figma 872:42636 empty, 872:42800 active), without the old stat cards.
 export default function Page() {
@@ -60,17 +40,15 @@ export default function Page() {
           <h2 id="templates" className="text-base leading-normal font-bold text-foreground">
             Start from a Template
           </h2>
-          <span className="rounded-full bg-muted px-2 py-0.5 text-micro font-bold text-muted-foreground">
-            Coming soon
-          </span>
         </div>
         <div className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-1 md:mx-0 md:px-0">
           {TEMPLATES.map((template) => (
             <TemplateCard
-              key={template.name}
+              key={template.code}
+              href={`/templates?preview=${template.code}`}
               size="compact"
               name={template.name}
-              icon={template.icon}
+              icon={iconFor(template.icon)}
               className="h-[78px] w-[126px] shrink-0"
             />
           ))}
