@@ -12,7 +12,7 @@ describe('template engine sections', () => {
   it('opens reviewed templates, and not ones still to build', () => {
     expect(canEdit(notice)).toBe(true);
     for (const code of ['D03', 'D06', 'D08', 'D13', 'D14', 'D10']) expect(canEdit(getSchema(code))).toBe(true);
-    expect(canEdit(getSchema('D01'))).toBe(false);
+    expect(canEdit(getSchema('D09'))).toBe(false);
     expect(canEdit(null)).toBe(false);
   });
 
@@ -159,5 +159,32 @@ describe('invoice (computed tables)', () => {
     expect(md).toMatch(/\| Camera Operator — Day Rate \| ZAR\s?850\.00 \| 3 \| ZAR\s?2,550\.00 \|/);
     expect(md).toMatch(/\|  \|  \| \*\*Total Due\*\* \| \*\*ZAR\s?4,750\.00\*\* \|/);
     expect(toPlainText(invoice, data)).toMatch(/Total Due: ZAR\s?4,750\.00/);
+  });
+});
+
+describe('call sheet', () => {
+  const sheet = getSchema('D01')!;
+  it('reads times, weather, pages and cast numbers', async () => {
+    const { formatField, refResolver, optionsFromSection, tableTotal } = await import('./sections');
+    const data = restoreDocument(sheet, [
+      { 'Call Time': '06:00', 'Sunrise / Sunset': { start: '06:12', end: '20:04' }, Weather: { condition: 'Partly cloudy', high: '78', unit: 'F' } },
+      { 'Main Location': 'Griffith Observatory', Location: 'Griffith Observatory', Basecamp: 'South Lot' },
+      [{ id: 's1', Scenes: 'Sc. 14', Pages: '19', Cast: ['c1', 'c3', 'gone'] }, { id: 's2', Pages: '4' }],
+      [{ id: 'c1', Cast: [{ name: 'Elena Vasquez' }] }, { id: 'c2' }, { id: 'c3', Cast: [{ name: 'James Liu' }] }],
+      '',
+    ]);
+    const info = sheet.sections[0] as import('../types').FieldsSection;
+    const field = (label: string) => info.fields.find((f) => (typeof f === 'string' ? f : f.label) === label)!;
+    const fields = data[0] as Record<string, never>;
+    expect(formatField(field('Call Time'), fields['Call Time'])).toBe('6:00 AM');
+    expect(formatField(field('Sunrise / Sunset'), fields['Sunrise / Sunset'])).toBe('6:12 AM / 8:04 PM');
+    expect(formatField(field('Weather'), fields.Weather)).toBe('Partly cloudy · 78°F');
+    const schedule = sheet.sections[2] as import('../types').TableSection;
+    const castColumn = schedule.columns.find((c) => typeof c !== 'string' && c.kind === 'refs')!;
+    const rows = data[2] as never[];
+    expect(formatField(castColumn, (rows[0] as { Cast: string[] }).Cast, { ref: refResolver(sheet, data, 'Cast & Talent Calls') })).toBe('01, 03');
+    expect(tableTotal(schedule, rows)).toBe(23);
+    expect(formatField(schedule.columns[1], '23')).toBe('2 7/8');
+    expect(optionsFromSection(sheet, data, 'Locations')).toEqual(['South Lot', 'Griffith Observatory']);
   });
 });

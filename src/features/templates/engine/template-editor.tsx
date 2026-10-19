@@ -12,6 +12,7 @@ import type { TemplateSchema } from '../types';
 import { downloadFile, fileName, toMarkdown, toPlainText, toWord } from './export';
 import { SectionView } from './section-views';
 import { blankRow, documentCurrency, resolveDocument, type SectionValue, type TableRow } from './sections';
+import { DocumentContext } from './document-context';
 import { useDocument } from './use-document';
 
 // The one editor every document template uses (TEMPLATE_ENGINE.md §3), from the Filming Notice
@@ -54,6 +55,7 @@ export function TemplateEditor({
   };
 
   return (
+    <DocumentContext.Provider value={{ schema, data: doc.data }}>
     <div className="flex flex-1 flex-wrap">
       <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-7 px-4 pt-10 pb-15 md:pr-10 md:pl-15 print:p-0">
         <DocumentHeader
@@ -165,5 +167,6 @@ export function TemplateEditor({
         </div>
       </aside>
     </div>
+    </DocumentContext.Provider>
   );
 }

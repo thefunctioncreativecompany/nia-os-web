@@ -1,6 +1,22 @@
 import type { FieldKind, FieldSpec, LetterSection, Section, SectionType, TableSection, TemplateSchema } from '../types';
 import type { PersonRef } from '@/components/nia/assignees';
-import { formatDateTimeRange, formatDays, formatDuration, formatMoney, formatYesNo, toAmount, type DateTimeRange, type Duration, type YesNo } from './format';
+import {
+  formatClock,
+  formatDateTimeRange,
+  formatDays,
+  formatDuration,
+  formatMoney,
+  formatPages,
+  formatTimeRange,
+  formatWeather,
+  formatYesNo,
+  toAmount,
+  type DateTimeRange,
+  type Duration,
+  type TimeRange,
+  type Weather,
+  type YesNo,
+} from './format';
 
 /*
  * The template engine's data rules (TEMPLATE_ENGINE.md §4): a blank value for each section
@@ -10,7 +26,8 @@ import { formatDateTimeRange, formatDays, formatDuration, formatMoney, formatYes
  * format.ts), so answers can be picked rather than typed and later filled from voice memos.
  */
 
-export type FieldValue = string | boolean | DateTimeRange | Duration | YesNo | PersonRef[];
+/** refs are row ids in another table (string[]); people are PersonRef[]. */
+export type FieldValue = string | boolean | DateTimeRange | Duration | YesNo | TimeRange | Weather | PersonRef[] | string[];
 export type FieldsValue = Record<string, FieldValue>;
 export type TableRow = { id: string } & Record<string, FieldValue>;
 export type SectionValue = FieldsValue | TableRow[] | string;
@@ -18,7 +35,7 @@ export type SectionValue = FieldsValue | TableRow[] | string;
 export const ENGINE_TYPES: ReadonlySet<SectionType> = new Set(['fields', 'text', 'letter', 'table']);
 
 /** Templates whose controls have been reviewed with Ika join here (build step 7 and T5). */
-const READY = new Set(['D07', 'D03', 'D06', 'D08', 'D13', 'D14', 'D10', 'D04']);
+const READY = new Set(['D07', 'D03', 'D06', 'D08', 'D13', 'D14', 'D10', 'D04', 'D01']);
 
 export const canEdit = (schema: TemplateSchema | null): schema is TemplateSchema =>
   !!schema && READY.has(schema.code) && schema.sections.every((s) => ENGINE_TYPES.has(s.type));
@@ -38,7 +55,12 @@ export function blankField(field: FieldSpec): FieldValue {
     case 'check':
       return false;
     case 'people':
+    case 'refs':
       return [];
+    case 'timeRange':
+      return { start: '', end: '' };
+    case 'weather':
+      return { condition: '', high: '', unit: 'F' };
     default:
       return '';
   }
@@ -47,16 +69,36 @@ export function blankField(field: FieldSpec): FieldValue {
 /** A saved answer if it has the field's shape, otherwise a blank one. */
 function restoreField(field: FieldSpec, saved: unknown): FieldValue {
   const blank = blankField(field);
-  if (Array.isArray(blank)) return Array.isArray(saved) ? saved.filter((p) => typeof p?.name === 'string' && p.name.trim()) : blank;
+  if (Array.isArray(blank)) {
+    if (!Array.isArray(saved)) return blank;
+    return fieldKind(field) === 'refs' ? saved.filter((id) => typeof id === 'string') : saved.filter((p) => typeof p?.name === 'string' && p.name.trim());
+  }
   if (typeof blank === 'string') return typeof saved === 'string' ? saved : blank;
   if (typeof blank === 'boolean') return typeof saved === 'boolean' ? saved : blank;
   return saved && typeof saved === 'object' ? ({ ...blank, ...saved } as FieldValue) : blank;
 }
 
 /** The answer as words: what the downloads print and what fills a letter. */
-export function formatField(field: FieldSpec, value: FieldValue | undefined, { datesOnly = false, currency = 'USD' } = {}): string {
+type FormatOptions = {
+  datesOnly?: boolean;
+  currency?: string;
+  /** For refs: a row id → its number in the source table ("01"), or null if the row is gone. */
+  ref?: (id: string) => string | null;
+};
+
+export function formatField(field: FieldSpec, value: FieldValue | undefined, { datesOnly = false, currency = 'USD', ref }: FormatOptions = {}): string {
   if (value === undefined) return '';
   switch (fieldKind(field)) {
+    case 'time':
+      return typeof value === 'string' ? formatClock(value) : '';
+    case 'timeRange':
+      return formatTimeRange(value as TimeRange);
+    case 'weather':
+      return formatWeather(value as Weather);
+    case 'pages':
+      return formatPages(toAmount(value));
+    case 'refs':
+      return Array.isArray(value) ? (value as string[]).map((id) => ref?.(id) ?? null).filter(Boolean).join(', ') : '';
     case 'money':
       return typeof value === 'string' && value.trim() ? formatMoney(toAmount(value), currency) : '';
     case 'dateTimeRange':
@@ -70,7 +112,7 @@ export function formatField(field: FieldSpec, value: FieldValue | undefined, { d
     case 'check':
       return value === true ? 'Yes' : '';
     case 'people':
-      return Array.isArray(value) ? value.map((p) => p.name).join(', ') : '';
+      return Array.isArray(value) ? (value as PersonRef[]).map((p) => p.name).join(', ') : '';
     default:
       return typeof value === 'string' ? value.trim() : '';
   }
@@ -98,6 +140,35 @@ export function tableTotal(section: TableSection, rows: TableRow[]): number | nu
   if (!section.total) return null;
   const column = section.total.column;
   return rows.reduce((sum, row) => sum + (section.computed?.[column] ? computeCell(section, row, column) ?? 0 : toAmount(row[column])), 0);
+}
+
+/** Rows of another table to tick (refs), labelled by their number and first answer: "01 Elena Vasquez". */
+export function refRows(schema: TemplateSchema, data: SectionValue[], source: string) {
+  const i = schema.sections.findIndex((s) => s.title === source);
+  const section = schema.sections[i];
+  if (section?.type !== 'table') return [];
+  const rows = (Array.isArray(data[i]) ? data[i] : []) as TableRow[];
+  const first = editableColumns(section)[0];
+  return rows.map((row, r) => ({
+    id: row.id,
+    number: String(r + 1).padStart(2, '0'),
+    label: first ? formatField(first, row[fieldLabel(first)]) : '',
+  }));
+}
+
+/** A ref resolver for a table's refs columns, for display and downloads. */
+export function refResolver(schema: TemplateSchema, data: SectionValue[], source?: string) {
+  const numbers = new Map(source ? refRows(schema, data, source).map((r) => [r.id, r.number] as const) : []);
+  return (id: string) => numbers.get(id) ?? null;
+}
+
+/** Choice options taken from another section's answers (Location ← Locations). */
+export function optionsFromSection(schema: TemplateSchema, data: SectionValue[], title: string): string[] {
+  const i = schema.sections.findIndex((s) => s.title === title);
+  const section = schema.sections[i];
+  if (section?.type !== 'fields') return [];
+  const fields = (data[i] ?? {}) as FieldsValue;
+  return [...new Set(section.fields.map((f) => formatField(f, fields[fieldLabel(f)])).filter(Boolean))];
 }
 
 /** The document's currency: a field called "Currency" if it has one, otherwise US dollars. */

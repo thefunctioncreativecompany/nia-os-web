@@ -79,3 +79,23 @@ export function formatMoney(amount: number, currency = 'USD') {
     return amount.toFixed(2);
   }
 }
+
+export type TimeRange = { start: string; end: string };
+export type Weather = { condition: string; high: string; unit: 'F' | 'C' };
+
+/** Sunrise / sunset and similar pairs: "6:12 AM / 8:04 PM". */
+export const formatTimeRange = (value: TimeRange) => [formatClock(value.start), formatClock(value.end)].filter(Boolean).join(' / ');
+
+/** "Partly cloudy · 78°F". */
+export function formatWeather(value: Weather) {
+  const high = value.high.trim() ? `${value.high.trim()}°${value.unit}` : '';
+  return [value.condition, high].filter(Boolean).join(' · ');
+}
+
+/** Script pages are counted in eighths: 19 → "2 3/8", 3 → "3/8", 16 → "2". */
+export function formatPages(eighths: number) {
+  if (!eighths) return '';
+  const whole = Math.floor(eighths / 8);
+  const part = eighths % 8;
+  return [whole ? String(whole) : '', part ? `${part}/8` : ''].filter(Boolean).join(' ');
+}

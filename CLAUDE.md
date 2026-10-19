@@ -190,7 +190,7 @@ Milestone 3 — Documents
   filters, preview pop-up (`?preview=` link), Suggested for you (learns from `template_events`). Step 7, the
   template engine (TEMPLATE_ENGINE.md §8): part 1 done, the Filming Notice opens at `/templates/D07`
   with autosave, Undo/Redo and downloads (PDF, Word, Markdown, .txt); part 2 done, six table templates
-  with typed columns (T5); people fields; Invoice with totals, currency and Mark paid. Next: Call Sheet. Fix list and
+  with typed columns (T5); people fields; Invoice with totals, currency and Mark paid; Call Sheet. Next: Editorial Shoot workflow (Ika's priority). Fix list and
   open items: docs/FEEDBACK.md.
 
 Milestone 4 — Shoot day: not started.

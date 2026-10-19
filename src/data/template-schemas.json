@@ -1,5 +1,5 @@
 {
-  "$comment": "Sections of the 31 document templates, for the template engine (TEMPLATE_ENGINE.md). Extracted from design/prototypes/CDWorkspace.html (TEMPLATE_SCHEMAS); figma frame IDs from templates.manifest.json. A field or table column is a label (plain text) or { label, kind } for a real control: choice (options), role (production roles), people (`single`; `fills` columns from a picked Nia user's role), number, date (`after`: a date it can't be before), dateTimeRange, duration (`units`), yesNo (note placeholder), check, phone, email. A letter's `fills` map its [placeholders] to the fields that fill them.",
+  "$comment": "Sections of the 31 document templates, for the template engine (TEMPLATE_ENGINE.md). Extracted from design/prototypes/CDWorkspace.html (TEMPLATE_SCHEMAS); figma frame IDs from templates.manifest.json. A field or table column is a label (plain text) or { label, kind } for a real control: choice (options), role (production roles), people (`single`; `fills` columns from a picked Nia user's role), number, date (`after`: a date it can't be before), dateTimeRange, duration (`units`), yesNo (note placeholder), check, phone, email, money, time, timeRange (`options`: the two labels), weather (`options`: conditions), pages (script eighths), refs (`source`: a table whose rows are ticked by number); a choice can take `optionsFrom` another section's answers. Fields sections can use `layout: \"cards\"`. A letter's `fills` map its [placeholders] to the fields that fill them.",
   "version": 1,
   "templates": [
     {
@@ -20,7 +20,7 @@
         "Send to Crew",
         "Print"
       ],
-      "version": "v2.4",
+      "version": "v2.5",
       "sections": [
         {
           "type": "fields",
@@ -28,16 +28,61 @@
           "fields": [
             "Production Company",
             "Title",
-            "Call Time",
-            "Director",
-            "Producer",
-            "Exec. Producer",
-            "1st AD",
-            "Shoot Date",
-            "BKFST",
-            "Lunch",
-            "Sunrise / Sunset",
-            "Weather"
+            {
+              "label": "Call Time",
+              "kind": "time"
+            },
+            {
+              "label": "Director",
+              "kind": "people"
+            },
+            {
+              "label": "Producer",
+              "kind": "people"
+            },
+            {
+              "label": "Exec. Producer",
+              "kind": "people"
+            },
+            {
+              "label": "1st AD",
+              "kind": "people",
+              "single": true
+            },
+            {
+              "label": "Shoot Date",
+              "kind": "date"
+            },
+            {
+              "label": "BKFST",
+              "kind": "time"
+            },
+            {
+              "label": "Lunch",
+              "kind": "time"
+            },
+            {
+              "label": "Sunrise / Sunset",
+              "kind": "timeRange",
+              "options": [
+                "Sunrise",
+                "Sunset"
+              ]
+            },
+            {
+              "label": "Weather",
+              "kind": "weather",
+              "options": [
+                "Clear",
+                "Partly cloudy",
+                "Cloudy",
+                "Rain",
+                "Storm",
+                "Snow",
+                "Fog",
+                "Windy"
+              ]
+            }
           ]
         },
         {
@@ -49,33 +94,74 @@
             "Location",
             "Hospital",
             "Crew Parking"
-          ]
+          ],
+          "layout": "cards"
         },
         {
           "type": "table",
           "title": "Shooting Schedule",
           "columns": [
             "Scenes",
-            "Pages",
+            {
+              "label": "Pages",
+              "kind": "pages"
+            },
             "Set & Description",
-            "D/N",
-            "Cast",
-            "Location"
+            {
+              "label": "D/N",
+              "kind": "choice",
+              "options": [
+                "D",
+                "N",
+                "Dawn",
+                "Dusk"
+              ]
+            },
+            {
+              "label": "Cast",
+              "kind": "refs",
+              "source": "Cast & Talent Calls"
+            },
+            {
+              "label": "Location",
+              "kind": "choice",
+              "optionsFrom": "Locations"
+            }
           ],
           "rows": 3,
-          "empty": "No schedule yet. Add scenes to build the day."
+          "empty": "No schedule yet. Add scenes to build the day.",
+          "total": {
+            "column": "Pages",
+            "label": "Total pages"
+          }
         },
         {
           "type": "table",
           "title": "Cast & Talent Calls",
           "columns": [
             "#",
-            "Cast",
+            {
+              "label": "Cast",
+              "kind": "people",
+              "single": true
+            },
             "Role",
-            "Call",
-            "Pick Up",
-            "MU/WD",
-            "Set Call"
+            {
+              "label": "Call",
+              "kind": "time"
+            },
+            {
+              "label": "Pick Up",
+              "kind": "time"
+            },
+            {
+              "label": "MU/WD",
+              "kind": "time"
+            },
+            {
+              "label": "Set Call",
+              "kind": "time"
+            }
           ],
           "rows": 3,
           "autonumber": "#",

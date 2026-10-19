@@ -6,9 +6,10 @@ import { Plus, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import type { FieldSpec, TableSection } from '../types';
+import type { PersonRef } from '@/components/nia/assignees';
 import { FieldControl } from './field-controls';
 import { formatMoney } from './format';
-import { blankRow, computeCell, editableColumns, fieldKind, fieldLabel, tableTotal, type FieldValue, type TableRow } from './sections';
+import { blankRow, computeCell, editableColumns, fieldKind, fieldLabel, formatField, tableTotal, type FieldValue, type TableRow } from './sections';
 
 // A table section (TEMPLATE_ENGINE.md §4, build step 7 part 2): a typed control in every cell
 // (T5), an automatic number column where the template has one, add and remove rows. Wide
@@ -23,6 +24,12 @@ function width(field: FieldSpec, tall: boolean) {
       return '6rem';
     case 'money':
       return '8.5rem';
+    case 'time':
+      return '5.5rem';
+    case 'pages':
+      return '9rem';
+    case 'refs':
+      return '6.5rem';
     case 'date':
       return '8.25rem';
     case 'duration':
@@ -32,7 +39,7 @@ function width(field: FieldSpec, tall: boolean) {
     case 'role':
       return 'minmax(9rem, 1fr)';
     case 'people':
-      return 'minmax(10rem, 1.2fr)';
+      return 'minmax(8.5rem, 1.2fr)';
     case 'email':
       return 'minmax(10rem, 1.2fr)';
     default:
@@ -49,9 +56,13 @@ export function TableView({ section, rows, onChange, currency = 'USD' }: { secti
   const money = (column: string) => section.money?.includes(column);
   const numbered = !!section.autonumber;
   const tall = !!section.tall;
-  const template = [numbered ? '4rem' : null, ...columns.map((c) => width(c, tall)), ...computed.map(() => '8.5rem'), '2.25rem'].filter(Boolean).join(' ');
+  const template = [numbered ? '3rem' : null, ...columns.map((c) => width(c, tall)), ...computed.map(() => '8.5rem'), '2.25rem'].filter(Boolean).join(' ');
   const total = tableTotal(section, rows);
-  const show = (column: string, amount: number) => (money(column) ? formatMoney(amount, currency) : String(amount));
+  const show = (column: string, amount: number) => {
+    if (money(column)) return formatMoney(amount, currency);
+    const spec = section.columns.find((c) => fieldLabel(c) === column);
+    return spec ? formatField(spec, String(amount)) || '0' : String(amount);
+  };
   const base = slug(section.title);
 
   // Picking a Nia user in a people column fills the columns it names when they're still blank
@@ -59,7 +70,7 @@ export function TableView({ section, rows, onChange, currency = 'USD' }: { secti
   const setCell = (rowId: string, label: string, value: FieldValue) => {
     const spec = columns.find((c) => fieldLabel(c) === label);
     const fills = typeof spec === 'object' ? spec.fills : undefined;
-    const person = Array.isArray(value) ? value[0] : undefined;
+    const person = Array.isArray(value) && typeof value[0] === 'object' ? (value[0] as PersonRef) : undefined;
     onChange(
       rows.map((r) => {
         if (r.id !== rowId) return r;

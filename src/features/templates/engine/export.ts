@@ -1,6 +1,6 @@
 import type { TemplateSchema } from '../types';
 import { formatMoney } from './format';
-import { computeCell, documentCurrency, editableColumns, fieldLabel, formatField, resolveDocument, tableTotal, type FieldsValue, type SectionValue, type TableRow } from './sections';
+import { computeCell, documentCurrency, editableColumns, fieldLabel, formatField, refResolver, resolveDocument, tableTotal, type FieldsValue, type SectionValue, type TableRow } from './sections';
 
 /*
  * Downloads besides PDF (Ika, 2026-10-19): Markdown, Word and plain text, built from the same
@@ -30,7 +30,11 @@ function blocks(schema: TemplateSchema, data: SectionValue[]): Block[] {
       const rows = (Array.isArray(value) ? value : []) as TableRow[];
       const numbered = section.autonumber ? [section.autonumber] : [];
       const computed = Object.keys(section.computed ?? {});
-      const money = (column: string, amount: number) => (section.money?.includes(column) ? formatMoney(amount, currency) : String(amount));
+      const money = (column: string, amount: number) => {
+        if (section.money?.includes(column)) return formatMoney(amount, currency);
+        const spec = section.columns.find((c) => fieldLabel(c) === column);
+        return spec ? formatField(spec, String(amount)) || '0' : String(amount);
+      };
       const total = tableTotal(section, rows);
       return {
         title: section.title,
@@ -38,7 +42,7 @@ function blocks(schema: TemplateSchema, data: SectionValue[]): Block[] {
         header: [...numbered, ...columns.map(fieldLabel), ...computed],
         cells: rows.map((row, r) => [
           ...(section.autonumber ? [String(r + 1).padStart(2, '0')] : []),
-          ...columns.map((c) => formatField(c, row[fieldLabel(c)], { currency }) || EMPTY),
+          ...columns.map((c) => formatField(c, row[fieldLabel(c)], { currency, ref: refResolver(schema, data, typeof c === 'string' ? undefined : c.source) }) || EMPTY),
           ...computed.map((column) => {
             const amount = computeCell(section, row, column);
             return amount === null ? EMPTY : money(column, amount);
