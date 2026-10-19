@@ -17,6 +17,9 @@ const nextConfig: NextConfig = {
   turbopack: {
     rules: {
       "*.css": {
+        // CSS modules (the uiarc components) don't use Tailwind, and renaming them to
+        // plain .css would drop their scoped class names.
+        condition: { not: { path: /\.module\.css$/ } },
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
       },

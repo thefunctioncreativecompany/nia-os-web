@@ -29,6 +29,9 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 | T1 | Templates page: heading "Start from a proven path" becomes "Templates"; remove the "New template" label on cards | ⬜ | Done with build step 2 (gallery shell), which uses the large "Templates" title |
 | U1 | Home: updates, notifications and inbox as swipe rows (uiarc `swipe-actions`: swipe to archive / mark read, full swipe commits) | ⏸ | Component installed in `src/components/arc/`, restyle to Nia theme; needs a notifications table (shared with Fix 8) |
 | U2 | Profile menu behind the avatar (uiarc `user-menu`): name, email, Settings, Log out; bottom sheet on phones | ⏸ | Component installed; theme switch hidden (no dark mode yet) |
+| U3 | Navbar search as uiarc `expanding-search`: icon that grows into a field, recent projects first, matches as you type; full-width on phones | ✅ | `src/components/nia/nav-search.tsx`. uiarc names map to Nia tokens in `globals.css`, motion in `src/components/arc/motion-tokens.ts`; `next.config.ts` keeps CSS modules out of the Tailwind loader |
+| U4 | Active navbar tab pill fits its label ("Templates" was squeezed into a fixed 100px) | ✅ | |
+| G1 | Google sign-in says "continue to nvgmkyvowtmdjwnfucsn.supabase.co"; should say "Nia Operating System" | ⏸ | Ika: Google Auth Platform → Branding (app name, logo, home page, privacy page) and brand verification. Showing the name instead of the Supabase address also needs Google to see a domain you own, i.e. a Supabase custom domain (paid add-on), e.g. `auth.niatechnologies.co` |
 | 9 | Templates gallery: search with suggestions + results view | ⬜ | Now build step 4 of T |
 | 10 | Template 01 opens the project launcher | ⬜ | Now build step 8 of T |
 | 10b | Template detail pop-up (like Storyflow's) | ⬜ | Now build step 5 of T (layout is in the prototype; copy in the manifest's `details`) |

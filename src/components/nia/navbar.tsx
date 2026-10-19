@@ -5,10 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
+import { NavSearch } from "@/components/nia/nav-search";
 import {
   Tooltip,
   TooltipContent,
@@ -36,7 +35,7 @@ const tabs: Tab[] = [
 // passed in from the server so it can stream in.
 export function Navbar({ user }: { user: React.ReactNode }) {
   return (
-    <header className="flex h-20 shrink-0 items-center justify-between gap-4 border-b border-nia-line bg-white px-4 md:px-15">
+    <header className="relative flex h-20 shrink-0 items-center justify-between gap-4 border-b border-nia-line bg-white px-4 md:px-15">
       {/* Which tab is active depends on the address, known only at request time; until
           then the tabs show with none highlighted. */}
       <Suspense fallback={<NavTabs segment={null} />}>
@@ -44,25 +43,7 @@ export function Navbar({ user }: { user: React.ReactNode }) {
       </Suspense>
 
       <div className="flex items-center gap-4 md:gap-6">
-        {/* Searches project titles until app-wide search (BUILD_PLAN 6.4). */}
-        <form action="/projects" role="search" className="relative hidden w-[280px] lg:block">
-          <Image
-            src="/app/search.svg"
-            alt=""
-            width={16}
-            height={16}
-            className="pointer-events-none absolute top-1/2 left-4 -translate-y-1/2"
-          />
-          <Input
-            type="search"
-            name="q"
-            placeholder="Search projects..."
-            aria-label="Search projects"
-            className={cn(
-              "h-auto rounded-[30px] border-nia-line bg-white py-2.5 pr-4 pl-11 text-small leading-normal text-nia-ink placeholder:text-nia-placeholder md:text-small",
-            )}
-          />
-        </form>
+        <NavSearch />
         <NewProjectDialog>
           <Button
           type="button"
@@ -98,7 +79,7 @@ function NavTabs({ segment }: { segment: string | null }) {
               key={tab.label}
               href={tab.href}
               aria-current="page"
-              className="flex h-[38px] w-[100px] items-center justify-center gap-[5px] rounded-[20px] bg-gold/15 text-lead font-medium text-foreground"
+              className="flex h-9.5 min-w-25 items-center justify-center gap-1.25 rounded-full bg-gold/15 px-4 text-lead font-medium whitespace-nowrap text-foreground"
             >
               {icon}
               {tab.label}

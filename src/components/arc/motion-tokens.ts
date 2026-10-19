@@ -1,24 +1,25 @@
+import { DURATION, EASE_OUT } from "@/lib/motion";
+
+// Motion settings shared by the uiarc components in this folder, tuned to Nia's motion rules:
+// fast 150ms, base 250ms, slow 400ms, ease-out, no overshoot (CLAUDE.md → Design → Motion).
+// The names stay as uiarc expects them so the components work unchanged.
+const ease = [...EASE_OUT] as [number, number, number, number];
+
 export const motionTokens = {
-  duration: { instant: 0.12, fast: 0.16, exit: 0.18, standard: 0.24, considered: 0.48 },
-  ease: {
-    enter: [0.16, 1, 0.3, 1],
-    exit: [0.7, 0, 0.84, 0],
-    standard: [0.22, 1, 0.36, 1],
-    /** For elements that move while already on screen. */
-    inOut: [0.65, 0, 0.35, 1],
-  },
+  duration: { instant: DURATION.fast, fast: DURATION.fast, exit: DURATION.fast, standard: DURATION.base, considered: DURATION.slow },
+  ease: { enter: ease, exit: ease, standard: ease, inOut: ease },
   spring: {
-    responsive: { type: "spring", stiffness: 520, damping: 38 },
-    gentle: { type: "spring", stiffness: 340, damping: 34 },
-    /** Presses, toggles, thumbs, and small indicators. Settles fast with a hint of life. */
-    snappy: { type: "spring", visualDuration: 0.26, bounce: 0.12 },
-    /** Panels, height changes, and layout shifts. Critically damped, never overshoots. */
-    smooth: { type: "spring", visualDuration: 0.4, bounce: 0 },
-    /** Shape morphs, shared layout highlights, and width changes that follow new content. */
-    morph: { type: "spring", visualDuration: 0.42, bounce: 0.16 },
+    responsive: { type: "spring", visualDuration: DURATION.base, bounce: 0 },
+    gentle: { type: "spring", visualDuration: DURATION.slow, bounce: 0 },
+    /** Presses, toggles and small indicators. */
+    snappy: { type: "spring", visualDuration: DURATION.base, bounce: 0 },
+    /** Panels, height changes and layout shifts. */
+    smooth: { type: "spring", visualDuration: DURATION.slow, bounce: 0 },
+    /** Shape changes, such as the search icon growing into a field. */
+    morph: { type: "spring", visualDuration: DURATION.slow, bounce: 0 },
   },
   /** Stagger steps in seconds. Keep total stagger under roughly 0.4s. */
   stagger: { char: 0.016, word: 0.04, line: 0.08, item: 0.035 },
-  /** Blur radii in px for text and content crossfades. Keep blur small and brief. */
+  /** Blur radii in px for brief content crossfades. */
   blur: { subtle: 2, soft: 4, text: 8 },
 } as const;

@@ -259,6 +259,41 @@
   --duration-slow: 400ms;
 }
 
+/* uiarc components (src/components/arc) read these names. Each one points at a Nia token,
+   so those components use only Nia's colours, type, radii and motion. On :root because
+   their menus and sheets render outside the page. */
+:root {
+  --surface: var(--background);
+  --surface-muted: var(--muted);
+  --surface-raised: var(--popover);
+  --text-secondary: var(--muted-foreground);
+  --text-muted: var(--muted-foreground);
+  --border-strong: var(--ring);
+  --focus-ring: color-mix(in oklab, var(--ring) 50%, transparent); /* shadcn's ring-ring/50 */
+  --danger: var(--destructive);
+  --warning: var(--status-pending-foreground);
+  --success: var(--status-confirmed-foreground);
+  --font-body: var(--font-sans);
+  --text-xs: var(--text-caption);
+  --text-base: var(--text-lead);
+  --leading-body: 1.5;
+  --tracking-body: normal;
+  --space-2: calc(var(--spacing) * 2);
+  --space-3: calc(var(--spacing) * 3);
+  --space-4: calc(var(--spacing) * 4);
+  --control-height-md: calc(var(--spacing) * 10);
+  --radius-pill: 9999px;
+  --radius-control: calc(var(--control-height-md) / 2); /* Nia fields and buttons are pills */
+  --radius-panel: var(--radius-lg);
+  --shadow-floating: var(--shadow-menu);
+  --duration-instant: var(--duration-fast);
+  --duration-standard: var(--duration-base);
+  --duration-spring: var(--duration-slow);
+  --ease-standard: cubic-bezier(0, 0, 0.2, 1);
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0, 0, 0.2, 1);
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
