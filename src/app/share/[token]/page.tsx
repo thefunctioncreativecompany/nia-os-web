@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, cache } from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,10 +10,29 @@ import { PRODUCTION_INFO } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/server";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export const metadata: Metadata = {
-  title: "Shared project · Nia OS",
-  robots: { index: false, follow: false },
-};
+// One lookup per request, shared by the link preview and the page.
+const getShared = cache(async (token: string) => {
+  const supabase = await createClient();
+  const { data } = await supabase.rpc("shared_project", { token }).maybeSingle<SharedRow>();
+  return data;
+});
+
+// Link previews (WhatsApp, iMessage, Slack, email): the project's title, summary and
+// cover. The page itself stays out of search engines.
+export async function generateMetadata({ params }: PageProps<"/share/[token]">): Promise<Metadata> {
+  const { token } = await params;
+  const data = await getShared(token);
+  if (!data) return { title: "Shared project · Nia OS", robots: { index: false, follow: false } };
+  const description = data.description.trim() || `A ${data.production_type ?? "production"} shared from Nia OS.`;
+  const images = data.cover_url ? [{ url: data.cover_url, width: 1600, height: 842, alt: data.title }] : undefined;
+  return {
+    title: data.title,
+    description,
+    robots: { index: false, follow: false },
+    openGraph: { title: data.title, description, siteName: "Nia OS", type: "website", images },
+    twitter: { card: images ? "summary_large_image" : "summary", title: data.title, description, images },
+  };
+}
 
 // The view-only page behind a project's share link. Works without signing in, and
 // stops working as soon as the owner turns the link off.
@@ -64,8 +83,7 @@ const COLUMN_FOR: Record<string, keyof SharedRow> = {
 async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "params">) {
   await connection();
   const { token } = await params;
-  const supabase = await createClient();
-  const { data } = await supabase.rpc("shared_project", { token }).maybeSingle<SharedRow>();
+  const data = await getShared(token);
   if (!data) notFound();
 
   return (
