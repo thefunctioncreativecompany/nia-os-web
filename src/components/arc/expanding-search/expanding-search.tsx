@@ -300,7 +300,9 @@ export function ExpandingSearch({ label, items, suggestions = [], suggestionsLab
           // Switching windows keeps the search as it was; the field refocuses on return.
           if (typeof document !== "undefined" && !document.hasFocus()) return;
           setFocused(false);
-          if (open.current && !inputRef.current?.value.trim()) collapse(false);
+          // Nia: a blur can arrive while React is rendering (focus moves during a page change),
+          // and collapse() flushes synchronously, so it waits for the current work to finish.
+          if (open.current && !inputRef.current?.value.trim()) queueMicrotask(() => collapse(false));
         }}
         onKeyDown={handleKeyDown} />
       <AnimatePresence initial={false}>

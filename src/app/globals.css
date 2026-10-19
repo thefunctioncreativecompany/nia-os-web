@@ -346,3 +346,238 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ══ Magnifying dock (Bencho, MIT licence: bencho.dev/licence) ══════════════
+   Phone and tablet navigation (src/components/nia/magnifying-dock.tsx).
+   Bencho's design names are mapped on the dock's own root to Nia's tokens, so
+   nothing new leaks out as a global. Timings use Nia's motion tokens with
+   ease-out instead of Bencho's overshoot curves (CLAUDE.md → Motion). Bencho's
+   test-board, wall-card and other-component selectors are left out: Nia has
+   none of those elements. */
+.gdock {
+  --ink: var(--foreground);
+  --on-ink: var(--primary-foreground);
+  --fill-on: var(--foreground);
+  --fill-slab: var(--primary-foreground);
+  --font-ui: var(--font-sans);
+  --pane-edge: var(--border);
+  /* -rgb tokens are bare numbers because the CSS builds rgba() from them:
+     Obsidian #0A0908, and the warm black Nia's card shadows already use. */
+  --ink-rgb: 10, 9, 8;
+  --shadow-rgb: 15, 14, 12;
+  /* Glass. Bencho's frost is 2px over its own quiet wall; Nia's pages scroll
+     photos and text under the dock, so the pane is whiter and the blur deeper
+     to keep the icons readable. */
+  --pane: color-mix(in oklab, var(--background) 78%, transparent);
+  --g-blur: 16px;
+  --g-sat: 150%;
+  --g-bright: 100%;
+  --g-edge-hi: 0.9;
+  --g-edge-lo: 0.25;
+  --g-edge-far: 0.5;
+  --g-spec: 0.8;
+  --g-lift: 0.14;
+}
+
+/* ── glass navigation ──────────────────────────────────────
+   Same recipe as .gcard: 60% white, 2px frost, refraction,
+   lit inner edge. Shapes differ, the material does not. */
+.gdock {
+  position: relative;
+  background: var(--pane);
+  -webkit-backdrop-filter:
+    blur(var(--g-blur, 2px)) saturate(var(--g-sat, 150%)) brightness(var(--g-bright, 100%));
+  backdrop-filter:
+    blur(var(--g-blur, 2px)) saturate(var(--g-sat, 150%)) brightness(var(--g-bright, 100%));
+  isolation: isolate;
+  color: var(--ink);
+}
+
+.gdock::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  /* transparent unless Stroke says otherwise — see the
+     stroke block below */
+  border: 1px solid transparent;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* dock */
+.gdock {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 28px;
+  /* sideways is the dock's, up and down stays the page's — a
+     finger passing over this on the way down the wall is
+     scrolling, not picking. */
+  touch-action: pan-y;
+}
+
+/* no tile behind the icon: scaling a translucent rectangle over
+   glass is what made this look cheap. The glyph scales instead,
+   and SVG scales cleanly at any size. */
+.gdock-item {
+  position: relative;
+  width: 44px; height: 44px;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  opacity: 0.42;
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: opacity var(--duration-base) ease-out;
+}
+
+/* the magnification lives here, so the dot and the label keep
+   their own size and their own distance from the bar */
+.gdock-glyph {
+  display: grid; place-items: center;
+  transform-origin: center bottom;
+  transition: transform var(--duration-slow) ease-out;
+}
+
+.gdock-item[data-near="1"] { opacity: 0.66; }
+
+.gdock-item[data-near="0"] { opacity: 1; }
+
+.gdock-item[data-active="true"] { opacity: 1; }
+
+/* Nia: "coming soon" tabs stay quiet even under the pointer. */
+.gdock-item[data-disabled] { opacity: 0.25; cursor: not-allowed; }
+
+/* Nia keeps shadcn's focus ring: 3px of the ring colour at half strength. */
+.gdock-item:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus-ring); border-radius: 10px; }
+
+/* the running dot, the only persistent mark in the dock */
+.gdock-dot {
+  position: absolute;
+  /* inside the item, not slung underneath it. The glyph is
+     20px in a 44px box, so anything hung off the bottom edge
+     lands 17px from the mark it belongs to. */
+  left: 50%; bottom: 3px;
+  width: 3px; height: 3px;
+  margin-left: -1.5px;
+  border-radius: 50%;
+  background: var(--ink);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity var(--duration-base) ease-out, transform var(--duration-slow) ease-out;
+}
+
+.gdock-dot[data-on="true"] { opacity: 0.55; transform: scale(1); }
+
+/* ONE tip for the whole dock (after transitions.dev's avatar
+   tooltip): a dark pill above the bar that slides to the icon under
+   the pointer and grows or shrinks to the word, both on the same
+   short curve, and fades in. The word is centred in a box whose
+   width animates, and the box clips it, so a longer word is
+   uncovered rather than squeezed. */
+.gdock-tip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 8px);
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--fill-on, var(--ink));
+  color: var(--fill-slab, var(--on-ink));
+  font-family: var(--font-ui);
+  font-size: var(--text-caption);
+  font-weight: 400;
+  line-height: 32px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition:
+    transform var(--duration-fast) ease-out,
+    width var(--duration-fast) ease-out,
+    opacity var(--duration-fast) ease-out;
+  letter-spacing: 0em;
+}
+
+.gdock-tip > span { flex: none; }
+
+.gdock-tip:not([data-ready]) { transition: opacity var(--duration-fast) ease-out; }
+
+.gdock-tip[data-on="true"] { opacity: 1; }
+
+/* ══ stroke ═════════════════════════════════════════════════
+   Whether a component draws a hairline round itself. OFF by
+   default: a grey line round everything makes a wall of
+   components look like a wall of boxes rather than a wall of
+   things. Glass draws its own lit rim, and that rim is the
+   material rather than a stroke, so glass wins the border
+   wherever the two meet. */
+[data-stroke="on"] .gdock::before {
+  border-color: var(--pane-edge);
+}
+
+/* ── the rim ─────────────────────────────────────────────────
+   A flat rim is the single clearest tell that a thing is a
+   rectangle with a border rather than a pane with thickness:
+   real edges are lit unevenly, and evenly lit ones read as ink.
+
+   So the ring becomes a gradient — bright at the corner
+   facing the light, almost nothing along the sides that run
+   edge-on to it, and a second weaker catch at the far corner
+   where the light has come through the pane and out again.
+
+   Painting a gradient in a border needs the border box filled
+   and the padding box punched out of it, which is what the
+   two masks do: one covers the whole element, one covers only
+   the inside, and compositing them apart leaves the rim.
+
+   Only under glass. Flat keeps its honest hairline. */
+[data-surface="glass"] .gdock::before {
+  border-color: transparent;
+  background:
+    linear-gradient(
+      142deg,
+      rgba(255, 255, 255, var(--g-edge-hi, 0)) 0%,
+      rgba(255, 255, 255, var(--g-edge-lo, 0)) 26%,
+      rgba(255, 255, 255, var(--g-edge-lo, 0)) 62%,
+      rgba(255, 255, 255, var(--g-edge-far, 0)) 100%
+    ) border-box;
+  -webkit-mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+/* ── thickness ───────────────────────────────────────────────
+   The lit line along the top is where light enters the edge of
+   a real sheet. The shadow underneath says the pane is ABOVE
+   the page rather than painted onto it — which is the one thing
+   a backdrop-filter alone can never say, because a filter has
+   no depth. Wide and soft rather than tight and close: the
+   softer one reads as a sheet resting above the page instead of
+   a card stuck to it. */
+[data-surface="glass"] .gdock {
+  box-shadow: var(--g-shadow,
+    inset 0 1px 0 rgba(255, 255, 255, var(--g-spec, 0)),
+    0 10px 40px rgba(var(--shadow-rgb), var(--g-lift, 0)));
+}
+
+/* ── flat panes ────────────────────────────────────────────
+   Set data-surface="flat" on any ancestor and the glass becomes
+   a solid fill. The frost is switched off at the element rather
+   than through a token: a var() holding a url() filter cannot
+   be validated at parse time, so the browser would drop the
+   property outright. */
+[data-surface="flat"] .gdock {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}

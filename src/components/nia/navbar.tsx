@@ -3,11 +3,14 @@
 import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation";
+import { useRouter, useSelectedLayoutSegment } from "next/navigation";
+import { Compass, FileText, Folder, House, Inbox, type LucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { NavSearch } from "@/components/nia/nav-search";
+import { MagnifyingDock } from "@/components/nia/magnifying-dock";
+import { Wordmark } from "@/components/nia/wordmark";
 import {
   Tooltip,
   TooltipContent,
@@ -17,6 +20,8 @@ import {
 type Tab = {
   label: string;
   icon: string;
+  // The same tab in the phone and tablet dock (Lucide).
+  glyph: LucideIcon;
   // null until the screen is built.
   href: string | null;
   // Top-level sections (the first part of the address) that show this tab as active.
@@ -24,11 +29,11 @@ type Tab = {
 };
 
 const tabs: Tab[] = [
-  { label: "Home", icon: "/app/home.svg", href: "/home", match: ["home", "settings"] },
-  { label: "Projects", icon: "/app/folder.svg", href: "/projects", match: ["projects"] },
-  { label: "Templates", icon: "/app/file-text.svg", href: "/templates", match: ["templates"] },
-  { label: "Explore", icon: "/app/explore.svg", href: null, match: [] },
-  { label: "Inbox", icon: "/app/inbox.svg", href: null, match: [] },
+  { label: "Home", icon: "/app/home.svg", glyph: House, href: "/home", match: ["home", "settings"] },
+  { label: "Projects", icon: "/app/folder.svg", glyph: Folder, href: "/projects", match: ["projects"] },
+  { label: "Templates", icon: "/app/file-text.svg", glyph: FileText, href: "/templates", match: ["templates"] },
+  { label: "Explore", icon: "/app/explore.svg", glyph: Compass, href: null, match: [] },
+  { label: "Inbox", icon: "/app/inbox.svg", glyph: Inbox, href: null, match: [] },
 ];
 
 // Top bar on every signed-in page (Figma "Navbar"). `user` is the avatar menu,
@@ -41,6 +46,10 @@ export function Navbar({ user }: { user: React.ReactNode }) {
       <Suspense fallback={<NavTabs segment={null} />}>
         <CurrentNavTabs />
       </Suspense>
+      {/* Phones and tablets: the tabs move to the dock at the bottom, the wordmark sits here. */}
+      <Link href="/home" aria-label="NIA, home" className="rounded-sm lg:hidden">
+        <Wordmark />
+      </Link>
 
       <div className="flex items-center gap-4 md:gap-6">
         <NavSearch />
@@ -65,11 +74,42 @@ function CurrentNavTabs() {
   return <NavTabs segment={useSelectedLayoutSegment()} />;
 }
 
+// Phone and tablet navigation: the same tabs as a glass dock fixed to the bottom of the
+// screen (Bencho's magnifying dock). Coming-soon tabs show but can't be chosen.
+export function NavDock() {
+  return (
+    <Suspense fallback={<Dock segment={null} />}>
+      <CurrentDock />
+    </Suspense>
+  );
+}
+
+function CurrentDock() {
+  return <Dock segment={useSelectedLayoutSegment()} />;
+}
+
+function Dock({ segment }: { segment: string | null }) {
+  const router = useRouter();
+  const active = tabs.find((tab) => segment !== null && tab.match.includes(segment));
+  return (
+    <div data-surface="glass" className="fixed inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+1rem)] z-40 flex justify-center px-4 lg:hidden">
+      <MagnifyingDock
+        items={tabs.map((tab) => ({ key: tab.label, label: tab.label, Icon: tab.glyph, disabled: !tab.href }))}
+        active={active?.label ?? null}
+        onSelect={(key) => {
+          const href = tabs.find((tab) => tab.label === key)?.href;
+          if (href) router.push(href);
+        }}
+      />
+    </div>
+  );
+}
+
 function NavTabs({ segment }: { segment: string | null }) {
   const isActive = (tab: Tab) => segment !== null && tab.match.includes(segment);
 
   return (
-    <nav aria-label="Main" className="flex items-center gap-5 md:gap-8">
+    <nav aria-label="Main" className="flex items-center gap-5 max-lg:hidden md:gap-8">
       {tabs.map((tab) => {
         const icon = <Image src={tab.icon} alt="" width={18} height={18} className="shrink-0" />;
 

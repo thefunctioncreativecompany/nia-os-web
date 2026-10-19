@@ -1,10 +1,11 @@
 import { Suspense } from "react";
 
 import { getCurrentUser } from "@/lib/auth";
-import { Navbar } from "@/components/nia/navbar";
+import { NavDock, Navbar } from "@/components/nia/navbar";
 import { UserMenu, UserMenuSkeleton } from "@/components/nia/user-menu";
 
-// Shell for every signed-in page: the Figma top navbar above the page.
+// Shell for every signed-in page: the Figma top navbar above the page, and the dock at the
+// bottom on phones and tablets.
 export default function AppLayout({ children }: LayoutProps<"/">) {
   return (
     <div className="flex min-h-svh w-full flex-col bg-white text-nia-ink">
@@ -15,7 +16,9 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
           </Suspense>
         }
       />
-      <main className="flex flex-1 flex-col">{children}</main>
+      {/* Room at the bottom on phones and tablets so the dock never covers the end of a page. */}
+      <main className="flex flex-1 flex-col pb-28 lg:pb-0">{children}</main>
+      <NavDock />
     </div>
   );
 }
