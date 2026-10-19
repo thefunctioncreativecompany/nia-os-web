@@ -106,7 +106,7 @@ export function ColorPicker({
           style={{ left: `${(hsl.h / 360) * 100}%`, top: `${100 - hsl.l}%`, background: value }}
         />
       </div>
-      <label className="flex items-center gap-2 text-micro font-bold tracking-wide text-muted-foreground uppercase">
+      <label className="flex items-center gap-2 text-micro font-bold text-muted-foreground">
         Hex
         <span aria-hidden className="size-7 shrink-0 rounded-md border border-border" style={{ background: value }} />
         <input
@@ -118,7 +118,7 @@ export function ColorPicker({
           }}
           onBlur={() => setDraft(null)}
           spellCheck={false}
-          className="h-7 min-w-0 flex-1 rounded-md border border-border bg-white px-2.5 font-mono text-small font-normal tracking-normal text-foreground normal-case outline-none focus-visible:border-foreground"
+          className="h-7 min-w-0 flex-1 rounded-md border border-border bg-white px-2.5 text-small font-normal tracking-normal text-foreground tabular-nums normal-case outline-none focus-visible:border-foreground"
         />
       </label>
     </div>

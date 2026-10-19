@@ -50,7 +50,7 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 | 13 | Editorial Shoot workflow (map + steps) with collaboration | ⬜ | After 10 and 11 |
 | 14 | Review the build history for missed features/fixes and schedule them | ⬜ | Known so far: switched-off share link returns 200; calendar range band; plan boxes 1.3–2.5 need final checks; test scripts to move into the repo |
 | G2 | Find which Google account owns the Google sign-in setup (needed for G1) | ⏸ | Supabase → Authentication → Sign In / Providers → Google shows the Client ID (ends in `.apps.googleusercontent.com`). Sign in to console.cloud.google.com with each Google account you use → APIs & Services → Credentials, and look for that Client ID. The account that has it owns the setup |
-| F1 | Fonts: only the app's own font (Geist) everywhere — no serif (Instrument Serif italic) and no all-caps monospace labels; sentence case instead | 🔄 | Templates screens done with build step 5; sweep the rest of the app (document headers, Settings, onboarding, component library) and update CLAUDE.md's font rules |
+| F1 | Fonts: only the app's own font (Geist) everywhere — no serif (Instrument Serif italic) and no all-caps monospace labels; sentence case instead | ✅ | Done across the app and CLAUDE.md. Kept for Ika to decide: the screenplay preview's Courier capitals (industry format, content not labels); component-library sample pages unchanged |
 
 ## Done
 

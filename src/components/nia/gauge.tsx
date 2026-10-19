@@ -41,7 +41,7 @@ export function Gauge({
       </svg>
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-center">
         <span className="text-h2 leading-none font-bold text-foreground">{Math.round(clamped)}%</span>
-        <span className="mt-1 text-micro font-bold tracking-wide text-muted-foreground uppercase">{caption}</span>
+        <span className="mt-1 text-micro font-bold text-muted-foreground">{caption}</span>
       </div>
     </div>
   );

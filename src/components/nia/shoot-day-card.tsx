@@ -28,7 +28,7 @@ export function ShootDayCard({
   return (
     <article className={cn("flex flex-col gap-4 rounded-xl border border-border bg-white p-4", className)}>
       <div className="flex items-center justify-between gap-3">
-        <span className="rounded-md bg-status-on-hold px-2.5 py-1 text-micro font-bold tracking-wide text-status-on-hold-foreground uppercase">
+        <span className="rounded-md bg-status-on-hold px-2.5 py-1 text-micro font-bold text-status-on-hold-foreground">
           Shoot day {day}
         </span>
         <span className="text-small text-muted-foreground">

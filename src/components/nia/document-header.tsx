@@ -38,7 +38,7 @@ export function DocumentHeader({
       </Link>
       <div className="flex flex-col-reverse gap-4 md:flex-row md:items-start md:justify-between">
         <div className="flex max-w-[500px] flex-col gap-2">
-          <h1 className="font-serif text-h1 font-normal text-foreground italic">{title}</h1>
+          <h1 className="text-h1 font-bold text-foreground">{title}</h1>
           {description && (
             <p className="text-sm leading-normal text-muted-foreground">{description}</p>
           )}

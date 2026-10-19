@@ -29,7 +29,7 @@ export function AssetLibrary({ assets, className }: { assets: Asset[]; className
   return (
     <div className={cn("flex flex-col gap-3", className)}>
       <div className="flex items-center justify-between">
-        <span className="text-micro font-bold tracking-wide text-muted-foreground uppercase">Files ({assets.length})</span>
+        <span className="text-micro font-bold text-muted-foreground">Files ({assets.length})</span>
         <div role="group" aria-label="View" className="flex gap-1">
           {tab("grid", "Grid")}
           {tab("list", "List")}

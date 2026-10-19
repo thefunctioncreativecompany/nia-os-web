@@ -77,7 +77,7 @@ export function NotificationGroup({
   return (
     <section aria-label={label} className="flex flex-col gap-2.5">
       <div className="flex items-center justify-between">
-        <h4 className="text-micro font-bold tracking-wide text-muted-foreground uppercase">{label}</h4>
+        <h4 className="text-micro font-bold text-muted-foreground">{label}</h4>
         {action}
       </div>
       <ul className="flex flex-col gap-2">{children}</ul>

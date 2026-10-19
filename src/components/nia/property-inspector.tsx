@@ -34,7 +34,7 @@ export function PropertyInspector({
       <div className="grid grid-cols-2 gap-2.5">
         {FIELDS.map(({ key, label }) => (
           <label key={key} className="flex flex-col gap-1">
-            <span className="text-micro font-bold tracking-wide text-muted-foreground uppercase">{label}</span>
+            <span className="text-micro font-bold text-muted-foreground">{label}</span>
             <span className="flex h-9 items-center rounded-md border border-border pr-2.5 focus-within:border-foreground">
               <input
                 type="number"
@@ -49,7 +49,7 @@ export function PropertyInspector({
         ))}
       </div>
       <div className="flex flex-col gap-2">
-        <div className="flex justify-between text-micro font-bold tracking-wide text-muted-foreground uppercase">
+        <div className="flex justify-between text-micro font-bold text-muted-foreground">
           <span id="inspector-opacity">Opacity</span>
           <span className="text-foreground">{value.opacity}%</span>
         </div>
@@ -68,7 +68,7 @@ export function PropertyInspector({
           onChange={(e) => onChange({ ...value, color: e.target.value.toUpperCase() })}
           className="size-7 shrink-0 cursor-pointer rounded-md border border-border bg-transparent p-0 [&::-webkit-color-swatch]:rounded-[5px] [&::-webkit-color-swatch]:border-0 [&::-webkit-color-swatch-wrapper]:p-0"
         />
-        <span className="font-mono text-small font-bold text-foreground">{value.color}</span>
+        <span className="text-small font-bold text-foreground tabular-nums">{value.color}</span>
         <span className="sr-only">Fill colour</span>
       </label>
     </section>

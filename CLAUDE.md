@@ -35,16 +35,17 @@ Product:
 
 Design:
 - Colors, fonts, radii, spacing and motion only from theme variables; no hex or pixel values in pages.
-- Brand: Obsidian `#0A0908`, Aged Gold `#8A7A52` (single accent, active states only), Geist (UI),
-  Instrument Serif italic (accent headings only).
+- Brand: Obsidian `#0A0908`, Aged Gold `#8A7A52` (single accent, active states only), Geist for all text,
+  sentence case. No serif and no all-caps monospace labels (Ika, 2026-10-19); the screenplay preview's
+  Courier capitals are content formatting, kept until Ika decides.
 - Build from `src/components/ui` (shadcn) and `src/components/nia`; new looks are variants. Keep shadcn
   focus rings and keyboard behaviour.
 - Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
   motion. Only modals/panels, the saved tick, cards settling, Copilot highlights and onboarding slides animate.
 - Theme tokens (`src/app/globals.css`): colors `foreground`/`primary` (Obsidian), `gold`
   (+ `gold-foreground`), Figma greys (`muted`, `muted-foreground`, `border`, `secondary`, `accent`);
-  fonts `font-sans` (Geist), `font-serif` (Instrument Serif italic), `font-mono`, `font-wordmark`
-  (the "NIA" mark); text sizes `text-h1` 32, `text-h2` 28, `text-h3` 24, `text-lead` 15, `text-sm` 14,
+  fonts `font-sans` (Geist, everything), `font-wordmark` (the "NIA" mark); `font-serif` and `font-mono`
+  exist but aren't used in the interface; text sizes `text-h1` 32, `text-h2` 28, `text-h3` 24, `text-lead` 15, `text-sm` 14,
   `text-small` 13, `text-caption` 12, `text-micro` 11, `text-meta` 10, `text-tiny` 9, `text-wordmark` 22;
   shadow `shadow-elevation-2`; motion `duration-fast/base/slow`
   with `ease-out` (code animations use `src/lib/motion.ts`). Gold is under 4.5:1 on white: indicators,
@@ -70,7 +71,7 @@ Data:
 - Gold marks the active navbar tab (light tint) and the active Settings tab (underline).
 - The bare domain sends signed-out visitors to `/login` and signed-in ones into the app.
 - (2026-10-19) Fonts: Geist only. No serif (Instrument Serif) and no all-caps monospace labels in new
-  work; sentence case. Sweep of older screens is fix F1 in docs/FEEDBACK.md.
+  work; sentence case. Older screens swept (F1).
 - (2026-10-19) Templates: one view (phones lead with suggested templates, then category rows of square
   grain-gradient cards); Compact and Index retired to the component library (section 31). Gradients
   `--grain-1…12` are sampled from grainient.supply freebies and rebuilt in CSS.
@@ -121,7 +122,7 @@ Milestone 0 — Foundations
   from Figma (Pending and Wrapped text darkened for contrast).
 - [x] 0.4 Nia components in `src/components/nia`, built from what Figma shows: Navbar (+ UserMenu),
   StatusBadge, EmptyState (optional illustration slot), DocumentHeader (+ DocumentPreviewHeader,
-  DownloadPdfButton; title in Instrument Serif italic), ProjectCard (default + compact, 19:10 cover,
+  DownloadPdfButton; title in Geist bold since F1), ProjectCard (default + compact, 19:10 cover,
   hover lift), TemplateCard (default + compact), ProposalCard (Apply Changes / Modify),
   SavedIndicator (tick animation via `motion`). Waiting on Figma (Ika designs in Claude Design, then
   added before the step that needs it): ProjectCard production-type chip, next shoot date and
