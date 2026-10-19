@@ -11,7 +11,7 @@ import { SplitButton } from '@/components/arc/split-button/split-button';
 import type { TemplateSchema } from '../types';
 import { downloadFile, fileName, toMarkdown, toPlainText, toWord } from './export';
 import { SectionView } from './section-views';
-import type { SectionValue } from './sections';
+import { resolveDocument, type SectionValue } from './sections';
 import { useDocument } from './use-document';
 
 // The one editor every document template uses (TEMPLATE_ENGINE.md §3), from the Filming Notice
@@ -27,6 +27,8 @@ export function TemplateEditor({
   initialData: SectionValue[];
 }) {
   const doc = useDocument(schema, documentId, initialData);
+  // Letters as they read, with [placeholders] filled from the answers above (T5).
+  const shown = resolveDocument(schema, doc.data);
   const total = schema.sections.length;
   const ready = doc.filled > 0;
 
@@ -79,7 +81,7 @@ export function TemplateEditor({
             </h2>
             <SectionView
               section={section}
-              value={doc.data[index]}
+              value={shown[index]}
               onChange={(value, key) => doc.update(index, value, `${index}:${key}`)}
             />
           </section>

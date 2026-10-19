@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { edgePath, layoutMap, type Workflow } from "@/lib/template-workflows";
 import type { TemplatePreview } from "@/features/templates/actions";
 import type { Section } from "@/features/templates/types";
+import { fieldLabel } from "@/features/templates/engine/sections";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 
 type Schema = NonNullable<TemplatePreview["schema"]>;
@@ -57,7 +58,7 @@ function Label({ children }: { children: string }) {
 function MiniSection({ section: s }: { section: Section }) {
   let body: React.ReactNode;
   if (s.type === "fields" || s.type === "metrics" || s.type === "categories") {
-    const items = s.type === "fields" ? s.fields : s.items;
+    const items = s.type === "fields" ? s.fields.map(fieldLabel) : s.items;
     body = (
       <div className="grid grid-cols-3 gap-x-3 gap-y-1.75">
         {items.slice(0, 9).map((f) => (

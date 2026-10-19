@@ -1,5 +1,5 @@
 {
-  "$comment": "Sections of the 31 document templates, for the template engine (TEMPLATE_ENGINE.md). Extracted from design/prototypes/CDWorkspace.html (TEMPLATE_SCHEMAS); figma frame IDs from templates.manifest.json.",
+  "$comment": "Sections of the 31 document templates, for the template engine (TEMPLATE_ENGINE.md). Extracted from design/prototypes/CDWorkspace.html (TEMPLATE_SCHEMAS); figma frame IDs from templates.manifest.json. A field is a label (plain text) or { label, kind } for a real control: choice (with options), dateTimeRange, yesNo (with a note placeholder), phone, email. A letter's `fills` map its [placeholders] to the fields that fill them.",
   "version": 1,
   "templates": [
     {
@@ -550,28 +550,35 @@
       "actions": [
         "Print"
       ],
-      "version": "v1.0",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
           "title": "Notice Metadata",
           "fields": [
             "Production Company",
-            "Title / Type of Production",
+            "Title",
+            { "label": "Type of Production", "kind": "choice", "options": ["Feature film", "Short film", "Series", "Commercial", "Music video", "Documentary", "Social content", "Other"] },
             "Location",
-            "Dates / Times",
-            "Parking Restrictions",
-            "Intermittent Traffic Control",
+            { "label": "Dates / Times", "kind": "dateTimeRange" },
+            { "label": "Parking Restrictions", "kind": "yesNo", "placeholder": "Where and when, e.g. no parking on Observatory Rd 4 AM to midnight" },
+            { "label": "Intermittent Traffic Control", "kind": "yesNo", "placeholder": "Where, e.g. flaggers on Vermont Ave" },
             "Location Manager",
-            "Phone Contact",
-            "Email Contact",
+            { "label": "Phone Contact", "kind": "phone" },
+            { "label": "Email Contact", "kind": "email" },
             "Film Permit Office"
           ]
         },
         {
           "type": "letter",
           "title": "Notice Body",
-          "default": "Dear Business Owners & Residents,\n\n[Production Company Name] will be filming scenes for the upcoming production \"[Production Title]\" in your neighbourhood on [Dates]. We appreciate your cooperation and support during this process.\n\nIf you have any questions, please contact our Location Manager at the details above.\n\nThank you,\n[Location Manager]"
+          "default": "Dear Business Owners & Residents,\n\n[Production Company Name] will be filming scenes for the upcoming production \"[Production Title]\" in your neighbourhood on [Dates]. We appreciate your cooperation and support during this process.\n\nIf you have any questions, please contact our Location Manager at the details above.\n\nThank you,\n[Location Manager]",
+          "fills": {
+            "[Production Company Name]": "Production Company",
+            "[Production Title]": "Title",
+            "[Dates]": "Dates / Times",
+            "[Location Manager]": "Location Manager"
+          }
         }
       ],
       "figma": {

@@ -1,5 +1,5 @@
 import type { TemplateSchema } from '../types';
-import type { FieldsValue, SectionValue } from './sections';
+import { fieldLabel, formatField, resolveDocument, type FieldsValue, type SectionValue } from './sections';
 
 /*
  * Downloads besides PDF (Ika, 2026-10-19): Markdown, Word and plain text, built from the same
@@ -10,12 +10,14 @@ type Block = { title: string } & ({ kind: 'fields'; rows: [string, string][] } |
 
 const EMPTY = '—';
 
+// Answers as words (dates and yes/no read naturally) and letters with their placeholders filled.
 function blocks(schema: TemplateSchema, data: SectionValue[]): Block[] {
+  const shown = resolveDocument(schema, data);
   return schema.sections.map((section, i) => {
-    const value = data[i];
+    const value = shown[i];
     if (section.type === 'fields') {
       const fields = (value ?? {}) as FieldsValue;
-      return { title: section.title, kind: 'fields', rows: section.fields.map((f) => [f, fields[f]?.trim() || EMPTY]) };
+      return { title: section.title, kind: 'fields', rows: section.fields.map((f) => [fieldLabel(f), formatField(f, fields[fieldLabel(f)]) || EMPTY]) };
     }
     return { title: section.title, kind: 'text', text: typeof value === 'string' && value.trim() ? value.trim() : EMPTY };
   });

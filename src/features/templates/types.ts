@@ -50,13 +50,17 @@ export interface Manifest {
 export type SectionType = 'fields' | 'table' | 'text' | 'letter' | 'categories' | 'frames' | 'checklist' | 'cards' | 'budget' | 'metrics';
 
 interface SectionBase { type: SectionType; title: string; optional?: boolean; hint?: string }
-export interface FieldsSection extends SectionBase { type: 'fields'; fields: string[] }
+/** A field's control (T5): plain text unless it has a shape, so it can be picked rather than typed. */
+export type FieldKind = 'text' | 'choice' | 'dateTimeRange' | 'yesNo' | 'phone' | 'email';
+export type FieldSpec = string | { label: string; kind: FieldKind; options?: string[]; placeholder?: string };
+export interface FieldsSection extends SectionBase { type: 'fields'; fields: FieldSpec[] }
 export interface TableSection extends SectionBase {
   type: 'table'; columns: string[]; rows: number; empty?: string; autonumber?: string; tall?: boolean;
   computed?: Record<string, [string, string]>; money?: string[]; checkbox?: string[]; total?: { column: string; label: string };
 }
 export interface TextSection extends SectionBase { type: 'text'; placeholder: string }
-export interface LetterSection extends SectionBase { type: 'letter'; default: string }
+/** `fills`: [placeholder] → the field label whose answer replaces it. */
+export interface LetterSection extends SectionBase { type: 'letter'; default: string; fills?: Record<string, string> }
 export interface CategoriesSection extends SectionBase { type: 'categories'; items: string[] }
 export interface FramesSection extends SectionBase { type: 'frames'; count: number; aspect: string; placeholder: string }
 export interface ChecklistSection extends SectionBase { type: 'checklist'; groups: { label: string; items: string[] }[] }
