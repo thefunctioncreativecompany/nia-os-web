@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { Wordmark } from "@/components/nia/wordmark";
 import { HERO_IMAGES, type HeroImage, type HeroScreen } from "@/components/auth/hero-images";
 
 // Shared shell for every auth and onboarding screen: the screen's hero photo on the
@@ -23,7 +24,7 @@ export function AuthLayout({ hero, children }: { hero: HeroScreen; children: Rea
             className="object-cover"
           />
           <div aria-hidden className="absolute inset-0 bg-black/15" />
-          <p className="relative font-wordmark text-wordmark font-bold text-white">NIA</p>
+          <Wordmark tone="light" className="relative self-start" />
           {image.caption ? (
             <p className="relative text-sm leading-normal text-white opacity-90">{image.caption}</p>
           ) : (

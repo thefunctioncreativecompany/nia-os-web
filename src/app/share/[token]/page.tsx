@@ -9,6 +9,7 @@ import { formatDay } from "@/lib/dates";
 import { PRODUCTION_INFO } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/server";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Wordmark } from "@/components/nia/wordmark";
 
 // One lookup per request, shared by the link preview and the page.
 const getShared = cache(async (token: string) => {
@@ -18,19 +19,24 @@ const getShared = cache(async (token: string) => {
 });
 
 // Link previews (WhatsApp, iMessage, Slack, email): the project's title, summary and
-// cover. The page itself stays out of search engines.
+// cover (or the NIA card). The page itself stays out of search engines.
 export async function generateMetadata({ params }: PageProps<"/share/[token]">): Promise<Metadata> {
   const { token } = await params;
   const data = await getShared(token);
   if (!data) return { title: "Shared project · Nia OS", robots: { index: false, follow: false } };
   const description = data.description.trim() || `A ${data.production_type ?? "production"} shared from Nia OS.`;
-  const images = data.cover_url ? [{ url: data.cover_url, width: 1600, height: 842, alt: data.title }] : undefined;
+  // No cover yet: the NIA wordmark card stands in.
+  const images = [
+    data.cover_url
+      ? { url: data.cover_url, width: 1600, height: 842, alt: data.title }
+      : { url: "/brand/share-preview.png", width: 1200, height: 630, alt: "Nia OS" },
+  ];
   return {
     title: data.title,
     description,
     robots: { index: false, follow: false },
     openGraph: { title: data.title, description, siteName: "Nia OS", type: "website", images },
-    twitter: { card: images ? "summary_large_image" : "summary", title: data.title, description, images },
+    twitter: { card: "summary_large_image", title: data.title, description, images },
   };
 }
 
@@ -40,8 +46,8 @@ export default function Page({ params }: PageProps<"/share/[token]">) {
   return (
     <div className="flex min-h-svh flex-col bg-background">
       <header className="border-b border-border px-4 py-6 md:px-15">
-        <Link href="/" className="font-wordmark text-wordmark font-bold text-foreground">
-          NIA
+        <Link href="/" className="inline-flex rounded-sm">
+          <Wordmark />
         </Link>
       </header>
       <main className="mx-auto flex w-full max-w-[860px] flex-1 flex-col px-4 py-10 md:py-15">

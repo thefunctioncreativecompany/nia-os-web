@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { Wordmark } from "@/components/nia/wordmark";
+
 
 export const metadata: Metadata = {
   title: "Privacy Policy · Nia OS",
@@ -12,11 +14,8 @@ export default function Page() {
   return (
     <div className="flex min-h-svh w-full flex-col bg-background text-foreground">
       <header className="border-b border-nia-line px-4 py-6 md:px-15">
-        <Link
-          href="/"
-          className="font-wordmark text-wordmark font-bold"
-        >
-          NIA
+        <Link href="/" className="inline-flex rounded-sm">
+          <Wordmark />
         </Link>
       </header>
 

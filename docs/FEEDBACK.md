@@ -19,8 +19,8 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 | 2 | Favicon: Nia logo | ✅ | Logo saved in `design/brand/nia-logo.png` |
 | 3 | Date picker on every date field, from the component library | ✅ | Project Production Info "Date" (the only date field today); new date fields must use `EditableDate` / `DateField` |
 | 4 | Crop/adjust project cover and profile photo | ✅ | Shared `PhotoEditor` (round for photos, 19:10 for covers): new project, project page (Change cover + Adjust), Settings profile photo, onboarding |
-| 5 | Shared links show the project cover as the preview image and the project title as the link title | ✅ | Projects without a cover show title + summary only; add a branded fallback image once the wordmark files are in `design/brand/` |
-| 5b | New NIA wordmark as the main logo on the onboarding screens (and the share-link fallback image) | ⏸ | Needs the black and white wordmark files saved to `design/brand/` |
+| 5 | Shared links show the project cover as the preview image and the project title as the link title | ✅ | Projects without a cover show the NIA card (`public/brand/share-preview.png`) |
+| 5b | New NIA wordmark as the main logo on the onboarding screens (and the share-link fallback image) | ✅ | `<Wordmark>` (`src/components/nia/wordmark.tsx`) on sign-in/onboarding heroes, share page and privacy page; originals in `design/brand/`. The round mark (`nia-mark-white-source.svg`) is saved, not used yet |
 | 6 | Onboarding: profession list (scrollable, common roles first, then grouped by sector) | ⬜ | Draft in Claude Design first |
 | 7 | Onboarding: "How will you use Nia?" primary use case step | ⬜ | Draft in Claude Design first |
 | 8 | Collaborators end to end: invite by email or in-app (accept once), "Shared with you" on Projects, contributions, live updates and notifications | ⬜ | Needs invitation emails (Resend) and a notifications table |
