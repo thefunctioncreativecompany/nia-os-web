@@ -88,6 +88,9 @@ Data:
 - Anything reading the Supabase session must `await connection()` first (Supabase reads `Date.now()`),
   inside a `<Suspense>` boundary.
 - If the dev server serves stale CSS or route types, stop it, `rm -rf .next`, and restart.
+- Auth emails send through Resend (custom SMTP in Supabase → Authentication → Emails, sender
+  `no-reply@niatechnologies.co`, API key `nia-os-supabase-auth`). Templates live in
+  `supabase/email-templates/`; paste changes into Supabase (Source view), never the SQL Editor.
 - Always import `cn` from `@/lib/utils` (it knows the named text sizes). After `npx shadcn add`,
   change the new file's `import { cn } from "cn"` to `@/lib/utils`.
 - Install shadcn components with `yes n | npx shadcn@latest add <name>` so it never overwrites the
