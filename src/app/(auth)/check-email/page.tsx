@@ -10,6 +10,7 @@ import {
   ResendEmailButton,
   type EmailLinkType,
 } from "@/components/auth/resend-email-button";
+import { VerifyCodeForm } from "@/components/auth/verify-code-form";
 
 export const metadata: Metadata = {
   title: "Check your email · Nia OS",
@@ -56,13 +57,13 @@ function CheckEmail({ email, type }: { email: string | null; type: EmailLinkType
         <p className="text-sm leading-normal break-words text-nia-ink-muted">
           {type === "signup" ? (
             <>
-              We&apos;ve sent a confirmation link to {sentTo}. Open it to
-              activate your account.
+              We&apos;ve sent a confirmation link and code to {sentTo}. Open the
+              link, or enter the code below.
             </>
           ) : (
             <>
-              We&apos;ve sent a password reset link to {sentTo}. Check your inbox
-              and follow the instructions.
+              We&apos;ve sent a password reset link and code to {sentTo}. Open the
+              link, or enter the code below.
             </>
           )}
         </p>
@@ -72,6 +73,8 @@ function CheckEmail({ email, type }: { email: string | null; type: EmailLinkType
       <Suspense fallback={<OpenEmailButton href={null} />}>
         <OpenInbox email={email} />
       </Suspense>
+
+      {email && <VerifyCodeForm email={email} type={type} />}
 
       <div className="flex w-full flex-col items-center gap-4 text-small text-nia-ink-muted">
         <p>
