@@ -69,3 +69,27 @@ export function relatedTemplates(t: TemplateEntry, catalog: TemplateEntry[]): Te
   const by = new Map(catalog.map(x => [x.code, x] as const));
   return t.related.map(c => by.get(c)).filter((x): x is TemplateEntry => !!x);
 }
+
+/**
+ * Suggestions people can act on (Ika, 2026-10-19): only templates that work in the editor. The
+ * ones viewed or used most recently come first, then the suggestions, then any other that works.
+ */
+export function workingSuggestions<T extends SuggestableTemplate & { ready?: boolean }>(catalog: T[], profile: UserTemplateProfile, limit = 6, now = Date.now()): Suggestion<T>[] {
+  const working = catalog.filter((t) => t.ready === true && t.status !== 'gap');
+  const by = new Map(working.map((t) => [t.code, t] as const));
+  const lastSeen = new Map<string, { at: number; used: boolean }>();
+  for (const e of profile.events) {
+    if (!by.has(e.code) || (e.type !== 'view' && e.type !== 'use')) continue;
+    const prev = lastSeen.get(e.code);
+    if (!prev || e.at > prev.at) lastSeen.set(e.code, { at: e.at, used: e.type === 'use' || !!prev?.used });
+    else if (e.type === 'use') prev.used = true;
+  }
+  const recent: Suggestion<T>[] = [...lastSeen]
+    .sort((a, b) => b[1].at - a[1].at)
+    .map(([code, seen]) => ({ template: by.get(code)!, score: 0, why: seen.used ? 'You used this recently' : 'You viewed this recently' }));
+  const suggested = suggestTemplates(working, profile, working.length, now);
+  const rest: Suggestion<T>[] = working.map((t) => ({ template: t, score: 0, why: 'Ready to use' }));
+  const out: Suggestion<T>[] = [];
+  for (const s of [...recent, ...suggested, ...rest]) if (!out.some((o) => o.template.code === s.template.code)) out.push(s);
+  return out.slice(0, limit);
+}

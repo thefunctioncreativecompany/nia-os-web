@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 // The full manifest stays on the server; the page gets only what its cards need.
 export default function Page() {
-  const editable = catalog.filter((t) => t.status === "live" && canEdit(getSchema(t.code))).map((t) => t.code);
-  return <TemplatesPage templates={catalog.map(toGallery)} groups={manifest.groups} familyLabels={manifest.familyLabels} editable={editable} />;
+  // `ready`: opens in the editor today; the rest show greyed out as "Coming soon".
+  const templates = catalog.map((t) => ({ ...toGallery(t), ready: t.status === "live" && canEdit(getSchema(t.code)) }));
+  return <TemplatesPage templates={templates} groups={manifest.groups} familyLabels={manifest.familyLabels} />;
 }

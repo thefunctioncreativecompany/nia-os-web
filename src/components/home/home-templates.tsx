@@ -8,33 +8,26 @@ import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { PreviewModal } from "@/features/templates/components/preview-modal";
-import type { GalleryTemplate } from "@/features/templates/gallery";
-import { suggestTemplates } from "@/features/templates/recommend";
+import { works, type GalleryTemplate } from "@/features/templates/gallery";
+import { workingSuggestions } from "@/features/templates/recommend";
 import { useHoverIntent } from "@/features/templates/use-hover-intent";
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
 
 const SHOWN = 8;
-// Before anything is learned: the everyday production paperwork.
-const STARTERS = ["D01", "D13", "D07", "D24", "D08", "D14", "D05", "D03"];
 
 // "Start from a template" on Home (H4, Ika 2026-10-19): cards the width of the project cards,
-// icon beside the name with the stage under it. Recently viewed first, then Suggested for you.
+// icon beside the name with the stage under it. Only templates that work in the editor, recently
+// viewed first, then Suggested for you.
 // Pointing at one (0.8s) or tapping it opens the preview here on Home, and closing it stays on
 // Home; only "Use this template" leaves, into the editor.
-export function HomeTemplates({ templates, editable }: { templates: GalleryTemplate[]; editable: string[] }) {
+export function HomeTemplates({ templates }: { templates: GalleryTemplate[] }) {
   const router = useRouter();
   const learning = useTemplateProfile();
   const [open, setOpen] = useState<GalleryTemplate | null>(null);
   const quietUntil = useRef(0);
 
-  const byCode = new Map(templates.map((t) => [t.code, t]));
-  const recent = learning.profile.events
-    .filter((e) => e.type === "view" || e.type === "use")
-    .sort((a, b) => b.at - a.at)
-    .map((e) => e.code);
-  const suggested = learning.ready ? suggestTemplates(templates, learning.profile).map((s) => s.template.code) : [];
-  const order = [...new Set([...recent, ...suggested, ...STARTERS])];
-  const shown = order.map((code) => byCode.get(code)).filter((t): t is GalleryTemplate => !!t && t.status !== "gap").slice(0, SHOWN);
+  // Only templates that work (Ika, 2026-10-19): recently viewed first, then suggested, then the rest.
+  const shown = learning.ready ? workingSuggestions(templates, learning.profile, SHOWN).map((s) => s.template) : [];
 
   // Every template shown in the preview counts as a view, as on the Templates page.
   const openCode = open?.code;
@@ -55,7 +48,7 @@ export function HomeTemplates({ templates, editable }: { templates: GalleryTempl
   };
   const use = (t: GalleryTemplate) => {
     learning.record(t.code, "use");
-    if (editable.includes(t.code)) return router.push(`/templates/${t.code}`);
+    if (works(t)) return router.push(`/templates/${t.code}`);
     close();
     toast(t.kind === "workflow" ? "The project launcher comes in a later build step." : `${t.name} opens in the document editor, which is coming soon.`);
   };

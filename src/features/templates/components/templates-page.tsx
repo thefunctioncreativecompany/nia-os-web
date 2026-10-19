@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { rankTemplates } from "@/features/templates/search";
-import { FILTERS, inFilter, type Filter, type GalleryTemplate } from "@/features/templates/gallery";
+import { FILTERS, inFilter, works, type Filter, type GalleryTemplate } from "@/features/templates/gallery";
 import { CompactTile } from "@/features/templates/components/compact-tile";
 import { TemplateCard } from "@/features/templates/components/template-card";
 import { TemplateSearch } from "@/features/templates/components/template-search";
@@ -25,7 +25,7 @@ const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1
 // (it learns from what is opened, used and searched here). Every screen then lists all
 // templates by category. Compact and Index views were retired (Ika) and live on in the
 // component library. The pop-up lives in the address (?preview=D01), so Back closes it.
-export function TemplatesPage({ templates, groups, familyLabels, editable }: { templates: GalleryTemplate[]; groups: string[]; familyLabels: Record<string, string>; editable: string[] }) {
+export function TemplatesPage({ templates, groups, familyLabels }: { templates: GalleryTemplate[]; groups: string[]; familyLabels: Record<string, string> }) {
   const router = useRouter();
   const [filter, setFilter] = useState<Filter>("All");
   const [query, setQuery] = useState("");
@@ -34,10 +34,10 @@ export function TemplatesPage({ templates, groups, familyLabels, editable }: { t
   const learning = useTemplateProfile();
 
   // Using a template: documents whose sections the editor can show open in it (build step 7,
-  // `editable`); the launcher (workflows) and the other documents come in later steps.
+  // `ready`); the launcher (workflows) and the other documents come in later steps.
   const use = (t: GalleryTemplate) => {
     if (t.status === "live") learning.record(t.code, "use");
-    if (editable.includes(t.code)) return router.push(`/templates/${t.code}`);
+    if (t.ready) return router.push(`/templates/${t.code}`);
     toast(t.kind === "workflow" ? "The project launcher comes in a later build step." : `${t.name} opens in the document editor, which is coming soon.`);
   };
 
@@ -76,7 +76,8 @@ export function TemplatesPage({ templates, groups, familyLabels, editable }: { t
   };
 
   const visible = templates.filter((t) => inFilter(t, filter));
-  const featured = visible.filter((t) => t.status !== "gap");
+  // Templates that work lead the featured row; the greyed "Coming soon" ones follow.
+  const featured = visible.filter((t) => t.status !== "gap").sort((a, b) => Number(works(b)) - Number(works(a)));
   const results = committed ? rankTemplates(committed, templates, familyLabels).filter((r) => inFilter(r.template, filter)) : null;
   const nudge = (direction: 1 | -1) => {
     const el = row.current;

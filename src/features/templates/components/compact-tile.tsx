@@ -1,14 +1,14 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { COMING_SOON, type GalleryTemplate } from "@/features/templates/gallery";
+import { COMING_SOON, works, type GalleryTemplate } from "@/features/templates/gallery";
 import { useHoverIntent } from "@/features/templates/use-hover-intent";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 
 // A small white tile for the Compact view and search results: name and stage on the left,
 // the template's icon on the right. Click, or rest the mouse on it, to preview.
 export function CompactTile({ template, onPreview }: { template: GalleryTemplate; onPreview: (template: GalleryTemplate, viaHover?: boolean) => void }) {
-  const open = template.status !== "gap";
+  const open = works(template);
   const hover = useHoverIntent(() => onPreview(template, true));
   return (
     <button

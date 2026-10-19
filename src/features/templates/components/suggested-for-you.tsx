@@ -8,7 +8,7 @@ import { Card } from "@/components/arc/card/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
-import { suggestTemplates } from "@/features/templates/recommend";
+import { workingSuggestions } from "@/features/templates/recommend";
 import type { GalleryTemplate } from "@/features/templates/gallery";
 import type { UserTemplateProfile } from "@/features/templates/types";
 import { useHoverIntent } from "@/features/templates/use-hover-intent";
@@ -40,7 +40,7 @@ export function SuggestedForYou({
   // Someone's onboarding profession may not be one of the template roles yet; keep it choosable.
   if (profile.role && !roles.includes(profile.role)) roles.unshift(profile.role);
   // Worked out in the browser once the person's history has loaded (it reads the clock).
-  const suggestions = ready ? suggestTemplates(templates, profile) : [];
+  const suggestions = ready ? workingSuggestions(templates, profile) : [];
   const list = suggestions.map((s) => s.template);
   const learned = profile.events.length > 0;
 

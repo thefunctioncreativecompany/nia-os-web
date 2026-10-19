@@ -1,14 +1,14 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { COMING_SOON, type GalleryTemplate } from "@/features/templates/gallery";
+import { COMING_SOON, works, type GalleryTemplate } from "@/features/templates/gallery";
 import { useHoverIntent } from "@/features/templates/use-hover-intent";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 
 // The Index view's item, product-index style: a large black icon on white with the
 // template's name under it (Ika: names, not product codes).
 export function IndexItem({ template, onPreview }: { template: GalleryTemplate; onPreview: (template: GalleryTemplate, viaHover?: boolean) => void }) {
-  const open = template.status !== "gap";
+  const open = works(template);
   const hover = useHoverIntent(() => onPreview(template, true));
   return (
     <button

@@ -41,3 +41,17 @@ describe('suggestions', () => {
     expect(suggestTemplates(catalog, { role: null, events: [] }, 6, now)).toHaveLength(6);
   });
 });
+
+describe('workingSuggestions', () => {
+  it('offers only templates that work, the most recently viewed first', async () => {
+    const { workingSuggestions } = await import('./recommend');
+    const all = (manifest as unknown as { templates: TemplateEntry[] }).templates.filter((t) => t.status === 'live');
+    const ready = new Set(['D07', 'D03', 'D06', 'D04', 'D08']);
+    const catalog = all.map((t) => ({ ...t, ready: ready.has(t.code) }));
+    const now = Date.now();
+    const out = workingSuggestions(catalog, { role: 'Producer', events: [{ code: 'D06', type: 'view', at: now - 1000 }, { code: 'D04', type: 'view', at: now - 100 }, { code: 'D01', type: 'view', at: now }] }, 6, now);
+    expect(out.every((s) => ready.has(s.template.code))).toBe(true);
+    expect(out[0].template.code).toBe('D04');
+    expect(out[1].template.code).toBe('D06');
+  });
+});

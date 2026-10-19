@@ -5,8 +5,8 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
-import { suggestTemplates } from "@/features/templates/recommend";
-import { COMING_SOON, type GalleryTemplate } from "@/features/templates/gallery";
+import { workingSuggestions } from "@/features/templates/recommend";
+import { COMING_SOON, works, type GalleryTemplate } from "@/features/templates/gallery";
 import type { UserTemplateProfile } from "@/features/templates/types";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { TemplateCard } from "@/features/templates/components/template-card";
@@ -33,7 +33,7 @@ export function SuggestedRow({
   onUse: (template: GalleryTemplate) => void;
 }) {
   // Worked out once the person's history has loaded (it reads the clock).
-  const suggested = ready ? suggestTemplates(templates, profile).map((s) => s.template) : [];
+  const suggested = ready ? workingSuggestions(templates, profile).map((s) => s.template) : [];
   return (
     <section aria-labelledby="m-suggested" className="pt-7">
       <h2 id="m-suggested" className="mb-3 px-4 text-lg font-extrabold text-foreground">Suggested for you</h2>
@@ -53,7 +53,8 @@ export function SuggestedRow({
 export function CategoryRows({ templates, groups, onPreview }: { templates: GalleryTemplate[]; groups: string[]; onPreview: Preview }) {
   const [open, setOpen] = useState<string[]>([]);
   const rows = [...groups, COMING_SOON]
-    .map((group) => ({ group, items: templates.filter((t) => (group === COMING_SOON ? t.status === "gap" : t.status !== "gap" && t.group === group)) }))
+    // Within a category, the ones that work come first.
+    .map((group) => ({ group, items: templates.filter((t) => (group === COMING_SOON ? t.status === "gap" : t.status !== "gap" && t.group === group)).sort((a, b) => Number(works(b)) - Number(works(a))) }))
     .filter((r) => r.items.length);
 
   if (!rows.length) return <p className="px-4 pt-7 text-sm text-muted-foreground md:px-11">No templates here yet.</p>;
@@ -101,7 +102,7 @@ export function CategoryRows({ templates, groups, onPreview }: { templates: Gall
 }
 
 function SquareCard({ template: t, inRow, onPreview }: { template: GalleryTemplate; inRow: boolean; onPreview: () => void }) {
-  const open = t.status !== "gap";
+  const open = works(t);
   return (
     <button
       type="button"

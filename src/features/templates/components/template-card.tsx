@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { WORKFLOWS } from "@/lib/template-workflows";
-import { COMING_SOON, type GalleryTemplate } from "@/features/templates/gallery";
+import { COMING_SOON, works, type GalleryTemplate } from "@/features/templates/gallery";
 import { useHoverIntent } from "@/features/templates/use-hover-intent";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { MiniMap } from "@/features/templates/components/mini-map";
@@ -29,7 +29,7 @@ export function TemplateCard({
   badge?: string;
   className?: string;
 }) {
-  const open = template.status !== "gap";
+  const open = works(template);
   const small = size === "small";
   const workflow = template.kind === "workflow" && !small ? WORKFLOWS[template.slug] : undefined;
   const hover = useHoverIntent(() => onPreview(template, true));

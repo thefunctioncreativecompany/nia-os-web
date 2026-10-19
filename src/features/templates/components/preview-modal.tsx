@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 import { loadTemplatePreview, type TemplatePreview } from "@/features/templates/actions";
-import { COMING_SOON, type GalleryTemplate } from "@/features/templates/gallery";
+import { COMING_SOON, works, type GalleryTemplate } from "@/features/templates/gallery";
 import { DocMiniature } from "@/features/templates/components/doc-miniature";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 
@@ -38,7 +38,7 @@ export function PreviewModal({
   const index = list.findIndex((x) => x.code === t.code);
   const prev = index > 0 ? list[index - 1] : null;
   const next = index >= 0 && index < list.length - 1 ? list[index + 1] : null;
-  const open = t.status !== "gap";
+  const open = works(t);
   const preview = loaded?.code === t.code ? loaded.data : undefined;
   const workflow = t.kind === "workflow" ? WORKFLOWS[t.slug] : undefined;
 
@@ -180,14 +180,14 @@ export function PreviewModal({
                           aria-label={`Preview ${r.name}`}
                           className="group rounded-xl text-left outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
                         >
-                          <span className={cn("flex h-37.5 items-center justify-center rounded-xl border border-border bg-secondary/60 transition-colors duration-fast group-hover:border-ring", r.status === "gap" && "opacity-50")}>
+                          <span className={cn("flex h-37.5 items-center justify-center rounded-xl border border-border bg-secondary/60 transition-colors duration-fast group-hover:border-ring", !works(r) && "opacity-50")}>
                             <FlatIcon name={r.icon} size="md" className="size-16" />
                           </span>
                           <span className="mt-2.5 flex items-baseline justify-between gap-2">
                             <span className="text-lead font-semibold text-foreground">{r.name}</span>
                             <span className="text-meta text-muted-foreground">{r.sku}</span>
                           </span>
-                          <span className="mt-0.5 block text-small text-muted-foreground">{r.status === "gap" ? COMING_SOON : `Nia · ${r.stage}`}</span>
+                          <span className="mt-0.5 block text-small text-muted-foreground">{works(r) ? `Nia · ${r.stage}` : COMING_SOON}</span>
                         </button>
                       ))}
                     </div>

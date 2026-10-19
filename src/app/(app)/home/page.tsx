@@ -20,10 +20,9 @@ export const metadata: Metadata = {
   title: "Home · Nia OS",
 };
 
-// "Start from a template" (H4): the live catalogue, ordered in the browser by what the person
-// viewed and what's suggested for them; `EDITABLE` open in the editor.
-const TEMPLATES = catalog.filter((t) => t.status === "live").map(toGallery);
-const EDITABLE = TEMPLATES.filter((t) => canEdit(getSchema(t.code))).map((t) => t.code);
+// "Start from a template" (H4): the live catalogue with `ready` for the ones that open in the
+// editor; the row offers only those, ordered in the browser by what the person viewed last.
+const TEMPLATES = catalog.filter((t) => t.status === "live").map((t) => ({ ...toGallery(t), ready: canEdit(getSchema(t.code)) }));
 
 // Home (Figma 872:42636 empty, 872:42800 active), without the old stat cards.
 export default function Page() {
@@ -36,7 +35,7 @@ export default function Page() {
         <p className="text-lead text-muted-foreground">What would you like to create today?</p>
       </header>
 
-      <HomeTemplates templates={TEMPLATES} editable={EDITABLE} />
+      <HomeTemplates templates={TEMPLATES} />
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         <h2 id="recent-projects" className="text-xl leading-[1.4] font-bold text-foreground">

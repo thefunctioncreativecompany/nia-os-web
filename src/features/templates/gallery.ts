@@ -64,7 +64,13 @@ import type { Stage, TemplateEntry } from "./types";
 export type GalleryTemplate = Pick<
   TemplateEntry,
   "code" | "sku" | "slug" | "name" | "kind" | "family" | "stage" | "status" | "icon" | "preview" | "keywords" | "icps" | "object" | "group" | "tags" | "related"
->;
+> & {
+  /** Opens in the editor today (set on the server). Others are greyed out as "Coming soon". */
+  ready?: boolean;
+};
+
+/** Whether "Use this template" works for it yet (Ika, 2026-10-19: grey out the rest). */
+export const works = (t: Pick<GalleryTemplate, "ready">) => t.ready === true;
 
 export const toGallery = ({ code, sku, slug, name, kind, family, stage, status, icon, preview, keywords, icps, object, group, tags, related }: TemplateEntry): GalleryTemplate => ({
   code, sku, slug, name, kind, family, stage, status, icon, preview, keywords, icps, object, group, tags, related,
