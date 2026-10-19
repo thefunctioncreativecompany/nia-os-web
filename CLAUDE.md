@@ -69,6 +69,13 @@ Data:
   rest are picks from her set, to be confirmed.
 - Gold marks the active navbar tab (light tint) and the active Settings tab (underline).
 - The bare domain sends signed-out visitors to `/login` and signed-in ones into the app.
+- (2026-10-19) Fonts: Geist only. No serif (Instrument Serif) and no all-caps monospace labels in new
+  work; sentence case. Sweep of older screens is fix F1 in docs/FEEDBACK.md.
+- (2026-10-19) Templates: one view (phones lead with suggested templates, then category rows of square
+  grain-gradient cards); Compact and Index retired to the component library (section 31). Gradients
+  `--grain-1…12` are sampled from grainient.supply freebies and rebuilt in CSS.
+- (2026-10-19) Phones and tablets: magnifying dock for navigation; top bar = round + and a search field
+  with a silver-gradient rim.
 
 ## Working notes
 
@@ -166,7 +173,11 @@ these before 0.5)
 - Tested with two accounts: 32 database checks (access, sharing, roles, link, invites, storage, soft
   delete) and a browser run of create → edit → refresh → share → link → viewer → delete.
 
-Milestone 3 — Documents: not started.
+Milestone 3 — Documents
+- [ ] 3.1 Template gallery. Built from TEMPLATES_BUILD.md steps 1–6: 63 templates, search with suggestions,
+  filters, preview pop-up (`?preview=` link), Suggested for you (learns from `template_events`). Next: step 7,
+  the template engine (TEMPLATE_ENGINE.md §8, start with Filming Notice, Figma 840:29449). Fix list and
+  open items: docs/FEEDBACK.md.
 
 Milestone 4 — Shoot day: not started.
 
@@ -180,4 +191,4 @@ Milestone 6 — Share & launch
 
 Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261019000000_onboarding.sql`, `20261019010000_avatar_cleanup.sql`, `20261020000000_projects.sql`,
-`20261021000000_templates.sql`.
+`20261021000000_templates.sql`. Not yet run: `20261021010000_documents_soft_delete.sql`.
