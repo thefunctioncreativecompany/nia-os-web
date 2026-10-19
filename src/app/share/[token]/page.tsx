@@ -91,6 +91,10 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
   const { token } = await params;
   const data = await getShared(token);
   if (!data) notFound();
+  // Signed-in visitors find it again under Shared with you (audit #11). Does nothing when
+  // signed out.
+  const supabase = await createClient();
+  await supabase.rpc("remember_shared_link", { token });
 
   return (
     <article className="flex flex-col gap-9">

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 
-import { listProjects } from "@/lib/projects-data";
+import { listLinkSharedProjects, listProjects } from "@/lib/projects-data";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
@@ -27,12 +27,13 @@ export default function Page({ searchParams }: PageProps<"/projects">) {
 async function Projects({ searchParams }: Pick<PageProps<"/projects">, "searchParams">) {
   const { q } = await searchParams;
   const query = typeof q === "string" ? q : "";
-  const { projects: all, now, userId } = await listProjects(query);
+  const [{ projects: all, now, userId }, linkedAll] = await Promise.all([listProjects(query), listLinkSharedProjects()]);
+  const linked = query ? linkedAll.filter((p) => p.title.toLowerCase().includes(query.toLowerCase())) : linkedAll;
   // My Projects are the ones this person owns; the rest were shared with them.
   const projects = all.filter((p) => p.ownerId === userId);
   const shared = all.filter((p) => p.ownerId !== userId);
 
-  if (!query && all.length === 0) {
+  if (!query && all.length === 0 && linked.length === 0) {
     // Figma "Screen 1 - Empty State".
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-6 py-15 text-center">
@@ -66,7 +67,7 @@ async function Projects({ searchParams }: Pick<PageProps<"/projects">, "searchPa
         )}
       </div>
       <ProjectGrid projects={projects} now={now} />
-      {shared.length > 0 && <SharedProjects projects={shared} now={now} />}
+      {(shared.length > 0 || linked.length > 0) && <SharedProjects projects={shared} linked={linked} now={now} />}
     </div>
   );
 }

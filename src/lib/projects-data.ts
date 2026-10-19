@@ -110,6 +110,23 @@ export async function countProjectPeople(projectId: string) {
   return (data ?? []).filter((person: { kind: string }) => person.kind !== "invite").length;
 }
 
+/** Projects this person opened through a view-only link that's still on (audit #11). */
+export async function listLinkSharedProjects() {
+  const { supabase } = await requireUser();
+  const { data } = await supabase.rpc("my_link_shared_projects");
+  type Row = { id: string; title: string; description: string; cover_url: string | null; production_type: string | null; stage: string; share_token: string; owner_name: string };
+  return ((data ?? []) as Row[]).map((p) => ({
+    id: p.id,
+    title: p.title,
+    description: p.description,
+    coverUrl: p.cover_url,
+    productionType: p.production_type,
+    stage: p.stage,
+    token: p.share_token,
+    ownerName: p.owner_name,
+  }));
+}
+
 export type ProjectDocument = { id: string; templateCode: string; title: string; status: string; updatedAt: string; createdBy: string };
 
 /** Documents made from templates and saved to this project (build step 8). */
