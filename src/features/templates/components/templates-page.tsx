@@ -16,6 +16,7 @@ import { PreviewModal } from "@/features/templates/components/preview-modal";
 import { SuggestedForYou } from "@/features/templates/components/suggested-for-you";
 import { CategoryRows, SuggestedRow } from "@/features/templates/components/showcase-rows";
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
+import { MyDrafts } from "@/features/templates/components/my-drafts";
 
 const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1fr))] gap-3.5";
 
@@ -27,6 +28,7 @@ const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1
 // component library. The pop-up lives in the address (?preview=D01), so Back closes it.
 export function TemplatesPage({ templates, groups, familyLabels }: { templates: GalleryTemplate[]; groups: string[]; familyLabels: Record<string, string> }) {
   const router = useRouter();
+  const icons = Object.fromEntries(templates.map((t) => [t.code, t.icon]));
   const [filter, setFilter] = useState<Filter>("All");
   const [query, setQuery] = useState("");
   const [committed, setCommitted] = useState("");
@@ -157,6 +159,8 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
         </section>
       ) : (
         <>
+          {/* Documents you started and haven't put in a project (audit #3). */}
+          <MyDrafts icons={icons} />
           {/* Phones: the suggested templates lead (Apple Music style). */}
           <div className="md:hidden">
             <SuggestedRow

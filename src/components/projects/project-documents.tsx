@@ -3,12 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, FilePlus2, FileUp, FolderMinus, LayoutTemplate } from "lucide-react";
+import { ArrowLeft, FilePlus2, FileUp, FolderMinus, LayoutTemplate, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
 import type { ProjectDocument } from "@/lib/projects-data";
 import { timeAgo } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Dropzone } from "@/components/projects/project-files";
@@ -21,10 +22,14 @@ import { useTemplateProfile } from "@/features/templates/use-template-profile";
 
 const STATUS: Record<string, string> = { draft: "Draft", ready: "Ready to export", paid: "Paid" };
 
+/** Free plan (Ika, 2026-10-19): up to 5 documents a project, one of each template. Teams lifts both. */
+export const FREE_DOCUMENT_LIMIT = 5;
+
 // Documents saved to this project (build step 8): open one to keep working on it, remove it from
 // the project (it stays in its maker's drafts), or add a new one from a template, which is saved
 // here as soon as it's started.
-export function ProjectDocuments({ projectId, documents, icons, canEdit, now }: { projectId: string; documents: ProjectDocument[]; icons: Record<string, string>; canEdit: boolean; now: number }) {
+export function ProjectDocuments({ projectId, documents, icons, canEdit, isOwner, userId, now }: { projectId: string; documents: ProjectDocument[]; icons: Record<string, string>; canEdit: boolean; isOwner: boolean; userId: string; now: number }) {
+  const [confirming, setConfirming] = useState<string | null>(null);
   const router = useRouter();
   const [adding, setAdding] = useState(false);
   const [removed, setRemoved] = useState<string[]>([]);
@@ -41,11 +46,27 @@ export function ProjectDocuments({ projectId, documents, icons, canEdit, now }: 
     router.refresh();
   };
 
+  // Deleting: the person who made it, or the project owner (audit #3).
+  const destroy = async (doc: ProjectDocument) => {
+    setRemoved((r) => [...r, doc.id]);
+    setConfirming(null);
+    const { error } = await createClient().rpc("soft_delete_document", { doc_id: doc.id });
+    if (error) {
+      setRemoved((r) => r.filter((id) => id !== doc.id));
+      return void toast.error(`Couldn't delete ${doc.title}: ${error.message}`);
+    }
+    toast.success(`${doc.title} deleted`);
+    router.refresh();
+  };
+
   return (
     <section aria-labelledby="documents" className="flex flex-col gap-4">
       <div className="flex items-center justify-between gap-3">
-        <h2 id="documents" className="text-lg leading-[1.4] font-bold text-foreground">
+        <h2 id="documents" className="flex items-baseline gap-2 text-lg leading-[1.4] font-bold text-foreground">
           Documents
+          <span className="text-small font-semibold text-muted-foreground">
+            {list.length} of {FREE_DOCUMENT_LIMIT}
+          </span>
         </h2>
         {canEdit && (
           <Button variant="outline" size="compact" onClick={() => setAdding(true)}>
@@ -55,12 +76,13 @@ export function ProjectDocuments({ projectId, documents, icons, canEdit, now }: 
       </div>
       {list.length === 0 ? (
         <p className="text-small text-muted-foreground">
-          {canEdit ? "No documents yet. Add a call sheet, shotlist or any template, or save one here from Templates." : "No documents yet."}
+          {canEdit ? `No documents yet. Add up to ${FREE_DOCUMENT_LIMIT} from templates (one of each), like a call sheet or shotlist. Uploaded documents go to Files & references.` : "No documents yet."}
         </p>
       ) : (
         <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           {list.map((doc) => (
-            <li key={doc.id} className="group flex items-center gap-3 rounded-xl border border-border bg-white p-3 transition-colors duration-fast hover:border-ring">
+            <li key={doc.id} className="group flex flex-col gap-2 rounded-xl border border-border bg-white p-3 transition-colors duration-fast hover:border-ring">
+              <div className="flex items-center gap-3">
               <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-nia-panel">
                 <FlatIcon name={icons[doc.templateCode] ?? "file"} size="sm" className="size-5" />
               </span>
@@ -75,18 +97,39 @@ export function ProjectDocuments({ projectId, documents, icons, canEdit, now }: 
                   <FolderMinus />
                 </Button>
               )}
+              {(isOwner || doc.createdBy === userId) && (
+                <Button variant="ghost" size="icon-sm" aria-label={`Delete ${doc.title}`} onClick={() => setConfirming(doc.id)}>
+                  <Trash2 />
+                </Button>
+              )}
+              </div>
+              {confirming === doc.id && (
+                <div role="alert" className="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-destructive/8 p-2">
+                  <span className="text-small text-foreground">Delete for everyone on the project?</span>
+                  <span className="flex gap-2">
+                    <Button variant="ghost" size="compact" onClick={() => setConfirming(null)}>
+                      Keep
+                    </Button>
+                    <Button variant="destructive" size="compact" onClick={() => destroy(doc)}>
+                      Delete
+                    </Button>
+                  </span>
+                </div>
+              )}
             </li>
           ))}
         </ul>
       )}
-      <AddDocumentDialog projectId={projectId} open={adding} onOpenChange={setAdding} />
+      <AddDocumentDialog projectId={projectId} existing={list} open={adding} onOpenChange={setAdding} />
     </section>
   );
 }
 
 // "Add document" (Ika, 2026-10-19): first choose how, then upload documents from the computer
 // (saved to the project's files, tagged as briefs & paperwork) or start one from a template.
-function AddDocumentDialog({ projectId, open, onOpenChange }: { projectId: string; open: boolean; onOpenChange: (open: boolean) => void }) {
+function AddDocumentDialog({ projectId, existing, open, onOpenChange }: { projectId: string; existing: ProjectDocument[]; open: boolean; onOpenChange: (open: boolean) => void }) {
+  const full = existing.length >= FREE_DOCUMENT_LIMIT;
+  const have = new Map(existing.map((d) => [d.templateCode, d] as const));
   const router = useRouter();
   const learning = useTemplateProfile();
   const [step, setStep] = useState<"choose" | "upload" | "template">("choose");
@@ -132,12 +175,14 @@ function AddDocumentDialog({ projectId, open, onOpenChange }: { projectId: strin
               <span className="text-base font-bold">Upload from your computer</span>
               <span className="text-micro text-muted-foreground">Scripts, briefs, contracts, decks</span>
             </button>
-            <button type="button" onClick={() => setStep("template")} className={option}>
+            <button type="button" onClick={() => setStep("template")} disabled={full} className={cn(option, "disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-nia-surface")}>
               <span className="flex size-12 items-center justify-center rounded-full border border-border bg-white">
                 <LayoutTemplate aria-hidden className="size-6" />
               </span>
               <span className="text-base font-bold">Start from a template</span>
-              <span className="text-micro text-muted-foreground">Call sheets, shotlists, invoices and more</span>
+              <span className="text-micro text-muted-foreground">
+                {full ? `This project has ${FREE_DOCUMENT_LIMIT} documents, the most on the free plan` : "Call sheets, shotlists, invoices and more"}
+              </span>
             </button>
           </div>
         )}
@@ -158,7 +203,29 @@ function AddDocumentDialog({ projectId, open, onOpenChange }: { projectId: strin
         {step === "template" && (
           <ul className="flex max-h-[55svh] flex-col gap-2 overflow-y-auto">
             {!list && Array.from({ length: 4 }, (_, i) => <li key={i}><Skeleton className="h-14 rounded-xl" /></li>)}
-            {list?.map(({ template: t }) => (
+            {list?.map(({ template: t }) => {
+              const already = have.get(t.code);
+              // One of each template per project on the free plan: open the one it has.
+              if (already)
+                return (
+                  <li key={t.code}>
+                    <Link
+                      href={`/templates/${t.code}?doc=${already.id}`}
+                      onClick={() => close(false)}
+                      className="flex w-full items-center gap-3 rounded-xl border border-dashed border-border p-3 text-left outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50"
+                    >
+                      <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-nia-panel opacity-60">
+                        <FlatIcon name={t.icon} size="sm" className="size-5" />
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate text-sm font-bold text-muted-foreground">{t.name}</span>
+                        <span className="block truncate text-caption text-muted-foreground">Already in this project</span>
+                      </span>
+                      <span className="shrink-0 text-small font-semibold text-foreground">Open</span>
+                    </Link>
+                  </li>
+                );
+              return (
               <li key={t.code}>
                 <button
                   type="button"
@@ -178,7 +245,8 @@ function AddDocumentDialog({ projectId, open, onOpenChange }: { projectId: strin
                   </span>
                 </button>
               </li>
-            ))}
+              );
+            })}
           </ul>
         )}
 

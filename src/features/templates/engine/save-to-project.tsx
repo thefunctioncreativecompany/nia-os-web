@@ -11,10 +11,13 @@ import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { DocumentProject } from './use-document';
 
-type Choice = DocumentProject & { coverUrl: string | null };
+type Choice = DocumentProject & { coverUrl: string | null; blocked: string | null };
+
+/** Free plan (Ika, 2026-10-19): up to 5 documents a project, one of each template. */
+const LIMIT = 5;
 
 // Projects the person can add documents to: their own, and ones shared with them to edit.
-async function editableProjects(): Promise<Choice[]> {
+async function editableProjects(templateCode: string, templateName: string): Promise<Choice[]> {
   const supabase = createClient();
   const {
     data: { user },
@@ -29,9 +32,18 @@ async function editableProjects(): Promise<Choice[]> {
     ...((own ?? []) as Row[]),
     ...((shared ?? []) as unknown as { projects: Row | null }[]).map((m) => m.projects).filter((p): p is Row => !!p && !p.deleted_at),
   ];
+  // What each project already holds, for the free plan's rules.
+  const { data: docs } = rows.length
+    ? await supabase.from('documents').select('project_id, template_code').in('project_id', rows.map((p) => p.id)).is('deleted_at', null)
+    : { data: [] };
+  const held = (id: string) => (docs ?? []).filter((d) => d.project_id === id);
   return rows
     .sort((a, b) => b.updated_at.localeCompare(a.updated_at))
-    .map((p) => ({ id: p.id, title: p.title || 'Untitled project', coverUrl: p.cover_url }));
+    .map((p) => {
+      const inIt = held(p.id);
+      const blocked = inIt.some((d) => d.template_code === templateCode) ? `Already has a ${templateName}` : inIt.length >= LIMIT ? `Has ${LIMIT} documents, the free plan's most` : null;
+      return { id: p.id, title: p.title || 'Untitled project', coverUrl: p.cover_url, blocked };
+    });
 }
 
 async function createProject(title: string): Promise<DocumentProject | null> {
@@ -49,10 +61,14 @@ export function SaveToProjectDialog({
   onOpenChange,
   current,
   onPick,
+  templateCode,
+  templateName,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   current: DocumentProject | null;
+  templateCode: string;
+  templateName: string;
   onPick: (project: DocumentProject) => Promise<boolean>;
 }) {
   const [projects, setProjects] = useState<Choice[] | null>(null);
@@ -63,11 +79,11 @@ export function SaveToProjectDialog({
   useEffect(() => {
     if (!open) return;
     let live = true;
-    void editableProjects().then((list) => live && setProjects(list));
+    void editableProjects(templateCode, templateName).then((list) => live && setProjects(list));
     return () => {
       live = false;
     };
-  }, [open]);
+  }, [open, templateCode, templateName]);
 
   const pick = async (project: DocumentProject) => {
     if (project.id === current?.id) return onOpenChange(false);
@@ -135,7 +151,7 @@ export function SaveToProjectDialog({
               <li key={p.id}>
                 <button
                   type="button"
-                  disabled={busy}
+                  disabled={busy || (!!p.blocked && p.id !== current?.id)}
                   onClick={() => pick(p)}
                   className="flex w-full items-center gap-3 rounded-lg p-2 text-left outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 disabled:opacity-60"
                 >
@@ -143,7 +159,10 @@ export function SaveToProjectDialog({
                     {/* eslint-disable-next-line @next/next/no-img-element -- small cover thumbnails */}
                     {p.coverUrl && <img src={p.coverUrl} alt="" className="size-full object-cover" />}
                   </span>
-                  <span className={cn('min-w-0 flex-1 truncate text-sm font-semibold text-foreground')}>{p.title}</span>
+                  <span className="min-w-0 flex-1">
+                    <span className={cn('block truncate text-sm font-semibold text-foreground')}>{p.title}</span>
+                    {p.blocked && p.id !== current?.id && <span className="block truncate text-caption text-muted-foreground">{p.blocked}</span>}
+                  </span>
                   {p.id === current?.id && <Check aria-label="Saved here" className="size-4 shrink-0" />}
                 </button>
               </li>

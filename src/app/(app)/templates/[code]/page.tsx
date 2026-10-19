@@ -24,7 +24,7 @@ export default function Page({ params, searchParams }: PageProps<"/templates/[co
   );
 }
 
-type Saved = { id: string; data: unknown; status: string; project: { id: string; title: string } | null };
+type Saved = { id: string; data: unknown; status: string; created_by: string; project: { id: string; title: string } | null };
 
 async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code]">, "params" | "searchParams">) {
   const { code } = await params;
@@ -33,6 +33,8 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
 
   const { doc } = await searchParams;
   let saved = null as Saved | null;
+  let readOnly = false;
+  let canDelete = true;
   let startIn: { id: string; title: string } | null = null;
   const { project: projectParam } = await searchParams;
   if (typeof doc === "string") {
@@ -46,13 +48,25 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
     if (!user) redirect("/login");
     const { data } = await supabase
       .from("documents")
-      .select("id, data, status, project:projects(id, title)")
+      .select("id, data, status, created_by, project:projects(id, title)")
       .eq("id", doc)
       .eq("template_code", schema.code)
       .is("deleted_at", null)
       .maybeSingle();
     if (!data) notFound();
     saved = data as unknown as Saved;
+    // View-only people get a read-only document; the maker or the project owner can delete it.
+    if (saved.project) {
+      const [{ data: edit }, { data: owner }] = await Promise.all([
+        supabase.rpc("can_edit_project", { pid: saved.project.id }),
+        supabase.rpc("is_project_owner", { pid: saved.project.id }),
+      ]);
+      readOnly = !edit;
+      canDelete = saved.created_by === user.id || !!owner;
+    } else {
+      readOnly = saved.created_by !== user.id;
+      canDelete = saved.created_by === user.id;
+    }
   } else if (typeof projectParam === "string" && /^[0-9a-f-]{36}$/.test(projectParam)) {
     // Started from a project ("Add document"): it's filed there on the first save, if they can edit it.
     await connection();
@@ -61,10 +75,19 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
       supabase.from("projects").select("id, title").eq("id", projectParam).is("deleted_at", null).maybeSingle(),
       supabase.rpc("can_edit_project", { pid: projectParam }),
     ]);
+    // One of each template per project (free plan): open the one it already has.
+    const { data: existing } = await supabase
+      .from("documents")
+      .select("id")
+      .eq("project_id", projectParam)
+      .eq("template_code", schema.code)
+      .is("deleted_at", null)
+      .maybeSingle();
+    if (existing) redirect(`/templates/${schema.code}?doc=${existing.id}`);
     if (project && canEditIt) startIn = { id: project.id, title: project.title || "Untitled project" };
   }
 
-  return <TemplateEditor key={saved?.id ?? "new"} schema={schema} documentId={saved?.id ?? null} initialData={restoreDocument(schema, saved?.data)} initialPaid={saved?.status === "paid"} initialProject={saved?.project ?? startIn} />;
+  return <TemplateEditor key={saved?.id ?? "new"} schema={schema} documentId={saved?.id ?? null} initialData={restoreDocument(schema, saved?.data)} initialPaid={saved?.status === "paid"} initialProject={saved?.project ?? startIn} readOnly={readOnly} canDelete={canDelete} />;
 }
 
 function EditorSkeleton() {

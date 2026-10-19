@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, useReducedMotion } from "motion/react";
-import { Check, ChevronLeft, ChevronRight, Download, Trash2, Upload as UpIcon, X } from "lucide-react";
+import { Archive, ArchiveRestore, Check, ChevronLeft, ChevronRight, Download, Trash2, Upload as UpIcon, X } from "lucide-react";
 import { toast } from "sonner";
 
 import { pdfFirstPage } from "@/lib/pdf-preview";
@@ -274,9 +274,19 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
     const { error } = await createClient().rpc("remove_project_file", { file_id: file.id });
     if (error) {
       setRemoved((r) => r.filter((id) => id !== file.id));
-      return void toast.error(`Couldn't remove ${file.name}: ${error.message}`);
+      return void toast.error(`Couldn't archive ${file.name}: ${error.message}`);
     }
-    toast.success(`Removed ${file.name}`);
+    toast.success(`${file.name} moved to the archive`, {
+      action: { label: "Undo", onClick: () => void restore(file.id, file.name) },
+    });
+    router.refresh();
+  };
+
+  const restore = async (id: string, name: string) => {
+    const { error } = await createClient().rpc("restore_project_file", { file_id: id });
+    if (error) return void toast.error(`Couldn't restore ${name}: ${error.message}`);
+    setRemoved((r) => r.filter((x) => x !== id));
+    toast.success(`${name} is back`);
     router.refresh();
   };
 
@@ -304,8 +314,8 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
         </Button>
       )}
       {canEdit && (
-        <Button variant="ghost" size="icon-sm" aria-label={`Remove ${file.name}`} onClick={() => remove(file)}>
-          <Trash2 />
+        <Button variant="ghost" size="icon-sm" aria-label={`Archive ${file.name}`} onClick={() => remove(file)}>
+          <Archive />
         </Button>
       )}
     </span>
@@ -390,6 +400,7 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
         </div>
       )}
       {live.length === 0 && !canEdit && <p className="text-small text-muted-foreground">No files yet.</p>}
+      {canEdit && <ArchiveButton projectId={projectId} onChanged={() => router.refresh()} onRestored={(id) => setRemoved((r) => r.filter((x) => x !== id))} />}
       {live.length > 0 && inTab.length === 0 && <p className="text-small text-muted-foreground">Nothing tagged {TAGS.find((t) => t.value === tab)?.label.toLowerCase()} yet. Change a file&rsquo;s tag from the menu on it.</p>}
 
       {group(
@@ -482,5 +493,109 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
         </DialogContent>
       </Dialog>
     </section>
+  );
+}
+
+type Archived = { id: string; name: string; path: string; thumb_path: string | null; kind: FileKind; size: number; deleted_at: string };
+
+// The archive (Ika, 2026-10-19): files archived from this project, to restore or delete for good.
+// Deleting for good removes the stored file first, then its record.
+function ArchiveButton({ projectId, onChanged, onRestored }: { projectId: string; onChanged: () => void; onRestored: (id: string) => void }) {
+  const [open, setOpen] = useState(false);
+  const [items, setItems] = useState<Archived[] | null>(null);
+  const [confirming, setConfirming] = useState<string | null>(null);
+  const [loadedAt, setLoadedAt] = useState(0);
+
+  const load = async () => {
+    const { data, error } = await createClient()
+      .from("project_files")
+      .select("id, name, path, thumb_path, kind, size, deleted_at")
+      .eq("project_id", projectId)
+      .not("deleted_at", "is", null)
+      .order("deleted_at", { ascending: false });
+    setLoadedAt(Date.now());
+    setItems(error ? [] : (data as Archived[]));
+  };
+
+  const restore = async (file: Archived) => {
+    const { error } = await createClient().rpc("restore_project_file", { file_id: file.id });
+    if (error) return void toast.error(`Couldn't restore ${file.name}: ${error.message}`);
+    setItems((list) => (list ?? []).filter((f) => f.id !== file.id));
+    onRestored(file.id);
+    toast.success(`${file.name} is back`);
+    onChanged();
+  };
+
+  const purge = async (file: Archived) => {
+    const supabase = createClient();
+    const { error: storageError } = await supabase.storage.from("project-files").remove([file.path, ...(file.thumb_path ? [file.thumb_path] : [])]);
+    if (storageError) return void toast.error(`Couldn't delete ${file.name}: ${storageError.message}`);
+    const { error } = await supabase.rpc("purge_project_file", { file_id: file.id });
+    if (error) return void toast.error(`Couldn't delete ${file.name}: ${error.message}`);
+    setItems((list) => (list ?? []).filter((f) => f.id !== file.id));
+    setConfirming(null);
+    toast.success(`${file.name} deleted for good`);
+  };
+
+  return (
+    <>
+      <Button
+        variant="ghost"
+        size="compact"
+        className="w-fit text-muted-foreground"
+        onClick={() => {
+          setOpen(true);
+          void load();
+        }}
+      >
+        <Archive aria-hidden /> Archive
+      </Button>
+      <Dialog open={open} onOpenChange={(o) => { setOpen(o); if (!o) setConfirming(null); }}>
+        <DialogContent className="flex max-h-[calc(100svh-2rem)] w-[calc(100%-2rem)] max-w-[520px] flex-col gap-4 overflow-y-auto rounded-2xl p-6 sm:max-w-[520px]">
+          <DialogTitle className="text-subtitle font-bold">Archive</DialogTitle>
+          <DialogDescription className="-mt-2 text-small text-muted-foreground">
+            Archived files are hidden from the project. Restore one to bring it back, or delete it for good.
+          </DialogDescription>
+          {items === null ? (
+            <p className="text-small text-muted-foreground">Loading…</p>
+          ) : items.length === 0 ? (
+            <p className="text-small text-muted-foreground">Nothing in the archive.</p>
+          ) : (
+            <ul className="flex flex-col gap-2">
+              {items.map((file) => (
+                <li key={file.id} className="flex flex-col gap-2 rounded-xl border border-border p-3">
+                  <div className="flex items-center gap-3">
+                    <PageIcon name={file.name} kind={file.kind} />
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-sm font-semibold text-foreground">{file.name}</span>
+                      <span className="block text-caption text-muted-foreground">{size(file.size)} · archived {timeAgo(file.deleted_at, loadedAt).toLowerCase()}</span>
+                    </span>
+                    <Button variant="ghost" size="icon-sm" aria-label={`Restore ${file.name}`} onClick={() => restore(file)}>
+                      <ArchiveRestore />
+                    </Button>
+                    <Button variant="ghost" size="icon-sm" aria-label={`Delete ${file.name} for good`} onClick={() => setConfirming(file.id)}>
+                      <Trash2 />
+                    </Button>
+                  </div>
+                  {confirming === file.id && (
+                    <div role="alert" className="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-destructive/8 p-2.5">
+                      <span className="text-small text-foreground">Delete for good? This can&rsquo;t be undone.</span>
+                      <span className="flex gap-2">
+                        <Button variant="ghost" size="compact" onClick={() => setConfirming(null)}>
+                          Keep
+                        </Button>
+                        <Button variant="destructive" size="compact" onClick={() => purge(file)}>
+                          Delete for good
+                        </Button>
+                      </span>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }

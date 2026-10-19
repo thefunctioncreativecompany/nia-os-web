@@ -30,7 +30,7 @@ export default function Page({ params }: PageProps<"/projects/[id]">) {
 
 async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params">) {
   const { id } = await params;
-  const [{ project, role, now }, activity, people, documents, files] = await Promise.all([
+  const [{ project, role, now, userId }, activity, people, documents, files] = await Promise.all([
     getProject(id),
     listActivity({ projectId: id, limit: 8 }),
     countProjectPeople(id),
@@ -45,7 +45,7 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
       <div className="min-w-0 flex-[999_1_560px] px-4 pt-10 pb-15 md:pr-10 md:pl-15">
         <div className="flex flex-col gap-12">
           <ProjectEditor project={project} canEdit={canEdit} />
-          <ProjectDocuments projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} now={now} />
+          <ProjectDocuments projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} isOwner={role === "owner"} userId={userId} now={now} />
           <ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />
         </div>
       </div>

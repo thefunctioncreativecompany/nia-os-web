@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { BadgeCheck, Download, FileText, FileType, FolderCheck, FolderPlus, Plus, Printer, Redo2, Undo2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { BadgeCheck, Download, Eye, FileText, FileType, FolderCheck, FolderPlus, Plus, Printer, Redo2, Trash2, Undo2 } from 'lucide-react';
+import { createClient } from '@/lib/supabase/client';
 import { toast } from 'sonner';
 
 import { DocumentHeader, DocumentPreviewHeader } from '@/components/nia/document-header';
@@ -27,6 +29,8 @@ export function TemplateEditor({
   initialData,
   initialPaid = false,
   initialProject = null,
+  readOnly = false,
+  canDelete = false,
 }: {
   schema: TemplateSchema;
   documentId: string | null;
@@ -34,7 +38,13 @@ export function TemplateEditor({
   initialPaid?: boolean;
   /** The project it's filed under (a saved document, or `?project=` when started from a project). */
   initialProject?: DocumentProject | null;
+  /** View-only (audit #2): someone with view access to the project. Nothing can be changed. */
+  readOnly?: boolean;
+  /** The person who made it, or the project's owner (audit #3). */
+  canDelete?: boolean;
 }) {
+  const router = useRouter();
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const doc = useDocument(schema, documentId, initialData, initialPaid, initialProject);
   const [choosing, setChoosing] = useState(false);
   const currency = documentCurrency(schema, doc.data);
@@ -73,6 +83,13 @@ export function TemplateEditor({
           status={doc.savedAt ? <SavedIndicator savedAt={doc.savedAt} className="print:hidden" /> : undefined}
         />
 
+        {readOnly && (
+          <p role="status" className="flex items-center gap-2 rounded-lg bg-nia-panel px-4 py-3 text-small text-muted-foreground print:hidden">
+            <Eye aria-hidden className="size-4 shrink-0" />
+            You can view this document. Ask the project owner for edit access to change it.
+          </p>
+        )}
+
         {doc.paid && (
           <p role="status" className="w-fit -rotate-2 rounded-md border-2 border-status-confirmed-foreground px-3 py-1 text-lead font-bold text-status-confirmed-foreground">
             Paid
@@ -84,6 +101,8 @@ export function TemplateEditor({
           aria-label="Document tools"
           className="flex flex-wrap items-center gap-3 rounded-lg border border-border bg-nia-panel px-4 py-2 print:hidden"
         >
+          {!readOnly && (
+          <>
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm" onClick={doc.undo} disabled={!doc.canUndo}>
               <Undo2 aria-hidden /> Undo
@@ -103,6 +122,8 @@ export function TemplateEditor({
               <BadgeCheck aria-hidden /> {doc.paid ? 'Mark unpaid' : 'Mark paid'}
             </Button>
           )}
+          </>
+          )}
           {schema.actions.includes('Print') && (
             <Button variant="outline" size="sm" onClick={() => window.print()}>
               <Printer aria-hidden /> Print
@@ -110,6 +131,9 @@ export function TemplateEditor({
           )}
         </div>
 
+        {/* A disabled fieldset locks every control at once for view-only people, but keeps
+            the answers fully readable (no faded inputs). */}
+        <fieldset disabled={readOnly} className="flex min-w-0 flex-col gap-7 [&_:disabled]:cursor-default [&_:disabled]:bg-transparent [&_:disabled]:opacity-100">
         {schema.sections.map((section, index) => (
           <section key={section.title} aria-labelledby={`section-${index}`} className="flex flex-col gap-3">
             <h2 id={`section-${index}`} className="text-base leading-normal font-bold text-foreground">
@@ -123,6 +147,7 @@ export function TemplateEditor({
             />
           </section>
         ))}
+        </fieldset>
       </div>
 
       <aside
@@ -176,6 +201,8 @@ export function TemplateEditor({
                 <Button asChild size="compact" className="rounded-lg">
                   <Link href={`/projects/${doc.project.id}`}>Open project</Link>
                 </Button>
+                {!readOnly && (
+                <>
                 <Button variant="outline" size="compact" className="rounded-lg" onClick={() => setChoosing(true)}>
                   Move
                 </Button>
@@ -190,9 +217,11 @@ export function TemplateEditor({
                 >
                   Remove from project
                 </Button>
+                </>
+                )}
               </div>
             </div>
-          ) : (
+          ) : readOnly ? null : (
             <Button className="w-full rounded-xl" onClick={() => setChoosing(true)}>
               <FolderPlus aria-hidden /> Save to project
             </Button>
@@ -201,6 +230,8 @@ export function TemplateEditor({
             open={choosing}
             onOpenChange={setChoosing}
             current={doc.project}
+            templateCode={schema.code}
+            templateName={schema.name}
             onPick={async (project) => {
               const ok = await doc.fileTo(project);
               if (ok) toast.success(`Saved to ${project.title}`);
@@ -219,6 +250,36 @@ export function TemplateEditor({
               { label: 'Plain text (.txt)', icon: <FileText />, onSelect: () => void download('txt') },
             ]}
           />
+          {canDelete && doc.id && (
+            <div className="flex flex-col gap-2">
+              {confirmDelete ? (
+                <div role="alert" className="flex flex-col gap-2 rounded-xl bg-destructive/8 p-3">
+                  <span className="text-small text-foreground">Delete this {schema.name.toLowerCase()}? It&rsquo;s removed for everyone{doc.project ? ' on the project' : ''}.</span>
+                  <span className="flex gap-2">
+                    <Button variant="ghost" size="compact" onClick={() => setConfirmDelete(false)}>
+                      Keep it
+                    </Button>
+                    <Button
+                      variant="destructive"
+                      size="compact"
+                      onClick={async () => {
+                        const { error } = await createClient().rpc('soft_delete_document', { doc_id: doc.id });
+                        if (error) return void toast.error(`Couldn't delete it: ${error.message}`);
+                        toast.success(`${schema.name} deleted`);
+                        router.push(doc.project ? `/projects/${doc.project.id}` : '/templates');
+                      }}
+                    >
+                      Delete document
+                    </Button>
+                  </span>
+                </div>
+              ) : (
+                <Button variant="ghost" size="compact" className="w-fit self-center text-muted-foreground" onClick={() => setConfirmDelete(true)}>
+                  <Trash2 aria-hidden /> Delete document
+                </Button>
+              )}
+            </div>
+          )}
         </div>
       </aside>
     </div>

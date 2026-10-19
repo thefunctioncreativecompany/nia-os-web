@@ -110,19 +110,19 @@ export async function countProjectPeople(projectId: string) {
   return (data ?? []).filter((person: { kind: string }) => person.kind !== "invite").length;
 }
 
-export type ProjectDocument = { id: string; templateCode: string; title: string; status: string; updatedAt: string; canRemove: boolean };
+export type ProjectDocument = { id: string; templateCode: string; title: string; status: string; updatedAt: string; createdBy: string };
 
 /** Documents made from templates and saved to this project (build step 8). */
 export async function listProjectDocuments(projectId: string): Promise<ProjectDocument[]> {
   const { supabase } = await requireUser();
   const { data, error } = await supabase
     .from("documents")
-    .select("id, template_code, title, status, updated_at")
+    .select("id, template_code, title, status, updated_at, created_by")
     .eq("project_id", projectId)
     .is("deleted_at", null)
     .order("updated_at", { ascending: false });
   if (error) throw new Error(`Couldn't load this project's documents: ${error.message}`);
-  return data.map((d) => ({ id: d.id, templateCode: d.template_code, title: d.title, status: d.status, updatedAt: d.updated_at, canRemove: true }));
+  return data.map((d) => ({ id: d.id, templateCode: d.template_code, title: d.title, status: d.status, updatedAt: d.updated_at, createdBy: d.created_by }));
 }
 
 export type FileKind = "image" | "document" | "audio" | "video";
