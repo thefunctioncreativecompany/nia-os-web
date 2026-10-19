@@ -13,6 +13,7 @@ import { EmptyState } from "@/components/nia/empty-state";
 import { TemplateCard } from "@/components/nia/template-card";
 import { ActivityList } from "@/components/projects/activity-list";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
+import { Updates } from "@/components/home/updates";
 import { ProjectGrid } from "@/components/projects/project-grid";
 
 export const metadata: Metadata = {
@@ -54,6 +55,8 @@ export default function Page() {
           ))}
         </div>
       </section>
+
+      <Updates />
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         <h2 id="recent-projects" className="text-xl leading-[1.4] font-bold text-foreground">

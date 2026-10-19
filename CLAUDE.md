@@ -192,4 +192,4 @@ Milestone 6 — Share & launch
 
 Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261019000000_onboarding.sql`, `20261019010000_avatar_cleanup.sql`, `20261020000000_projects.sql`,
-`20261021000000_templates.sql`. Not yet run: `20261021010000_documents_soft_delete.sql`.
+`20261021000000_templates.sql`. Not yet run: `20261021010000_documents_soft_delete.sql`, `20261022000000_notifications.sql`.
