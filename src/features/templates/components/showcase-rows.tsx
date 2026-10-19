@@ -70,11 +70,14 @@ export function CategoryRows({ templates, groups, onPreview }: { templates: Gall
               aria-expanded={all}
               aria-controls={`${id}-items`}
               onClick={() => setOpen((o) => (all ? o.filter((g) => g !== group) : [...o, group]))}
-              className="mx-4 mb-3 flex items-center gap-1 rounded-sm text-left outline-none focus-visible:ring-3 focus-visible:ring-ring/50 md:mx-11"
+              className="mx-4 mb-3 block rounded-sm text-left outline-none focus-visible:ring-3 focus-visible:ring-ring/50 md:mx-11"
             >
-              <h2 id={id} className="text-lg font-extrabold text-foreground">{group}</h2>
-              <span className="text-micro text-muted-foreground">{items.length}</span>
-              {all ? <ChevronDown aria-hidden className="size-5 shrink-0 text-muted-foreground" /> : <ChevronRight aria-hidden className="size-5 shrink-0 text-muted-foreground" />}
+              {/* Inline, so on a wrapped name the count and arrow follow the last word. */}
+              <h2 id={id} className="inline text-lg font-extrabold text-foreground">{group}</h2>
+              <span className="ml-1 text-micro whitespace-nowrap text-muted-foreground">
+                {items.length}
+                {all ? <ChevronDown aria-hidden className="ml-0.5 inline size-5 align-text-bottom" /> : <ChevronRight aria-hidden className="ml-0.5 inline size-5 align-text-bottom" />}
+              </span>
               <span className="sr-only">{all ? ", show as a row" : ", show all"}</span>
             </button>
             <div
