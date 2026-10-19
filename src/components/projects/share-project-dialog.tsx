@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
 import { toast } from "sonner";
 
+import { sendProjectInvite } from "@/lib/project-invite";
 import type { ProjectRole } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { getInitials } from "@/lib/utils";
@@ -102,15 +103,17 @@ export function ShareProjectDialog({
       invitee_email: address,
       invitee_role: inviteRole,
     });
-    setBusy(false);
     if (error) {
+      setBusy(false);
       toast.error(error.message);
       return;
     }
+    const { sent } = await sendProjectInvite(projectId, address).catch(() => ({ sent: false }));
+    setBusy(false);
     toast.success(
       data === "member"
-        ? `${address} can now open this project`
-        : `Invited ${address}. They'll get access when they sign up with that email.`,
+        ? `${address} can now open this project${sent ? ". We've emailed them." : ""}`
+        : `Invited ${address}. ${sent ? "We've emailed them a link to join." : "They'll get access when they sign up with that email."}`,
     );
     setEmail("");
     await load();
