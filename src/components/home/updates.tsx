@@ -47,9 +47,18 @@ export function Updates() {
 
   if (notes === null) return null;
 
+  // Changes the list straight away; puts it back if the save fails, so it never shows what wasn't saved.
+  // (A Supabase query only runs once it is awaited or `.then` is called.)
   const mark = (id: number, patch: { read_at?: string; archived_at?: string }) => {
+    const before = notes;
     setNotes((list) => (list ?? []).flatMap((n) => (n.id !== id ? [n] : patch.archived_at ? [] : [{ ...n, read_at: patch.read_at ?? n.read_at }])));
-    void createClient().from("notifications").update(patch).eq("id", id);
+    void createClient()
+      .from("notifications")
+      .update(patch)
+      .eq("id", id)
+      .then(({ error }) => {
+        if (error) setNotes(before);
+      });
   };
   const unread = notes.filter((n) => !n.read_at).length;
 
