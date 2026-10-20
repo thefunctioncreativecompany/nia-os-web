@@ -156,7 +156,7 @@ export function ProjectForm() {
       onSubmit={handleSubmit}
       className="flex w-full max-w-[600px] flex-col gap-7 rounded-2xl bg-white p-6 shadow-elevation-2 sm:p-10"
     >
-      <h1 className="text-h2 font-bold text-foreground">New Blank Project</h1>
+      <h1 className="text-h2 font-bold text-foreground">New blank project</h1>
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="project-name" className={fieldLabelClassName}>
@@ -188,7 +188,7 @@ export function ProjectForm() {
       </div>
 
       <div className="flex flex-col gap-2">
-        <span className={fieldLabelClassName}>Cover Image</span>
+        <span className={fieldLabelClassName}>Cover image</span>
         <input
           ref={inputRef}
           type="file"
@@ -327,7 +327,7 @@ export function ProjectForm() {
           disabled={isSaving || !title.trim()}
           className="h-auto rounded-lg px-6 py-3 text-lead font-semibold"
         >
-          {uploading ? `Uploading ${uploading.done + 1} of ${uploading.of}…` : isSaving ? "Creating…" : "Create Project"}
+          {uploading ? `Uploading ${uploading.done + 1} of ${uploading.of}…` : isSaving ? "Creating…" : "Create project"}
         </Button>
       </div>
     </form>

@@ -54,7 +54,7 @@ export function DeleteProjectDialog({
           <AlertTriangle aria-hidden className="size-6" />
         </span>
         <div className="flex flex-col gap-3">
-          <DialogTitle className="text-subtitle font-bold">Delete Project?</DialogTitle>
+          <DialogTitle className="text-subtitle font-bold">Delete project?</DialogTitle>
           <DialogDescription className="text-sm leading-5 text-muted-foreground">
             <strong className="font-bold text-foreground">&ldquo;{title || "Untitled project"}&rdquo;</strong> will be
             removed from your projects, and everyone it&apos;s shared with will lose access.
@@ -75,7 +75,7 @@ export function DeleteProjectDialog({
             onClick={remove}
             className="h-auto rounded-lg bg-nia-danger p-3 text-small font-bold text-white hover:bg-nia-danger/85"
           >
-            {isDeleting ? "Deleting…" : "Delete Project"}
+            {isDeleting ? "Deleting…" : "Delete project"}
           </Button>
         </div>
       </DialogContent>

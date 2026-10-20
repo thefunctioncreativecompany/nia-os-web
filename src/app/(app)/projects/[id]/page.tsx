@@ -52,11 +52,11 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
             <ProjectActions project={project} role={role} />
 
             <section className="flex flex-col gap-4 rounded-2xl border border-border bg-nia-surface p-6">
-              <h2 className="text-base leading-normal font-bold text-foreground">Project Overview</h2>
+              <h2 className="text-base leading-normal font-bold text-foreground">Project overview</h2>
               <dl className="flex flex-col gap-3 text-small leading-normal">
                 <OverviewRow label="Stage" value={project.stage} />
                 <OverviewRow label="Production type" value={project.productionType ?? "—"} />
-                <OverviewRow label="Team Members" value={`${people} ${people === 1 ? "member" : "members"}`} />
+                <OverviewRow label="Team members" value={`${people} ${people === 1 ? "member" : "members"}`} />
                 <OverviewRow
                   label="Created"
                   value={new Date(project.createdAt).toLocaleDateString("en-US", {
@@ -65,7 +65,7 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
                     year: "numeric",
                   })}
                 />
-                <OverviewRow label="Last Edited" value={timeAgo(project.updatedAt, now)} />
+                <OverviewRow label="Last edited" value={timeAgo(project.updatedAt, now)} />
                 {role !== "owner" && <OverviewRow label="Your access" value={role === "editor" ? "Can edit" : "Can view"} />}
               </dl>
             </section>
@@ -73,7 +73,7 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
             <ProjectDocuments projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} isOwner={role === "owner"} userId={userId} now={now} />
 
             <section className="flex flex-col gap-5 rounded-2xl border border-border bg-nia-surface p-6">
-              <h2 className="text-lg leading-[1.4] font-bold text-foreground">Recent Activity</h2>
+              <h2 className="text-lg leading-[1.4] font-bold text-foreground">Recent activity</h2>
               <ActivityList items={activity.items} now={activity.now} />
             </section>
           </div>

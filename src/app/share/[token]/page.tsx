@@ -99,7 +99,7 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
   return (
     <article className="flex flex-col gap-9">
       {data.cover_url && (
-        <div className="relative aspect-[16/7] w-full overflow-hidden rounded-[20px] bg-muted">
+        <div className="relative aspect-[16/7] w-full overflow-hidden rounded-2xl bg-muted">
           <Image src={data.cover_url} alt="" fill preload sizes="(min-width: 900px) 860px, 100vw" className="object-cover" />
         </div>
       )}
@@ -113,7 +113,7 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
       </div>
       <section aria-labelledby="shared-info" className="flex flex-col gap-4">
         <h2 id="shared-info" className="text-lg leading-[1.4] font-bold text-foreground">
-          Production Info
+          Production info
         </h2>
         <dl className="flex flex-col gap-3 text-sm">
           {PRODUCTION_INFO.map((row) => (
@@ -131,7 +131,7 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
 function SharedSkeleton() {
   return (
     <div className="flex flex-col gap-6" aria-busy="true" aria-label="Loading">
-      <Skeleton className="aspect-[16/7] w-full rounded-[20px]" />
+      <Skeleton className="aspect-[16/7] w-full rounded-2xl" />
       <Skeleton className="h-10 w-2/3" />
       <Skeleton className="h-24 w-full" />
     </div>

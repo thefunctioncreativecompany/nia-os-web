@@ -58,7 +58,7 @@ export function SettingsSaveButton({
       <Button
         type="submit"
         disabled={isSaving}
-        className="h-auto rounded-[24px] px-8 py-3 text-sm leading-[1.4] font-bold hover:bg-primary/85"
+        className="h-auto rounded-full px-8 py-3 text-sm leading-[1.4] font-bold hover:bg-primary/85"
       >
         {isSaving ? "Saving..." : children}
       </Button>

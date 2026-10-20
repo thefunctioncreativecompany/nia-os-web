@@ -9,17 +9,17 @@ import { useStepSubmit } from "@/components/onboarding/use-step-submit";
 const FEATURES = [
   {
     icon: CalendarCheck,
-    title: "Project Management",
+    title: "Project management",
     description: "Plan shoots, track timelines, and manage budgets",
   },
   {
     icon: Users,
-    title: "Team Collaboration",
+    title: "Team collaboration",
     description: "Share scripts, storyboards, and notes with your crew",
   },
   {
     icon: FolderOpen,
-    title: "Asset Library",
+    title: "Asset library",
     description: "Organize footage, photos, and production documents",
   },
   {
@@ -59,7 +59,7 @@ export function FeaturesStep({ userId }: { userId: string }) {
         <ul className="flex flex-col gap-4">
           {FEATURES.map(({ icon: Icon, title, description }) => (
             <li key={title} className="flex items-center gap-4">
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-[10px] bg-muted">
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-muted">
                 <Icon aria-hidden className="size-[18px] text-foreground" />
               </span>
               <div className="flex min-w-0 flex-1 flex-col gap-0.5">

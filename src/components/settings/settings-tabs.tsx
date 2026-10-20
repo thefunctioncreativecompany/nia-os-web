@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
+import { cn } from "@/lib/utils";
+
 // segment is the folder under /settings; built: false until that tab's screen exists.
 const tabs = [
   {
@@ -24,7 +26,7 @@ const tabs = [
     description: "Choose what Nia tells you about, and where",
   },
   {
-    label: "Connected Apps",
+    label: "Connected apps",
     segment: "connected-apps",
     built: false,
     description: "Manage your workspace and preferences",
@@ -58,36 +60,35 @@ export function SettingsTabs() {
       aria-label="Settings"
       className="-mx-4 flex h-12 items-end gap-8 overflow-x-auto border-b border-border px-4 whitespace-nowrap md:mx-0 md:px-0"
     >
-      {tabs.map((tab) =>
-        !tab.built ? (
-          <span
-            key={tab.label}
-            aria-disabled="true"
-            title="Coming soon"
-            className="cursor-not-allowed pb-[3px] text-sm leading-normal font-medium text-muted-foreground/70"
-          >
+      {tabs.map((tab) => {
+        const active = tab.built && tab.segment === segment;
+        // Every tab has the same shape (its name over a 3px underline, gold on the active one),
+        // so the names line up whichever tab is open.
+        const inner = (
+          <>
             {tab.label}
-          </span>
-        ) : tab.segment === segment ? (
+            <span aria-hidden className={cn("h-0.75 w-full rounded-full", active ? "bg-gold" : "bg-transparent")} />
+          </>
+        );
+        const shape = "flex h-full flex-col justify-end gap-3 text-sm leading-[1.4] outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
+        if (!tab.built) {
+          return (
+            <span key={tab.label} aria-disabled="true" title="Coming soon" className={cn(shape, "cursor-not-allowed font-medium text-muted-foreground/70")}>
+              {inner}
+            </span>
+          );
+        }
+        return (
           <Link
             key={tab.label}
             href={`/settings/${tab.segment}`}
-            aria-current="page"
-            className="flex h-full flex-col justify-end gap-3 text-sm leading-[1.4] font-bold text-foreground"
+            aria-current={active ? "page" : undefined}
+            className={cn(shape, active ? "font-bold text-foreground" : "font-medium text-muted-foreground hover:text-foreground")}
           >
-            {tab.label}
-            <span className="h-[3px] w-full rounded-[1.5px] bg-gold" />
+            {inner}
           </Link>
-        ) : (
-          <Link
-            key={tab.label}
-            href={`/settings/${tab.segment}`}
-            className="pb-[3px] text-sm leading-normal font-medium text-muted-foreground hover:text-foreground"
-          >
-            {tab.label}
-          </Link>
-        ),
-      )}
+        );
+      })}
     </nav>
   );
 }

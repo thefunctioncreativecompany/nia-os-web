@@ -46,8 +46,8 @@ export const COMMUNICATION_STYLES = [
 ];
 
 export const DEFAULT_VIEWS = [
-  { value: "grid", label: "Grid View" },
-  { value: "list", label: "List View" },
+  { value: "grid", label: "Grid view" },
+  { value: "list", label: "List view" },
 ] as const;
 
 // Only languages the app is actually written in.

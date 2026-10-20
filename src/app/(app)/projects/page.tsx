@@ -38,7 +38,7 @@ async function Projects({ searchParams }: Pick<PageProps<"/projects">, "searchPa
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-6 py-15 text-center">
         <div className="flex max-w-[500px] flex-col gap-3">
-          <h1 className="text-display font-bold text-foreground">No Projects</h1>
+          <h1 className="text-display font-bold text-foreground">No projects</h1>
           <p className="text-base leading-normal text-muted-foreground">
             Start a film production from scratch. Your projects, covers and production details live here.
           </p>
@@ -46,7 +46,7 @@ async function Projects({ searchParams }: Pick<PageProps<"/projects">, "searchPa
         <NewProjectDialog>
           <Button className="px-8 text-lead">
             <Plus aria-hidden />
-            New Project
+            New project
           </Button>
         </NewProjectDialog>
       </div>
@@ -56,7 +56,7 @@ async function Projects({ searchParams }: Pick<PageProps<"/projects">, "searchPa
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
-        <h1 className="text-h2 font-bold text-foreground">My Projects</h1>
+        <h1 className="text-h2 font-bold text-foreground">My projects</h1>
         {query && (
           <p className="text-sm text-muted-foreground">
             {all.length} {all.length === 1 ? "project matches" : "projects match"} “{query}” ·{" "}

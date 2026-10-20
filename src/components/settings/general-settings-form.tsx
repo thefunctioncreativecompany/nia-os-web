@@ -107,9 +107,9 @@ export function GeneralSettingsForm({
   return (
     <form onSubmit={handleSave} className="flex flex-col gap-8">
       <div className="flex flex-col gap-6">
-        <SettingsCard title="Workspace Preferences" className="gap-5">
+        <SettingsCard title="Workspace preferences" className="gap-5">
           <div className="grid gap-6 md:grid-cols-2">
-            <SettingsField id="workspace-name" label="Workspace Name">
+            <SettingsField id="workspace-name" label="Workspace name">
               <Input
                 id="workspace-name"
                 maxLength={80}
@@ -120,7 +120,7 @@ export function GeneralSettingsForm({
                 className={settingsInputClassName}
               />
             </SettingsField>
-            <SettingsField id="default-view" label="Default View">
+            <SettingsField id="default-view" label="Default view">
               <Select
                 value={settings.defaultView}
                 onValueChange={(value) => set("defaultView", value as GeneralSettings["defaultView"])}
@@ -153,7 +153,7 @@ export function GeneralSettingsForm({
                 </SelectContent>
               </Select>
             </SettingsField>
-            <SettingsField id="time-zone" label="Time Zone">
+            <SettingsField id="time-zone" label="Time zone">
               <Select
                 value={timeZone ?? undefined}
                 onValueChange={(value) => set("timeZone", value)}
@@ -173,7 +173,7 @@ export function GeneralSettingsForm({
           </div>
         </SettingsCard>
 
-        <SettingsCard title="Notification Rules" className="gap-4">
+        <SettingsCard title="Notification rules" className="gap-4">
           <div className="flex flex-col gap-2">
             <SettingsToggleRow
               id="email-notifications"
@@ -199,7 +199,7 @@ export function GeneralSettingsForm({
           </div>
         </SettingsCard>
 
-        <SettingsCard title="System Backups" className="gap-5">
+        <SettingsCard title="System backups" className="gap-5">
           <SettingsField id="auto-save" label="Auto-save interval">
             <Select
               value={String(settings.autoSaveInterval)}
@@ -227,7 +227,7 @@ export function GeneralSettingsForm({
         </SettingsCard>
       </div>
 
-      <SettingsSaveButton isSaving={isSaving}>Save Changes</SettingsSaveButton>
+      <SettingsSaveButton isSaving={isSaving}>Save changes</SettingsSaveButton>
     </form>
   );
 }

@@ -15,7 +15,7 @@ export function ProjectActions({ project, role }: { project: Project; role: Proj
 
   return (
     <section className="flex flex-col gap-3 rounded-2xl border border-border bg-nia-surface p-6">
-      <h2 className="text-base leading-normal font-bold text-foreground">Project Actions</h2>
+      <h2 className="text-base leading-normal font-bold text-foreground">Project actions</h2>
       <div className="flex flex-col gap-1">
         {canEdit && (
           <EditDetailsDialog project={project}>
@@ -26,7 +26,7 @@ export function ProjectActions({ project, role }: { project: Project; role: Proj
         )}
         <ShareProjectDialog projectId={project.id} role={role} shareToken={project.shareToken}>
           <button type="button" className={rowClassName}>
-            {role === "owner" ? "Share Project" : "People with access"}
+            {role === "owner" ? "Share project" : "People with access"}
           </button>
         </ShareProjectDialog>
         {/* Each document downloads as PDF, Word, Markdown or text from its own page. */}

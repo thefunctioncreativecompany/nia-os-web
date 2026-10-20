@@ -64,7 +64,7 @@ export function Navbar({ user }: { user: React.ReactNode }) {
           variant="outline"
           size="compact"
           aria-label="New project"
-          className="h-8 w-9 rounded-[6px] border-nia-line max-lg:hidden bg-white p-0 text-lg leading-[1.4] font-medium text-nia-ink hover:bg-nia-field-muted hover:text-nia-ink"
+          className="h-8 w-9 rounded-sm border-nia-line max-lg:hidden bg-white p-0 text-lg leading-[1.4] font-medium text-nia-ink hover:bg-nia-field-muted hover:text-nia-ink"
           >
             +
           </Button>

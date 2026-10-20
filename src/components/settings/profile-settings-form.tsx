@@ -39,7 +39,7 @@ import {
 const AVATAR_TYPES = ["image/jpeg", "image/png"];
 
 const pillClassName =
-  "rounded-[20px] px-4 py-2 text-small leading-[1.4] font-semibold transition-colors";
+  "rounded-full px-4 py-2 text-small leading-[1.4] font-semibold transition-colors";
 
 export function ProfileSettingsForm({
   userId,
@@ -117,7 +117,7 @@ export function ProfileSettingsForm({
   return (
     <form onSubmit={handleSave} className="flex flex-col gap-8">
       <div className="flex flex-col gap-6">
-        <SettingsCard title="Personal Identity">
+        <SettingsCard title="Personal identity">
           <AvatarPicker
             preview={preview}
             onPick={(file, url) => {
@@ -126,7 +126,7 @@ export function ProfileSettingsForm({
             }}
           />
           <div className="grid gap-6 md:grid-cols-2">
-            <SettingsField id="full-name" label="Full Name">
+            <SettingsField id="full-name" label="Full name">
               <Input
                 id="full-name"
                 autoComplete="name"
@@ -202,7 +202,7 @@ export function ProfileSettingsForm({
           </SettingsField>
         </SettingsCard>
 
-        <SettingsCard title="AI Assistant Customization" className="gap-5">
+        <SettingsCard title="AI assistant customization" className="gap-5">
           <SettingsField id="assistant-name" label="What should Nia call you?">
             <Input
               id="assistant-name"
@@ -243,12 +243,12 @@ export function ProfileSettingsForm({
           />
         </SettingsCard>
 
-        <SettingsCard title="Linked Identity Credentials" className="gap-4">
+        <SettingsCard title="Linked identity credentials" className="gap-4">
           <LinkedAccounts identities={identities} />
         </SettingsCard>
       </div>
 
-      <SettingsSaveButton isSaving={isSaving}>Save Profile</SettingsSaveButton>
+      <SettingsSaveButton isSaving={isSaving}>Save profile</SettingsSaveButton>
     </form>
   );
 }
@@ -310,7 +310,7 @@ function AvatarPicker({
         </span>
       </button>
       <div className="flex flex-col gap-1">
-        <span className="text-sm leading-[1.4] font-bold text-foreground">Profile Picture</span>
+        <span className="text-sm leading-[1.4] font-bold text-foreground">Profile picture</span>
         <span className="text-xs leading-normal text-muted-foreground">JPG or PNG. Max 5MB.</span>
       </div>
       <input
@@ -336,7 +336,7 @@ function AvatarPicker({
   );
 }
 
-// Selected traits as dark pills (tap to remove). "+ Add Trait" offers the
+// Selected traits as dark pills (tap to remove). "+ Add trait" offers the
 // remaining presets and a box for your own.
 function TraitPicker({
   traits,
@@ -386,7 +386,7 @@ function TraitPicker({
             "border border-border text-muted-foreground hover:text-foreground",
           )}
         >
-          {isAdding ? "Done" : "+ Add Trait"}
+          {isAdding ? "Done" : "+ Add trait"}
         </button>
       </div>
       {isAdding && (
@@ -414,7 +414,7 @@ function TraitPicker({
                 setCustom("");
               }
             }}
-            className="h-auto w-40 rounded-[20px] border-border px-4 py-2 text-small leading-[1.4] md:text-small"
+            className="h-auto w-40 rounded-full border-border px-4 py-2 text-small leading-[1.4] md:text-small"
           />
         </div>
       )}
@@ -492,7 +492,7 @@ function LinkedAccounts({ identities }: { identities: UserIdentity[] }) {
             <div className="flex shrink-0 items-center gap-4">
               {identity ? (
                 <>
-                  <Badge className="h-auto rounded-[12px] border-nia-success bg-nia-success-bg px-3 py-1 text-xs leading-normal font-bold text-nia-success">
+                  <Badge className="h-auto rounded-full border-nia-success bg-nia-success-bg px-3 py-1 text-xs leading-normal font-bold text-nia-success">
                     Connected
                   </Badge>
                   {canDisconnect && (

@@ -9,7 +9,7 @@ export function ProposalCard({
   children,
   onApply,
   onModify,
-  applyLabel = "Apply Changes",
+  applyLabel = "Apply changes",
   isApplying = false,
   className,
 }: {
@@ -23,7 +23,7 @@ export function ProposalCard({
   return (
     <div
       className={cn(
-        "flex flex-col gap-4 rounded-lg rounded-bl-[4px] border border-border bg-card p-4 text-foreground",
+        "flex flex-col gap-4 rounded-lg rounded-bl-sm border border-border bg-card p-4 text-foreground",
         className,
       )}
     >

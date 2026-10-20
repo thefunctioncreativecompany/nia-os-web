@@ -43,7 +43,7 @@ export function NewProjectDialog({ children }: { children: React.ReactNode }) {
         className="flex w-[calc(100%-2rem)] max-w-[480px] flex-col items-center gap-7 rounded-2xl p-8 sm:max-w-[480px]"
       >
         <DialogTitle className="text-center text-subtitle font-bold">
-          {step === "choose" ? "Create New Project" : "Start from a template"}
+          {step === "choose" ? "Create new project" : "Start from a template"}
         </DialogTitle>
         <DialogDescription className="sr-only">
           {step === "choose" ? "Start a blank project, or from a template." : "Pick a template; it opens ready to fill in."}
@@ -54,14 +54,14 @@ export function NewProjectDialog({ children }: { children: React.ReactNode }) {
               <span className="flex size-12 items-center justify-center rounded-full border border-border bg-white">
                 <FileText aria-hidden className="size-6" />
               </span>
-              <span className="text-base leading-normal font-bold">Blank Project</span>
+              <span className="text-base leading-normal font-bold">Blank project</span>
               <span className="text-micro text-muted-foreground">Start from scratch with an empty project</span>
             </Link>
             <button type="button" onClick={() => setStep("templates")} className={optionClassName}>
               <span className="flex size-12 items-center justify-center rounded-full border border-border bg-white">
                 <FilePlus2 aria-hidden className="size-6" />
               </span>
-              <span className="text-base leading-normal font-bold">From Template</span>
+              <span className="text-base leading-normal font-bold">From template</span>
               <span className="text-micro text-muted-foreground">Call sheets, shotlists, invoices and more</span>
             </button>
           </div>

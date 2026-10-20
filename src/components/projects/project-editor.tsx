@@ -265,7 +265,7 @@ export function ProjectEditor({
               <EditableText
                 label="Title"
                 value={project.title}
-                placeholder="Untitled Project"
+                placeholder="Untitled project"
                 maxLength={120}
                 readOnly={!canEdit}
                 onSave={(next) => save("title", "title", next)}

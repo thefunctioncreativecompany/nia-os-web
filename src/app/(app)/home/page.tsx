@@ -40,7 +40,7 @@ export default function Page() {
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         <h2 id="recent-projects" className="text-xl leading-[1.4] font-bold text-foreground">
-          Recent Projects
+          Recent projects
         </h2>
         <Suspense fallback={<Skeleton className="h-48 rounded-xl" />}>
           <RecentProjects />
@@ -56,7 +56,7 @@ export default function Page() {
         <div className="flex flex-col gap-10">
           <section aria-labelledby="schedule" className="flex flex-col gap-5">
             <h2 id="schedule" className="text-xl leading-[1.4] font-bold text-foreground">
-              Upcoming Schedule
+              Upcoming schedule
             </h2>
             <EmptyState
               message="No upcoming events. Add events from your project calendar."
@@ -66,11 +66,11 @@ export default function Page() {
 
           <section aria-labelledby="quick-actions" className="flex flex-col gap-5">
             <h2 id="quick-actions" className="text-xl leading-[1.4] font-bold text-foreground">
-              Quick Actions
+              Quick actions
             </h2>
             <div className="flex flex-wrap gap-3">
               <NewProjectDialog>
-                <Button>+ New Project</Button>
+                <Button>+ New project</Button>
               </NewProjectDialog>
               <Button asChild variant="outline">
                 <Link href="/templates">Browse templates</Link>
@@ -104,7 +104,7 @@ async function RecentProjects() {
         className="border-[1.5px] border-dashed"
         action={
           <NewProjectDialog>
-            <Button className="mt-2">Create Your First Project</Button>
+            <Button className="mt-2">Create your first project</Button>
           </NewProjectDialog>
         }
       />

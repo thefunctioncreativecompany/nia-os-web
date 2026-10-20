@@ -66,7 +66,7 @@ export function PropertyInspector({
           type="color"
           value={value.color}
           onChange={(e) => onChange({ ...value, color: e.target.value.toUpperCase() })}
-          className="size-7 shrink-0 cursor-pointer rounded-md border border-border bg-transparent p-0 [&::-webkit-color-swatch]:rounded-[5px] [&::-webkit-color-swatch]:border-0 [&::-webkit-color-swatch-wrapper]:p-0"
+          className="size-7 shrink-0 cursor-pointer rounded-md border border-border bg-transparent p-0 [&::-webkit-color-swatch]:rounded-sm [&::-webkit-color-swatch]:border-0 [&::-webkit-color-swatch-wrapper]:p-0"
         />
         <span className="text-small font-bold text-foreground tabular-nums">{value.color}</span>
         <span className="sr-only">Fill colour</span>

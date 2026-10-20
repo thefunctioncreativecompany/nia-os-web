@@ -6,7 +6,7 @@ export type ProductionStatus = "confirmed" | "pending" | "on-hold" | "wrapped" |
 const LABELS: Record<ProductionStatus, string> = {
   confirmed: "Confirmed",
   pending: "Pending",
-  "on-hold": "On Hold",
+  "on-hold": "On hold",
   wrapped: "Wrapped",
   cancelled: "Cancelled",
 };

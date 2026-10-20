@@ -150,7 +150,7 @@ export function ShareProjectDialog({
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="flex max-h-[calc(100svh-2rem)] w-[calc(100%-2rem)] max-w-[520px] flex-col gap-6 overflow-y-auto rounded-2xl p-6 sm:max-w-[520px] sm:p-8">
-        <DialogTitle className="text-subtitle font-bold">Share Project</DialogTitle>
+        <DialogTitle className="text-subtitle font-bold">Share project</DialogTitle>
         <DialogDescription className="sr-only">
           Choose who can open this project, and whether a view-only link works.
         </DialogDescription>
@@ -187,7 +187,7 @@ export function ShareProjectDialog({
         )}
 
         <section className="flex flex-col gap-4">
-          <h3 className="text-small leading-normal font-bold text-muted-foreground">Project Members</h3>
+          <h3 className="text-small leading-normal font-bold text-muted-foreground">Project members</h3>
           {people === null ? (
             <p className="text-small text-muted-foreground">Loading…</p>
           ) : (
@@ -268,7 +268,7 @@ export function ShareProjectDialog({
 
         <section className="flex flex-col gap-4">
           <div className="flex items-center justify-between gap-3">
-            <h3 className="text-small leading-normal font-bold text-muted-foreground">Invite Link</h3>
+            <h3 className="text-small leading-normal font-bold text-muted-foreground">Invite link</h3>
             <label className="flex items-center gap-2 text-caption text-muted-foreground">
               Anyone with the link can view
               <Switch

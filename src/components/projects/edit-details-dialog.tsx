@@ -77,7 +77,7 @@ export function EditDetailsDialog({ project, children }: { project: Project; chi
     <Dialog open={open} onOpenChange={handleOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="flex max-h-[calc(100svh-2rem)] w-[calc(100%-2rem)] max-w-[600px] flex-col gap-7 overflow-y-auto rounded-2xl p-6 sm:max-w-[600px] sm:p-10">
-        <DialogTitle className="text-h2 font-bold">Edit Project Details</DialogTitle>
+        <DialogTitle className="text-h2 font-bold">Edit project details</DialogTitle>
         <DialogDescription className="sr-only">Change this project&apos;s name, summary, type and stage.</DialogDescription>
         <form onSubmit={save} className="flex flex-col gap-7">
           <div className="flex flex-col gap-2">
@@ -155,7 +155,7 @@ export function EditDetailsDialog({ project, children }: { project: Project; chi
               disabled={isSaving || !title.trim()}
               className="h-auto rounded-lg px-6 py-3 text-lead font-semibold"
             >
-              {isSaving ? "Saving…" : "Save Changes"}
+              {isSaving ? "Saving…" : "Save changes"}
             </Button>
           </div>
         </form>
