@@ -7,7 +7,8 @@
 // - Protection: optional, 10% of the rental subtotal, with a $100 excess.
 // - Processing: passed through at cost, (rental + protection + fee) × the method's rate + its fixed
 //   charge; 2.9% + $0.30 for every method until each provider's real rate is known.
-// - The lister receives 100% of their listed price.
+// - The lister receives 100% of their listed price, and any delivery charge.
+// - Delivery: the lister's charge each way (the design's $25), counted in processing.
 // - Fleet rate: $45 a unit per day, or $39 a unit from 5 units.
 
 import { planById, type PlanId } from "@/lib/plans";
@@ -38,6 +39,7 @@ export const PROCESSING: Record<PaymentMethod, { rate: number; fixedCents: numbe
 
 export const PROTECTION_RATE = 0.1;
 export const PROTECTION_EXCESS_CENTS = 10_000;
+export const DELIVERY_EACH_WAY_CENTS = 2_500;
 export const FLEET_RATE = { standard: 45, bulk: 39, bulkFrom: 5 } as const;
 
 const DAY_MS = 86_400_000;
@@ -71,6 +73,8 @@ export type RentalQuote = {
   rental: number;
   protection: number;
   serviceFee: number;
+  /** Delivery there and back, when chosen. */
+  delivery: number;
   processing: number;
   total: number;
   /** Refundable hold on the card, not charged. */
@@ -88,6 +92,7 @@ export function quoteRental({
   plan,
   method = "card",
   depositDollars = 0,
+  delivery = false,
 }: {
   /** Dollars per unit per day. */
   dayRate: number;
@@ -97,13 +102,16 @@ export function quoteRental({
   plan: PlanId;
   method?: PaymentMethod;
   depositDollars?: number;
+  /** Local delivery there and back. */
+  delivery?: boolean;
 }): RentalQuote {
   const rateCents = toCents(dayRate);
   const rental = rateCents * days * units;
   const protectionCents = protection ? Math.round(rental * PROTECTION_RATE) : 0;
   const serviceFee = Math.round(rental * serviceRate(plan));
+  const deliveryCents = delivery ? DELIVERY_EACH_WAY_CENTS * 2 : 0;
   const { rate, fixedCents } = PROCESSING[method];
-  const processing = Math.round((rental + protectionCents + serviceFee) * rate) + fixedCents;
+  const processing = Math.round((rental + protectionCents + serviceFee + deliveryCents) * rate) + fixedCents;
   return {
     days,
     units,
@@ -111,10 +119,11 @@ export function quoteRental({
     rental,
     protection: protectionCents,
     serviceFee,
+    delivery: deliveryCents,
     processing,
-    total: rental + protectionCents + serviceFee + processing,
+    total: rental + protectionCents + serviceFee + deliveryCents + processing,
     deposit: toCents(depositDollars),
-    listerPayout: rental,
+    listerPayout: rental + deliveryCents,
   };
 }
 

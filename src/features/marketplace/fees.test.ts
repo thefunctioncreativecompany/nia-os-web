@@ -44,6 +44,15 @@ describe("quoteRental", () => {
     expect(q.total).toBe(q.rental + q.protection + q.serviceFee + q.processing);
   });
 
+  it("adds delivery both ways, counts it in processing and pays it to the lister", () => {
+    const q = quoteRental({ dayRate: 75, days: 3, protection: true, plan: "pro", delivery: true });
+    expect(q.delivery).toBe(5_000);
+    // (225 + 22.50 + 6.75 + 50) × 2.9% = 8.82325 → $8.82, + $0.30
+    expect(q.processing).toBe(912);
+    expect(q.total).toBe(22_500 + 2_250 + 675 + 5_000 + 912);
+    expect(q.listerPayout).toBe(27_500);
+  });
+
   it("rounds odd amounts per line", () => {
     const q = quoteRental({ dayRate: 18.99, days: 1, protection: true, plan: "free" });
     expect(q.rental).toBe(1_899);
