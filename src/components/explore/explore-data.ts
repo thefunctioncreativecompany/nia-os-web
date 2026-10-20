@@ -1,6 +1,7 @@
 // Sample data for Explore until it reads from Supabase: the films, posters and stills from Ika's
 // Claude Design "ExploreLibrary" (2026-10-20), in the design's order. Images live in
-// public/explore. Directors the design left blank were looked up (2026-10-20).
+// public/explore; the Latest projects stills are Ika's picks (2026-10-20). Directors the design
+// left blank were looked up (2026-10-20).
 
 export type Film = {
   id: string;
@@ -40,15 +41,15 @@ const film = (id: string, title: string, director: string, still?: string): Film
 
 // The design's list (its order drives every section below).
 export const FILMS: Film[] = [
-  film("hamnet", "Hamnet", "Chloé Zhao"),
+  film("hamnet", "Hamnet", "Chloé Zhao", "hamnet"),
   film("sinners", "Sinners", "Ryan Coogler", "sinners"),
   film("heart-of-the-hunter", "Heart of the Hunter", "Mandla Dube"),
-  film("the-odyssey", "The Odyssey", "Christopher Nolan"),
-  film("the-polygamist", "The Polygamist", "Akin Omotoso", "the-polygamist"),
+  film("the-odyssey", "The Odyssey", "Christopher Nolan", "the-odyssey"),
+  film("the-polygamist", "The Polygamist", "Akin Omotoso", "the-polygamist-office"),
   film("avatar-the-way-of-water", "Avatar: The Way of Water", "James Cameron"),
   film("obsession", "Obsession", "Glenn Leyburn & Lisa Barros D'Sa"),
   film("the-dink", "The Dink", "Josh Greenbaum"),
-  film("the-woman-king", "The Woman King", "Gina Prince-Bythewood"),
+  film("the-woman-king", "The Woman King", "Gina Prince-Bythewood", "the-woman-king"),
   film("phantom", "Phantom", "Lee Hae-young"),
   film("blonde", "Blonde", "Andrew Dominik"),
   film("500-days-of-summer", "500 Days of Summer", "Marc Webb"),
@@ -65,7 +66,7 @@ const OPPENHEIMER: Film = {
   title: "Oppenheimer",
   director: "Christopher Nolan",
   posterUrl: null,
-  stillUrl: "/explore/stills/oppenheimer.jpg",
+  stillUrl: "/explore/stills/oppenheimer-los-alamos.jpg",
 };
 
 const BY_ID = new Map([...FILMS, OPPENHEIMER].map((f, i) => [f.id, { film: f, index: i }]));
@@ -121,11 +122,11 @@ export const CATEGORIES: Category[] = [
     kind: "latest",
     items: [
       { filmId: "sinners", position: "50% 30%" },
-      { filmId: "oppenheimer", position: "60% 50%" },
-      { filmId: "the-polygamist", position: "55% 40%" },
-      { filmId: "the-woman-king", position: "50% 25%" },
-      { filmId: "the-odyssey", position: "50% 30%" },
-      { filmId: "hamnet", position: "50% 30%" },
+      { filmId: "oppenheimer", position: "50% 30%" },
+      { filmId: "the-polygamist", position: "45% 35%" },
+      { filmId: "the-woman-king", position: "45% 40%" },
+      { filmId: "the-odyssey", position: "32% 40%" },
+      { filmId: "hamnet", position: "50% 35%" },
     ],
   },
 ];
