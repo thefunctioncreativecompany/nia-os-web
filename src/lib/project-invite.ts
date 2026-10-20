@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 import { inviteEmail } from "@/lib/invite-email";
 import { createClient } from "@/lib/supabase/server";
 
-const SITE = "https://nia-os-web-9ahh.vercel.app";
+const SITE = "https://app.niatechnologies.co";
 
 type Person = { kind: "owner" | "member" | "invite"; user_id: string | null; name: string; email: string; role: string };
 

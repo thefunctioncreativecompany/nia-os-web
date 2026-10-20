@@ -93,12 +93,13 @@ Data:
 - If something fails twice, stop, explain simply, and offer to revert to the last commit.
 - Sessions: start with "Read CLAUDE.md and tell me where we left off"; end by updating Progress,
   then commit and push.
-- Live site: https://nia-os-web-9ahh.vercel.app (production deploys from `main`, ~1 minute).
+- Live site: https://app.niatechnologies.co (GoDaddy CNAME `app` → Vercel project nia-os-web-9ahh; the old
+  https://nia-os-web-9ahh.vercel.app still works). Production deploys from `main`, ~1 minute.
 - Test accounts: credentials in `.env.local` as `TEST_USER_EMAIL` / `TEST_USER_PASSWORD` and
   `TEST_USER2_EMAIL` / `TEST_USER2_PASSWORD`; sign in with them in headless Chrome (turn on focus
   emulation for inputs) and with supabase-js to verify access rules between accounts.
-- Supabase URL Configuration: Site URL `https://nia-os-web-9ahh.vercel.app`; Redirect URLs exactly
-  `https://nia-os-web-9ahh.vercel.app/**` and `http://localhost:3000/**`. Never use
+- Supabase URL Configuration: Site URL `https://app.niatechnologies.co`; Redirect URLs
+  `https://app.niatechnologies.co/**`, `https://nia-os-web-9ahh.vercel.app/**` and `http://localhost:3000/**`. Never use
   `*-nia-technologies.vercel.app` URLs (Vercel-protected, shows a login wall).
 - Auth UI lives in `src/components/auth/`; Supabase logic in
   `src/components/{login,sign-up,forgot-password,update-password}-form.tsx`. Email and Google links
