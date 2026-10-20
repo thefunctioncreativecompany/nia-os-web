@@ -209,5 +209,5 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261023000000_projects_realtime.sql`, `20261024000000_find_people.sql`, `20261025000000_documents_project_check.sql`,
 `20261025010000_project_files.sql`, `20261025020000_project_files_remove.sql`,
 `20261025030000_project_files_tags.sql`, `20261026010000_activity_documents_files.sql`,
-`20261026020000_link_shared_projects.sql`.
-Not yet run (Ika): `20261025040000_document_limits_file_archive.sql`, `20261026000000_remove_pilot_clients.sql`.
+`20261026020000_link_shared_projects.sql`, `20261025040000_document_limits_file_archive.sql`,
+`20261026030000_document_rules_wording.sql`. Not yet run (Ika): `20261026000000_remove_pilot_clients.sql`.

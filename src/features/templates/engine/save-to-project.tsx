@@ -41,7 +41,7 @@ async function editableProjects(templateCode: string, templateName: string): Pro
     .sort((a, b) => b.updated_at.localeCompare(a.updated_at))
     .map((p) => {
       const inIt = held(p.id);
-      const blocked = inIt.some((d) => d.template_code === templateCode) ? `Already has a ${templateName}` : inIt.length >= LIMIT ? `Has ${LIMIT} documents, the free plan's most` : null;
+      const blocked = inIt.some((d) => d.template_code === templateCode) ? `Already has ${/^[aeiou]/i.test(templateName) ? 'an' : 'a'} ${templateName}` : inIt.length >= LIMIT ? `Has ${LIMIT} documents, the free plan's most` : null;
       return { id: p.id, title: p.title || 'Untitled project', coverUrl: p.cover_url, blocked };
     });
 }

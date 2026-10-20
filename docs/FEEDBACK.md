@@ -54,7 +54,7 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 | A1 | Audit 2026-10-19 #1: `pilot_clients` (11 contacts, readable by any signed-in account) removed | ⏸ | Ika runs `20261026000000_remove_pilot_clients.sql` |
 | A2 | Audit #2: view-only people get a read-only document (controls locked but readable, "You can view this document", no Undo/Add row/Move/Remove) | ✅ | Ika, 2026-10-19 |
 | A3 | Audit #3: Your drafts on Templates (documents not in a project), Delete document in the editor and on the project's list (maker or project owner) | ✅ | Ika, 2026-10-19 |
-| A8 | Free-plan document rules (one of each template, 5 per project) and the file Archive (restore, delete for good) | ⏸ | Built and shipped; needs `20261025040000_document_limits_file_archive.sql` run by Ika, then tested |
+| A8 | Free-plan document rules (one of each template, 5 per project) and the file Archive (restore, delete for good) | ✅ | Migration run by Ika; tested: database refuses a second Call Sheet / sixth document / moving one in; screens show 5 of 5, Already in this project, Already has an Invoice; Archive, Undo, Restore, Delete for good (stored file removed) |
 | A4 | Audit #4: branded "We couldn't find that" pages (inside the app with the navbar, and outside), with a way back. The status stays 200 once a page has started streaming; Next.js marks it noindex (documented behaviour) | ✅ | |
 | A5 | Audit #5: the project title is the page's main heading | ✅ | |
 | A6 | Audit #6: Home Browse templates works; Import files (pick a project, drop files); onboarding done says Go to Home / Explore templates; project's Export row became Download documents | ✅ | |
