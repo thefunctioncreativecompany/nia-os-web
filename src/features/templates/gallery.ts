@@ -147,3 +147,10 @@ const ICONS: Record<string, LucideIcon> = {
 };
 
 export const iconFor = (name: string): LucideIcon => ICONS[name] ?? ClipboardList;
+
+// Listed in full so the styles are generated (see the grain utilities in globals.css).
+const GRAINS = ["grain-1", "grain-2", "grain-3", "grain-4", "grain-5", "grain-6", "grain-7", "grain-8", "grain-9", "grain-10", "grain-11", "grain-12"];
+/** A template's tile gradient: the same one wherever the template appears. */
+export const grainFor = (code: string) => GRAINS[[...code].reduce((a, c) => a * 31 + c.charCodeAt(0), 7) % GRAINS.length];
+/** The nth gradient, for things that aren't templates (workflow steps). */
+export const grainAt = (n: number) => GRAINS[n % GRAINS.length];

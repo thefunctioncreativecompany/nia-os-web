@@ -116,32 +116,32 @@ export function ExploreComingSoon() {
           key={film.id}
           aria-hidden
           style={style}
-          className="absolute aspect-[268/373] w-[clamp(5.5rem,13vw,10.625rem)] overflow-hidden rounded-lg bg-muted shadow-card"
+          className="absolute aspect-[268/373] w-[clamp(7.5rem,13vw,10.625rem)] overflow-hidden rounded-lg bg-muted shadow-card"
         >
           <PosterArt film={film} sizes="170px" />
         </div>
       ))}
 
-      <div className="absolute inset-0 z-[200] m-auto flex h-fit w-[calc(100%-2.5rem)] max-w-118 animate-explore-rise flex-col items-center gap-4 rounded-2xl border border-border bg-white/85 px-6 pt-7 pb-6 text-center shadow-card-hover backdrop-blur-lg sm:px-9 sm:pt-9 sm:pb-8">
+      <div className="absolute inset-0 z-[200] m-auto flex h-fit w-[calc(100%-5rem)] max-w-118 animate-explore-rise flex-col items-center gap-2.5 rounded-2xl border border-border bg-white/85 px-4 pt-4 pb-4 text-center sm:w-[calc(100%-2.5rem)] sm:gap-4 shadow-card-hover backdrop-blur-lg sm:px-9 sm:pt-9 sm:pb-8">
         <span className="inline-flex h-7 items-center gap-2 rounded-full border border-border px-3 text-caption font-medium text-muted-foreground">
           <span aria-hidden className="size-1.75 animate-explore-pulse rounded-full bg-status-confirmed-foreground" />
           Coming soon
         </span>
-        <h1 className="text-hero font-semibold tracking-tight text-foreground">Explore</h1>
-        <p className="max-w-90 text-lead leading-relaxed text-muted-foreground">
+        <h1 className="text-h2 font-semibold sm:text-hero tracking-tight text-foreground">Explore</h1>
+        <p className="max-w-90 text-small leading-relaxed text-muted-foreground sm:text-lead">
           Browse films, director&rsquo;s notes and electronic press kits from across Nia, then compare any two side by side. Opens February 2027.
         </p>
-        <div className="mt-1.5 flex flex-wrap justify-center gap-2.5">
+        <div className="mt-1 flex flex-wrap justify-center gap-2 sm:mt-1.5 sm:gap-2.5">
           {waiting ? (
-            <Button variant="outline" onClick={() => void toggle()} aria-pressed>
+            <Button variant="outline" onClick={() => void toggle()} aria-pressed className="max-sm:h-9 max-sm:px-4 max-sm:text-small">
               <Check aria-hidden /> We&rsquo;ll let you know
             </Button>
           ) : (
-            <Button onClick={() => void toggle()} disabled={waiting === null}>
+            <Button onClick={() => void toggle()} disabled={waiting === null} className="max-sm:h-9 max-sm:px-4 max-sm:text-small">
               Notify me
             </Button>
           )}
-          <Button variant="outline" asChild>
+          <Button variant="outline" asChild className="max-sm:h-9 max-sm:px-4 max-sm:text-small">
             <Link href="/explore/preview">
               Preview Explore
               <ArrowRight aria-hidden data-icon="inline-end" />

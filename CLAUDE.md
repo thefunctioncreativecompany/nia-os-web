@@ -98,6 +98,11 @@ Data:
   Geist, theme colours, our buttons, sentence case. This overrides the no-loops rule and the poster
   licence note for Explore only. `features.exploreUnlocked` (`src/lib/features.ts`) switches
   `/explore` to the library.
+- (2026-10-20) Templates below "Suggested for you" follow Ika's Claude Design "Templates": Workflows
+  and Strategy & Development as pointer-scrubbed filmstrips, Production Management and Coming soon
+  as ranked lists with a following preview, UGC as scrolling columns. Reusable as
+  `ScrubFilmstrip`, `RankedList`, `MarqueeColumns` (`src/components/nia`). Phase pill colours are
+  theme `phase-*`. Every template opens its preview pop-up.
 
 ## Working notes
 

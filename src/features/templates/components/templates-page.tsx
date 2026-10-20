@@ -14,7 +14,8 @@ import { TemplateCard } from "@/features/templates/components/template-card";
 import { TemplateSearch } from "@/features/templates/components/template-search";
 import { PreviewModal } from "@/features/templates/components/preview-modal";
 import { SuggestedForYou } from "@/features/templates/components/suggested-for-you";
-import { CategoryRows, SuggestedRow } from "@/features/templates/components/showcase-rows";
+import { SuggestedRow } from "@/features/templates/components/showcase-rows";
+import { CategorySections } from "@/features/templates/components/category-sections";
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
 import { MyDrafts } from "@/features/templates/components/my-drafts";
 
@@ -24,8 +25,9 @@ const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1
 // template count and suggestions, filters, one view and the preview pop-up. Phones lead with
 // the suggested templates; larger screens show the featured row and "Suggested for you"
 // (it learns from what is opened, used and searched here). Every screen then lists all
-// templates by category. Compact and Index views were retired (Ika) and live on in the
-// component library. The pop-up lives in the address (?preview=D01), so Back closes it.
+// templates by category (filmstrips, ranked lists, scrolling columns). Compact and Index views
+// were retired (Ika) and live on in the component library. The pop-up lives in the address
+// (?preview=D01), so Back closes it.
 export function TemplatesPage({ templates, groups, familyLabels }: { templates: GalleryTemplate[]; groups: string[]; familyLabels: Record<string, string> }) {
   const router = useRouter();
   const icons = Object.fromEntries(templates.map((t) => [t.code, t.icon]));
@@ -185,8 +187,8 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
             onReset={learning.reset}
             onPreview={(t, list, viaHover) => openPreview(t, list, viaHover)}
           />
-          {/* Every screen: all templates by category, square gradient cards. */}
-          <CategoryRows templates={visible} groups={groups} onPreview={(t, list, viaHover) => openPreview(t, list, viaHover)} />
+          {/* Every screen: all templates by category, each in its own form (Ika's design, 2026-10-20). */}
+          <CategorySections templates={visible} groups={groups} total={templates.length} onPreview={(t, list) => openPreview(t, list)} />
         </>
       )}
 

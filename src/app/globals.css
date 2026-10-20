@@ -28,6 +28,14 @@
   --color-status-wrapped-foreground: var(--status-wrapped-foreground);
   --color-status-cancelled: var(--status-cancelled);
   --color-status-cancelled-foreground: var(--status-cancelled-foreground);
+  --color-phase-pre: var(--phase-pre);
+  --color-phase-pre-foreground: var(--phase-pre-foreground);
+  --color-phase-production: var(--phase-production);
+  --color-phase-production-foreground: var(--phase-production-foreground);
+  --color-phase-post: var(--phase-post);
+  --color-phase-post-foreground: var(--phase-post-foreground);
+  --color-phase-soon: var(--phase-soon);
+  --color-phase-soon-foreground: var(--phase-soon-foreground);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -162,7 +170,7 @@
 }
 
 /* Explore keeps the timings of Ika's Claude Design (2026-10-20): longer, softer glides than the
-   rest of the app. Use only on Explore screens. */
+   rest of the app. Use only on Explore and the Templates showcase (also Ika's designs). */
 @utility duration-glide {
   --tw-duration: var(--duration-glide);
   transition-duration: var(--duration-glide);
@@ -178,6 +186,14 @@
 @utility duration-drift {
   --tw-duration: var(--duration-drift);
   transition-duration: var(--duration-drift);
+}
+@utility duration-settle {
+  --tw-duration: var(--duration-settle);
+  transition-duration: var(--duration-settle);
+}
+@utility duration-track {
+  --tw-duration: var(--duration-track);
+  transition-duration: var(--duration-track);
 }
 @utility duration-zoom {
   --tw-duration: var(--duration-zoom);
@@ -280,6 +296,15 @@
   --status-wrapped-foreground: #5f5e59;
   --status-cancelled: #fee2e2;
   --status-cancelled-foreground: #b91c1c;
+  /* Template phase pills (Ika's Claude Design "Templates", 2026-10-20). */
+  --phase-pre: #eef1f8;
+  --phase-pre-foreground: #2c3e78;
+  --phase-production: #eaf4ec;
+  --phase-production-foreground: #1e5b2e;
+  --phase-post: #f7eee8;
+  --phase-post-foreground: #7a3a16;
+  --phase-soon: #f1effa;
+  --phase-soon-foreground: #4b3b8f;
   --duration-fast: 150ms;
   --duration-base: 250ms;
   --duration-slow: 400ms;
@@ -288,6 +313,8 @@
   --duration-strip: 900ms;
   --duration-drift: 1200ms;
   --duration-zoom: 1600ms;
+  --duration-settle: 800ms; /* Templates (Claude Design): filmstrip cards settling */
+  --duration-track: 1100ms; /* Templates: filmstrip track following the pointer */
 }
 
 /* uiarc components (src/components/arc) read these names. Each one points at a Nia token,
