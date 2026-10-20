@@ -8,7 +8,8 @@ import { ActivityList } from "@/components/projects/activity-list";
 import { ProjectActions } from "@/components/projects/project-actions";
 import { ProjectEditor } from "@/components/projects/project-editor";
 import { ProjectLive } from "@/components/projects/project-live";
-import { ProjectDocuments } from "@/components/projects/project-documents";
+import { DocumentPills, ProjectDocuments } from "@/components/projects/project-documents";
+import { ProjectStills } from "@/components/projects/project-stills";
 import { ProjectFiles } from "@/components/projects/project-files";
 import { catalog } from "@/features/templates/catalog";
 
@@ -40,43 +41,47 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
   const canEdit = role !== "viewer";
 
   return (
-    <div className="flex flex-1 flex-wrap">
+    <>
       <ProjectLive projectId={id} />
-      <div className="min-w-0 flex-[999_1_560px] px-4 pt-10 pb-15 md:pr-10 md:pl-15">
-        <div className="flex flex-col gap-12">
-          <ProjectEditor project={project} canEdit={canEdit} />
-          <ProjectDocuments projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} isOwner={role === "owner"} userId={userId} now={now} />
-          <ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />
-        </div>
-      </div>
-      <aside className="flex flex-[1_1_360px] flex-col gap-6 border-border bg-nia-panel px-4 pt-10 pb-15 md:border-l md:pr-15 md:pl-10 lg:max-w-[540px]">
-        <ProjectActions project={project} role={role} />
+      <ProjectEditor
+        project={project}
+        canEdit={canEdit}
+        behind={<DocumentPills projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} />}
+        stills={<ProjectStills files={files} canEdit={canEdit} />}
+        files={<ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />}
+        manage={
+          <div className="flex flex-col gap-6">
+            <ProjectActions project={project} role={role} />
 
-        <section className="flex flex-col gap-4 rounded-2xl border border-border bg-nia-surface p-6">
-          <h2 className="text-base leading-normal font-bold text-foreground">Project Overview</h2>
-          <dl className="flex flex-col gap-3 text-small leading-normal">
-            <OverviewRow label="Stage" value={project.stage} />
-            <OverviewRow label="Production type" value={project.productionType ?? "—"} />
-            <OverviewRow label="Team Members" value={`${people} ${people === 1 ? "member" : "members"}`} />
-            <OverviewRow
-              label="Created"
-              value={new Date(project.createdAt).toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-              })}
-            />
-            <OverviewRow label="Last Edited" value={timeAgo(project.updatedAt, now)} />
-            {role !== "owner" && <OverviewRow label="Your access" value={role === "editor" ? "Can edit" : "Can view"} />}
-          </dl>
-        </section>
+            <section className="flex flex-col gap-4 rounded-2xl border border-border bg-nia-surface p-6">
+              <h2 className="text-base leading-normal font-bold text-foreground">Project Overview</h2>
+              <dl className="flex flex-col gap-3 text-small leading-normal">
+                <OverviewRow label="Stage" value={project.stage} />
+                <OverviewRow label="Production type" value={project.productionType ?? "—"} />
+                <OverviewRow label="Team Members" value={`${people} ${people === 1 ? "member" : "members"}`} />
+                <OverviewRow
+                  label="Created"
+                  value={new Date(project.createdAt).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                />
+                <OverviewRow label="Last Edited" value={timeAgo(project.updatedAt, now)} />
+                {role !== "owner" && <OverviewRow label="Your access" value={role === "editor" ? "Can edit" : "Can view"} />}
+              </dl>
+            </section>
 
-        <section className="flex flex-col gap-5 rounded-2xl border border-border bg-nia-surface p-6">
-          <h2 className="text-lg leading-[1.4] font-bold text-foreground">Recent Activity</h2>
-          <ActivityList items={activity.items} now={activity.now} />
-        </section>
-      </aside>
-    </div>
+            <ProjectDocuments projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} isOwner={role === "owner"} userId={userId} now={now} />
+
+            <section className="flex flex-col gap-5 rounded-2xl border border-border bg-nia-surface p-6">
+              <h2 className="text-lg leading-[1.4] font-bold text-foreground">Recent Activity</h2>
+              <ActivityList items={activity.items} now={activity.now} />
+            </section>
+          </div>
+        }
+      />
+    </>
   );
 }
 
@@ -91,16 +96,19 @@ function OverviewRow({ label, value }: { label: string; value: string }) {
 
 function ProjectSkeleton() {
   return (
-    <div className="flex flex-1 flex-wrap" aria-busy="true" aria-label="Loading project">
-      <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-6 px-4 pt-10 md:pr-10 md:pl-15">
-        <Skeleton className="h-5 w-36" />
-        <Skeleton className="aspect-[16/7] w-full rounded-[20px]" />
-        <Skeleton className="h-10 w-2/3" />
-        <Skeleton className="h-16 w-full" />
-      </div>
-      <div className="flex flex-[1_1_360px] flex-col gap-6 bg-nia-panel px-4 pt-10 md:pr-15 md:pl-10 lg:max-w-[540px]">
-        <Skeleton className="h-64 rounded-2xl" />
-        <Skeleton className="h-48 rounded-2xl" />
+    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 md:px-15" aria-busy="true" aria-label="Loading project">
+      <Skeleton className="h-5 w-36" />
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
+        <div className="flex flex-col gap-6">
+          <Skeleton className="aspect-[19/10] w-full rounded-3xl" />
+          <Skeleton className="h-9 w-2/3" />
+          <Skeleton className="h-16 w-full" />
+        </div>
+        <div className="flex flex-col gap-6">
+          <Skeleton className="h-10 w-64 rounded-lg" />
+          <Skeleton className="h-56 rounded-2xl" />
+          <Skeleton className="h-24 rounded-2xl" />
+        </div>
       </div>
     </div>
   );

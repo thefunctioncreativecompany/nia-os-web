@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, FilePlus2, FileUp, FolderMinus, LayoutTemplate, Trash2 } from "lucide-react";
+import { ArrowLeft, FilePlus2, FileUp, FolderMinus, LayoutTemplate, Plus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
 import type { ProjectDocument } from "@/lib/projects-data";
@@ -28,6 +28,43 @@ export const FREE_DOCUMENT_LIMIT = 5;
 // Documents saved to this project (build step 8): open one to keep working on it, remove it from
 // the project (it stays in its maker's drafts), or add a new one from a template, which is saved
 // here as soon as it's started.
+/**
+ * "Behind the Production" (Figma 824:23124): the project's documents as pills that open them,
+ * and an Add document pill. The full list with remove and delete lives in Manage.
+ */
+export function DocumentPills({ projectId, documents, icons, canEdit }: { projectId: string; documents: ProjectDocument[]; icons: Record<string, string>; canEdit: boolean }) {
+  const [adding, setAdding] = useState(false);
+  const pill =
+    "inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-small font-semibold text-foreground outline-none transition-colors duration-fast hover:border-ring hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50";
+  return (
+    <div className="flex flex-col gap-2">
+      <ul className="flex flex-wrap gap-2">
+        {documents.map((doc) => (
+          <li key={doc.id}>
+            <Link href={`/templates/${doc.templateCode}?doc=${doc.id}`} className={pill}>
+              <FlatIcon name={icons[doc.templateCode] ?? "file"} size="sm" className="size-4" />
+              {doc.title}
+            </Link>
+          </li>
+        ))}
+        {canEdit && (
+          <li>
+            <button type="button" onClick={() => setAdding(true)} className={cn(pill, "border-dashed text-muted-foreground")}>
+              <Plus aria-hidden className="size-4" /> Add document
+            </button>
+          </li>
+        )}
+      </ul>
+      {documents.length === 0 && (
+        <p className="text-small text-muted-foreground">
+          {canEdit ? `Call sheets, shotlists, invoices… up to ${FREE_DOCUMENT_LIMIT} from templates.` : "No documents yet."}
+        </p>
+      )}
+      <AddDocumentDialog projectId={projectId} existing={documents} open={adding} onOpenChange={setAdding} />
+    </div>
+  );
+}
+
 export function ProjectDocuments({ projectId, documents, icons, canEdit, isOwner, userId, now }: { projectId: string; documents: ProjectDocument[]; icons: Record<string, string>; canEdit: boolean; isOwner: boolean; userId: string; now: number }) {
   const [confirming, setConfirming] = useState<string | null>(null);
   const router = useRouter();

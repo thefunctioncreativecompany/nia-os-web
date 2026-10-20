@@ -85,8 +85,8 @@ Data:
   non-commercial): Wikidata/Wikipedia first, posters only with a TMDB or IMDb licence; scripts are
   linked where the studio publishes them, never copied. "Start a project from this" is an AI proposal.
 - (2026-10-19) Project page follows Figma 824:23124 (cover, title, description left; Details, Behind
-  the production, Stills, References right; stacked on phones and tablets). Today's actions, overview
-  and activity move to a "Manage" tab beside "Details" on the right.
+  the production, Stills right; stacked on phones and tablets). Actions, overview, documents and
+  activity sit in a "Manage" tab beside "Details"; Files & references full width below. Built.
 
 ## Working notes
 
@@ -217,4 +217,4 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261025010000_project_files.sql`, `20261025020000_project_files_remove.sql`,
 `20261025030000_project_files_tags.sql`, `20261026010000_activity_documents_files.sql`,
 `20261026020000_link_shared_projects.sql`, `20261025040000_document_limits_file_archive.sql`,
-`20261026030000_document_rules_wording.sql`. Not yet run (Ika): `20261026000000_remove_pilot_clients.sql`.
+`20261026030000_document_rules_wording.sql`, `20261026000000_remove_pilot_clients.sql`.

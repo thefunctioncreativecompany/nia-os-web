@@ -10,22 +10,25 @@ export function ChoicePills<T extends string>({
   onChange,
   label,
   className,
+  selected: many,
 }: {
   options: { value: T; label: string }[];
   value: T | null;
   onChange: (next: T) => void;
   label: string;
   className?: string;
+  /** Several can be on at once (e.g. genres): each pill toggles. */
+  selected?: T[];
 }) {
   return (
-    <div role="radiogroup" aria-label={label} className={cn("flex flex-wrap gap-2", className)}>
+    <div role={many ? "group" : "radiogroup"} aria-label={label} className={cn("flex flex-wrap gap-2", className)}>
       {options.map((option) => {
-        const selected = option.value === value;
+        const selected = many ? many.includes(option.value) : option.value === value;
         return (
           <button
             key={option.value}
             type="button"
-            role="radio"
+            role={many ? "checkbox" : "radio"}
             aria-checked={selected}
             onClick={() => onChange(option.value)}
             className={cn(
