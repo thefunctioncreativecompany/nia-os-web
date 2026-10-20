@@ -9,7 +9,6 @@ import { ProjectActions } from "@/components/projects/project-actions";
 import { ProjectEditor } from "@/components/projects/project-editor";
 import { ProjectLive } from "@/components/projects/project-live";
 import { DocumentPills, ProjectDocuments } from "@/components/projects/project-documents";
-import { ProjectStills } from "@/components/projects/project-stills";
 import { ProjectFiles } from "@/components/projects/project-files";
 import { catalog } from "@/features/templates/catalog";
 
@@ -47,7 +46,6 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
         project={project}
         canEdit={canEdit}
         behind={<DocumentPills projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} />}
-        stills={<ProjectStills files={files} canEdit={canEdit} />}
         files={<ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />}
         manage={
           <div className="flex flex-col gap-6">

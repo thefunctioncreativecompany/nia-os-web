@@ -105,21 +105,19 @@ function DurationField({ value, readOnly, onSave }: { value: string; readOnly: b
 }
 
 // The project page (Figma 824:23124, Ika 2026-10-19): cover, title and description on the left;
-// on the right Details (with Behind the Production and Stills) or Manage (actions, overview,
+// on the right Details (with Behind the Production) or Manage (actions, overview,
 // documents, activity); stacked on phones and tablets. Files & references sit full width below.
 // Every change saves on its own, with the SavedIndicator.
 export function ProjectEditor({
   project: initial,
   canEdit,
   behind,
-  stills,
   manage,
   files,
 }: {
   project: Project;
   canEdit: boolean;
   behind: React.ReactNode;
-  stills: React.ReactNode;
   manage: React.ReactNode;
   files: React.ReactNode;
 }) {
@@ -347,12 +345,6 @@ export function ProjectEditor({
                 {behind}
               </section>
 
-              <section aria-labelledby="stills" className="flex flex-col gap-4">
-                <h2 id="stills" className="text-xl leading-[1.4] font-bold text-foreground">
-                  Stills
-                </h2>
-                {stills}
-              </section>
             </>
           ) : (
             manage
