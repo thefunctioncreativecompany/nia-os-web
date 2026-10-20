@@ -13,7 +13,7 @@ export function MarketplaceNav({ current }: { current: Page }) {
   const tabs: { page: Page; label: string; href: string | null }[] = [
     { page: "browse", label: "Browse", href: home },
     { page: "rentals", label: "My rentals", href: null },
-    { page: "dashboard", label: "Lister dashboard", href: null },
+    { page: "dashboard", label: "Lister dashboard", href: "/marketplace/dashboard" },
   ];
   const shape = "flex h-full flex-col justify-end gap-3 text-sm leading-[1.4] outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
 

@@ -230,6 +230,15 @@ Milestone 3 — Documents
   trim), 2.2 (sort), 2.3 (Team Members), 2.4 (file detail panel), 2.5 (Next shoot, Complete your
   profile), 3.1 (Editorial Shoot launcher). Audit 2026-10-19 and its fixes: docs/FEEDBACK.md (A1–A14).
 
+Marketplace (from Ika's Claude Design and `design-ref/marketplace/MARKETPLACE_SPEC.md`; not in BUILD_PLAN)
+- [x] Built on sample data (`src/features/marketplace/`), behind `features.marketplaceUnlocked` (off):
+  coming soon at `/marketplace` (still field, waitlist, Preview Marketplace), and the store at
+  `/marketplace/preview`: home (filters, Latest gear, Logistics & fleet, Digital products),
+  `/marketplace/listing/[id]`, `/marketplace/checkout` (payments UI only), `/marketplace/list`,
+  `/marketplace/fleet/[id]`, `/marketplace/dashboard`. Fees in `fees.ts` (tested). To do: Supabase
+  tables for listings, bookings and requests; payments (Stripe); My rentals; messages to listers;
+  run `20261029000000_marketplace_waitlist.sql`.
+
 Milestone 4 — Shoot day: not started.
 
 Milestone 5 — Copilot: not started.
