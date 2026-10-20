@@ -163,7 +163,7 @@ Milestone 1 — Accounts
 
 Milestone 2 — Projects (built from Figma sections 778-2218, 872-42448, 840-26959; Ika chose to do
 these before 0.5)
-- [ ] 2.1 App shell. Navbar: Home and Projects live, Templates/Explore/Inbox "coming soon", search box
+- [x] 2.1 App shell. Navbar: Home and Projects live, Templates/Explore/Inbox "coming soon", search box
   searches project titles, + opens New Project, profile menu (Settings, Log out). Tabs sit in a
   Suspense boundary (the active tab depends on the address).
 - [ ] 2.2 Projects list + New Project. Done: `/projects` grid + empty state, search (`?q=`), Create New
@@ -192,6 +192,12 @@ Milestone 3 — Documents
   with autosave, Undo/Redo and downloads (PDF, Word, Markdown, .txt); part 2 done, six table templates
   with typed columns (T5); people fields; Invoice with totals, currency and Mark paid; Call Sheet. Next: Editorial Shoot workflow (Ika's priority). Fix list and
   open items: docs/FEEDBACK.md.
+
+- [x] 3.4 PDF export (print layout; Download PDF, Word, Markdown, .txt) and 3.7 Batch C (Continuity Log,
+  Shot Logging Sheet, Equipment Rental Log, Filming Notice, Invoice) done. Also working: Crew Contact
+  List, Shotlist, 3-Column AV Script, Call Sheet. Still open: 1.3 (Fix 1 email check), 1.4 (onboarding
+  trim), 2.2 (sort), 2.3 (Team Members), 2.4 (file detail panel), 2.5 (Next shoot, Complete your
+  profile), 3.1 (Editorial Shoot launcher). Audit 2026-10-19 and its fixes: docs/FEEDBACK.md (A1–A14).
 
 Milestone 4 — Shoot day: not started.
 
