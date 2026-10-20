@@ -34,7 +34,7 @@ const tabs: Tab[] = [
   { label: "Projects", icon: "/app/folder.svg", glyph: Folder, href: "/projects", match: ["projects"] },
   { label: "Templates", icon: "/app/file-text.svg", glyph: FileText, href: "/templates", match: ["templates"] },
   { label: "Explore", icon: "/app/explore.svg", glyph: Compass, href: "/explore", match: ["explore"] },
-  { label: "Marketplace", icon: "/app/shopping-bag.svg", glyph: ShoppingBag, href: null, match: ["marketplace"] },
+  { label: "Marketplace", icon: "/app/shopping-bag.svg", glyph: ShoppingBag, href: "/marketplace", match: ["marketplace"] },
   { label: "Inbox", icon: "/app/inbox.svg", glyph: Inbox, href: null, match: [] },
 ];
 

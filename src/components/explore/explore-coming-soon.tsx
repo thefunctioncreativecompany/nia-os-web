@@ -4,11 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { useReducedMotion } from "motion/react";
-import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
+import { ComingSoonCard, comingSoonButton } from "@/components/nia/coming-soon-card";
 import { isMouse, pointerIn, useFrame, useMediaQuery } from "@/hooks/use-pointer";
-import { createClient } from "@/lib/supabase/client";
+import { useWaitlist } from "@/hooks/use-waitlist";
 import { getFilm } from "./explore-data";
 import { PosterArt } from "./poster-art";
 
@@ -33,7 +33,10 @@ export function ExploreComingSoon() {
   const pointer = useRef({ x: 0.5, y: 0.5 });
   const [tilt, setTilt] = useState(0.5);
   const frame = useFrame();
-  const [waiting, setWaiting] = useState<boolean | null>(null);
+  const { waiting, toggle } = useWaitlist("explore", {
+    joined: "We'll let you know when Explore opens.",
+    left: "You won't get a note when Explore opens.",
+  });
   // Phones: the card fills the middle, so the ring stands taller to show above and below it.
   const narrow = useMediaQuery("(max-width: 40rem)");
 
@@ -47,29 +50,6 @@ export function ExploreComingSoon() {
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
   }, [reduce]);
-
-  useEffect(() => {
-    createClient()
-      .from("feature_waitlist")
-      .select("feature")
-      .eq("feature", "explore")
-      .then(({ data, error }) => setWaiting(error ? false : (data ?? []).length > 0));
-  }, []);
-
-  const toggle = async () => {
-    const supabase = createClient();
-    const next = !waiting;
-    setWaiting(next);
-    const { error } = next
-      ? await supabase.from("feature_waitlist").insert({ feature: "explore" })
-      : await supabase.from("feature_waitlist").delete().eq("feature", "explore");
-    if (error && error.code !== "23505") {
-      setWaiting(!next);
-      toast.error("Couldn't save that. Try again.");
-      return;
-    }
-    toast.success(next ? "We'll let you know when Explore opens." : "You won't get a note when Explore opens.");
-  };
 
   const onMove = (e: React.PointerEvent) => {
     if (reduce || !isMouse(e)) return;
@@ -117,33 +97,31 @@ export function ExploreComingSoon() {
         </div>
       ))}
 
-      <div className="absolute inset-0 z-[200] m-auto flex h-fit w-[calc(100%-5rem)] max-w-118 animate-explore-rise flex-col items-center gap-2.5 rounded-2xl border border-border bg-white/85 px-4 pt-4 pb-4 text-center sm:w-[calc(100%-2.5rem)] sm:gap-4 shadow-card-hover backdrop-blur-lg sm:px-9 sm:pt-9 sm:pb-8">
-        <span className="inline-flex h-7 items-center gap-2 rounded-full border border-border px-3 text-caption font-medium text-muted-foreground">
-          <span aria-hidden className="size-1.75 animate-explore-pulse rounded-full bg-status-confirmed-foreground" />
-          Coming soon
-        </span>
-        <h1 className="text-h2 font-semibold sm:text-hero tracking-tight text-foreground">Explore</h1>
-        <p className="max-w-90 text-small leading-relaxed text-muted-foreground sm:text-lead">
-          Browse films, director&rsquo;s notes and electronic press kits from across Nia, then compare any two side by side. Opens February 2027.
-        </p>
-        <div className="mt-1 flex flex-wrap justify-center gap-2 sm:mt-1.5 sm:gap-2.5">
-          {waiting ? (
-            <Button variant="outline" onClick={() => void toggle()} aria-pressed className="max-sm:h-9 max-sm:px-4 max-sm:text-small">
-              <Check aria-hidden /> We&rsquo;ll let you know
+      <ComingSoonCard
+        status="Coming soon"
+        title="Explore"
+        actions={
+          <>
+            {waiting ? (
+              <Button variant="outline" onClick={() => void toggle()} aria-pressed className={comingSoonButton}>
+                <Check aria-hidden /> We&rsquo;ll let you know
+              </Button>
+            ) : (
+              <Button onClick={() => void toggle()} disabled={waiting === null} className={comingSoonButton}>
+                Notify me
+              </Button>
+            )}
+            <Button variant="outline" asChild className={comingSoonButton}>
+              <Link href="/explore/preview">
+                Preview Explore
+                <ArrowRight aria-hidden data-icon="inline-end" />
+              </Link>
             </Button>
-          ) : (
-            <Button onClick={() => void toggle()} disabled={waiting === null} className="max-sm:h-9 max-sm:px-4 max-sm:text-small">
-              Notify me
-            </Button>
-          )}
-          <Button variant="outline" asChild className="max-sm:h-9 max-sm:px-4 max-sm:text-small">
-            <Link href="/explore/preview">
-              Preview Explore
-              <ArrowRight aria-hidden data-icon="inline-end" />
-            </Link>
-          </Button>
-        </div>
-      </div>
+          </>
+        }
+      >
+        Browse films, director&rsquo;s notes and electronic press kits from across Nia, then compare any two side by side. Opens February 2027.
+      </ComingSoonCard>
     </div>
   );
 }

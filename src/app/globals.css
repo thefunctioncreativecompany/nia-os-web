@@ -15,6 +15,7 @@
   --color-gold: var(--gold);
   --color-gold-foreground: var(--gold-foreground);
   --color-nia-surface: var(--nia-surface);
+  --color-nia-canvas: var(--nia-canvas);
   --color-nia-panel: var(--nia-panel);
   --color-nia-danger: var(--nia-danger);
   --color-nia-line-strong: var(--nia-line-strong);
@@ -113,6 +114,9 @@
   /* Explore: the "Explore" heading on the coming-soon card (Ika's Claude Design, 44px). */
   --text-hero: 2.75rem;
   --text-hero--line-height: 1.05;
+  /* Marketplace: the "Marketplace" heading on the coming-soon card (Ika's Claude Design, 46px). */
+  --text-banner: 2.875rem;
+  --text-banner--line-height: 1.02;
   /* Explore's glide (Ika's Claude Design "ExploreSoon" / "ExploreLibrary"). */
   --ease-glide: cubic-bezier(0.16, 1, 0.3, 1);
   --text-subtitle: 1.375rem;
@@ -194,6 +198,10 @@
 @utility duration-track {
   --tw-duration: var(--duration-track);
   transition-duration: var(--duration-track);
+}
+@utility duration-pan {
+  --tw-duration: var(--duration-pan);
+  transition-duration: var(--duration-pan);
 }
 @utility duration-zoom {
   --tw-duration: var(--duration-zoom);
@@ -281,6 +289,8 @@
   --family-performance-deep: #121C0F;
   /* Figma card surface, side panel, destructive action and dashed-placeholder line. */
   --nia-surface: #fbfbfa;
+  /* Marketplace's field behind the product tiles (Ika's Claude Design "MarketplaceSoon"). */
+  --nia-canvas: #f6f5f3;
   --nia-panel: #f9f9fa;
   --nia-danger: #991b1b;
   --nia-line-strong: #d9d9d9;
@@ -315,6 +325,7 @@
   --duration-zoom: 1600ms;
   --duration-settle: 800ms; /* Templates (Claude Design): filmstrip cards settling */
   --duration-track: 1100ms; /* Templates: filmstrip track following the pointer */
+  --duration-pan: 1800ms; /* Marketplace (Claude Design): the field following the pointer */
 }
 
 /* uiarc components (src/components/arc) read these names. Each one points at a Nia token,
@@ -923,4 +934,22 @@
   }
   @keyframes explore-lane-up { from { transform: translateY(0); } to { transform: translateY(-50%); } }
   @keyframes explore-lane-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+}
+
+/* Marketplace animations (Ika's Claude Design "MarketplaceSoon", 2026-10-20; looping motion
+   allowed as for Explore, Ika 2026-10-20). Reduced motion stops them. */
+@theme {
+  /* "Coming soon · Launch date TBD" dot: an amber ring breathing out of it. */
+  --animate-pending-pulse: pending-pulse 2s ease-in-out infinite;
+  /* The arrow on "Move your cursor to look around". */
+  --animate-nudge: nudge 2.4s ease-in-out infinite;
+
+  @keyframes pending-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--status-pending-foreground) 45%, transparent); }
+    50% { box-shadow: 0 0 0 6px color-mix(in oklab, var(--status-pending-foreground) 0%, transparent); }
+  }
+  @keyframes nudge {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(0.375rem); }
+  }
 }

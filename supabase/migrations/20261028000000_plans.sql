@@ -51,7 +51,7 @@ create trigger workspaces_plan_default
 -- 2. "Get Starter" and the like: interest in a paid plan, until payments open.
 alter table public.feature_waitlist drop constraint if exists feature_waitlist_feature_check;
 alter table public.feature_waitlist add constraint feature_waitlist_feature_check
-  check (feature in ('explore', 'inbox', 'starter', 'creator', 'pro', 'enterprise'));
+  check (feature in ('explore', 'inbox', 'starter', 'creator', 'pro', 'enterprise', 'marketplace', 'marketplace-lister'));
 
 -- 3. Free plan document limits (5 a project, one of each template) apply to Free workspaces only.
 create or replace function public.documents_project_rules()

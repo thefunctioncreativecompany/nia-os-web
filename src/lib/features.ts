@@ -4,6 +4,6 @@ export const features = {
   // Explore opens February 2027 (EXPLORE_SPEC.md). Until then /explore shows the coming-soon screen.
   exploreUnlocked: false,
   // Marketplace has no launch date yet (MARKETPLACE_SPEC.md). Until then /marketplace shows the
-  // coming-soon screen; the Marketplace tab stays "coming soon" until that screen is built.
+  // coming-soon screen.
   marketplaceUnlocked: false,
 } as const;
