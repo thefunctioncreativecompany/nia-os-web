@@ -67,6 +67,10 @@ export type Listing = {
   aspect?: string;
   /** The lister can deliver it. */
   delivery?: boolean;
+  /** Fleet listings: a dark badge on the photo ("Fleet", "Fleet available"). */
+  tag?: string;
+  /** Fleet listings: the day rate is per unit (the fleet rate). */
+  perUnit?: boolean;
   /** Digital products: the kind of file, shown as a pill. */
   productType?: string;
   /** Digital products: the Templates gradient their tile uses (`grain-1` … `grain-12`). */
@@ -131,10 +135,10 @@ export const LISTINGS: Listing[] = [
   { id: "c-stand", title: "40\" C-stand with arm", brand: "Generic", category: "Lighting & Grip", kind: "gear", images: [img("mk-cstand", "40-inch C-stand with arm", "contain", 6)], condition: "New", rentPerDay: 8, buyPrice: 180, providerId: HOUSE, location: NEAR, aspect: "16 / 9", delivery: true },
   { id: "vision-pro-spatial-kit", title: "Vision Pro spatial kit", brand: "Apple", category: "XR & Wearables", kind: "gear", images: [img("mk-avp_side", "Apple Vision Pro spatial capture kit", "cover")], condition: "Kit", rentPerDay: 95, providerId: CREATOR, location: NEAR, aspect: "1 / 1" },
 
-  { id: "olto", title: "Infinite Machine Olto", brand: "Infinite Machine", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-olto", "Infinite Machine Olto electric moped", "contain", 6)], rentPerDay: 45, providerId: "nia-fleet", location: NEAR, blurb: "Electric moped. Crew runs, scouts and city shoots." },
-  { id: "olto-fleet", title: "Olto fleet (5+)", brand: "Infinite Machine", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-olto", "Infinite Machine Olto electric mopeds", "contain", 6)], rentPerDay: 39, providerId: "nia-fleet", location: NEAR, blurb: "Fleet rate from 5 units, delivered charged with helmets." },
-  { id: "tesla-model-y", title: "Tesla Model Y", brand: "Tesla", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-tesla", "Tesla Model Y", "cover")], rentPerDay: 110, providerId: "nia-fleet", location: NEAR, blurb: "5 seats, 200 mi/day included. Talent and crew transport." },
-  { id: "ford-e-transit", title: "Ford E-Transit Custom", brand: "Ford", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-etransit", "Ford E-Transit Custom electric van", "cover")], rentPerDay: 135, providerId: "nia-fleet", location: NEAR, blurb: "Electric van for gear moves and crew pickups." },
+  { id: "olto", title: "Infinite Machine Olto", brand: "Infinite Machine", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-olto", "Infinite Machine Olto electric moped", "contain", 6)], rentPerDay: 45, providerId: "nia-fleet", location: NEAR, blurb: "Electric moped. Crew runs, scouts and city shoots.", delivery: true },
+  { id: "olto-fleet", title: "Olto fleet (5+)", brand: "Infinite Machine", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-olto", "Infinite Machine Olto electric mopeds", "contain", 6)], rentPerDay: 39, providerId: "nia-fleet", location: NEAR, blurb: "Fleet rate from 5 units, delivered charged with helmets.", tag: "Fleet", perUnit: true, delivery: true },
+  { id: "tesla-model-y", title: "Tesla Model Y", brand: "Tesla", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-tesla", "Tesla Model Y", "cover")], rentPerDay: 110, providerId: "nia-fleet", location: NEAR, blurb: "5 seats, 200 mi/day included. Talent and crew transport.", tag: "Fleet available", delivery: true },
+  { id: "ford-e-transit", title: "Ford E-Transit Custom", brand: "Ford", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-etransit", "Ford E-Transit Custom electric van", "cover")], rentPerDay: 135, providerId: "nia-fleet", location: NEAR, blurb: "Electric van for gear moves and crew pickups.", delivery: true },
 
   { id: "cinematic-lut-pack", title: "Cinematic LUT pack · 35 looks", brand: "Nia", category: "Digital products", kind: "digital", images: [], price: 29, productType: "Colour", grain: "grain-7", icon: "palette", providerId: CREATOR, location: "Instant download" },
   { id: "film-stock-presets", title: "Film-stock Lightroom presets", brand: "Nia", category: "Digital products", kind: "digital", images: [], price: 19, productType: "Photo", grain: "grain-12", icon: "camera", providerId: CREATOR, location: "Instant download" },
@@ -158,7 +162,7 @@ export function getProvider(id: string): Provider {
 }
 
 /** "$85/day". */
-export const dayRate = (l: Listing) => (l.rentPerDay ? `$${l.rentPerDay}/day` : null);
+export const dayRate = (l: Listing) => (l.rentPerDay ? `$${l.rentPerDay}/${l.perUnit ? "unit/day" : "day"}` : null);
 
 // The coming-soon field: the design's 18 tiles, each a listing and the photo it shows, with the
 // short name the design gives it.

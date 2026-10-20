@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, MapPin, PackageSearch, Search, SlidersHorizontal } from "lucide-react";
+import { Camera, ChevronDown, Film, Headphones, MapPin, Music, Package, PackageSearch, Palette, Search, SlidersHorizontal, type LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,7 @@ import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { DriftColumns } from "@/components/nia/drift-columns";
 import { EmptyState } from "@/components/nia/empty-state";
+import { TiltCard } from "@/components/nia/tilt-card";
 import {
   BRANDS,
   CATEGORIES,
@@ -61,16 +62,18 @@ export function MarketplaceHome() {
   const [maxRate, setMaxRate] = useState(MAX_DAY_RATE);
   const extraFilters = [delivery, verified, maxRate < MAX_DAY_RATE].filter(Boolean).length;
 
-  const gear = useMemo(() => {
+  const matches = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return LISTINGS.filter((l) => l.kind === "gear")
-      .filter((l) => category === "All" || l.category === category)
+    return LISTINGS.filter((l) => category === "All" || l.category === category)
       .filter((l) => condition === "Any" || l.condition === condition)
       .filter((l) => !q || [l.title, l.brand, l.category].some((s) => s.toLowerCase().includes(q)))
       .filter((l) => !delivery || l.delivery)
       .filter((l) => !verified || getProvider(l.providerId).verified)
       .filter((l) => maxRate >= MAX_DAY_RATE || (l.rentPerDay ?? 0) <= maxRate);
   }, [query, category, condition, delivery, verified, maxRate]);
+  const gear = matches.filter((l) => l.kind === "gear");
+  const fleet = matches.filter((l) => l.kind === "fleet");
+  const digital = matches.filter((l) => l.kind === "digital");
 
   const clear = () => {
     setQuery("");
@@ -81,7 +84,7 @@ export function MarketplaceHome() {
     setMaxRate(MAX_DAY_RATE);
   };
 
-  const resultLine = `${gear.length} ${gear.length === 1 ? "item" : "items"} · ${mode === "rent" ? "For rent" : "For sale"} near Boston`;
+  const resultLine = `${matches.length} ${matches.length === 1 ? "item" : "items"} · ${mode === "rent" ? "For rent" : "For sale"} near Boston`;
 
   return (
     <div className="mx-auto w-full max-w-310 px-4 pt-8 pb-20 sm:px-6 lg:pt-10">
@@ -199,30 +202,49 @@ export function MarketplaceHome() {
 
       <p className="mt-4.5 text-small text-muted-foreground">Brands you&rsquo;ll find: {BRANDS.join(" · ")}</p>
 
-      <div className="mt-16 flex items-baseline justify-between">
-        <h2 className="text-subtitle font-extrabold tracking-tight text-foreground">Latest gear</h2>
-      </div>
-
-      {gear.length === 0 ? (
-        <div className="mt-5">
-          <EmptyState
-            icon={PackageSearch}
-            message={category === "Vehicles & Fleet" || category === "Digital products" ? `${category} have their own section below Latest gear.` : "No gear matches these filters."}
-            action={<Button variant="outline" onClick={clear}>Clear filters</Button>}
-          />
+      {matches.length === 0 && (
+        <div className="mt-16">
+          <EmptyState icon={PackageSearch} message="Nothing matches these filters." action={<Button variant="outline" onClick={clear}>Clear filters</Button>} />
         </div>
-      ) : (
-        <DriftColumns
-          label="Latest gear"
-          items={gear}
-          getKey={(l) => l.id}
-          renderItem={(l) => <GearCard listing={l} mode={mode} />}
-          drift={DRIFT}
-          oddOffset={ODD_OFFSET}
-          className="mt-4.5 lg:h-250 lg:overflow-hidden"
-          gridClassName="grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 lg:gap-4 lg:pt-15"
-          columnClassName="lg:gap-4.5"
-        />
+      )}
+
+      {gear.length > 0 && (
+        <>
+          <h2 className="mt-16 text-subtitle font-extrabold tracking-tight text-foreground">Latest gear</h2>
+          <DriftColumns
+            label="Latest gear"
+            items={gear}
+            getKey={(l) => l.id}
+            renderItem={(l) => <GearCard listing={l} mode={mode} />}
+            drift={DRIFT}
+            oddOffset={ODD_OFFSET}
+            className="mt-4.5 lg:h-250 lg:overflow-hidden"
+            gridClassName="grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 lg:gap-4 lg:pt-15"
+            columnClassName="lg:gap-4.5"
+          />
+        </>
+      )}
+
+      {fleet.length > 0 && (
+        <section aria-labelledby="mk-fleet" className="mt-14">
+          <h2 id="mk-fleet" className="text-subtitle font-extrabold tracking-tight text-foreground">Logistics &amp; fleet</h2>
+          <div className="mt-4.5 grid grid-cols-[repeat(auto-fill,minmax(min(100%,16.875rem),1fr))] gap-5 perspective-distant">
+            {fleet.map((l) => (
+              <FleetCard key={l.id} listing={l} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {digital.length > 0 && (
+        <section aria-labelledby="mk-digital" className="mt-16">
+          <h2 id="mk-digital" className="text-subtitle font-extrabold tracking-tight text-foreground">Digital products</h2>
+          <div className="mt-4.5 grid grid-cols-2 gap-4.5 perspective-distant sm:grid-cols-[repeat(auto-fill,minmax(11.25rem,1fr))]">
+            {digital.map((l) => (
+              <DigitalCard key={l.id} listing={l} />
+            ))}
+          </div>
+        </section>
       )}
     </div>
   );
@@ -261,5 +283,74 @@ function GearCard({ listing: l, mode }: { listing: Listing; mode: Mode }) {
         <span className="whitespace-nowrap">{sub}</span>
       </span>
     </Link>
+  );
+}
+
+// A vehicle or fleet: photo (with a "Fleet" badge where the design has one), name, rate and what
+// it's for. Leans toward the pointer. Fleets and fleet-capable vehicles open fleet booking.
+function FleetCard({ listing: l }: { listing: Listing }) {
+  const image = l.images[0];
+  const price = dayRate(l) ?? "";
+  const href = l.tag ? `/marketplace/fleet/${l.id}` : `/marketplace/listing/${l.id}`;
+  return (
+    <TiltCard href={href} label={`${l.title}, ${price}`} className="overflow-hidden rounded-2xl border border-border bg-white">
+      {(sheen) => (
+        <>
+          <span className="relative block aspect-[4/3] bg-nia-canvas">
+            {image && (
+              <span className="absolute inset-0" style={{ padding: image.fit === "contain" ? `${image.pad ?? 6}%` : undefined }}>
+                <span className="relative block size-full">
+                  <Image src={image.src} alt="" fill sizes="(min-width: 64rem) 25vw, (min-width: 40rem) 50vw, 100vw" className={image.fit === "contain" ? "object-contain" : "object-cover"} />
+                </span>
+              </span>
+            )}
+            {sheen}
+            {l.tag && <span className="absolute top-3 left-3 inline-flex h-6 items-center rounded-full bg-primary px-2.5 text-micro font-semibold text-primary-foreground">{l.tag}</span>}
+          </span>
+          <span className="flex flex-col gap-1 p-4">
+            <span className="flex justify-between gap-2.5">
+              <span className="text-base font-bold">{l.title}</span>
+              <span className="text-lead font-bold whitespace-nowrap">{price}</span>
+            </span>
+            <span className="text-small leading-snug text-muted-foreground">{l.blurb}</span>
+          </span>
+        </>
+      )}
+    </TiltCard>
+  );
+}
+
+const DIGITAL_ICONS: Record<NonNullable<Listing["icon"]>, LucideIcon> = {
+  palette: Palette,
+  camera: Camera,
+  headphones: Headphones,
+  music: Music,
+  film: Film,
+  package: Package,
+};
+
+// A digital product on its Templates gradient tile: icon, type pill, name, price, and that it's an
+// instant download with a licence. Leans toward the pointer.
+function DigitalCard({ listing: l }: { listing: Listing }) {
+  const Icon = l.icon ? DIGITAL_ICONS[l.icon] : Package;
+  return (
+    <TiltCard href={`/marketplace/listing/${l.id}`} label={`${l.title}, $${l.price}`} shadow={false} className="group flex flex-col gap-2 rounded-2xl">
+      {(sheen) => (
+        <>
+          <span className={cn("relative grid aspect-square place-items-center overflow-hidden rounded-2xl transition-shadow duration-glide ease-glide group-hover:shadow-card-hover motion-reduce:group-hover:shadow-none", l.grain)}>
+            <Icon aria-hidden className="size-10" strokeWidth={1.5} />
+            {sheen}
+            {l.productType && (
+              <span className="absolute bottom-2.5 left-2.5 inline-flex h-5.5 items-center rounded-full bg-white/90 px-2 text-micro font-semibold text-foreground">{l.productType}</span>
+            )}
+          </span>
+          <span className="flex justify-between gap-2 text-sm leading-snug font-bold">
+            <span className="min-w-0">{l.title}</span>
+            <span>${l.price}</span>
+          </span>
+          <span className="-mt-1 text-caption text-muted-foreground">Instant download · licence included</span>
+        </>
+      )}
+    </TiltCard>
   );
 }
