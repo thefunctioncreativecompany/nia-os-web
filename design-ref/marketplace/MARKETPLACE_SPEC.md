@@ -1,7 +1,7 @@
 # Marketplace — build spec
 
 Reference designs (layout, copy and motion values only; custom template format, do not copy markup):
-- /design-ref/marketplace/MarketplaceSoon.dc.html
+- /design-ref/marketplace/MarketplaceSoon.dc.html (field version)
 - /design-ref/marketplace/Marketplace.dc.html
 
 Conventions: inline style objects only, no Tailwind, tokens from atoms.jsx, Geist font. Top bar matches Templates, with a "Marketplace" pill (bag icon) between Explore and Inbox. Product images go in /public/marketplace/.
@@ -15,13 +15,19 @@ Conventions: inline style objects only, no Tailwind, tokens from atoms.jsx, Geis
 - `/marketplace/fleet/:id`: fleet booking
 - `/marketplace/dashboard`: lister dashboard (anyone with at least one listing)
 
-## 1. MarketplaceComingSoon
-- Background #F6F5F3. 12 product photos in white 190px rounded tiles orbit the centre (same orbit maths as ExploreComingSoon; speed default 0.3).
-- Frosted card:
-  - "COMING SOON · LAUNCH DATE TBD" pill with an amber dot (#D97706)
+## 1. MarketplaceComingSoon (infinite field)
+- Below the top bar: a 920px viewport (background #F6F5F3, no dot grid) over a 2600×1800 plane holding ~30 product tiles.
+  - Tiles are white, radius 14px, 170–260px wide, mixed aspect ratios, slight tilt (±1.8°), image contain or cover.
+- Motion: cursor position in the viewport maps to the plane's translate. Use `ease(v) = clamp((v − 0.5) × 1.25 + 0.5)`, then translate = −ease(x) × (planeW − viewW) and −ease(y) × (planeH − viewH), with a 1.8s cubic-bezier(.16,1,.3,1) transition.
+- Tile hover: scale 1.06 with a deeper shadow, and a caption chip fades in showing name and day rate. Tiles link to the marketplace.
+- Fixed centred frosted card:
+  - "COMING SOON · LAUNCH DATE TBD" pill with an amber dot
   - "Marketplace" heading, 46px/800
-  - body copy: "Rent, buy and list production gear, vehicles and digital assets, from creators and trusted rental houses, all inside Nia."
-  - buttons: "Join the waitlist" (black), "List your gear early" (outline), "Preview marketplace →" (text)
+  - body copy
+  - buttons: "Join the waitlist" and "List your gear early"
+- Bottom-left: hint pill "Move your cursor to look around →".
+- Bottom-right: 180px mini-map showing tiles and the current viewport rectangle.
+- Reduced motion: a static plane, no panning.
 
 ## 2. MarketplaceHome
 - "Marketplace" heading + Rent/Buy segmented switch.

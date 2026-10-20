@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nia Marketplace — Coming soon</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#0A0908}a:hover{color:#000}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0A0908;outline-offset:2px}
+.ib{transition:background .2s}
+.ib:hover{background:#F4F4F3}
+.chip{transition:border-color .2s,background .2s}
+.chip:hover{border-color:#BDBCB8}
+.btn{transition:transform .35s cubic-bezier(.16,1,.3,1),background .2s}
+.btn:hover{transform:translateY(-1px)}
+.panel{animation:rise 1s cubic-bezier(.16,1,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translate(-50%,-44%)}to{opacity:1;transform:translate(-50%,-50%)}}
+.dot{animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(217,119,6,.45)}50%{box-shadow:0 0 0 6px rgba(217,119,6,0)}}
+.gc{transition:transform .6s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.gc:hover,.gc:focus-visible{transform:translateY(-6px);box-shadow:0 24px 40px rgba(10,9,8,.14)}
+.gc .pimg{transition:transform 1s cubic-bezier(.16,1,.3,1)}
+.gc:hover .pimg{transform:scale(1.05)}
+.tc{transition:transform .5s cubic-bezier(.16,1,.3,1),filter .5s,box-shadow .5s;transform-style:preserve-3d}
+.slide{transition:opacity .8s ease,transform 1.2s cubic-bezier(.16,1,.3,1)}
+.par{transition:transform 1s cubic-bezier(.16,1,.3,1)}
+.th{transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.th:hover{transform:translateY(-3px)}
+.opt{transition:border-color .2s,background .2s}
+.opt:hover{border-color:#BDBCB8}
+.pcard{transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.pcard:hover{transform:translateY(-4px)}
+.ft{transition:transform .6s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.ft:hover,.ft:focus-visible{transform:scale(1.06);box-shadow:0 30px 60px rgba(10,9,8,.22);z-index:3}
+.ft .cap{opacity:0;transform:translateY(6px);transition:opacity .3s,transform .4s cubic-bezier(.16,1,.3,1)}
+.ft:hover .cap,.ft:focus-visible .cap{opacity:1;transform:none}
+.plane{transition:transform 1.8s cubic-bezier(.16,1,.3,1)}
+.plane.slow{transition-duration:2.6s}
+.vp{transition:transform 1.8s cubic-bezier(.16,1,.3,1)}
+.hint{animation:hint 2.4s ease-in-out infinite}
+@keyframes hint{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}.panel{transform:translate(-50%,-50%)}}
+</style>
+</helmet>
+<div style="min-height: 1000px; background: #F6F5F3; color: #0A0908; font-family: 'Geist', system-ui, sans-serif">
+<header style="background: #FFFFFF; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 80px; padding: 0 54px; border-bottom: 1px solid #ECEBE8; box-sizing: border-box">
+<nav aria-label="Main" style="display: flex; align-items: center; gap: 6px">
+<a href="#" class="ib" aria-label="Home" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"></path></svg></a>
+<a href="#" class="ib" aria-label="Projects" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+<a href="Templates.dc.html" class="ib" aria-label="Templates" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h6"></path></svg></a>
+<a href="ExploreSoon.dc.html" class="ib" aria-label="Explore" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M14.5 9.5l-1.5 4-4 1.5 1.5-4z"></path></svg></a>
+<a href="Marketplace.dc.html" aria-current="page" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; margin: 0 4px; border-radius: 999px; background: #EEEDEC; color: #0A0908; font-size: 15px; font-weight: 500; text-decoration: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5F5E59" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7zM9 7a3 3 0 0 1 6 0"></path></svg>Marketplace</a>
+<a href="#" class="ib" aria-label="Inbox" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l2-7h12l2 7v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM4 13h5l1 2h4l1-2h5"></path></svg></a>
+</nav>
+<div style="flex: 1 1 0"></div>
+<button type="button" aria-label="Search" style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; border: 1px solid #ECEBE8; background: #FFFFFF; color: #5F5E59; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></button>
+<button type="button" aria-label="Cart" style="display: grid; place-items: center; width: 40px; height: 40px; margin-left: 10px; border-radius: 10px; border: 1px solid #ECEBE8; background: #FFFFFF; color: #0A0908; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11h11l2-8H6.2M9 20h.01M18 20h.01"></path></svg></button>
+<a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; margin-left: 14px; color: #0A0908; font-size: 15px; font-weight: 500; text-decoration: none"><img src="/_blob/9a6659f3e0826ad601b8e7831ccfc07a" alt="" style="width: 32px; height: 32px; border-radius: 999px; object-fit: cover; background: #E5E4E2">Ikanyeng Rammutla<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5F5E59" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></a>
+</header>
+<section aria-label="Marketplace coming soon" onMouseMove="{{onMove}}" style="position: relative; height: 920px; overflow: hidden; background: #F6F5F3">
+<div class="plane" style="position: absolute; left: 0; top: 0; width: 2600px; height: 1800px; transform: translate3d({{tx}}px, {{ty}}px, 0)">
+<sc-for list="{{tiles}}" as="it" hint-placeholder-count="30">
+<a href="Marketplace.dc.html" class="ft" aria-label="{{it.name}}, {{it.price}}" style="position: absolute; left: {{it.x}}px; top: {{it.y}}px; width: {{it.w}}px; height: {{it.h}}px; border-radius: 14px; overflow: hidden; background: #FFFFFF; color: #0A0908; text-decoration: none; rotate: {{it.rot}}deg; box-shadow: 0 10px 30px rgba(10,9,8,0.08)">
+<img src="{{it.img}}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: {{it.fit}}; padding: {{it.pad}}; box-sizing: border-box">
+<span class="cap" style="position: absolute; left: 8px; right: 8px; bottom: 8px; display: flex; justify-content: space-between; gap: 6px; padding: 7px 10px; border-radius: 10px; background: rgba(255,255,255,0.94); font-size: 12px; font-weight: 600"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{it.name}}</span><span style="white-space: nowrap">{{it.price}}</span></span>
+</a>
+</sc-for>
+</div>
+<div style="position: absolute; left: 50%; top: 50%; z-index: 60; transform: translate(-50%, -50%); width: min(480px, calc(100% - 40px)); box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 36px; text-align: center; border: 1px solid #ECEBE8; border-radius: 20px; background: rgba(255,255,255,0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 30px 80px rgba(10,9,8,0.14)">
+<span style="display: inline-flex; align-items: center; gap: 8px; height: 28px; padding: 0 12px; border: 1px solid #ECEBE8; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: #3A3935"><span class="dot" style="width: 7px; height: 7px; border-radius: 999px; background: #D97706"></span>COMING SOON · LAUNCH DATE TBD</span>
+<h1 style="margin: 0; font-size: 46px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.02">Marketplace</h1>
+<p style="margin: 0; max-width: 380px; font-size: 15px; line-height: 1.55; color: #5F5E59">Rent, buy and list production gear, vehicles and digital assets, from creators and trusted rental houses, all inside Nia.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 4px"><a href="#" class="btn" style="display: inline-flex; align-items: center; height: 44px; padding: 0 22px; border-radius: 999px; background: #0A0908; color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: none">Join the waitlist</a><a href="Marketplace.dc.html#s5" class="btn" style="display: inline-flex; align-items: center; height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #ECEBE8; background: #FFFFFF; color: #0A0908; font-size: 14px; font-weight: 600; text-decoration: none">List your gear early</a></div>
+</div>
+<p aria-hidden="true" style="position: absolute; left: 24px; bottom: 24px; z-index: 50; margin: 0; display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,0.9); font-size: 12px; font-weight: 600; color: #5F5E59">Move your cursor to look around<span class="hint">→</span></p>
+<div aria-hidden="true" style="position: absolute; right: 24px; bottom: 24px; z-index: 50; width: 180px; height: {{mmH}}px; border: 1px solid #ECEBE8; border-radius: 10px; background: rgba(255,255,255,0.9); overflow: hidden">
+<sc-for list="{{tiles}}" as="it" hint-placeholder-count="30"><div style="position: absolute; left: {{it.mx}}px; top: {{it.my}}px; width: {{it.mw}}px; height: {{it.mh}}px; border-radius: 2px; background: #CFCDC8"></div></sc-for>
+<div class="vp" style="position: absolute; left: 0; top: 0; width: {{vw}}px; height: {{vh}}px; border: 1.5px solid #0A0908; border-radius: 3px; transform: translate({{vx}}px, {{vy}}px)"></div>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+var IMG={fx3:"/_blob/c3b0bb50a018f7e9d5d7917ab82dc342",a7iv:"/_blob/c36f78a1904bcebf81ea8cd66c8275a0",osmo:"/_blob/0eafc51d41fa30b16fc801d7f742bd40",mini4:"/_blob/1cd473f06ee5573616d2b8974a5d4ab2",rsc2:"/_blob/76c0d9f70ba5d37f703bf603638a3c63",avp:"/_blob/8e8cb7cb504773a1b8ea85047a4b78eb",avpf:"/_blob/ccb81abe2e9e232995441ed34a50938f",avps:"/_blob/65e53a7920351aab7edd3df5faec56c9",rayban:"/_blob/3efa23044403b978d50ce77090525995",mac:"/_blob/7adcca33c4c6c89c05d609152b0cc645",rode:"/_blob/644be545d82cab3018f3985aeeebfd27",mkh:"/_blob/5ef08d180f5b89222a0457a199f44912",aputure:"/_blob/681296bbc5a04a7b216378c6c8716607",cstand:"/_blob/89727d17e3ecf72ecac926079cfdf530",rack:"/_blob/8380cb8394fe3b8b82576178b7fa39aa",olto:"/_blob/b8b69b104b13a18b62d7d52d6fc1e3ff",tesla:"/_blob/d33c56c226c60c14dd17f24c3c77dac5",van:"/_blob/6a5ee59e74be8675d4421b70d71dfbbb"};
+var T=[["fx3","Sony FX3","$85/day","contain"],["olto","Infinite Machine Olto","$45/day","contain"],["avpf","Apple Vision Pro","$75/day","cover"],["osmo","DJI Osmo Pocket 3","$22/day","contain"],["tesla","Tesla Model Y","$110/day","cover"],["mini4","DJI Mini 4 Pro","$45/day","contain"],["mkh","Sennheiser MKH 416","$25/day","cover"],["rayban","Ray-Ban Meta","$18/day","contain"],["a7iv","Sony α7 IV","$55/day","cover"],["rack","Wardrobe rack","$10/day","contain"],["mac","Mac mini (M4)","$25/day","contain"],["van","Ford E-Transit","$135/day","cover"],["rode","RØDE Wireless GO II","$18/day","cover"],["cstand","40\" C-stand","$8/day","contain"],["rsc2","DJI RSC 2","$20/day","cover"],["aputure","Aputure HR672C","$15/day","cover"],["avps","Vision Pro kit","$95/day","cover"],["avp","Apple Vision Pro","$75/day","contain"]];
+var EXTRA={avpf:"/_blob/ccb81abe2e9e232995441ed34a50938f",avps:"/_blob/65e53a7920351aab7edd3df5faec56c9",mkh:"/_blob/5ef08d180f5b89222a0457a199f44912",aputure:"/_blob/681296bbc5a04a7b216378c6c8716607",rsc2:"/_blob/76c0d9f70ba5d37f703bf603638a3c63",van:"/_blob/6a5ee59e74be8675d4421b70d71dfbbb"};
+function src(k){return IMG[k]||EXTRA[k];}
+function rm(self){if(self._rm===undefined){self._rm=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);}return self._rm;}
+function layout(n,cols,PW,PH,minW,maxW,seed){var out=[];var rows=Math.ceil(n/cols);var cw=PW/cols,rh=PH/rows;for(var i=0;i<n;i++){var c=i%cols,r=Math.floor(i/cols);var w=minW+((i*53+seed)%5)*((maxW-minW)/4);var ar=[[1,1],[4,5],[3,4],[4,3],[1,1]][(i*7+seed)%5];var h=w*ar[1]/ar[0];
+  var x=c*cw+((i*71+seed*13)%Math.max(1,Math.round(cw-w-20)))+10;var y=r*rh+((i*43+seed*7)%Math.max(1,Math.round(rh-h-20)))+10;var t=T[(i+seed)%T.length];
+  out.push({x:x.toFixed(0),y:y.toFixed(0),w:w.toFixed(0),h:h.toFixed(0),img:src(t[0]),name:t[1],price:t[2],fit:t[3],pad:t[3]==='contain'?'10%':'0',rot:(((i*37+seed)%7)-3)*0.6});}return out;}
+function ease(v){v=(v-0.5)*1.25+0.5;return Math.max(0,Math.min(1,v));}
+
+function mm(tiles,PW,PH,W,H,tx,ty){var S=180/PW;tiles.forEach(function(t){t.mx=(t.x*S).toFixed(1);t.my=(t.y*S).toFixed(1);t.mw=(t.w*S).toFixed(1);t.mh=(t.h*S).toFixed(1);});
+  return {mmH:(PH*S).toFixed(0),vw:(Math.min(W,PW)*S).toFixed(1),vh:(Math.min(H,PH)*S).toFixed(1),vx:(-tx*S).toFixed(1),vy:(-ty*S).toFixed(1)};}
+var PW=2600,PH=1800,TILES_A=layout(30,6,PW,PH,170,260,0);
+class Component extends DCLogic {
+  move(e){if(rm(this))return;var el=e.currentTarget;var r=el.getBoundingClientRect();var s={mx:(e.clientX-r.left)/r.width,my:(e.clientY-r.top)/r.height,w:el.offsetWidth,h:el.offsetHeight};
+    cancelAnimationFrame(this._raf);this._raf=requestAnimationFrame(()=>this.setState(s));}
+  componentWillUnmount(){cancelAnimationFrame(this._raf);}
+  renderVals(){var st=this.state||{};var W=st.w||1440,H=st.h||920;var mx=st.mx==null?0.5:st.mx,my=st.my==null?0.5:st.my;
+    var tx=-ease(mx)*(PW-W),ty=-ease(my)*(PH-H);var tiles=TILES_A.map(function(t){return Object.assign({},t);});var m=mm(tiles,PW,PH,W,H,tx,ty);
+    return Object.assign({tiles:tiles,tx:tx.toFixed(1),ty:ty.toFixed(1),onMove:(e)=>this.move(e)},m);}
+}
+</script>
+</body>
+</html>
