@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nia Marketplace</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#0A0908}a:hover{color:#000}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0A0908;outline-offset:2px}
+.ib{transition:background .2s}
+.ib:hover{background:#F4F4F3}
+.chip{transition:border-color .2s,background .2s}
+.chip:hover{border-color:#BDBCB8}
+.btn{transition:transform .35s cubic-bezier(.16,1,.3,1),background .2s}
+.btn:hover{transform:translateY(-1px)}
+.panel{animation:rise 1s cubic-bezier(.16,1,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translate(-50%,-44%)}to{opacity:1;transform:translate(-50%,-50%)}}
+.dot{animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(217,119,6,.45)}50%{box-shadow:0 0 0 6px rgba(217,119,6,0)}}
+.gc{transition:transform .6s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.gc:hover,.gc:focus-visible{transform:translateY(-6px);box-shadow:0 24px 40px rgba(10,9,8,.14)}
+.gc .pimg{transition:transform 1s cubic-bezier(.16,1,.3,1)}
+.gc:hover .pimg{transform:scale(1.05)}
+.tc{transition:transform .5s cubic-bezier(.16,1,.3,1),filter .5s,box-shadow .5s;transform-style:preserve-3d}
+.slide{transition:opacity .8s ease,transform 1.2s cubic-bezier(.16,1,.3,1)}
+.par{transition:transform 1s cubic-bezier(.16,1,.3,1)}
+.th{transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.th:hover{transform:translateY(-3px)}
+.opt{transition:border-color .2s,background .2s}
+.opt:hover{border-color:#BDBCB8}
+.pcard{transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.pcard:hover{transform:translateY(-4px)}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}.panel{transform:translate(-50%,-50%)}}
+</style>
+</helmet>
+<div style="min-height: 7300px; background: #FFFFFF; color: #0A0908; font-family: 'Geist', system-ui, sans-serif">
+
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 80px; padding: 0 54px; border-bottom: 1px solid #ECEBE8; box-sizing: border-box">
+<nav aria-label="Main" style="display: flex; align-items: center; gap: 6px">
+<a href="#" class="ib" aria-label="Home" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"></path></svg></a>
+<a href="#" class="ib" aria-label="Projects" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+<a href="Templates.dc.html" class="ib" aria-label="Templates" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h6"></path></svg></a>
+<a href="ExploreSoon.dc.html" class="ib" aria-label="Explore" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M14.5 9.5l-1.5 4-4 1.5 1.5-4z"></path></svg></a>
+<a href="#" aria-current="page" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; margin: 0 4px; border-radius: 999px; background: #EEEDEC; color: #0A0908; font-size: 15px; font-weight: 500; text-decoration: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5F5E59" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7zM9 7a3 3 0 0 1 6 0"></path></svg>Marketplace</a>
+<a href="#" class="ib" aria-label="Inbox" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l2-7h12l2 7v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM4 13h5l1 2h4l1-2h5"></path></svg></a>
+</nav>
+<div style="flex: 1 1 0"></div>
+<button type="button" aria-label="Search" style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; border: 1px solid #ECEBE8; background: #FFFFFF; color: #5F5E59; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></button>
+<button type="button" aria-label="Cart" style="display: grid; place-items: center; width: 40px; height: 40px; margin-left: 10px; border-radius: 10px; border: 1px solid #ECEBE8; background: #FFFFFF; color: #0A0908; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11h11l2-8H6.2M9 20h.01M18 20h.01"></path></svg></button>
+<a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; margin-left: 14px; color: #0A0908; font-size: 15px; font-weight: 500; text-decoration: none"><img src="/_blob/9a6659f3e0826ad601b8e7831ccfc07a" alt="" style="width: 32px; height: 32px; border-radius: 999px; object-fit: cover; background: #E5E4E2">Ikanyeng Rammutla<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5F5E59" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></a>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 18px 54px; border-bottom: 1px solid #F1F0EE; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: #73726C">
+<span>SCREENS ON THIS PAGE</span>
+<a href="MarketplaceSoon.dc.html" style="color: #5F5E59; text-decoration: none">← Coming soon page</a><a href="#s2" style="color: #5F5E59; text-decoration: none">02 Home</a><a href="#s3" style="color: #5F5E59; text-decoration: none">03 Listing</a><a href="#s4" style="color: #5F5E59; text-decoration: none">04 Checkout</a><a href="#s5" style="color: #5F5E59; text-decoration: none">05 List your gear</a><a href="#s6" style="color: #5F5E59; text-decoration: none">06 Fleet booking</a>
+</div>
+
+
+<main style="max-width: 1240px; margin: 0 auto; padding: 0 24px 80px">
+
+<section id="s2" aria-labelledby="h-home" style="padding-top: 72px">
+<nav aria-label="Marketplace" style="display: flex; gap: 24px; margin-bottom: 32px; border-bottom: 1px solid #ECEBE8; font-size: 14px; font-weight: 600">
+<a href="#" aria-current="page" style="padding-bottom: 12px; color: #0A0908; text-decoration: none; box-shadow: inset 0 -2px 0 #0A0908">Browse</a>
+<a href="#" style="padding-bottom: 12px; color: #73726C; text-decoration: none">My rentals</a>
+<a href="MarketplaceHost.dc.html" style="padding-bottom: 12px; color: #73726C; text-decoration: none">Lister dashboard</a>
+</nav>
+<p style="margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #A8A6A0">02 · MARKETPLACE HOME</p>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<h2 id="h-home" style="margin: 0; font-size: 38px; font-weight: 800; letter-spacing: -0.02em">Marketplace</h2>
+<div role="group" aria-label="Mode" style="display: inline-flex; padding: 4px; border-radius: 999px; background: #F1F0EE">
+<button type="button" onClick="{{setRent}}" aria-pressed="{{modeRent}}" style="height: 36px; padding: 0 18px; border: 0; border-radius: 999px; background: {{rentBg}}; color: #0A0908; font: 600 13px 'Geist', sans-serif; box-shadow: {{rentSh}}; cursor: pointer">Rent</button>
+<button type="button" onClick="{{setBuy}}" aria-pressed="{{modeBuy}}" style="height: 36px; padding: 0 18px; border: 0; border-radius: 999px; background: {{buyBg}}; color: #0A0908; font: 600 13px 'Geist', sans-serif; box-shadow: {{buySh}}; cursor: pointer">Buy</button>
+</div>
+</div>
+<label style="display: flex; align-items: center; gap: 12px; height: 56px; margin-top: 22px; padding: 0 20px; border: 1px solid #ECEBE8; border-radius: 999px; color: #8A8984; font-size: 15px; box-sizing: border-box"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input type="search" aria-label="Search the marketplace" placeholder="Search cameras, drones, vans, LUTs…" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; color: #0A0908; font: inherit"><span style="display: inline-flex; align-items: center; gap: 6px; padding-left: 14px; border-left: 1px solid #ECEBE8; color: #5F5E59; font-size: 13px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Boston, MA</span></label>
+<div style="position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px">
+<button type="button" onClick="{{toggleCat}}" aria-expanded="{{catOpen}}" aria-haspopup="true" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px 0 16px; border-radius: 999px; border: 1px solid #0A0908; background: #EEEDEC; color: #0A0908; font: 600 13px 'Geist', sans-serif; cursor: pointer"><span style="color: #5F5E59; font-weight: 500">Category</span>{{catLabel}}<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<button type="button" class="chip" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px 0 16px; border-radius: 999px; border: 1px solid #ECEBE8; background: #FFFFFF; color: #0A0908; font: 600 13px 'Geist', sans-serif; cursor: pointer"><span style="color: #5F5E59; font-weight: 500">Condition</span>Any<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<button type="button" class="chip" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid #ECEBE8; background: #FFFFFF; color: #0A0908; font: 600 13px 'Geist', sans-serif; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4"></path></svg>Filters</button>
+<span style="flex: 1 1 0"></span>
+<span style="font-size: 13px; color: #73726C">{{resultLine}}</span>
+<sc-if value="{{catOpenBool}}" hint-placeholder-val="{{false}}">
+<div role="menu" aria-label="Categories" style="position: absolute; top: 48px; left: 0; z-index: 20; width: min(520px, 100%); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; padding: 8px; box-sizing: border-box; border: 1px solid #ECEBE8; border-radius: 16px; background: #FFFFFF; box-shadow: 0 24px 60px rgba(10,9,8,0.14)">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="12">
+<button type="button" role="menuitemradio" aria-checked="{{c.on}}" onClick="{{c.pick}}" style="display: flex; align-items: center; justify-content: space-between; height: 40px; padding: 0 12px; border: 0; border-radius: 10px; background: {{c.bg}}; color: #0A0908; font: 500 14px 'Geist', sans-serif; text-align: left; cursor: pointer">{{c.name}}<span style="font-size: 13px; font-weight: 700">{{c.check}}</span></button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+<p style="margin: 18px 0 0; font-size: 13px; color: #73726C">Brands you'll find: DJI · Sony · Apple · Tesla · Infinite Machine · RØDE · Sennheiser · Aputure · Ray-Ban Meta · Ford</p>
+
+<div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 64px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 800">Latest gear</h3>
+<a href="#" style="font-size: 14px; font-weight: 600">View all</a>
+</div>
+<div onMouseMove="{{onMoveM}}" onMouseLeave="{{onLeaveM}}" style="height: 1000px; margin-top: 18px; overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; padding-top: 30px">
+<sc-for list="{{cols}}" as="col" hint-placeholder-count="5">
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 18px; transform: {{col.tf}}; transition: transform 1.2s cubic-bezier(.16,1,.3,1)">
+<sc-for list="{{col.items}}" as="it" hint-placeholder-count="3">
+<a href="#s3" class="gc" aria-label="{{it.name}}, {{it.priceLabel}}" style="display: block; border-radius: 14px; color: #0A0908; text-decoration: none">
+<span style="position: relative; display: block; aspect-ratio: {{it.ar}}; border-radius: 14px; overflow: hidden; background: #F5F5F4">
+<img class="pimg" src="{{it.img}}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: {{it.fit}}; padding: {{it.pad}}; box-sizing: border-box">
+<span style="position: absolute; top: 10px; left: 10px; display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 999px; background: rgba(255,255,255,0.92); font-size: 11px; font-weight: 600">{{it.cond}}</span>
+</span>
+<span style="display: flex; justify-content: space-between; gap: 10px; margin-top: 10px"><span style="font-size: 15px; font-weight: 700">{{it.name}}</span><span style="font-size: 15px; font-weight: 700; white-space: nowrap">{{it.priceLabel}}</span></span>
+<span style="display: flex; justify-content: space-between; gap: 10px; margin-top: 2px; font-size: 12px; color: #73726C"><span>{{it.cat}}</span><span>{{it.sub}}</span></span>
+</a>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 56px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 800">Logistics &amp; fleet</h3>
+<a href="#s6" style="font-size: 14px; font-weight: 600">Book a fleet</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px; margin-top: 18px; perspective: 1200px">
+<sc-for list="{{fleet}}" as="it" hint-placeholder-count="4">
+<a href="#s6" class="tc" onMouseMove="{{it.move}}" onMouseLeave="{{leaveT}}" aria-label="{{it.name}}, {{it.price}}" style="display: block; border-radius: 16px; overflow: hidden; border: 1px solid #ECEBE8; background: #FFFFFF; color: #0A0908; text-decoration: none; transform: {{it.tf}}; box-shadow: {{it.sh}}">
+<span style="position: relative; display: block; aspect-ratio: 4 / 3; background: #F5F5F4">
+<img src="{{it.img}}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: {{it.fit}}; padding: {{it.pad}}; box-sizing: border-box">
+<span style="position: absolute; inset: 0; background: {{it.sheen}}; pointer-events: none"></span>
+<sc-if value="{{it.tag}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 999px; background: #0A0908; color: #FFFFFF; font-size: 11px; font-weight: 600">{{it.tag}}</span></sc-if>
+</span>
+<span style="display: flex; flex-direction: column; gap: 4px; padding: 16px">
+<span style="display: flex; justify-content: space-between; gap: 10px"><span style="font-size: 16px; font-weight: 700">{{it.name}}</span><span style="font-size: 15px; font-weight: 700; white-space: nowrap">{{it.price}}</span></span>
+<span style="font-size: 13px; line-height: 1.45; color: #73726C">{{it.desc}}</span>
+</span>
+</a>
+</sc-for>
+</div>
+
+<div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 64px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 800">Digital products</h3>
+<a href="#" style="font-size: 14px; font-weight: 600">View all</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 18px; margin-top: 18px; perspective: 1000px">
+<sc-for list="{{digital}}" as="it" hint-placeholder-count="6">
+<a href="#" class="tc" onMouseMove="{{it.move}}" onMouseLeave="{{leaveT}}" aria-label="{{it.name}}, {{it.price}}" style="display: flex; flex-direction: column; gap: 8px; color: #0A0908; text-decoration: none; transform: {{it.tf}}">
+<span style="position: relative; display: grid; place-items: center; aspect-ratio: 1 / 1; border-radius: 16px; overflow: hidden; background: {{it.bg}}; box-shadow: {{it.sh}}">
+<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="{{it.ic}}" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{it.icon}}"></path></svg>
+<span style="position: absolute; inset: 0; background: {{it.sheen}}; pointer-events: none"></span>
+<span style="position: absolute; left: 10px; bottom: 10px; display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 999px; background: rgba(255,255,255,0.9); font-size: 11px; font-weight: 600">{{it.kind}}</span>
+</span>
+<span style="display: flex; justify-content: space-between; gap: 8px"><span style="font-size: 14px; font-weight: 700; line-height: 1.3">{{it.name}}</span><span style="font-size: 14px; font-weight: 700">{{it.price}}</span></span>
+<span style="margin-top: -4px; font-size: 12px; color: #73726C">Instant download · licence included</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section id="s3" aria-labelledby="h-lst" style="padding-top: 120px">
+<p style="margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #A8A6A0">03 · LISTING DETAIL</p>
+<p style="margin: 0 0 18px; font-size: 13px; color: #73726C">Marketplace › XR &amp; Wearables › <span style="color: #0A0908">Apple Vision Pro</span></p>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+<div style="flex: 999 1 560px; min-width: 0; display: flex; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 10px; flex: none">
+<sc-for list="{{gallery}}" as="g" hint-placeholder-count="3">
+<button type="button" class="th" onMouseEnter="{{g.pick}}" onFocus="{{g.pick}}" onClick="{{g.pick}}" aria-label="Show photo {{g.n}}" aria-pressed="{{g.on}}" style="width: 76px; height: 76px; padding: 0; border: 0; border-radius: 10px; overflow: hidden; background: #F5F5F4; box-shadow: {{g.ring}}; cursor: pointer"><img src="{{g.img}}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></button>
+</sc-for>
+</div>
+<div onMouseMove="{{onMoveV}}" onMouseLeave="{{onLeaveV}}" style="position: relative; flex: 1; min-width: 0; aspect-ratio: 1 / 1; max-height: 640px; border-radius: 18px; overflow: hidden; background: #F5F5F7">
+<div class="par" style="position: absolute; inset: -4%; transform: {{vpar}}">
+<sc-for list="{{gallery}}" as="g" hint-placeholder-count="3">
+<img class="slide" src="{{g.img}}" alt="{{g.alt}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: {{g.fit}}; opacity: {{g.op}}; transform: scale({{g.sc}})">
+</sc-for>
+</div>
+<span style="position: absolute; left: 16px; bottom: 14px; display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border-radius: 999px; background: rgba(255,255,255,0.9); font-size: 12px; font-weight: 600">{{gcount}}</span>
+</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<div>
+<p style="margin: 0; font-size: 13px; color: #73726C">Apple · XR &amp; Wearables</p>
+<h2 id="h-lst" style="margin: 6px 0 0; font-size: 34px; font-weight: 800; letter-spacing: -0.02em">Apple Vision Pro</h2>
+<p style="margin: 8px 0 0; font-size: 14px; color: #5F5E59">Used · Excellent · 256GB · includes Solo Knit and Dual Loop bands, battery, travel case</p>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 14px; border: 1px solid #ECEBE8; border-radius: 14px">
+<span style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; background: #EEEDEC; font-size: 13px; font-weight: 700">RB</span>
+<span style="flex: 1"><span style="display: block; font-size: 14px; font-weight: 700">Rule Boston</span><span style="display: block; font-size: 12px; color: #73726C">Rental partner · Boston, MA</span></span>
+<a href="#" style="font-size: 13px; font-weight: 600">Message</a>
+</div>
+<div role="group" aria-label="Rent or buy" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+<button type="button" class="opt" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 14px; border-radius: 12px; border: 2px solid #0A0908; background: #FFFFFF; text-align: left; font: inherit; cursor: pointer"><span style="font-size: 12px; color: #73726C">Rent</span><span style="font-size: 20px; font-weight: 800">$75<span style="font-size: 13px; font-weight: 500; color: #73726C">/day</span></span></button>
+<button type="button" class="opt" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 14px; border-radius: 12px; border: 1px solid #ECEBE8; background: #FFFFFF; text-align: left; font: inherit; cursor: pointer"><span style="font-size: 12px; color: #73726C">Buy used</span><span style="font-size: 20px; font-weight: 800">~$2,600</span></button>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #ECEBE8; border-radius: 12px; overflow: hidden">
+<span style="padding: 12px 14px; border-right: 1px solid #ECEBE8"><span style="display: block; font-size: 11px; font-weight: 600; color: #73726C">PICK UP</span><span style="font-size: 14px; font-weight: 600">Mon, Nov 9</span></span>
+<span style="padding: 12px 14px"><span style="display: block; font-size: 11px; font-weight: 600; color: #73726C">RETURN</span><span style="font-size: 14px; font-weight: 600">Thu, Nov 12</span></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+<span style="display: flex; justify-content: space-between"><span style="color: #5F5E59">$75 × 3 days</span><span>$225.00</span></span>
+<span style="display: flex; justify-content: space-between"><span style="color: #5F5E59">Refundable deposit hold</span><span>$500.00</span></span>
+<span style="font-size: 12px; color: #8A8984">Fees and protection are shown at checkout.</span>
+</div>
+<a href="#s4" class="btn" style="display: inline-flex; align-items: center; justify-content: center; height: 52px; border-radius: 999px; background: #0A0908; color: #FFFFFF; font-size: 15px; font-weight: 700; text-decoration: none">Continue to checkout</a>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; color: #5F5E59">
+<span style="padding: 6px 10px; border-radius: 999px; background: #F4F4F3">Free cancellation up to 48h</span>
+<span style="padding: 6px 10px; border-radius: 999px; background: #F4F4F3">Pickup or local delivery</span>
+<span style="padding: 6px 10px; border-radius: 999px; background: #F4F4F3">Cleaned &amp; checked</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="s4" aria-labelledby="h-co" style="padding-top: 120px">
+<p style="margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #A8A6A0">04 · CHECKOUT</p>
+<h2 id="h-co" style="margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.02em">Checkout</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; margin-top: 26px">
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<div>
+<h3 style="margin: 0 0 12px; font-size: 16px; font-weight: 800">1. Delivery</h3>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+<button type="button" class="opt" style="padding: 14px; border-radius: 12px; border: 2px solid #0A0908; background: #FFFFFF; text-align: left; font: inherit; cursor: pointer"><span style="display: block; font-size: 14px; font-weight: 700">Collect from Rule Boston</span><span style="font-size: 12px; color: #73726C">[Pickup address], Boston · Free</span></button>
+<button type="button" class="opt" style="padding: 14px; border-radius: 12px; border: 1px solid #ECEBE8; background: #FFFFFF; text-align: left; font: inherit; cursor: pointer"><span style="display: block; font-size: 14px; font-weight: 700">Local delivery</span><span style="font-size: 12px; color: #73726C">From Rule Boston · within 15 mi · $25 each way</span></button>
+</div>
+</div>
+<div>
+<h3 style="margin: 0 0 12px; font-size: 16px; font-weight: 800">2. Protection</h3>
+<button type="button" class="opt" onClick="{{toggleProt}}" aria-pressed="{{protOn}}" style="display: flex; align-items: center; gap: 14px; width: 100%; padding: 14px; border-radius: 12px; border: {{protBd}}; background: #FFFFFF; text-align: left; font: inherit; cursor: pointer">
+<span style="display: grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid #0A0908; background: {{protBox}}; color: #FFFFFF"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></span>
+<span style="flex: 1"><span style="display: block; font-size: 14px; font-weight: 700">Damage protection · 10% of rental</span><span style="font-size: 12px; color: #73726C">Covers accidental damage up to the listed value, after a $100 excess. Theft and loss excluded.</span></span>
+</button>
+</div>
+<div>
+<h3 style="margin: 0 0 12px; font-size: 16px; font-weight: 800">3. Payment</h3>
+<p style="margin: 0 0 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: #73726C">PAY NOW</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px">
+<sc-for list="{{payNow}}" as="m" hint-placeholder-count="5">
+<button type="button" class="opt" onClick="{{m.pick}}" aria-pressed="{{m.on}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 12px 14px; border-radius: 12px; border: {{m.bd}}; background: #FFFFFF; text-align: left; font: inherit; cursor: pointer"><span style="font-size: 14px; font-weight: 700">{{m.name}}</span><span style="font-size: 12px; color: #73726C">{{m.sub}}</span></button>
+</sc-for>
+</div>
+<p style="margin: 18px 0 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: #73726C">PAY OVER TIME</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px">
+<sc-for list="{{payLater}}" as="m" hint-placeholder-count="4">
+<button type="button" class="opt" onClick="{{m.pick}}" aria-pressed="{{m.on}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 12px 14px; border-radius: 12px; border: {{m.bd}}; background: #FFFFFF; text-align: left; font: inherit; cursor: pointer"><span style="font-size: 14px; font-weight: 700">{{m.name}}</span><span style="font-size: 12px; color: #73726C">{{m.sub}}</span></button>
+</sc-for>
+</div>
+<p style="margin: 10px 0 0; font-size: 12px; color: #8A8984">Pay-over-time options are subject to the provider's approval. The refundable deposit is held on a card or digital wallet.</p>
+</div>
+<div style="padding: 20px; border-radius: 14px; background: #F6F5F3">
+<h3 style="margin: 0; font-size: 15px; font-weight: 800">Rental terms (summary)</h3>
+<ol style="margin: 12px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 7px; font-size: 13px; line-height: 1.5; color: #3A3935">
+<li>Rentals run per 24-hour day from pickup or delivery; a 1-day minimum applies.</li>
+<li>A refundable deposit is held before handover and released within 48 hours of an undamaged return.</li>
+<li>Free cancellation up to 48 hours before pickup; 50% of the rental after that; no refund once collected.</li>
+<li>Late returns are charged at 1.5× the daily rate for each day or part day.</li>
+<li>You're responsible for the item from handover to return. Damage protection reduces this to a $100 excess; theft and loss aren't covered.</li>
+<li>Items over $1,000 require ID verification, and the account holder must collect.</li>
+<li>Use the item lawfully and as intended; drones must be flown within local aviation rules by a qualified pilot.</li>
+<li>Nia facilitates the booking; the lister owns the item and is responsible for its condition and description.</li>
+</ol>
+<button type="button" onClick="{{toggleTerms}}" aria-pressed="{{termsOn}}" style="display: flex; align-items: center; gap: 10px; margin-top: 14px; padding: 0; border: 0; background: transparent; font: 600 13px 'Geist', sans-serif; color: #0A0908; cursor: pointer">
+<span style="display: grid; place-items: center; width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid #0A0908; background: {{termsBox}}; color: #FFFFFF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></span>I agree to the rental terms and Nia's marketplace policy</button>
+<p style="margin: 8px 0 0; font-size: 11px; color: #8A8984">Draft wording, for legal review before launch.</p>
+</div>
+</div>
+<aside aria-label="Order summary" style="flex: 1 1 340px; min-width: 0; padding: 22px; border: 1px solid #ECEBE8; border-radius: 16px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; gap: 12px; align-items: center">
+<img src="/_blob/8e8cb7cb504773a1b8ea85047a4b78eb" alt="" style="width: 72px; height: 72px; border-radius: 10px; object-fit: contain; background: #F5F5F7">
+<span><span style="display: block; font-size: 15px; font-weight: 700">Apple Vision Pro</span><span style="display: block; font-size: 12px; color: #73726C">Mon, Nov 9 → Thu, Nov 12 · 3 days</span><span style="display: block; font-size: 12px; color: #73726C">Collect from <span style="color: #0A0908; font-weight: 600">Rule Boston</span></span></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 9px; padding-top: 14px; border-top: 1px solid #ECEBE8; font-size: 14px">
+<span style="display: flex; justify-content: space-between"><span style="color: #5F5E59">Rental ($75 × 3)</span><span>{{co.rental}}</span></span>
+<span style="display: flex; justify-content: space-between"><span style="color: #5F5E59">Damage protection</span><span>{{co.prot}}</span></span>
+<span style="display: flex; justify-content: space-between"><span style="color: #5F5E59">Nia service fee (3%, partner rate)</span><span>{{co.fee}}</span></span>
+<span style="display: flex; justify-content: space-between"><span style="color: #5F5E59">Payment processing</span><span>{{co.proc}}</span></span>
+</div>
+<div style="display: flex; justify-content: space-between; padding-top: 14px; border-top: 1px solid #ECEBE8; font-size: 18px; font-weight: 800"><span>Total</span><span>{{co.total}}</span></div>
+<span style="font-size: 12px; color: #5F5E59">{{co.note}}</span>
+<span style="display: flex; justify-content: space-between; font-size: 13px; color: #5F5E59"><span>Deposit hold (refundable)</span><span>$500.00</span></span>
+<button type="button" class="btn" aria-disabled="{{co.dis}}" style="height: 52px; border: 0; border-radius: 999px; background: {{co.btnBg}}; color: #FFFFFF; font: 700 15px 'Geist', sans-serif; cursor: pointer">{{co.cta}}</button>
+<span style="font-size: 11px; line-height: 1.5; color: #8A8984">Processing is passed through at cost and varies by method. Card rate shown is 2.9% + $0.30 (illustrative).</span>
+</aside>
+</div>
+</section>
+
+<section id="s5" aria-labelledby="h-ls" style="padding-top: 120px">
+<p style="margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #A8A6A0">05 · LIST YOUR GEAR</p>
+<h2 id="h-ls" style="margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.02em">List your gear</h2>
+<p style="margin: 8px 0 0; font-size: 15px; color: #5F5E59">Earn from kit you're not using. You set the price; renters pay Nia's service fee on top.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; margin-top: 26px">
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px">
+<span style="display: grid; place-items: center; aspect-ratio: 4 / 3; border-radius: 14px; background: #F5F5F4; overflow: hidden"><img src="/_blob/c3b0bb50a018f7e9d5d7917ab82dc342" alt="Sony FX3 listing photo" style="width: 100%; height: 100%; object-fit: contain"></span>
+<span style="display: grid; place-items: center; aspect-ratio: 4 / 3; border-radius: 14px; background: #F5F5F4; overflow: hidden"><img src="/_blob/c36f78a1904bcebf81ea8cd66c8275a0" alt="" style="width: 100%; height: 100%; object-fit: cover"></span>
+<button type="button" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; aspect-ratio: 4 / 3; border-radius: 14px; border: 1.5px dashed #CFCDC8; background: #FFFFFF; color: #5F5E59; font: 600 13px 'Geist', sans-serif; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add photos</button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px">
+<sc-for list="{{fields}}" as="f" hint-placeholder-count="8">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600; color: #5F5E59">{{f.label}}<input value="{{f.value}}" readonly style="height: 44px; padding: 0 14px; border: 1px solid #ECEBE8; border-radius: 10px; background: #FFFFFF; color: #0A0908; font: 500 14px 'Geist', sans-serif"></label>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border-radius: 999px; background: #0A0908; color: #FFFFFF; font-size: 13px; font-weight: 600">Rent</span>
+<span style="display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border-radius: 999px; background: #0A0908; color: #FFFFFF; font-size: 13px; font-weight: 600">Sell</span>
+<span style="display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid #ECEBE8; font-size: 13px; font-weight: 600">Pickup</span>
+<span style="display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid #ECEBE8; font-size: 13px; font-weight: 600">Local delivery</span>
+<span style="display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid #ECEBE8; font-size: 13px; font-weight: 600">Require ID check</span>
+</div>
+</div>
+<aside aria-label="Earnings estimate" style="flex: 1 1 340px; min-width: 0; padding: 22px; border-radius: 16px; background: #0A0908; color: #FFFFFF; display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: #B5B3AD">ESTIMATED MONTHLY EARNINGS</span>
+<span style="font-size: 44px; font-weight: 800; letter-spacing: -0.02em">{{earn.total}}</span>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #D9D7D2">Rented days per month: {{earn.days}}<input type="range" min="1" max="20" value="{{earn.days}}" onChange="{{earn.set}}" onInput="{{earn.set}}" aria-label="Rented days per month" style="width: 100%; accent-color: #FFFFFF"></label>
+<div style="display: flex; flex-direction: column; gap: 8px; padding-top: 12px; border-top: 1px solid #2A2826; font-size: 13px; color: #D9D7D2">
+<span style="display: flex; justify-content: space-between"><span>Your price</span><span>$85/day</span></span>
+<span style="display: flex; justify-content: space-between"><span>You keep</span><span>100% of your price</span></span>
+<span style="display: flex; justify-content: space-between"><span>Renter pays on top</span><span>5% service fee + processing</span></span>
+<span style="display: flex; justify-content: space-between"><span>Payouts</span><span>To your bank, after each return</span></span>
+</div>
+<a href="#" class="btn" style="display: inline-flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #FFFFFF; color: #0A0908; font-size: 14px; font-weight: 700; text-decoration: none">Publish listing</a>
+<span style="font-size: 11px; color: #8A8984">Estimate only. Payouts through a payments partner (e.g. Stripe Connect), to be confirmed.</span>
+</aside>
+</div>
+</section>
+
+<section id="s6" aria-labelledby="h-fl" style="padding-top: 120px">
+<p style="margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #A8A6A0">06 · FLEET BOOKING</p>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+<div style="flex: 999 1 560px; min-width: 0">
+<div style="position: relative; aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden; background: #F5F5F4"><img src="/_blob/b8b69b104b13a18b62d7d52d6fc1e3ff" alt="Infinite Machine Olto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 6%; box-sizing: border-box"><span style="position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border-radius: 999px; background: #0A0908; color: #FFFFFF; font-size: 12px; font-weight: 600">Fleet rate from 5 units</span></div>
+<h2 id="h-fl" style="margin: 22px 0 0; font-size: 30px; font-weight: 800; letter-spacing: -0.02em">Infinite Machine Olto · fleet</h2>
+<p style="margin: 8px 0 0; font-size: 15px; line-height: 1.55; color: #5F5E59">Electric mopeds for crew runs, location scouts and city shoots. Delivered charged, with helmets and locks, and collected after wrap.</p>
+</div>
+<aside aria-label="Fleet booking" style="flex: 1 1 360px; min-width: 0; padding: 22px; border: 1px solid #ECEBE8; border-radius: 16px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<span style="font-size: 14px; font-weight: 700">Units</span>
+<span style="display: inline-flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; background: #F1F0EE">
+<button type="button" onClick="{{fl.dec}}" aria-label="Fewer units" style="width: 36px; height: 36px; border: 0; border-radius: 999px; background: #FFFFFF; font: 700 16px 'Geist', sans-serif; cursor: pointer">−</button>
+<span style="min-width: 34px; text-align: center; font-size: 16px; font-weight: 800">{{fl.q}}</span>
+<button type="button" onClick="{{fl.inc}}" aria-label="More units" style="width: 36px; height: 36px; border: 0; border-radius: 999px; background: #FFFFFF; font: 700 16px 'Geist', sans-serif; cursor: pointer">+</button>
+</span>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #ECEBE8; border-radius: 12px; overflow: hidden">
+<span style="padding: 12px 14px; border-right: 1px solid #ECEBE8"><span style="display: block; font-size: 11px; font-weight: 600; color: #73726C">START</span><span style="font-size: 14px; font-weight: 600">Sat, Nov 14</span></span>
+<span style="padding: 12px 14px"><span style="display: block; font-size: 11px; font-weight: 600; color: #73726C">END</span><span style="font-size: 14px; font-weight: 600">Sun, Nov 15</span></span>
+</div>
+<span style="display: flex; align-items: center; gap: 8px; padding: 12px 14px; border: 1px solid #ECEBE8; border-radius: 12px; font-size: 14px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5F5E59" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Deliver to: [Set location]</span>
+<div style="display: flex; flex-direction: column; gap: 9px; font-size: 14px">
+<span style="display: flex; justify-content: space-between"><span style="color: #5F5E59">{{fl.rateLine}}</span><span>{{fl.rental}}</span></span>
+<span style="display: flex; justify-content: space-between"><span style="color: #5F5E59">Damage protection (10%)</span><span>{{fl.prot}}</span></span>
+<span style="display: flex; justify-content: space-between"><span style="color: #5F5E59">Nia service fee (3%, partner rate)</span><span>{{fl.fee}}</span></span>
+<span style="display: flex; justify-content: space-between"><span style="color: #5F5E59">Payment processing</span><span>{{fl.proc}}</span></span>
+</div>
+<div style="display: flex; justify-content: space-between; padding-top: 14px; border-top: 1px solid #ECEBE8; font-size: 18px; font-weight: 800"><span>Total</span><span>{{fl.total}}</span></div>
+<a href="#s4" class="btn" style="display: inline-flex; align-items: center; justify-content: center; height: 50px; border-radius: 999px; background: #0A0908; color: #FFFFFF; font-size: 15px; font-weight: 700; text-decoration: none">Request fleet booking</a>
+<span style="font-size: 12px; color: #73726C">Riders must be 18+ with a valid licence. Fleet requests are confirmed by the provider within 24 hours.</span>
+</aside>
+</div>
+</section>
+
+<footer style="margin-top: 96px; padding-top: 20px; border-top: 1px solid #ECEBE8; font-size: 11px; line-height: 1.6; color: #8A8984">
+Prices are suggested launch rates for review. Purchase prices are estimates for illustration. Partner names appear only at pickup while agreements are in progress, and none implies endorsement. Photos from Wikimedia Commons: Sony α7 IV by Henry Söderlund (CC BY 2.0); Sennheiser MKH 416 by Galak76 (CC BY-SA 3.0); Aputure HR672C by Sam Wilson (CC BY-SA 4.0); RØDE Wireless GO II and DJI RSC 2 by -stk (CC BY-SA 4.0); Tesla Model Y and Ford E-Transit Custom by Alexander Migl (CC BY-SA 4.0). Other product images are from the Nia deck.
+</footer>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;speed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.3,&quot;min&quot;:0,&quot;max&quot;:4,&quot;step&quot;:0.1,&quot;section&quot;:&quot;Motion&quot;},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:7300}}">
+var IMG={fx3:"/_blob/c3b0bb50a018f7e9d5d7917ab82dc342",a7iv:"/_blob/c36f78a1904bcebf81ea8cd66c8275a0",osmo:"/_blob/0eafc51d41fa30b16fc801d7f742bd40",mini4:"/_blob/1cd473f06ee5573616d2b8974a5d4ab2",rsc2:"/_blob/76c0d9f70ba5d37f703bf603638a3c63",avp:"/_blob/8e8cb7cb504773a1b8ea85047a4b78eb",avpf:"/_blob/ccb81abe2e9e232995441ed34a50938f",avps:"/_blob/65e53a7920351aab7edd3df5faec56c9",rayban:"/_blob/3efa23044403b978d50ce77090525995",mac:"/_blob/7adcca33c4c6c89c05d609152b0cc645",rode:"/_blob/644be545d82cab3018f3985aeeebfd27",mkh:"/_blob/5ef08d180f5b89222a0457a199f44912",aputure:"/_blob/681296bbc5a04a7b216378c6c8716607",cstand:"/_blob/89727d17e3ecf72ecac926079cfdf530",rack:"/_blob/8380cb8394fe3b8b82576178b7fa39aa",olto:"/_blob/b8b69b104b13a18b62d7d52d6fc1e3ff",tesla:"/_blob/d33c56c226c60c14dd17f24c3c77dac5",van:"/_blob/6a5ee59e74be8675d4421b70d71dfbbb"};
+var PAL={A:["#d6cee9","#876cde","#a170d9","#4b61ba","#a18de2","#b392e5","#8c94cf",1],B:["#efe998","#7bb3dc","#c0e3c4","#92c1c9","#7bbec3","#aed3be","#abd0d4",1],C:["#fc824e","#f3a081","#2f0d1c","#060611","#c13229","#fd8252","#140d19",0],D:["#071d52","#3c7d58","#2a2b28","#413f3f","#446056","#124775","#373632",0],F:["#020c2a","#09225f","#95b7e6","#c7d4e5","#224e9f","#051f60","#97b4dd",0],G:["#839d9a","#ac9590","#8d5776","#525776","#ce7e8b","#979d97","#675a7b",0],I:["#13131e","#131a3a","#4a88d5","#3c95d6","#0f40a2","#131835","#64a2df",0],J:["#000000","#160f31","#7f56af","#9e76ba","#442e7b","#000003","#9366bf",0],K:["#caebef","#c6e0d6","#e5e2d0","#dcae56","#f3d798","#aedddd","#edce9b",1],L:["#000002","#430100","#fda658","#fa0b00","#f13504","#2c0201","#ff5b01",0]};
+function grad(k){var p=PAL[k];return 'radial-gradient(at 0% 0%, '+p[0]+' 0%, transparent 62%), radial-gradient(at 100% 0%, '+p[1]+' 0%, transparent 62%), radial-gradient(at 0% 100%, '+p[2]+' 0%, transparent 62%), radial-gradient(at 100% 100%, '+p[3]+' 0%, transparent 62%), radial-gradient('+p[4]+' 0%, transparent 75%), linear-gradient(160deg, '+p[5]+', '+p[6]+')';}
+function icol(k){return PAL[k][7]?'#0A0908':'#FFFFFF';}
+var IC={palette:"M12 22a10 10 0 1 1 10-10c0 2.8-2.2 3-4 3h-2a2 2 0 0 0-1.5 3.3A2 2 0 0 1 12 22zM7.5 10.5h.01M10.5 7h.01M15 7.5h.01M17 11.5h.01",camera:"M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3zM12 10a3 3 0 1 0 0 6 3 3 0 0 0 0-6z",phones:"M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3",music:"M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z",film:"M3 3h18v18H3zM7 3v18M17 3v18M3 7.5h4M3 12h18M3 16.5h4M17 7.5h4M17 16.5h4",pkg:"M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"};
+var GEAR=[
+["Sony FX3","Cameras","fx3","contain","8%",85,"Buy used ~$3,100","Used","4 / 3","Verified creator"],
+["DJI Osmo Pocket 3","Cameras","osmo","contain","10%",22,"Buy new ~$519","New","1 / 1","Rental house"],
+["Aputure HR672C LED","Lighting & Grip","aputure","cover","0",15,"Rent only","Used","3 / 4","Verified creator"],
+["Sony α7 IV","Cameras","a7iv","cover","0",55,"Buy used ~$1,900","Used","3 / 2","Rental house"],
+["Apple Vision Pro","XR & Wearables","avp","contain","10%",75,"Buy used ~$2,600","Used","16 / 10","Verified creator"],
+["RØDE Wireless GO II","Audio","rode","cover","0",18,"Buy used ~$210","Used","4 / 3","Verified creator"],
+["DJI Mini 4 Pro","Drones","mini4","contain","6%",45,"Buy used ~$620","Used","16 / 10","Rental house"],
+["Sennheiser MKH 416","Audio","mkh","cover","0",25,"Buy used ~$750","Used","2 / 1","Rental house"],
+["Rolling wardrobe rack","Wardrobe & Set","rack","contain","8%",10,"Buy new ~$90","New","1 / 1","Rental house"],
+["Ray-Ban Meta (Gen 2)","XR & Wearables","rayban","contain","4%",18,"Buy new ~$379","New","1 / 1","Verified creator"],
+["DJI RSC 2 gimbal","Gimbals & Support","rsc2","cover","0",20,"Buy used ~$260","Used","3 / 4","Verified creator"],
+["Mac mini (M4)","Computing & Editing","mac","contain","6%",25,"Buy new ~$599","New","16 / 11","Rental house"],
+["40\" C-stand with arm","Lighting & Grip","cstand","contain","6%",8,"Buy new ~$180","New","16 / 9","Rental house"],
+["Vision Pro spatial kit","XR & Wearables","avps","cover","0",95,"Kit · rent only","Kit","1 / 1","Verified creator"]];
+var FLEET=[["Infinite Machine Olto","olto","contain","6%","$45/day","Electric moped. Crew runs, scouts and city shoots.",""],["Olto fleet (5+)","olto","contain","6%","$39/unit/day","Fleet rate from 5 units, delivered charged with helmets.","Fleet"],["Tesla Model Y","tesla","cover","0","$110/day","5 seats, 200 mi/day included. Talent and crew transport.","Fleet available"],["Ford E-Transit Custom","van","cover","0","$135/day","Electric van for gear moves and crew pickups.",""]];
+var DIGI=[["Cinematic LUT pack · 35 looks","Colour","$29","J","palette"],["Film-stock Lightroom presets","Photo","$19","K","camera"],["City ambience SFX library","Sound","$24","F","phones"],["Music licence · social use","Music","$39","L","music"],["Motion titles for Premiere & AE","Motion","$35","A","film"],["Studio set 3D asset pack","3D","$49","I","pkg"]];
+var CATS=["All","Cameras","Lenses","Drones","Lighting & Grip","Audio","Gimbals & Support","Computing & Editing","XR & Wearables","Wardrobe & Set","Vehicles & Fleet","Digital products"];
+var PARTNERS=[["B&H Photo","New York, US","Cameras, lighting, audio","D","#FFFFFF"],["Rule Boston","Boston, US","Camera, lighting & grip rental","F","#FFFFFF"],["Magic Lightbox Glow Hire","South Africa","Lighting & grip hire","K","#0A0908"]];
+var NOW=[["Card","Visa, Mastercard, Amex"],["Apple Pay","Instant"],["Google Pay","Instant"],["PayPal","Instant"],["Bank transfer","ACH (US) · Instant EFT (ZA)"]];
+var LATER=[["Afterpay","4 interest-free payments"],["Klarna","Pay in 4 or monthly"],["Affirm","Monthly instalments"],["PayPal Pay Later","Pay in 4"]];
+function money(v){return '$'+v.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function r2(v){return Math.round(v*100)/100;}
+function rm(self){if(self._rm===undefined){self._rm=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);}return self._rm;}
+class Component extends DCLogic {
+  componentWillUnmount(){cancelAnimationFrame(this._r1);cancelAnimationFrame(this._r2);cancelAnimationFrame(this._r3);}
+  norm(e){var r=e.currentTarget.getBoundingClientRect();return {x:(e.clientX-r.left)/r.width,y:(e.clientY-r.top)/r.height};}
+  renderVals(){
+    var st=this.state||{};var self=this;
+    // 02 mode + cats
+    var buy=!!st.buy;var cat=st.cat||'All';
+    var catOpen=!!st.catOpen;
+    var cats=CATS.map(function(c){var on=c===cat;return {name:c,on:on?'true':'false',bg:on?'#F1F0EE':'transparent',check:on?'✓':'',pick:function(){self.setState({cat:c,catOpen:false});}};});
+    // masonry
+    var mx=st.mmx==null?0.5:st.mmx,my=st.mmy==null?0.5:st.mmy;var sp=[-50,40,-80,30,-45];
+    var cols=sp.map(function(s,c){var items=[];for(var k=c;k<GEAR.length;k+=5){var g=GEAR[k];
+        items.push({name:g[0],cat:g[1],img:IMG[g[2]],fit:g[3],pad:g[4],priceLabel:buy?(g[6].indexOf('~')>=0?g[6].replace(/Buy (new|used) /,''):'Rent only'):('$'+g[5]+'/day'),sub:buy?g[9]:g[6],cond:g[7],ar:g[8]});}
+      return {items:items,tf:'translate3d(0,'+((my-0.5)*s+(c%2?-40:0)).toFixed(1)+'px,0)'};});
+    // tilt cards
+    var hi=st.hi||'';var A=10;
+    function tilt(id){var on=hi===id;var tx=on?st.tx:0.5,ty=on?st.ty:0.5;
+      return {move:function(e){if(rm(self))return;var r=e.currentTarget.getBoundingClientRect();var s={hi:id,tx:(e.clientX-r.left)/r.width,ty:(e.clientY-r.top)/r.height};cancelAnimationFrame(self._r1);self._r1=requestAnimationFrame(function(){self.setState(s);});},
+        tf:on?'rotateX('+((0.5-ty)*A).toFixed(2)+'deg) rotateY('+((tx-0.5)*A).toFixed(2)+'deg) translateZ(20px)':'none',
+        sh:on?'0 30px 60px rgba(10,9,8,0.18)':'none',sheen:on?'radial-gradient(circle at '+(tx*100).toFixed(1)+'% '+(ty*100).toFixed(1)+'%, rgba(255,255,255,0.35), transparent 55%)':'transparent'};}
+    var fleet=FLEET.map(function(f,i){return Object.assign({name:f[0],img:IMG[f[1]],fit:f[2],pad:f[3],price:f[4],desc:f[5],tag:f[6]||false},tilt('f'+i));});
+    var digital=DIGI.map(function(d,i){return Object.assign({name:d[0],kind:d[1],price:d[2],bg:grad(d[3]),ic:icol(d[3]),icon:IC[d[4]]},tilt('d'+i));});
+    // 03 gallery
+    var gsel=st.g||0;var gal=[["avp","contain","Apple Vision Pro, front"],["avpf","cover","Apple Vision Pro worn, front view"],["avps","cover","Apple Vision Pro worn, side view"]];
+    var gallery=gal.map(function(g,i){var on=i===gsel;return {img:IMG[g[0]],fit:g[1],alt:g[2],n:i+1,op:on?1:0,sc:on?1:1.06,on:on?'true':'false',ring:on?'0 0 0 2px #FFFFFF, 0 0 0 4px #0A0908':'none',pick:function(){if((self.state||{}).g!==i)self.setState({g:i});}};});
+    var vx=st.vx==null?0.5:st.vx,vy=st.vy==null?0.5:st.vy;
+    // 04 checkout
+    var prot=st.prot!==false;var terms=!!st.terms;var pm=st.pm||'Apple Pay';
+    var rental=225,pr=prot?r2(rental*0.10):0,fee=r2(rental*0.03);var sub=rental+pr+fee;var proc=r2(sub*0.029+0.30);var total=r2(sub+proc);
+    function pmList(L){return L.map(function(m){var on=m[0]===pm;return {name:m[0],sub:m[0]==='Afterpay'?('4 × '+money(r2(total/4))+' interest-free'):m[1],on:on?'true':'false',bd:on?'2px solid #0A0908':'1px solid #ECEBE8',pick:function(){self.setState({pm:m[0]});}};});}
+    var later=LATER.some(function(m){return m[0]===pm;});
+    var co={rental:money(rental),prot:prot?money(pr):'—',fee:money(fee),proc:money(proc),total:money(total),
+      note:later?(pm+' will confirm your plan after you continue.'):('Paying with '+pm+'.'),
+      cta:terms?('Pay '+money(total)):'Agree to the rental terms to continue',btnBg:terms?'#0A0908':'#A8A6A0',dis:terms?'false':'true'};
+    // 05 listing form + earnings
+    var days=st.days||8;
+    var fields=[["Item","Sony FX3 (body)"],["Category","Cameras"],["Condition","Used · Excellent"],["Rental price","$85 per day"],["Sale price (optional)","$3,100"],["Replacement value","$3,900"],["Location","Back Bay, Boston"],["Availability","Weekdays + weekends"]].map(function(f){return {label:f[0],value:f[1]};});
+    var earn={days:days,total:money(85*days).replace('.00',''),set:function(e){self.setState({days:Math.max(1,Math.min(20,+e.target.value||1))});}};
+    // 06 fleet
+    var q=st.q||5;var unit=q>=5?39:45;var flRental=q*unit*2;var flProt=r2(flRental*0.10);var flFee=r2(flRental*0.03);var flSub=flRental+flProt+flFee;var flProc=r2(flSub*0.029+0.30);
+    var fl={q:q,rateLine:q+' × $'+unit+' × 2 days'+(q>=5?' (fleet rate)':''),rental:money(flRental),prot:money(flProt),fee:money(flFee),proc:money(flProc),total:money(r2(flSub+flProc)),
+      inc:function(){self.setState({q:Math.min(20,((self.state||{}).q||5)+1)});},dec:function(){self.setState({q:Math.max(1,((self.state||{}).q||5)-1)});}};
+    return {cats:cats,catLabel:cat,catOpen:catOpen?'true':'false',catOpenBool:catOpen,toggleCat:()=>this.setState({catOpen:!catOpen}),resultLine:(cat==='All'?'14 items':cat)+' · '+(buy?'For sale':'For rent')+' near Boston',cols:cols,fleet:fleet,digital:digital,gallery:gallery,gcount:(gsel+1)+' / 3',
+      vpar:'translate3d('+((0.5-vx)*24).toFixed(1)+'px,'+((0.5-vy)*24).toFixed(1)+'px,0)',
+      modeRent:buy?'false':'true',modeBuy:buy?'true':'false',rentBg:buy?'transparent':'#FFFFFF',buyBg:buy?'#FFFFFF':'transparent',rentSh:buy?'none':'0 1px 3px rgba(10,9,8,0.12)',buySh:buy?'0 1px 3px rgba(10,9,8,0.12)':'none',
+      setRent:()=>this.setState({buy:false}),setBuy:()=>this.setState({buy:true}),
+      payNow:pmList(NOW),payLater:pmList(LATER),co:co,protOn:prot?'true':'false',protBd:prot?'2px solid #0A0908':'1px solid #ECEBE8',protBox:prot?'#0A0908':'#FFFFFF',
+      toggleProt:()=>this.setState({prot:!prot}),termsOn:terms?'true':'false',termsBox:terms?'#0A0908':'#FFFFFF',toggleTerms:()=>this.setState({terms:!terms}),
+      fields:fields,earn:earn,fl:fl,leaveT:()=>this.setState({hi:''}),
+      onMoveM:(e)=>{if(rm(this))return;var p=this.norm(e);cancelAnimationFrame(this._r2);this._r2=requestAnimationFrame(()=>this.setState({mmx:p.x,mmy:p.y}));},onLeaveM:()=>this.setState({mmx:0.5,mmy:0.5}),
+      onMoveV:(e)=>{if(rm(this))return;var p=this.norm(e);cancelAnimationFrame(this._r3);this._r3=requestAnimationFrame(()=>this.setState({vx:p.x,vy:p.y}));},onLeaveV:()=>this.setState({vx:0.5,vy:0.5})};
+  }
+}
+</script>
+</body>
+</html>

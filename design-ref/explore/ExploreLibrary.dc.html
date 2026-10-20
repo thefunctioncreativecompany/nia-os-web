@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nia Explore — Library</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#1F1E1D}a:hover{color:#000}
+.ib{transition:background .2s}
+.ib:hover{background:#F4F4F3}
+a:focus-visible,button:focus-visible{outline:2px solid #1F1E1D;outline-offset:2px}
+.chip{transition:background .2s,border-color .2s}
+.chip:hover{border-color:#BDBCB8}
+.poster{transition:transform .6s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.poster:hover,.poster:focus-visible{transform:translateY(-6px);box-shadow:0 24px 40px rgba(31,30,29,.22)}
+.poster .add{opacity:0;transform:translateY(-4px);transition:opacity .25s,transform .35s cubic-bezier(.16,1,.3,1)}
+.poster:hover .add,.poster:focus-visible .add{opacity:1;transform:none}
+.poster .meta{opacity:0;transition:opacity .3s}
+.poster:hover .meta,.poster:focus-visible .meta{opacity:1}
+.lane{animation:up 60s linear infinite}
+.lane.down{animation-name:down}
+.lanewrap:hover .lane{animation-play-state:paused}
+@keyframes up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes down{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+.lt{transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .4s}
+.lanewrap:hover .lt{opacity:.45}
+.lanewrap:hover .lt:hover{opacity:1;transform:scale(1.03)}
+.row .t{transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.row:hover .t,.row:focus-visible .t{transform:translateX(14px)}
+.list:hover .row{color:#A8A6A0}
+.list:hover .row:hover{color:#1F1E1D}
+.row .go{opacity:0;transition:opacity .3s}
+.row:hover .go{opacity:1}
+.pv{transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .3s}
+.strip{flex:1 1 0;transition:flex-grow .9s cubic-bezier(.16,1,.3,1),filter .6s}
+.strip.on{flex-grow:6}
+.strips:hover .strip{flex-grow:1;filter:saturate(.5) brightness(.85)}
+.strips:hover .strip:hover,.strip:focus-visible{flex-grow:6;filter:none}
+.strip .img{transition:transform 1.6s cubic-bezier(.16,1,.3,1)}
+.strip:hover .img,.strip.on .img{transform:scale(1.06)}
+.strip .full{opacity:0;transform:translateY(14px);transition:opacity .4s .15s,transform .6s .15s cubic-bezier(.16,1,.3,1)}
+.strip .vert{transition:opacity .3s}
+.strip.on .full,.strips:hover .strip:hover .full,.strip:focus-visible .full{opacity:1;transform:none}
+.strip.on .vert,.strips:hover .strip:hover .vert{opacity:0}
+.strips:hover .strip.on:not(:hover) .full{opacity:0}
+.strips:hover .strip.on:not(:hover) .vert{opacity:1}
+.cmp{animation:cmpin .8s cubic-bezier(.16,1,.3,1) both}
+@keyframes cmpin{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}.cmp{transform:translateX(-50%)}}
+</style>
+</helmet>
+<div style="position: relative; min-height: 3900px; background: #FFFFFF; color: #1F1E1D; font-family: 'DM Sans', system-ui, sans-serif">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 80px; padding: 0 30px; border-bottom: 1px solid #E2E2E2; box-sizing: border-box">
+<nav aria-label="Main" style="display: flex; align-items: center; gap: 6px">
+<a href="#" class="ib" aria-label="Home" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #73726C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"></path></svg></a>
+<a href="#" class="ib" aria-label="Projects" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #73726C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+<a href="#" class="ib" aria-label="Documents" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #73726C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h6"></path></svg></a>
+<a href="ExploreSoon.dc.html" aria-current="page" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; margin: 0 6px; border-radius: 999px; background: #EEEDEC; color: #1F1E1D; font-size: 15px; font-weight: 500; text-decoration: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#73726C" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M14.5 9.5l-1.5 4-4 1.5 1.5-4z"></path></svg>Explore</a>
+<a href="#" class="ib" aria-label="Inbox" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #73726C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 13l2-7h12l2 7v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM4 13h5l1 2h4l1-2h5"></path></svg></a>
+</nav>
+<div style="flex: 1 1 0"></div>
+<label style="display: flex; align-items: center; gap: 10px; flex: 0 1 280px; height: 40px; padding: 0 14px; border-radius: 999px; background: #F4F4F3; color: #73726C; font-size: 14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input type="search" aria-label="Search projects" placeholder="Search projects..." style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #1F1E1D; font: inherit"></label>
+<button type="button" aria-label="New project" style="display: grid; place-items: center; width: 44px; height: 44px; margin-left: 12px; border: 0; border-radius: 999px; background: transparent; cursor: pointer"><span style="display: grid; place-items: center; width: 36px; height: 36px; border-radius: 999px; background: #1F1E1D; color: #FFFFFF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+<a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 44px; margin-left: 6px; color: #1F1E1D; font-size: 15px; font-weight: 500; text-decoration: none">Ikanyeng<img src="/_blob/9a6659f3e0826ad601b8e7831ccfc07a" alt="" style="width: 32px; height: 32px; border-radius: 999px; object-fit: cover; background: #E5E4E2"></a>
+</header>
+
+<main style="padding: 0 30px 96px">
+<div style="display: flex; align-items: center; gap: 14px; padding-top: 50px">
+<h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.01em">Explore All</h1>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F1E1D" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 28px">
+<div style="display: flex; flex-wrap: wrap; gap: 9px">
+<button type="button" class="chip" aria-pressed="true" style="height: 37px; padding: 0 16px; border-radius: 999px; border: 1px solid #1F1E1D; background: #1F1E1D; color: #FFFFFF; font: 500 14px 'DM Sans', sans-serif">All</button>
+<button type="button" class="chip" aria-pressed="false" style="height: 37px; padding: 0 16px; border-radius: 999px; border: 1px solid #E2E2E2; background: #FFFFFF; color: #1F1E1D; font: 500 14px 'DM Sans', sans-serif">Most Popular</button>
+<button type="button" class="chip" aria-pressed="false" style="height: 37px; padding: 0 16px; border-radius: 999px; border: 1px solid #E2E2E2; background: #FFFFFF; color: #1F1E1D; font: 500 14px 'DM Sans', sans-serif">Genres</button>
+<button type="button" class="chip" aria-pressed="false" style="height: 37px; padding: 0 16px; border-radius: 999px; border: 1px solid #E2E2E2; background: #FFFFFF; color: #1F1E1D; font: 500 14px 'DM Sans', sans-serif">Crew</button>
+<button type="button" class="chip" aria-pressed="false" style="height: 37px; padding: 0 16px; border-radius: 999px; border: 1px solid #E2E2E2; background: #FFFFFF; color: #1F1E1D; font: 500 14px 'DM Sans', sans-serif">Directors</button>
+<button type="button" class="chip" aria-pressed="false" style="height: 37px; padding: 0 16px; border-radius: 999px; border: 1px solid #E2E2E2; background: #FFFFFF; color: #1F1E1D; font: 500 14px 'DM Sans', sans-serif">Rating</button>
+</div>
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="font-size: 14px; color: #73726C">Sort by:</span>
+<button type="button" style="display: inline-flex; align-items: center; gap: 10px; height: 37px; padding: 0 14px 0 16px; border-radius: 999px; border: 1px solid #E2E2E2; background: #FFFFFF; color: #1F1E1D; font: 500 14px 'DM Sans', sans-serif">Most Popular<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+</div>
+</div>
+
+<section aria-label="Explore all" onMouseMove="{{onMove1}}" onMouseLeave="{{onLeave1}}" style="margin-top: 60px; height: 1180px; overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; gap: 13px; align-items: flex-start; padding: 10px 0 0 10px">
+<sc-for list="{{cols}}" as="col" hint-placeholder-count="5">
+<div style="flex: 1 1 180px; min-width: 0; display: flex; flex-direction: column; gap: 13px; transform: {{col.tf}}; transition: transform 1.2s cubic-bezier(.16,1,.3,1)">
+<sc-for list="{{col.items}}" as="it" hint-placeholder-count="4">
+<a href="#" class="poster" aria-label="{{it.title}}, {{it.dir}}" style="display: block; position: relative; aspect-ratio: 268 / 373; border-radius: 10px; overflow: hidden; background: {{it.bg}}; color: #FFFFFF; text-decoration: none">
+<img src="{{it.img}}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span class="meta" style="position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 14px 14px; background: linear-gradient(transparent, rgba(0,0,0,0.75)); display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">{{it.title}}</span><span style="font-size: 12px; color: #E5E4E2">{{it.dir}}</span></span>
+</a>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</section>
+
+<div style="display: flex; align-items: center; gap: 12px; margin-top: 56px">
+<h2 style="margin: 0; font-size: 24px; font-weight: 600">By Category</h2>
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F1E1D" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+</div>
+
+<section aria-labelledby="h-epk" style="margin-top: 28px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 16px">
+<h3 id="h-epk" style="margin: 0; font-size: 19px; font-weight: 600">Top 10 Electronic Press Kits</h3>
+<span style="font-size: 14px; color: #73726C">Hover a column to pause</span>
+</div>
+<div style="display: flex; gap: 13px; height: 640px; overflow: hidden; -webkit-mask-image: linear-gradient(transparent 0, #000 8%, #000 92%, transparent 100%); mask-image: linear-gradient(transparent 0, #000 8%, #000 92%, transparent 100%)">
+<sc-for list="{{lanes}}" as="ln" hint-placeholder-count="5">
+<div class="lanewrap" style="flex: 1 1 0; min-width: 0; overflow: hidden">
+<div class="lane {{ln.dir}}" style="display: flex; flex-direction: column; gap: 13px; animation-duration: {{ln.dur}}">
+<sc-for list="{{ln.items}}" as="it" hint-placeholder-count="4">
+<a href="#" class="lt" aria-label="{{it.title}} press kit" style="display: flex; flex-direction: column; gap: 8px; flex: none; color: #1F1E1D; text-decoration: none">
+<span style="position: relative; display: block; aspect-ratio: 268 / 373; border-radius: 10px; overflow: hidden; background: {{it.bg}}">
+<img src="{{it.img}}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span style="position: absolute; left: 12px; top: 6px; font-size: 52px; font-weight: 700; line-height: 1; color: #FFFFFF; text-shadow: 0 2px 12px rgba(0,0,0,0.35)">{{it.rank}}</span>
+<span style="position: absolute; right: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 9px; border-radius: 999px; background: rgba(0,0,0,0.6); color: #FFFFFF; font-size: 11px; font-weight: 600"><svg width="8" height="8" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1l7 4-7 4z" fill="currentColor"></path></svg>EPK</span>
+</span>
+<span style="font-size: 15px; font-weight: 600">{{it.title}}</span>
+<span style="margin-top: -6px; font-size: 13px; color: #73726C">{{it.dir}}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section aria-labelledby="h-dn" onMouseMove="{{onMove3}}" onMouseLeave="{{onLeave3}}" style="position: relative; margin-top: 64px">
+<h3 id="h-dn" style="margin: 0 0 12px; font-size: 19px; font-weight: 600">Top 10 Director's Notes</h3>
+<div style="display: flex; gap: 16px; padding: 12px 8px; border-bottom: 1px solid #E2E2E2; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: #73726C">
+<span style="width: 64px">RANK</span><span style="flex: 1">FILM</span><span style="width: 200px">DIRECTOR</span><span style="width: 150px">DOCUMENT</span><span style="width: 90px"></span>
+</div>
+<div class="list">
+<sc-for list="{{rows}}" as="it" hint-placeholder-count="10">
+<a href="#" class="row" onMouseEnter="{{it.enter}}" onFocus="{{it.enter}}" style="display: flex; align-items: center; gap: 16px; min-height: 72px; padding: 0 8px; border-bottom: 1px solid #EFEEEC; color: #1F1E1D; text-decoration: none; transition: color .3s">
+<span style="width: 64px; font-size: 32px; font-weight: 700; line-height: 1">{{it.rank}}</span>
+<span class="t" style="flex: 1; font-size: 26px; font-weight: 600; letter-spacing: -0.01em">{{it.title}}</span>
+<span style="width: 200px; font-size: 14px; color: #73726C">{{it.dir}}</span>
+<span style="width: 150px"><span style="display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border-radius: 999px; background: #F4F4F3; font-size: 12px; font-weight: 500; color: #4A4945">{{it.doc}}</span></span>
+<span class="go" style="width: 90px; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600">Open<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+</sc-for>
+</div>
+<div class="pv" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 200px; aspect-ratio: 268 / 373; border-radius: 10px; overflow: hidden; pointer-events: none; z-index: 5; opacity: {{pvOp}}; transform: translate({{px}}px, {{py}}px) rotate({{rot}}deg); box-shadow: 0 30px 60px rgba(31,30,29,0.3); background: #2A2826"><img src="{{pvImg}}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+</section>
+
+<section aria-labelledby="h-lp" style="margin-top: 72px">
+<h3 id="h-lp" style="margin: 0 0 16px; font-size: 19px; font-weight: 600">Latest Projects</h3>
+<div class="strips" style="display: flex; gap: 10px; height: 520px">
+<sc-for list="{{strips}}" as="it" hint-placeholder-count="6">
+<a href="#" class="strip {{it.cls}}" aria-label="{{it.title}}" style="position: relative; display: block; min-width: 0; overflow: hidden; border-radius: 14px; color: #FFFFFF; text-decoration: none; background: #2A2826">
+<img class="img" src="{{it.img}}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: {{it.pos}}">
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.72) 100%)"></div>
+<span class="vert" style="position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%) rotate(180deg); writing-mode: vertical-rl; white-space: nowrap; font-size: 14px; font-weight: 600; text-shadow: 0 1px 8px rgba(0,0,0,0.6)">{{it.title}}</span>
+<div class="full" style="position: absolute; left: 32px; right: 32px; bottom: 32px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 360px">
+<span style="display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.7); border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em">LATEST PROJECT</span>
+<span style="font-size: 36px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.05; text-shadow: 0 2px 16px rgba(0,0,0,0.4)">{{it.headline}}</span>
+<span style="font-size: 14px; color: #EDECEA">{{it.blurb}}</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 16px; border: 1px solid #FFFFFF; border-radius: 999px; font-size: 13px; font-weight: 500">View Project<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</div>
+</a>
+</sc-for>
+</div>
+</section>
+</main>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"depth":{"editor":"range","default":1,"min":0,"max":2,"step":0.1,"section":"Motion"},"speed":{"editor":"range","default":1,"min":0.3,"max":3,"step":0.1,"section":"Motion"},"$preview":{"width":1440,"height":3900}}'>
+var P=[["#2b1d14","#c8742f"],["#0f2236","#4f86b5"],["#1d2a16","#7aa04a"],["#2a0f12","#c2403a"],["#1a1a1f","#8e8aa3"],["#302214","#e0a54a"],["#12262a","#3f9aa0"],["#28171f","#b0607e"],["#20201c","#b8b39a"],["#13131a","#5b5f8c"]];
+var FILMS=[
+["Hamnet","Chloé Zhao","/_blob/ae942bb6063c538a2d5875f3312677cc"],
+["Sinners","Ryan Coogler","/_blob/2e618fa6360beed7421e2d1e1a514aa2"],
+["Heart of the Hunter","Mandla Dube","/_blob/3d67e22435f5585acb1ba9e52c6e2a05"],
+["The Odyssey","Christopher Nolan","/_blob/9dfbe296b67cc5b530c1e921fe04cf20"],
+["The Polygamist","[Director]","/_blob/682fd58151e8e95aa521675d9214b147"],
+["Avatar: The Way of Water","James Cameron","/_blob/3715c3e199afe3a4d63979f8023a5252"],
+["Obsession","[Director]","/_blob/f581eccf56eb290499e3896d810b0497"],
+["The Dink","[Director]","/_blob/1240ca10e13295816ff3bbcc9a125c3e"],
+["The Woman King","Gina Prince-Bythewood","/_blob/889aa73f2d5a6d0b180a046ae65e21dd"],
+["Phantom","Lee Hae-young","/_blob/ff3877979b7426a10b745595b90210c2"],
+["Blonde","Andrew Dominik","/_blob/f56d7cf9590538c194f74185734db2b4"],
+["500 Days of Summer","Marc Webb","/_blob/02918f5fcbce8944023814b29afdf76d"],
+["Scream","Wes Craven","/_blob/90fcce6ccacdaa90c4419d3f25f4d50c"],
+["The Queen's Gambit","Scott Frank","/_blob/6e557a1316a79bb6a0ae6600e6f26c41"],
+["Michael","Antoine Fuqua","/_blob/e0deda009b612d28f60d365489a0d931"],
+["Madea's Destination Wedding","Tyler Perry","/_blob/9e5dc1edc294769a72a4cdc596d66075"],
+["Obsession (series)","[Director]","/_blob/172f1935aa32a60f9e93d9e4e3a8d792"]];
+var STRIPS=[
+["Sinners","Ryan Coogler","/_blob/efe1779a563203aadba0ce453a0b5e0e","50% 30%"],
+["Oppenheimer","Christopher Nolan","/_blob/3cfd16a9166207438f9f6bb8c06c3bcb","60% 50%"],
+["The Polygamist","[Director]","/_blob/6fd2510feb503064adf061f19db0888e","55% 40%"],
+["The Woman King","Gina Prince-Bythewood","/_blob/889aa73f2d5a6d0b180a046ae65e21dd","50% 25%"],
+["The Odyssey","Christopher Nolan","/_blob/9dfbe296b67cc5b530c1e921fe04cf20","50% 30%"],
+["Hamnet","Chloé Zhao","/_blob/ae942bb6063c538a2d5875f3312677cc","50% 30%"]];
+var DOCS=["Call Sheet","Director's Notes","Shot List","Script","Storyboard","Lookbook","Treatment","Production Bible","Call Sheet","Shot List"];
+function film(i){var f=FILMS[i%FILMS.length];return {title:f[0],dir:f[1],img:f[2],bg:'#2A2826'};}
+function rm(self){if(self._rm===undefined){self._rm=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);}return self._rm;}
+class Component extends DCLogic {
+  move1(e){if(rm(this))return;var r=e.currentTarget.getBoundingClientRect();var s={mx:(e.clientX-r.left)/r.width,my:(e.clientY-r.top)/r.height};
+    cancelAnimationFrame(this._r1);this._r1=requestAnimationFrame(()=>this.setState(s));}
+  move3(e){var el=e.currentTarget;var r=el.getBoundingClientRect();var k=el.offsetWidth/r.width;var px=(e.clientX-r.left)*k,py=(e.clientY-r.top)*k;
+    var s={px:px,py:py,vx:px-((this.state||{}).px||px)};cancelAnimationFrame(this._r3);this._r3=requestAnimationFrame(()=>this.setState(s));}
+  componentWillUnmount(){cancelAnimationFrame(this._r1);cancelAnimationFrame(this._r3);}
+  renderVals(){
+    var st=this.state||{};var self=this;
+    var mx=st.mx==null?0.5:st.mx,my=st.my==null?0.5:st.my;var d=this.props.depth==null?1:this.props.depth;var sp=this.props.speed||1;
+    var cols=[-50,40,-80,30,-45].map(function(s,c){var items=[];for(var k=0;k<4;k++)items.push(film(c+k*5));
+      return {items:items,tf:'translate3d(0,'+((my-0.5)*s*d+(c%2?-60:0)).toFixed(1)+'px,0)'};});
+    var lanes=[58,74,50,82,64].map(function(b,c){var items=[];for(var k=0;k<2;k++){var r=c*2+k;var f=film(r+7);f.rank=r+1;items.push(f);}
+      return {dir:c%2?'down':'',dur:(b/sp).toFixed(1)+'s',items:items.concat(items).concat(items)};});
+    var hi=st.hi==null?-1:st.hi;
+    var rows=[];for(var i=0;i<10;i++){(function(i){var f=film(i+3);rows.push({title:f.title,dir:f.dir,rank:i+1,doc:DOCS[i],enter:function(){self.setState({hi:i});}});})(i);}
+    var strips=STRIPS.map(function(s,i){return {title:s[0],img:s[2],pos:s[3],cls:i===0?'on':'',headline:'Step Inside the World of '+s[0],
+      blurb:s[1]+'’s latest — explore behind-the-scenes breakdowns, call sheets, and production docs'};});
+    var rot=Math.max(-8,Math.min(8,(st.vx||0)*0.4));
+    return {cols:cols,lanes:lanes,rows:rows,strips:strips,
+      pvOp:hi>=0?1:0,pvImg:film(Math.max(0,hi)+3).img,px:((st.px||0)+40).toFixed(0),py:((st.py||0)-150).toFixed(0),rot:rot.toFixed(1),
+      onMove1:(e)=>this.move1(e),onLeave1:()=>this.setState({mx:0.5,my:0.5}),
+      onMove3:(e)=>this.move3(e),onLeave3:()=>this.setState({hi:-1})};
+  }
+}
+</script>
+</body>
+</html>

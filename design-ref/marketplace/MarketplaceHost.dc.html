@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nia Marketplace — Lister dashboard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#0A0908}a:hover{color:#000}
+a:focus-visible,button:focus-visible{outline:2px solid #0A0908;outline-offset:2px}
+.ib{transition:background .2s}
+.ib:hover{background:#F4F4F3}
+.btn{transition:transform .3s cubic-bezier(.16,1,.3,1),background .2s}
+.btn:hover{transform:translateY(-1px)}
+.bar{transition:height .9s cubic-bezier(.16,1,.3,1),background .2s}
+.req{animation:in .7s cubic-bezier(.16,1,.3,1) both}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.row{transition:background .2s}
+.row:hover{background:#FAFAF9}
+.knob{transition:transform .3s cubic-bezier(.16,1,.3,1)}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="min-height: 2700px; background: #FFFFFF; color: #0A0908; font-family: 'Geist', system-ui, sans-serif">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 80px; padding: 0 54px; border-bottom: 1px solid #ECEBE8; box-sizing: border-box">
+<nav aria-label="Main" style="display: flex; align-items: center; gap: 6px">
+<a href="#" class="ib" aria-label="Home" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"></path></svg></a>
+<a href="#" class="ib" aria-label="Projects" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+<a href="Templates.dc.html" class="ib" aria-label="Templates" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h6"></path></svg></a>
+<a href="ExploreSoon.dc.html" class="ib" aria-label="Explore" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M14.5 9.5l-1.5 4-4 1.5 1.5-4z"></path></svg></a>
+<a href="Marketplace.dc.html" aria-current="page" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; margin: 0 4px; border-radius: 999px; background: #EEEDEC; color: #0A0908; font-size: 15px; font-weight: 500; text-decoration: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5F5E59" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7zM9 7a3 3 0 0 1 6 0"></path></svg>Marketplace</a>
+<a href="#" class="ib" aria-label="Inbox" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #5F5E59"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l2-7h12l2 7v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM4 13h5l1 2h4l1-2h5"></path></svg></a>
+</nav>
+<div style="flex: 1 1 0"></div>
+<a href="#" style="display: flex; align-items: center; gap: 10px; min-height: 44px; color: #0A0908; font-size: 15px; font-weight: 500; text-decoration: none"><img src="/_blob/9a6659f3e0826ad601b8e7831ccfc07a" alt="" style="width: 32px; height: 32px; border-radius: 999px; object-fit: cover; background: #E5E4E2">Ikanyeng Rammutla<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5F5E59" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></a>
+</header>
+
+<main style="max-width: 1240px; margin: 0 auto; padding: 0 24px 96px">
+<nav aria-label="Marketplace" style="display: flex; gap: 24px; padding-top: 24px; border-bottom: 1px solid #ECEBE8; font-size: 14px; font-weight: 600">
+<a href="Marketplace.dc.html" style="padding-bottom: 12px; color: #73726C; text-decoration: none">Browse</a>
+<a href="#" style="padding-bottom: 12px; color: #73726C; text-decoration: none">My rentals</a>
+<a href="#" aria-current="page" style="padding-bottom: 12px; color: #0A0908; text-decoration: none; box-shadow: inset 0 -2px 0 #0A0908">Lister dashboard</a>
+</nav>
+
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; padding-top: 36px">
+<div>
+<p style="margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #A8A6A0">SAMPLE DATA</p>
+<h1 style="margin: 0; font-size: 38px; font-weight: 800; letter-spacing: -0.02em">Lister dashboard</h1>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<button type="button" onClick="{{toggleOnline}}" aria-pressed="{{onlineStr}}" style="display: inline-flex; align-items: center; gap: 12px; height: 44px; padding: 0 8px 0 16px; border-radius: 999px; border: 1px solid #ECEBE8; background: #FFFFFF; font: 600 14px 'Geist', sans-serif; color: #0A0908; cursor: pointer">{{onlineLabel}}<span style="position: relative; width: 44px; height: 26px; border-radius: 999px; background: {{trackBg}}"><span class="knob" style="position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.25); transform: translateX({{knobX}}px)"></span></span></button>
+<button type="button" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #ECEBE8; background: #FFFFFF; font: 600 14px 'Geist', sans-serif; color: #0A0908; cursor: pointer">This month<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+<a href="Marketplace.dc.html#s5" class="btn" style="display: inline-flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 999px; background: #0A0908; color: #FFFFFF; font-size: 14px; font-weight: 600; text-decoration: none">+ New listing</a>
+</div>
+</div>
+<sc-if value="{{offline}}" hint-placeholder-val="{{false}}">
+<p role="status" style="margin: 16px 0 0; padding: 12px 16px; border-radius: 12px; background: #FFF7E6; color: #7A4B00; font-size: 14px">You're paused. New requests won't come in, and existing bookings stay as they are.</p>
+</sc-if>
+
+<section aria-label="Earnings overview" style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px">
+<div style="flex: 999 1 560px; min-width: 0; padding: 24px; border-radius: 18px; background: #0A0908; color: #FFFFFF; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px">
+<div>
+<p style="margin: 0; font-size: 13px; color: #B5B3AD">Earnings this month</p>
+<p style="margin: 6px 0 0; font-size: 48px; font-weight: 800; letter-spacing: -0.02em">$1,638</p>
+<p style="margin: 4px 0 0; font-size: 13px; color: #8FD6A8">+22% vs last month</p>
+</div>
+<div style="text-align: right">
+<p style="margin: 0; font-size: 13px; color: #B5B3AD">Next payout</p>
+<p style="margin: 6px 0 0; font-size: 22px; font-weight: 700">$478 · Fri, Nov 20</p>
+<p style="margin: 4px 0 0; font-size: 13px; color: #B5B3AD">To [Bank] •••• [0000]</p>
+</div>
+</div>
+<div style="position: relative; display: flex; align-items: flex-end; gap: 12px; height: 180px; margin-top: 26px">
+<sc-for list="{{bars}}" as="b" hint-placeholder-count="8">
+<button type="button" onMouseEnter="{{b.enter}}" onFocus="{{b.enter}}" onMouseLeave="{{barLeave}}" aria-label="{{b.label}}: {{b.val}}" style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px; height: 100%; padding: 0; border: 0; background: transparent; cursor: pointer">
+<span style="font-size: 12px; font-weight: 700; color: #FFFFFF; opacity: {{b.tipOp}}">{{b.val}}</span>
+<span class="bar" style="width: 100%; height: {{b.h}}%; border-radius: 8px; background: {{b.bg}}"></span>
+<span style="font-size: 11px; color: #8A8984">{{b.label}}</span>
+</button>
+</sc-for>
+</div>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; justify-content: space-between; padding: 18px; border: 1px solid #ECEBE8; border-radius: 16px">
+<span style="font-size: 13px; color: #73726C">{{k.label}}</span>
+<span style="margin-top: 10px; font-size: 28px; font-weight: 800; letter-spacing: -0.01em">{{k.value}}</span>
+<span style="font-size: 12px; color: #73726C">{{k.sub}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 40px; align-items: flex-start">
+<section aria-labelledby="h-req" style="flex: 999 1 560px; min-width: 0">
+<div style="display: flex; align-items: baseline; gap: 10px"><h2 id="h-req" style="margin: 0; font-size: 20px; font-weight: 800">Requests</h2><span style="display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding: 0 7px; border-radius: 999px; background: #0A0908; color: #FFFFFF; font-size: 12px; font-weight: 700">{{reqCount}}</span></div>
+<p style="margin: 6px 0 16px; font-size: 13px; color: #73726C">Accept within the window or the request expires. Fast replies rank your listings higher.</p>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{requests}}" as="r" hint-placeholder-count="3">
+<div class="req" style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding: 16px; border: 1px solid #ECEBE8; border-radius: 16px">
+<img src="{{r.img}}" alt="" style="width: 84px; height: 84px; border-radius: 12px; object-fit: {{r.fit}}; background: #F5F5F4">
+<div style="flex: 1 1 220px; min-width: 0">
+<p style="margin: 0; font-size: 16px; font-weight: 700">{{r.item}}</p>
+<p style="margin: 4px 0 0; font-size: 13px; color: #5F5E59">{{r.dates}} · {{r.handover}}</p>
+<p style="margin: 6px 0 0; display: flex; align-items: center; gap: 8px; font-size: 13px"><span style="display: grid; place-items: center; width: 22px; height: 22px; border-radius: 999px; background: #EEEDEC; font-size: 10px; font-weight: 700">{{r.ini}}</span>{{r.renter}}<span style="color: #73726C">{{r.meta}}</span></p>
+</div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px; margin-left: auto">
+<span style="font-size: 12px; color: #73726C">You earn</span>
+<span style="margin-top: -8px; font-size: 22px; font-weight: 800">{{r.earn}}</span>
+<span style="font-size: 12px; font-weight: 600; color: #B45309">{{r.expires}}</span>
+</div>
+<div style="display: flex; gap: 8px; width: 100%">
+<button type="button" onClick="{{r.decline}}" style="flex: 1; height: 44px; border-radius: 999px; border: 1px solid #ECEBE8; background: #FFFFFF; font: 600 14px 'Geist', sans-serif; color: #0A0908; cursor: pointer">Decline</button>
+<button type="button" onClick="{{r.accept}}" class="btn" style="flex: 2; height: 44px; border-radius: 999px; border: 0; background: #0A0908; font: 700 14px 'Geist', sans-serif; color: #FFFFFF; cursor: pointer">Accept</button>
+</div>
+</div>
+</sc-for>
+<sc-if value="{{noReq}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 28px; border: 1px dashed #DAD8D3; border-radius: 16px; text-align: center; font-size: 14px; color: #73726C">You're all caught up. New requests will appear here.</p></sc-if>
+</div>
+</section>
+
+<section aria-labelledby="h-up" style="flex: 1 1 380px; min-width: 0">
+<h2 id="h-up" style="margin: 0 0 16px; font-size: 20px; font-weight: 800">Upcoming</h2>
+<div style="display: flex; flex-direction: column; gap: 18px">
+<sc-for list="{{days}}" as="d" hint-placeholder-count="3">
+<div>
+<p style="margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #73726C">{{d.label}}</p>
+<div style="display: flex; flex-direction: column; border: 1px solid #ECEBE8; border-radius: 14px; overflow: hidden">
+<sc-for list="{{d.items}}" as="e" hint-placeholder-count="2">
+<div class="row" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-top: 1px solid #F1F0EE">
+<span style="width: 62px; font-size: 13px; font-weight: 700">{{e.time}}</span>
+<span style="display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 999px; background: {{e.tagBg}}; color: {{e.tagFg}}; font-size: 11px; font-weight: 700">{{e.kind}}</span>
+<span style="flex: 1; min-width: 0"><span style="display: block; font-size: 14px; font-weight: 600">{{e.item}}</span><span style="display: block; font-size: 12px; color: #73726C">{{e.who}}</span></span>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 48px; align-items: flex-start">
+<section aria-labelledby="h-lst" style="flex: 999 1 640px; min-width: 0">
+<h2 id="h-lst" style="margin: 0 0 16px; font-size: 20px; font-weight: 800">Your listings</h2>
+<div style="overflow-x: auto; border: 1px solid #ECEBE8; border-radius: 16px">
+<table style="width: 100%; min-width: 680px; border-collapse: collapse; font-size: 14px">
+<thead><tr style="text-align: left; font-size: 11px; letter-spacing: 0.06em; color: #73726C"><th style="padding: 12px 16px; font-weight: 600">ITEM</th><th style="padding: 12px; font-weight: 600">PRICE</th><th style="padding: 12px; font-weight: 600">VIEWS</th><th style="padding: 12px; font-weight: 600">BOOKED</th><th style="padding: 12px; font-weight: 600; width: 140px">UTILISATION</th><th style="padding: 12px; font-weight: 600">EARNED</th><th style="padding: 12px 16px; font-weight: 600">STATUS</th></tr></thead>
+<tbody>
+<sc-for list="{{listings}}" as="l" hint-placeholder-count="5">
+<tr class="row" style="border-top: 1px solid #F1F0EE">
+<td style="padding: 12px 16px"><span style="display: flex; align-items: center; gap: 12px"><img src="{{l.img}}" alt="" style="width: 44px; height: 44px; border-radius: 10px; object-fit: {{l.fit}}; background: #F5F5F4"><span style="font-weight: 600">{{l.name}}</span></span></td>
+<td style="padding: 12px">{{l.price}}</td>
+<td style="padding: 12px">{{l.views}}</td>
+<td style="padding: 12px">{{l.days}} days</td>
+<td style="padding: 12px"><span style="display: flex; align-items: center; gap: 8px"><span style="flex: 1; height: 6px; border-radius: 999px; background: #F1F0EE; overflow: hidden"><span style="display: block; width: {{l.util}}%; height: 100%; background: #0A0908"></span></span><span style="font-size: 12px; color: #5F5E59">{{l.util}}%</span></span></td>
+<td style="padding: 12px; font-weight: 700">{{l.earned}}</td>
+<td style="padding: 12px 16px"><button type="button" onClick="{{l.toggle}}" aria-pressed="{{l.activeStr}}" style="display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; border-radius: 999px; border: 1px solid {{l.bd}}; background: {{l.bg}}; color: {{l.fg}}; font: 600 12px 'Geist', sans-serif; cursor: pointer">{{l.status}}</button></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+
+<section aria-labelledby="h-fun" style="flex: 1 1 320px; min-width: 0">
+<h2 id="h-fun" style="margin: 0 0 16px; font-size: 20px; font-weight: 800">Analytics</h2>
+<div style="display: flex; flex-direction: column; gap: 12px; padding: 18px; border: 1px solid #ECEBE8; border-radius: 16px">
+<sc-for list="{{funnel}}" as="f" hint-placeholder-count="3">
+<div>
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span style="color: #5F5E59">{{f.label}}</span><span style="font-weight: 700">{{f.value}}</span></div>
+<div style="height: 10px; margin-top: 6px; border-radius: 999px; background: #F1F0EE; overflow: hidden"><div class="bar" style="width: {{f.w}}%; height: 100%; border-radius: 999px; background: #0A0908"></div></div>
+</div>
+</sc-for>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; padding-top: 14px; border-top: 1px solid #ECEBE8">
+<span><span style="display: block; font-size: 12px; color: #73726C">Acceptance rate</span><span style="font-size: 20px; font-weight: 800">94%</span></span>
+<span><span style="display: block; font-size: 12px; color: #73726C">Avg. response</span><span style="font-size: 20px; font-weight: 800">18 min</span></span>
+<span><span style="display: block; font-size: 12px; color: #73726C">Repeat renters</span><span style="font-size: 20px; font-weight: 800">36%</span></span>
+<span><span style="display: block; font-size: 12px; color: #73726C">Top category</span><span style="font-size: 20px; font-weight: 800">Cameras</span></span>
+</div>
+</div>
+<p style="margin: 12px 0 0; font-size: 12px; color: #8A8984">You keep 100% of your listed price. Renters pay Nia's service fee and processing on top.</p>
+</section>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+var IMG={fx3:"/_blob/c3b0bb50a018f7e9d5d7917ab82dc342",a7iv:"/_blob/c36f78a1904bcebf81ea8cd66c8275a0",mini4:"/_blob/1cd473f06ee5573616d2b8974a5d4ab2",rode:"/_blob/644be545d82cab3018f3985aeeebfd27",aputure:"/_blob/681296bbc5a04a7b216378c6c8716607"};
+var WEEKS=[["Sep 28",210],["Oct 5",280],["Oct 12",190],["Oct 19",350],["Oct 26",330],["Nov 2",410],["Nov 9",420],["Nov 16",478]];
+var REQ=[{id:"r1",item:"Sony FX3",img:"fx3",fit:"contain",dates:"Sat, Nov 21 → Mon, Nov 23 · 3 days",handover:"Pickup",renter:"Jordan M.",ini:"JM",meta:"★ 4.9 · 12 rentals · ID verified",earn:"$255",expires:"Respond within 1h 42m"},
+{id:"r2",item:"DJI Mini 4 Pro",img:"mini4",fit:"contain",dates:"Sun, Nov 22 · 1 day",handover:"Delivery · Allston",renter:"Thandi K.",ini:"TK",meta:"★ 5.0 · 4 rentals · ID verified",earn:"$45",expires:"Respond within 3h 10m"},
+{id:"r3",item:"Sony α7 IV + RØDE Wireless GO II",img:"a7iv",fit:"cover",dates:"Fri, Nov 27 → Sun, Nov 29 · 3 days",handover:"Pickup",renter:"Sam R.",ini:"SR",meta:"New renter · ID verified",earn:"$219",expires:"Respond within 5h 55m"}];
+var UP=[["TODAY",[["2:00 PM","Pickup","Sony FX3","Alex P. · at your location"],["6:30 PM","Return","Aputure HR672C LED","Lerato N. · at your location"]]],["TOMORROW",[["10:00 AM","Delivery","DJI Mini 4 Pro","Chris D. · Allston"],["5:00 PM","Return","RØDE Wireless GO II","Maya L. · at your location"]]],["THU, NOV 19",[["9:00 AM","Return","Sony FX3","Alex P. · at your location"]]]];
+var TAG={Pickup:["#EEF1F8","#2C3E78"],Delivery:["#F1EFFA","#4B3B8F"],Return:["#EAF4EC","#1E5B2E"],Accepted:["#0A0908","#FFFFFF"]};
+var LIST=[["Sony FX3","fx3","contain",85,520,9,765],["Sony α7 IV","a7iv","cover",55,310,6,330],["DJI Mini 4 Pro","mini4","contain",45,240,7,315],["RØDE Wireless GO II","rode","cover",18,110,6,108],["Aputure HR672C LED","aputure","cover",15,60,8,120]];
+class Component extends DCLogic {
+  renderVals(){
+    var st=this.state||{};var self=this;var online=st.online!==false;var hb=st.hb==null?WEEKS.length-1:st.hb;
+    var max=Math.max.apply(null,WEEKS.map(function(w){return w[1];}));
+    var bars=WEEKS.map(function(w,i){var on=i===hb;return {label:w[0],val:'$'+w[1],h:(w[1]/max*82).toFixed(1),bg:on?'#FFFFFF':'#3A3835',tipOp:on?1:0,enter:function(){self.setState({hb:i});}};});
+    var kpis=[{label:"Bookings",value:"14",sub:"36 rented days"},{label:"Utilisation",value:"24%",sub:"Across 5 listings"},{label:"Rating",value:"4.9",sub:"From 23 reviews"},{label:"Pending earnings",value:"$592",sub:"Released after returns"}];
+    var handled=st.handled||{};var accepted=st.accepted||[];
+    var requests=REQ.filter(function(r){return !handled[r.id];}).map(function(r){return Object.assign({},r,{img:IMG[r.img],
+      accept:function(){var h=Object.assign({},(self.state||{}).handled||{});h[r.id]='a';self.setState({handled:h,accepted:((self.state||{}).accepted||[]).concat([r])});},
+      decline:function(){var h=Object.assign({},(self.state||{}).handled||{});h[r.id]='d';self.setState({handled:h});}});});
+    var days=UP.map(function(d){return {label:d[0],items:d[1].map(function(e){var t=TAG[e[1]];return {time:e[0],kind:e[1],item:e[2],who:e[3],tagBg:t[0],tagFg:t[1]};})};});
+    if(accepted.length){days.unshift({label:"ACCEPTED · AWAITING HANDOVER",items:accepted.map(function(r){var t=TAG.Accepted;return {time:r.dates.split(' ')[1]+' '+r.dates.split(' ')[2].replace(',',''),kind:"Accepted",item:r.item,who:r.renter+' · '+r.handover,tagBg:t[0],tagFg:t[1]};})});}
+    var act=st.act||{};
+    var listings=LIST.map(function(l,i){var active=act[i]!==false;var util=Math.round(l[5]/30*100);
+      return {name:l[0],img:IMG[l[1]],fit:l[2],price:'$'+l[3]+'/day',views:l[4],days:l[5],util:util,earned:'$'+l[6],status:active?'Active':'Paused',activeStr:active?'true':'false',
+        bd:active?'#0A0908':'#DAD8D3',bg:active?'#0A0908':'#FFFFFF',fg:active?'#FFFFFF':'#5F5E59',
+        toggle:function(){var a=Object.assign({},(self.state||{}).act||{});a[i]=!(a[i]!==false);self.setState({act:a});}};});
+    var funnel=[{label:"Listing views",value:"1,240",w:100},{label:"Booking requests",value:"31",w:44},{label:"Confirmed bookings",value:"14",w:22}];
+    return {bars:bars,kpis:kpis,requests:requests,reqCount:requests.length,noReq:requests.length===0,days:days,listings:listings,funnel:funnel,
+      barLeave:()=>this.setState({hb:WEEKS.length-1}),
+      onlineStr:online?'true':'false',onlineLabel:online?'Accepting bookings':'Paused',trackBg:online?'#1FAF6E':'#CFCDC8',knobX:online?18:0,offline:!online,
+      toggleOnline:()=>this.setState({online:!online})};
+  }
+}
+</script>
+</body>
+</html>

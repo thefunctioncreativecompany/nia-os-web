@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nia Explore — Coming soon</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#1F1E1D}a:hover{color:#000}
+.ib{transition:background .2s}
+.ib:hover{background:#F4F4F3}
+a:focus-visible,button:focus-visible{outline:2px solid #1F1E1D;outline-offset:2px}
+.btn{transition:transform .35s cubic-bezier(.16,1,.3,1),background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn.dark:hover{background:#000}
+.btn.line:hover{background:#F4F4F3}
+.panel{animation:rise 1s cubic-bezier(.16,1,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translate(-50%,-44%)}to{opacity:1;transform:translate(-50%,-50%)}}
+.dot{animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(31,175,110,.45)}50%{box-shadow:0 0 0 6px rgba(31,175,110,0)}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}.panel{transform:translate(-50%,-50%)}}
+</style>
+</helmet>
+<div style="min-height: 1000px; background: #FFFFFF; color: #1F1E1D; font-family: 'DM Sans', system-ui, sans-serif">
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 80px; padding: 0 30px; border-bottom: 1px solid #E2E2E2; box-sizing: border-box">
+<nav aria-label="Main" style="display: flex; align-items: center; gap: 6px">
+<a href="#" class="ib" aria-label="Home" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #73726C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"></path></svg></a>
+<a href="#" class="ib" aria-label="Projects" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #73726C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a>
+<a href="#" class="ib" aria-label="Documents" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #73726C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h6"></path></svg></a>
+<a href="#" aria-current="page" style="display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; margin: 0 6px; border-radius: 999px; background: #EEEDEC; color: #1F1E1D; font-size: 15px; font-weight: 500; text-decoration: none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#73726C" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M14.5 9.5l-1.5 4-4 1.5 1.5-4z"></path></svg>Explore</a>
+<a href="#" class="ib" aria-label="Inbox" style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; color: #73726C"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 13l2-7h12l2 7v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM4 13h5l1 2h4l1-2h5"></path></svg></a>
+</nav>
+<div style="flex: 1 1 0"></div>
+<label style="display: flex; align-items: center; gap: 10px; flex: 0 1 280px; height: 40px; padding: 0 14px; border-radius: 999px; background: #F4F4F3; color: #73726C; font-size: 14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input type="search" aria-label="Search projects" placeholder="Search projects..." style="flex: 1; min-width: 0; background: transparent; border: 0; outline: none; color: #1F1E1D; font: inherit"></label>
+<button type="button" aria-label="New project" style="display: grid; place-items: center; width: 44px; height: 44px; margin-left: 12px; border: 0; border-radius: 999px; background: transparent; cursor: pointer"><span style="display: grid; place-items: center; width: 36px; height: 36px; border-radius: 999px; background: #1F1E1D; color: #FFFFFF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></button>
+<a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 44px; margin-left: 6px; color: #1F1E1D; font-size: 15px; font-weight: 500; text-decoration: none">Ikanyeng<img src="/_blob/9a6659f3e0826ad601b8e7831ccfc07a" alt="" style="width: 32px; height: 32px; border-radius: 999px; object-fit: cover; background: #E5E4E2"></a>
+</header>
+<main onMouseMove="{{onMove}}" onMouseLeave="{{onLeave}}" style="position: relative; height: 920px; overflow: hidden; background: #FFFFFF">
+<sc-for list="{{items}}" as="it" hint-placeholder-count="14">
+<div aria-hidden="true" style="position: absolute; left: {{it.x}}%; top: {{it.y}}%; width: 170px; aspect-ratio: 268 / 373; border-radius: 10px; overflow: hidden; background: #2A2826; transform: translate(-50%, -50%) scale({{it.s}}); z-index: {{it.z}}; opacity: {{it.o}}; filter: blur({{it.bl}}px) saturate({{it.sat}}); box-shadow: 0 24px 48px rgba(31,30,29,0.18)"><img src="{{it.img}}" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover"></div>
+</sc-for>
+<div class="panel" style="position: absolute; left: 50%; top: 50%; z-index: 200; width: min(470px, calc(100% - 40px)); box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 36px 36px 32px; text-align: center; border: 1px solid #E2E2E2; border-radius: 20px; background: rgba(255,255,255,0.86); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 30px 80px rgba(31,30,29,0.14)">
+<span style="display: inline-flex; align-items: center; gap: 8px; height: 28px; padding: 0 12px; border: 1px solid #E2E2E2; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: #4A4945"><span class="dot" style="width: 7px; height: 7px; border-radius: 999px; background: #1FAF6E"></span>COMING SOON</span>
+<h1 style="margin: 0; font-size: 44px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05">Explore</h1>
+<p style="margin: 0; max-width: 360px; font-size: 15px; line-height: 1.55; color: #5F5E59">Browse films, director's notes and electronic press kits from across Nia, then compare any two side by side. Opens February 2027.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 6px">
+<a href="#" class="btn dark" style="display: inline-flex; align-items: center; height: 44px; padding: 0 22px; border-radius: 999px; background: #1F1E1D; color: #FFFFFF; font-size: 14px; font-weight: 500; text-decoration: none">Notify me</a>
+<a href="ExploreLibrary.dc.html" class="btn line" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #E2E2E2; color: #1F1E1D; font-size: 14px; font-weight: 500; text-decoration: none">Preview Explore<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"speed":{"editor":"range","default":1,"min":0,"max":4,"step":0.1,"section":"Motion"},"blur":{"editor":"range","default":2,"min":0,"max":10,"step":0.5,"unit":"px","section":"Motion"},"$preview":{"width":1440,"height":1000}}'>
+var P=[["#2b1d14","#c8742f"],["#0f2236","#4f86b5"],["#1d2a16","#7aa04a"],["#2a0f12","#c2403a"],["#1a1a1f","#8e8aa3"],["#302214","#e0a54a"],["#12262a","#3f9aa0"],["#28171f","#b0607e"],["#20201c","#b8b39a"],["#13131a","#5b5f8c"]];
+var IMG=["/_blob/2e618fa6360beed7421e2d1e1a514aa2","/_blob/ae942bb6063c538a2d5875f3312677cc","/_blob/9dfbe296b67cc5b530c1e921fe04cf20","/_blob/3d67e22435f5585acb1ba9e52c6e2a05","/_blob/889aa73f2d5a6d0b180a046ae65e21dd","/_blob/682fd58151e8e95aa521675d9214b147","/_blob/3715c3e199afe3a4d63979f8023a5252","/_blob/1240ca10e13295816ff3bbcc9a125c3e","/_blob/f56d7cf9590538c194f74185734db2b4","/_blob/90fcce6ccacdaa90c4419d3f25f4d50c","/_blob/6e557a1316a79bb6a0ae6600e6f26c41","/_blob/ff3877979b7426a10b745595b90210c2","/_blob/e0deda009b612d28f60d365489a0d931","/_blob/02918f5fcbce8944023814b29afdf76d"];
+class Component extends DCLogic {
+  componentDidMount(){
+    this._rm=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    if(this._rm)return;
+    var tick=()=>{var st=this.state||{};var mx=st.mx==null?0.5:st.mx;var sp=this.props.speed==null?1:this.props.speed;
+      this.setState({a:((st.a||0)+(0.07+(mx-0.5)*1.2)*sp)%360});this._raf=requestAnimationFrame(tick);};
+    this._raf=requestAnimationFrame(tick);
+  }
+  componentWillUnmount(){cancelAnimationFrame(this._raf);}
+  move(e){var r=e.currentTarget.getBoundingClientRect();this.setState({mx:(e.clientX-r.left)/r.width,my:(e.clientY-r.top)/r.height});}
+  renderVals(){
+    var st=this.state||{};var a=st.a||0;var my=st.my==null?0.5:st.my;var n=14;var ry=16+my*16;var bl=this.props.blur==null?2:this.props.blur;
+    var items=[];
+    for(var i=0;i<n;i++){var th=(a+i*360/n)*Math.PI/180;var sn=Math.sin(th);var d=(sn+1)/2;
+      items.push({img:IMG[i%IMG.length],x:(50+Math.cos(th)*41).toFixed(2),y:(50+sn*ry).toFixed(2),s:(0.55+0.6*d).toFixed(3),
+        z:Math.round(d*100),o:(0.35+0.65*d).toFixed(2),bl:(bl*(1-d)).toFixed(1),sat:(0.5+0.5*d).toFixed(2)});}
+    return {items:items,onMove:(e)=>this.move(e),onLeave:()=>this.setState({mx:0.5,my:0.5})};
+  }
+}
+</script>
+</body>
+</html>
