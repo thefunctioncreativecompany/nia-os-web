@@ -25,6 +25,8 @@ import {
   BRANDS,
   CATEGORIES,
   LISTINGS,
+  MARKETPLACE_FOOTNOTE,
+  PHOTO_CREDITS,
   buyEstimate,
   buyLine,
   dayRate,
@@ -228,7 +230,12 @@ export function MarketplaceHome() {
 
       {fleet.length > 0 && (
         <section aria-labelledby="mk-fleet" className="mt-14">
-          <h2 id="mk-fleet" className="text-subtitle font-extrabold tracking-tight text-foreground">Logistics &amp; fleet</h2>
+          <div className="flex items-baseline justify-between gap-4">
+            <h2 id="mk-fleet" className="text-subtitle font-extrabold tracking-tight text-foreground">Logistics &amp; fleet</h2>
+            <Link href="/marketplace/fleet/olto-fleet" className="rounded-sm text-sm font-semibold text-foreground outline-none hover:underline focus-visible:ring-3 focus-visible:ring-ring/50">
+              Book a fleet
+            </Link>
+          </div>
           <div className="mt-4.5 grid grid-cols-[repeat(auto-fill,minmax(min(100%,16.875rem),1fr))] gap-5 perspective-distant">
             {fleet.map((l) => (
               <FleetCard key={l.id} listing={l} />
@@ -247,6 +254,11 @@ export function MarketplaceHome() {
           </div>
         </section>
       )}
+
+      <footer id="credits" className="mt-20 flex flex-col gap-2 border-t border-border pt-6 text-caption leading-relaxed text-muted-foreground">
+        <p>{MARKETPLACE_FOOTNOTE}</p>
+        <p>{PHOTO_CREDITS}</p>
+      </footer>
     </div>
   );
 }

@@ -1,40 +1,24 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarDays, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useReducedMotion } from "motion/react";
 import type { DateRange } from "react-day-picker";
 
 import { cn } from "@/lib/utils";
 import { features } from "@/lib/features";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { isMouse, pointerIn, useFrame } from "@/hooks/use-pointer";
 import { buyEstimate, depositFor, getProvider, initials, marketplaceHome, specLine, type Listing } from "@/features/marketplace/data";
 import { formatMoney, rentalDays, toCents } from "@/features/marketplace/fees";
 import { DigitalIcon } from "./digital-icon";
 import { MarketplaceNav } from "./marketplace-nav";
+import { RentalDates, defaultRange, isoDay, useToday } from "./rental-dates";
 
 type Mode = "rent" | "buy";
-
-const DAY_MS = 86_400_000;
-const shortDate = (d: Date) => d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
-const isoDay = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-const fromIso = (s: string) => {
-  const [y, m, d] = s.split("-").map(Number);
-  return new Date(y, m - 1, d);
-};
-const noSubscribe = () => () => {};
-
-// Today, once the page is in the browser (the page itself is drawn without a clock).
-function useToday() {
-  const key = useSyncExternalStore(noSubscribe, () => isoDay(new Date()), () => null);
-  return key ? fromIso(key) : undefined;
-}
 
 // A listing (MARKETPLACE_SPEC.md §3, "focus viewer"): photos on the left, a thumbnail rail beside
 // them (pointing at or choosing one crossfades the big picture, which drifts a little with the
@@ -50,8 +34,8 @@ export function ListingDetail({ listing: l }: { listing: Listing }) {
   // Until someone picks dates: pickup tomorrow, return three days later.
   const today = useToday();
   const [picked, setRange] = useState<DateRange | undefined>(undefined);
-  const tomorrow = today ? new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1) : undefined;
-  const range = picked ?? (tomorrow ? { from: tomorrow, to: new Date(tomorrow.getTime() + 3 * DAY_MS) } : undefined);
+  const { tomorrow, range: suggested } = defaultRange(today, 3);
+  const range = picked ?? suggested;
 
   const days = range?.from && range.to ? rentalDays(range.from, range.to) : null;
   const rental = days && l.rentPerDay ? toCents(l.rentPerDay) * days : null;
@@ -129,40 +113,7 @@ export function ListingDetail({ listing: l }: { listing: Listing }) {
             </div>
           )}
 
-          {!digital && mode === "rent" && (
-            <Popover>
-              <PopoverTrigger asChild>
-                <button
-                  type="button"
-                  aria-label="Choose pickup and return dates"
-                  className="grid grid-cols-2 overflow-hidden rounded-xl border border-border text-left outline-none transition-colors duration-fast hover:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
-                >
-                  <span className="border-r border-border px-3.5 py-3">
-                    <span className="block text-micro font-semibold text-muted-foreground">Pick up</span>
-                    <span className="text-sm font-semibold">{range?.from ? shortDate(range.from) : "Choose a day"}</span>
-                  </span>
-                  <span className="flex items-center justify-between gap-2 px-3.5 py-3">
-                    <span>
-                      <span className="block text-micro font-semibold text-muted-foreground">Return</span>
-                      <span className="text-sm font-semibold">{range?.to ? shortDate(range.to) : "Choose a day"}</span>
-                    </span>
-                    <CalendarDays aria-hidden className="size-4 text-muted-foreground" />
-                  </span>
-                </button>
-              </PopoverTrigger>
-              <PopoverContent align="start" className="w-auto rounded-2xl p-3">
-                <Calendar
-                  mode="range"
-                  selected={range}
-                  onSelect={setRange}
-                  today={today}
-                  defaultMonth={range?.from}
-                  disabled={tomorrow ? { before: tomorrow } : undefined}
-                  className="[--cell-size:2.5rem]"
-                />
-              </PopoverContent>
-            </Popover>
-          )}
+          {!digital && mode === "rent" && <RentalDates range={range} onChange={setRange} today={today} earliest={tomorrow} />}
 
           <div className="flex flex-col gap-2 text-sm">
             {digital ? (

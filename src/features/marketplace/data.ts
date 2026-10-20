@@ -75,6 +75,9 @@ export type Listing = {
   specs?: string;
   /** Refundable hold on the renter's card, in US dollars, when the lister set one. */
   deposit?: number;
+  /** Fleets: the booking page's name and description, and the rate per unit (a lower rate from
+   *  `bulkFrom` units, where there is one). */
+  fleet?: { title: string; description: string; note: string; rate: number; bulkRate?: number; bulkFrom?: number };
   /** Digital products: the kind of file, shown as a pill. */
   productType?: string;
   /** Digital products: the Templates gradient their tile uses (`grain-1` … `grain-12`). */
@@ -142,8 +145,8 @@ export const LISTINGS: Listing[] = [
   { id: "vision-pro-spatial-kit", title: "Vision Pro spatial kit", brand: "Apple", category: "XR & Wearables", kind: "gear", images: [img("mk-avp_side", "Apple Vision Pro spatial capture kit", "cover")], condition: "Kit", rentPerDay: 95, providerId: CREATOR, location: NEAR, aspect: "1 / 1" },
 
   { id: "olto", title: "Infinite Machine Olto", brand: "Infinite Machine", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-olto", "Infinite Machine Olto electric moped", "contain", 6)], rentPerDay: 45, providerId: "nia-fleet", location: NEAR, blurb: "Electric moped. Crew runs, scouts and city shoots.", delivery: true },
-  { id: "olto-fleet", title: "Olto fleet (5+)", brand: "Infinite Machine", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-olto", "Infinite Machine Olto electric mopeds", "contain", 6)], rentPerDay: 39, providerId: "nia-fleet", location: NEAR, blurb: "Fleet rate from 5 units, delivered charged with helmets.", tag: "Fleet", perUnit: true, delivery: true },
-  { id: "tesla-model-y", title: "Tesla Model Y", brand: "Tesla", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-tesla", "Tesla Model Y", "cover")], rentPerDay: 110, providerId: "nia-fleet", location: NEAR, blurb: "5 seats, 200 mi/day included. Talent and crew transport.", tag: "Fleet available", delivery: true },
+  { id: "olto-fleet", title: "Olto fleet (5+)", brand: "Infinite Machine", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-olto", "Infinite Machine Olto electric mopeds", "contain", 6)], rentPerDay: 39, providerId: "nia-fleet", location: NEAR, blurb: "Fleet rate from 5 units, delivered charged with helmets.", tag: "Fleet", perUnit: true, delivery: true, fleet: { title: "Infinite Machine Olto · fleet", description: "Electric mopeds for crew runs, location scouts and city shoots. Delivered charged, with helmets and locks, and collected after wrap.", note: "Riders must be 18+ with a valid licence. Fleet requests are confirmed by the provider within 24 hours.", rate: 45, bulkRate: 39, bulkFrom: 5 } },
+  { id: "tesla-model-y", title: "Tesla Model Y", brand: "Tesla", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-tesla", "Tesla Model Y", "cover")], rentPerDay: 110, providerId: "nia-fleet", location: NEAR, blurb: "5 seats, 200 mi/day included. Talent and crew transport.", tag: "Fleet available", delivery: true, fleet: { title: "Tesla Model Y · fleet", description: "Five-seat electric cars for talent and crew transport, 200 miles a day included. Delivered charged and collected after wrap.", note: "Drivers need a valid licence. Fleet requests are confirmed by the provider within 24 hours.", rate: 110 } },
   { id: "ford-e-transit", title: "Ford E-Transit Custom", brand: "Ford", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-etransit", "Ford E-Transit Custom electric van", "cover")], rentPerDay: 135, providerId: "nia-fleet", location: NEAR, blurb: "Electric van for gear moves and crew pickups.", delivery: true },
 
   { id: "cinematic-lut-pack", title: "Cinematic LUT pack · 35 looks", brand: "Nia", category: "Digital products", kind: "digital", images: [], price: 29, productType: "Colour", grain: "grain-7", icon: "palette", providerId: CREATOR, location: "Instant download" },
@@ -231,3 +234,10 @@ export const initials = (name: string) =>
 
 /** Where Marketplace home is: the store itself once it opens, its preview until then. */
 export const marketplaceHome = (unlocked: boolean) => (unlocked ? "/marketplace" : "/marketplace/preview");
+
+// The design's footnote (Ika's Claude Design "Marketplace"). Several photos are from Wikimedia
+// Commons under Creative Commons licences, which require this credit wherever they're shown.
+export const MARKETPLACE_FOOTNOTE =
+  "Prices are suggested launch rates for review. Purchase prices are estimates for illustration. Partner names appear only at pickup while agreements are in progress, and none implies endorsement.";
+export const PHOTO_CREDITS =
+  "Photos from Wikimedia Commons: Sony α7 IV by Henry Söderlund (CC BY 2.0); Sennheiser MKH 416 by Galak76 (CC BY-SA 3.0); Aputure HR672C by Sam Wilson (CC BY-SA 4.0); RØDE Wireless GO II and DJI RSC 2 by -stk (CC BY-SA 4.0); Tesla Model Y and Ford E-Transit Custom by Alexander Migl (CC BY-SA 4.0). Other product images are from the Nia deck.";

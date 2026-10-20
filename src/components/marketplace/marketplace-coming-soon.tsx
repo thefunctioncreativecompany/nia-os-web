@@ -130,6 +130,14 @@ export function MarketplaceComingSoon() {
       >
         Rent, buy and list production gear, vehicles and digital assets, from creators and trusted rental houses, all inside Nia.
       </ComingSoonCard>
+
+      {/* Some tiles are Wikimedia Commons photos whose licences need a credit. */}
+      <Link
+        href="/marketplace/preview#credits"
+        className="absolute right-4 bottom-4 z-[150] rounded-full bg-white/90 px-3 py-1.5 text-caption text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 max-lg:bottom-28"
+      >
+        Photo credits
+      </Link>
     </section>
   );
 }

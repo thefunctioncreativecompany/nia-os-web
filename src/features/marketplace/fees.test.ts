@@ -68,6 +68,10 @@ describe("fleetRate", () => {
     expect(fleetRate(5)).toBe(39);
     expect(fleetRate(20)).toBe(39);
   });
+
+  it("keeps a single rate for fleets without a bulk rate", () => {
+    expect(fleetRate(8, { rate: 110 })).toBe(110);
+  });
 });
 
 describe("rentalDays", () => {

@@ -27,6 +27,7 @@ import {
 } from "@/features/marketplace/fees";
 import { DigitalIcon } from "./digital-icon";
 import { MarketplaceNav } from "./marketplace-nav";
+import { fromIso, shortDate } from "./rental-dates";
 
 const PAY_NOW: { id: PaymentMethod; name: string; sub: string }[] = [
   { id: "card", name: "Card", sub: "Visa, Mastercard, Amex" },
@@ -54,13 +55,6 @@ const RENTAL_TERMS = [
   "Use the item lawfully and as intended; drones must be flown within local aviation rules by a qualified pilot.",
   "Nia facilitates the booking; the lister owns the item and is responsible for its condition and description.",
 ];
-
-const fromIso = (s: string | null) => {
-  if (!s || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return null;
-  const [y, m, d] = s.split("-").map(Number);
-  return new Date(y, m - 1, d);
-};
-const shortDate = (d: Date) => d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
 
 // Checkout (MARKETPLACE_SPEC.md §4, Ika's Claude Design): 1 Delivery, 2 Protection, 3 Payment, then
 // the rental terms with "I agree", beside a summary of what it costs. The service fee follows the

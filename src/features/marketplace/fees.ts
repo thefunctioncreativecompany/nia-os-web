@@ -56,8 +56,10 @@ export function rentalDays(pickup: Date, ret: Date) {
   return Math.max(1, Math.round((day(ret) - day(pickup)) / DAY_MS));
 }
 
-/** Dollars per unit per day for a fleet of `units`. */
-export const fleetRate = (units: number) => (units >= FLEET_RATE.bulkFrom ? FLEET_RATE.bulk : FLEET_RATE.standard);
+/** Dollars per unit per day for a fleet of `units` (the Olto fleet's rate unless another is given). */
+export function fleetRate(units: number, terms: { rate: number; bulkRate?: number; bulkFrom?: number } = { rate: FLEET_RATE.standard, bulkRate: FLEET_RATE.bulk, bulkFrom: FLEET_RATE.bulkFrom }) {
+  return terms.bulkRate !== undefined && terms.bulkFrom !== undefined && units >= terms.bulkFrom ? terms.bulkRate : terms.rate;
+}
 
 /** The renter's plan's service fee, as a fraction ("5%" → 0.05). */
 export function serviceRate(plan: PlanId) {
