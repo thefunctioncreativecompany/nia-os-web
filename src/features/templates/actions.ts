@@ -32,3 +32,10 @@ export async function loadTemplatePreview(code: string): Promise<TemplatePreview
 export async function loadWorkingTemplates(): Promise<GalleryTemplate[]> {
   return catalog.filter((t) => t.status === "live" && canEdit(getSchema(t.code))).map((t) => ({ ...toGallery(t), ready: true }));
 }
+
+// Every live template, small, for the navbar search (audit #14). Public catalogue data.
+export async function loadTemplateIndex(): Promise<{ code: string; name: string; stage: string; icon: string; keywords: string[]; ready: boolean }[]> {
+  return catalog
+    .filter((t) => t.status === "live")
+    .map((t) => ({ code: t.code, name: t.name, stage: t.stage, icon: t.icon, keywords: t.keywords.slice(0, 8), ready: canEdit(getSchema(t.code)) }));
+}
