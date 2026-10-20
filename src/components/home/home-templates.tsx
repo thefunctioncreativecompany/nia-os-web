@@ -62,8 +62,8 @@ export function HomeTemplates({ templates }: { templates: GalleryTemplate[] }) {
         </h2>
       </div>
       {/* Room above and below inside the scroller so a card's hover shadow isn't cut off. Four
-          per row on wide screens, the width of the Recent projects cards. */}
-      <div className="-mx-4 -my-5 flex snap-x scroll-px-4 gap-6 overflow-x-auto px-4 py-5 md:-mx-6 md:scroll-px-6 md:px-6">
+          per row on wide screens, the width of the Recent projects cards; no scrollbar, as on Templates. */}
+      <div className="-mx-4 -my-5 flex snap-x scroll-px-4 gap-6 overflow-x-auto px-4 py-5 [scrollbar-width:none] md:-mx-6 md:scroll-px-6 md:px-6">
         {learning.ready
           ? shown.map((t) => <TemplateTile key={t.code} template={t} onOpen={show} />)
           : Array.from({ length: 4 }, (_, i) => <Skeleton key={i} className="h-19 w-[78%] shrink-0 rounded-xl sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)]" />)}

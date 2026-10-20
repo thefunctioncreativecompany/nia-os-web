@@ -56,7 +56,7 @@ export function TableView({ section, rows, onChange, currency = 'USD' }: { secti
   const money = (column: string) => section.money?.includes(column);
   const numbered = !!section.autonumber;
   const tall = !!section.tall;
-  const template = [numbered ? '3rem' : null, ...columns.map((c) => width(c, tall)), ...computed.map(() => '8.5rem'), '2.25rem'].filter(Boolean).join(' ');
+  const template = [numbered ? '3.5rem' : null, ...columns.map((c) => width(c, tall)), ...computed.map(() => '8.5rem'), '2.25rem'].filter(Boolean).join(' ');
   const total = tableTotal(section, rows);
   const show = (column: string, amount: number) => {
     if (money(column)) return formatMoney(amount, currency);
@@ -98,7 +98,7 @@ export function TableView({ section, rows, onChange, currency = 'USD' }: { secti
         <div role="rowgroup" className="hidden md:block">
           <div role="row" className="grid min-w-fit border-b border-border bg-nia-panel" style={{ gridTemplateColumns: template } as CSSProperties}>
             {numbered && (
-              <span role="columnheader" className="px-3 py-2 text-small font-bold whitespace-nowrap text-muted-foreground">
+              <span role="columnheader" className="px-2 py-2 text-small font-bold whitespace-nowrap text-muted-foreground">
                 {section.autonumber}
               </span>
             )}

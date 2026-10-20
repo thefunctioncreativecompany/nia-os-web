@@ -3,8 +3,9 @@ import { formatMoney } from './format';
 import { computeCell, documentCurrency, editableColumns, fieldLabel, formatField, refResolver, resolveDocument, tableTotal, type FieldsValue, type SectionValue, type TableRow } from './sections';
 
 /*
- * Downloads besides PDF (Ika, 2026-10-19): Markdown, Word and plain text, built from the same
- * section data the editor shows. PDF is the browser's print, so it isn't here.
+ * Downloads (Ika, 2026-10-19): PDF, Word, Markdown and plain text, all built from the same
+ * section data the editor shows. The PDF is a real file that downloads straight away (Ika's
+ * feedback: the print screen was confusing); Print stays in the toolbar for paper.
  */
 
 type Block = { title: string } & (
@@ -104,6 +105,106 @@ export async function toWord(schema: TemplateSchema, data: SectionValue[]): Prom
   }
   children.push(new Paragraph({ children: [new TextRun({ text: footer(schema), size: 16, color: '73726C' })], spacing: { before: 480 } }));
   return Packer.toBlob(new Document({ creator: 'Nia', title: schema.name, sections: [{ children }] }));
+}
+
+// The brand in PDF terms (jsPDF takes colours as numbers, so these mirror the theme tokens):
+// foreground, muted-foreground, border and nia-panel from globals.css.
+const INK: [number, number, number] = [10, 9, 8];
+const MUTED: [number, number, number] = [115, 114, 108];
+const RULE: [number, number, number] = [226, 226, 226];
+const PANEL: [number, number, number] = [249, 249, 250];
+
+async function fontData(file: string) {
+  const bytes = new Uint8Array(await (await fetch(`/fonts/${file}`)).arrayBuffer());
+  let binary = '';
+  for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  return btoa(binary);
+}
+
+/** A real PDF in Geist, US Letter. The library and fonts load only when someone downloads one. */
+export async function toPdf(schema: TemplateSchema, data: SectionValue[]): Promise<Blob> {
+  const [{ jsPDF }, { autoTable }, regular, bold] = await Promise.all([
+    import('jspdf'),
+    import('jspdf-autotable'),
+    fontData('Geist-Regular.ttf'),
+    fontData('Geist-Bold.ttf'),
+  ]);
+  const pdf = new jsPDF({ unit: 'pt', format: 'letter' });
+  pdf.addFileToVFS('Geist-Regular.ttf', regular);
+  pdf.addFont('Geist-Regular.ttf', 'Geist', 'normal');
+  pdf.addFileToVFS('Geist-Bold.ttf', bold);
+  pdf.addFont('Geist-Bold.ttf', 'Geist', 'bold');
+  pdf.setProperties({ title: schema.name, creator: 'Nia' });
+
+  const margin = 48;
+  const width = pdf.internal.pageSize.getWidth() - margin * 2;
+  const bottom = pdf.internal.pageSize.getHeight() - margin - 16;
+  let y = margin;
+  const room = (needed: number) => {
+    if (y + needed <= bottom) return;
+    pdf.addPage();
+    y = margin;
+  };
+  const after = () => (pdf as unknown as { lastAutoTable: { finalY: number } }).lastAutoTable.finalY;
+  const base = { font: 'Geist', textColor: INK, lineColor: RULE, cellPadding: { top: 5, bottom: 5, left: 6, right: 6 } } as const;
+
+  pdf.setFont('Geist', 'bold').setFontSize(22).setTextColor(...INK);
+  pdf.text(schema.name, margin, y + 18);
+  y += 36;
+
+  for (const b of blocks(schema, data)) {
+    room(48);
+    y += 14;
+    pdf.setFont('Geist', 'bold').setFontSize(12).setTextColor(...INK);
+    pdf.text(b.title, margin, y);
+    y += 6;
+    pdf.setDrawColor(...INK).setLineWidth(1).line(margin, y, margin + width, y);
+    y += 4;
+    if (b.kind === 'fields') {
+      autoTable(pdf, {
+        startY: y,
+        margin: { left: margin, right: margin },
+        theme: 'plain',
+        body: b.rows,
+        styles: { ...base, fontSize: 9.5, lineWidth: { bottom: 0.5 } },
+        columnStyles: { 0: { cellWidth: width * 0.32, textColor: MUTED } },
+      });
+      y = after() + 6;
+    } else if (b.kind === 'table') {
+      autoTable(pdf, {
+        startY: y + 4,
+        margin: { left: margin, right: margin },
+        theme: 'grid',
+        head: [b.header],
+        body: b.cells.length ? b.cells : [b.header.map((_, i) => (i === 0 ? EMPTY : ''))],
+        foot: b.total ? [[...b.header.slice(0, -2).map(() => ''), b.total[0], b.total[1]].slice(-b.header.length)] : undefined,
+        showFoot: 'lastPage',
+        styles: { ...base, fontSize: 8.5, lineWidth: 0.5 },
+        headStyles: { fontStyle: 'bold', fillColor: PANEL, textColor: MUTED },
+        footStyles: { fontStyle: 'bold', fillColor: PANEL, textColor: INK },
+      });
+      y = after() + 6;
+    } else {
+      pdf.setFont('Geist', 'normal').setFontSize(10).setTextColor(...INK);
+      y += 10;
+      for (const line of pdf.splitTextToSize(b.text, width) as string[]) {
+        room(14);
+        pdf.text(line, margin, y);
+        y += 14;
+      }
+    }
+  }
+
+  // Every page carries the Nia footer and its page number.
+  const pages = pdf.getNumberOfPages();
+  for (let page = 1; page <= pages; page++) {
+    pdf.setPage(page);
+    pdf.setFont('Geist', 'normal').setFontSize(8).setTextColor(...MUTED);
+    const footY = pdf.internal.pageSize.getHeight() - margin / 2;
+    pdf.text(footer(schema), margin, footY);
+    pdf.text(`Page ${page} of ${pages}`, margin + width, footY, { align: 'right' });
+  }
+  return pdf.output('blob');
 }
 
 export const fileName = (schema: TemplateSchema, extension: string) =>

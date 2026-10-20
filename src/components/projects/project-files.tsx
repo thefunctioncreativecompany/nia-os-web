@@ -431,7 +431,8 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
                 <span className="pointer-events-auto rounded-full bg-white/90 shadow-sm">
                   <TagMenu file={file} canEdit={canEdit} onChange={(t) => retag(file, t)} />
                 </span>
-                <span className="pointer-events-auto rounded-lg bg-white/90 opacity-0 shadow-sm transition-opacity duration-fast group-hover:opacity-100 group-focus-within:opacity-100">{actions(file)}</span>
+                {/* Pointing devices only: phones can't hover, so the viewer carries these there. */}
+                <span className="pointer-events-auto rounded-lg bg-white/90 opacity-0 shadow-sm transition-opacity duration-fast group-hover:opacity-100 group-focus-within:opacity-100 [@media(hover:none)]:hidden">{actions(file)}</span>
               </span>
             </li>
           ))}
@@ -488,6 +489,29 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
             <div className="relative flex max-h-[86svh] items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element -- see above */}
               <img src={stills[viewing].url!} alt={stills[viewing].name} className="max-h-[86svh] w-auto rounded-lg object-contain" />
+              <span className="absolute top-3 left-3 flex gap-2">
+                <a
+                  href={`${stills[viewing].url}&download=${encodeURIComponent(stills[viewing].name)}`}
+                  aria-label={`Download ${stills[viewing].name}`}
+                  className="flex size-9 items-center justify-center rounded-full bg-black/50 text-white outline-none hover:bg-black/70 focus-visible:ring-3 focus-visible:ring-white/50"
+                >
+                  <Download className="size-4" />
+                </a>
+                {canEdit && (
+                  <button
+                    type="button"
+                    aria-label={`Archive ${stills[viewing].name}`}
+                    onClick={() => {
+                      const file = stills[viewing];
+                      setViewing(null);
+                      remove(file);
+                    }}
+                    className="flex size-9 items-center justify-center rounded-full bg-black/50 text-white outline-none hover:bg-black/70 focus-visible:ring-3 focus-visible:ring-white/50"
+                  >
+                    <Archive className="size-4" />
+                  </button>
+                )}
+              </span>
               <button type="button" aria-label="Close" onClick={() => setViewing(null)} className="absolute top-3 right-3 flex size-9 items-center justify-center rounded-full bg-black/50 text-white outline-none hover:bg-black/70 focus-visible:ring-3 focus-visible:ring-white/50">
                 <X className="size-4" />
               </button>

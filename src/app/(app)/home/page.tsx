@@ -47,7 +47,8 @@ export default function Page() {
         </Suspense>
       </section>
 
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.62fr)]">
+      {/* minmax(0, …) keeps long activity lines from widening the page on phones. */}
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.62fr)]">
         <Suspense fallback={<Skeleton className="h-60 rounded-xl" />}>
           <RecentActivity />
         </Suspense>

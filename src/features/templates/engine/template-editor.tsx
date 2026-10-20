@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { SplitButton } from '@/components/arc/split-button/split-button';
 import type { TemplateSchema } from '../types';
-import { downloadFile, fileName, toMarkdown, toPlainText, toWord } from './export';
+import { downloadFile, fileName, toMarkdown, toPdf, toPlainText, toWord } from './export';
 import { SectionView } from './section-views';
 import { blankRow, documentCurrency, resolveDocument, type SectionValue, type TableRow } from './sections';
 import { DocumentContext } from './document-context';
@@ -61,8 +61,9 @@ export function TemplateEditor({
   };
   const ready = doc.filled > 0;
 
-  const download = async (kind: 'md' | 'docx' | 'txt') => {
+  const download = async (kind: 'pdf' | 'md' | 'docx' | 'txt') => {
     try {
+      if (kind === 'pdf') downloadFile(fileName(schema, 'pdf'), await toPdf(schema, doc.data));
       if (kind === 'md') downloadFile(fileName(schema, 'md'), toMarkdown(schema, doc.data), 'text/markdown;charset=utf-8');
       if (kind === 'txt') downloadFile(fileName(schema, 'txt'), toPlainText(schema, doc.data));
       if (kind === 'docx') downloadFile(fileName(schema, 'docx'), await toWord(schema, doc.data));
@@ -152,7 +153,7 @@ export function TemplateEditor({
 
       <aside
         aria-label="Preview and download"
-        className="flex flex-[1_1_360px] flex-col border-border bg-nia-panel px-4 pt-10 pb-15 md:border-l md:pr-15 md:pl-10 lg:max-w-[540px] print:hidden"
+        className="flex min-w-0 flex-[1_1_360px] flex-col border-border bg-nia-panel px-4 pt-10 pb-15 md:border-l md:pr-15 md:pl-10 lg:max-w-[540px] print:hidden"
       >
         <div className="flex flex-col gap-6 md:sticky md:top-6">
           <DocumentPreviewHeader status={doc.paid ? 'Paid' : ready ? 'Ready to export' : 'Draft'} />
@@ -243,7 +244,7 @@ export function TemplateEditor({
             className="w-full"
             label="Download PDF"
             icon={<Download />}
-            onClick={() => window.print()}
+            onClick={() => void download('pdf')}
             actions={[
               { label: 'Word (.docx)', icon: <FileType />, onSelect: () => void download('docx') },
               { label: 'Markdown (.md)', icon: <FileText />, onSelect: () => void download('md') },

@@ -18,7 +18,7 @@ export function DocMiniature({ icon, schema, workflow, name }: { icon: string; s
       <div className="min-w-0 flex-1 overflow-hidden rounded-lg border border-border bg-white px-5.5 py-4.5">
         <p className="truncate text-tiny text-muted-foreground">{schema.group}</p>
         <p className="mt-1 truncate text-h3 leading-tight font-semibold text-foreground">{schema.name}</p>
-        <div className="mt-2 mb-1 flex gap-1.25 border-b-[1.5px] border-foreground pb-2">
+        <div className="mt-2 mb-1 flex flex-wrap gap-1.25 border-b-[1.5px] border-foreground pb-2">
           {["Undo", "Redo", ...schema.actions].slice(0, 5).map((a) => (
             <span key={a} className="rounded-full border border-border px-1.75 py-px text-tiny whitespace-nowrap text-foreground/80">{a}</span>
           ))}
