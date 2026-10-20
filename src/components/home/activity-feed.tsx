@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Archive, MailOpen } from "lucide-react";
 
@@ -95,6 +96,9 @@ export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[];
           Activity
         </h2>
         {unread > 0 && <span className="rounded-full bg-gold/15 px-2 py-0.5 text-micro font-bold text-foreground">{unread} new</span>}
+        <Link href="/home/activity" className="ml-auto rounded-sm text-small font-semibold text-muted-foreground underline-offset-4 outline-none hover:text-foreground hover:underline focus-visible:ring-3 focus-visible:ring-ring/50">
+          View all
+        </Link>
       </div>
       {rows.length === 0 ? (
         <EmptyState icon={FileText} message="No activity yet. Your projects' updates will appear here." />
