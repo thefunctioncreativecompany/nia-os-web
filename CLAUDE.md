@@ -88,6 +88,10 @@ Data:
   the production right (Stills removed: Files & references covers it, Ika 2026-10-19); stacked on phones and tablets). Actions, overview, documents and
   activity sit in a "Manage" tab beside "Details"; Files & references full width below. Built.
 
+- (2026-10-19) Explore shows a coming-soon screen (Ika's Claude Design "ExploreSoon") until it opens
+  in February 2027; Notify me saves to `feature_waitlist`. Downloaded PDFs are real files (jsPDF, Geist),
+  not the print screen; Print stays in the editor toolbar.
+
 ## Working notes
 
 - If something fails twice, stop, explain simply, and offer to revert to the last commit.

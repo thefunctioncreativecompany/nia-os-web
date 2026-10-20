@@ -30,6 +30,9 @@ const images = {
   studioTeam: { src: studioTeam },
 } satisfies Record<string, HeroImage>;
 
+// The whole set, for the Explore coming-soon ring.
+export const HERO_SET: HeroImage[] = Object.values(images);
+
 // One still per screen. Onboarding uses the Figma frame's image where Ika's set has
 // it (import, username, follow, features); the rest replace Figma's low-res stills.
 export const HERO_IMAGES = {
