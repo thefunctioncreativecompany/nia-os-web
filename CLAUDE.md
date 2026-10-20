@@ -103,6 +103,11 @@ Data:
   as ranked lists with a following preview, UGC as scrolling columns. Reusable as
   `ScrubFilmstrip`, `RankedList`, `MarqueeColumns` (`src/components/nia`). Phase pill colours are
   theme `phase-*`. Every template opens its preview pop-up.
+- (2026-10-20) Explore's press-kit cards open a preview laid out like the template pop-up: the
+  official video (studio or streamer's own YouTube channel, privacy-enhanced player, loaded only on
+  Play), our own one-line summary, facts from Wikidata, and links out to IMDb, Rotten Tomatoes and
+  Wikipedia. No scores (their terms). Data in `src/components/explore/film-details.ts`. "Open press
+  kit" keeps the paid-plan rule.
 
 ## Working notes
 

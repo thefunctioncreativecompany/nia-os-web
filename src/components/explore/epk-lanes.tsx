@@ -1,8 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import { Play } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { getFilm, type Category, type CategoryItem } from "./explore-data";
-import { PosterArt, opensLater } from "./poster-art";
+import { PosterArt } from "./poster-art";
+import { PressKitPreview } from "./press-kit-preview";
 
 // Seconds for each column to slide once round (Ika's Claude Design).
 const SPEEDS = [58, 74, 50, 82, 64];
@@ -13,9 +17,10 @@ const COPIES = 4;
 // Top 10 press kits in five columns that scroll forever, alternate columns the other way (as
 // designed). Pointing at a column, or tabbing into it, pauses it and dims its other cards. Only the
 // first set of cards can be reached by keyboard or screen reader. Reduced motion stops the columns;
-// phones get a plain two-column grid.
+// phones get a plain two-column grid. Choosing a card opens its press-kit preview.
 export function EpkLanes({ category }: { category: Category }) {
   const perLane = Math.ceil(category.items.length / SPEEDS.length);
+  const [open, setOpen] = useState<CategoryItem | null>(null);
 
   return (
     <section aria-labelledby={`${category.id}-title`} className="mt-7">
@@ -45,7 +50,7 @@ export function EpkLanes({ category }: { category: Category }) {
                     className={cn("contents sm:flex sm:flex-col sm:gap-3.25", copy > 0 && "max-sm:hidden")}
                   >
                     {items.map((item) => (
-                      <EpkCard key={item.filmId} item={item} />
+                      <EpkCard key={item.filmId} item={item} onOpen={() => setOpen(item)} />
                     ))}
                   </div>
                 ))}
@@ -54,16 +59,18 @@ export function EpkLanes({ category }: { category: Category }) {
           );
         })}
       </div>
+      {open && <PressKitPreview item={open} list={category.items} onNavigate={setOpen} onClose={() => setOpen(null)} />}
     </section>
   );
 }
 
-function EpkCard({ item }: { item: CategoryItem }) {
+function EpkCard({ item, onOpen }: { item: CategoryItem; onOpen: () => void }) {
   const film = getFilm(item.filmId);
   return (
     <button
       type="button"
-      onClick={opensLater}
+      onClick={onOpen}
+      aria-haspopup="dialog"
       aria-label={`Number ${item.rank}: ${film.title} press kit, ${film.director}`}
       className="flex flex-none flex-col gap-2 rounded-lg text-left text-foreground outline-none transition-[opacity,transform] duration-glide ease-glide focus-visible:ring-3 focus-visible:ring-ring/50 sm:group-focus-within/lane:opacity-45 sm:group-hover/lane:opacity-45 sm:hover:scale-103 sm:hover:opacity-100! sm:focus-visible:opacity-100! motion-reduce:hover:scale-100"
     >
