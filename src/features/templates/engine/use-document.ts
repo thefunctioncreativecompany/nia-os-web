@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
 
+import { openUpgrade } from '@/components/nia/upgrade-dialog';
+
 import { createClient } from '@/lib/supabase/client';
 import type { TemplateSchema } from '../types';
 import { filledCount, type SectionValue } from './sections';
@@ -83,7 +85,7 @@ export function useDocument(schema: TemplateSchema, documentId: string | null, i
           .insert({ template_code: schema.code, title: schema.name, data, added: [], status, schema_version: schema.version, project_id: projectRef.current?.id ?? null })
           .select('id')
           .single();
-        if (error) return void toast.error(`Couldn't save: ${error.message}`);
+        if (error) return void (limitReached(error) || toast.error(`Couldn't save: ${error.message}`));
         id.current = row.id;
         setSavedId(row.id);
         window.history.replaceState(window.history.state, '', `?doc=${row.id}`);
@@ -108,7 +110,7 @@ export function useDocument(schema: TemplateSchema, documentId: string | null, i
         queue.current = queue.current.then(async () => {
           const supabase = createClient();
           const data = latest.current;
-          let error: { message: string } | null = null;
+          let error: { message: string; code?: string } | null = null;
           if (!id.current) {
             const filled = filledCount(schema, data);
             const result = await supabase
@@ -126,7 +128,7 @@ export function useDocument(schema: TemplateSchema, documentId: string | null, i
             ({ error } = await supabase.from('documents').update({ project_id: next?.id ?? null }).eq('id', id.current));
           }
           if (error) {
-            toast.error(`Couldn't ${next ? 'save to the project' : 'remove it from the project'}: ${error.message}`);
+            if (!limitReached(error)) toast.error(`Couldn't ${next ? 'save to the project' : 'remove it from the project'}: ${error.message}`);
             return resolve(false);
           }
           projectRef.current = next;
@@ -172,4 +174,11 @@ export function useDocument(schema: TemplateSchema, documentId: string | null, i
     id: savedId,
     filled: filledCount(schema, history.present),
   };
+}
+
+// The database keeps the free plan's document rules; when one stops a save, offer the upgrade.
+function limitReached(error: { message: string; code?: string }) {
+  if (error.code === '23514' && /5 documents/.test(error.message)) return openUpgrade('documents'), true;
+  if (error.code === '23505' && /already has/.test(error.message)) return openUpgrade('duplicate'), true;
+  return false;
 }

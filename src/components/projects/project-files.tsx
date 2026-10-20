@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, useReducedMotion } from "motion/react";
 import { Archive, ArchiveRestore, Check, ChevronLeft, ChevronRight, Download, Trash2, Upload as UpIcon, X } from "lucide-react";
@@ -10,8 +10,11 @@ import { pdfFirstPage } from "@/lib/pdf-preview";
 import type { FileKind, FileTag, ProjectFile } from "@/lib/projects-data";
 import { timeAgo } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
+import { projectLimited } from "@/lib/plan-client";
+import { FREE_LIMITS } from "@/lib/plans";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { openUpgrade } from "@/components/nia/upgrade-dialog";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SegmentedControl } from "@/components/nia/segmented-control";
@@ -153,14 +156,25 @@ export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT,
   const [refuse, setRefuse] = useState<string | null>(null);
   const [uploads, setUploads] = useState<Upload[]>([]);
   const depth = useRef(0);
+  // Free projects take files up to 25 MB on the live site; paid plans up to the bucket's 50 MB.
+  const [limitMb, setLimitMb] = useState<number>(MAX_MB);
+  useEffect(() => {
+    let live = true;
+    void projectLimited(createClient(), projectId).then((limited) => live && setLimitMb(limited ? FREE_LIMITS.uploadMb : MAX_MB));
+    return () => {
+      live = false;
+    };
+  }, [projectId]);
 
   const take = async (files: File[]) => {
-    const tooBig = files.filter((f) => f.size > MAX_MB * 1e6);
-    const ok = files.filter((f) => f.size <= MAX_MB * 1e6);
+    const tooBig = files.filter((f) => f.size > limitMb * 1e6);
+    const ok = files.filter((f) => f.size <= limitMb * 1e6);
     if (tooBig.length) {
-      setRefuse(tooBig.length === 1 ? `${tooBig[0].name} is over ${MAX_MB} MB` : `${tooBig.length} files are over ${MAX_MB} MB`);
+      setRefuse(tooBig.length === 1 ? `${tooBig[0].name} is over ${limitMb} MB` : `${tooBig.length} files are over ${limitMb} MB`);
       if (!reduced) setShakes((n) => n + 1);
       window.setTimeout(() => setRefuse(null), 2400);
+      // Within what a paid plan takes: offer the upgrade.
+      if (limitMb < MAX_MB && tooBig.some((f) => f.size <= MAX_MB * 1e6)) openUpgrade("upload");
     }
     if (!ok.length) return;
     const supabase = createClient();

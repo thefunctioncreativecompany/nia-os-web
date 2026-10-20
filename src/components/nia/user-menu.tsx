@@ -1,7 +1,8 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
-import { SettingsIcon, UserRoundIcon } from "lucide-react";
+import { GemIcon, SettingsIcon, UserRoundIcon } from "lucide-react";
 
 import type { CurrentUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/client";
@@ -13,15 +14,18 @@ import { Skeleton } from "@/components/ui/skeleton";
 export function UserMenu({ user }: { user: CurrentUser }) {
   const router = useRouter();
   const displayName = user.name || user.email;
+  // The name beside the avatar needs a wide screen; the desktop tabs carry their names too.
+  const wide = useSyncExternalStore(subscribeWide, isWide, () => false);
 
   return (
     <ArcUserMenu
       user={{ name: displayName, email: user.email, avatarSrc: user.avatarUrl ?? undefined }}
-      showName
+      showName={wide}
       showTheme={false}
       items={[
         { label: "Profile", icon: <UserRoundIcon size={16} />, onSelect: () => router.push("/settings/profile") },
         { label: "Settings", icon: <SettingsIcon size={16} />, onSelect: () => router.push("/settings/general") },
+        { label: "Plans", icon: <GemIcon size={16} />, onSelect: () => router.push("/plans") },
       ]}
       onSignOut={async () => {
         await createClient().auth.signOut();
@@ -31,6 +35,14 @@ export function UserMenu({ user }: { user: CurrentUser }) {
     />
   );
 }
+
+const WIDE = "(min-width: 80rem)";
+const subscribeWide = (onChange: () => void) => {
+  const query = window.matchMedia(WIDE);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+};
+const isWide = () => window.matchMedia(WIDE).matches;
 
 export function UserMenuSkeleton() {
   return (

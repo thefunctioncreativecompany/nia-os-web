@@ -9,10 +9,12 @@ import { toast } from "sonner";
 import type { ProjectDocument } from "@/lib/projects-data";
 import { timeAgo } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
+import { projectPlan } from "@/lib/plan-client";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Dropzone } from "@/components/projects/project-files";
+import { openUpgrade } from "@/components/nia/upgrade-dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 import { loadWorkingTemplates } from "@/features/templates/actions";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
@@ -165,9 +167,23 @@ export function ProjectDocuments({ projectId, documents, icons, canEdit, isOwner
 // "Add document" (Ika, 2026-10-19): first choose how, then upload documents from the computer
 // (saved to the project's files, tagged as briefs & paperwork) or start one from a template.
 function AddDocumentDialog({ projectId, existing, open, onOpenChange }: { projectId: string; existing: ProjectDocument[]; open: boolean; onOpenChange: (open: boolean) => void }) {
-  const full = existing.length >= FREE_DOCUMENT_LIMIT;
+  // Paid workspaces skip the free plan's document limits.
+  const [paid, setPaid] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    let live = true;
+    void projectPlan(createClient(), projectId).then((plan) => live && setPaid(plan !== "free"));
+    return () => {
+      live = false;
+    };
+  }, [open, projectId]);
+  const full = !paid && existing.length >= FREE_DOCUMENT_LIMIT;
   const have = new Map(existing.map((d) => [d.templateCode, d] as const));
   const router = useRouter();
+  const upgrade = (reason: "documents" | "duplicate") => {
+    close(false);
+    openUpgrade(reason);
+  };
   const learning = useTemplateProfile();
   const [step, setStep] = useState<"choose" | "upload" | "template">("choose");
   const [templates, setTemplates] = useState<GalleryTemplate[] | null>(null);
@@ -212,13 +228,13 @@ function AddDocumentDialog({ projectId, existing, open, onOpenChange }: { projec
               <span className="text-base font-bold">Upload from your computer</span>
               <span className="text-micro text-muted-foreground">Scripts, briefs, contracts, decks</span>
             </button>
-            <button type="button" onClick={() => setStep("template")} disabled={full} className={cn(option, "disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-nia-surface")}>
+            <button type="button" onClick={() => (full ? upgrade("documents") : setStep("template"))} className={cn(option, full && "opacity-80")}>
               <span className="flex size-12 items-center justify-center rounded-full border border-border bg-white">
                 <LayoutTemplate aria-hidden className="size-6" />
               </span>
               <span className="text-base font-bold">Start from a template</span>
               <span className="text-micro text-muted-foreground">
-                {full ? `This project has ${FREE_DOCUMENT_LIMIT} documents, the most on the free plan` : "Call sheets, shotlists, invoices and more"}
+                {full ? `This project has ${FREE_DOCUMENT_LIMIT} documents, the free plan's most. Upgrade for more` : "Call sheets, shotlists, invoices and more"}
               </span>
             </button>
           </div>
@@ -242,14 +258,15 @@ function AddDocumentDialog({ projectId, existing, open, onOpenChange }: { projec
             {!list && Array.from({ length: 4 }, (_, i) => <li key={i}><Skeleton className="h-14 rounded-xl" /></li>)}
             {list?.map(({ template: t }) => {
               const already = have.get(t.code);
-              // One of each template per project on the free plan: open the one it has.
+              // One of each template per project on the free plan: open the one it has, or (paid
+              // plans) start another.
               if (already)
                 return (
-                  <li key={t.code}>
+                  <li key={t.code} className="flex items-center gap-2">
                     <Link
                       href={`/templates/${t.code}?doc=${already.id}`}
                       onClick={() => close(false)}
-                      className="flex w-full items-center gap-3 rounded-xl border border-dashed border-border p-3 text-left outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50"
+                      className="flex min-w-0 flex-1 items-center gap-3 rounded-xl border border-dashed border-border p-3 text-left outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50"
                     >
                       <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-nia-panel opacity-60">
                         <FlatIcon name={t.icon} size="sm" className="size-5" />
@@ -260,6 +277,18 @@ function AddDocumentDialog({ projectId, existing, open, onOpenChange }: { projec
                       </span>
                       <span className="shrink-0 text-small font-semibold text-foreground">Open</span>
                     </Link>
+                    <Button
+                      variant="outline"
+                      size="compact"
+                      aria-label={`Add another ${t.name}`}
+                      onClick={() => {
+                        if (!paid) return upgrade("duplicate");
+                        close(false);
+                        router.push(`/templates/${t.code}?project=${projectId}&another=1`);
+                      }}
+                    >
+                      <Plus aria-hidden /> Another
+                    </Button>
                   </li>
                 );
               return (

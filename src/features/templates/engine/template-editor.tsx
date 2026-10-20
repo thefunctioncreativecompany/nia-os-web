@@ -1,16 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { BadgeCheck, Download, Eye, FileText, FileType, FolderCheck, FolderPlus, Plus, Printer, Redo2, Trash2, Undo2 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
+import { myPlan, projectPlan } from '@/lib/plan-client';
 import { toast } from 'sonner';
 
 import { DocumentHeader, DocumentPreviewHeader } from '@/components/nia/document-header';
 import { SavedIndicator } from '@/components/nia/saved-indicator';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { Switch } from '@/components/ui/switch';
+import { openUpgrade } from '@/components/nia/upgrade-dialog';
 import { SplitButton } from '@/components/arc/split-button/split-button';
 import type { TemplateSchema } from '../types';
 import { downloadFile, fileName, toMarkdown, toPdf, toPlainText, toWord } from './export';
@@ -61,12 +64,25 @@ export function TemplateEditor({
   };
   const ready = doc.filled > 0;
 
+  // The Nia footer on downloads: always on for Free (turning it off offers the upgrade).
+  const [branded, setBranded] = useState(true);
+  const [paidPlan, setPaidPlan] = useState(false);
+  const projectId = doc.project?.id ?? null;
+  useEffect(() => {
+    let live = true;
+    const supabase = createClient();
+    void (projectId ? projectPlan(supabase, projectId) : myPlan(supabase)).then((plan) => live && setPaidPlan(plan !== 'free'));
+    return () => {
+      live = false;
+    };
+  }, [projectId]);
+
   const download = async (kind: 'pdf' | 'md' | 'docx' | 'txt') => {
     try {
-      if (kind === 'pdf') downloadFile(fileName(schema, 'pdf'), await toPdf(schema, doc.data));
-      if (kind === 'md') downloadFile(fileName(schema, 'md'), toMarkdown(schema, doc.data), 'text/markdown;charset=utf-8');
-      if (kind === 'txt') downloadFile(fileName(schema, 'txt'), toPlainText(schema, doc.data));
-      if (kind === 'docx') downloadFile(fileName(schema, 'docx'), await toWord(schema, doc.data));
+      if (kind === 'pdf') downloadFile(fileName(schema, 'pdf'), await toPdf(schema, doc.data, branded));
+      if (kind === 'md') downloadFile(fileName(schema, 'md'), toMarkdown(schema, doc.data, branded), 'text/markdown;charset=utf-8');
+      if (kind === 'txt') downloadFile(fileName(schema, 'txt'), toPlainText(schema, doc.data, branded));
+      if (kind === 'docx') downloadFile(fileName(schema, 'docx'), await toWord(schema, doc.data, branded));
     } catch {
       toast.error("Couldn't make that file. Try again.");
     }
@@ -251,6 +267,17 @@ export function TemplateEditor({
               { label: 'Plain text (.txt)', icon: <FileText />, onSelect: () => void download('txt') },
             ]}
           />
+          <label className="-mt-2 flex items-center justify-between gap-3 px-1 text-small text-muted-foreground">
+            Nia footer on downloads
+            <Switch
+              checked={branded}
+              onCheckedChange={(on) => {
+                if (!on && !paidPlan) return openUpgrade('branding');
+                setBranded(on);
+              }}
+              aria-label="Nia footer on downloads"
+            />
+          </label>
           {canDelete && doc.id && (
             <div className="flex flex-col gap-2">
               {confirmDelete ? (

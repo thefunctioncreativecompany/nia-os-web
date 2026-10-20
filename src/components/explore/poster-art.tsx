@@ -2,6 +2,10 @@ import Image from "next/image";
 import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
+import { createClient } from "@/lib/supabase/client";
+import { myPlan } from "@/lib/plan-client";
+import { isLimited } from "@/lib/plans";
+import { openUpgrade } from "@/components/nia/upgrade-dialog";
 import { grainFor, type Film } from "./explore-data";
 
 // A film's picture: its poster, or its still (`still`), falling back to the other one and then to a
@@ -27,7 +31,9 @@ export function PosterArt({
   );
 }
 
-// Film pages, press kits and documents arrive when Explore opens; until then a click says so.
+// Film pages, press kits and starting a project from a film are on paid plans (Ika, 2026-10-20):
+// on the live site a free workspace gets the upgrade prompt. Otherwise (localhost, paid plans) a
+// click says when film pages open.
 export function opensLater() {
-  toast("Film pages open with Explore in February 2027.");
+  void myPlan(createClient()).then((plan) => (isLimited(plan) ? openUpgrade("explore") : toast("Film pages open with Explore in February 2027.")));
 }

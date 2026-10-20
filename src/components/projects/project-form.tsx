@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -10,10 +10,13 @@ import { toast } from "sonner";
 import { checkCoverFile, shrinkImage } from "@/lib/images";
 import { GENRES, PRODUCTION_TYPES } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
+import { myPlan, projectLimitReached } from "@/lib/plan-client";
+import { FREE_LIMITS, isLimited } from "@/lib/plans";
 import { cn } from "@/lib/utils";
 import { useCoverCropper } from "@/components/projects/use-cover-cropper";
 import { MAX_UPLOAD_MB, UPLOAD_ACCEPT, uploadProjectFile } from "@/components/projects/project-files";
 import { Button } from "@/components/ui/button";
+import { openUpgrade } from "@/components/nia/upgrade-dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -46,6 +49,15 @@ export async function uploadCover(projectId: string, file: File) {
 // "New Blank Project" (Figma 798:249).
 export function ProjectForm() {
   const router = useRouter();
+  // Free workspaces take files up to 25 MB on the live site; paid plans up to 50 MB.
+  const [limitMb, setLimitMb] = useState<number>(MAX_UPLOAD_MB);
+  useEffect(() => {
+    let live = true;
+    void myPlan(createClient()).then((plan) => live && setLimitMb(isLimited(plan) ? FREE_LIMITS.uploadMb : MAX_UPLOAD_MB));
+    return () => {
+      live = false;
+    };
+  }, []);
   const inputRef = useRef<HTMLInputElement>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -58,9 +70,12 @@ export function ProjectForm() {
   const [uploading, setUploading] = useState<{ done: number; of: number } | null>(null);
   const filesInput = useRef<HTMLInputElement>(null);
   const addFiles = (picked: File[]) => {
-    const tooBig = picked.filter((f) => f.size > MAX_UPLOAD_MB * 1e6);
-    if (tooBig.length) toast.error(`${tooBig.map((f) => f.name).join(", ")} ${tooBig.length === 1 ? "is" : "are"} over ${MAX_UPLOAD_MB} MB`);
-    setFiles((list) => [...list, ...picked.filter((f) => f.size <= MAX_UPLOAD_MB * 1e6 && !list.some((x) => x.name === f.name && x.size === f.size))]);
+    const tooBig = picked.filter((f) => f.size > limitMb * 1e6);
+    if (tooBig.length) {
+      toast.error(`${tooBig.map((f) => f.name).join(", ")} ${tooBig.length === 1 ? "is" : "are"} over ${limitMb} MB`);
+      if (limitMb < MAX_UPLOAD_MB && tooBig.some((f) => f.size <= MAX_UPLOAD_MB * 1e6)) openUpgrade("upload");
+    }
+    setFiles((list) => [...list, ...picked.filter((f) => f.size <= limitMb * 1e6 && !list.some((x) => x.name === f.name && x.size === f.size))]);
   };
 
   const cropper = useCoverCropper((file) => {
@@ -86,6 +101,12 @@ export function ProjectForm() {
       const supabase = createClient();
       const { data: workspaceId, error: workspaceError } = await supabase.rpc("my_workspace_id");
       if (workspaceError) throw workspaceError;
+      // Free workspaces hold up to 5 projects (live site only): offer the upgrade instead.
+      if (await projectLimitReached(supabase, workspaceId)) {
+        setIsSaving(false);
+        openUpgrade("projects");
+        return;
+      }
       const { data: project, error } = await supabase
         .from("projects")
         .insert({
@@ -275,7 +296,7 @@ export function ProjectForm() {
           <span className="flex items-center gap-2 text-sm font-semibold text-foreground">
             <Upload aria-hidden className="size-4" /> Add briefs, scripts, stills or voice memos
           </span>
-          <span className="text-caption text-muted-foreground">They upload into the project when it&rsquo;s created · up to {MAX_UPLOAD_MB} MB each</span>
+          <span className="text-caption text-muted-foreground">They upload into the project when it&rsquo;s created · up to {limitMb} MB each</span>
         </button>
         {files.length > 0 && (
           <ul className="flex flex-col gap-1">

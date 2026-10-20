@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import { Check, FolderPlus, Search } from 'lucide-react';
 
 import { createClient } from '@/lib/supabase/client';
+import { projectLimitReached, workspacePlans } from '@/lib/plan-client';
+import { FREE_LIMITS } from '@/lib/plans';
+import { openUpgrade, type UpgradeReason } from '@/components/nia/upgrade-dialog';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
@@ -11,10 +14,11 @@ import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { DocumentProject } from './use-document';
 
-type Choice = DocumentProject & { coverUrl: string | null; blocked: string | null };
+type Choice = DocumentProject & { coverUrl: string | null; blocked: { text: string; reason: UpgradeReason } | null };
 
-/** Free plan (Ika, 2026-10-19): up to 5 documents a project, one of each template. */
-const LIMIT = 5;
+/** Free plan (Ika, 2026-10-19): up to 5 documents a project, one of each template. Paid plans lift
+ *  both (the database keeps the same rule). */
+const LIMIT = FREE_LIMITS.documentsPerProject;
 
 // Projects the person can add documents to: their own, and ones shared with them to edit.
 async function editableProjects(templateCode: string, templateName: string): Promise<Choice[]> {
@@ -24,10 +28,10 @@ async function editableProjects(templateCode: string, templateName: string): Pro
   } = await supabase.auth.getUser();
   if (!user) return [];
   const [{ data: own }, { data: shared }] = await Promise.all([
-    supabase.from('projects').select('id, title, cover_url, updated_at').eq('owner_id', user.id).is('deleted_at', null),
-    supabase.from('project_members').select('projects(id, title, cover_url, updated_at, deleted_at)').eq('user_id', user.id).eq('role', 'editor'),
+    supabase.from('projects').select('id, title, cover_url, updated_at, workspace_id').eq('owner_id', user.id).is('deleted_at', null),
+    supabase.from('project_members').select('projects(id, title, cover_url, updated_at, deleted_at, workspace_id)').eq('user_id', user.id).eq('role', 'editor'),
   ]);
-  type Row = { id: string; title: string; cover_url: string | null; updated_at: string; deleted_at?: string | null };
+  type Row = { id: string; title: string; cover_url: string | null; updated_at: string; workspace_id: string; deleted_at?: string | null };
   const rows: Row[] = [
     ...((own ?? []) as Row[]),
     ...((shared ?? []) as unknown as { projects: Row | null }[]).map((m) => m.projects).filter((p): p is Row => !!p && !p.deleted_at),
@@ -37,19 +41,28 @@ async function editableProjects(templateCode: string, templateName: string): Pro
     ? await supabase.from('documents').select('project_id, template_code').in('project_id', rows.map((p) => p.id)).is('deleted_at', null)
     : { data: [] };
   const held = (id: string) => (docs ?? []).filter((d) => d.project_id === id);
+  const plans = await workspacePlans(supabase, rows.map((p) => p.workspace_id));
   return rows
     .sort((a, b) => b.updated_at.localeCompare(a.updated_at))
     .map((p) => {
       const inIt = held(p.id);
-      const blocked = inIt.some((d) => d.template_code === templateCode) ? `Already has ${/^[aeiou]/i.test(templateName) ? 'an' : 'a'} ${templateName}` : inIt.length >= LIMIT ? `Has ${LIMIT} documents, the free plan's most` : null;
+      const free = (plans.get(p.workspace_id) ?? 'free') === 'free';
+      const blocked: Choice['blocked'] = !free
+        ? null
+        : inIt.some((d) => d.template_code === templateCode)
+          ? { text: `Already has ${/^[aeiou]/i.test(templateName) ? 'an' : 'a'} ${templateName}. Upgrade for more`, reason: 'duplicate' }
+          : inIt.length >= LIMIT
+            ? { text: `Has ${LIMIT} documents, the free plan's most. Upgrade for more`, reason: 'documents' }
+            : null;
       return { id: p.id, title: p.title || 'Untitled project', coverUrl: p.cover_url, blocked };
     });
 }
 
-async function createProject(title: string): Promise<DocumentProject | null> {
+async function createProject(title: string): Promise<DocumentProject | 'limit' | null> {
   const supabase = createClient();
   const { data: workspaceId, error: wsError } = await supabase.rpc('my_workspace_id');
   if (wsError) return null;
+  if (await projectLimitReached(supabase, workspaceId)) return 'limit';
   const { data, error } = await supabase.from('projects').insert({ workspace_id: workspaceId, title, description: '' }).select('id, title').single();
   return error ? null : { id: data.id, title: data.title };
 }
@@ -85,8 +98,13 @@ export function SaveToProjectDialog({
     };
   }, [open, templateCode, templateName]);
 
-  const pick = async (project: DocumentProject) => {
+  const pick = async (project: Choice) => {
     if (project.id === current?.id) return onOpenChange(false);
+    // A free project that can't take this document: offer the upgrade instead.
+    if (project.blocked) {
+      onOpenChange(false);
+      return openUpgrade(project.blocked.reason);
+    }
     setBusy(true);
     const ok = await onPick(project);
     setBusy(false);
@@ -99,6 +117,11 @@ export function SaveToProjectDialog({
     if (!title) return;
     setBusy(true);
     const project = await createProject(title);
+    if (project === 'limit') {
+      setBusy(false);
+      onOpenChange(false);
+      return openUpgrade('projects');
+    }
     if (project) {
       const ok = await onPick(project);
       if (ok) {
@@ -151,7 +174,7 @@ export function SaveToProjectDialog({
               <li key={p.id}>
                 <button
                   type="button"
-                  disabled={busy || (!!p.blocked && p.id !== current?.id)}
+                  disabled={busy}
                   onClick={() => pick(p)}
                   className="flex w-full items-center gap-3 rounded-lg p-2 text-left outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 disabled:opacity-60"
                 >
@@ -161,7 +184,7 @@ export function SaveToProjectDialog({
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className={cn('block truncate text-sm font-semibold text-foreground')}>{p.title}</span>
-                    {p.blocked && p.id !== current?.id && <span className="block truncate text-caption text-muted-foreground">{p.blocked}</span>}
+                    {p.blocked && p.id !== current?.id && <span className="block truncate text-caption text-muted-foreground">{p.blocked.text}</span>}
                   </span>
                   {p.id === current?.id && <Check aria-label="Saved here" className="size-4 shrink-0" />}
                 </button>

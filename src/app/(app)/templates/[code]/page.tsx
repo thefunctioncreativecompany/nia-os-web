@@ -75,8 +75,12 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
       supabase.from("projects").select("id, title").eq("id", projectParam).is("deleted_at", null).maybeSingle(),
       supabase.rpc("can_edit_project", { pid: projectParam }),
     ]);
-    // One of each template per project (free plan): open the one it already has.
-    const { data: existing } = await supabase
+    // One of each template per project (free plan): open the one it already has. Paid workspaces
+    // can ask for another (`another=1` from Add document).
+    const { data: ws } = await supabase.from("projects").select("workspaces(plan)").eq("id", projectParam).maybeSingle();
+    const paid = ((ws as unknown as { workspaces: { plan?: string } | null } | null)?.workspaces?.plan ?? "free") !== "free";
+    const another = paid && (await searchParams).another === "1";
+    const { data: existing } = another ? { data: null } : await supabase
       .from("documents")
       .select("id")
       .eq("project_id", projectParam)

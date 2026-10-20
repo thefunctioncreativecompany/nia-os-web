@@ -8,9 +8,12 @@ import { toast } from "sonner";
 import { sendProjectInvite } from "@/lib/project-invite";
 import type { ProjectRole } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
+import { projectLimited } from "@/lib/plan-client";
+import { FREE_LIMITS } from "@/lib/plans";
 import { getInitials } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { openUpgrade } from "@/components/nia/upgrade-dialog";
 import {
   Dialog,
   DialogContent,
@@ -98,6 +101,14 @@ export function ShareProjectDialog({
     const address = email.trim();
     if (!address) return;
     setBusy(true);
+    // Free projects are shared with one person (live site only); a new person needs an upgrade.
+    const others = (people ?? []).filter((p) => p.kind !== "owner");
+    const isNew = !others.some((p) => p.email.toLowerCase() === address.toLowerCase());
+    if (isNew && others.length >= FREE_LIMITS.collaboratorsPerProject && (await projectLimited(createClient(), projectId))) {
+      setBusy(false);
+      openUpgrade("collaborators");
+      return;
+    }
     const { data, error } = await createClient().rpc("share_project", {
       pid: projectId,
       invitee_email: address,
