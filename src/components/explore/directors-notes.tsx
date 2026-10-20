@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
+import { isMouse, pointerIn, useFrame } from "@/hooks/use-pointer";
 import { getFilm, type Category } from "./explore-data";
 import { PosterArt, opensLater } from "./poster-art";
 
@@ -21,24 +22,19 @@ export function DirectorsNotes({ category }: { category: Category }) {
   const [active, setActive] = useState<string | null>(null);
   const preview = useRef<HTMLDivElement>(null);
   const lastX = useRef<number | null>(null);
-  const frame = useRef(0);
-
-  useEffect(() => () => cancelAnimationFrame(frame.current), []);
+  const frame = useFrame();
 
   const place = (x: number, y: number, tilt = 0) => {
     if (preview.current) preview.current.style.transform = `translate(${x}px, ${y}px) rotate(${tilt}deg)`;
   };
 
   const onMove = (e: React.PointerEvent<HTMLElement>) => {
-    if (reduce || e.pointerType !== "mouse") return;
-    const box = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - box.left;
-    const y = e.clientY - box.top;
+    if (reduce || !isMouse(e)) return;
+    const { x, y } = pointerIn(e);
     const speed = lastX.current === null ? 0 : x - lastX.current;
     lastX.current = x;
     const tilt = Math.max(-MAX_TILT, Math.min(MAX_TILT, speed * 0.4));
-    cancelAnimationFrame(frame.current);
-    frame.current = requestAnimationFrame(() => place(x + OFFSET_X, y + OFFSET_Y, tilt));
+    frame.next(() => place(x + OFFSET_X, y + OFFSET_Y, tilt));
   };
 
   const onLeave = () => {
@@ -85,7 +81,7 @@ export function DirectorsNotes({ category }: { category: Category }) {
                 type="button"
                 onClick={opensLater}
                 onPointerEnter={(e) => {
-                  if (e.pointerType !== "mouse") return;
+                  if (!isMouse(e)) return;
                   setActive(item.filmId);
                   if (reduce) placeBeside(e.currentTarget);
                 }}

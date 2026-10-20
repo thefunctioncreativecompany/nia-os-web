@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import { useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
+import { isMouse, pointerIn, useFrame } from "@/hooks/use-pointer";
 
 const MAX_TILT = 8;
 
@@ -48,25 +49,20 @@ export function RankedList<T>({
   const [active, setActive] = useState<number | null>(null);
   const preview = useRef<HTMLDivElement>(null);
   const lastX = useRef<number | null>(null);
-  const frame = useRef(0);
+  const frame = useFrame();
   const follows = previewFollowsCursor && !!renderPreview;
-
-  useEffect(() => () => cancelAnimationFrame(frame.current), []);
 
   const place = (x: number, y: number, tilt = 0) => {
     if (preview.current) preview.current.style.transform = `translate(${x}px, ${y}px) rotate(${tilt}deg)`;
   };
 
   const onMove = (e: React.PointerEvent<HTMLElement>) => {
-    if (!follows || reduce || e.pointerType !== "mouse") return;
-    const box = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - box.left;
-    const y = e.clientY - box.top;
+    if (!follows || reduce || !isMouse(e)) return;
+    const { x, y } = pointerIn(e);
     const speed = lastX.current === null ? 0 : x - lastX.current;
     lastX.current = x;
     const tilt = Math.max(-MAX_TILT, Math.min(MAX_TILT, speed * 0.4));
-    cancelAnimationFrame(frame.current);
-    frame.current = requestAnimationFrame(() => place(x + offset.x, y + offset.y, tilt));
+    frame.next(() => place(x + offset.x, y + offset.y, tilt));
   };
 
   // Beside the row instead of the pointer: keyboard focus, or reduced motion.
@@ -95,7 +91,7 @@ export function RankedList<T>({
               type="button"
               onClick={() => onSelect(item)}
               onPointerEnter={(e) => {
-                if (e.pointerType !== "mouse") return;
+                if (!isMouse(e)) return;
                 setActive(i);
                 if (reduce) placeBeside(e.currentTarget);
               }}

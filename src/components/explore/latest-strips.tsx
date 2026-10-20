@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { isMouse } from "@/hooks/use-pointer";
 import { getFilm, type Category } from "./explore-data";
 import { PosterArt, opensLater } from "./poster-art";
 
@@ -51,7 +52,7 @@ export function LatestStrips({ category }: { category: Category }) {
               <button
                 type="button"
                 onClick={opensLater}
-                onPointerEnter={(e) => e.pointerType === "mouse" && show()}
+                onPointerEnter={(e) => isMouse(e) && show()}
                 onFocus={show}
                 aria-label={`${film.title} by ${film.director}, latest project`}
                 className="group relative flex w-full flex-col rounded-xl text-left text-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50 md:block md:h-full md:overflow-hidden md:text-white"

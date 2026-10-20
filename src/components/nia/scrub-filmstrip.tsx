@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
+import { FINE_POINTER, isMouse, pointerIn, useFrame, useMediaQuery } from "@/hooks/use-pointer";
 
 type Layout = { width: number; track: number; centres: number[] };
 
@@ -35,19 +36,11 @@ export function ScrubFilmstrip<T>({
   const reduce = useReducedMotion();
   const box = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLUListElement>(null);
-  const frame = useRef(0);
-  const [scrub, setScrub] = useState(false);
+  const frame = useFrame();
+  // Scrubbing needs a mouse and room for it.
+  const scrub = useMediaQuery(`${FINE_POINTER} and (min-width: 48rem)`) && !reduce;
   const [layout, setLayout] = useState<Layout | null>(null);
   const [x, setX] = useState(start);
-
-  // Scrubbing needs a mouse and room for it.
-  useEffect(() => {
-    const query = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 48rem)");
-    const update = () => setScrub(query.matches && !reduce);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, [reduce]);
 
   useLayoutEffect(() => {
     const el = box.current;
@@ -65,8 +58,6 @@ export function ScrubFilmstrip<T>({
     return () => observer.disconnect();
   }, [scrub, items.length]);
 
-  useEffect(() => () => cancelAnimationFrame(frame.current), []);
-
   const overflow = layout ? Math.max(0, layout.track - layout.width) : 0;
   const offset = -x * overflow;
   // How far each card's centre is from the middle of the strip.
@@ -79,11 +70,9 @@ export function ScrubFilmstrip<T>({
   });
 
   const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!scrub || e.pointerType !== "mouse") return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const next = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
-    cancelAnimationFrame(frame.current);
-    frame.current = requestAnimationFrame(() => setX(next));
+    if (!scrub || !isMouse(e)) return;
+    const next = Math.min(1, Math.max(0, pointerIn(e).fx));
+    frame.next(() => setX(next));
   };
 
   // Focus mirrors the pointer: bring the focused card to the middle.

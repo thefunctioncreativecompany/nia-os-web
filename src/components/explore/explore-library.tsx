@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useReducedMotion } from "motion/react";
 
@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
+import { isMouse, pointerIn, useFrame } from "@/hooks/use-pointer";
 import { DirectorsNotes } from "./directors-notes";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory, getFilm, type Film } from "./explore-data";
@@ -114,18 +115,15 @@ export function ExploreLibrary() {
 function ExploreAllGrid({ films }: { films: Film[] }) {
   const reduce = useReducedMotion();
   const [pointerY, setPointerY] = useState(0.5);
-  const frame = useRef(0);
-  useEffect(() => () => cancelAnimationFrame(frame.current), []);
+  const frame = useFrame();
 
   const onMove = (e: React.PointerEvent<HTMLElement>) => {
-    if (reduce || e.pointerType !== "mouse") return;
-    const box = e.currentTarget.getBoundingClientRect();
-    const y = (e.clientY - box.top) / box.height;
-    cancelAnimationFrame(frame.current);
-    frame.current = requestAnimationFrame(() => setPointerY(y));
+    if (reduce || !isMouse(e)) return;
+    const y = pointerIn(e).fy;
+    frame.next(() => setPointerY(y));
   };
   const onLeave = () => {
-    cancelAnimationFrame(frame.current);
+    frame.cancel();
     setPointerY(0.5);
   };
 

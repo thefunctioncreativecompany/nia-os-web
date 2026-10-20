@@ -7,6 +7,7 @@ import { useReducedMotion } from "motion/react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
+import { isMouse, pointerIn, useFrame, useMediaQuery } from "@/hooks/use-pointer";
 import { createClient } from "@/lib/supabase/client";
 import { getFilm } from "./explore-data";
 import { PosterArt } from "./poster-art";
@@ -31,17 +32,10 @@ export function ExploreComingSoon() {
   const [angle, setAngle] = useState(0);
   const pointer = useRef({ x: 0.5, y: 0.5 });
   const [tilt, setTilt] = useState(0.5);
+  const frame = useFrame();
   const [waiting, setWaiting] = useState<boolean | null>(null);
   // Phones: the card fills the middle, so the ring stands taller to show above and below it.
-  const [narrow, setNarrow] = useState(false);
-
-  useEffect(() => {
-    const query = window.matchMedia("(max-width: 40rem)");
-    const update = () => setNarrow(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
+  const narrow = useMediaQuery("(max-width: 40rem)");
 
   useEffect(() => {
     if (reduce) return;
@@ -78,12 +72,13 @@ export function ExploreComingSoon() {
   };
 
   const onMove = (e: React.PointerEvent) => {
-    if (reduce || e.pointerType !== "mouse") return;
-    const box = e.currentTarget.getBoundingClientRect();
-    pointer.current = { x: (e.clientX - box.left) / box.width, y: (e.clientY - box.top) / box.height };
-    setTilt(pointer.current.y);
+    if (reduce || !isMouse(e)) return;
+    const { fx, fy } = pointerIn(e);
+    pointer.current = { x: fx, y: fy };
+    frame.next(() => setTilt(fy));
   };
   const onLeave = () => {
+    frame.cancel();
     pointer.current = { x: 0.5, y: 0.5 };
     setTilt(0.5);
   };
