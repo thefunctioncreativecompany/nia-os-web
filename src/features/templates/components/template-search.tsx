@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { rankTemplates } from "@/features/templates/search";
 import { COMING_SOON, type GalleryTemplate } from "@/features/templates/gallery";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
+import { searchFieldInput, searchFieldShell } from "@/components/nia/filter-bar";
 
 // The Templates search box (TEMPLATES_BUILD.md build step 4, prototype TemplateSearch):
 // "Search {n} templates", and while typing a list of the top 5 matches (the first marked
@@ -54,9 +55,9 @@ export function TemplateSearch({
           e.preventDefault();
           choose(open ? active : seeAll, e.currentTarget.querySelector("input"));
         }}
-        className="flex h-14 items-center gap-3 rounded-2xl border border-border bg-white pr-4 pl-4.5 transition-[border-color,box-shadow] duration-fast focus-within:border-foreground focus-within:ring-4 focus-within:ring-foreground/8"
+        className={cn(searchFieldShell, "pr-4")}
       >
-        <Search aria-hidden className="size-4.5 shrink-0 text-muted-foreground" />
+        <Search aria-hidden className="size-4.5 shrink-0" />
         <label htmlFor="tpl-search" className="sr-only">Search templates</label>
         <input
           id="tpl-search"
@@ -90,7 +91,7 @@ export function TemplateSearch({
           }}
           placeholder={`Search ${templates.length} templates`}
           autoComplete="off"
-          className="min-w-0 flex-1 bg-transparent text-lead text-foreground outline-none placeholder:text-muted-foreground [&::-webkit-search-cancel-button]:hidden"
+          className={searchFieldInput}
         />
         {query && (
           <button

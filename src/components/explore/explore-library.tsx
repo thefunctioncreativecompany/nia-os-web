@@ -1,17 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { cn } from "@/lib/utils";
 import { DriftColumns } from "@/components/nia/drift-columns";
+import { ChipMenu, FilterChip } from "@/components/nia/filter-bar";
 import { DirectorsNotes } from "./directors-notes";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory, getFilm, type CategoryItem, type Film } from "./explore-data";
@@ -27,9 +20,6 @@ type Sort = keyof typeof SORTS;
 // in pixels between the top and bottom of the grid. Odd columns also sit higher.
 const DRIFT = [-50, 40, -80, 30, -45];
 const ODD_OFFSET = -60;
-
-const pill =
-  "inline-flex h-9 items-center gap-2.5 rounded-full border px-4 text-sm font-medium outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50";
 
 // Explore, the library: Ika's Claude Design "ExploreLibrary" as designed (layout, motion, images),
 // in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts.
@@ -54,46 +44,14 @@ export function ExploreLibrary() {
       </div>
 
       <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
-        <div role="group" aria-label="Show" className="flex flex-wrap gap-2.25">
-          {CHIPS.map((option) => {
-            const on = chip === option;
-            return (
-              <button
-                key={option}
-                type="button"
-                aria-pressed={on}
-                onClick={() => setChip(option)}
-                className={cn(
-                  pill,
-                  on ? "border-foreground bg-foreground text-primary-foreground" : "border-border bg-white text-foreground hover:border-ring",
-                )}
-              >
-                {option}
-              </button>
-            );
-          })}
+        <div role="group" aria-label="Show" className="flex flex-wrap gap-2">
+          {CHIPS.map((option) => (
+            <FilterChip key={option} on={chip === option} onClick={() => setChip(option)}>
+              {option}
+            </FilterChip>
+          ))}
         </div>
-
-        <div className="flex items-center gap-3">
-          <span className="text-sm text-muted-foreground">Sort by:</span>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button type="button" className={cn(pill, "border-border bg-white pr-3.5 text-foreground hover:border-ring")}>
-                {SORTS[sort]}
-                <ChevronDown aria-hidden className="size-3.5" strokeWidth={2} />
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuRadioGroup value={sort} onValueChange={(value) => setSort(value as Sort)}>
-                {(Object.keys(SORTS) as Sort[]).map((key) => (
-                  <DropdownMenuRadioItem key={key} value={key}>
-                    {SORTS[key]}
-                  </DropdownMenuRadioItem>
-                ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+        <ChipMenu label="Sort" value={sort} align="end" options={(Object.keys(SORTS) as Sort[]).map((key) => ({ value: key, label: SORTS[key] }))} onChange={setSort} />
       </div>
 
       <ExploreAllGrid films={films} />

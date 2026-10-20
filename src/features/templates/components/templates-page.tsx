@@ -5,7 +5,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { toast } from "sonner";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { rankTemplates } from "@/features/templates/search";
 import { FILTERS, inFilter, works, type Filter, type GalleryTemplate } from "@/features/templates/gallery";
@@ -18,6 +17,7 @@ import { SuggestedRow } from "@/features/templates/components/showcase-rows";
 import { CategorySections } from "@/features/templates/components/category-sections";
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
 import { MyDrafts } from "@/features/templates/components/my-drafts";
+import { FilterChip } from "@/components/nia/filter-bar";
 
 const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1fr))] gap-3.5";
 
@@ -252,26 +252,11 @@ function PreviewFromAddress({
 function FilterChips({ templates, filter, onChange }: { templates: GalleryTemplate[]; filter: Filter; onChange: (next: Filter) => void }) {
   return (
     <div role="group" aria-label="Filter templates" className="flex flex-wrap gap-2">
-      {FILTERS.map((f) => {
-        const on = filter === f;
-        return (
-          <button
-            key={f}
-            type="button"
-            aria-pressed={on}
-            onClick={() => onChange(f)}
-            className={cn(
-              "inline-flex h-9 items-center gap-2 rounded-full border px-3.5 text-small outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
-              on ? "border-foreground bg-secondary font-semibold text-foreground" : "border-border bg-white text-foreground/80 hover:border-foreground",
-            )}
-          >
-            {f}
-            <span className={cn("text-meta", on ? "text-foreground" : "text-muted-foreground")}>
-              {templates.filter((t) => inFilter(t, f)).length}
-            </span>
-          </button>
-        );
-      })}
+      {FILTERS.map((f) => (
+        <FilterChip key={f} on={filter === f} onClick={() => onChange(f)} count={templates.filter((t) => inFilter(t, f)).length}>
+          {f}
+        </FilterChip>
+      ))}
     </div>
   );
 }

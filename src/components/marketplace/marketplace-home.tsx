@@ -3,23 +3,17 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, MapPin, PackageSearch, Search, SlidersHorizontal } from "lucide-react";
+import { MapPin, PackageSearch, SlidersHorizontal } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { DriftColumns } from "@/components/nia/drift-columns";
 import { EmptyState } from "@/components/nia/empty-state";
+import { ChipMenu, ResultCount, SearchField, chipClass } from "@/components/nia/filter-bar";
 import { TiltCard } from "@/components/nia/tilt-card";
 import {
   BRANDS,
@@ -47,9 +41,6 @@ const DRIFT = [-50, 40, -80, 30, -45];
 const ODD_OFFSET = -40;
 const CONDITIONS: ("Any" | Condition)[] = ["Any", "New", "Used", "Kit"];
 const MAX_DAY_RATE = 150;
-
-const chip =
-  "inline-flex h-10 items-center gap-2 rounded-full border px-4 text-small font-semibold text-foreground outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50";
 
 // Marketplace home (MARKETPLACE_SPEC.md §2, Ika's Claude Design "Marketplace"): the heading with a
 // Rent / Buy switch, search with the location, one compact filter bar (Category, Condition,
@@ -113,64 +104,27 @@ export function MarketplaceHome() {
         </div>
       </div>
 
-      <label className="mt-5.5 flex h-14 items-center gap-3 rounded-full border border-border px-5 text-lead text-muted-foreground focus-within:ring-3 focus-within:ring-ring/50">
-        <Search aria-hidden className="size-4.5 shrink-0" />
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          aria-label="Search the marketplace"
-          placeholder="Search cameras, drones, vans, LUTs…"
-          className="min-w-0 flex-1 bg-transparent text-foreground outline-none placeholder:text-nia-placeholder"
-        />
-        <span className="inline-flex shrink-0 items-center gap-1.5 border-l border-border pl-3.5 text-small text-muted-foreground max-sm:hidden">
-          <MapPin aria-hidden className="size-3.5" />
-          Boston, MA
-        </span>
-      </label>
+      <SearchField
+        label="Search the marketplace"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search cameras, drones, vans, LUTs…"
+        className="mt-5.5"
+        suffix={
+          <span className="inline-flex shrink-0 items-center gap-1.5 border-l border-border pl-3.5 text-small text-muted-foreground max-sm:hidden">
+            <MapPin aria-hidden className="size-3.5" />
+            Boston, MA
+          </span>
+        }
+      />
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button type="button" className={cn(chip, category === "All" ? "border-border bg-white hover:border-ring" : "border-foreground bg-secondary")}>
-              <span className="font-medium text-muted-foreground">Category</span>
-              {category}
-              <ChevronDown aria-hidden className="size-3.5" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="w-[min(32.5rem,calc(100vw-2rem))] rounded-2xl p-2">
-            <DropdownMenuRadioGroup value={category} onValueChange={(v) => setCategory(v as "All" | Category)} className="grid grid-cols-2 gap-x-2 gap-y-0.5">
-              {CATEGORIES.map((c) => (
-                <DropdownMenuRadioItem key={c} value={c} className="h-10 rounded-lg text-sm data-[state=checked]:bg-accent data-[state=checked]:font-semibold">
-                  {c}
-                </DropdownMenuRadioItem>
-              ))}
-            </DropdownMenuRadioGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
-
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button type="button" className={cn(chip, condition === "Any" ? "border-border bg-white hover:border-ring" : "border-foreground bg-secondary")}>
-              <span className="font-medium text-muted-foreground">Condition</span>
-              {condition}
-              <ChevronDown aria-hidden className="size-3.5" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="start" className="w-44 rounded-2xl p-2">
-            <DropdownMenuRadioGroup value={condition} onValueChange={(v) => setCondition(v as "Any" | Condition)}>
-              {CONDITIONS.map((c) => (
-                <DropdownMenuRadioItem key={c} value={c} className="h-10 rounded-lg text-sm data-[state=checked]:bg-accent data-[state=checked]:font-semibold">
-                  {c}
-                </DropdownMenuRadioItem>
-              ))}
-            </DropdownMenuRadioGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <ChipMenu label="Category" value={category} defaultValue="All" columns={2} options={CATEGORIES.map((c) => ({ value: c, label: c }))} onChange={setCategory} />
+        <ChipMenu label="Condition" value={condition} defaultValue="Any" options={CONDITIONS.map((c) => ({ value: c, label: c }))} onChange={setCondition} />
 
         <Popover>
           <PopoverTrigger asChild>
-            <button type="button" className={cn(chip, extraFilters ? "border-foreground bg-secondary" : "border-border bg-white hover:border-ring")}>
+            <button type="button" className={chipClass(extraFilters > 0)}>
               <SlidersHorizontal aria-hidden className="size-3.5" />
               Filters{extraFilters ? ` · ${extraFilters}` : ""}
             </button>
@@ -200,7 +154,7 @@ export function MarketplaceHome() {
         </Popover>
 
         <span className="flex-1" />
-        <span aria-live="polite" className="text-small text-muted-foreground">{resultLine}</span>
+        <ResultCount>{resultLine}</ResultCount>
       </div>
 
       <p className="mt-4.5 text-small text-muted-foreground">Brands you&rsquo;ll find: {BRANDS.join(" · ")}</p>

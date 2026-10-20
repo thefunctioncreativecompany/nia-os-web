@@ -13,6 +13,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/nia/empty-state";
+import { FilterChip, ResultCount } from "@/components/nia/filter-bar";
 
 type Kind = "projects" | "documents" | "files" | "sharing";
 
@@ -195,22 +196,12 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
               {KINDS.map((kind) => {
                 const on = filters.includes(kind.id);
                 return (
-                  <button
-                    key={kind.id}
-                    type="button"
-                    aria-pressed={on}
-                    onClick={() => toggleFilter(kind.id)}
-                    className={cn(
-                      "inline-flex h-9 items-center gap-2 rounded-full border px-3.5 text-small font-medium outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
-                      on ? "border-foreground bg-secondary text-foreground" : "border-border bg-white text-foreground/80 hover:border-foreground",
-                    )}
-                  >
+                  <FilterChip key={kind.id} on={on} onClick={() => toggleFilter(kind.id)} count={counts[kind.id]}>
                     <span aria-hidden className={cn("grid place-items-center rounded-full text-white transition-[width,height] duration-fast", kind.dot, on ? "size-4" : "size-1.75")}>
                       {on && <Check className="size-2.75" strokeWidth={3} />}
                     </span>
                     {kind.label}
-                    <span className="text-meta text-muted-foreground">{counts[kind.id]}</span>
-                  </button>
+                  </FilterChip>
                 );
               })}
               {filters.length > 0 && (
@@ -219,9 +210,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
                 </button>
               )}
             </div>
-            <p className="text-small text-muted-foreground" role="status" aria-live="polite">
-              {filters.length ? `${visible.length} of ${entries.length} updates` : `${entries.length} updates`}
-            </p>
+            <ResultCount>{filters.length ? `${visible.length} of ${entries.length} updates` : `${entries.length} updates`}</ResultCount>
           </div>
 
           {/* The month bar: where you are, and a way to jump. Sticks to the top while scrolling. */}

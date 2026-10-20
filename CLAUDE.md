@@ -40,6 +40,9 @@ Design:
   Courier capitals are content formatting, kept until Ika decides.
 - Build from `src/components/ui` (shadcn) and `src/components/nia`; new looks are variants. Keep shadcn
   focus rings and keyboard behaviour.
+- Search and filters everywhere use Marketplace's look (Ika, 2026-10-20), from
+  `src/components/nia/filter-bar.tsx`: `SearchField` (56px pill), `FilterChip` (40px pill; on = dark
+  border, grey fill; optional count), `ChipMenu` ("Category: All ▾"), `ResultCount`.
 - Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
   motion. Only modals/panels, the saved tick, cards settling, Copilot highlights and onboarding slides animate.
 - Theme tokens (`src/app/globals.css`): colors `foreground`/`primary` (Obsidian), `gold`
