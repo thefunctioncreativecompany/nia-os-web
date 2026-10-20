@@ -99,6 +99,14 @@
   --text-tiny--line-height: 1.4;
   --text-display: 2.25rem;
   --text-display--line-height: 1.2;
+  /* Explore: the big rank number on press-kit cards (EXPLORE_SPEC.md, 52px). */
+  --text-rank: 3.25rem;
+  --text-rank--line-height: 1;
+  /* Explore: the "Explore" heading on the coming-soon card (Ika's Claude Design, 44px). */
+  --text-hero: 2.75rem;
+  --text-hero--line-height: 1.05;
+  /* Explore's glide (Ika's Claude Design "ExploreSoon" / "ExploreLibrary"). */
+  --ease-glide: cubic-bezier(0.16, 1, 0.3, 1);
   --text-subtitle: 1.375rem;
   --text-subtitle--line-height: 1.3;
   --text-wordmark: 1.375rem;
@@ -151,6 +159,29 @@
 @utility duration-slow {
   --tw-duration: var(--duration-slow);
   transition-duration: var(--duration-slow);
+}
+
+/* Explore keeps the timings of Ika's Claude Design (2026-10-20): longer, softer glides than the
+   rest of the app. Use only on Explore screens. */
+@utility duration-glide {
+  --tw-duration: var(--duration-glide);
+  transition-duration: var(--duration-glide);
+}
+@utility duration-lift {
+  --tw-duration: var(--duration-lift);
+  transition-duration: var(--duration-lift);
+}
+@utility duration-strip {
+  --tw-duration: var(--duration-strip);
+  transition-duration: var(--duration-strip);
+}
+@utility duration-drift {
+  --tw-duration: var(--duration-drift);
+  transition-duration: var(--duration-drift);
+}
+@utility duration-zoom {
+  --tw-duration: var(--duration-zoom);
+  transition-duration: var(--duration-zoom);
 }
 
 :root {
@@ -252,6 +283,11 @@
   --duration-fast: 150ms;
   --duration-base: 250ms;
   --duration-slow: 400ms;
+  --duration-glide: 500ms; /* Explore (Claude Design) */
+  --duration-lift: 600ms;
+  --duration-strip: 900ms;
+  --duration-drift: 1200ms;
+  --duration-zoom: 1600ms;
 }
 
 /* uiarc components (src/components/arc) read these names. Each one points at a Nia token,
@@ -836,4 +872,28 @@
 @media (prefers-reduced-motion: reduce) {
   .gen-go,
     .gen-pct { transition-duration: 160ms; }
+}
+
+/* Explore animations (Ika's Claude Design, 2026-10-20). Reduced motion stops them (see the
+   prefers-reduced-motion block above). */
+@theme {
+  /* The coming-soon card rising in. */
+  --animate-explore-rise: explore-rise 1s var(--ease-glide) both;
+  /* "Coming soon" dot: a soft ring breathing out of it. */
+  --animate-explore-pulse: explore-pulse 2s ease-in-out infinite;
+  /* Press-kit columns: each column holds its cards twice over, so sliding half its height loops
+     without a seam. Columns set their own speed (animation-duration). */
+  --animate-lane-up: explore-lane-up 60s linear infinite;
+  --animate-lane-down: explore-lane-down 60s linear infinite;
+
+  @keyframes explore-rise {
+    from { opacity: 0; transform: translateY(6%); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes explore-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--success) 45%, transparent); }
+    50% { box-shadow: 0 0 0 6px color-mix(in oklab, var(--success) 0%, transparent); }
+  }
+  @keyframes explore-lane-up { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+  @keyframes explore-lane-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
 }

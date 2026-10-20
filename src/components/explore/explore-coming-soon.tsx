@@ -1,29 +1,38 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { Check } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
+import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
+import { useReducedMotion } from "motion/react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
-import { HERO_SET } from "@/components/auth/hero-images";
-import { DURATION, EASE_OUT } from "@/lib/motion";
 import { createClient } from "@/lib/supabase/client";
+import { getFilm } from "./explore-data";
+import { PosterArt } from "./poster-art";
 
-const CARDS = 14;
+// The design's ring, in its order.
+const RING = [
+  "sinners", "hamnet", "the-odyssey", "heart-of-the-hunter", "the-woman-king", "the-polygamist",
+  "avatar-the-way-of-water", "the-dink", "blonde", "scream", "the-queens-gambit", "phantom",
+  "michael", "500-days-of-summer",
+].map(getFilm);
 
-// Explore, coming soon (Ika's Claude Design "ExploreSoon", 2026-10-19): a ring of stills around a
-// frosted panel. Adapted to the rules: Geist, sentence case, a still gold dot, and the ring turns
-// only while the pointer moves across it (or a finger drags), never on its own. Stills are Ika's
-// set from the sign-in screens.
-export function ExploreSoon() {
+// Degrees per frame: the steady turn, and how much the pointer's side speeds it up or reverses it.
+const SPIN = 0.07;
+const STEER = 1.2;
+
+// Explore, coming soon: Ika's Claude Design "ExploreSoon" as designed (2026-10-20). Fourteen
+// posters on a ring that turns on its own; moving the pointer left or right steers it, up and down
+// tilts it. A frosted card rises in over it. Platform font, colours, buttons and sentence case.
+// Reduced motion stops the ring and the pulse.
+export function ExploreComingSoon() {
   const reduce = useReducedMotion();
   const [angle, setAngle] = useState(0);
+  const pointer = useRef({ x: 0.5, y: 0.5 });
   const [tilt, setTilt] = useState(0.5);
-  const last = useRef<number | null>(null);
   const [waiting, setWaiting] = useState<boolean | null>(null);
-  // Phones: the panel fills the middle, so the ring stands taller to show above and below it.
+  // Phones: the card fills the middle, so the ring stands taller to show above and below it.
   const [narrow, setNarrow] = useState(false);
 
   useEffect(() => {
@@ -33,6 +42,17 @@ export function ExploreSoon() {
     query.addEventListener("change", update);
     return () => query.removeEventListener("change", update);
   }, []);
+
+  useEffect(() => {
+    if (reduce) return;
+    let frame = 0;
+    const tick = () => {
+      setAngle((a) => (a + SPIN + (pointer.current.x - 0.5) * STEER) % 360);
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [reduce]);
 
   useEffect(() => {
     createClient()
@@ -58,30 +78,29 @@ export function ExploreSoon() {
   };
 
   const onMove = (e: React.PointerEvent) => {
-    if (reduce) return;
+    if (reduce || e.pointerType !== "mouse") return;
     const box = e.currentTarget.getBoundingClientRect();
-    if (last.current !== null) setAngle((a) => (a + (e.clientX - last.current!) * 0.18) % 360);
-    last.current = e.clientX;
-    setTilt((e.clientY - box.top) / box.height);
+    pointer.current = { x: (e.clientX - box.left) / box.width, y: (e.clientY - box.top) / box.height };
+    setTilt(pointer.current.y);
   };
   const onLeave = () => {
-    last.current = null;
+    pointer.current = { x: 0.5, y: 0.5 };
     setTilt(0.5);
   };
 
   const radiusY = narrow ? 29 + tilt * 6 : 16 + tilt * 16;
-  const cards = Array.from({ length: CARDS }, (_, i) => {
-    const theta = ((angle + (i * 360) / CARDS) * Math.PI) / 180;
+  const cards = RING.map((film, i) => {
+    const theta = ((angle + (i * 360) / RING.length) * Math.PI) / 180;
     const depth = (Math.sin(theta) + 1) / 2;
     return {
-      still: HERO_SET[i % HERO_SET.length],
+      film,
       style: {
-        left: `${50 + Math.cos(theta) * 41}%`,
-        top: `${50 + Math.sin(theta) * radiusY}%`,
-        transform: `translate(-50%, -50%) scale(${0.55 + 0.6 * depth})`,
+        left: `${(50 + Math.cos(theta) * 41).toFixed(2)}%`,
+        top: `${(50 + Math.sin(theta) * radiusY).toFixed(2)}%`,
+        transform: `translate(-50%, -50%) scale(${(0.55 + 0.6 * depth).toFixed(3)})`,
         zIndex: Math.round(depth * 100),
-        opacity: 0.35 + 0.65 * depth,
-        filter: `blur(${2 * (1 - depth)}px) saturate(${0.5 + 0.5 * depth})`,
+        opacity: Number((0.35 + 0.65 * depth).toFixed(2)),
+        filter: `blur(${(2 * (1 - depth)).toFixed(1)}px) saturate(${(0.5 + 0.5 * depth).toFixed(2)})`,
       },
     };
   });
@@ -92,28 +111,23 @@ export function ExploreSoon() {
       onPointerLeave={onLeave}
       className="relative isolate h-[calc(100svh-5rem)] min-h-140 touch-pan-y overflow-hidden bg-white"
     >
-      {cards.map(({ still, style }, i) => (
+      {cards.map(({ film, style }) => (
         <div
-          key={i}
+          key={film.id}
           aria-hidden
           style={style}
           className="absolute aspect-[268/373] w-[clamp(5.5rem,13vw,10.625rem)] overflow-hidden rounded-lg bg-muted shadow-card"
         >
-          <Image src={still.src} alt="" fill sizes="170px" className="object-cover" style={{ objectPosition: still.position }} />
+          <PosterArt film={film} sizes="170px" />
         </div>
       ))}
 
-      <motion.div
-        initial={reduce ? false : { opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: DURATION.slow, ease: EASE_OUT }}
-        className="absolute inset-0 z-[200] m-auto flex h-fit w-[calc(100%-2.5rem)] max-w-118 flex-col items-center gap-4 rounded-2xl border border-border bg-white/85 px-6 pt-7 pb-6 sm:px-9 sm:pt-9 sm:pb-8 text-center shadow-card backdrop-blur-lg"
-      >
+      <div className="absolute inset-0 z-[200] m-auto flex h-fit w-[calc(100%-2.5rem)] max-w-118 animate-explore-rise flex-col items-center gap-4 rounded-2xl border border-border bg-white/85 px-6 pt-7 pb-6 text-center shadow-card-hover backdrop-blur-lg sm:px-9 sm:pt-9 sm:pb-8">
         <span className="inline-flex h-7 items-center gap-2 rounded-full border border-border px-3 text-caption font-medium text-muted-foreground">
-          <span aria-hidden className="size-1.75 rounded-full bg-gold" />
+          <span aria-hidden className="size-1.75 animate-explore-pulse rounded-full bg-status-confirmed-foreground" />
           Coming soon
         </span>
-        <h1 className="text-h1 leading-tight font-semibold tracking-tight text-foreground">Explore</h1>
+        <h1 className="text-hero font-semibold tracking-tight text-foreground">Explore</h1>
         <p className="max-w-90 text-lead leading-relaxed text-muted-foreground">
           Browse films, director&rsquo;s notes and electronic press kits from across Nia, then compare any two side by side. Opens February 2027.
         </p>
@@ -127,8 +141,14 @@ export function ExploreSoon() {
               Notify me
             </Button>
           )}
+          <Button variant="outline" asChild>
+            <Link href="/explore/preview">
+              Preview Explore
+              <ArrowRight aria-hidden data-icon="inline-end" />
+            </Link>
+          </Button>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
