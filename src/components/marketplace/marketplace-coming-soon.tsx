@@ -54,10 +54,6 @@ export function MarketplaceComingSoon() {
     joined: "We'll let you know when Marketplace opens.",
     left: "You won't get a note when Marketplace opens.",
   });
-  const listers = useWaitlist("marketplace-lister", {
-    joined: "We'll invite you to list your gear before Marketplace opens.",
-    left: "You're off the early listers list.",
-  });
 
   return (
     <section aria-label="Marketplace coming soon" className="relative isolate h-[calc(100svh-5rem)] min-h-140 overflow-hidden bg-nia-canvas">
@@ -109,17 +105,7 @@ export function MarketplaceComingSoon() {
                 Join the waitlist
               </Button>
             )}
-            <Button
-              variant="outline"
-              onClick={() => void listers.toggle()}
-              disabled={listers.waiting === null}
-              aria-pressed={!!listers.waiting}
-              className={comingSoonButton}
-            >
-              {listers.waiting && <Check aria-hidden />}
-              {listers.waiting ? "We'll invite you to list" : "List your gear early"}
-            </Button>
-            <Button variant="ghost" asChild className={comingSoonButton}>
+            <Button variant="outline" asChild className={comingSoonButton}>
               <Link href="/marketplace/preview">
                 Preview Marketplace
                 <ArrowRight aria-hidden data-icon="inline-end" />

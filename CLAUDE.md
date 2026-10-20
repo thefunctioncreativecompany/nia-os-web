@@ -115,8 +115,9 @@ Data:
   goes to the signed-in account's email, shown on the card; no email box (coming-soon screens are
   signed-in only). Nothing sends those emails yet. The gear rental fee follows the Plans page (renter's
   plan: 5% Free/Starter, 4% Creator, 3% Pro/Enterprise), not the spec's creator/partner split.
-  Sample data in `src/features/marketplace/data.ts`. Waitlist names `marketplace` and
-  `marketplace-lister` need `20261029000000_marketplace_waitlist.sql` (run after the plans one).
+  Sample data in `src/features/marketplace/data.ts`. The waitlist name `marketplace` needs
+  `20261029000000_marketplace_waitlist.sql` (run after the plans one). Coming soon has two buttons:
+  Join the waitlist and Preview Marketplace (Ika: no List your gear early).
 
 ## Working notes
 
