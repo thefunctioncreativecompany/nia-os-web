@@ -1,11 +1,13 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSelectedLayoutSegment } from "next/navigation";
 import { Compass, FileText, Folder, House, Inbox, Plus, ShoppingBag, type LucideIcon } from "lucide-react";
+import { useReducedMotion } from "motion/react";
 
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { NavSearch } from "@/components/nia/nav-search";
@@ -28,7 +30,7 @@ type Tab = {
 };
 
 const tabs: Tab[] = [
-  { label: "Home", icon: "/app/home.svg", glyph: House, href: "/home", match: ["home", "settings"] },
+  { label: "Home", icon: "/app/home.svg", glyph: House, href: "/home", match: ["home", "settings", "plans"] },
   { label: "Projects", icon: "/app/folder.svg", glyph: Folder, href: "/projects", match: ["projects"] },
   { label: "Templates", icon: "/app/file-text.svg", glyph: FileText, href: "/templates", match: ["templates"] },
   { label: "Explore", icon: "/app/explore.svg", glyph: Compass, href: "/explore", match: ["explore"] },
@@ -108,50 +110,89 @@ function Dock({ segment }: { segment: string | null }) {
   );
 }
 
+// Where the gold highlight last sat, kept between screens so it can glide from there to the new tab.
+let lastHighlight: { left: number; width: number } | null = null;
+
+// Desktop tabs: icon and name side by side on every tab, so people learn where things are (Ika,
+// 2026-10-20; icons alone can come back once everyone knows them). One gold highlight sits behind
+// the active tab and glides to the new one when the screen changes.
 function NavTabs({ segment }: { segment: string | null }) {
+  const reduce = useReducedMotion();
+  const nav = useRef<HTMLElement>(null);
+  const highlight = useRef<HTMLSpanElement>(null);
   const isActive = (tab: Tab) => segment !== null && tab.match.includes(segment);
+  const pill = "relative flex h-9.5 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-lead font-medium whitespace-nowrap outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
+
+  useLayoutEffect(() => {
+    const el = highlight.current;
+    if (!el) return;
+    const place = (glide: boolean) => {
+      const link = nav.current?.querySelector<HTMLElement>("[aria-current=page]");
+      if (!link) {
+        el.style.opacity = "0";
+        return;
+      }
+      const to = { left: link.offsetLeft, width: link.offsetWidth };
+      const set = (p: { left: number; width: number }, animate: boolean) => {
+        el.style.transitionDuration = animate ? "" : "0s";
+        el.style.transform = `translateX(${p.left}px)`;
+        el.style.width = `${p.width}px`;
+        el.style.opacity = "1";
+      };
+      if (glide && lastHighlight && !reduce && lastHighlight.left !== to.left) {
+        set(lastHighlight, false);
+        el.getBoundingClientRect(); // start from the old tab before gliding
+        set(to, true);
+      } else set(to, false);
+      lastHighlight = to;
+    };
+    place(true);
+    const onResize = () => place(false);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [segment, reduce]);
 
   return (
-    <nav aria-label="Main" className="flex items-center gap-5 max-lg:hidden md:gap-8">
+    <nav ref={nav} aria-label="Main" className="relative isolate flex items-center gap-1 max-lg:hidden">
+      <span
+        ref={highlight}
+        aria-hidden
+        className="absolute inset-y-0 left-0 -z-10 rounded-full bg-gold/15 opacity-0 transition-[transform,width] duration-base ease-out"
+      />
       {tabs.map((tab) => {
         const icon = <Image src={tab.icon} alt="" width={18} height={18} className="shrink-0" />;
+        const active = isActive(tab);
 
-        if (isActive(tab) && tab.href) {
+        if (!tab.href) {
           return (
-            <Link
-              key={tab.label}
-              href={tab.href}
-              aria-current="page"
-              className="flex h-9.5 shrink-0 items-center justify-center gap-1.25 rounded-full bg-gold/15 px-3 text-lead font-medium whitespace-nowrap text-foreground sm:min-w-25 sm:px-4"
-            >
-              {icon}
-              {/* Phones show the active tab as its icon on the gold pill, so every tab fits. */}
-              <span className="max-sm:sr-only">{tab.label}</span>
-            </Link>
-          );
-        }
-
-        return (
-          <Tooltip key={tab.label}>
-            <TooltipTrigger asChild>
-              {tab.href ? (
-                <Link href={tab.href} aria-label={tab.label} className="flex h-[37px] items-center">
-                  {icon}
-                </Link>
-              ) : (
+            <Tooltip key={tab.label}>
+              <TooltipTrigger asChild>
                 <span
                   role="link"
                   aria-disabled="true"
                   aria-label={`${tab.label} (coming soon)`}
                   tabIndex={0}
-                  className="flex h-[37px] cursor-not-allowed items-center"
+                  className={cn(pill, "cursor-not-allowed text-muted-foreground opacity-60")}
                 >
                   {icon}
+                  {tab.label}
                 </span>
-              )}
-            </TooltipTrigger>
-            <TooltipContent>{tab.href ? tab.label : `${tab.label} · coming soon`}</TooltipContent>
-          </Tooltip>
+              </TooltipTrigger>
+              <TooltipContent>{tab.label} · coming soon</TooltipContent>
+            </Tooltip>
+          );
+        }
+
+        return (
+          <Link
+            key={tab.label}
+            href={tab.href}
+            aria-current={active ? "page" : undefined}
+            className={cn(pill, "transition-colors duration-fast", active ? "text-foreground" : "text-muted-foreground hover:text-foreground")}
+          >
+            {icon}
+            {tab.label}
+          </Link>
         );
       })}
     </nav>
