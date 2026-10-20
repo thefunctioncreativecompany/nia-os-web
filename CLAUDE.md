@@ -107,7 +107,8 @@ Data:
   official video (studio or streamer's own YouTube channel, privacy-enhanced player, loaded only on
   Play), our own one-line summary, facts from Wikidata, and links out to IMDb, Rotten Tomatoes and
   Wikipedia. No scores (their terms). Data in `src/components/explore/film-details.ts`. "Open press
-  kit" keeps the paid-plan rule.
+  kit" keeps the paid-plan rule. The same preview opens from the Explore all grid ("Open film page")
+  and Top 10 director's notes ("Open" + the document); Latest projects keeps its own behaviour (Ika).
 - (2026-10-20) Marketplace follows Ika's Claude Design and `design-ref/marketplace/MARKETPLACE_SPEC.md`.
   Coming soon is the design's field of product tiles held still (Ika: the panning felt clunky), with
   Explore's looping-motion exception for the amber dot. While `features.marketplaceUnlocked` is off,

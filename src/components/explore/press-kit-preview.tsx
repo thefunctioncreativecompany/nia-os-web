@@ -9,7 +9,8 @@ import { getFilm, type CategoryItem } from "./explore-data";
 import { getFilmDetails, lengthOf, linksFor, type FilmDetails } from "./film-details";
 import { PosterArt, opensLater } from "./poster-art";
 
-// The press-kit preview (Ika, 2026-10-20), laid out like the template preview pop-up: the film's
+// The film preview (Ika, 2026-10-20), opened from Explore's press kits, poster grid and director's
+// notes (not Latest projects), laid out like the template preview pop-up: the film's
 // official video, a short summary and the facts, with links out to IMDb, Rotten Tomatoes and
 // Wikipedia. The video loads only when Play is pressed, from YouTube's privacy-enhanced player.
 // Previous / next (← →) move through the list it was opened from; Escape or outside closes it.
@@ -19,11 +20,14 @@ export function PressKitPreview({
   list,
   onNavigate,
   onClose,
+  actionLabel = () => "Open press kit",
 }: {
   item: CategoryItem;
   list: CategoryItem[];
   onNavigate: (item: CategoryItem) => void;
   onClose: () => void;
+  /** The main button's words for this film ("Open press kit", "Open film page", "Open Call Sheet"). */
+  actionLabel?: (item: CategoryItem) => string;
 }) {
   const film = getFilm(item.filmId);
   const details = getFilmDetails(item.filmId);
@@ -80,7 +84,7 @@ export function PressKitPreview({
                 <span className="font-semibold text-foreground">{details?.createdBy ?? film.director}</span>
               </p>
               <Button onClick={opensLater} className="px-6.5">
-                Open press kit
+                {actionLabel(item)}
               </Button>
             </div>
 

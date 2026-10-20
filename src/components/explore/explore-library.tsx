@@ -14,9 +14,10 @@ import { cn } from "@/lib/utils";
 import { DriftColumns } from "@/components/nia/drift-columns";
 import { DirectorsNotes } from "./directors-notes";
 import { EpkLanes } from "./epk-lanes";
-import { getCategory, getFilm, type Film } from "./explore-data";
+import { getCategory, getFilm, type CategoryItem, type Film } from "./explore-data";
 import { LatestStrips } from "./latest-strips";
-import { PosterArt, opensLater } from "./poster-art";
+import { PosterArt } from "./poster-art";
+import { PressKitPreview } from "./press-kit-preview";
 
 const CHIPS = ["All", "Most popular", "Genres", "Crew", "Directors", "Rating"] as const;
 const SORTS = { popular: "Most popular", title: "Title A–Z", director: "Director A–Z" } as const;
@@ -112,27 +113,34 @@ export function ExploreLibrary() {
 // Five columns of posters that drift apart as the pointer moves down them (wide screens only).
 // Phones and tablets get a plain two- or three-column grid of the same posters.
 function ExploreAllGrid({ films }: { films: Film[] }) {
+  const [open, setOpen] = useState<CategoryItem | null>(null);
+  // The grid repeats films to fill its columns; the preview steps through each film once.
+  const list: CategoryItem[] = [...new Map(films.map((f) => [f.id, { filmId: f.id }])).values()];
   return (
-    <DriftColumns
-      label="Explore all"
-      items={films}
-      getKey={(film) => film.id}
-      renderItem={(film) => <PosterTile film={film} />}
-      drift={DRIFT}
-      oddOffset={ODD_OFFSET}
-      className="mt-15 lg:-mx-1.5 lg:h-295 lg:overflow-hidden lg:px-1.5"
-      gridClassName="grid-cols-2 gap-3.25 sm:grid-cols-3 lg:pt-2.5"
-      columnClassName="lg:gap-3.25"
-    />
+    <>
+      <DriftColumns
+        label="Explore all"
+        items={films}
+        getKey={(film) => film.id}
+        renderItem={(film) => <PosterTile film={film} onOpen={() => setOpen({ filmId: film.id })} />}
+        drift={DRIFT}
+        oddOffset={ODD_OFFSET}
+        className="mt-15 lg:-mx-1.5 lg:h-295 lg:overflow-hidden lg:px-1.5"
+        gridClassName="grid-cols-2 gap-3.25 sm:grid-cols-3 lg:pt-2.5"
+        columnClassName="lg:gap-3.25"
+      />
+      {open && <PressKitPreview item={open} list={list} onNavigate={setOpen} onClose={() => setOpen(null)} actionLabel={() => "Open film page"} />}
+    </>
   );
 }
 
 // Lifts and shows the title and director on hover or keyboard focus.
-function PosterTile({ film }: { film: Film }) {
+function PosterTile({ film, onOpen }: { film: Film; onOpen: () => void }) {
   return (
     <button
       type="button"
-      onClick={opensLater}
+      onClick={onOpen}
+      aria-haspopup="dialog"
       aria-label={`${film.title}, ${film.director}`}
       className="group relative block aspect-[268/373] w-full overflow-hidden rounded-lg text-left text-white outline-none transition-[transform,box-shadow] duration-lift ease-glide hover:-translate-y-1.5 hover:shadow-card-hover focus-visible:-translate-y-1.5 focus-visible:shadow-card-hover focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:hover:translate-y-0 motion-reduce:focus-visible:translate-y-0"
     >

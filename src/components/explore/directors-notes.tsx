@@ -6,20 +6,22 @@ import { useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import { isMouse, pointerIn, useFrame } from "@/hooks/use-pointer";
-import { getFilm, type Category } from "./explore-data";
-import { PosterArt, opensLater } from "./poster-art";
+import { getFilm, type Category, type CategoryItem } from "./explore-data";
+import { PosterArt } from "./poster-art";
+import { PressKitPreview } from "./press-kit-preview";
 
 // Where the preview sits from the pointer (EXPLORE_SPEC.md), and its greatest tilt.
 const OFFSET_X = 40;
 const OFFSET_Y = -150;
 const MAX_TILT = 8;
 
-// Top 10 director's notes as a ranked list. Pointing at a row brings it forward, greys the others
+// Top 10 director's notes as a ranked list; choosing a row opens the film's preview. Pointing at a row brings it forward, greys the others
 // and shows the film's poster beside the pointer, leaning with the pointer's speed. Keyboard focus
 // (and reduced motion) shows the same poster, standing still beside the row.
 export function DirectorsNotes({ category }: { category: Category }) {
   const reduce = useReducedMotion();
   const [active, setActive] = useState<string | null>(null);
+  const [openItem, setOpenItem] = useState<CategoryItem | null>(null);
   const preview = useRef<HTMLDivElement>(null);
   const lastX = useRef<number | null>(null);
   const frame = useFrame();
@@ -79,7 +81,8 @@ export function DirectorsNotes({ category }: { category: Category }) {
             <li key={item.filmId}>
               <button
                 type="button"
-                onClick={opensLater}
+                onClick={() => setOpenItem(item)}
+                aria-haspopup="dialog"
                 onPointerEnter={(e) => {
                   if (!isMouse(e)) return;
                   setActive(item.filmId);
@@ -127,6 +130,15 @@ export function DirectorsNotes({ category }: { category: Category }) {
       >
         {activeFilm && <PosterArt film={activeFilm} sizes="200px" />}
       </div>
+      {openItem && (
+        <PressKitPreview
+          item={openItem}
+          list={category.items}
+          onNavigate={setOpenItem}
+          onClose={() => setOpenItem(null)}
+          actionLabel={(i) => (i.documentType ? `Open ${i.documentType}` : "Open film page")}
+        />
+      )}
     </section>
   );
 }
