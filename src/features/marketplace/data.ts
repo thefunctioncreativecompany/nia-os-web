@@ -41,6 +41,8 @@ export type Provider = {
   city: string;
   /** What a rental partner rents out. */
   speciality?: string;
+  /** Identity checked by Nia (every sample lister is). */
+  verified: boolean;
 };
 
 export type Listing = {
@@ -61,6 +63,10 @@ export type Listing = {
   location: string;
   /** One line under the name. */
   blurb?: string;
+  /** The photo tile's shape in Latest gear (CSS aspect-ratio), as designed. */
+  aspect?: string;
+  /** The lister can deliver it. */
+  delivery?: boolean;
   /** Digital products: the kind of file, shown as a pill. */
   productType?: string;
   /** Digital products: the Templates gradient their tile uses (`grain-1` … `grain-12`). */
@@ -70,12 +76,12 @@ export type Listing = {
 };
 
 export const PROVIDERS: Provider[] = [
-  { id: "bh-photo", name: "B&H Photo", type: "partner", city: "New York, US", speciality: "Cameras, lighting, audio" },
-  { id: "rule-boston", name: "Rule Boston", type: "partner", city: "Boston, US", speciality: "Camera, lighting & grip rental" },
-  { id: "magic-lightbox", name: "Magic Lightbox Glow Hire", type: "partner", city: "South Africa", speciality: "Lighting & grip hire" },
+  { id: "bh-photo", name: "B&H Photo", type: "partner", city: "New York, US", speciality: "Cameras, lighting, audio", verified: true },
+  { id: "rule-boston", name: "Rule Boston", type: "partner", city: "Boston, US", speciality: "Camera, lighting & grip rental", verified: true },
+  { id: "magic-lightbox", name: "Magic Lightbox Glow Hire", type: "partner", city: "South Africa", speciality: "Lighting & grip hire", verified: true },
   // Sample creators, standing in until real listers sign up.
-  { id: "creator-boston", name: "Sample creator", type: "creator", city: "Boston, US" },
-  { id: "nia-fleet", name: "Nia Fleet", type: "partner", city: "Boston, US", speciality: "Electric mopeds, cars and vans" },
+  { id: "creator-boston", name: "Sample creator", type: "creator", city: "Boston, US", verified: true },
+  { id: "nia-fleet", name: "Nia Fleet", type: "partner", city: "Boston, US", speciality: "Electric mopeds, cars and vans", verified: true },
 ];
 
 const img = (file: string, alt: string, fit: ListingImage["fit"], pad?: number): ListingImage => ({
@@ -92,10 +98,10 @@ const HOUSE = "rule-boston";
 const NEAR = "Boston, MA";
 
 export const LISTINGS: Listing[] = [
-  { id: "sony-fx3", title: "Sony FX3", brand: "Sony", category: "Cameras", kind: "gear", images: [img("mk-fx3", "Sony FX3 cinema camera", "contain", 8)], condition: "Used", rentPerDay: 85, buyPrice: 3100, providerId: CREATOR, location: NEAR },
-  { id: "dji-osmo-pocket-3", title: "DJI Osmo Pocket 3", brand: "DJI", category: "Cameras", kind: "gear", images: [img("mk-osmo", "DJI Osmo Pocket 3", "contain", 10)], condition: "New", rentPerDay: 22, buyPrice: 519, providerId: HOUSE, location: NEAR },
-  { id: "aputure-hr672c", title: "Aputure HR672C LED", brand: "Aputure", category: "Lighting & Grip", kind: "gear", images: [img("mk-aputure", "Aputure HR672C LED panel", "cover")], condition: "Used", rentPerDay: 15, providerId: CREATOR, location: NEAR },
-  { id: "sony-a7-iv", title: "Sony α7 IV", brand: "Sony", category: "Cameras", kind: "gear", images: [img("mk-a7iv", "Sony α7 IV camera", "cover")], condition: "Used", rentPerDay: 55, buyPrice: 1900, providerId: HOUSE, location: NEAR },
+  { id: "sony-fx3", title: "Sony FX3", brand: "Sony", category: "Cameras", kind: "gear", images: [img("mk-fx3", "Sony FX3 cinema camera", "contain", 8)], condition: "Used", rentPerDay: 85, buyPrice: 3100, providerId: CREATOR, location: NEAR, aspect: "4 / 3" },
+  { id: "dji-osmo-pocket-3", title: "DJI Osmo Pocket 3", brand: "DJI", category: "Cameras", kind: "gear", images: [img("mk-osmo", "DJI Osmo Pocket 3", "contain", 10)], condition: "New", rentPerDay: 22, buyPrice: 519, providerId: HOUSE, location: NEAR, aspect: "1 / 1", delivery: true },
+  { id: "aputure-hr672c", title: "Aputure HR672C LED", brand: "Aputure", category: "Lighting & Grip", kind: "gear", images: [img("mk-aputure", "Aputure HR672C LED panel", "cover")], condition: "Used", rentPerDay: 15, providerId: CREATOR, location: NEAR, aspect: "3 / 4" },
+  { id: "sony-a7-iv", title: "Sony α7 IV", brand: "Sony", category: "Cameras", kind: "gear", images: [img("mk-a7iv", "Sony α7 IV camera", "cover")], condition: "Used", rentPerDay: 55, buyPrice: 1900, providerId: HOUSE, location: NEAR, aspect: "3 / 2", delivery: true },
   {
     id: "apple-vision-pro",
     title: "Apple Vision Pro",
@@ -112,16 +118,18 @@ export const LISTINGS: Listing[] = [
     buyPrice: 2600,
     providerId: HOUSE,
     location: NEAR,
+    aspect: "16 / 10",
+    delivery: true,
   },
-  { id: "rode-wireless-go-ii", title: "RØDE Wireless GO II", brand: "RØDE", category: "Audio", kind: "gear", images: [img("mk-rode", "RØDE Wireless GO II microphones", "cover")], condition: "Used", rentPerDay: 18, buyPrice: 210, providerId: CREATOR, location: NEAR },
-  { id: "dji-mini-4-pro", title: "DJI Mini 4 Pro", brand: "DJI", category: "Drones", kind: "gear", images: [img("mk-mini4", "DJI Mini 4 Pro drone", "contain", 6)], condition: "Used", rentPerDay: 45, buyPrice: 620, providerId: HOUSE, location: NEAR },
-  { id: "sennheiser-mkh-416", title: "Sennheiser MKH 416", brand: "Sennheiser", category: "Audio", kind: "gear", images: [img("mk-mkh416", "Sennheiser MKH 416 shotgun microphone", "cover")], condition: "Used", rentPerDay: 25, buyPrice: 750, providerId: HOUSE, location: NEAR },
-  { id: "wardrobe-rack", title: "Rolling wardrobe rack", brand: "Generic", category: "Wardrobe & Set", kind: "gear", images: [img("mk-rack", "Rolling wardrobe rack", "contain", 8)], condition: "New", rentPerDay: 10, buyPrice: 90, providerId: HOUSE, location: NEAR },
-  { id: "ray-ban-meta", title: "Ray-Ban Meta (Gen 2)", brand: "Ray-Ban", category: "XR & Wearables", kind: "gear", images: [img("mk-rayban", "Ray-Ban Meta smart glasses", "contain", 4)], condition: "New", rentPerDay: 18, buyPrice: 379, providerId: CREATOR, location: NEAR },
-  { id: "dji-rsc-2", title: "DJI RSC 2 gimbal", brand: "DJI", category: "Gimbals & Support", kind: "gear", images: [img("mk-rsc2", "DJI RSC 2 gimbal", "cover")], condition: "Used", rentPerDay: 20, buyPrice: 260, providerId: CREATOR, location: NEAR },
-  { id: "mac-mini-m4", title: "Mac mini (M4)", brand: "Apple", category: "Computing & Editing", kind: "gear", images: [img("mk-macmini", "Mac mini with M4", "contain", 6)], condition: "New", rentPerDay: 25, buyPrice: 599, providerId: HOUSE, location: NEAR },
-  { id: "c-stand", title: "40\" C-stand with arm", brand: "Generic", category: "Lighting & Grip", kind: "gear", images: [img("mk-cstand", "40-inch C-stand with arm", "contain", 6)], condition: "New", rentPerDay: 8, buyPrice: 180, providerId: HOUSE, location: NEAR },
-  { id: "vision-pro-spatial-kit", title: "Vision Pro spatial kit", brand: "Apple", category: "XR & Wearables", kind: "gear", images: [img("mk-avp_side", "Apple Vision Pro spatial capture kit", "cover")], condition: "Kit", rentPerDay: 95, providerId: CREATOR, location: NEAR },
+  { id: "rode-wireless-go-ii", title: "RØDE Wireless GO II", brand: "RØDE", category: "Audio", kind: "gear", images: [img("mk-rode", "RØDE Wireless GO II microphones", "cover")], condition: "Used", rentPerDay: 18, buyPrice: 210, providerId: CREATOR, location: NEAR, aspect: "4 / 3" },
+  { id: "dji-mini-4-pro", title: "DJI Mini 4 Pro", brand: "DJI", category: "Drones", kind: "gear", images: [img("mk-mini4", "DJI Mini 4 Pro drone", "contain", 6)], condition: "Used", rentPerDay: 45, buyPrice: 620, providerId: HOUSE, location: NEAR, aspect: "16 / 10", delivery: true },
+  { id: "sennheiser-mkh-416", title: "Sennheiser MKH 416", brand: "Sennheiser", category: "Audio", kind: "gear", images: [img("mk-mkh416", "Sennheiser MKH 416 shotgun microphone", "cover")], condition: "Used", rentPerDay: 25, buyPrice: 750, providerId: HOUSE, location: NEAR, aspect: "2 / 1", delivery: true },
+  { id: "wardrobe-rack", title: "Rolling wardrobe rack", brand: "Generic", category: "Wardrobe & Set", kind: "gear", images: [img("mk-rack", "Rolling wardrobe rack", "contain", 8)], condition: "New", rentPerDay: 10, buyPrice: 90, providerId: HOUSE, location: NEAR, aspect: "1 / 1", delivery: true },
+  { id: "ray-ban-meta", title: "Ray-Ban Meta (Gen 2)", brand: "Ray-Ban", category: "XR & Wearables", kind: "gear", images: [img("mk-rayban", "Ray-Ban Meta smart glasses", "contain", 4)], condition: "New", rentPerDay: 18, buyPrice: 379, providerId: CREATOR, location: NEAR, aspect: "1 / 1" },
+  { id: "dji-rsc-2", title: "DJI RSC 2 gimbal", brand: "DJI", category: "Gimbals & Support", kind: "gear", images: [img("mk-rsc2", "DJI RSC 2 gimbal", "cover")], condition: "Used", rentPerDay: 20, buyPrice: 260, providerId: CREATOR, location: NEAR, aspect: "3 / 4" },
+  { id: "mac-mini-m4", title: "Mac mini (M4)", brand: "Apple", category: "Computing & Editing", kind: "gear", images: [img("mk-macmini", "Mac mini with M4", "contain", 6)], condition: "New", rentPerDay: 25, buyPrice: 599, providerId: HOUSE, location: NEAR, aspect: "16 / 11", delivery: true },
+  { id: "c-stand", title: "40\" C-stand with arm", brand: "Generic", category: "Lighting & Grip", kind: "gear", images: [img("mk-cstand", "40-inch C-stand with arm", "contain", 6)], condition: "New", rentPerDay: 8, buyPrice: 180, providerId: HOUSE, location: NEAR, aspect: "16 / 9", delivery: true },
+  { id: "vision-pro-spatial-kit", title: "Vision Pro spatial kit", brand: "Apple", category: "XR & Wearables", kind: "gear", images: [img("mk-avp_side", "Apple Vision Pro spatial capture kit", "cover")], condition: "Kit", rentPerDay: 95, providerId: CREATOR, location: NEAR, aspect: "1 / 1" },
 
   { id: "olto", title: "Infinite Machine Olto", brand: "Infinite Machine", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-olto", "Infinite Machine Olto electric moped", "contain", 6)], rentPerDay: 45, providerId: "nia-fleet", location: NEAR, blurb: "Electric moped. Crew runs, scouts and city shoots." },
   { id: "olto-fleet", title: "Olto fleet (5+)", brand: "Infinite Machine", category: "Vehicles & Fleet", kind: "fleet", images: [img("mk-olto", "Infinite Machine Olto electric mopeds", "contain", 6)], rentPerDay: 39, providerId: "nia-fleet", location: NEAR, blurb: "Fleet rate from 5 units, delivered charged with helmets." },
@@ -174,3 +182,19 @@ export const FIELD_TILES: { listingId: string; image: number; name: string }[] =
   { listingId: "vision-pro-spatial-kit", image: 0, name: "Vision Pro kit" },
   { listingId: "apple-vision-pro", image: 0, name: "Apple Vision Pro" },
 ];
+
+/** "~$3,100", or null when it's rent only. */
+export const buyEstimate = (l: Listing) => (l.buyPrice ? `~$${l.buyPrice.toLocaleString("en-US")}` : null);
+
+/** Under the name in Rent mode: what buying it would cost, or that it's rent only. */
+export function buyLine(l: Listing) {
+  const estimate = buyEstimate(l);
+  if (estimate) return `Buy ${l.condition === "New" ? "new" : "used"} ${estimate}`;
+  return l.condition === "Kit" ? "Kit · rent only" : "Rent only";
+}
+
+/** Who lists it, as the card says it: "Verified creator" or "Rental house". */
+export const listerLine = (l: Listing) => (getProvider(l.providerId).type === "partner" ? "Rental house" : "Verified creator");
+
+/** The brands line on Marketplace home, in the design's order. */
+export const BRANDS = ["DJI", "Sony", "Apple", "Tesla", "Infinite Machine", "RØDE", "Sennheiser", "Aputure", "Ray-Ban Meta", "Ford"];

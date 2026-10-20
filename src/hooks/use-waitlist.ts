@@ -8,12 +8,17 @@ export type WaitlistFeature = "explore" | "marketplace" | "marketplace-lister";
 
 // "Notify me" on coming-soon screens: whether this person is on a feature's waitlist, and a
 // toggle that saves it (feature_waitlist, own rows only). `waiting` is null while it loads.
+// Coming-soon screens are for signed-in people only, so the note goes to their account's email
+// (`email`, shown on the card); nobody types an address.
 export function useWaitlist(feature: WaitlistFeature, messages: { joined: string; left: string }) {
   const [waiting, setWaiting] = useState<boolean | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
 
   useEffect(() => {
     let live = true;
-    createClient()
+    const supabase = createClient();
+    void supabase.auth.getUser().then(({ data }) => live && setEmail(data.user?.email ?? null));
+    supabase
       .from("feature_waitlist")
       .select("feature")
       .eq("feature", feature)
@@ -39,5 +44,5 @@ export function useWaitlist(feature: WaitlistFeature, messages: { joined: string
     toast.success(next ? messages.joined : messages.left);
   };
 
-  return { waiting, toggle };
+  return { waiting, toggle, email };
 }

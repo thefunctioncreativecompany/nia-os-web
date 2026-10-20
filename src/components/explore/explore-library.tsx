@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { useReducedMotion } from "motion/react";
 
 import {
   DropdownMenu,
@@ -12,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { isMouse, pointerIn, useFrame } from "@/hooks/use-pointer";
+import { DriftColumns } from "@/components/nia/drift-columns";
 import { DirectorsNotes } from "./directors-notes";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory, getFilm, type Film } from "./explore-data";
@@ -113,46 +112,18 @@ export function ExploreLibrary() {
 // Five columns of posters that drift apart as the pointer moves down them (wide screens only).
 // Phones and tablets get a plain two- or three-column grid of the same posters.
 function ExploreAllGrid({ films }: { films: Film[] }) {
-  const reduce = useReducedMotion();
-  const [pointerY, setPointerY] = useState(0.5);
-  const frame = useFrame();
-
-  const onMove = (e: React.PointerEvent<HTMLElement>) => {
-    if (reduce || !isMouse(e)) return;
-    const y = pointerIn(e).fy;
-    frame.next(() => setPointerY(y));
-  };
-  const onLeave = () => {
-    frame.cancel();
-    setPointerY(0.5);
-  };
-
   return (
-    <section
-      aria-labelledby="explore-all"
-      onPointerMove={onMove}
-      onPointerLeave={onLeave}
+    <DriftColumns
+      label="Explore all"
+      items={films}
+      getKey={(film) => film.id}
+      renderItem={(film) => <PosterTile film={film} />}
+      drift={DRIFT}
+      oddOffset={ODD_OFFSET}
       className="mt-15 lg:-mx-1.5 lg:h-295 lg:overflow-hidden lg:px-1.5"
-    >
-      <div className="grid grid-cols-2 gap-3.25 sm:grid-cols-3 lg:flex lg:items-start lg:pt-2.5">
-        {DRIFT.map((drift, c) => {
-          const y = (reduce ? 0 : (pointerY - 0.5) * drift) + (c % 2 ? ODD_OFFSET : 0);
-          return (
-            <div
-              key={c}
-              style={{ transform: `translate3d(0, ${y.toFixed(1)}px, 0)` }}
-              className="contents lg:flex lg:min-w-0 lg:flex-1 lg:flex-col lg:gap-3.25 lg:transition-transform lg:duration-drift lg:ease-glide"
-            >
-              {films
-                .filter((_, i) => i % DRIFT.length === c)
-                .map((film) => (
-                  <PosterTile key={film.id} film={film} />
-                ))}
-            </div>
-          );
-        })}
-      </div>
-    </section>
+      gridClassName="grid-cols-2 gap-3.25 sm:grid-cols-3 lg:pt-2.5"
+      columnClassName="lg:gap-3.25"
+    />
   );
 }
 

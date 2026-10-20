@@ -109,9 +109,11 @@ Data:
   Wikipedia. No scores (their terms). Data in `src/components/explore/film-details.ts`. "Open press
   kit" keeps the paid-plan rule.
 - (2026-10-20) Marketplace follows Ika's Claude Design and `design-ref/marketplace/MARKETPLACE_SPEC.md`.
-  Coming soon is the "infinite field" (tiles pan with the pointer, mini-map; phones swipe), with
-  Explore's looping-motion exception (amber pulse, hint arrow). While `features.marketplaceUnlocked`
-  is off, tiles open `/marketplace/preview`. The gear rental fee follows the Plans page (renter's
+  Coming soon is the design's field of product tiles held still (Ika: the panning felt clunky), with
+  Explore's looping-motion exception for the amber dot. While `features.marketplaceUnlocked` is off,
+  tiles and "Preview Marketplace" open `/marketplace/preview` (the store with sample data). Notify me
+  goes to the signed-in account's email, shown on the card; no email box (coming-soon screens are
+  signed-in only). Nothing sends those emails yet. The gear rental fee follows the Plans page (renter's
   plan: 5% Free/Starter, 4% Creator, 3% Pro/Enterprise), not the spec's creator/partner split.
   Sample data in `src/features/marketplace/data.ts`. Waitlist names `marketplace` and
   `marketplace-lister` need `20261029000000_marketplace_waitlist.sql` (run after the plans one).

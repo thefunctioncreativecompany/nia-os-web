@@ -199,10 +199,6 @@
   --tw-duration: var(--duration-track);
   transition-duration: var(--duration-track);
 }
-@utility duration-pan {
-  --tw-duration: var(--duration-pan);
-  transition-duration: var(--duration-pan);
-}
 @utility duration-zoom {
   --tw-duration: var(--duration-zoom);
   transition-duration: var(--duration-zoom);
@@ -325,7 +321,6 @@
   --duration-zoom: 1600ms;
   --duration-settle: 800ms; /* Templates (Claude Design): filmstrip cards settling */
   --duration-track: 1100ms; /* Templates: filmstrip track following the pointer */
-  --duration-pan: 1800ms; /* Marketplace (Claude Design): the field following the pointer */
 }
 
 /* uiarc components (src/components/arc) read these names. Each one points at a Nia token,
@@ -937,19 +932,13 @@
 }
 
 /* Marketplace animations (Ika's Claude Design "MarketplaceSoon", 2026-10-20; looping motion
-   allowed as for Explore, Ika 2026-10-20). Reduced motion stops them. */
+   allowed as for Explore, Ika 2026-10-20). Reduced motion stops it. */
 @theme {
   /* "Coming soon · Launch date TBD" dot: an amber ring breathing out of it. */
   --animate-pending-pulse: pending-pulse 2s ease-in-out infinite;
-  /* The arrow on "Move your cursor to look around". */
-  --animate-nudge: nudge 2.4s ease-in-out infinite;
 
   @keyframes pending-pulse {
     0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--status-pending-foreground) 45%, transparent); }
     50% { box-shadow: 0 0 0 6px color-mix(in oklab, var(--status-pending-foreground) 0%, transparent); }
-  }
-  @keyframes nudge {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(0.375rem); }
   }
 }

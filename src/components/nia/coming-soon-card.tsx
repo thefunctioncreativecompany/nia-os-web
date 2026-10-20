@@ -14,6 +14,7 @@ export function ComingSoonCard({
   bodyClassName,
   children,
   actions,
+  note,
   className,
 }: {
   status: string;
@@ -25,6 +26,8 @@ export function ComingSoonCard({
   /** The body copy. */
   children: ReactNode;
   actions: ReactNode;
+  /** A quiet line under the buttons (where the note will go). */
+  note?: ReactNode;
   className?: string;
 }) {
   return (
@@ -47,6 +50,7 @@ export function ComingSoonCard({
       <h1 className={cn("text-h2 font-semibold tracking-tight text-foreground sm:text-hero", titleClassName)}>{title}</h1>
       <p className={cn("max-w-90 text-small leading-relaxed text-muted-foreground sm:text-lead", bodyClassName)}>{children}</p>
       <div className="mt-1 flex flex-wrap justify-center gap-2 sm:mt-1.5 sm:gap-2.5">{actions}</div>
+      {note && <p className="-mt-1 text-caption text-muted-foreground">{note}</p>}
     </div>
   );
 }

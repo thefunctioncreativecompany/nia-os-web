@@ -33,7 +33,7 @@ export function ExploreComingSoon() {
   const pointer = useRef({ x: 0.5, y: 0.5 });
   const [tilt, setTilt] = useState(0.5);
   const frame = useFrame();
-  const { waiting, toggle } = useWaitlist("explore", {
+  const { waiting, toggle, email } = useWaitlist("explore", {
     joined: "We'll let you know when Explore opens.",
     left: "You won't get a note when Explore opens.",
   });
@@ -100,6 +100,7 @@ export function ExploreComingSoon() {
       <ComingSoonCard
         status="Coming soon"
         title="Explore"
+        note={email && <>We&rsquo;ll email {email} when Explore opens.</>}
         actions={
           <>
             {waiting ? (
