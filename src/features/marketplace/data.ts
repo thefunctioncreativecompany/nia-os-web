@@ -71,6 +71,10 @@ export type Listing = {
   tag?: string;
   /** Fleet listings: the day rate is per unit (the fleet rate). */
   perUnit?: boolean;
+  /** The listing page's spec line, when the lister wrote one. */
+  specs?: string;
+  /** Refundable hold on the renter's card, in US dollars, when the lister set one. */
+  deposit?: number;
   /** Digital products: the kind of file, shown as a pill. */
   productType?: string;
   /** Digital products: the Templates gradient their tile uses (`grain-1` … `grain-12`). */
@@ -81,11 +85,11 @@ export type Listing = {
 
 export const PROVIDERS: Provider[] = [
   { id: "bh-photo", name: "B&H Photo", type: "partner", city: "New York, US", speciality: "Cameras, lighting, audio", verified: true },
-  { id: "rule-boston", name: "Rule Boston", type: "partner", city: "Boston, US", speciality: "Camera, lighting & grip rental", verified: true },
+  { id: "rule-boston", name: "Rule Boston", type: "partner", city: "Boston, MA", speciality: "Camera, lighting & grip rental", verified: true },
   { id: "magic-lightbox", name: "Magic Lightbox Glow Hire", type: "partner", city: "South Africa", speciality: "Lighting & grip hire", verified: true },
   // Sample creators, standing in until real listers sign up.
-  { id: "creator-boston", name: "Sample creator", type: "creator", city: "Boston, US", verified: true },
-  { id: "nia-fleet", name: "Nia Fleet", type: "partner", city: "Boston, US", speciality: "Electric mopeds, cars and vans", verified: true },
+  { id: "creator-boston", name: "Sample creator", type: "creator", city: "Boston, MA", verified: true },
+  { id: "nia-fleet", name: "Nia Fleet", type: "partner", city: "Boston, MA", speciality: "Electric mopeds, cars and vans", verified: true },
 ];
 
 const img = (file: string, alt: string, fit: ListingImage["fit"], pad?: number): ListingImage => ({
@@ -124,6 +128,8 @@ export const LISTINGS: Listing[] = [
     location: NEAR,
     aspect: "16 / 10",
     delivery: true,
+    specs: "Used · Excellent · 256GB · includes Solo Knit and Dual Loop bands, battery, travel case",
+    deposit: 500,
   },
   { id: "rode-wireless-go-ii", title: "RØDE Wireless GO II", brand: "RØDE", category: "Audio", kind: "gear", images: [img("mk-rode", "RØDE Wireless GO II microphones", "cover")], condition: "Used", rentPerDay: 18, buyPrice: 210, providerId: CREATOR, location: NEAR, aspect: "4 / 3" },
   { id: "dji-mini-4-pro", title: "DJI Mini 4 Pro", brand: "DJI", category: "Drones", kind: "gear", images: [img("mk-mini4", "DJI Mini 4 Pro drone", "contain", 6)], condition: "Used", rentPerDay: 45, buyPrice: 620, providerId: HOUSE, location: NEAR, aspect: "16 / 10", delivery: true },
@@ -202,3 +208,26 @@ export const listerLine = (l: Listing) => (getProvider(l.providerId).type === "p
 
 /** The brands line on Marketplace home, in the design's order. */
 export const BRANDS = ["DJI", "Sony", "Apple", "Tesla", "Infinite Machine", "RØDE", "Sennheiser", "Aputure", "Ray-Ban Meta", "Ford"];
+
+/** The spec line under a listing's name: the lister's own, or its condition and category. */
+export const specLine = (l: Listing) => l.specs ?? [l.condition, l.category].filter(Boolean).join(" · ");
+
+/** The refundable hold for renting it: the lister's, else (sample rule until listers set their
+ *  own) a fifth of its buy price, or five days' rent, rounded up to $50, at least $100. */
+export function depositFor(l: Listing) {
+  if (l.deposit !== undefined) return l.deposit;
+  const base = l.buyPrice ? l.buyPrice / 5 : (l.rentPerDay ?? 0) * 5;
+  return Math.max(100, Math.ceil(base / 50) * 50);
+}
+
+/** "RB" for Rule Boston. */
+export const initials = (name: string) =>
+  name
+    .split(/\s+/)
+    .filter((w) => /^[A-Za-z]/.test(w))
+    .slice(0, 2)
+    .map((w) => w[0].toUpperCase())
+    .join("");
+
+/** Where Marketplace home is: the store itself once it opens, its preview until then. */
+export const marketplaceHome = (unlocked: boolean) => (unlocked ? "/marketplace" : "/marketplace/preview");

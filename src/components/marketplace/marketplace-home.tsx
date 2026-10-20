@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Camera, ChevronDown, Film, Headphones, MapPin, Music, Package, PackageSearch, Palette, Search, SlidersHorizontal, type LucideIcon } from "lucide-react";
+import { ChevronDown, MapPin, PackageSearch, Search, SlidersHorizontal } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -34,6 +34,7 @@ import {
   type Condition,
   type Listing,
 } from "@/features/marketplace/data";
+import { DigitalIcon } from "./digital-icon";
 import { MarketplaceNav } from "./marketplace-nav";
 
 type Mode = "rent" | "buy";
@@ -320,25 +321,16 @@ function FleetCard({ listing: l }: { listing: Listing }) {
   );
 }
 
-const DIGITAL_ICONS: Record<NonNullable<Listing["icon"]>, LucideIcon> = {
-  palette: Palette,
-  camera: Camera,
-  headphones: Headphones,
-  music: Music,
-  film: Film,
-  package: Package,
-};
 
 // A digital product on its Templates gradient tile: icon, type pill, name, price, and that it's an
 // instant download with a licence. Leans toward the pointer.
 function DigitalCard({ listing: l }: { listing: Listing }) {
-  const Icon = l.icon ? DIGITAL_ICONS[l.icon] : Package;
   return (
     <TiltCard href={`/marketplace/listing/${l.id}`} label={`${l.title}, $${l.price}`} shadow={false} className="group flex flex-col gap-2 rounded-2xl">
       {(sheen) => (
         <>
           <span className={cn("relative grid aspect-square place-items-center overflow-hidden rounded-2xl transition-shadow duration-glide ease-glide group-hover:shadow-card-hover motion-reduce:group-hover:shadow-none", l.grain)}>
-            <Icon aria-hidden className="size-10" strokeWidth={1.5} />
+            <DigitalIcon listing={l} className="size-10" strokeWidth={1.5} />
             {sheen}
             {l.productType && (
               <span className="absolute bottom-2.5 left-2.5 inline-flex h-5.5 items-center rounded-full bg-white/90 px-2 text-micro font-semibold text-foreground">{l.productType}</span>
