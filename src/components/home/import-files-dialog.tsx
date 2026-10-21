@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 import { createClient } from "@/lib/supabase/client";
+import { currentUser } from "@/lib/supabase/current-user";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -24,9 +25,7 @@ export function ImportFilesDialog({ children }: { children: React.ReactNode }) {
     let live = true;
     void (async () => {
       const supabase = createClient();
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+      const user = await currentUser(supabase);
       if (!user) return;
       const [{ data: own }, { data: shared }] = await Promise.all([
         supabase.from("projects").select("id, title, cover_url, updated_at").eq("owner_id", user.id).is("deleted_at", null),

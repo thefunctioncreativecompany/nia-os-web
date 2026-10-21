@@ -9,16 +9,19 @@ export const geist = Geist({
   variable: "--font-geist",
 });
 
-// Accent headings only, always italic.
+// Kept as theme fonts but not used in the interface (Geist only, Ika 2026-10-19), so they
+// aren't preloaded: the browser fetches one only if a page actually uses it.
 export const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   style: "italic",
   variable: "--font-instrument-serif",
+  preload: false,
 });
 
-// Numbers and code.
+// The screenplay preview's typewriter text (content formatting).
 export const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
+  preload: false,
 });

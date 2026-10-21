@@ -1,8 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { redirect } from "next/navigation";
-import { connection } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { getSession } from "@/lib/supabase/session";
 
 export type CurrentUser = {
   id: string;
@@ -12,16 +11,11 @@ export type CurrentUser = {
 };
 
 // Returns the signed-in user, or sends them to the sign-in page.
-// `cache` means it only asks Supabase once per page load, even if several
+// `cache` means it only runs once per page load, even if several
 // components call it. Must be called inside a <Suspense> boundary because it
 // reads cookies.
 export const getCurrentUser = cache(async (): Promise<CurrentUser> => {
-  // Supabase checks token expiry with Date.now(), so keep this out of the prerendered shell.
-  await connection();
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const { supabase, user } = await getSession();
 
   if (!user) {
     redirect("/login");
@@ -37,9 +31,9 @@ export const getCurrentUser = cache(async (): Promise<CurrentUser> => {
 
   return {
     id: user.id,
-    email: user.email ?? "",
-    name: profile?.full_name || user.user_metadata?.full_name || "",
-    avatarUrl: profile?.avatar_url ?? user.user_metadata?.avatar_url ?? null,
+    email: user.email,
+    name: profile?.full_name || user.metadata.full_name || "",
+    avatarUrl: profile?.avatar_url ?? user.metadata.avatar_url ?? null,
   };
 });
 

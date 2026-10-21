@@ -4,7 +4,6 @@ import { useEffect, useId, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Plus, Star } from "lucide-react";
-import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -17,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { NotYet } from "@/components/nia/not-yet";
 import { dayRate, getListing, initials } from "@/features/marketplace/data";
 import {
   ANALYTICS,
@@ -75,7 +75,6 @@ export function ListerDashboard() {
 
   const answer = (id: string, status: "accepted" | "declined") => {
     setRequests((all) => all.map((r) => (r.id === id ? { ...r, status } : r)));
-    toast(status === "accepted" ? "Accepted. It's in Upcoming until the handover." : "Declined. The renter will be told.");
   };
 
   const dayLabel = (n: number) => (n === 0 ? "Today" : n === 1 ? "Tomorrow" : dayFrom(n) ? shortDate(dayFrom(n)!) : `In ${n} days`);
@@ -109,7 +108,7 @@ export function ListerDashboard() {
         <div className="flex flex-wrap items-center gap-2.5">
           <div className="flex h-10 items-center gap-2.5 rounded-full border border-border px-4">
             <Label htmlFor={acceptingId} className="text-small font-semibold">{accepting ? "Accepting bookings" : "Paused"}</Label>
-            <Switch id={acceptingId} checked={accepting} onCheckedChange={setAccepting} className="data-[state=checked]:bg-nia-success" />
+            <Switch id={acceptingId} disabled checked={accepting} onCheckedChange={setAccepting} className="data-[state=checked]:bg-nia-success" />
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -195,6 +194,7 @@ export function ListerDashboard() {
             <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-secondary px-2 text-caption font-bold">{pending.length}</span>
           </div>
           <p className="mt-1 text-small text-muted-foreground">Accept within the window or the request expires. Fast replies rank your listings higher.</p>
+          <NotYet className="mt-2">Accepting, declining and pausing listings open with Marketplace. These are sample requests.</NotYet>
           <div className="mt-4 flex flex-col gap-3">
             {pending.map((r) => {
               const who = renter(r.renterId);
@@ -229,8 +229,8 @@ export function ListerDashboard() {
                     <span className="text-micro text-status-pending-foreground">{countdown(r)}</span>
                   </div>
                   <div className="flex gap-2 max-sm:w-full">
-                    <Button variant="outline" size="compact" onClick={() => answer(r.id, "declined")} className="max-sm:flex-1">Decline</Button>
-                    <Button size="compact" onClick={() => answer(r.id, "accepted")} className="max-sm:flex-1">Accept</Button>
+                    <Button variant="outline" size="compact" disabled onClick={() => answer(r.id, "declined")} className="max-sm:flex-1">Decline</Button>
+                    <Button size="compact" disabled onClick={() => answer(r.id, "accepted")} className="max-sm:flex-1">Accept</Button>
                   </div>
                 </div>
               );
@@ -304,10 +304,11 @@ export function ListerDashboard() {
                         <button
                           type="button"
                           aria-pressed={active}
+                          disabled
                           aria-label={`${l.title}: ${active ? "active, press to pause" : "paused, press to make active"}`}
                           onClick={() => setPaused((all) => ({ ...all, [row.listingId]: active }))}
                           className={cn(
-                            "inline-flex h-7 items-center rounded-full border px-3 text-caption font-semibold outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
+                            "inline-flex h-7 items-center rounded-full border px-3 text-caption font-semibold outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50",
                             active ? "border-foreground bg-foreground text-primary-foreground" : "border-nia-line-strong bg-white text-muted-foreground",
                           )}
                         >

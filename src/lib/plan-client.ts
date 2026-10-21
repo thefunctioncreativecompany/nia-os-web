@@ -1,4 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { currentUser } from "@/lib/supabase/current-user";
 
 import { FREE_LIMITS, isLimited, limitsOn, type PlanId } from "@/lib/plans";
 
@@ -13,8 +14,10 @@ export async function workspacePlan(supabase: SupabaseClient, workspaceId: strin
 /** The plan of the workspace a project belongs to. */
 export async function projectPlan(supabase: SupabaseClient, projectId: string | null | undefined): Promise<PlanId> {
   if (!projectId) return "free";
-  const { data } = await supabase.from("projects").select("workspace_id").eq("id", projectId).maybeSingle();
-  return workspacePlan(supabase, data?.workspace_id);
+  // One request: the project with its workspace's plan.
+  const { data, error } = await supabase.from("projects").select("workspaces(plan)").eq("id", projectId).maybeSingle();
+  const plan = (data as { workspaces: { plan?: string } | null } | null)?.workspaces?.plan;
+  return error || !plan ? "free" : (plan as PlanId);
 }
 
 /** Whether the free limits apply to this project (live site only). */
@@ -42,8 +45,9 @@ export async function projectLimitReached(supabase: SupabaseClient, workspaceId:
 
 /** The signed-in person's own workspace plan (their first workspace). */
 export async function myPlan(supabase: SupabaseClient): Promise<PlanId> {
-  const { data: auth } = await supabase.auth.getUser();
-  if (!auth.user) return "free";
-  const { data } = await supabase.from("workspaces").select("id").eq("owner_id", auth.user.id).order("created_at").limit(1).maybeSingle();
-  return workspacePlan(supabase, data?.id);
+  const user = await currentUser(supabase);
+  if (!user) return "free";
+  // One request: the plan of their first workspace.
+  const { data, error } = await supabase.from("workspaces").select("plan").eq("owner_id", user.id).order("created_at").limit(1).maybeSingle();
+  return error || !data?.plan ? "free" : (data.plan as PlanId);
 }

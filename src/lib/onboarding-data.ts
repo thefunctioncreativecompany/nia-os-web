@@ -1,9 +1,8 @@
 import "server-only";
 import { cache } from "react";
 import { redirect } from "next/navigation";
-import { connection } from "next/server";
 
-import { createClient } from "@/lib/supabase/server";
+import { getSession } from "@/lib/supabase/session";
 
 // Loaders for the onboarding steps. They read cookies, so call them inside <Suspense>.
 // Row Level Security limits every query to the signed-in user's own rows.
@@ -20,12 +19,7 @@ export type OnboardingProfile = {
 };
 
 const requireUser = cache(async () => {
-  // Supabase checks token expiry with Date.now(), so keep this out of the prerendered shell.
-  await connection();
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const { supabase, user } = await getSession();
   if (!user) redirect("/login");
   return { supabase, user };
 });
@@ -41,8 +35,8 @@ export const getOnboardingProfile = cache(async (): Promise<OnboardingProfile> =
 
   return {
     userId: user.id,
-    email: user.email ?? "",
-    fullName: data.full_name || user.user_metadata?.full_name || "",
+    email: user.email,
+    fullName: data.full_name || user.metadata.full_name || "",
     avatarUrl: data.avatar_url,
     username: data.username,
     profession: data.profession,

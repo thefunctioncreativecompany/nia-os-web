@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import SegmentedControl from "@/components/arc/segmented-control/segmented-control";
 import { createClient } from "@/lib/supabase/client";
-import { workspacePlan } from "@/lib/plan-client";
+import { myPlan } from "@/lib/plan-client";
 import { DURATION, EASE_OUT } from "@/lib/motion";
 import { FREE_LIMITS, PAID_UPLOAD_MB, PLANS, TOP_UPS, money, type Billing, type Plan, type PlanId } from "@/lib/plans";
 
@@ -24,13 +24,12 @@ export function PlansPage() {
 
   useEffect(() => {
     const supabase = createClient();
-    void (async () => {
-      const { data: auth } = await supabase.auth.getUser();
-      const { data: ws } = await supabase.from("workspaces").select("id").eq("owner_id", auth.user?.id ?? "").order("created_at").limit(1).maybeSingle();
-      setCurrent(await workspacePlan(supabase, ws?.id));
-      const { data } = await supabase.from("feature_waitlist").select("feature");
-      setWanted(new Set((data ?? []).map((r) => r.feature as string)));
-    })();
+    // The plan and the waitlist load side by side.
+    void myPlan(supabase).then(setCurrent);
+    void supabase
+      .from("feature_waitlist")
+      .select("feature")
+      .then(({ data }) => setWanted(new Set((data ?? []).map((r) => r.feature as string))));
   }, []);
 
   const register = async (plan: Plan) => {

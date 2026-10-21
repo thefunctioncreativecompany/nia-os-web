@@ -123,6 +123,12 @@ Data:
   `20261029000000_marketplace_waitlist.sql` (run after the plans one). Coming soon has two buttons:
   Join the waitlist and Preview Marketplace (Ika: no List your gear early).
 
+- (2026-10-21) Anything that doesn't work yet is greyed out with a `NotYet` note saying when it opens
+  (`src/components/nia/not-yet.tsx`), never active with a "nothing happened" message: Marketplace's
+  Pay, Publish listing, fleet request and the lister dashboard's Accept / Decline / pause; Explore's
+  Open press kit / film page (this drops the free-plan upgrade prompt there, to confirm with Ika) and
+  Latest projects. Remove the `disabled` and the note when the feature opens.
+
 ## Working notes
 
 - If something fails twice, stop, explain simply, and offer to revert to the last commit.
@@ -141,6 +147,12 @@ Data:
   land on `/auth/confirm`; failures go to `/auth/error`. Use real logo SVGs from the web.
 - Anything reading the Supabase session must `await connection()` first (Supabase reads `Date.now()`),
   inside a `<Suspense>` boundary.
+- On the server, get the signed-in person from `getSession()` (`src/lib/supabase/session.ts`): one
+  client per page and a local token check (no trip to Supabase). Use `getUser()` only where its extra
+  data or a fresh check matters (Settings identities, the invite email). In the browser use
+  `currentUser()` (`src/lib/supabase/current-user.ts`), not `getUser()`.
+- Load data a control needs on first use, not on every page load (the navbar search loads on hover,
+  tap or focus). Run independent queries together (`Promise.all`), and join instead of chaining.
 - If the dev server serves stale CSS or route types, stop it, `rm -rf .next`, and restart.
 - Auth emails send through Resend (custom SMTP in Supabase → Authentication → Emails, sender
   `no-reply@niatechnologies.co`, API key `nia-os-supabase-auth`). Templates live in
@@ -243,6 +255,20 @@ Marketplace (from Ika's Claude Design and `design-ref/marketplace/MARKETPLACE_SP
   `/marketplace/fleet/[id]`, `/marketplace/dashboard`. Fees in `fees.ts` (tested). To do: Supabase
   tables for listings, bookings and requests; payments (Stripe); My rentals; messages to listers;
   run `20261029000000_marketplace_waitlist.sql`.
+
+Explore, Made in Africa (Ika's build guide, 2026-10-21)
+- [ ] Started: the 50-title list (`src/features/explore/made-in-africa.json` + `.ts`), Supabase helpers
+  (`src/lib/explore.ts`), the seed script (`scripts/seed-made-in-africa.mjs`) and
+  `20261030000000_explore_made_in_africa.sql` (not run yet). To do: the filmstrip on Explore (first 15),
+  View all, the title page laid out like the project page; Ika then assigns covers.
+
+Performance audit (2026-10-21)
+- [x] Login 96/100 on phones in Lighthouse, ahead of StudioBinder, Frame.io, Milanote, Notion, Canva,
+  Figma and Airtable. Fixed: local sign-in check on the server, browser session reads, search loads on
+  first use, one-request plan lookups, parallel template-editor queries, unused fonts not preloaded,
+  theme library removed, tooltips only in the app, Explore's first poster fetched first, non-working
+  actions greyed out. Next: the navbar's menu and search pull in the animation library (~77 KB) on
+  every signed-in page; move them to `LazyMotion` as its own step.
 
 Milestone 4 — Shoot day: not started.
 

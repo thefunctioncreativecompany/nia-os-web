@@ -1,9 +1,8 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
-import { connection } from "next/server";
 
-import { createClient } from "@/lib/supabase/server";
+import { getSession } from "@/lib/supabase/session";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getSchema } from "@/features/templates/catalog";
 import { canEdit, restoreDocument } from "@/features/templates/engine/sections";
@@ -39,12 +38,7 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
   const { project: projectParam } = await searchParams;
   if (typeof doc === "string") {
     if (!/^[0-9a-f-]{36}$/.test(doc)) notFound();
-    // Supabase checks token expiry with Date.now(), so keep this out of the prerendered shell.
-    await connection();
-    const supabase = await createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const { supabase, user } = await getSession();
     if (!user) redirect("/login");
     const { data } = await supabase
       .from("documents")
@@ -69,24 +63,19 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
     }
   } else if (typeof projectParam === "string" && /^[0-9a-f-]{36}$/.test(projectParam)) {
     // Started from a project ("Add document"): it's filed there on the first save, if they can edit it.
-    await connection();
-    const supabase = await createClient();
-    const [{ data: project }, { data: canEditIt }] = await Promise.all([
-      supabase.from("projects").select("id, title").eq("id", projectParam).is("deleted_at", null).maybeSingle(),
+    const { supabase } = await getSession();
+    // All at once: the project (with its workspace's plan), whether they can edit it, and the
+    // document of this template it already has.
+    const [{ data: project }, { data: canEditIt }, { data: found }] = await Promise.all([
+      supabase.from("projects").select("id, title, workspaces(plan)").eq("id", projectParam).is("deleted_at", null).maybeSingle(),
       supabase.rpc("can_edit_project", { pid: projectParam }),
+      supabase.from("documents").select("id").eq("project_id", projectParam).eq("template_code", schema.code).is("deleted_at", null).limit(1).maybeSingle(),
     ]);
     // One of each template per project (free plan): open the one it already has. Paid workspaces
     // can ask for another (`another=1` from Add document).
-    const { data: ws } = await supabase.from("projects").select("workspaces(plan)").eq("id", projectParam).maybeSingle();
-    const paid = ((ws as unknown as { workspaces: { plan?: string } | null } | null)?.workspaces?.plan ?? "free") !== "free";
+    const paid = ((project as unknown as { workspaces: { plan?: string } | null } | null)?.workspaces?.plan ?? "free") !== "free";
     const another = paid && (await searchParams).another === "1";
-    const { data: existing } = another ? { data: null } : await supabase
-      .from("documents")
-      .select("id")
-      .eq("project_id", projectParam)
-      .eq("template_code", schema.code)
-      .is("deleted_at", null)
-      .maybeSingle();
+    const existing = another ? null : found;
     if (existing) redirect(`/templates/${schema.code}?doc=${existing.id}`);
     if (project && canEditIt) startIn = { id: project.id, title: project.title || "Untitled project" };
   }

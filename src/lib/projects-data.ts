@@ -1,7 +1,6 @@
 import "server-only";
 import { cache } from "react";
 import { notFound, redirect } from "next/navigation";
-import { connection } from "next/server";
 
 import {
   PROJECT_COLUMNS,
@@ -10,18 +9,13 @@ import {
   type Project,
   type ProjectRole,
 } from "@/lib/projects";
-import { createClient } from "@/lib/supabase/server";
+import { getSession } from "@/lib/supabase/session";
 
 // Loaders for the project screens and Home. They read cookies, so call them inside
 // <Suspense>. Row Level Security limits every query to projects the user can access.
 
 const requireUser = cache(async () => {
-  // Supabase checks token expiry with Date.now(), so keep this out of the prerendered shell.
-  await connection();
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const { supabase, user } = await getSession();
   if (!user) redirect("/login");
   return { supabase, user, now: Date.now() };
 });

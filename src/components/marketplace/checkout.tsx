@@ -4,7 +4,6 @@ import { useEffect, useId, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ShieldCheck } from "lucide-react";
-import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
 import { createClient } from "@/lib/supabase/client";
@@ -13,6 +12,7 @@ import { planById, type PlanId } from "@/lib/plans";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { NotYet } from "@/components/nia/not-yet";
 import { depositFor, getProvider, type Listing } from "@/features/marketplace/data";
 import {
   DELIVERY_EACH_WAY_CENTS,
@@ -90,12 +90,6 @@ export function Checkout({ listing: l, mode, from, to }: { listing: Listing; mod
   const total = rental?.total ?? purchase?.total ?? 0;
   const later = PAY_LATER.some((m) => m.id === method);
   const planName = planById(plan).name;
-
-  const pay = () => {
-    toast("Payments aren't switched on yet, so nothing was charged.", {
-      description: "This is the checkout as it will work at launch.",
-    });
-  };
 
   return (
     <div className="mx-auto w-full max-w-310 px-4 pt-8 pb-20 sm:px-6 lg:pt-10">
@@ -244,9 +238,11 @@ export function Checkout({ listing: l, mode, from, to }: { listing: Listing; mod
           </span>
           {rental && <Line label="Deposit hold (refundable)" value={formatMoney(rental.deposit)} quiet />}
 
-          <Button size="lg" disabled={!agreed} onClick={pay} className="h-13 rounded-full text-lead">
+          {/* Greyed out until payments are switched on (Marketplace opens). */}
+          <Button size="lg" disabled className="h-13 rounded-full text-lead">
             {agreed ? `Pay ${formatMoney(total)}` : renting ? "Agree to the rental terms to continue" : "Agree to the terms to continue"}
           </Button>
+          <NotYet className="-mt-2">Payments open with Marketplace. Nothing is charged in this preview.</NotYet>
           <span className="text-micro leading-normal text-nia-placeholder">
             Processing is passed through at cost and varies by method. Card rate shown is 2.9% + $0.30 (illustrative).
           </span>

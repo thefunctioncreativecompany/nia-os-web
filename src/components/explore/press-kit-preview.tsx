@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { getFilm, type CategoryItem } from "./explore-data";
 import { getFilmDetails, lengthOf, linksFor, type FilmDetails } from "./film-details";
-import { PosterArt, opensLater } from "./poster-art";
+import { NotYet } from "@/components/nia/not-yet";
+import { PosterArt } from "./poster-art";
 
 // The film preview (Ika, 2026-10-20), opened from Explore's press kits, poster grid and director's
 // notes (not Latest projects), laid out like the template preview pop-up: the film's
@@ -83,9 +84,13 @@ export function PressKitPreview({
                 {details?.createdBy ? "Created by " : "Directed by "}
                 <span className="font-semibold text-foreground">{details?.createdBy ?? film.director}</span>
               </p>
-              <Button onClick={opensLater} className="px-6.5">
-                {actionLabel(item)}
-              </Button>
+              {/* Greyed out until film pages open with Explore. */}
+              <div className="flex flex-col items-end gap-1.5">
+                <Button disabled className="px-6.5">
+                  {actionLabel(item)}
+                </Button>
+                <NotYet>Opens with Explore in February 2027</NotYet>
+              </div>
             </div>
 
             {/* A new player for each film, so one film's video never carries over to the next. */}

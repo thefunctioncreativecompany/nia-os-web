@@ -25,9 +25,14 @@ export function NavSearch() {
   const router = useRouter();
   const [projects, setProjects] = useState<ExpandingSearchItem[] | null>(null);
   const [more, setMore] = useState<ExpandingSearchItem[]>([]);
+  // The lists load the first time someone points at, taps or tabs to the search, not on every page
+  // load (audit 2026-10-21). Pointing comes a moment before the click, so the list is usually
+  // there before the field has grown; if it arrived mid-growth, the growth would stall.
+  const [wanted, setWanted] = useState(false);
+  const want = () => setWanted(true);
 
-  // Loaded up front: if the list arrived while the field was still growing, the growth would stall.
   useEffect(() => {
+    if (!wanted) return;
     let live = true;
     void (async () => {
       const supabase = createClient();
@@ -64,7 +69,7 @@ export function NavSearch() {
     return () => {
       live = false;
     };
-  }, []);
+  }, [wanted]);
 
   const props = {
     label: "Search projects, documents and templates",
@@ -84,11 +89,11 @@ export function NavSearch() {
   return (
     <>
       {/* Desktop: a search button that grows into a field. */}
-      <div className="relative w-70 shrink-0 max-lg:hidden">
+      <div onPointerEnter={want} onFocusCapture={want} className="relative w-70 shrink-0 max-lg:hidden">
         <ExpandingSearch {...props} expandedWidth={420} />
       </div>
       {/* Phones and tablets: a field that fills the top bar, in silver glass. */}
-      <div className="nav-search-glass relative min-w-0 flex-1 lg:hidden">
+      <div onPointerDown={want} onFocusCapture={want} className="nav-search-glass relative min-w-0 flex-1 lg:hidden">
         <ExpandingSearch {...props} alwaysOpen anchor="start" expandedWidth={1200} />
       </div>
     </>

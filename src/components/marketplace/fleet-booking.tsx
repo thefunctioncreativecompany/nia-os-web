@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, MapPin } from "lucide-react";
 import type { DateRange } from "react-day-picker";
-import { toast } from "sonner";
 
 import { createClient } from "@/lib/supabase/client";
 import { features } from "@/lib/features";
@@ -14,6 +13,7 @@ import { planById, type PlanId } from "@/lib/plans";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { NumberStepper } from "@/components/nia/number-stepper";
+import { NotYet } from "@/components/nia/not-yet";
 import { marketplaceHome, type Listing } from "@/features/marketplace/data";
 import { fleetRate, formatMoney, quoteRental, rentalDays, serviceRate } from "@/features/marketplace/fees";
 import { MarketplaceNav } from "./marketplace-nav";
@@ -47,10 +47,6 @@ export function FleetBooking({ listing: l }: { listing: Listing & { fleet: NonNu
   const rate = fleetRate(units, fleet);
   const bulk = fleet.bulkRate !== undefined && rate === fleet.bulkRate;
   const quote = days ? quoteRental({ dayRate: rate, days, units, protection: true, plan }) : null;
-
-  const request = () => {
-    toast("Fleet requests open with Marketplace, so nothing was sent.", { description: "This is the booking as it will work at launch." });
-  };
 
   return (
     <div className="mx-auto w-full max-w-310 px-4 pt-8 pb-20 sm:px-6 lg:pt-10">
@@ -123,9 +119,11 @@ export function FleetBooking({ listing: l }: { listing: Listing & { fleet: NonNu
             </span>
           )}
 
-          <Button size="lg" disabled={!quote || !where.trim()} onClick={request} className="h-13 rounded-full text-lead">
+          {/* Greyed out until fleet requests can be sent (Marketplace opens). */}
+          <Button size="lg" disabled className="h-13 rounded-full text-lead">
             {!where.trim() ? "Set a delivery location" : "Request fleet booking"}
           </Button>
+          <NotYet className="-mt-2">Fleet requests open with Marketplace.</NotYet>
           <span className="text-caption text-muted-foreground">{fleet.note}</span>
         </aside>
       </div>

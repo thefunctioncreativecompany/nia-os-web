@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { createClient } from "@/lib/supabase/client";
+import { currentUser } from "@/lib/supabase/current-user";
 import { clearTemplateHistory, loadTemplateProfile, recordTemplateEvent, setRole as saveRole } from "./events";
 import type { TemplateEventType, UserTemplateProfile } from "./types";
 
@@ -18,8 +19,7 @@ export function useTemplateProfile() {
     let live = true;
     void (async () => {
       const supabase = createClient();
-      const { data } = await supabase.auth.getUser();
-      const id = data.user?.id ?? null;
+      const id = (await currentUser(supabase))?.id ?? null;
       const loaded = id ? await loadTemplateProfile(supabase, id) : { role: null, events: [] };
       if (!live) return;
       setUserId(id);

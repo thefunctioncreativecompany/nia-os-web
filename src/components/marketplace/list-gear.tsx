@@ -3,7 +3,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 import { ImagePlus, X } from "lucide-react";
-import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
 import { PLANS } from "@/lib/plans";
@@ -12,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
+import { NotYet } from "@/components/nia/not-yet";
 import { CATEGORIES, type Category } from "@/features/marketplace/data";
 import { formatMoney, toCents } from "@/features/marketplace/fees";
 import { MarketplaceNav } from "./marketplace-nav";
@@ -67,10 +67,6 @@ export function ListGear() {
     !offers.rent && !offers.sell && "rent or sell",
     photos.length === 0 && "a photo",
   ].filter(Boolean) as string[];
-
-  const publish = () => {
-    toast("Listings open with Marketplace, so this one isn't published yet.", { description: "Your details stay on this page until then." });
-  };
 
   const toggle = (key: keyof typeof offers) => setOffers((o) => ({ ...o, [key]: !o[key] }));
 
@@ -210,10 +206,13 @@ export function ListGear() {
             <Row label="Renter pays on top" value={`${FEE_RANGE} service fee + processing`} />
             <Row label="Payouts" value="To your bank, after each return" />
           </div>
-          <Button variant="secondary" size="lg" disabled={missing.length > 0} onClick={publish} className="h-13 rounded-full text-lead">
+          {/* Greyed out until listings can be published (Marketplace opens). */}
+          <Button variant="secondary" size="lg" disabled className="h-13 rounded-full text-lead">
             Publish listing
           </Button>
-          {missing.length > 0 && <span className="-mt-2 text-caption text-primary-foreground/70">Add {missing.join(", ")} to publish.</span>}
+          <NotYet className="-mt-2 text-primary-foreground/70">
+            Publishing opens with Marketplace.{missing.length > 0 ? ` Until then, add ${missing.join(", ")} to finish your draft.` : ""}
+          </NotYet>
           <span className="text-micro leading-normal text-primary-foreground/60">
             Estimate only. Payouts through a payments partner (e.g. Stripe Connect), to be confirmed. The service fee depends on the renter&rsquo;s plan.
           </span>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 import { createClient } from "@/lib/supabase/client";
+import { currentUser } from "@/lib/supabase/current-user";
 
 /** What `feature_waitlist.feature` accepts (its check constraint). */
 export type WaitlistFeature = "explore" | "marketplace";
@@ -17,7 +18,7 @@ export function useWaitlist(feature: WaitlistFeature, messages: { joined: string
   useEffect(() => {
     let live = true;
     const supabase = createClient();
-    void supabase.auth.getUser().then(({ data }) => live && setEmail(data.user?.email ?? null));
+    void currentUser(supabase).then((user) => live && setEmail(user?.email ?? null));
     supabase
       .from("feature_waitlist")
       .select("feature")

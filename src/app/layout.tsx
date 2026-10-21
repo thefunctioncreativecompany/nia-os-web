@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { geist, geistMono, instrumentSerif } from "@/lib/fonts";
 import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 // The live site, so link-preview images get full addresses (same as Supabase's Site URL).
@@ -18,7 +17,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geist.variable} ${instrumentSerif.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <TooltipProvider>{children}</TooltipProvider>
+        {children}
         <Toaster />
       </body>
     </html>

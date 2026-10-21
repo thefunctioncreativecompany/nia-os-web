@@ -80,7 +80,7 @@ function ExploreAllGrid({ films }: { films: Film[] }) {
         label="Explore all"
         items={films}
         getKey={(film) => film.id}
-        renderItem={(film) => <PosterTile film={film} onOpen={() => setOpen({ filmId: film.id })} />}
+        renderItem={(film) => <PosterTile film={film} first={film.id === films[0]?.id} onOpen={() => setOpen({ filmId: film.id })} />}
         drift={DRIFT}
         oddOffset={ODD_OFFSET}
         className="mt-15 lg:-mx-1.5 lg:h-295 lg:overflow-hidden lg:px-1.5"
@@ -93,7 +93,7 @@ function ExploreAllGrid({ films }: { films: Film[] }) {
 }
 
 // Lifts and shows the title and director on hover or keyboard focus.
-function PosterTile({ film, onOpen }: { film: Film; onOpen: () => void }) {
+function PosterTile({ film, first, onOpen }: { film: Film; first: boolean; onOpen: () => void }) {
   return (
     <button
       type="button"
@@ -102,7 +102,7 @@ function PosterTile({ film, onOpen }: { film: Film; onOpen: () => void }) {
       aria-label={`${film.title}, ${film.director}`}
       className="group relative block aspect-[268/373] w-full overflow-hidden rounded-lg text-left text-white outline-none transition-[transform,box-shadow] duration-lift ease-glide hover:-translate-y-1.5 hover:shadow-card-hover focus-visible:-translate-y-1.5 focus-visible:shadow-card-hover focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:hover:translate-y-0 motion-reduce:focus-visible:translate-y-0"
     >
-      <PosterArt film={film} sizes="(min-width: 64rem) 20vw, (min-width: 40rem) 33vw, 50vw" />
+      <PosterArt film={film} first={first} sizes="(min-width: 64rem) 20vw, (min-width: 40rem) 33vw, 50vw" />
       <span className="absolute inset-x-0 bottom-0 flex flex-col gap-0.5 bg-linear-to-b from-transparent to-black/75 px-3.5 pt-10 pb-3.5 opacity-0 transition-opacity duration-base ease-out group-hover:opacity-100 group-focus-visible:opacity-100">
         <span className="text-lead font-semibold">{film.title}</span>
         <span className="text-caption text-white/85">{film.director}</span>

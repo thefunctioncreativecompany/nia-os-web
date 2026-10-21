@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Check, FolderPlus, Search } from 'lucide-react';
 
 import { createClient } from '@/lib/supabase/client';
+import { currentUser } from '@/lib/supabase/current-user';
 import { projectLimitReached, workspacePlans } from '@/lib/plan-client';
 import { FREE_LIMITS } from '@/lib/plans';
 import { openUpgrade, type UpgradeReason } from '@/components/nia/upgrade-dialog';
@@ -23,9 +24,7 @@ const LIMIT = FREE_LIMITS.documentsPerProject;
 // Projects the person can add documents to: their own, and ones shared with them to edit.
 async function editableProjects(templateCode: string, templateName: string): Promise<Choice[]> {
   const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await currentUser(supabase);
   if (!user) return [];
   const [{ data: own }, { data: shared }] = await Promise.all([
     supabase.from('projects').select('id, title, cover_url, updated_at, workspace_id').eq('owner_id', user.id).is('deleted_at', null),

@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { isMouse } from "@/hooks/use-pointer";
 import { getFilm, type Category } from "./explore-data";
-import { PosterArt, opensLater } from "./poster-art";
+import { PosterArt } from "./poster-art";
 
 // Latest projects as six tall strips (Ika's Claude Design). The first stands open; pointing at (or
 // tabbing to) another opens that one and dims the rest. Collapsed strips show the title on its
@@ -51,10 +51,11 @@ export function LatestStrips({ category }: { category: Category }) {
             >
               <button
                 type="button"
-                onClick={opensLater}
+                // Film pages open with Explore (February 2027): the strip opens up, nothing more.
+                aria-disabled="true"
                 onPointerEnter={(e) => isMouse(e) && show()}
                 onFocus={show}
-                aria-label={`${film.title} by ${film.director}, latest project`}
+                aria-label={`${film.title} by ${film.director}, latest project. Film pages open in February 2027.`}
                 className="group relative flex w-full flex-col rounded-xl text-left text-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50 md:block md:h-full md:overflow-hidden md:text-white"
               >
                 {/* Phones: a card, the still on top. Larger screens: the still fills the strip. */}

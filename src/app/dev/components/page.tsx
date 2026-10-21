@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { TooltipProvider } from "@/components/ui/tooltip";
+
 import {
   ButtonsSection,
   PageControlsSection,
@@ -74,64 +76,66 @@ export default function Page() {
   if (process.env.VERCEL_ENV === "production") notFound();
 
   return (
-    <div className="min-h-svh bg-background">
-      <header className="border-b border-border px-4 py-6 md:px-10">
-        <p className="font-wordmark text-wordmark font-bold text-foreground">NIA</p>
-        <h1 className="mt-2 text-h1 font-bold text-foreground">Component library</h1>
-        <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-          The nOS Design System built on shadcn/ui and the Nia theme. Use these components (src/components/ui and
-          src/components/nia) when building screens.
-        </p>
-      </header>
-      <div className="flex flex-wrap">
-        <nav
-          aria-label="Sections"
-          className="flex-[1_1_220px] border-border px-4 py-6 md:sticky md:top-0 md:max-h-svh md:max-w-[260px] md:overflow-y-auto md:border-r md:px-6"
-        >
-          <ul className="flex flex-wrap gap-x-4 gap-y-1 md:flex-col">
-            {SECTIONS.map((section) => (
-              <li key={section.id}>
-                <a href={`#${section.id}`} className="block rounded-md py-1 text-small text-muted-foreground hover:text-foreground">
-                  {section.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <main className="flex min-w-0 flex-[999_1_640px] flex-col gap-16 px-4 py-8 md:px-10">
-          <ButtonsSection />
-          <TogglesSection />
-          <SlidersSection />
-          <PageControlsSection />
-          <MenusSection />
-          <ModalsSection />
-          <SheetsSection />
-          <NotificationsSection />
-          <AlertsSection />
-          <PickersSection />
-          <FormsSection />
-          <DialogsSection />
-          <ListsSection />
-          <ProgressSection />
-          <SearchSection />
-          <AdvancedPickersSection />
-          <MediaSection />
-          <TablesSection />
-          <InboxSection />
-          <ChartsSection />
-          <MapSection />
-          <AdvancedTabsSection />
-          <PanelsSection />
-          <ExportSection />
-          <PreviewSection />
-          <NavigationSection />
-          <CastCrewSection />
-          <CardsSection />
-          <TemplatesSection />
-          <ProjectModalsSection />
-          <TemplateViewsSection />
-        </main>
+    <TooltipProvider>
+      <div className="min-h-svh bg-background">
+        <header className="border-b border-border px-4 py-6 md:px-10">
+          <p className="font-wordmark text-wordmark font-bold text-foreground">NIA</p>
+          <h1 className="mt-2 text-h1 font-bold text-foreground">Component library</h1>
+          <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
+            The nOS Design System built on shadcn/ui and the Nia theme. Use these components (src/components/ui and
+            src/components/nia) when building screens.
+          </p>
+        </header>
+        <div className="flex flex-wrap">
+          <nav
+            aria-label="Sections"
+            className="flex-[1_1_220px] border-border px-4 py-6 md:sticky md:top-0 md:max-h-svh md:max-w-[260px] md:overflow-y-auto md:border-r md:px-6"
+          >
+            <ul className="flex flex-wrap gap-x-4 gap-y-1 md:flex-col">
+              {SECTIONS.map((section) => (
+                <li key={section.id}>
+                  <a href={`#${section.id}`} className="block rounded-md py-1 text-small text-muted-foreground hover:text-foreground">
+                    {section.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <main className="flex min-w-0 flex-[999_1_640px] flex-col gap-16 px-4 py-8 md:px-10">
+            <ButtonsSection />
+            <TogglesSection />
+            <SlidersSection />
+            <PageControlsSection />
+            <MenusSection />
+            <ModalsSection />
+            <SheetsSection />
+            <NotificationsSection />
+            <AlertsSection />
+            <PickersSection />
+            <FormsSection />
+            <DialogsSection />
+            <ListsSection />
+            <ProgressSection />
+            <SearchSection />
+            <AdvancedPickersSection />
+            <MediaSection />
+            <TablesSection />
+            <InboxSection />
+            <ChartsSection />
+            <MapSection />
+            <AdvancedTabsSection />
+            <PanelsSection />
+            <ExportSection />
+            <PreviewSection />
+            <NavigationSection />
+            <CastCrewSection />
+            <CardsSection />
+            <TemplatesSection />
+            <ProjectModalsSection />
+            <TemplateViewsSection />
+          </main>
+        </div>
       </div>
-    </div>
+    </TooltipProvider>
   );
 }

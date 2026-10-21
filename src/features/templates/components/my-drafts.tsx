@@ -7,6 +7,7 @@ import { toast } from "sonner";
 
 import { timeAgo } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
+import { currentUser } from "@/lib/supabase/current-user";
 import { Button } from "@/components/ui/button";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 
@@ -24,9 +25,7 @@ export function MyDrafts({ icons }: { icons: Record<string, string> }) {
     let live = true;
     void (async () => {
       const supabase = createClient();
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+      const user = await currentUser(supabase);
       if (!user) return;
       const { data } = await supabase
         .from("documents")
