@@ -25,6 +25,9 @@ Next.js 16 (App Router, Cache Components, partial prefetching) + TypeScript + Ta
 ## Rules (short form; full text in BUILD_PLAN.md)
 
 Product:
+- Priority (Ika, 2026-10-21): optimise creative operations and production management for users
+  and teams. When choosing what to build or how, favour what makes planning, making and
+  managing a production faster and clearer; Explore and Marketplace serve that work.
 - AI proposes, the producer decides: AI output is a proposal card (Apply / Modify / Dismiss) with a
   gold "AI draft" marker; never change user data without Apply.
 - Deep modules (Projects, Documents, People & Places, Schedule, Copilot); one primary action per screen.
@@ -292,6 +295,26 @@ Performance audit (2026-10-21)
   theme library removed, tooltips only in the app, Explore's first poster fetched first, non-working
   actions greyed out. Next: the navbar's menu and search pull in the animation library (~77 KB) on
   every signed-in page; move them to `LazyMotion` as its own step.
+
+Projects × Explore (Ika, 2026-10-21)
+- [x] Projects: find and sort (search, a chip per stage with counts, Type and Genre in the shared
+  lists, Sort: last edited, newest, title, shoot date; `?q=` fills the search) and Projects ·
+  Collections tabs (`ProjectsBrowser`, `ProjectsTabs`). Finishes 2.2's sort.
+- [x] Collections at `/projects/collections`: titles saved from Explore in named collections (Save
+  on title pages and suggestions; a first save makes "Saved"), each with Add to project. Project
+  pages show References from Explore and Inspiration for this project (titles matched to its
+  genres and type, one tap to add). Needs `20261031000000_collections_references.sql` (until run,
+  these say they aren't switched on). Helpers in `src/features/explore/saves.ts`.
+- [x] Document editor: a live preview of the PDF you'll download (`LivePreview`), redrawn a moment
+  after each change, in place of the template's description.
+
+Future builds (from the 2026-10-21 review; agreed with Ika, build later)
+- Project cards: a no-cover look (Explore's typographic grain poster as a stand-in until Ika
+  designs it), production-type chip and stage badge, and Explore's hover lift on every card.
+- Lighter project page: load the cover cropper, calendar and people picker only when opened.
+- Document editor: a sticky section outline with a filled tick per section (the "3 of 7 filled"
+  count moves into it); "what's next" document suggestions from the workflow steps (unbuilt
+  templates greyed); the toolbar in the shared pill style with downloads in one menu.
 
 Milestone 4 — Shoot day: not started.
 

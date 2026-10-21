@@ -114,11 +114,20 @@ const MUTED: [number, number, number] = [115, 114, 108];
 const RULE: [number, number, number] = [226, 226, 226];
 const PANEL: [number, number, number] = [249, 249, 250];
 
-async function fontData(file: string) {
-  const bytes = new Uint8Array(await (await fetch(`/fonts/${file}`)).arrayBuffer());
-  let binary = '';
-  for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
-  return btoa(binary);
+// Fetched once per visit: the live preview builds the PDF every time the document changes.
+const fonts = new Map<string, Promise<string>>();
+function fontData(file: string) {
+  if (!fonts.has(file)) {
+    const loading = (async () => {
+      const bytes = new Uint8Array(await (await fetch(`/fonts/${file}`)).arrayBuffer());
+      let binary = '';
+      for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+      return btoa(binary);
+    })();
+    loading.catch(() => fonts.delete(file));
+    fonts.set(file, loading);
+  }
+  return fonts.get(file)!;
 }
 
 /** A real PDF in Geist, US Letter. The library and fonts load only when someone downloads one. */
