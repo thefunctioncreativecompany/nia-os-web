@@ -2,12 +2,12 @@ import { Suspense, cache } from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { connection } from "next/server";
 
 import { formatDay } from "@/lib/dates";
 import { PRODUCTION_INFO } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/server";
+import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Wordmark } from "@/components/nia/wordmark";
 
@@ -23,7 +23,7 @@ const getShared = cache(async (token: string) => {
 export async function generateMetadata({ params }: PageProps<"/share/[token]">): Promise<Metadata> {
   const { token } = await params;
   const data = await getShared(token);
-  if (!data) return { title: "Shared project · Nia OS", robots: { index: false, follow: false } };
+  if (!data) return { title: "Link off · Nia OS", robots: { index: false, follow: false } };
   const description = data.description.trim() || `A ${data.production_type ?? "production"} shared from Nia OS.`;
   // No cover yet: the NIA wordmark card stands in.
   const images = [
@@ -90,7 +90,9 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
   await connection();
   const { token } = await params;
   const data = await getShared(token);
-  if (!data) notFound();
+  // A link that was turned off (or never existed) says so plainly, instead of a blank page. The
+  // page has already started streaming, so the status stays 200; it's kept out of search engines.
+  if (!data) return <LinkOff />;
   // Signed-in visitors find it again under Shared with you (audit #11). Does nothing when
   // signed out.
   const supabase = await createClient();
@@ -125,6 +127,20 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
         </dl>
       </section>
     </article>
+  );
+}
+
+function LinkOff() {
+  return (
+    <div className="flex flex-1 flex-col items-center justify-center gap-4 py-15 text-center">
+      <h1 className="text-h2 font-bold text-foreground">This link is off</h1>
+      <p className="max-w-110 text-lead text-muted-foreground">
+        The project&rsquo;s owner has turned off its share link, or the link has changed. Ask them for a new one.
+      </p>
+      <Button asChild variant="outline">
+        <Link href="/">Go to Nia</Link>
+      </Button>
+    </div>
   );
 }
 
