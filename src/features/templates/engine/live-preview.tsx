@@ -17,7 +17,8 @@ const PAGE_PX = 1000;
 
 // The document as it will download (Ika, 2026-10-21: the editor shows the real thing, as Explore
 // does): the same PDF Download makes, drawn page by page, redrawn a moment after each change. The
-// last pages stay on screen while the next ones draw, so nothing flashes.
+// last pages stay on screen while the next ones draw, so nothing flashes. Its height leaves room
+// for Save and Download below it in the pinned panel on short laptop screens.
 export function LivePreview({ schema, data, branded }: { schema: TemplateSchema; data: SectionValue[]; branded: boolean }) {
   const [pages, setPages] = useState<string[] | null>(null);
   const [updating, setUpdating] = useState(false);
@@ -54,7 +55,7 @@ export function LivePreview({ schema, data, branded }: { schema: TemplateSchema;
 
   return (
     <div className="flex flex-col gap-2.5">
-      <div className="max-h-[70svh] overflow-y-auto rounded-xl border border-border bg-secondary/60 p-3">
+      <div className="max-h-[max(16rem,calc(100svh-26rem))] overflow-y-auto rounded-xl border border-border bg-secondary/60 p-3">
         {failed && !pages ? (
           <p className="p-4 text-small text-muted-foreground">The preview couldn&rsquo;t be drawn. Downloads still work.</p>
         ) : !pages ? (

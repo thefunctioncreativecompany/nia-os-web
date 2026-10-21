@@ -5,16 +5,17 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { BadgeCheck, Download, Eye, FileText, FileType, FolderCheck, FolderPlus, Plus, Printer, Redo2, Trash2, Undo2 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
+import { cn } from '@/lib/utils';
 import { myPlan, projectPlan } from '@/lib/plan-client';
 import { toast } from 'sonner';
 
 import { DocumentHeader, DocumentPreviewHeader } from '@/components/nia/document-header';
 import { SavedIndicator } from '@/components/nia/saved-indicator';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
 import { openUpgrade } from '@/components/nia/upgrade-dialog';
 import { SplitButton } from '@/components/arc/split-button/split-button';
+import type { NextTemplate } from '../catalog';
 import type { TemplateSchema } from '../types';
 import { downloadFile, fileName, toMarkdown, toPdf, toPlainText, toWord } from './export';
 import { SectionView } from './section-views';
@@ -22,11 +23,17 @@ import { blankRow, documentCurrency, resolveDocument, type SectionValue, type Ta
 import { DocumentContext } from './document-context';
 import { LivePreview } from './live-preview';
 import { SaveToProjectDialog } from './save-to-project';
+import { SectionOutline } from './section-outline';
 import { useDocument, type DocumentProject } from './use-document';
+import { WhatsNext } from './whats-next';
 
 // The one editor every document template uses (TEMPLATE_ENGINE.md §3), from the Filming Notice
 // editor in Figma (840:29449): the document on the left, preview and downloads on the right.
 // Toolbar shows only actions that work (Ika, 2026-10-19); Save into a project comes in step 8.
+// The filter-bar pill (FilterChip's look), for the editor's tools.
+const toolPill =
+  'inline-flex h-10 items-center gap-1.5 rounded-full border border-border bg-white px-4 text-sm font-semibold text-foreground outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-45';
+
 export function TemplateEditor({
   schema,
   documentId,
@@ -35,6 +42,7 @@ export function TemplateEditor({
   initialProject = null,
   readOnly = false,
   canDelete = false,
+  next = [],
 }: {
   schema: TemplateSchema;
   documentId: string | null;
@@ -46,6 +54,8 @@ export function TemplateEditor({
   readOnly?: boolean;
   /** The person who made it, or the project's owner (audit #3). */
   canDelete?: boolean;
+  /** "What's next": the documents this one leads to. */
+  next?: NextTemplate[];
 }) {
   const router = useRouter();
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -114,47 +124,35 @@ export function TemplateEditor({
           </p>
         )}
 
-        <div
-          role="toolbar"
-          aria-label="Document tools"
-          className="flex flex-wrap items-center gap-3 rounded-lg border border-border bg-nia-panel px-4 py-2 print:hidden"
-        >
-          {!readOnly && (
-          <>
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" onClick={doc.undo} disabled={!doc.canUndo}>
-              <Undo2 aria-hidden /> Undo
-            </Button>
-            <Button variant="outline" size="sm" onClick={doc.redo} disabled={!doc.canRedo}>
-              <Redo2 aria-hidden /> Redo
-            </Button>
+        {/* Editing tools as pills, in the platform's filter look (Ika, 2026-10-21); getting the
+            document out (downloads and Print) is one menu beside the preview. */}
+        {!readOnly && (
+          <div role="toolbar" aria-label="Document tools" className="flex flex-wrap items-center gap-2 print:hidden">
+            <button type="button" onClick={doc.undo} disabled={!doc.canUndo} className={toolPill}>
+              <Undo2 aria-hidden className="size-4" /> Undo
+            </button>
+            <button type="button" onClick={doc.redo} disabled={!doc.canRedo} className={toolPill}>
+              <Redo2 aria-hidden className="size-4" /> Redo
+            </button>
+            {addRowTo >= 0 && (
+              <button type="button" onClick={addRow} className={toolPill}>
+                <Plus aria-hidden className="size-4" /> {addRowLabel}
+              </button>
+            )}
+            {schema.actions.includes('Mark Paid') && (
+              <button type="button" aria-pressed={doc.paid} onClick={() => doc.setPaid(!doc.paid)} className={cn(toolPill, doc.paid && 'border-foreground bg-secondary')}>
+                <BadgeCheck aria-hidden className="size-4" /> {doc.paid ? 'Mark unpaid' : 'Mark paid'}
+              </button>
+            )}
           </div>
-          <Separator orientation="vertical" className="h-4" />
-          {addRowTo >= 0 && (
-            <Button variant="outline" size="sm" onClick={addRow}>
-              <Plus aria-hidden /> {addRowLabel}
-            </Button>
-          )}
-          {schema.actions.includes('Mark Paid') && (
-            <Button variant="outline" size="sm" aria-pressed={doc.paid} onClick={() => doc.setPaid(!doc.paid)}>
-              <BadgeCheck aria-hidden /> {doc.paid ? 'Mark unpaid' : 'Mark paid'}
-            </Button>
-          )}
-          </>
-          )}
-          {schema.actions.includes('Print') && (
-            <Button variant="outline" size="sm" onClick={() => window.print()}>
-              <Printer aria-hidden /> Print
-            </Button>
-          )}
-        </div>
-
+        )}
+        {total >= 3 && <SectionOutline schema={schema} data={doc.data} filled={doc.filled} />}
         {/* A disabled fieldset locks every control at once for view-only people, but keeps
             the answers fully readable (no faded inputs). */}
         <fieldset disabled={readOnly} className="flex min-w-0 flex-col gap-7 [&_:disabled]:cursor-default [&_:disabled]:bg-transparent [&_:disabled]:opacity-100">
         {schema.sections.map((section, index) => (
           <section key={section.title} aria-labelledby={`section-${index}`} className="flex flex-col gap-3">
-            <h2 id={`section-${index}`} className="text-base leading-normal font-bold text-foreground">
+            <h2 id={`section-${index}`} className="scroll-mt-20 text-base leading-normal font-bold text-foreground">
               {section.title}
             </h2>
             <SectionView
@@ -166,6 +164,7 @@ export function TemplateEditor({
           </section>
         ))}
         </fieldset>
+        {!readOnly && <WhatsNext items={next} projectId={doc.project?.id ?? null} />}
       </div>
 
       <aside
@@ -175,9 +174,11 @@ export function TemplateEditor({
         <div className="flex flex-col gap-6 md:sticky md:top-6">
           <DocumentPreviewHeader status={doc.paid ? 'Paid' : ready ? 'Ready to export' : 'Draft'} />
           <LivePreview schema={schema} data={doc.data} branded={branded} />
-          <p className="-mt-3 text-small text-muted-foreground">
-            {doc.filled} of {total} {total === 1 ? 'section' : 'sections'} filled
-          </p>
+          {total < 3 && (
+            <p className="-mt-3 text-small text-muted-foreground">
+              {doc.filled} of {total} {total === 1 ? 'section' : 'sections'} filled
+            </p>
+          )}
           {doc.project ? (
             <div className="flex flex-col gap-3 rounded-xl border border-border bg-white p-4">
               <div className="flex items-center gap-3">
@@ -242,6 +243,7 @@ export function TemplateEditor({
               { label: 'Word (.docx)', icon: <FileType />, onSelect: () => void download('docx') },
               { label: 'Markdown (.md)', icon: <FileText />, onSelect: () => void download('md') },
               { label: 'Plain text (.txt)', icon: <FileText />, onSelect: () => void download('txt') },
+              ...(schema.actions.includes('Print') ? [{ label: 'Print', icon: <Printer />, onSelect: () => window.print() }] : []),
             ]}
           />
           <label className="-mt-2 flex items-center justify-between gap-3 px-1 text-small text-muted-foreground">

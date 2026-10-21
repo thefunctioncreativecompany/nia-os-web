@@ -4,7 +4,7 @@ import { notFound, redirect } from "next/navigation";
 
 import { getSession } from "@/lib/supabase/session";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getSchema } from "@/features/templates/catalog";
+import { getSchema, nextTemplates } from "@/features/templates/catalog";
 import { canEdit, restoreDocument } from "@/features/templates/engine/sections";
 import { TemplateEditor } from "@/features/templates/engine/template-editor";
 
@@ -80,7 +80,7 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
     if (project && canEditIt) startIn = { id: project.id, title: project.title || "Untitled project" };
   }
 
-  return <TemplateEditor key={saved?.id ?? "new"} schema={schema} documentId={saved?.id ?? null} initialData={restoreDocument(schema, saved?.data)} initialPaid={saved?.status === "paid"} initialProject={saved?.project ?? startIn} readOnly={readOnly} canDelete={canDelete} />;
+  return <TemplateEditor key={saved?.id ?? "new"} schema={schema} documentId={saved?.id ?? null} initialData={restoreDocument(schema, saved?.data)} initialPaid={saved?.status === "paid"} initialProject={saved?.project ?? startIn} readOnly={readOnly} canDelete={canDelete} next={nextTemplates(schema.code)} />;
 }
 
 function EditorSkeleton() {
