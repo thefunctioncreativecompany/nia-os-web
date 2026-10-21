@@ -32,6 +32,8 @@ export type Title = {
   slug: string;
   title: string;
   type: "film" | "series" | "short" | "documentary";
+  /** From the projects' genre list (src/lib/projects.ts GENRES). */
+  genres: string[];
   year: number | null;
   countries: string[];
   credit: string | null;
@@ -55,7 +57,7 @@ export type CollectionRow = {
 };
 
 const TITLE_SELECT = `
-  id, slug, title, type, year, countries, credit, platform, recognition,
+  id, slug, title, type, genres, year, countries, credit, platform, recognition,
   pair_with, study_note, synopsis, imdb_id,
   videos:explore_videos(provider, video_id, kind, label, channel, is_official, is_primary, season_id, sort_order),
   seasons:explore_seasons(id, number, label, year, synopsis, episode_count)

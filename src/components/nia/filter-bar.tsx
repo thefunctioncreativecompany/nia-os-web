@@ -4,6 +4,9 @@ import type { ComponentProps, ReactNode } from "react";
 import { ChevronDown, Search } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -103,6 +106,71 @@ export function ChipMenu<T extends string>({
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
+  );
+}
+
+export type YearRange = { from: number; to: number } | null;
+
+/** A chip for a span of years ("Year: Any ▾", "Year: 2019", "Year: 2015–2023"): pick From and To; the same year twice is one year. */
+export function RangeChip({
+  label,
+  min,
+  max,
+  value,
+  onChange,
+}: {
+  label: string;
+  min: number;
+  max: number;
+  value: YearRange;
+  onChange: (next: YearRange) => void;
+}) {
+  const years = Array.from({ length: max - min + 1 }, (_, i) => String(max - i));
+  const shown = !value ? "Any" : value.from === value.to ? String(value.from) : `${value.from}–${value.to}`;
+  const set = (end: "from" | "to", year: string) => {
+    const n = Number(year);
+    const next = { from: value?.from ?? min, to: value?.to ?? max, [end]: n };
+    // Keep the span the right way round: moving one end past the other brings both along.
+    if (next.from > next.to) {
+      if (end === "from") next.to = n;
+      else next.from = n;
+    }
+    onChange(next.from === min && next.to === max ? null : next);
+  };
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <button type="button" className={chipClass(value !== null)}>
+          <span className="font-medium text-muted-foreground">{label}</span>
+          {shown}
+          <ChevronDown aria-hidden className="size-3.5" />
+        </button>
+      </PopoverTrigger>
+      <PopoverContent align="start" className="flex w-auto flex-col gap-3 rounded-2xl p-4">
+        <div className="flex items-end gap-3">
+          {(["from", "to"] as const).map((end) => (
+            <label key={end} className="flex flex-col gap-1.5 text-small font-semibold">
+              {end === "from" ? "From" : "To"}
+              <Select value={String(value?.[end] ?? (end === "from" ? min : max))} onValueChange={(y) => set(end, y)}>
+                <SelectTrigger aria-label={`${label}: ${end}`} className="w-28">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="max-h-72">
+                  {years.map((y) => (
+                    <SelectItem key={y} value={y}>
+                      {y}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </label>
+          ))}
+        </div>
+        <Button variant="outline" size="compact" disabled={!value} onClick={() => onChange(null)} className="self-start">
+          Any year
+        </Button>
+      </PopoverContent>
+    </Popover>
   );
 }
 

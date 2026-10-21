@@ -125,8 +125,13 @@ Data:
 
 - (2026-10-21) Explore changes (Ika): Top 10 press kits is one still row, 1 to 10 left to right,
   scrolled by hand or with edge arrows (`ScrollRow`), no longer five self-scrolling columns.
-  Made in Africa's filmstrip steps with arrows from the first title (`ScrubFilmstrip
-  control="arrows"`); Templates' strips keep pointer scrubbing. Explore all lists each film once.
+  Made in Africa on Explore is a still row of equal cards like the press kits, without numbers
+  (`TitleCard` in `ScrollRow`); Templates' strips keep pointer scrubbing. Explore all lists each
+  film once. View all has Genre, Country, Year (one year or a span), Type and Sort (Relevance,
+  Title, Newest, Oldest, Country), using the projects' `GENRES` and `PRODUCTION_TYPES` so Explore
+  and projects share one vocabulary; title pages end with "You may also like" (`similarTo`).
+  TMDB is credited wherever its posters and genres show (`TmdbCredit`: educational, beta
+  testing, no revenue). Explore curates others' work for inspiration; Nia doesn't distribute it.
   Made in Africa covers are the official posters in high resolution (TMDB originals up to 1600
   wide, plus Ika's four); sources in `src/features/explore/cover-sources.json` for the TMDB
   licence Explore needs before launch. Trailers show YouTube's thumbnails through our image server.

@@ -10,8 +10,11 @@ import { cn } from "@/lib/utils";
 import { attribution, embedUrl, imdbUrl, pickSeason, primaryVideo, videoName, watchUrl, type Season, type Video } from "@/lib/explore";
 import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
-import { MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, typeName, type Entry } from "@/features/explore/made-in-africa";
+import { ScrollRow } from "@/components/nia/scroll-row";
+import { MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, similarTo, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
+import { TitleCard } from "./title-card";
+import { TmdbCredit } from "./tmdb-credit";
 import { VideoThumbnail } from "./video-thumbnail";
 
 // A Made in Africa title, full screen (Ika, 2026-10-21), laid out like a project page (Figma
@@ -20,7 +23,8 @@ import { VideoThumbnail } from "./video-thumbnail";
 // tablets. Series get season pills under the trailer: a season swaps the trailer and its videos and
 // goes into the address (?season=3) so it can be shared. Every video sits full width below, like
 // Files & references, each with YouTube's thumbnail (through our image server). The player itself
-// loads only when Play is pressed, and stops when the page is left.
+// loads only when Play is pressed, and stops when the page is left. "You may also like" closes the
+// page: titles that share its genres, collection, country, type or era.
 export function TitleView({ entry }: { entry: Entry }) {
   const params = useSearchParams();
   const { title, collection, pinnedSeason } = entry;
@@ -150,6 +154,7 @@ export function TitleView({ entry }: { entry: Entry }) {
               {season && row(season.label ?? `Season ${season.number}`, [season.year, season.episode_count && `${season.episode_count} episodes`].filter(Boolean).join(" · ") || "—")}
               {row(title.countries.length > 1 ? "Countries" : "Country", title.countries.join(", "))}
               {row(creditTerm(title), title.credit ?? "To be confirmed")}
+              {title.genres.length > 0 && row(title.genres.length > 1 ? "Genres" : "Genre", title.genres.join(", "))}
               {title.platform && row("Where to watch", title.platform)}
               {row("Collection", collection.name)}
             </dl>
@@ -215,6 +220,21 @@ export function TitleView({ entry }: { entry: Entry }) {
           </ul>
         </section>
       )}
+
+      <section aria-labelledby="also-like" className="flex flex-col gap-4">
+        <h2 id="also-like" className="text-xl leading-[1.4] font-bold text-foreground">
+          You may also like
+        </h2>
+        <ScrollRow label="You may also like">
+          {similarTo(entry).map((e) => (
+            <li key={e.title.slug} className="w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[16%]">
+              <TitleCard entry={e} href={titleHref(e.title.slug, fromAll)} sizes="(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw" />
+            </li>
+          ))}
+        </ScrollRow>
+      </section>
+
+      <TmdbCredit />
     </div>
   );
 }

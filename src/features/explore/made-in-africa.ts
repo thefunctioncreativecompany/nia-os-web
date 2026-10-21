@@ -4,6 +4,7 @@
 // src/lib/explore.ts returns, so the screens don't change when they switch to the database.
 
 import { features } from "@/lib/features";
+import { GENRES, PRODUCTION_TYPES, type ProductionType } from "@/lib/projects";
 import type { Season, Title, Video } from "@/lib/explore";
 import sources from "./cover-sources.json";
 import raw from "./made-in-africa.json";
@@ -14,6 +15,7 @@ type RawTitle = {
   collection: string;
   title: string;
   type: Title["type"];
+  genres?: string[];
   year?: number;
   countries: string[];
   credit?: string;
@@ -62,6 +64,7 @@ const toTitle = (t: RawTitle): Title => ({
   slug: t.slug,
   title: t.title,
   type: t.type,
+  genres: t.genres ?? [],
   year: t.year ?? null,
   countries: t.countries,
   credit: t.credit ?? null,
@@ -107,13 +110,39 @@ export const MADE_IN_AFRICA_HREF = "/explore/made-in-africa";
 /** A title's full-screen page; `fromAll` brings its back link to Made in Africa instead of Explore. */
 export const titleHref = (slug: string, fromAll = false) => `/explore/title/${slug}${fromAll ? "?from=all" : ""}`;
 
-const TYPES: Record<Title["type"], string> = { film: "Film", series: "Series", short: "Short film", documentary: "Documentary" };
+// A title's type in the projects' production types, so Explore and projects use the same words.
+const TYPES: Record<Title["type"], ProductionType> = { film: "Film", series: "TV Series", short: "Short Film", documentary: "Documentary" };
 
-/** "Series · 2020 · South Africa". */
+/** "TV Series · 2020 · South Africa". */
 export function metaLine(t: Title) {
   return [TYPES[t.type], t.year, t.countries.join(" / ")].filter(Boolean).join(" · ");
 }
 
-export const typeName = (t: Title) => TYPES[t.type];
+export const typeName = (t: Title): ProductionType => TYPES[t.type];
+
+// What View all can narrow by, in the projects' own lists and order (only values some title has).
+export const GENRE_OPTIONS = GENRES.filter((g) => madeInAfrica.some((e) => e.title.genres.includes(g)));
+export const TYPE_OPTIONS = PRODUCTION_TYPES.filter((p) => madeInAfrica.some((e) => typeName(e.title) === p));
+export const COUNTRY_OPTIONS = [...new Set(madeInAfrica.flatMap((e) => e.title.countries))].sort((a, b) => a.localeCompare(b));
+const years = madeInAfrica.map((e) => e.title.year).filter((y): y is number => y !== null);
+export const YEAR_RANGE = { min: Math.min(...years), max: Math.max(...years) };
+
+// "You may also like" on a title's page: titles sharing its genres count most, then its
+// collection, country, type and era, in the curated order when tied.
+export function similarTo(entry: Entry, count = 10): Entry[] {
+  const t = entry.title;
+  const score = (e: Entry) =>
+    3 * e.title.genres.filter((g) => t.genres.includes(g)).length +
+    (e.collection.slug === entry.collection.slug ? 2 : 0) +
+    (e.title.countries.some((c) => t.countries.includes(c)) ? 1.5 : 0) +
+    (e.title.type === t.type ? 1 : 0) +
+    (t.year && e.title.year && Math.abs(t.year - e.title.year) <= 5 ? 0.5 : 0);
+  return madeInAfrica
+    .filter((e) => e.title.slug !== t.slug)
+    .map((e, i) => ({ e, s: score(e), i }))
+    .sort((a, b) => b.s - a.s || a.i - b.i)
+    .slice(0, count)
+    .map((x) => x.e);
+}
 /** "Directed by" for films, "Created by" for series. */
 export const creditTerm = (t: Title) => (t.type === "series" ? "Created by" : "Directed by");

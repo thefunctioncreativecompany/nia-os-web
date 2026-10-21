@@ -31,6 +31,7 @@ create table if not exists explore_titles (
   slug         text unique not null,
   title        text not null,
   type         text not null check (type in ('film','series','short','documentary')),
+  genres       text[] default '{}',  -- the projects' genre list (Drama, Action, ...), from TMDB
   year         int,
   year_end     int,                -- for ongoing / finished series
   countries    text[] default '{}',

@@ -31,7 +31,8 @@ async function Title({ params }: Pick<PageProps<"/explore/title/[slug]">, "param
   const { slug } = await params;
   const entry = findEntry(slug);
   if (!entry) notFound();
-  return <TitleView entry={entry} />;
+  // A fresh page for each title (seasons, the playing video), also when moving between titles.
+  return <TitleView key={slug} entry={entry} />;
 }
 
 // Shaped like the page, as on a project.

@@ -1,24 +1,21 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { ScrubFilmstrip } from "@/components/nia/scrub-filmstrip";
+import { ScrollRow } from "@/components/nia/scroll-row";
 import { MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, madeInAfrica, titleHref } from "@/features/explore/made-in-africa";
-import { TitlePoster } from "./title-poster";
+import { TitleCard } from "./title-card";
+import { TmdbCredit } from "./tmdb-credit";
 
-// How many titles the filmstrip shows; View all has the rest (Ika, 2026-10-21).
+// How many titles the row shows; View all has the rest (Ika, 2026-10-21).
 const SHOWN = 15;
 
-// Made in Africa on Explore (Ika, 2026-10-21): the first 15 titles in the look of the "05 ·
-// Filmstrip scrub" gallery from her Claude Design (the chosen poster forward, its title large
-// underneath), stepped with arrows from the first title, and View all for the full category.
+// Made in Africa on Explore (Ika, 2026-10-21): the first 15 titles as equal cards in one still row,
+// like the Top 10 press kits (without numbers), and View all for the full category.
 export function MadeInAfricaStrip() {
-  const shown = madeInAfrica.slice(0, SHOWN);
   return (
     <section aria-labelledby="made-in-africa-title" className="mt-7">
-      <div className="flex flex-wrap items-end justify-between gap-4">
+      <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
         <div className="min-w-0">
           <h3 id="made-in-africa-title" className="text-subtitle font-semibold text-foreground">
             {MADE_IN_AFRICA.name}
@@ -32,18 +29,14 @@ export function MadeInAfricaStrip() {
           </Link>
         </Button>
       </div>
-      <ScrubFilmstrip
-        look="reel"
-        control="arrows"
-        className="mt-2"
-        items={shown}
-        label={`${MADE_IN_AFRICA.name}, first ${shown.length} titles`}
-        getKey={(e) => e.title.slug}
-        footer={(e) => e.title.title}
-        renderCard={(e, i) => (
-          <TitlePoster entry={e} number={i + 1} href={titleHref(e.title.slug)} sizes="(min-width: 40rem) 20rem, 16rem" className="w-64 sm:w-80" />
-        )}
-      />
+      <ScrollRow label={MADE_IN_AFRICA.name}>
+        {madeInAfrica.slice(0, SHOWN).map((e) => (
+          <li key={e.title.slug} className="w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[18%]">
+            <TitleCard entry={e} href={titleHref(e.title.slug)} sizes="(min-width: 64rem) 18vw, (min-width: 40rem) 30vw, 44vw" />
+          </li>
+        ))}
+      </ScrollRow>
+      <TmdbCredit className="mt-2" />
     </section>
   );
 }

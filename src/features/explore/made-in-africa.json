@@ -55,6 +55,10 @@
       "collection": "light-and-landscape",
       "title": "Mami Wata",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
       "year": 2023,
       "countries": [
         "Nigeria"
@@ -79,6 +83,9 @@
       "collection": "light-and-landscape",
       "title": "This Is Not a Burial, It's a Resurrection",
       "type": "film",
+      "genres": [
+        "Drama"
+      ],
       "year": 2019,
       "countries": [
         "Lesotho"
@@ -109,6 +116,9 @@
       "collection": "light-and-landscape",
       "title": "Timbuktu",
       "type": "film",
+      "genres": [
+        "Drama"
+      ],
       "year": 2014,
       "countries": [
         "Mauritania"
@@ -132,6 +142,10 @@
       "collection": "light-and-landscape",
       "title": "Atlantics",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
       "year": 2019,
       "countries": [
         "Senegal"
@@ -156,6 +170,9 @@
       "collection": "light-and-landscape",
       "title": "Banel & Adama",
       "type": "film",
+      "genres": [
+        "Drama"
+      ],
       "year": 2023,
       "countries": [
         "Senegal"
@@ -179,6 +196,9 @@
       "collection": "light-and-landscape",
       "title": "Sew the Winter to My Skin",
       "type": "film",
+      "genres": [
+        "Action"
+      ],
       "year": 2018,
       "countries": [
         "South Africa"
@@ -202,6 +222,10 @@
       "collection": "light-and-landscape",
       "title": "Five Fingers for Marseilles",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
       "year": 2017,
       "countries": [
         "South Africa"
@@ -225,6 +249,11 @@
       "collection": "light-and-landscape",
       "title": "Neptune Frost",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Sci-Fi",
+        "Musical"
+      ],
       "year": 2021,
       "countries": [
         "Rwanda",
@@ -249,6 +278,10 @@
       "collection": "interior-lives",
       "title": "On Becoming a Guinea Fowl",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
       "year": 2024,
       "countries": [
         "Zambia"
@@ -272,6 +305,9 @@
       "collection": "interior-lives",
       "title": "I Am Not a Witch",
       "type": "film",
+      "genres": [
+        "Drama"
+      ],
       "year": 2017,
       "countries": [
         "Zambia"
@@ -295,6 +331,10 @@
       "collection": "interior-lives",
       "title": "Goodbye Julia",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
       "year": 2023,
       "countries": [
         "Sudan"
@@ -318,6 +358,9 @@
       "collection": "interior-lives",
       "title": "Lingui, The Sacred Bonds",
       "type": "film",
+      "genres": [
+        "Drama"
+      ],
       "year": 2021,
       "countries": [
         "Chad"
@@ -341,6 +384,10 @@
       "collection": "interior-lives",
       "title": "Félicité",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Musical"
+      ],
       "year": 2017,
       "countries": [
         "Senegal",
@@ -365,6 +412,9 @@
       "collection": "interior-lives",
       "title": "Eyimofe (This Is My Desire)",
       "type": "film",
+      "genres": [
+        "Drama"
+      ],
       "year": 2020,
       "countries": [
         "Nigeria"
@@ -388,6 +438,9 @@
       "collection": "interior-lives",
       "title": "Inxeba (The Wound)",
       "type": "film",
+      "genres": [
+        "Drama"
+      ],
       "year": 2017,
       "countries": [
         "South Africa"
@@ -411,6 +464,10 @@
       "collection": "interior-lives",
       "title": "Rafiki",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
       "year": 2018,
       "countries": [
         "Kenya"
@@ -434,6 +491,10 @@
       "collection": "interior-lives",
       "title": "Feathers",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
       "year": 2021,
       "countries": [
         "Egypt"
@@ -458,6 +519,9 @@
       "collection": "genre-reimagined",
       "title": "Heart of the Hunter",
       "type": "film",
+      "genres": [
+        "Action"
+      ],
       "year": 2024,
       "countries": [
         "South Africa"
@@ -482,6 +546,10 @@
       "collection": "genre-reimagined",
       "title": "Saloum",
       "type": "film",
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
       "year": 2021,
       "countries": [
         "Senegal"
@@ -505,6 +573,10 @@
       "collection": "genre-reimagined",
       "title": "Hounds (Les Meutes)",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
       "year": 2023,
       "countries": [
         "Morocco"
@@ -528,6 +600,9 @@
       "collection": "genre-reimagined",
       "title": "Anikulapo",
       "type": "film",
+      "genres": [
+        "Drama"
+      ],
       "year": 2022,
       "countries": [
         "Nigeria"
@@ -552,6 +627,10 @@
       "collection": "genre-reimagined",
       "title": "The Burial of Kojo",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
       "year": 2018,
       "countries": [
         "Ghana"
@@ -601,6 +680,9 @@
       "pinned_season": 3,
       "title": "Blood & Water",
       "type": "series",
+      "genres": [
+        "Drama"
+      ],
       "year": 2020,
       "countries": [
         "South Africa"
@@ -689,6 +771,9 @@
       "collection": "series",
       "title": "The Polygamist",
       "type": "series",
+      "genres": [
+        "Drama"
+      ],
       "year": 2026,
       "countries": [
         "South Africa"
@@ -728,6 +813,10 @@
       "collection": "series",
       "title": "Shaka iLembe",
       "type": "series",
+      "genres": [
+        "Drama",
+        "Action"
+      ],
       "year": 2023,
       "countries": [
         "South Africa"
@@ -774,6 +863,9 @@
       "collection": "series",
       "title": "DAM",
       "type": "series",
+      "genres": [
+        "Drama"
+      ],
       "year": 2021,
       "countries": [
         "South Africa"
@@ -807,6 +899,9 @@
       "collection": "truth-and-archive",
       "title": "Dahomey",
       "type": "documentary",
+      "genres": [
+        "Documentary"
+      ],
       "year": 2024,
       "countries": [
         "Senegal",
@@ -832,6 +927,10 @@
       "collection": "truth-and-archive",
       "title": "Four Daughters",
       "type": "documentary",
+      "genres": [
+        "Drama",
+        "Documentary"
+      ],
       "year": 2023,
       "countries": [
         "Tunisia"
@@ -855,6 +954,9 @@
       "collection": "truth-and-archive",
       "title": "The Mother of All Lies",
       "type": "documentary",
+      "genres": [
+        "Documentary"
+      ],
       "year": 2023,
       "countries": [
         "Morocco"
@@ -878,6 +980,10 @@
       "collection": "foundations",
       "title": "Touki Bouki",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
       "year": 1973,
       "countries": [
         "Senegal"
@@ -901,6 +1007,9 @@
       "collection": "foundations",
       "title": "Black Girl (La Noire de…)",
       "type": "film",
+      "genres": [
+        "Drama"
+      ],
       "year": 1966,
       "countries": [
         "Senegal"
@@ -924,6 +1033,10 @@
       "collection": "foundations",
       "title": "Pumzi",
       "type": "short",
+      "genres": [
+        "Drama",
+        "Sci-Fi"
+      ],
       "year": 2009,
       "countries": [
         "Kenya"
@@ -951,6 +1064,9 @@
       "collection": "netflix-south-africa",
       "title": "How to Ruin Christmas",
       "type": "series",
+      "genres": [
+        "Comedy"
+      ],
       "year": 2020,
       "countries": [
         "South Africa"
@@ -997,6 +1113,9 @@
       "collection": "netflix-south-africa",
       "title": "How to Ruin Love",
       "type": "series",
+      "genres": [
+        "Comedy"
+      ],
       "countries": [
         "South Africa"
       ],
@@ -1039,6 +1158,10 @@
       "collection": "netflix-south-africa",
       "title": "Fatal Seduction",
       "type": "series",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
       "year": 2023,
       "countries": [
         "South Africa"
@@ -1094,6 +1217,10 @@
       "collection": "netflix-south-africa",
       "title": "iNumber Number",
       "type": "film",
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
       "year": 2013,
       "countries": [
         "South Africa"
@@ -1116,6 +1243,10 @@
       "collection": "netflix-south-africa",
       "title": "iNumber Number: Jozi Gold",
       "type": "film",
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
       "year": 2023,
       "countries": [
         "South Africa"
@@ -1145,6 +1276,9 @@
       "collection": "netflix-south-africa",
       "title": "Go!",
       "type": "series",
+      "genres": [
+        "Drama"
+      ],
       "year": 2025,
       "countries": [
         "South Africa"
@@ -1175,6 +1309,10 @@
       "collection": "netflix-south-africa",
       "title": "Umthetho",
       "type": "series",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
       "year": 2026,
       "countries": [
         "South Africa"
@@ -1207,6 +1345,11 @@
       "collection": "netflix-south-africa",
       "title": "Silverton Siege",
       "type": "film",
+      "genres": [
+        "Drama",
+        "Action",
+        "Thriller"
+      ],
       "year": 2022,
       "countries": [
         "South Africa"
@@ -1230,6 +1373,10 @@
       "collection": "netflix-south-africa",
       "title": "Queen Sono",
       "type": "series",
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
       "year": 2020,
       "countries": [
         "South Africa"
@@ -1259,6 +1406,9 @@
       "collection": "netflix-south-africa",
       "title": "Kings of Jo'burg",
       "type": "series",
+      "genres": [
+        "Thriller"
+      ],
       "year": 2020,
       "countries": [
         "South Africa"
@@ -1312,6 +1462,10 @@
       "collection": "netflix-south-africa",
       "title": "Shadow",
       "type": "series",
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
       "year": 2019,
       "countries": [
         "South Africa"
@@ -1343,6 +1497,9 @@
       "collection": "netflix-south-africa",
       "title": "Seriously Single",
       "type": "film",
+      "genres": [
+        "Comedy"
+      ],
       "year": 2020,
       "countries": [
         "South Africa"
@@ -1366,6 +1523,9 @@
       "collection": "netflix-south-africa",
       "title": "Savage Beauty",
       "type": "series",
+      "genres": [
+        "Drama"
+      ],
       "year": 2022,
       "countries": [
         "South Africa"
@@ -1409,6 +1569,9 @@
       "collection": "netflix-south-africa",
       "title": "Kandasamys: The Baby",
       "type": "film",
+      "genres": [
+        "Comedy"
+      ],
       "year": 2023,
       "countries": [
         "South Africa"
@@ -1432,6 +1595,10 @@
       "collection": "netflix-south-africa",
       "title": "The Brave Ones",
       "type": "series",
+      "genres": [
+        "Drama",
+        "Sci-Fi"
+      ],
       "year": 2022,
       "countries": [
         "South Africa"
@@ -1467,6 +1634,10 @@
       "collection": "netflix-south-africa",
       "title": "Unseen",
       "type": "series",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
       "year": 2023,
       "countries": [
         "South Africa"
@@ -1510,6 +1681,10 @@
       "collection": "netflix-south-africa",
       "title": "Marked",
       "type": "series",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
       "year": 2025,
       "countries": [
         "South Africa"
@@ -1545,6 +1720,10 @@
       "collection": "netflix-south-africa",
       "title": "Lobola Man",
       "type": "film",
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
       "year": 2024,
       "countries": [
         "South Africa"
