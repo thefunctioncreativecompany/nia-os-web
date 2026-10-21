@@ -1,13 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { CalendarDays } from "lucide-react";
 
 import { formatDay, parseDay, toDay } from "@/lib/dates";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Skeleton } from "@/components/ui/skeleton";
+
+// The calendar (and its date library) loads the first time someone opens a date, not with the page.
+const Calendar = dynamic(() => import("@/components/ui/calendar").then((m) => m.Calendar), {
+  ssr: false,
+  loading: () => <Skeleton className="h-75 w-62 rounded-lg" />,
+});
 
 // A date shown like the other Production Info rows; click it to pick a day from the
 // calendar (component library Section 10). Saves as soon as a day is picked.

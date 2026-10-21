@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 
-import { PhotoEditor } from "@/components/nia/photo-editor";
+// The cropper (and its library) loads only when someone picks a cover, not with the page.
+const PhotoEditor = dynamic(() => import("@/components/nia/photo-editor").then((m) => m.PhotoEditor), { ssr: false });
 
 // Covers are framed to the ProjectCard shape (19:10); the project page header shows the
 // middle of the same picture.
