@@ -42,6 +42,8 @@ export function TitlePoster({
           alt=""
           fill
           sizes={sizes}
+          // Posters are text-heavy artwork: the higher quality keeps their lettering sharp.
+          quality={90}
           loading={first ? "eager" : undefined}
           fetchPriority={first ? "high" : undefined}
           className="object-cover"

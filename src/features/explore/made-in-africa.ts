@@ -5,6 +5,7 @@
 
 import { features } from "@/lib/features";
 import type { Season, Title, Video } from "@/lib/explore";
+import sources from "./cover-sources.json";
 import raw from "./made-in-africa.json";
 
 type RawVideo = Partial<Video> & Pick<Video, "provider" | "video_id">;
@@ -30,17 +31,14 @@ export type Collection = { slug: string; name: string; description: string };
 /** A title as listed in a collection: its season pin and a stand-in look for when it has no cover. */
 export type Entry = { title: Title; collection: Collection; pinnedSeason: number | null; grain: Grain };
 
-// Covers Ika assigns (2026-10-21, her first four posters). Put the file in
-// public/explore/made-in-africa/ and add `slug: "/explore/made-in-africa/<file>"` here. Titles
-// without one show a typographic poster.
-const COVERS: Record<string, string> = {
-  "mami-wata": "/explore/made-in-africa/mami-wata.jpg",
-  "this-is-not-a-burial": "/explore/made-in-africa/this-is-not-a-burial.jpg",
-  "shaka-ilembe": "/explore/made-in-africa/shaka-ilembe.jpg",
-  dam: "/explore/made-in-africa/dam.jpg",
-};
+// Every Made in Africa title's cover (Ika, 2026-10-21: official covers in high resolution), in
+// public/explore/made-in-africa/<slug>.jpg, up to 1600 wide. Mami Wata, This Is Not a Burial,
+// Shaka iLembe and DAM are the posters Ika supplied; the rest are each title's official poster
+// from TMDB (sources in cover-sources.json, for the TMDB licence Explore needs before launch).
+// A title without one shows a typographic poster.
+const COVERS = new Set(Object.keys(sources));
 
-export const coverFor = (slug: string): string | null => COVERS[slug] ?? null;
+export const coverFor = (slug: string): string | null => (COVERS.has(slug) ? `/explore/made-in-africa/${slug}.jpg` : null);
 
 // Written out in full so Tailwind finds each class name in the code.
 const GRAINS = [

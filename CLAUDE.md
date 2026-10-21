@@ -123,6 +123,13 @@ Data:
   `20261029000000_marketplace_waitlist.sql` (run after the plans one). Coming soon has two buttons:
   Join the waitlist and Preview Marketplace (Ika: no List your gear early).
 
+- (2026-10-21) Explore changes (Ika): Top 10 press kits is one still row, 1 to 10 left to right,
+  scrolled by hand or with edge arrows (`ScrollRow`), no longer five self-scrolling columns.
+  Made in Africa's filmstrip steps with arrows from the first title (`ScrubFilmstrip
+  control="arrows"`); Templates' strips keep pointer scrubbing. Explore all lists each film once.
+  Made in Africa covers are the official posters in high resolution (TMDB originals up to 1600
+  wide, plus Ika's four); sources in `src/features/explore/cover-sources.json` for the TMDB
+  licence Explore needs before launch. Trailers show YouTube's thumbnails through our image server.
 - (2026-10-21) Anything that doesn't work yet is greyed out with a `NotYet` note saying when it opens
   (`src/components/nia/not-yet.tsx`), never active with a "nothing happened" message: Marketplace's
   Pay, Publish listing, fleet request and the lister dashboard's Accept / Decline / pause; Explore's
@@ -262,9 +269,9 @@ Explore, Made in Africa (Ika's build guide, 2026-10-21)
   category (`ScrubFilmstrip look="reel"`), View all at `/explore/made-in-africa` (search, a chip per
   collection), and a page per title at `/explore/title/[slug]` laid out like the project page
   (trailer where the cover sits, season pills with `?season=`, Details, Behind the Production,
-  Videos; back link to Explore, or to View all with `?from=all`). Covers: Mami Wata, This Is Not a
-  Burial, Shaka iLembe, DAM (`COVERS` in made-in-africa.ts, files in `public/explore/made-in-africa`);
-  the rest are typographic posters until Ika assigns them. To do: the other covers; synopses;
+  Videos; back link to Explore, or to View all with `?from=all`). All 50 covers in
+  `public/explore/made-in-africa` (36 at 1200+ wide; 14 have nothing larger in English on TMDB).
+  To do: synopses;
   run `20261030000000_explore_made_in_africa.sql` and the seed script (needs
   `SUPABASE_SERVICE_ROLE_KEY`), then read from Supabase; the quick-view pop-up for these titles.
 

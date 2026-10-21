@@ -74,8 +74,8 @@ export function ExploreLibrary() {
 // Phones and tablets get a plain two- or three-column grid of the same posters.
 function ExploreAllGrid({ films }: { films: Film[] }) {
   const [open, setOpen] = useState<CategoryItem | null>(null);
-  // The grid repeats films to fill its columns; the preview steps through each film once.
-  const list: CategoryItem[] = [...new Map(films.map((f) => [f.id, { filmId: f.id }])).values()];
+  // The preview steps through the films in the order shown.
+  const list: CategoryItem[] = films.map((f) => ({ filmId: f.id }));
   return (
     <>
       <DriftColumns

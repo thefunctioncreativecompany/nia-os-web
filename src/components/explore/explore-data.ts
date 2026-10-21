@@ -98,11 +98,12 @@ const DOCS: DocumentType[] = [
 
 export const CATEGORIES: Category[] = [
   {
-    // 20 posters; the grid deals them into five columns (film i goes to column i % 5).
+    // Each film once (Ika, 2026-10-21: the design's 20 slots repeated three films); the grid deals
+    // them into five columns (film i goes to column i % 5).
     id: "explore-all",
     title: "Explore all",
     kind: "grid",
-    items: Array.from({ length: 20 }, (_, i) => ({ filmId: at(i) })),
+    items: FILMS.map((f) => ({ filmId: f.id })),
   },
   {
     id: "top-epk",

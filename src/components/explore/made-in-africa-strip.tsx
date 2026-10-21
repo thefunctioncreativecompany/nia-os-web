@@ -11,9 +11,9 @@ import { TitlePoster } from "./title-poster";
 // How many titles the filmstrip shows; View all has the rest (Ika, 2026-10-21).
 const SHOWN = 15;
 
-// Made in Africa on Explore (Ika, 2026-10-21): the first 15 titles as the "05 · Filmstrip scrub"
-// gallery from her Claude Design (the pointer scrubs the row, the middle poster comes forward and
-// its title shows large underneath), and View all for the full category.
+// Made in Africa on Explore (Ika, 2026-10-21): the first 15 titles in the look of the "05 ·
+// Filmstrip scrub" gallery from her Claude Design (the chosen poster forward, its title large
+// underneath), stepped with arrows from the first title, and View all for the full category.
 export function MadeInAfricaStrip() {
   const shown = madeInAfrica.slice(0, SHOWN);
   return (
@@ -34,7 +34,7 @@ export function MadeInAfricaStrip() {
       </div>
       <ScrubFilmstrip
         look="reel"
-        start={0.15}
+        control="arrows"
         className="mt-2"
         items={shown}
         label={`${MADE_IN_AFRICA.name}, first ${shown.length} titles`}

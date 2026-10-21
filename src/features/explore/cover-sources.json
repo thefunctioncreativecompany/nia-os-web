@@ -1,0 +1,244 @@
+{
+ "mami-wata": {
+  "source": "Ika (supplied 2026-10-21)"
+ },
+ "this-is-not-a-burial": {
+  "source": "Ika (supplied 2026-10-21)"
+ },
+ "shaka-ilembe": {
+  "source": "Ika (supplied 2026-10-21)"
+ },
+ "dam": {
+  "source": "Ika (supplied 2026-10-21)"
+ },
+ "anikulapo": {
+  "source": "TMDB",
+  "tmdb": "movie/1023994",
+  "image": "https://image.tmdb.org/t/p/original/xb30hkUpBm23stnVgDJGYGsC0R0.jpg"
+ },
+ "atlantics": {
+  "source": "TMDB",
+  "tmdb": "movie/496967",
+  "image": "https://image.tmdb.org/t/p/original/zRnZM6HqglFK31MYyrTSQVlj1dQ.jpg"
+ },
+ "banel-and-adama": {
+  "source": "TMDB",
+  "tmdb": "movie/995806",
+  "image": "https://image.tmdb.org/t/p/original/s7qnEdfpdLYWWw8CFs0dqQftt9Y.jpg"
+ },
+ "black-girl": {
+  "source": "TMDB",
+  "tmdb": "movie/95597",
+  "image": "https://image.tmdb.org/t/p/original/4lgkkCY9C82SPaaHZsYg4uyohZX.jpg"
+ },
+ "blood-and-water": {
+  "source": "TMDB",
+  "tmdb": "tv/103411",
+  "image": "https://image.tmdb.org/t/p/original/NFHy3z1taQ8nzudDHeVIJnih3J.jpg"
+ },
+ "dahomey": {
+  "source": "TMDB",
+  "tmdb": "movie/1101256",
+  "image": "https://image.tmdb.org/t/p/original/9d8KvJ3OjUq9rwuM743QPQO48aL.jpg"
+ },
+ "eyimofe": {
+  "source": "TMDB",
+  "tmdb": "movie/665429",
+  "image": "https://image.tmdb.org/t/p/original/qRTobbortQTjqu0AOKgZVZ2qvUr.jpg"
+ },
+ "fatal-seduction": {
+  "source": "TMDB",
+  "tmdb": "tv/227975",
+  "image": "https://image.tmdb.org/t/p/original/1REi7v1NmTxI8YODX7lwLF70zIs.jpg"
+ },
+ "feathers": {
+  "source": "TMDB",
+  "tmdb": "movie/796166",
+  "image": "https://image.tmdb.org/t/p/original/e2UpCdLJG0QbEnnBPtfyt9T3GZC.jpg"
+ },
+ "felicite": {
+  "source": "TMDB",
+  "tmdb": "movie/436340",
+  "image": "https://image.tmdb.org/t/p/original/qxODnuQgjj8N5ZKHLYCrSpz8tJx.jpg"
+ },
+ "five-fingers-for-marseilles": {
+  "source": "TMDB",
+  "tmdb": "movie/466415",
+  "image": "https://image.tmdb.org/t/p/original/4NGQQ6O50CRWYfzjBdyLWHHY1Zm.jpg"
+ },
+ "four-daughters": {
+  "source": "TMDB",
+  "tmdb": "movie/1069193",
+  "image": "https://image.tmdb.org/t/p/original/zl8mOA95yUGA4oS1ReYdahqRPd6.jpg"
+ },
+ "go": {
+  "source": "TMDB",
+  "tmdb": "tv/285906",
+  "image": "https://image.tmdb.org/t/p/original/pmKjFSjmydwPKFKHG9KwUGjMxwg.jpg"
+ },
+ "goodbye-julia": {
+  "source": "TMDB",
+  "tmdb": "movie/1111750",
+  "image": "https://image.tmdb.org/t/p/original/yQv7V4gTf6mI7OPUS7jWCDStPcr.jpg"
+ },
+ "heart-of-the-hunter": {
+  "source": "TMDB",
+  "tmdb": "movie/1181548",
+  "image": "https://image.tmdb.org/t/p/original/n726fdyL1dGwt15bY7Nj3XOXc4Q.jpg"
+ },
+ "hounds": {
+  "source": "TMDB",
+  "tmdb": "movie/1000130",
+  "image": "https://image.tmdb.org/t/p/original/6K0Mv57PWzEuuVN5jYEnnRwy9VK.jpg"
+ },
+ "how-to-ruin-christmas": {
+  "source": "TMDB",
+  "tmdb": "tv/114649",
+  "image": "https://image.tmdb.org/t/p/original/4uwzQsjOO7tcw6zfDtkzlH5UyXV.jpg"
+ },
+ "how-to-ruin-love": {
+  "source": "TMDB",
+  "tmdb": "tv/253833",
+  "image": "https://image.tmdb.org/t/p/original/yGwIvVxGv1MRbNjn500GyPWu7ud.jpg"
+ },
+ "i-am-not-a-witch": {
+  "source": "TMDB",
+  "tmdb": "movie/449757",
+  "image": "https://image.tmdb.org/t/p/original/tWkbuUHugbckItwcyCf8uq1utOJ.jpg"
+ },
+ "inumber-number": {
+  "source": "TMDB",
+  "tmdb": "movie/214219",
+  "image": "https://image.tmdb.org/t/p/original/ppuGOyMD3IeZs3zCAQuMxjmD73j.jpg"
+ },
+ "inumber-number-jozi-gold": {
+  "source": "TMDB",
+  "tmdb": "movie/1129956",
+  "image": "https://image.tmdb.org/t/p/original/1ADd9IFhr7VbiewI6eeS1i3Uw28.jpg"
+ },
+ "inxeba": {
+  "source": "TMDB",
+  "tmdb": "movie/428498",
+  "image": "https://image.tmdb.org/t/p/original/1Ze9uIvG0YAbzAmyuhLbAqoftfQ.jpg"
+ },
+ "kandasamys-the-baby": {
+  "source": "TMDB",
+  "tmdb": "movie/1181545",
+  "image": "https://image.tmdb.org/t/p/original/zCt9qw4hPjNYT09el8eeoKzQhXk.jpg"
+ },
+ "kings-of-joburg": {
+  "source": "TMDB",
+  "tmdb": "tv/114187",
+  "image": "https://image.tmdb.org/t/p/original/9p0ZiGkEvjMo0Ag83SbJdk9JDmF.jpg"
+ },
+ "lingui-the-sacred-bonds": {
+  "source": "TMDB",
+  "tmdb": "movie/820693",
+  "image": "https://image.tmdb.org/t/p/original/5Cg39mHfs9u8UiqZJZy5uYANWgG.jpg"
+ },
+ "lobola-man": {
+  "source": "TMDB",
+  "tmdb": "movie/1310259",
+  "image": "https://image.tmdb.org/t/p/original/3uaQ6ETNU3osziF66Qkj0C31ziy.jpg"
+ },
+ "marked": {
+  "source": "TMDB",
+  "tmdb": "tv/293808",
+  "image": "https://image.tmdb.org/t/p/original/w2C8YmxXtQ9gEYMYMQS6I1ZQRm7.jpg"
+ },
+ "neptune-frost": {
+  "source": "TMDB",
+  "tmdb": "movie/671109",
+  "image": "https://image.tmdb.org/t/p/original/m4FNrrfbWXhw19pJzT7DJMdbloT.jpg"
+ },
+ "on-becoming-a-guinea-fowl": {
+  "source": "TMDB",
+  "tmdb": "movie/1082938",
+  "image": "https://image.tmdb.org/t/p/original/6lMOpD8XVLKaB5uCsJXt1Fo7XNh.jpg"
+ },
+ "pumzi": {
+  "source": "TMDB",
+  "tmdb": "movie/45167",
+  "image": "https://image.tmdb.org/t/p/original/yYkKzQU2P5GryFPQVgJ85qo84Xz.jpg"
+ },
+ "queen-sono": {
+  "source": "TMDB",
+  "tmdb": "tv/96676",
+  "image": "https://image.tmdb.org/t/p/original/zCq56uFGe16RrrEl9D9lKjzdAnE.jpg"
+ },
+ "rafiki": {
+  "source": "TMDB",
+  "tmdb": "movie/517987",
+  "image": "https://image.tmdb.org/t/p/original/letzgJyVmYYahcYNCYhzn75TyyE.jpg"
+ },
+ "saloum": {
+  "source": "TMDB",
+  "tmdb": "movie/858096",
+  "image": "https://image.tmdb.org/t/p/original/yEWO77ClYNqNGMg98v2XNzV8Vx1.jpg"
+ },
+ "savage-beauty": {
+  "source": "TMDB",
+  "tmdb": "tv/197427",
+  "image": "https://image.tmdb.org/t/p/original/ns0GvUIqbHXB9DFr0L79Lpojsly.jpg"
+ },
+ "seriously-single": {
+  "source": "TMDB",
+  "tmdb": "movie/661747",
+  "image": "https://image.tmdb.org/t/p/original/qptLj4WxATqp3MZq97JmhYjtc9B.jpg"
+ },
+ "sew-the-winter-to-my-skin": {
+  "source": "TMDB",
+  "tmdb": "movie/542423",
+  "image": "https://image.tmdb.org/t/p/original/AnC5kFnayIYPRlJa5TRyRG0pHqZ.jpg"
+ },
+ "shadow": {
+  "source": "TMDB",
+  "tmdb": "tv/87415",
+  "image": "https://image.tmdb.org/t/p/original/pah40fuJA2tZBcY1rhvpSlj0Ys1.jpg"
+ },
+ "silverton-siege": {
+  "source": "TMDB",
+  "tmdb": "movie/951470",
+  "image": "https://image.tmdb.org/t/p/original/5HruMN0vvl84AqD7sCDXFNO4RhP.jpg"
+ },
+ "the-brave-ones": {
+  "source": "TMDB",
+  "tmdb": "tv/209390",
+  "image": "https://image.tmdb.org/t/p/original/62K9xKQGRfDQKKCjZddYJ49m8H4.jpg"
+ },
+ "the-burial-of-kojo": {
+  "source": "TMDB",
+  "tmdb": "movie/555605",
+  "image": "https://image.tmdb.org/t/p/original/aF2QMXcEmr273ky1rlYgEnIaIUV.jpg"
+ },
+ "the-mother-of-all-lies": {
+  "source": "TMDB",
+  "tmdb": "movie/1112527",
+  "image": "https://image.tmdb.org/t/p/original/4Veon1l9ujsImklgmkdwp1wHG7B.jpg"
+ },
+ "the-polygamist": {
+  "source": "TMDB",
+  "tmdb": "tv/322430",
+  "image": "https://image.tmdb.org/t/p/original/vamznpYBCI9n7VhrI3mxuzff7XP.jpg"
+ },
+ "timbuktu": {
+  "source": "TMDB",
+  "tmdb": "movie/265228",
+  "image": "https://image.tmdb.org/t/p/original/tCpHpn8msgonS9HVDMkrcSZh4an.jpg"
+ },
+ "touki-bouki": {
+  "source": "TMDB",
+  "tmdb": "movie/77771",
+  "image": "https://image.tmdb.org/t/p/original/kcBYKHyg9GcQqa6DWq0AuQDhtPI.jpg"
+ },
+ "umthetho": {
+  "source": "TMDB",
+  "tmdb": "tv/331650",
+  "image": "https://image.tmdb.org/t/p/original/xCiH7GBwpkdJMxPESMYo5ika7gW.jpg"
+ },
+ "unseen": {
+  "source": "TMDB",
+  "tmdb": "tv/220932",
+  "image": "https://image.tmdb.org/t/p/original/uY6eh9Ax8wSTPIP9odpcoSCbbav.jpg"
+ }
+}
