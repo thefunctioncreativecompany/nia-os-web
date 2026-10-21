@@ -33,6 +33,8 @@ export type FilmDetails = {
   rottenTomatoes?: string;
   /** English Wikipedia page title. */
   wikipedia: string;
+  /** The script, linked where the studio publishes it (never copied). */
+  script?: { href: string; source: string };
 };
 
 const OBSESSION: FilmDetails = {
@@ -229,6 +231,8 @@ export const FILM_DETAILS: Record<string, FilmDetails> = {
     imdb: "tt10048342",
     rottenTomatoes: "tv/the_queens_gambit",
     wikipedia: "The Queen's Gambit (miniseries)",
+    // Ika, 2026-10-20: Netflix's "It Starts on the Page" script, hosted by Deadline.
+    script: { href: "https://deadline.com/wp-content/uploads/2021/06/The-Queens-Gambit-It-Starts-On-The-Page.pdf", source: "Netflix's It Starts on the Page, hosted by Deadline" },
   },
   michael: {
     kind: "Film",
@@ -285,6 +289,7 @@ export function lengthOf(d: FilmDetails) {
 
 export const linksFor = (d: FilmDetails) =>
   [
+    d.script && { label: "Read the script", href: d.script.href },
     { label: "IMDb", href: `https://www.imdb.com/title/${d.imdb}/` },
     d.rottenTomatoes && { label: "Rotten Tomatoes", href: `https://www.rottentomatoes.com/${d.rottenTomatoes}` },
     { label: "Wikipedia", href: `https://en.wikipedia.org/wiki/${encodeURIComponent(d.wikipedia.replaceAll(" ", "_"))}` },

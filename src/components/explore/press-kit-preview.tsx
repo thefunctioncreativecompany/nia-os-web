@@ -121,6 +121,7 @@ export function PressKitPreview({
 
                 <p className="mt-8 text-caption text-muted-foreground">
                   {details.video ? `${details.video.label} from ${details.video.channel} on YouTube. ` : ""}
+                  {details.script ? `Script: ${details.script.source} (PDF). ` : ""}
                   Details from Wikidata.
                 </p>
               </>
