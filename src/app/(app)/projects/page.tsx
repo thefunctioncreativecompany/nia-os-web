@@ -1,14 +1,13 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Plus } from "lucide-react";
 
 import { listLinkSharedProjects, listProjects } from "@/lib/projects-data";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
-import { ProjectGrid } from "@/components/projects/project-grid";
-import { SharedProjects } from "@/components/projects/shared-projects";
+import { ProjectsBrowser } from "@/components/projects/projects-browser";
+import { ProjectsTabs } from "@/components/projects/projects-tabs";
 
 export const metadata: Metadata = {
   title: "Projects · Nia OS",
@@ -16,7 +15,8 @@ export const metadata: Metadata = {
 
 export default function Page({ searchParams }: PageProps<"/projects">) {
   return (
-    <div className="flex flex-1 flex-col px-4 pt-12 pb-15 md:px-15">
+    <div className="flex flex-1 flex-col gap-8 px-4 pt-8 pb-15 md:px-15">
+      <ProjectsTabs />
       <Suspense fallback={<ProjectsSkeleton />}>
         <Projects searchParams={searchParams} />
       </Suspense>
@@ -27,13 +27,12 @@ export default function Page({ searchParams }: PageProps<"/projects">) {
 async function Projects({ searchParams }: Pick<PageProps<"/projects">, "searchParams">) {
   const { q } = await searchParams;
   const query = typeof q === "string" ? q : "";
-  const [{ projects: all, now, userId }, linkedAll] = await Promise.all([listProjects(query), listLinkSharedProjects()]);
-  const linked = query ? linkedAll.filter((p) => p.title.toLowerCase().includes(query.toLowerCase())) : linkedAll;
+  const [{ projects: all, now, userId }, linked] = await Promise.all([listProjects(), listLinkSharedProjects()]);
   // My Projects are the ones this person owns; the rest were shared with them.
   const projects = all.filter((p) => p.ownerId === userId);
   const shared = all.filter((p) => p.ownerId !== userId);
 
-  if (!query && all.length === 0 && linked.length === 0) {
+  if (all.length === 0 && linked.length === 0) {
     // Figma "Screen 1 - Empty State".
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-6 py-15 text-center">
@@ -55,19 +54,8 @@ async function Projects({ searchParams }: Pick<PageProps<"/projects">, "searchPa
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-wrap items-baseline justify-between gap-3">
-        <h1 className="text-h2 font-bold text-foreground">My projects</h1>
-        {query && (
-          <p className="text-sm text-muted-foreground">
-            {all.length} {all.length === 1 ? "project matches" : "projects match"} “{query}” ·{" "}
-            <Link href="/projects" className="font-semibold text-foreground hover:underline">
-              Clear search
-            </Link>
-          </p>
-        )}
-      </div>
-      <ProjectGrid projects={projects} now={now} />
-      {(shared.length > 0 || linked.length > 0) && <SharedProjects projects={shared} linked={linked} now={now} />}
+      <h1 className="text-h2 font-bold text-foreground">My projects</h1>
+      <ProjectsBrowser projects={projects} shared={shared} linked={linked} now={now} initialQuery={query} />
     </div>
   );
 }

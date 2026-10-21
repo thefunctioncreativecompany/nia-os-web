@@ -13,6 +13,7 @@ import { ChoicePills } from "@/components/nia/choice-pills";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { LIBRARY_HREF, MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, similarTo, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
+import { AddToProject, SaveToCollection } from "./save-controls";
 import { TitleCard } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
 import { VideoThumbnail } from "./video-thumbnail";
@@ -133,6 +134,11 @@ export function TitleView({ entry }: { entry: Entry }) {
           <div className="flex flex-col gap-3">
             <p className="text-small font-semibold text-muted-foreground">{metaLine(title)}</p>
             <h1 className="text-h3 font-bold text-foreground md:text-h2">{title.title}</h1>
+            {/* Keep it, or put it to work in a project (Ika, 2026-10-21). */}
+            <div className="flex flex-wrap gap-2">
+              <SaveToCollection slug={title.slug} title={title.title} />
+              <AddToProject slug={title.slug} title={title.title} />
+            </div>
             {title.synopsis && <p className="text-sm leading-relaxed text-foreground/80">{title.synopsis}</p>}
             {title.study_note && (
               <div className="flex flex-col gap-1">

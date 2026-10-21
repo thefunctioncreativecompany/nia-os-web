@@ -10,6 +10,7 @@ import { ProjectEditor } from "@/components/projects/project-editor";
 import { ProjectLive } from "@/components/projects/project-live";
 import { DocumentPills, ProjectDocuments } from "@/components/projects/project-documents";
 import { ProjectFiles } from "@/components/projects/project-files";
+import { ProjectInspiration } from "@/components/projects/project-inspiration";
 import { catalog } from "@/features/templates/catalog";
 
 // Each template's icon, for the documents list.
@@ -47,6 +48,7 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
         canEdit={canEdit}
         behind={<DocumentPills projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} />}
         files={<ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />}
+        inspiration={<ProjectInspiration projectId={id} genres={project.genres} productionType={project.productionType} canEdit={canEdit} />}
         manage={
           <div className="flex flex-col gap-6">
             <ProjectActions project={project} role={role} />

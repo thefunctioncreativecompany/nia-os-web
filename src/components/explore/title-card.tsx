@@ -7,7 +7,31 @@ import { coverFor, metaLine, type Entry } from "@/features/explore/made-in-afric
 // A Made in Africa title as a card (Ika, 2026-10-21: equal cards, like the Top 10 press kits,
 // without numbers): its official cover, then the title and who made it. A title without a cover
 // gets a typographic poster on its grain gradient. Opens the title's page.
-export function TitleCard({ entry, href, sizes, first = false }: { entry: Entry; href: string; sizes: string; first?: boolean }) {
+export function TitleCard({
+  entry,
+  href,
+  sizes,
+  first = false,
+  actions,
+}: {
+  entry: Entry;
+  href: string;
+  sizes: string;
+  first?: boolean;
+  /** Buttons under the card (Add to project, Remove), kept outside its link. */
+  actions?: React.ReactNode;
+}) {
+  const card = <TitleCardLink entry={entry} href={href} sizes={sizes} first={first} />;
+  if (!actions) return card;
+  return (
+    <div className="flex flex-col gap-2.5">
+      {card}
+      <div className="flex flex-wrap gap-1.5">{actions}</div>
+    </div>
+  );
+}
+
+function TitleCardLink({ entry, href, sizes, first }: { entry: Entry; href: string; sizes: string; first: boolean }) {
   const { title, grain } = entry;
   const cover = coverFor(title.slug);
   return (

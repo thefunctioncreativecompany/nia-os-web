@@ -114,12 +114,15 @@ export function ProjectEditor({
   behind,
   manage,
   files,
+  inspiration,
 }: {
   project: Project;
   canEdit: boolean;
   behind: React.ReactNode;
   manage: React.ReactNode;
   files: React.ReactNode;
+  /** Explore references and suggestions, under the files. */
+  inspiration?: React.ReactNode;
 }) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -353,6 +356,7 @@ export function ProjectEditor({
       </div>
 
       {files}
+      {inspiration}
     </div>
   );
 }
