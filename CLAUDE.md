@@ -143,6 +143,13 @@ Data:
   Made in Africa covers are the official posters in high resolution (TMDB originals up to 1600
   wide, plus Ika's four); sources in `src/features/explore/cover-sources.json` for the TMDB
   licence Explore needs before launch. Trailers show YouTube's thumbnails through our image server.
+- (2026-10-21) Explore is for creators as much as filmmakers (Ika): a Creators category
+  (`src/features/explore/creators.ts`) of commercials, fashion films, music videos and shorts
+  from Instagram, first under By category and on Explore all, each with a page at
+  `/explore/creator/[code]` (Instagram's player on Play, full production credits from the post's
+  caption, handles as posted, Nia-written summaries). Types use the projects' list, so a
+  Commercial or Music Video project's inspiration leads with them. Credited as beta/educational
+  use; before launch, use Meta's oEmbed API (needs a Meta app) instead of reading public pages.
 - (2026-10-21) Anything that doesn't work yet is greyed out with a `NotYet` note saying when it opens
   (`src/components/nia/not-yet.tsx`), never active with a "nothing happened" message: Marketplace's
   Pay, Publish listing, fleet request and the lister dashboard's Accept / Decline / pause; Explore's

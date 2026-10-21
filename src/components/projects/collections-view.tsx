@@ -11,8 +11,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/nia/empty-state";
 import { NotYet } from "@/components/nia/not-yet";
 import { AddToProject } from "@/components/explore/save-controls";
-import { TitleCard } from "@/components/explore/title-card";
-import { exploreHome, findEntry, titleHref } from "@/features/explore/made-in-africa";
+import { ExploreCard } from "@/components/explore/title-card";
+import { exploreItem } from "@/features/explore/items";
+import { exploreHome } from "@/features/explore/made-in-africa";
 import { loadCollections, unsaveTitle, type Collection } from "@/features/explore/saves";
 
 // Projects › Collections (Ika, 2026-10-21): the titles you've saved from Explore, collection by
@@ -80,18 +81,18 @@ export function CollectionsView() {
             </h2>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               {c.items.map((item) => {
-                const entry = findEntry(item.slug);
+                const entry = exploreItem(item.slug);
                 if (!entry) return null;
                 return (
                   <li key={item.id}>
-                    <TitleCard
-                      entry={entry}
-                      href={titleHref(entry.title.slug)}
+                    <ExploreCard
+                      item={entry}
+                      href={entry.href()}
                       sizes="(min-width: 80rem) 18vw, (min-width: 64rem) 23vw, (min-width: 40rem) 31vw, 48vw"
                       actions={
                         <>
-                          <AddToProject slug={entry.title.slug} title={entry.title.title} size="compact" />
-                          <Button variant="ghost" size="compact" aria-label={`Remove ${entry.title.title} from ${c.name}`} onClick={() => void remove(c, item.id, entry.title.title)}>
+                          <AddToProject slug={entry.slug} title={entry.title} size="compact" />
+                          <Button variant="ghost" size="compact" aria-label={`Remove ${entry.title} from ${c.name}`} onClick={() => void remove(c, item.id, entry.title)}>
                             <X aria-hidden /> Remove
                           </Button>
                         </>

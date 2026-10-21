@@ -1,8 +1,10 @@
 // Explore's whole library (Ika, 2026-10-21), for the Explore all canvas: every title on the
-// platform, each once. Today that's Explore's films (explore-data.ts) and the Made in Africa list;
+// platform, each once. Today that's Explore's films (explore-data.ts), the Made in Africa list and
+// creators' films (creators.ts);
 // user-generated projects join here later as another `kind`. Where a title is in both, the Made in
 // Africa one wins, since it has a page of its own.
 import { FILMS, grainFor } from "@/components/explore/explore-data";
+import { creatorFilms, creatorHref, creatorImage, leadCredit } from "./creators";
 import { allEntries, coverFor, metaLine, titleHref } from "./made-in-africa";
 
 export type LibraryItem = {
@@ -38,5 +40,20 @@ const fromFilms: LibraryItem[] = FILMS.filter((f) => !listed.has(norm(f.title)))
   open: { kind: "film", filmId: f.id },
 }));
 
-// Explore's own films first, then the list, in its curated order.
-export const LIBRARY: LibraryItem[] = [...fromFilms, ...fromList];
+const fromCreators: LibraryItem[] = creatorFilms.map((f, i) => ({
+  key: `c:${f.code}`,
+  title: f.title,
+  credit: leadCredit(f),
+  image: creatorImage(f),
+  grain: ["grain-2", "grain-5", "grain-8", "grain-11"][i % 4],
+  open: { kind: "page", href: creatorHref(f, "library") },
+}));
+
+// Explore's own films, then the list in its curated order, with creators' films dealt in among
+// them so the canvas never reads as only one kind of work.
+const titles = [...fromFilms, ...fromList];
+const every = Math.max(1, Math.floor(titles.length / (fromCreators.length + 1)));
+export const LIBRARY: LibraryItem[] = titles.flatMap((t, i) => {
+  const creator = (i + 1) % every === 0 ? fromCreators[(i + 1) / every - 1] : undefined;
+  return creator ? [t, creator] : [t];
+});

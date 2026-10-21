@@ -7,6 +7,7 @@ import { ChevronRight } from "lucide-react";
 import { DriftColumns } from "@/components/nia/drift-columns";
 import { ChipMenu, FilterChip } from "@/components/nia/filter-bar";
 import { LIBRARY_HREF } from "@/features/explore/made-in-africa";
+import { CreatorsStrip } from "./creators-strip";
 import { DirectorsNotes } from "./directors-notes";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory, getFilm, type CategoryItem, type Film } from "./explore-data";
@@ -68,6 +69,7 @@ export function ExploreLibrary() {
         <ChevronRight aria-hidden className="size-5" strokeWidth={2} />
       </div>
 
+      <CreatorsStrip />
       <MadeInAfricaStrip />
       <EpkLanes category={getCategory("epk")} />
       <DirectorsNotes category={getCategory("notes")} />

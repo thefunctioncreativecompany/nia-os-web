@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button";
 import { NotYet } from "@/components/nia/not-yet";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { SaveToCollection } from "@/components/explore/save-controls";
-import { TitleCard } from "@/components/explore/title-card";
+import { ExploreCard } from "@/components/explore/title-card";
 import { TmdbCredit } from "@/components/explore/tmdb-credit";
-import { findEntry, suggestForProject, titleHref } from "@/features/explore/made-in-africa";
+import { exploreItem, suggestItemsForProject } from "@/features/explore/items";
 import { addReference, loadReferences, removeReference, type Reference } from "@/features/explore/saves";
 
 const cell = "w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[16%]";
@@ -65,7 +65,7 @@ export function ProjectInspiration({
   };
 
   const held = new Set((refs ?? []).map((r) => r.slug));
-  const suggestions = suggestForProject({ genres, productionType }, held);
+  const suggestions = suggestItemsForProject({ genres, productionType }, held);
   const matched = genres.trim() !== "" || !!productionType;
 
   return (
@@ -83,17 +83,17 @@ export function ProjectInspiration({
         ) : refs ? (
           <ScrollRow label="References from Explore">
             {refs.map((r) => {
-              const entry = findEntry(r.slug);
+              const entry = exploreItem(r.slug);
               if (!entry) return null;
               return (
                 <li key={r.id} className={cell}>
-                  <TitleCard
-                    entry={entry}
-                    href={titleHref(entry.title.slug)}
+                  <ExploreCard
+                    item={entry}
+                    href={entry.href()}
                     sizes={sizes}
                     actions={
                       canEdit && (
-                        <Button variant="ghost" size="compact" aria-label={`Remove ${entry.title.title} from references`} onClick={() => void remove(r, entry.title.title)}>
+                        <Button variant="ghost" size="compact" aria-label={`Remove ${entry.title} from references`} onClick={() => void remove(r, entry.title)}>
                           <X aria-hidden /> Remove
                         </Button>
                       )
@@ -112,24 +112,26 @@ export function ProjectInspiration({
             Inspiration for this project
           </h2>
           <p className="text-sm text-muted-foreground">
-            {matched ? "From Explore, matched to this project's genres and production type." : "From Explore. Add genres and a production type to get closer matches."}
+            {matched
+              ? "From Explore's films, series and creators' work, matched to this project's genres and production type."
+              : "From Explore. Add genres and a production type to get closer matches."}
           </p>
         </div>
         <ScrollRow label="Inspiration for this project">
           {suggestions.map((e) => (
-            <li key={e.title.slug} className={cell}>
-              <TitleCard
-                entry={e}
-                href={titleHref(e.title.slug)}
+            <li key={e.slug} className={cell}>
+              <ExploreCard
+                item={e}
+                href={e.href()}
                 sizes={sizes}
                 actions={
                   <>
                     {canEdit && !problem && (
-                      <Button variant="outline" size="compact" aria-label={`Add ${e.title.title} to references`} onClick={() => void add(e.title.slug, e.title.title)}>
+                      <Button variant="outline" size="compact" aria-label={`Add ${e.title} to references`} onClick={() => void add(e.slug, e.title)}>
                         <Plus aria-hidden /> Add
                       </Button>
                     )}
-                    <SaveToCollection slug={e.title.slug} title={e.title.title} size="compact" />
+                    <SaveToCollection slug={e.slug} title={e.title} size="compact" />
                   </>
                 }
               />
