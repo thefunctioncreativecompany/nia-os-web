@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Plus, X } from "lucide-react";
 import { toast } from "sonner";
 
@@ -12,7 +13,7 @@ import { SaveToCollection } from "@/components/explore/save-controls";
 import { ExploreCard } from "@/components/explore/title-card";
 import { TmdbCredit } from "@/components/explore/tmdb-credit";
 import { exploreItem, suggestItemsForProject } from "@/features/explore/items";
-import { addReference, loadReferences, removeReference, type Reference } from "@/features/explore/saves";
+import { addReference, exploreAccess, loadReferences, removeReference, type Reference } from "@/features/explore/saves";
 
 const cell = "w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[16%]";
 const sizes = "(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw";
@@ -33,6 +34,8 @@ export function ProjectInspiration({
 }) {
   const [refs, setRefs] = useState<Reference[] | null>(null);
   const [problem, setProblem] = useState<string | null>(null);
+  // Suggestions and adding come with Explore's early access (Ika, 2026-10-21).
+  const [access, setAccess] = useState<boolean | null>(null);
 
   const load = async () => {
     const result = await loadReferences(createClient(), projectId);
@@ -41,11 +44,13 @@ export function ProjectInspiration({
   };
   useEffect(() => {
     let live = true;
-    void loadReferences(createClient(), projectId).then((result) => {
+    const db = createClient();
+    void loadReferences(db, projectId).then((result) => {
       if (!live) return;
       if (result.ready) setRefs(result.data);
       else setProblem(result.error);
     });
+    void exploreAccess(db).then((yes) => live && setAccess(yes));
     return () => {
       live = false;
     };
@@ -78,7 +83,7 @@ export function ProjectInspiration({
           <NotYet>{problem} Titles added from Explore will show here.</NotYet>
         ) : refs && refs.length === 0 ? (
           <p className="text-sm text-muted-foreground">
-            {canEdit ? "Add titles from the suggestions below, from Explore, or from your collections." : "Nothing added from Explore yet."}
+            {canEdit && access ? "Add titles from the suggestions below, from Explore, or from your collections." : "Nothing added from Explore yet."}
           </p>
         ) : refs ? (
           <ScrollRow label="References from Explore">
@@ -106,40 +111,55 @@ export function ProjectInspiration({
         ) : null}
       </section>
 
-      <section aria-labelledby="inspiration" className="flex flex-col gap-4">
-        <div className="flex flex-col gap-1">
+      {access === false ? (
+        <section aria-labelledby="inspiration" className="flex flex-col gap-3">
           <h2 id="inspiration" className="text-xl leading-[1.4] font-bold text-foreground">
             Inspiration for this project
           </h2>
-          <p className="text-sm text-muted-foreground">
-            {matched
-              ? "From Explore's films, series and creators' work, matched to this project's genres and production type."
-              : "From Explore. Add genres and a production type to get closer matches."}
-          </p>
-        </div>
-        <ScrollRow label="Inspiration for this project">
-          {suggestions.map((e) => (
-            <li key={e.slug} className={cell}>
-              <ExploreCard
-                item={e}
-                href={e.href()}
-                sizes={sizes}
-                actions={
-                  <>
-                    {canEdit && !problem && (
-                      <Button variant="outline" size="compact" aria-label={`Add ${e.title} to references`} onClick={() => void add(e.slug, e.title)}>
-                        <Plus aria-hidden /> Add
-                      </Button>
-                    )}
-                    <SaveToCollection slug={e.slug} title={e.title} size="compact" />
-                  </>
-                }
-              />
-            </li>
-          ))}
-        </ScrollRow>
-        <TmdbCredit />
-      </section>
+          <NotYet>
+            Explore is open to invited members for now.{" "}
+            <Link href="/explore" className="font-semibold text-foreground underline underline-offset-2">
+              Enter your invite code
+            </Link>{" "}
+            to get titles matched to this project and add them to its references.
+          </NotYet>
+        </section>
+      ) : access ? (
+        <section aria-labelledby="inspiration" className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
+            <h2 id="inspiration" className="text-xl leading-[1.4] font-bold text-foreground">
+              Inspiration for this project
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              {matched
+                ? "From Explore's films, series and creators' work, matched to this project's genres and production type."
+                : "From Explore. Add genres and a production type to get closer matches."}
+            </p>
+          </div>
+          <ScrollRow label="Inspiration for this project">
+            {suggestions.map((e) => (
+              <li key={e.slug} className={cell}>
+                <ExploreCard
+                  item={e}
+                  href={e.href()}
+                  sizes={sizes}
+                  actions={
+                    <>
+                      {canEdit && !problem && (
+                        <Button variant="outline" size="compact" aria-label={`Add ${e.title} to references`} onClick={() => void add(e.slug, e.title)}>
+                          <Plus aria-hidden /> Add
+                        </Button>
+                      )}
+                      <SaveToCollection slug={e.slug} title={e.title} size="compact" />
+                    </>
+                  }
+                />
+              </li>
+            ))}
+          </ScrollRow>
+          <TmdbCredit />
+        </section>
+      ) : null}
     </div>
   );
 }

@@ -17,7 +17,11 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   // Home moved from /dashboard; keep old links and bookmarks working.
   async redirects() {
-    return [{ source: "/dashboard", destination: "/home", permanent: true }];
+    return [
+      { source: "/dashboard", destination: "/home", permanent: true },
+      // "Preview Explore" before early access opened Explore itself (Ika, 2026-10-21).
+      { source: "/explore/preview", destination: "/explore", permanent: false },
+    ];
   },
   turbopack: {
     rules: {

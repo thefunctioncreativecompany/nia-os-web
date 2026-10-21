@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { useReducedMotion } from "motion/react";
 
 import { Button } from "@/components/ui/button";
@@ -10,6 +9,7 @@ import { ComingSoonCard, comingSoonButton } from "@/components/nia/coming-soon-c
 import { isMouse, pointerIn, useFrame, useMediaQuery } from "@/hooks/use-pointer";
 import { useWaitlist } from "@/hooks/use-waitlist";
 import { getFilm } from "./explore-data";
+import { InviteCodeForm } from "./invite-code-form";
 import { PosterArt } from "./poster-art";
 
 // The design's ring, in its order.
@@ -98,7 +98,7 @@ export function ExploreComingSoon() {
       ))}
 
       <ComingSoonCard
-        status="Coming soon"
+        status="Early access by invite"
         title="Explore"
         note={email && <>We&rsquo;ll email {email} when Explore opens.</>}
         actions={
@@ -112,16 +112,11 @@ export function ExploreComingSoon() {
                 Notify me
               </Button>
             )}
-            <Button variant="outline" asChild className={comingSoonButton}>
-              <Link href="/explore/preview">
-                Preview Explore
-                <ArrowRight aria-hidden data-icon="inline-end" />
-              </Link>
-            </Button>
+            <InviteCodeForm />
           </>
         }
       >
-        Browse films, director&rsquo;s notes and electronic press kits from across Nia, then compare any two side by side. Opens February 2027.
+        Films, series and creators&rsquo; work with full production credits, ready to save to your projects. Open to invited members now, and to everyone in February 2027.
       </ComingSoonCard>
     </div>
   );

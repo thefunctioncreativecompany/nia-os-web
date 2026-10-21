@@ -14,13 +14,14 @@ import { AddToProject } from "@/components/explore/save-controls";
 import { ExploreCard } from "@/components/explore/title-card";
 import { exploreItem } from "@/features/explore/items";
 import { exploreHome } from "@/features/explore/made-in-africa";
-import { loadCollections, unsaveTitle, type Collection } from "@/features/explore/saves";
+import { exploreAccess, loadCollections, unsaveTitle, type Collection } from "@/features/explore/saves";
 
 // Projects › Collections (Ika, 2026-10-21): the titles you've saved from Explore, collection by
 // collection, each ready to add to a project's references. Collections are private to you.
 export function CollectionsView() {
   const [collections, setCollections] = useState<Collection[] | null>(null);
   const [problem, setProblem] = useState<string | null>(null);
+  const [access, setAccess] = useState<boolean | null>(null);
 
   const load = async () => {
     const result = await loadCollections(createClient());
@@ -29,7 +30,9 @@ export function CollectionsView() {
   };
   useEffect(() => {
     let live = true;
-    void loadCollections(createClient()).then((result) => {
+    const db = createClient();
+    void exploreAccess(db).then((yes) => live && setAccess(yes));
+    void loadCollections(db).then((result) => {
       if (!live) return;
       if (result.ready) setCollections(result.data);
       else setProblem(result.error);
@@ -55,7 +58,17 @@ export function CollectionsView() {
         <p className="max-w-160 text-lead text-muted-foreground">Titles you&rsquo;ve saved from Explore, ready to add to a project&rsquo;s references.</p>
       </div>
 
-      {problem ? (
+      {access === false && filled.length === 0 ? (
+        <EmptyState
+          icon={Bookmark}
+          message="Collections come with Explore, open to invited members for now. Enter your invite code on Explore to start saving."
+          action={
+            <Button asChild variant="outline">
+              <Link href="/explore">Enter an invite code</Link>
+            </Button>
+          }
+        />
+      ) : problem ? (
         <NotYet>{problem} Saved titles will appear here once they are.</NotYet>
       ) : !collections ? (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" aria-busy="true" aria-label="Loading collections">

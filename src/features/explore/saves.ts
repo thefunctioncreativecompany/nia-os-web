@@ -11,6 +11,20 @@ export type Collection = { id: string; name: string; items: { id: string; slug: 
 export type Reference = { id: string; slug: string; addedBy: string };
 export type EditableProject = { id: string; title: string; coverUrl: string | null };
 
+/** Whether this person can use Explore (early access by invite or code), from the browser. */
+export async function exploreAccess(db: SupabaseClient): Promise<boolean> {
+  const { data, error } = await db.rpc("has_explore_access");
+  return !error && data === true;
+}
+
+export type CodeResult = "unlocked" | "wrong" | { error: string };
+/** Enter an invite code. */
+export async function redeemCode(db: SupabaseClient, code: string): Promise<CodeResult> {
+  const { data, error } = await db.rpc("redeem_explore_code", { code });
+  if (error) return { error: error.code === "P0001" ? error.message : "That didn't work. Try again in a moment." };
+  return data === true ? "unlocked" : "wrong";
+}
+
 /** The collection a first save goes into. */
 export const DEFAULT_COLLECTION = "Saved";
 

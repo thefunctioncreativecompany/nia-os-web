@@ -150,6 +150,12 @@ Data:
   caption, handles as posted, Nia-written summaries). Types use the projects' list, so a
   Commercial or Music Video project's inspiration leads with them. Credited as beta/educational
   use; before launch, use Meta's oEmbed API (needs a Meta app) instead of reading public pages.
+- (2026-10-21) Explore is early access (Ika): every `/explore` page is gated by `has_explore_access()`
+  (`src/app/(app)/explore/layout.tsx`, `src/lib/explore-access.ts`): a confirmed Supabase email
+  invite, an email on `explore_invites`, or an invite code (CREATIVITY2026; stored as a sha256
+  fingerprint in `explore_codes`, 10 wrong tries an hour). Others get coming soon with the code
+  field. Saving to collections and adding project references need it too (database rules).
+  `/explore/preview` redirects to `/explore`. Needs `20261101000000_explore_access.sql`.
 - (2026-10-21) Anything that doesn't work yet is greyed out with a `NotYet` note saying when it opens
   (`src/components/nia/not-yet.tsx`), never active with a "nothing happened" message: Marketplace's
   Pay, Publish listing, fleet request and the lister dashboard's Accept / Decline / pause; Explore's
@@ -326,7 +332,7 @@ Next session (Ika, 2026-10-21, asked for, not started)
 - Put Made in Africa above Creators on Explore.
 - The link preview video lives on branch `link-preview-draft`, left out until Ika picks a direction.
 - Collections: `20261031000000_collections_references.sql` run (2026-10-21); run
-  `20261031010000_collections_remove.sql` so Remove works (soft deletes go through functions).
+  `20261031010000_collections_remove.sql` run; `20261101000000_explore_access.sql` to run.
 
 Future builds (from the 2026-10-21 review; agreed with Ika, build later)
 - Project cards: a no-cover look (Explore's typographic grain poster as a stand-in until Ika
@@ -354,4 +360,4 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261025030000_project_files_tags.sql`, `20261026010000_activity_documents_files.sql`,
 `20261026020000_link_shared_projects.sql`, `20261025040000_document_limits_file_archive.sql`,
 `20261026030000_document_rules_wording.sql`, `20261026000000_remove_pilot_clients.sql`,
-`20261027000000_feature_waitlist.sql`, `20261031000000_collections_references.sql`.
+`20261027000000_feature_waitlist.sql`, `20261031000000_collections_references.sql`, `20261031010000_collections_remove.sql`.
