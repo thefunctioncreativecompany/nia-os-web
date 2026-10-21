@@ -334,13 +334,17 @@ Next session (Ika, 2026-10-21, asked for, not started)
 - Collections: `20261031000000_collections_references.sql` run (2026-10-21); run
   `20261031010000_collections_remove.sql` run; `20261101000000_explore_access.sql` to run.
 
-Future builds (from the 2026-10-21 review; agreed with Ika, build later)
-- Project cards: a no-cover look (Explore's typographic grain poster as a stand-in until Ika
-  designs it), production-type chip and stage badge, and Explore's hover lift on every card.
-- Lighter project page: load the cover cropper, calendar and people picker only when opened.
-- Document editor: a sticky section outline with a filled tick per section (the "3 of 7 filled"
-  count moves into it); "what's next" document suggestions from the workflow steps (unbuilt
-  templates greyed); the toolbar in the shared pill style with downloads in one menu.
+Queued fixes (2026-10-21, done): share link that's off says "This link is off"; project page
+loads its cover cropper, calendar and Add document dialog only when used (604 → 570 KB); the
+document editor's sticky section outline, pill toolbar with Print in the one download menu, and
+"What's next" (from each template's `related` links; no workflow steps exist yet); calendar range
+band and today's gold dot.
+
+Future builds (agreed with Ika, build later; need designs first)
+- Project cards: a no-cover look, production-type chip and stage badge, hover lift.
+- Home: Next shoot, Complete your profile / set up your workspace (W1).
+- Projects: Team Members (2.3), References gallery (R1).
+- Templates: Editorial Shoot launcher (3.1, Fix 13); then "What's next" can follow its steps.
 
 Milestone 4 — Shoot day: not started.
 
