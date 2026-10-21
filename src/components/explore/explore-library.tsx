@@ -9,6 +9,7 @@ import { DirectorsNotes } from "./directors-notes";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory, getFilm, type CategoryItem, type Film } from "./explore-data";
 import { LatestStrips } from "./latest-strips";
+import { MadeInAfricaStrip } from "./made-in-africa-strip";
 import { PosterArt } from "./poster-art";
 import { PressKitPreview } from "./press-kit-preview";
 
@@ -61,6 +62,7 @@ export function ExploreLibrary() {
         <ChevronRight aria-hidden className="size-5" strokeWidth={2} />
       </div>
 
+      <MadeInAfricaStrip />
       <EpkLanes category={getCategory("epk")} />
       <DirectorsNotes category={getCategory("notes")} />
       <LatestStrips category={getCategory("latest")} />

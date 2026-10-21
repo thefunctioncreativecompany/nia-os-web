@@ -30,10 +30,15 @@ export type Collection = { slug: string; name: string; description: string };
 /** A title as listed in a collection: its season pin and a stand-in look for when it has no cover. */
 export type Entry = { title: Title; collection: Collection; pinnedSeason: number | null; grain: Grain };
 
-// Covers Ika assigns (2026-10-21: she picks them once this is built). Put the file in
+// Covers Ika assigns (2026-10-21, her first four posters). Put the file in
 // public/explore/made-in-africa/ and add `slug: "/explore/made-in-africa/<file>"` here. Titles
 // without one show a typographic poster.
-const COVERS: Record<string, string> = {};
+const COVERS: Record<string, string> = {
+  "mami-wata": "/explore/made-in-africa/mami-wata.jpg",
+  "this-is-not-a-burial": "/explore/made-in-africa/this-is-not-a-burial.jpg",
+  "shaka-ilembe": "/explore/made-in-africa/shaka-ilembe.jpg",
+  dam: "/explore/made-in-africa/dam.jpg",
+};
 
 export const coverFor = (slug: string): string | null => COVERS[slug] ?? null;
 

@@ -8,6 +8,14 @@ import { FINE_POINTER, isMouse, pointerIn, useFrame, useMediaQuery } from "@/hoo
 
 type Layout = { width: number; track: number; centres: number[] };
 
+// How cards away from the middle step back. "card": Templates (shrink, drop and fade). "reel":
+// Explore's filmstrip (Ika's Claude Design "05 · Filmstrip scrub"): shrink and drop further and
+// darken instead of fading, with the middle title large under the strip.
+const LOOKS = {
+  card: { reach: 0.6, drop: 24, scale: 0.86, dim: (k: number) => ({ opacity: Number((0.45 + 0.55 * k).toFixed(2)) }) },
+  reel: { reach: 0.55, drop: 40, scale: 0.84, dim: (k: number) => ({ filter: `brightness(${(0.4 + 0.6 * k).toFixed(2)})` }) },
+} as const;
+
 // A row of cards the pointer scrubs through (Ika's Claude Design "Templates", 2026-10-20):
 // moving across the strip slides the whole row from first card to last; the card nearest the
 // middle comes forward and the rest shrink, drop and fade. Tabbing to a card brings it to the
@@ -19,6 +27,7 @@ export function ScrubFilmstrip<T>({
   renderCard,
   footer,
   start = 0.2,
+  look = "card",
   label,
   className,
 }: {
@@ -30,6 +39,7 @@ export function ScrubFilmstrip<T>({
   footer: (item: T) => string;
   /** Where the row rests before the pointer arrives (0 = first card, 1 = last). */
   start?: number;
+  look?: keyof typeof LOOKS;
   label: string;
   className?: string;
 }) {
@@ -63,10 +73,11 @@ export function ScrubFilmstrip<T>({
   // How far each card's centre is from the middle of the strip.
   const distances = items.map((_, i) => (layout ? Math.abs(layout.centres[i] + offset - layout.width / 2) : 0));
   const best = distances.reduce((closest, d, i) => (d < distances[closest] ? i : closest), 0);
+  const style = LOOKS[look];
   const looks = distances.map((distance) => {
     if (!scrub || !layout) return undefined;
-    const k = Math.max(0, 1 - distance / (layout.width * 0.6));
-    return { transform: `translateY(${((1 - k) * 24).toFixed(1)}px) scale(${(0.86 + 0.14 * k).toFixed(3)})`, opacity: Number((0.45 + 0.55 * k).toFixed(2)) };
+    const k = Math.max(0, 1 - distance / (layout.width * style.reach));
+    return { transform: `translateY(${((1 - k) * style.drop).toFixed(1)}px) scale(${(style.scale + (1 - style.scale) * k).toFixed(3)})`, ...style.dim(k) };
   });
 
   const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -105,7 +116,7 @@ export function ScrubFilmstrip<T>({
               key={getKey(item)}
               onFocusCapture={() => focusCard(i)}
               style={looks[i]}
-              className={cn("flex-none snap-start", scrub && "transition-[transform,opacity] duration-settle ease-glide")}
+              className={cn("flex-none snap-start", scrub && "transition-[transform,opacity,filter] duration-settle ease-glide")}
             >
               {renderCard(item, i)}
             </li>
@@ -113,15 +124,15 @@ export function ScrubFilmstrip<T>({
         </ul>
       </div>
       {scrub && items.length > 0 && (
-        <div className="flex items-center gap-4 border-t border-border pt-2">
+        <div className={cn("flex items-center gap-4 border-t border-border", look === "reel" ? "pt-3" : "pt-2")}>
           <span className="text-small font-semibold text-foreground">
             {pad(best + 1)} / {pad(items.length)}
           </span>
-          <span className="min-w-0 truncate text-small text-muted-foreground">{footer(items[best])}</span>
+          <span className={cn("min-w-0 truncate", look === "reel" ? "text-h3 font-semibold tracking-tight text-foreground" : "text-small text-muted-foreground")}>{footer(items[best])}</span>
           <span className="flex-1" />
-          <span aria-hidden className="relative h-0.5 w-55 shrink-0 bg-border">
+          <span aria-hidden className={cn("relative h-0.5 shrink-0 bg-border", look === "reel" ? "w-90 max-w-[30%] rounded-full" : "w-55")}>
             <span
-              className="absolute inset-y-0 left-0 bg-foreground transition-[width] duration-glide ease-glide"
+              className={cn("absolute inset-y-0 left-0 transition-[width] duration-glide ease-glide", look === "reel" ? "rounded-full bg-gold" : "bg-foreground")}
               style={{ width: `${(((best + 1) / items.length) * 100).toFixed(1)}%` }}
             />
           </span>

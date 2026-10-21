@@ -257,10 +257,16 @@ Marketplace (from Ika's Claude Design and `design-ref/marketplace/MARKETPLACE_SP
   run `20261029000000_marketplace_waitlist.sql`.
 
 Explore, Made in Africa (Ika's build guide, 2026-10-21)
-- [ ] Started: the 50-title list (`src/features/explore/made-in-africa.json` + `.ts`), Supabase helpers
-  (`src/lib/explore.ts`), the seed script (`scripts/seed-made-in-africa.mjs`) and
-  `20261030000000_explore_made_in_africa.sql` (not run yet). To do: the filmstrip on Explore (first 15),
-  View all, the title page laid out like the project page; Ika then assigns covers.
+- [x] Built on sample data (`src/features/explore/made-in-africa.json` + `.ts`, in the shapes
+  `src/lib/explore.ts` returns): the first 15 titles as the "05 · Filmstrip scrub" strip under By
+  category (`ScrubFilmstrip look="reel"`), View all at `/explore/made-in-africa` (search, a chip per
+  collection), and a page per title at `/explore/title/[slug]` laid out like the project page
+  (trailer where the cover sits, season pills with `?season=`, Details, Behind the Production,
+  Videos; back link to Explore, or to View all with `?from=all`). Covers: Mami Wata, This Is Not a
+  Burial, Shaka iLembe, DAM (`COVERS` in made-in-africa.ts, files in `public/explore/made-in-africa`);
+  the rest are typographic posters until Ika assigns them. To do: the other covers; synopses;
+  run `20261030000000_explore_made_in_africa.sql` and the seed script (needs
+  `SUPABASE_SERVICE_ROLE_KEY`), then read from Supabase; the quick-view pop-up for these titles.
 
 Performance audit (2026-10-21)
 - [x] Login 96/100 on phones in Lighthouse, ahead of StudioBinder, Frame.io, Milanote, Notion, Canva,
