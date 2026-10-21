@@ -1,0 +1,1581 @@
+{
+  "collections": [
+    {
+      "slug": "light-and-landscape",
+      "name": "Light & Landscape",
+      "description": "Films where the image carries the story. Start here for DPs and photographers.",
+      "category": "made-in-africa"
+    },
+    {
+      "slug": "interior-lives",
+      "name": "Interior Lives",
+      "description": "Films driven by writing and performance.",
+      "category": "made-in-africa"
+    },
+    {
+      "slug": "genre-reimagined",
+      "name": "Genre, Reimagined",
+      "description": "Familiar genres made African.",
+      "category": "made-in-africa"
+    },
+    {
+      "slug": "series",
+      "name": "Series",
+      "description": "Long-form writing at scale.",
+      "category": "made-in-africa"
+    },
+    {
+      "slug": "truth-and-archive",
+      "name": "Truth & Archive",
+      "description": "Documentaries that invent new forms for real stories.",
+      "category": "made-in-africa"
+    },
+    {
+      "slug": "foundations",
+      "name": "Foundations",
+      "description": "The classics every film here descends from.",
+      "category": "made-in-africa"
+    },
+    {
+      "slug": "netflix-south-africa",
+      "name": "Netflix South Africa",
+      "description": "The commercial end of the industry, where Creative Directors are most likely to land work.",
+      "category": "made-in-africa"
+    },
+    {
+      "slug": "explore-all",
+      "category": "explore-all",
+      "name": "Explore all",
+      "description": "International films and series."
+    }
+  ],
+  "titles": [
+    {
+      "slug": "mami-wata",
+      "collection": "light-and-landscape",
+      "title": "Mami Wata",
+      "type": "film",
+      "year": 2023,
+      "countries": [
+        "Nigeria"
+      ],
+      "credit": "C.J. \"Fiery\" Obasi",
+      "recognition": "Sundance 2023, Special Jury Award for Cinematography",
+      "pair_with": "Cold War (Pawlikowski)",
+      "study_note": "High-contrast black and white by Lílis Soares; lighting dark skin against water and night",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "2Tktsd2-dKA",
+          "kind": "trailer",
+          "channel": "Fiery Film",
+          "label": "US trailer",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "this-is-not-a-burial",
+      "collection": "light-and-landscape",
+      "title": "This Is Not a Burial, It's a Resurrection",
+      "type": "film",
+      "year": 2019,
+      "countries": [
+        "Lesotho"
+      ],
+      "credit": "Lemohang Jeremiah Mosese",
+      "recognition": "Sundance 2020, Special Jury Award for Visionary Filmmaking; 31 wins and 12 nominations",
+      "pair_with": "Nostalghia (Tarkovsky)",
+      "study_note": "Painterly tableaux by Pierre de Villiers; Mary Twala's final lead role",
+      "imdb_id": "tt10849514",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "kBAfSS7ux3o",
+          "kind": "trailer",
+          "channel": "IFFR",
+          "is_primary": true
+        },
+        {
+          "provider": "youtube",
+          "video_id": "IZcr2T-eNPE",
+          "kind": "trailer",
+          "channel": "Paradise City Sales"
+        }
+      ]
+    },
+    {
+      "slug": "timbuktu",
+      "collection": "light-and-landscape",
+      "title": "Timbuktu",
+      "type": "film",
+      "year": 2014,
+      "countries": [
+        "Mauritania"
+      ],
+      "credit": "Abderrahmane Sissako",
+      "recognition": "Cannes Competition 2014; 7 Césars incl. Best Film; Oscar nominee",
+      "pair_with": "The Wind Will Carry Us (Kiarostami)",
+      "study_note": "Desert compositions by Sofian El Fani; violence held at a distance",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "MCeXfDOzKD4",
+          "kind": "trailer",
+          "channel": "Cohen Media Group",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "atlantics",
+      "collection": "light-and-landscape",
+      "title": "Atlantics",
+      "type": "film",
+      "year": 2019,
+      "countries": [
+        "Senegal"
+      ],
+      "credit": "Mati Diop",
+      "platform": "Netflix",
+      "recognition": "Cannes 2019 Grand Prix",
+      "pair_with": "Portrait of a Lady on Fire (Sciamma)",
+      "study_note": "Same DP, Claire Mathon: compare how she shoots the ocean and firelight in both",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "vhcXyK8s-io",
+          "kind": "trailer",
+          "channel": "Netflix",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "banel-and-adama",
+      "collection": "light-and-landscape",
+      "title": "Banel & Adama",
+      "type": "film",
+      "year": 2023,
+      "countries": [
+        "Senegal"
+      ],
+      "credit": "Ramata-Toulaye Sy",
+      "recognition": "Cannes Competition 2023 (debut feature)",
+      "pair_with": "Days of Heaven (Malick)",
+      "study_note": "Saturated color and landscape as fate, shot by Amine Berrada",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "ZuZg3RySOb8",
+          "kind": "trailer",
+          "channel": "Kino Lorber",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "sew-the-winter-to-my-skin",
+      "collection": "light-and-landscape",
+      "title": "Sew the Winter to My Skin",
+      "type": "film",
+      "year": 2018,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Jahmil X.T. Qubeka",
+      "recognition": "TIFF 2018; South Africa's Oscar submission",
+      "pair_with": "The Revenant (Iñárritu)",
+      "study_note": "Near-wordless storytelling; epic Karoo widescreen",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "FrLepWsV1EQ",
+          "kind": "trailer",
+          "channel": "TIFF",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "five-fingers-for-marseilles",
+      "collection": "light-and-landscape",
+      "title": "Five Fingers for Marseilles",
+      "type": "film",
+      "year": 2017,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Michael Matthews",
+      "recognition": "TIFF 2017, Discovery",
+      "pair_with": "The Proposition (Hillcoat)",
+      "study_note": "The western rebuilt in the Eastern Cape; frontier light",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "hWT0hJhMZwk",
+          "kind": "trailer",
+          "channel": "Five Fingers For Marseilles",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "neptune-frost",
+      "collection": "light-and-landscape",
+      "title": "Neptune Frost",
+      "type": "film",
+      "year": 2021,
+      "countries": [
+        "Rwanda",
+        "United States"
+      ],
+      "credit": "Saul Williams, Anisia Uzeyman",
+      "recognition": "Cannes Directors' Fortnight 2021",
+      "pair_with": "Sorry to Bother You (Riley)",
+      "study_note": "Afrofuturist musical; production design from recycled tech",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "acfBNIXovww",
+          "kind": "trailer",
+          "channel": "Kino Lorber",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "on-becoming-a-guinea-fowl",
+      "collection": "interior-lives",
+      "title": "On Becoming a Guinea Fowl",
+      "type": "film",
+      "year": 2024,
+      "countries": [
+        "Zambia"
+      ],
+      "credit": "Rungano Nyoni",
+      "recognition": "Cannes Un Certain Regard 2024, Best Director",
+      "pair_with": "Festen (Vinterberg)",
+      "study_note": "A family funeral exposes buried abuse; tone that shifts from comic to devastating",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "P5BWTLZjYR0",
+          "kind": "trailer",
+          "channel": "A24",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "i-am-not-a-witch",
+      "collection": "interior-lives",
+      "title": "I Am Not a Witch",
+      "type": "film",
+      "year": 2017,
+      "countries": [
+        "Zambia"
+      ],
+      "credit": "Rungano Nyoni",
+      "recognition": "Cannes Directors' Fortnight 2017; BAFTA Outstanding Debut",
+      "pair_with": "Embrace of the Serpent (Guerra)",
+      "study_note": "Same DP, David Gallego; satire built from stillness",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "telx5Pfe2-I",
+          "kind": "trailer",
+          "channel": "Film4",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "goodbye-julia",
+      "collection": "interior-lives",
+      "title": "Goodbye Julia",
+      "type": "film",
+      "year": 2023,
+      "countries": [
+        "Sudan"
+      ],
+      "credit": "Mohamed Kordofani",
+      "recognition": "Cannes Un Certain Regard 2023, Freedom Prize",
+      "pair_with": "A Separation (Farhadi)",
+      "study_note": "A lie between two women set against Sudan's split; chamber-drama writing",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "Xh8sauNG4AE",
+          "kind": "trailer",
+          "channel": "MAD Solutions",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "lingui-the-sacred-bonds",
+      "collection": "interior-lives",
+      "title": "Lingui, The Sacred Bonds",
+      "type": "film",
+      "year": 2021,
+      "countries": [
+        "Chad"
+      ],
+      "credit": "Mahamat-Saleh Haroun",
+      "recognition": "Cannes Competition 2021",
+      "pair_with": "4 Months, 3 Weeks and 2 Days (Mungiu)",
+      "study_note": "A mother and daughter navigating an abortion ban; restraint as tension",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "2DFew16WifY",
+          "kind": "trailer",
+          "channel": "MUBI",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "felicite",
+      "collection": "interior-lives",
+      "title": "Félicité",
+      "type": "film",
+      "year": 2017,
+      "countries": [
+        "Senegal",
+        "DR Congo"
+      ],
+      "credit": "Alain Gomis",
+      "recognition": "Berlinale 2017 Silver Bear Grand Jury Prize; FESPACO Étalon d'or",
+      "pair_with": "Cléo from 5 to 7 (Varda)",
+      "study_note": "Kinshasa at night, shot by Céline Bozon; music as inner voice",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "7ttgB59zFNg",
+          "kind": "trailer",
+          "channel": "MUBI",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "eyimofe",
+      "collection": "interior-lives",
+      "title": "Eyimofe (This Is My Desire)",
+      "type": "film",
+      "year": 2020,
+      "countries": [
+        "Nigeria"
+      ],
+      "credit": "Arie and Chuko Esiri",
+      "recognition": "Berlinale Forum 2020; Criterion Collection",
+      "pair_with": "Bicycle Thieves (De Sica)",
+      "study_note": "Two Lagos lives in parallel, on 16mm by Arseni Khachaturan",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "5ljzF35I-0I",
+          "kind": "trailer",
+          "channel": "Janus Films",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "inxeba",
+      "collection": "interior-lives",
+      "title": "Inxeba (The Wound)",
+      "type": "film",
+      "year": 2017,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "John Trengove",
+      "recognition": "Sundance and Berlinale 2017; Oscar shortlist",
+      "pair_with": "Brokeback Mountain (Lee)",
+      "study_note": "Masculinity and initiation; Nakhane's lead performance",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "0idwRX0d6nM",
+          "kind": "trailer",
+          "channel": "Nu Metro",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "rafiki",
+      "collection": "interior-lives",
+      "title": "Rafiki",
+      "type": "film",
+      "year": 2018,
+      "countries": [
+        "Kenya"
+      ],
+      "credit": "Wanuri Kahiu",
+      "recognition": "Cannes Un Certain Regard 2018",
+      "pair_with": "Moonlight (Jenkins)",
+      "study_note": "Pop color as defiance, shot by Christopher Wessels; a love story banned at home",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "LtZVboOaMjo",
+          "kind": "trailer",
+          "channel": "MPM Premium",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "feathers",
+      "collection": "interior-lives",
+      "title": "Feathers",
+      "type": "film",
+      "year": 2021,
+      "countries": [
+        "Egypt"
+      ],
+      "credit": "Omar El Zohairy",
+      "recognition": "Cannes Critics' Week 2021, Grand Prize",
+      "pair_with": "Roy Andersson's tableaux films",
+      "study_note": "Deadpan absurdism; fixed frames and non-professional actors",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "SEJYtb4ne14",
+          "kind": "trailer",
+          "channel": "HAKKA Distribution",
+          "label": "French subtitles",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "heart-of-the-hunter",
+      "collection": "genre-reimagined",
+      "title": "Heart of the Hunter",
+      "type": "film",
+      "year": 2024,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Mandla Dube",
+      "platform": "Netflix",
+      "recognition": "First African film to reach No. 1 on Netflix's global Top 10",
+      "pair_with": "The Bourne Identity (Liman)",
+      "study_note": "Action thriller from Deon Meyer's novel; Western Cape vistas; a director with a cinematographer's eye",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "KSCFWJvcYXE",
+          "kind": "trailer",
+          "channel": "Netflix",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "saloum",
+      "collection": "genre-reimagined",
+      "title": "Saloum",
+      "type": "film",
+      "year": 2021,
+      "countries": [
+        "Senegal"
+      ],
+      "credit": "Jean Luc Herbulot",
+      "recognition": "TIFF 2021, Midnight Madness",
+      "pair_with": "From Dusk Till Dawn (Rodriguez)",
+      "study_note": "Mercenary thriller that turns supernatural; genre switching mid-film",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "tth-ZMqZMkM",
+          "kind": "trailer",
+          "channel": "Shudder",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "hounds",
+      "collection": "genre-reimagined",
+      "title": "Hounds (Les Meutes)",
+      "type": "film",
+      "year": 2023,
+      "countries": [
+        "Morocco"
+      ],
+      "credit": "Kamal Lazraq",
+      "recognition": "Cannes Un Certain Regard 2023, Jury Prize",
+      "pair_with": "Good Time (Safdie brothers)",
+      "study_note": "One night in Casablanca's underworld; handheld, real locations, shot by Amine Berrada",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "kci_0C6IeLE",
+          "kind": "trailer",
+          "channel": "Curzon",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "anikulapo",
+      "collection": "genre-reimagined",
+      "title": "Anikulapo",
+      "type": "film",
+      "year": 2022,
+      "countries": [
+        "Nigeria"
+      ],
+      "credit": "Kunle Afolayan",
+      "platform": "Netflix",
+      "recognition": "5 AMVCA wins incl. Best Movie in Africa",
+      "pair_with": "The Green Knight (Lowery)",
+      "study_note": "Yoruba folklore epic; costume and period production design",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "rXIKrHPaB-o",
+          "kind": "trailer",
+          "channel": "AfricaOnNetflix",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-burial-of-kojo",
+      "collection": "genre-reimagined",
+      "title": "The Burial of Kojo",
+      "type": "film",
+      "year": 2018,
+      "countries": [
+        "Ghana"
+      ],
+      "credit": "Blitz Bazawule",
+      "platform": "Netflix",
+      "recognition": "Urbanworld 2018, Best Narrative Feature; Netflix via ARRAY",
+      "pair_with": "Beasts of the Southern Wild (Zeitlin)",
+      "study_note": "Magical realism through a child's eyes; dreamlike color",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "2l7gC3fa3m0",
+          "kind": "teaser",
+          "channel": "ARRAY",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "children-of-blood-and-bone",
+      "collection": "explore-all",
+      "title": "Children of Blood and Bone",
+      "type": "film",
+      "year": 2027,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Gina Prince-Bythewood",
+      "platform": "Paramount Pictures",
+      "recognition": "Upcoming: theatres and IMAX 15 January 2027",
+      "pair_with": "The Woman King (same director)",
+      "study_note": "Studio-scale fantasy world-building from West African-inspired myth; South African lead Thuso Mbedu with Damson Idris and Amandla Stenberg",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "HnWvg90lQt8",
+          "kind": "trailer",
+          "channel": "Paramount Pictures",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "blood-and-water",
+      "collection": "series",
+      "pinned_season": 3,
+      "title": "Blood & Water",
+      "type": "series",
+      "year": 2020,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Gambit Films",
+      "platform": "Netflix",
+      "recognition": "One of Netflix's most-watched African originals; SAFTA wins incl. cinematography",
+      "pair_with": "Elite (Netflix)",
+      "study_note": "Teen mystery with a trafficking thread; Cape Town as a character. Stars Ama Qamata, Khosi Ngema, Gail Mabalane",
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2020,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "OV9Ma4F_xyA",
+              "kind": "teaser",
+              "channel": "Netflix"
+            },
+            {
+              "provider": "youtube",
+              "video_id": "2m0Cm2kMOBU",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "year": 2021,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "tIr3txFZpds",
+              "kind": "teaser",
+              "channel": "Netflix"
+            },
+            {
+              "provider": "youtube",
+              "video_id": "27Fl-kfohok",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "year": 2022,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "K3MNHF7CSLo",
+              "kind": "announcement",
+              "channel": "Netflix",
+              "label": "Date announcement"
+            },
+            {
+              "provider": "youtube",
+              "video_id": "lTClXHjiSwM",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "year": 2024,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "Dm1NP9Q9QxI",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "the-polygamist",
+      "collection": "series",
+      "title": "The Polygamist",
+      "type": "series",
+      "year": 2026,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Akin Omotoso (showrunner, lead director)",
+      "platform": "Netflix",
+      "recognition": "Netflix Top 10 in South Africa within 24 hours; charted globally",
+      "pair_with": "Big Little Lies (HBO)",
+      "study_note": "22-episode adaptation of Sue Nyathi's novel; opens at a funeral and works backward. Stars S'dumo Mtshali, Gugu Gumede",
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2026,
+          "episode_count": 22,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "KBJllQVRuAA",
+              "kind": "trailer",
+              "channel": "AfricaOnNetflix",
+              "label": "Joyce",
+              "is_primary": true
+            },
+            {
+              "provider": "youtube",
+              "video_id": "MIZWu26ThTM",
+              "kind": "trailer",
+              "channel": "AfricaOnNetflix",
+              "label": "Jonasi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "shaka-ilembe",
+      "collection": "series",
+      "title": "Shaka iLembe",
+      "type": "series",
+      "year": 2023,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Mzansi Magic / Showmax (MultiChoice)",
+      "platform": "Showmax",
+      "pair_with": "Shōgun (FX)",
+      "study_note": "Period epic on the rise of Shaka Zulu; scale of costume, set and battle production",
+      "needs_review": [
+        "credit",
+        "recognition"
+      ],
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2023,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "vY8k2DPniFk",
+              "kind": "promo",
+              "channel": "Mzansi Magic",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "year": 2025,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "7OZFAK83b44",
+              "kind": "trailer",
+              "channel": "DStv Namibia",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dam",
+      "collection": "series",
+      "title": "DAM",
+      "type": "series",
+      "year": 2021,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Showmax Original",
+      "platform": "Showmax",
+      "pair_with": "Sharp Objects (HBO)",
+      "study_note": "A young woman returns to her small hometown and confronts a buried past; dread built through landscape and sound",
+      "needs_review": [
+        "credit",
+        "recognition"
+      ],
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2021,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "T9iKqEx9mcA",
+              "kind": "trailer",
+              "channel": "Showmax",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dahomey",
+      "collection": "truth-and-archive",
+      "title": "Dahomey",
+      "type": "documentary",
+      "year": 2024,
+      "countries": [
+        "Senegal",
+        "France",
+        "Benin"
+      ],
+      "credit": "Mati Diop",
+      "recognition": "Berlinale 2024 Golden Bear",
+      "pair_with": "Sans Soleil (Marker)",
+      "study_note": "Looted Beninese artefacts returned home; one artefact narrates",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "uUi718ZBH0c",
+          "kind": "trailer",
+          "channel": "MUBI",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "four-daughters",
+      "collection": "truth-and-archive",
+      "title": "Four Daughters",
+      "type": "documentary",
+      "year": 2023,
+      "countries": [
+        "Tunisia"
+      ],
+      "credit": "Kaouther Ben Hania",
+      "recognition": "Cannes 2023, L'Œil d'or; Oscar nominee",
+      "pair_with": "The Act of Killing (Oppenheimer)",
+      "study_note": "Actors and real family members restage the past together",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "36th41-rdb8",
+          "kind": "trailer",
+          "channel": "Modern Films",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-mother-of-all-lies",
+      "collection": "truth-and-archive",
+      "title": "The Mother of All Lies",
+      "type": "documentary",
+      "year": 2023,
+      "countries": [
+        "Morocco"
+      ],
+      "credit": "Asmae El Moudir",
+      "recognition": "Cannes Un Certain Regard 2023, Best Director; Oscar shortlist",
+      "pair_with": "The Missing Picture (Panh)",
+      "study_note": "Family memory rebuilt with handmade miniatures",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "S1d2cDLdn0E",
+          "kind": "trailer",
+          "channel": "Outsider Pictures",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "touki-bouki",
+      "collection": "foundations",
+      "title": "Touki Bouki",
+      "type": "film",
+      "year": 1973,
+      "countries": [
+        "Senegal"
+      ],
+      "credit": "Djibril Diop Mambéty",
+      "recognition": "Cannes 1973, FIPRESCI Prize; restored by the World Cinema Project",
+      "pair_with": "Breathless (Godard)",
+      "study_note": "Jump cuts and collage editing; the road movie made African",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "KuPxols8FwU",
+          "kind": "trailer",
+          "channel": "MUBI",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "black-girl",
+      "collection": "foundations",
+      "title": "Black Girl (La Noire de…)",
+      "type": "film",
+      "year": 1966,
+      "countries": [
+        "Senegal"
+      ],
+      "credit": "Ousmane Sembène",
+      "recognition": "Prix Jean Vigo 1966",
+      "pair_with": "Jeanne Dielman (Akerman)",
+      "study_note": "Domestic labor and alienation; the first feature by a sub-Saharan African director",
+      "videos": [
+        {
+          "provider": "vimeo",
+          "video_id": "167022630",
+          "kind": "trailer",
+          "channel": "Janus Films",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "pumzi",
+      "collection": "foundations",
+      "title": "Pumzi",
+      "type": "short",
+      "year": 2009,
+      "countries": [
+        "Kenya"
+      ],
+      "credit": "Wanuri Kahiu",
+      "recognition": "Sundance 2010, short films",
+      "pair_with": "Moon (Jones)",
+      "study_note": "Afrofuturism on a small budget; 21 minutes of world-building",
+      "needs_review": [
+        "video_official"
+      ],
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "fZb_Oe2zb5w",
+          "kind": "trailer",
+          "channel": "TALKING OBJECTS",
+          "is_official": false,
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "how-to-ruin-christmas",
+      "collection": "netflix-south-africa",
+      "title": "How to Ruin Christmas",
+      "type": "series",
+      "year": 2020,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Rethabile and Katleho Ramaphakela",
+      "platform": "Netflix",
+      "pair_with": "The Family Stone (Bezucha)",
+      "study_note": "Family farce built around a wedding, a funeral and a baby; ensemble comedy timing",
+      "seasons": [
+        {
+          "number": 1,
+          "label": "The Wedding",
+          "year": 2020,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "qAogGAv1TgE",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "label": "The Baby Shower",
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "tIl425IC2h8",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        }
+      ],
+      "needs_review": [
+        "season_numbers"
+      ]
+    },
+    {
+      "slug": "how-to-ruin-love",
+      "collection": "netflix-south-africa",
+      "title": "How to Ruin Love",
+      "type": "series",
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Rethabile and Katleho Ramaphakela",
+      "platform": "Netflix",
+      "pair_with": "My Big Fat Greek Wedding (Zwick)",
+      "study_note": "Two families' clashing traditions; Season 2 centres on lobola. Stars Sivenathi Mabuya",
+      "seasons": [
+        {
+          "number": 1,
+          "label": "The Proposal",
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "5J1zDakCChI",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "label": "The Lobola",
+          "year": 2025,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "LWBLH9PaQE8",
+              "kind": "trailer",
+              "channel": "AfricaOnNetflix",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "fatal-seduction",
+      "collection": "netflix-south-africa",
+      "title": "Fatal Seduction",
+      "type": "series",
+      "year": 2023,
+      "countries": [
+        "South Africa"
+      ],
+      "platform": "Netflix",
+      "pair_with": "Fatal Attraction (Lyne)",
+      "study_note": "Erotic thriller where an affair spirals into a murder investigation",
+      "needs_review": [
+        "credit"
+      ],
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2023,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "6Dpi7CZHY84",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "MkfeAkXzj5A",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "nDbljv8_eL4",
+              "kind": "trailer",
+              "channel": "AfricaOnNetflix",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "inumber-number",
+      "collection": "netflix-south-africa",
+      "title": "iNumber Number",
+      "type": "film",
+      "year": 2013,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Donovan Marsh",
+      "pair_with": "Heat (Mann)",
+      "study_note": "Johannesburg heist thriller; undercover cops crossing the line. Stars S'dumo Mtshali",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "acG0oR3QB1Y",
+          "kind": "trailer",
+          "channel": "iNumber Number",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "inumber-number-jozi-gold",
+      "collection": "netflix-south-africa",
+      "title": "iNumber Number: Jozi Gold",
+      "type": "film",
+      "year": 2023,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Donovan Marsh",
+      "platform": "Netflix",
+      "pair_with": "Heat (Mann)",
+      "study_note": "The Netflix sequel: a second Johannesburg heist with S'dumo Mtshali returning",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "hSWhMglY4Kk",
+          "kind": "trailer",
+          "channel": "AfricaOnNetflix",
+          "is_primary": true
+        },
+        {
+          "provider": "youtube",
+          "video_id": "B-IBhK8owMU",
+          "kind": "teaser",
+          "channel": "AfricaOnNetflix"
+        }
+      ]
+    },
+    {
+      "slug": "go",
+      "collection": "netflix-south-africa",
+      "title": "Go!",
+      "type": "series",
+      "year": 2025,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Kutlwano Ditsele, Thuli Zuma",
+      "platform": "Netflix",
+      "pair_with": "Friday Night Lights",
+      "study_note": "A teen sprinter on a private-school scholarship hiding a fatal secret; sport plus social realism",
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2025,
+          "episode_count": 6,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "Z5cpORQrs0s",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "umthetho",
+      "collection": "netflix-south-africa",
+      "title": "Umthetho",
+      "type": "series",
+      "year": 2026,
+      "countries": [
+        "South Africa"
+      ],
+      "platform": "Netflix",
+      "pair_with": "Top Boy (Netflix)",
+      "study_note": "Zulu-language crime drama: a state prosecutor becomes a double agent in her imprisoned brother's gang to keep their youngest brother alive. Stars Nqobile Nunu K.H., Given Stuurman, Tony Kgoroge",
+      "needs_review": [
+        "credit"
+      ],
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2026,
+          "episode_count": 7,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "FSDLNYk1xKs",
+              "kind": "trailer",
+              "channel": "AfricaOnNetflix",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "silverton-siege",
+      "collection": "netflix-south-africa",
+      "title": "Silverton Siege",
+      "type": "film",
+      "year": 2022,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Mandla Dube",
+      "platform": "Netflix",
+      "pair_with": "Dog Day Afternoon (Lumet)",
+      "study_note": "Apartheid-era bank siege inspired by real 1980 events",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "L23I_XopoA0",
+          "kind": "trailer",
+          "channel": "Netflix",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "queen-sono",
+      "collection": "netflix-south-africa",
+      "title": "Queen Sono",
+      "type": "series",
+      "year": 2020,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Kagiso Lediga",
+      "platform": "Netflix",
+      "pair_with": "Killing Eve",
+      "study_note": "Pan-African spy thriller led by Pearl Thusi",
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2020,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "1zgxDFEifyI",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "kings-of-joburg",
+      "collection": "netflix-south-africa",
+      "title": "Kings of Jo'burg",
+      "type": "series",
+      "year": 2020,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Shona Ferguson",
+      "platform": "Netflix",
+      "pair_with": "Peaky Blinders",
+      "study_note": "Crime-family drama in Johannesburg with supernatural undertones",
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2020,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "JHQSRvAf8kI",
+              "kind": "trailer",
+              "channel": "AfricaOnNetflix",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "k_f1TO0JUJ8",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "pxg-JOUJSrA",
+              "kind": "trailer",
+              "channel": "AfricaOnNetflix",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "shadow",
+      "collection": "netflix-south-africa",
+      "title": "Shadow",
+      "type": "series",
+      "year": 2019,
+      "countries": [
+        "South Africa"
+      ],
+      "platform": "Netflix",
+      "pair_with": "Luke Cage (Netflix)",
+      "study_note": "South Africa's first Netflix original series; a vigilante who cannot feel pain",
+      "needs_review": [
+        "credit"
+      ],
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2019,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "XSPBLWtcTqs",
+              "kind": "trailer",
+              "channel": "AfricaOnNetflix",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "seriously-single",
+      "collection": "netflix-south-africa",
+      "title": "Seriously Single",
+      "type": "film",
+      "year": 2020,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Katleho and Rethabile Ramaphakela",
+      "platform": "Netflix",
+      "pair_with": "Sex and the City",
+      "study_note": "Joburg rom-com about modern dating; sequel Seriously Single Too now streaming",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "V2SVIVkP2_U",
+          "kind": "trailer",
+          "channel": "AfricaOnNetflix",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "savage-beauty",
+      "collection": "netflix-south-africa",
+      "title": "Savage Beauty",
+      "type": "series",
+      "year": 2022,
+      "countries": [
+        "South Africa"
+      ],
+      "platform": "Netflix",
+      "pair_with": "Revenge (ABC)",
+      "study_note": "Revenge thriller inside a cosmetics empire",
+      "needs_review": [
+        "credit"
+      ],
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2022,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "Ro9JbgbQHPM",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "oMyskWtbOtw",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "kandasamys-the-baby",
+      "collection": "netflix-south-africa",
+      "title": "Kandasamys: The Baby",
+      "type": "film",
+      "year": 2023,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Jayan Moodley",
+      "platform": "Netflix",
+      "pair_with": "Father of the Bride",
+      "study_note": "Durban family comedy franchise; shot in South Africa and Mauritius",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "GZcOFS1vSEM",
+          "kind": "trailer",
+          "channel": "AfricaOnNetflix",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-brave-ones",
+      "collection": "netflix-south-africa",
+      "title": "The Brave Ones",
+      "type": "series",
+      "year": 2022,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Akin Omotoso (co-creator)",
+      "platform": "Netflix",
+      "pair_with": "American Gods (Starz)",
+      "study_note": "Supernatural revenge drama drawing on ancestral myth",
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2022,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "jxc5hiWx6sA",
+              "kind": "trailer",
+              "channel": "AfricaOnNetflix",
+              "is_primary": true
+            },
+            {
+              "provider": "youtube",
+              "video_id": "9LGc8omP4aM",
+              "kind": "teaser",
+              "channel": "AfricaOnNetflix"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "unseen",
+      "collection": "netflix-south-africa",
+      "title": "Unseen",
+      "type": "series",
+      "year": 2023,
+      "countries": [
+        "South Africa"
+      ],
+      "platform": "Netflix",
+      "pair_with": "Promising Young Woman (Fennell)",
+      "study_note": "A cleaner searching for her missing husband reveals a dangerous past. Stars Gail Mabalane",
+      "needs_review": [
+        "credit"
+      ],
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2023,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "0n1NvFns3-Y",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "tEqmfAELDnM",
+              "kind": "trailer",
+              "channel": "Netflix",
+              "is_primary": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "marked",
+      "collection": "netflix-south-africa",
+      "title": "Marked",
+      "type": "series",
+      "year": 2025,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Akin Omotoso (co-creator)",
+      "platform": "Netflix",
+      "pair_with": "The Polygamist (same lead actor and showrunner)",
+      "study_note": "Stars S'dumo Mtshali; season 2 in production",
+      "seasons": [
+        {
+          "number": 1,
+          "year": 2025,
+          "videos": [
+            {
+              "provider": "youtube",
+              "video_id": "lW2QZxPmuus",
+              "kind": "trailer",
+              "channel": "AfricaOnNetflix",
+              "is_primary": true
+            },
+            {
+              "provider": "youtube",
+              "video_id": "Ihwy4L7yuH8",
+              "kind": "teaser",
+              "channel": "AfricaOnNetflix"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "lobola-man",
+      "collection": "netflix-south-africa",
+      "title": "Lobola Man",
+      "type": "film",
+      "year": 2024,
+      "countries": [
+        "South Africa"
+      ],
+      "platform": "Netflix",
+      "pair_with": "Hitch (Tennant)",
+      "study_note": "Rom-com about Ace Ngubeni, a slick lobola negotiator facing his toughest deal for a shy client; tradition as comic engine",
+      "needs_review": [
+        "credit"
+      ],
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "r_eH39jh8rg",
+          "kind": "trailer",
+          "channel": "AfricaOnNetflix",
+          "is_primary": true
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "slug": "made-in-africa",
+      "name": "Made in Africa",
+      "description": "African film and series, curated for cinematography and writing, each paired with a global film that shares its craft."
+    },
+    {
+      "slug": "explore-all",
+      "name": "Explore all",
+      "description": "The broader Explore library: international titles outside Made in Africa."
+    }
+  ]
+}
