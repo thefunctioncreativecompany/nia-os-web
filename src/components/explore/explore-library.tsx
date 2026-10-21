@@ -1,10 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 import { DriftColumns } from "@/components/nia/drift-columns";
 import { ChipMenu, FilterChip } from "@/components/nia/filter-bar";
+import { LIBRARY_HREF } from "@/features/explore/made-in-africa";
 import { DirectorsNotes } from "./directors-notes";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory, getFilm, type CategoryItem, type Film } from "./explore-data";
@@ -37,12 +39,16 @@ export function ExploreLibrary() {
 
   return (
     <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-7.5 lg:pt-12.5">
-      <div className="flex items-center gap-3.5">
-        <h1 id="explore-all" className="text-h2 font-semibold tracking-tight text-foreground">
+      {/* Opens the whole library as one canvas (Ika, 2026-10-21). */}
+      <h1 id="explore-all" className="text-h2 font-semibold tracking-tight text-foreground">
+        <Link
+          href={LIBRARY_HREF}
+          className="group inline-flex items-center gap-3.5 rounded-md outline-none hover:text-foreground/80 focus-visible:ring-3 focus-visible:ring-ring/50"
+        >
           Explore all
-        </h1>
-        <ChevronRight aria-hidden className="size-5.5" strokeWidth={2} />
-      </div>
+          <ChevronRight aria-hidden className="size-5.5 transition-transform duration-fast ease-out group-hover:translate-x-1 motion-reduce:translate-x-0!" strokeWidth={2} />
+        </Link>
+      </h1>
 
       <div className="mt-7 flex flex-wrap items-center justify-between gap-4">
         <div role="group" aria-label="Show" className="flex flex-wrap gap-2">

@@ -167,7 +167,7 @@ export function MadeInAfricaAll() {
                 <li key={e.title.slug}>
                   <TitleCard
                     entry={e}
-                    href={titleHref(e.title.slug, true)}
+                    href={titleHref(e.title.slug, "all")}
                     first={gi === 0 && i === 0}
                     sizes="(min-width: 80rem) 18vw, (min-width: 64rem) 23vw, (min-width: 40rem) 31vw, 48vw"
                   />

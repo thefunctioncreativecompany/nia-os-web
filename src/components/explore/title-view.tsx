@@ -11,7 +11,7 @@ import { attribution, embedUrl, imdbUrl, pickSeason, primaryVideo, videoName, wa
 import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { ScrollRow } from "@/components/nia/scroll-row";
-import { MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, similarTo, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
+import { LIBRARY_HREF, MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, similarTo, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { TitleCard } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
@@ -28,7 +28,8 @@ import { VideoThumbnail } from "./video-thumbnail";
 export function TitleView({ entry }: { entry: Entry }) {
   const params = useSearchParams();
   const { title, collection, pinnedSeason } = entry;
-  const fromAll = params.get("from") === "all";
+  const from = params.get("from") === "all" ? "all" : params.get("from") === "library" ? "library" : undefined;
+  const back = from === "all" ? { href: MADE_IN_AFRICA_HREF, label: "← Back to Made in Africa" } : from === "library" ? { href: LIBRARY_HREF, label: "← Back to Explore all" } : { href: exploreHome(), label: "← Back to Explore" };
   const asked = Number(params.get("season"));
   const [season, setSeason] = useState<Season | null>(() => pickSeason(title, Number.isInteger(asked) && asked > 0 ? asked : null, pinnedSeason));
   const videos = season ? season.videos : title.videos;
@@ -67,10 +68,10 @@ export function TitleView({ entry }: { entry: Entry }) {
   return (
     <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
       <Link
-        href={fromAll ? MADE_IN_AFRICA_HREF : exploreHome()}
+        href={back.href}
         className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
       >
-        {fromAll ? "← Back to Made in Africa" : "← Back to Explore"}
+        {back.label}
       </Link>
 
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
@@ -228,7 +229,7 @@ export function TitleView({ entry }: { entry: Entry }) {
         <ScrollRow label="You may also like">
           {similarTo(entry).map((e) => (
             <li key={e.title.slug} className="w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[16%]">
-              <TitleCard entry={e} href={titleHref(e.title.slug, fromAll)} sizes="(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw" />
+              <TitleCard entry={e} href={titleHref(e.title.slug, from)} sizes="(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw" />
             </li>
           ))}
         </ScrollRow>

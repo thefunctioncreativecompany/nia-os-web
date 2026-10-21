@@ -100,6 +100,9 @@ export const madeInAfricaCollections: Collection[] = [...COLLECTIONS.values()].f
 
 export const allSlugs = ENTRIES.map((e) => e.title.slug);
 
+/** Every title in the list, Made in Africa and the wider "Explore all" ones. */
+export const allEntries: Entry[] = ENTRIES;
+
 export function findEntry(slug: string): Entry | null {
   return ENTRIES.find((e) => e.title.slug === slug) ?? null;
 }
@@ -107,8 +110,9 @@ export function findEntry(slug: string): Entry | null {
 /** Where Explore lives: the library once it opens, its preview until then. */
 export const exploreHome = () => (features.exploreUnlocked ? "/explore" : "/explore/preview");
 export const MADE_IN_AFRICA_HREF = "/explore/made-in-africa";
-/** A title's full-screen page; `fromAll` brings its back link to Made in Africa instead of Explore. */
-export const titleHref = (slug: string, fromAll = false) => `/explore/title/${slug}${fromAll ? "?from=all" : ""}`;
+export const LIBRARY_HREF = "/explore/all";
+/** A title's full-screen page; `from` brings its back link to View all ("all") or the whole library ("library"). */
+export const titleHref = (slug: string, from?: "all" | "library") => `/explore/title/${slug}${from ? `?from=${from}` : ""}`;
 
 // A title's type in the projects' production types, so Explore and projects use the same words.
 const TYPES: Record<Title["type"], ProductionType> = { film: "Film", series: "TV Series", short: "Short Film", documentary: "Documentary" };

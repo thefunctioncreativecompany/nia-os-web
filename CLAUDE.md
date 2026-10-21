@@ -130,6 +130,11 @@ Data:
   film once. View all has Genre, Country, Year (one year or a span), Type and Sort (Relevance,
   Title, Newest, Oldest, Country), using the projects' `GENRES` and `PRODUCTION_TYPES` so Explore
   and projects share one vocabulary; title pages end with "You may also like" (`similarTo`).
+  "Explore all" opens `/explore/all`: the whole library (`src/features/explore/library.ts`, each
+  title once; user projects join later) on a canvas that goes on in every direction, posters as
+  close as the Explore all grid (`LibraryCanvas`: drag with a glide, scroll, arrow keys; only
+  what's in view is drawn). Titles open their page (back link to Explore all), Explore's films
+  their pop-up.
   TMDB is credited wherever its posters and genres show (`TmdbCredit`: educational, beta
   testing, no revenue). Explore curates others' work for inspiration; Nia doesn't distribute it.
   Made in Africa covers are the official posters in high resolution (TMDB originals up to 1600
