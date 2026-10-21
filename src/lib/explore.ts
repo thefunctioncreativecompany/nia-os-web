@@ -134,6 +134,14 @@ export function embedUrl(v: Video): string {
     : `https://player.vimeo.com/video/${v.video_id}?autoplay=1`;
 }
 
+/**
+ * YouTube's own thumbnail for a video: "maxresdefault" (1280 wide, missing on some older uploads)
+ * or "hqdefault" (480 wide, always there). Vimeo has none without its API.
+ */
+export function videoThumbnail(v: Video, size: "maxresdefault" | "hqdefault" = "hqdefault"): string | null {
+  return v.provider === "youtube" ? `https://i.ytimg.com/vi/${v.video_id}/${size}.jpg` : null;
+}
+
 export function watchUrl(v: Video): string {
   return v.provider === "youtube" ? `https://www.youtube.com/watch?v=${v.video_id}` : `https://vimeo.com/${v.video_id}`;
 }

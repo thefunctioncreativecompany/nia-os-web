@@ -7,7 +7,12 @@ const nextConfig: NextConfig = {
     // 90 for the full-bleed auth/onboarding hero images; 75 is the default elsewhere.
     qualities: [75, 90],
     // Project covers and profile photos in Supabase Storage.
-    remotePatterns: [{ protocol: "https", hostname: "*.supabase.co", pathname: "/storage/v1/object/public/**" }],
+    // YouTube's own trailer thumbnails (Explore), fetched by our server so the browser doesn't
+    // contact YouTube until Play is pressed.
+    remotePatterns: [
+      { protocol: "https", hostname: "*.supabase.co", pathname: "/storage/v1/object/public/**" },
+      { protocol: "https", hostname: "i.ytimg.com", pathname: "/vi/**" },
+    ],
   },
   partialPrefetching: true,
   // Home moved from /dashboard; keep old links and bookmarks working.

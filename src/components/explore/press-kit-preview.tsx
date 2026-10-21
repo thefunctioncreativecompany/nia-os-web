@@ -8,6 +8,7 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } fr
 import { getFilm, type CategoryItem } from "./explore-data";
 import { getFilmDetails, lengthOf, linksFor, type FilmDetails } from "./film-details";
 import { NotYet } from "@/components/nia/not-yet";
+import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { PosterArt } from "./poster-art";
 
 // The film preview (Ika, 2026-10-20), opened from Explore's press kits, poster grid and director's
@@ -146,9 +147,12 @@ function FilmVideoPlayer({ filmId, title, details }: { filmId: string; title: st
   const [playing, setPlaying] = useState(false);
   const video = details?.video;
   const film = getFilm(filmId);
+  const box = useRef<HTMLDivElement>(null);
+  // Leaving the page (it stays alive, hidden, for Back) stops the video.
+  useStopVideosWhenHidden(box, () => setPlaying(false));
 
   return (
-    <div className="relative mt-6.5 aspect-video overflow-hidden rounded-2xl border border-border bg-foreground">
+    <div ref={box} className="relative mt-6.5 aspect-video overflow-hidden rounded-2xl border border-border bg-foreground">
       {playing && video ? (
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}

@@ -11,13 +11,16 @@ import { attribution, embedUrl, imdbUrl, pickSeason, primaryVideo, videoName, wa
 import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, typeName, type Entry } from "@/features/explore/made-in-africa";
+import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
+import { VideoThumbnail } from "./video-thumbnail";
 
 // A Made in Africa title, full screen (Ika, 2026-10-21), laid out like a project page (Figma
 // 824:23124) so the two read the same: the trailer where the cover sits, then the title and what to
 // study on the left; Details and Behind the production on the right; stacked on phones and
 // tablets. Series get season pills under the trailer: a season swaps the trailer and its videos and
 // goes into the address (?season=3) so it can be shared. Every video sits full width below, like
-// Files & references. Nothing loads from YouTube until Play is pressed.
+// Files & references, each with YouTube's thumbnail (through our image server). The player itself
+// loads only when Play is pressed, and stops when the page is left.
 export function TitleView({ entry }: { entry: Entry }) {
   const params = useSearchParams();
   const { title, collection, pinnedSeason } = entry;
@@ -29,6 +32,9 @@ export function TitleView({ entry }: { entry: Entry }) {
   const [playing, setPlaying] = useState(false);
   const hero = useRef<HTMLDivElement>(null);
   const cover = coverFor(title.slug);
+  // Leaving the page (it stays alive, hidden, for Back) stops the video.
+  useStopVideosWhenHidden(hero, () => setPlaying(false));
+  const thumb = video?.provider === "youtube";
 
   const chooseSeason = (number: string) => {
     const next = title.seasons.find((s) => s.number === Number(number)) ?? null;
@@ -66,7 +72,7 @@ export function TitleView({ entry }: { entry: Entry }) {
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
         {/* Left: the trailer, the seasons, the title and what to study. */}
         <div className="flex min-w-0 flex-col gap-6">
-          <div ref={hero} className={cn("relative aspect-[19/10] w-full overflow-hidden rounded-3xl", cover ? "bg-foreground" : entry.grain)}>
+          <div ref={hero} className={cn("relative aspect-[19/10] w-full overflow-hidden rounded-3xl", thumb || cover ? "bg-foreground" : entry.grain)}>
             {/* A new player for each video, so one never carries over to the next. */}
             {playing && video ? (
               <iframe
@@ -80,7 +86,9 @@ export function TitleView({ entry }: { entry: Entry }) {
               />
             ) : (
               <>
-                {cover ? (
+                {video && thumb ? (
+                  <VideoThumbnail key={video.video_id} video={video} preload sizes="(min-width: 1024px) 50vw, 100vw" className="opacity-90" />
+                ) : cover ? (
                   <Image src={cover} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover opacity-80" />
                 ) : (
                   <span aria-hidden className="absolute top-6 left-7 max-w-[70%] text-h2 leading-tight font-bold tracking-tight">
@@ -181,14 +189,20 @@ export function TitleView({ entry }: { entry: Entry }) {
                     onClick={() => play(v)}
                     aria-pressed={on}
                     className={cn(
-                      "flex w-full items-center gap-3 rounded-2xl border p-4 text-left outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
+                      "group flex w-full flex-col overflow-hidden rounded-2xl border text-left outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
                       on ? "border-foreground bg-secondary" : "border-border bg-white hover:border-ring",
                     )}
                   >
-                    <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-foreground text-primary-foreground">
-                      <Play aria-hidden className="ml-0.5 size-3.5 fill-current" />
+                    <span className={cn("relative block aspect-video", v.provider === "youtube" ? "bg-foreground" : entry.grain)}>
+                      <VideoThumbnail key={v.video_id} video={v} sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw" />
+                      <span className="absolute inset-0 flex items-center justify-center">
+                        <span className="flex size-10 items-center justify-center rounded-full bg-white/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 motion-reduce:scale-100!">
+                          <Play aria-hidden className="ml-0.5 size-4 fill-current" />
+                        </span>
+                      </span>
+                      {on && <span className="absolute top-2.5 left-2.5 rounded-full bg-white/90 px-2.5 py-1 text-micro font-semibold text-foreground">Playing</span>}
                     </span>
-                    <span className="flex min-w-0 flex-col">
+                    <span className="flex min-w-0 flex-col px-4 py-3">
                       <span className="truncate text-sm font-bold text-foreground">{videoName(v)}</span>
                       <span className="truncate text-caption text-muted-foreground">
                         {v.channel ?? (v.is_official ? "Official" : "Unofficial upload")} · {v.provider === "youtube" ? "YouTube" : "Vimeo"}
