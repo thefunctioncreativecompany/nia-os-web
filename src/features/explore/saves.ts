@@ -1,6 +1,7 @@
 // Collections and project references (Ika, 2026-10-21), read and written in the browser. The
 // database's access rules keep collections private and references to people on the project.
-// Before 20261031000000_collections_references.sql is run, everything here reports `ready: false`
+// Removing goes through database functions (20261031010000_collections_remove.sql), as with
+// project files. Before 20261031000000_collections_references.sql is run, everything here reports `ready: false`
 // so the screens can say so instead of failing.
 import type { SupabaseClient } from "@supabase/supabase-js";
 
@@ -15,7 +16,7 @@ export const DEFAULT_COLLECTION = "Saved";
 
 // The tables don't exist yet (the migration hasn't been run).
 const missing = (error: { code?: string; message?: string } | null) =>
-  !!error && (error.code === "PGRST205" || error.code === "42P01" || /schema cache|does not exist/i.test(error.message ?? ""));
+  !!error && (error.code === "PGRST205" || error.code === "PGRST202" || error.code === "42P01" || /schema cache|does not exist/i.test(error.message ?? ""));
 
 export type Result<T> = { ready: true; data: T } | { ready: false; error: string };
 const fail = (error: { code?: string; message?: string }): Result<never> => ({
@@ -57,7 +58,7 @@ export async function saveTitle(db: SupabaseClient, collectionId: string, slug: 
 }
 
 export async function unsaveTitle(db: SupabaseClient, itemId: string): Promise<Result<null>> {
-  const { error } = await db.from("collection_items").update({ deleted_at: new Date().toISOString() }).eq("id", itemId);
+  const { error } = await db.rpc("remove_collection_item", { item_id: itemId });
   return error ? fail(error) : { ready: true, data: null };
 }
 
@@ -80,7 +81,7 @@ export async function addReference(db: SupabaseClient, projectId: string, slug: 
 }
 
 export async function removeReference(db: SupabaseClient, referenceId: string): Promise<Result<null>> {
-  const { error } = await db.from("project_references").update({ deleted_at: new Date().toISOString() }).eq("id", referenceId);
+  const { error } = await db.rpc("remove_project_reference", { reference_id: referenceId });
   return error ? fail(error) : { ready: true, data: null };
 }
 

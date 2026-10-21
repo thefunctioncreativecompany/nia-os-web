@@ -325,7 +325,8 @@ Next session (Ika, 2026-10-21, asked for, not started)
   under a heading that shows or hides it.
 - Put Made in Africa above Creators on Explore.
 - The link preview video lives on branch `link-preview-draft`, left out until Ika picks a direction.
-- Run `20261031000000_collections_references.sql` (Collections, Save, Add to project).
+- Collections: `20261031000000_collections_references.sql` run (2026-10-21); run
+  `20261031010000_collections_remove.sql` so Remove works (soft deletes go through functions).
 
 Future builds (from the 2026-10-21 review; agreed with Ika, build later)
 - Project cards: a no-cover look (Explore's typographic grain poster as a stand-in until Ika
@@ -353,4 +354,4 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261025030000_project_files_tags.sql`, `20261026010000_activity_documents_files.sql`,
 `20261026020000_link_shared_projects.sql`, `20261025040000_document_limits_file_archive.sql`,
 `20261026030000_document_rules_wording.sql`, `20261026000000_remove_pilot_clients.sql`,
-`20261027000000_feature_waitlist.sql`.
+`20261027000000_feature_waitlist.sql`, `20261031000000_collections_references.sql`.
