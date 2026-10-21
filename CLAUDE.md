@@ -315,6 +315,18 @@ Projects × Explore (Ika, 2026-10-21)
 - [x] Document editor: a live preview of the PDF you'll download (`LivePreview`), redrawn a moment
   after each change, in place of the template's description.
 
+Next session (Ika, 2026-10-21, asked for, not started)
+- Creator films keep their shape: landscape films get landscape thumbnails (wider cards in rows,
+  the whole frame on a blurred fill on the canvas and in grids), and the player fills its frame
+  (size the hero to the film and clip Instagram's 54 px header). Measured shapes: CmdwOCmIhEU
+  16:9, DN2p7_axMPX 1.56:1, DavydV0pLDq 1.37:1, Dax-XWPyLnv and DdWjJhssh_7 4:3; DDzBw_xKbKm,
+  C58ek8BKcua, DZIUH91NEYP and DRunHHFCGas vertical (4:5 in the player).
+- A full-screen "By category" view (from the "By category ›" heading): every category, each
+  under a heading that shows or hides it.
+- Put Made in Africa above Creators on Explore.
+- The link preview video lives on branch `link-preview-draft`, left out until Ika picks a direction.
+- Run `20261031000000_collections_references.sql` (Collections, Save, Add to project).
+
 Future builds (from the 2026-10-21 review; agreed with Ika, build later)
 - Project cards: a no-cover look (Explore's typographic grain poster as a stand-in until Ika
   designs it), production-type chip and stage badge, and Explore's hover lift on every card.
