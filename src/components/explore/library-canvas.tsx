@@ -11,6 +11,7 @@ import { exploreHome } from "@/features/explore/made-in-africa";
 import { LIBRARY, type LibraryItem } from "@/features/explore/library";
 import type { CategoryItem } from "./explore-data";
 import { PressKitPreview } from "./press-kit-preview";
+import { FramedStill } from "./title-card";
 
 // The gap between posters, as on Explore all's grid (0.8125rem).
 const GAP = 13;
@@ -230,7 +231,9 @@ function Tile({ item, x, y, w, h, onFilm }: { item: LibraryItem; x: number; y: n
   );
   const body = (
     <>
-      {item.image ? (
+      {item.image && item.wide ? (
+        <FramedStill src={item.image} sizes={`${w}px`} draggable={false} />
+      ) : item.image ? (
         <Image src={item.image} alt="" fill sizes={`${w}px`} quality={90} draggable={false} className="pointer-events-none object-cover" />
       ) : (
         <span aria-hidden className="absolute inset-x-0 bottom-0 p-3 text-lead leading-tight font-bold">

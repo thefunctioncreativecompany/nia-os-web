@@ -15,6 +15,8 @@ export type LibraryItem = {
   image: string | null;
   /** The stand-in gradient when there's no picture. */
   grain: string;
+  /** A landscape picture, shown whole on a blurred fill in its poster-shaped tile. */
+  wide?: boolean;
   /** A title page to go to, or one of Explore's films to preview in its pop-up. */
   open: { kind: "page"; href: string } | { kind: "film"; filmId: string };
 };
@@ -46,6 +48,7 @@ const fromCreators: LibraryItem[] = creatorFilms.map((f, i) => ({
   credit: leadCredit(f),
   image: creatorImage(f),
   grain: ["grain-2", "grain-5", "grain-8", "grain-11"][i % 4],
+  wide: f.aspect > 1,
   open: { kind: "page", href: creatorHref(f, "library") },
 }));
 

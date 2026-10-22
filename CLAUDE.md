@@ -145,7 +145,7 @@ Data:
   licence Explore needs before launch. Trailers show YouTube's thumbnails through our image server.
 - (2026-10-21) Explore is for creators as much as filmmakers (Ika): a Creators category
   (`src/features/explore/creators.ts`) of commercials, fashion films, music videos and shorts
-  from Instagram, first under By category and on Explore all, each with a page at
+  from Instagram, under By category (after Made in Africa) and on Explore all, each with a page at
   `/explore/creator/[code]` (Instagram's player on Play, full production credits from the post's
   caption, handles as posted, Nia-written summaries). Types use the projects' list, so a
   Commercial or Music Video project's inspiration leads with them. Credited as beta/educational
@@ -321,15 +321,17 @@ Projects × Explore (Ika, 2026-10-21)
 - [x] Document editor: a live preview of the PDF you'll download (`LivePreview`), redrawn a moment
   after each change, in place of the template's description.
 
+Explore: creator film shapes and order (Ika, 2026-10-22)
+- [x] Made in Africa sits above Creators on Explore.
+- [x] Creator films keep their shape (`aspect` in `creators.ts`: landscape as measured, vertical
+  4:5). Rows give landscape films wider cards as tall as the posters beside them (`cardSpan`);
+  grids (`shape="poster"`, Collections) and the Explore all canvas show the whole frame on a
+  blurred fill (`FramedStill`). The film page's player takes the film's shape and hides
+  Instagram's 54 px header (measured: the film runs full width right below it).
+
 Next session (Ika, 2026-10-21, asked for, not started)
-- Creator films keep their shape: landscape films get landscape thumbnails (wider cards in rows,
-  the whole frame on a blurred fill on the canvas and in grids), and the player fills its frame
-  (size the hero to the film and clip Instagram's 54 px header). Measured shapes: CmdwOCmIhEU
-  16:9, DN2p7_axMPX 1.56:1, DavydV0pLDq 1.37:1, Dax-XWPyLnv and DdWjJhssh_7 4:3; DDzBw_xKbKm,
-  C58ek8BKcua, DZIUH91NEYP and DRunHHFCGas vertical (4:5 in the player).
 - A full-screen "By category" view (from the "By category ›" heading): every category, each
   under a heading that shows or hides it.
-- Put Made in Africa above Creators on Explore.
 - The link preview video lives on branch `link-preview-draft`, left out until Ika picks a direction.
 - Collections: `20261031000000_collections_references.sql` run (2026-10-21); run
   `20261031010000_collections_remove.sql` run; `20261101000000_explore_access.sql` to run.

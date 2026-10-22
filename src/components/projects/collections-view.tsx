@@ -101,6 +101,7 @@ export function CollectionsView() {
                     <ExploreCard
                       item={entry}
                       href={entry.href()}
+                      shape="poster"
                       sizes="(min-width: 80rem) 18vw, (min-width: 64rem) 23vw, (min-width: 40rem) 31vw, 48vw"
                       actions={
                         <>

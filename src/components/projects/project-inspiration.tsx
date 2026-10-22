@@ -10,12 +10,13 @@ import { Button } from "@/components/ui/button";
 import { NotYet } from "@/components/nia/not-yet";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { SaveToCollection } from "@/components/explore/save-controls";
-import { ExploreCard } from "@/components/explore/title-card";
+import { ExploreCard, cardSpan } from "@/components/explore/title-card";
 import { TmdbCredit } from "@/components/explore/tmdb-credit";
 import { exploreItem, suggestItemsForProject } from "@/features/explore/items";
 import { addReference, exploreAccess, loadReferences, removeReference, type Reference } from "@/features/explore/saves";
 
-const cell = "w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[16%]";
+// Landscape films get wider cells (`cardSpan`).
+const cell = "w-[calc(44%*var(--span,1))] flex-none snap-start sm:w-[calc(30%*var(--span,1))] md:w-[calc(22%*var(--span,1))] lg:w-[calc(16%*var(--span,1))]";
 const sizes = "(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw";
 
 // Explore on a project page (Ika, 2026-10-21): the titles the team added to its references, then
@@ -91,7 +92,7 @@ export function ProjectInspiration({
               const entry = exploreItem(r.slug);
               if (!entry) return null;
               return (
-                <li key={r.id} className={cell}>
+                <li key={r.id} className={cell} style={cardSpan(entry)}>
                   <ExploreCard
                     item={entry}
                     href={entry.href()}
@@ -138,7 +139,7 @@ export function ProjectInspiration({
           </div>
           <ScrollRow label="Inspiration for this project">
             {suggestions.map((e) => (
-              <li key={e.slug} className={cell}>
+              <li key={e.slug} className={cell} style={cardSpan(e)}>
                 <ExploreCard
                   item={e}
                   href={e.href()}

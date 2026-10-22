@@ -18,6 +18,9 @@ export type CreatorFilm = {
   /** Who posted it on Instagram. */
   account: string;
   brand: string | null;
+  /** The film's shape as width ÷ height: landscape films as measured, vertical ones at the 4:5
+   * Instagram's player shows them in. */
+  aspect: number;
   /** When it was posted. */
   date: string;
   country: string | null;
@@ -30,6 +33,7 @@ const c = (role: string, name: string, handle?: string): Credit => ({ role, name
 const FILMS: Omit<CreatorFilm, "slug">[] = [
   {
     code: "DDzBw_xKbKm",
+    aspect: 4 / 5,
     title: "adidas Originals LO PRO, director's cut",
     type: "Commercial",
     account: "roomstudio_",
@@ -71,6 +75,7 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
   },
   {
     code: "C58ek8BKcua",
+    aspect: 4 / 5,
     title: "Focalistic × adidas",
     type: "Music Video",
     account: "chris_coetsee",
@@ -113,6 +118,7 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
   },
   {
     code: "DN2p7_axMPX",
+    aspect: 1.56,
     title: "DHL Stormers × adidas",
     type: "Commercial",
     account: "ashleyjbenn",
@@ -137,6 +143,7 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
   },
   {
     code: "CmdwOCmIhEU",
+    aspect: 16 / 9,
     title: "adidas World Cup Series: Germany",
     type: "Commercial",
     account: "chris_coetsee",
@@ -163,6 +170,7 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
   },
   {
     code: "DdWjJhssh_7",
+    aspect: 4 / 3,
     title: "adidas Originals Sport DC",
     type: "Commercial",
     account: "rodeofeed_",
@@ -182,6 +190,7 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
   },
   {
     code: "DRunHHFCGas",
+    aspect: 4 / 5,
     title: "Arte for adidas Sportswear SS26",
     type: "Commercial",
     account: "arteantwerp",
@@ -196,6 +205,7 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
   },
   {
     code: "DZIUH91NEYP",
+    aspect: 4 / 5,
     title: "Alex “Poatan” Pereira",
     type: "Short Film",
     account: "arteantwerp",
@@ -210,6 +220,7 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
   },
   {
     code: "Dax-XWPyLnv",
+    aspect: 4 / 3,
     title: "No Scene Girls: the military playsuit",
     type: "Commercial",
     account: "noscenegirls",
@@ -231,6 +242,7 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
   },
   {
     code: "DavydV0pLDq",
+    aspect: 1.37,
     title: "Streamer University 2026",
     type: "Live Event",
     account: "kaicenat",

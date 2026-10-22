@@ -69,8 +69,8 @@ export function ExploreLibrary() {
         <ChevronRight aria-hidden className="size-5" strokeWidth={2} />
       </div>
 
-      <CreatorsStrip />
       <MadeInAfricaStrip />
+      <CreatorsStrip />
       <EpkLanes category={getCategory("epk")} />
       <DirectorsNotes category={getCategory("notes")} />
       <LatestStrips category={getCategory("latest")} />

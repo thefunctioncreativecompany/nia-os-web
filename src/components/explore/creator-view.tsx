@@ -23,7 +23,7 @@ import { exploreItem } from "@/features/explore/items";
 import { LIBRARY_HREF, exploreHome } from "@/features/explore/made-in-africa";
 import { CreatorCredit } from "./creators-strip";
 import { AddToProject, SaveToCollection } from "./save-controls";
-import { ExploreCard } from "./title-card";
+import { ExploreCard, cardSpan } from "./title-card";
 
 // A creator's film, full screen (Ika, 2026-10-21), laid out like a title or project page: the film
 // where the cover sits (Instagram's own player, loaded only on Play and stopped when the page is
@@ -57,26 +57,33 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
 
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
         <div className="flex min-w-0 flex-col gap-6">
-          <div ref={hero} className="relative flex min-h-[min(80svh,46rem)] items-center justify-center overflow-hidden rounded-3xl bg-foreground">
-            {/* The film's still, blurred to fill the frame, with the still itself in the middle. */}
-            <Image src={creatorImage(film)} alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="scale-110 object-cover opacity-50 blur-2xl" />
+          {/* The frame takes the film's shape, as large as fits beside the details (or the screen). */}
+          <div
+            ref={hero}
+            className="relative w-full max-w-[calc(min(80svh,46rem)*var(--shape))] overflow-hidden rounded-3xl bg-foreground"
+            style={{ aspectRatio: film.aspect, "--shape": film.aspect } as React.CSSProperties}
+          >
             {playing ? (
+              // Instagram's player opens with a 54 px bar naming who posted it, then the film at
+              // full width, then likes and comments. The frame shows only the film: the player sits
+              // 54 px higher and runs on below, clipped. (Measured 2026-10-22.)
               <iframe
                 src={instagramEmbed(film)}
                 title={`${film.title}, on Instagram`}
                 allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
-                className="relative z-10 h-[min(78svh,45rem)] w-[min(100%,25rem)] rounded-2xl bg-white"
+                scrolling="no"
+                className="absolute inset-x-0 -top-13.5 h-[calc(100%+--spacing(13.5)+--spacing(60))] w-full bg-foreground"
               />
             ) : (
               <button
                 type="button"
                 onClick={() => setPlaying(true)}
                 aria-label={`Play ${film.title}, from Instagram`}
-                className="group relative z-10 flex h-[min(70svh,40rem)] w-[min(90%,24rem)] items-center justify-center overflow-hidden rounded-2xl outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+                className="group absolute inset-0 flex items-center justify-center outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset"
               >
-                <Image src={creatorImage(film)} alt="" fill preload sizes="24rem" quality={90} className="object-cover" />
+                <Image src={creatorImage(film)} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" quality={90} className="object-cover" />
                 <span className="relative flex size-16 items-center justify-center rounded-full bg-white/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
                   <Play aria-hidden className="ml-1 size-6 fill-current" />
                 </span>
@@ -154,7 +161,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
         </h2>
         <ScrollRow label="More from creators">
           {more.map((item) => (
-            <li key={item.slug} className="w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[16%]">
+            <li key={item.slug} className="w-[calc(44%*var(--span,1))] flex-none snap-start sm:w-[calc(30%*var(--span,1))] md:w-[calc(22%*var(--span,1))] lg:w-[calc(16%*var(--span,1))]" style={cardSpan(item)}>
               <ExploreCard item={item} href={item.href(fromLibrary ? "library" : undefined)} sizes="(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw" />
             </li>
           ))}
