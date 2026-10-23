@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { features } from "@/lib/features";
+import { MARKETPLACE_HOME } from "@/features/marketplace/data";
 
 type Page = "browse" | "rentals" | "dashboard";
 
@@ -9,9 +9,8 @@ type Page = "browse" | "rentals" | "dashboard";
 // Lister dashboard. Same shape as the Settings tabs: each name over a 3px underline, gold on the
 // page you're on. Pages not built yet show but can't be chosen.
 export function MarketplaceNav({ current }: { current: Page }) {
-  const home = features.marketplaceUnlocked ? "/marketplace" : "/marketplace/preview";
   const tabs: { page: Page; label: string; href: string | null }[] = [
-    { page: "browse", label: "Browse", href: home },
+    { page: "browse", label: "Browse", href: MARKETPLACE_HOME },
     { page: "rentals", label: "My rentals", href: null },
     { page: "dashboard", label: "Lister dashboard", href: "/marketplace/dashboard" },
   ];

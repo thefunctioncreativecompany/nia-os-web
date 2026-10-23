@@ -8,11 +8,10 @@ import { useReducedMotion } from "motion/react";
 import type { DateRange } from "react-day-picker";
 
 import { cn } from "@/lib/utils";
-import { features } from "@/lib/features";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { isMouse, pointerIn, useFrame } from "@/hooks/use-pointer";
-import { buyEstimate, depositFor, getProvider, initials, marketplaceHome, specLine, type Listing } from "@/features/marketplace/data";
+import { buyEstimate, depositFor, getProvider, initials, MARKETPLACE_HOME, specLine, type Listing } from "@/features/marketplace/data";
 import { formatMoney, rentalDays, toCents } from "@/features/marketplace/fees";
 import { DigitalIcon } from "./digital-icon";
 import { MarketplaceNav } from "./marketplace-nav";
@@ -40,7 +39,6 @@ export function ListingDetail({ listing: l }: { listing: Listing }) {
   const days = range?.from && range.to ? rentalDays(range.from, range.to) : null;
   const rental = days && l.rentPerDay ? toCents(l.rentPerDay) * days : null;
   const deposit = depositFor(l);
-  const home = marketplaceHome(features.marketplaceUnlocked);
 
   const checkout = new URLSearchParams({ listing: l.id, mode: digital ? "buy" : mode });
   if (!digital && mode === "rent" && range?.from && range.to) {
@@ -53,7 +51,7 @@ export function ListingDetail({ listing: l }: { listing: Listing }) {
       <MarketplaceNav current="browse" />
 
       <nav aria-label="Breadcrumb" className="mt-8 flex flex-wrap items-center gap-1 text-small text-muted-foreground">
-        <Link href={home} className="rounded-sm outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">Marketplace</Link>
+        <Link href={MARKETPLACE_HOME} className="rounded-sm outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">Marketplace</Link>
         <ChevronRight aria-hidden className="size-3.5" />
         <span>{l.category}</span>
         <ChevronRight aria-hidden className="size-3.5" />

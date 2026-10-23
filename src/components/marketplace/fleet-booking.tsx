@@ -7,14 +7,13 @@ import { ArrowLeft, MapPin } from "lucide-react";
 import type { DateRange } from "react-day-picker";
 
 import { createClient } from "@/lib/supabase/client";
-import { features } from "@/lib/features";
 import { myPlan } from "@/lib/plan-client";
 import { planById, type PlanId } from "@/lib/plans";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { NumberStepper } from "@/components/nia/number-stepper";
 import { NotYet } from "@/components/nia/not-yet";
-import { marketplaceHome, type Listing } from "@/features/marketplace/data";
+import { MARKETPLACE_HOME, type Listing } from "@/features/marketplace/data";
 import { fleetRate, formatMoney, quoteRental, rentalDays, serviceRate } from "@/features/marketplace/fees";
 import { MarketplaceNav } from "./marketplace-nav";
 import { RentalDates, defaultRange, useToday } from "./rental-dates";
@@ -52,7 +51,7 @@ export function FleetBooking({ listing: l }: { listing: Listing & { fleet: NonNu
     <div className="mx-auto w-full max-w-310 px-4 pt-8 pb-20 sm:px-6 lg:pt-10">
       <MarketplaceNav current="browse" />
       <Link
-        href={marketplaceHome(features.marketplaceUnlocked)}
+        href={MARKETPLACE_HOME}
         className="mt-8 inline-flex items-center gap-1.5 rounded-sm text-small font-semibold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
       >
         <ArrowLeft aria-hidden className="size-3.5" />

@@ -232,8 +232,8 @@ export const initials = (name: string) =>
     .map((w) => w[0].toUpperCase())
     .join("");
 
-/** Where Marketplace home is: the store itself once it opens, its preview until then. */
-export const marketplaceHome = (unlocked: boolean) => (unlocked ? "/marketplace" : "/marketplace/preview");
+/** Marketplace home (the store; coming soon instead for people without access). */
+export const MARKETPLACE_HOME = "/marketplace";
 
 // The design's footnote (Ika's Claude Design "Marketplace"). Several photos are from Wikimedia
 // Commons under Creative Commons licences, which require this credit wherever they're shown.

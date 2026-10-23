@@ -1,0 +1,3 @@
+# Packages and rendered films (re-render with npm run render / render:demo).
+node_modules/
+out/

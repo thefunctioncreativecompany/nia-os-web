@@ -17,14 +17,6 @@ export async function exploreAccess(db: SupabaseClient): Promise<boolean> {
   return !error && data === true;
 }
 
-export type CodeResult = "unlocked" | "wrong" | { error: string };
-/** Enter an invite code. */
-export async function redeemCode(db: SupabaseClient, code: string): Promise<CodeResult> {
-  const { data, error } = await db.rpc("redeem_explore_code", { code });
-  if (error) return { error: error.code === "P0001" ? error.message : "That didn't work. Try again in a moment." };
-  return data === true ? "unlocked" : "wrong";
-}
-
 /** The collection a first save goes into. */
 export const DEFAULT_COLLECTION = "Saved";
 

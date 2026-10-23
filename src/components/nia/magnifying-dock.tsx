@@ -84,8 +84,9 @@ export function MagnifyingDock({
   };
 
   /* Crossing onto a glyph, not hovering one. (Bencho plays a
-     quiet pitched sound here; Nia has no sounds, so this only
-     records which glyph the pointer is over.) */
+     quiet pitched sound here; Nia's tick plays on choosing, in
+     the navbar, so this only records which glyph the pointer is
+     over.) */
   const to = (i: number | null) => setHover(i);
 
   const choose = (i: number) => {

@@ -1,0 +1,58 @@
+[
+  {
+    "file": "step-1.mp3",
+    "text": "Start in Projects. Choose New project, then Blank project.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4.96
+  },
+  {
+    "file": "step-2.mp3",
+    "text": "Give it a name, add a cover, pick the production type, and create it.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4.72
+  },
+  {
+    "file": "step-3.mp3",
+    "text": "Your project page keeps the cover and production details together.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4.24
+  },
+  {
+    "file": "step-4.mp3",
+    "text": "Next, open Templates, pick the call sheet, and use the template.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4.88
+  },
+  {
+    "file": "step-5.mp3",
+    "text": "Fill it in. It saves as you go, with a live preview of the PDF.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.2
+  },
+  {
+    "file": "step-6.mp3",
+    "text": "Then save it to your project.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 2.24
+  },
+  {
+    "file": "step-7.mp3",
+    "text": "The call sheet is now in the project, under Behind the Production.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4.4
+  },
+  {
+    "file": "step-8.mp3",
+    "text": "Last, add your references. Drop in stills, briefs or voice memos, and each is tagged as it uploads.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 7.84
+  }
+]

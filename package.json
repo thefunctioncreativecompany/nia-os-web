@@ -38,6 +38,7 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
+    "@elevenlabs/elevenlabs-js": "^2.74.0",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

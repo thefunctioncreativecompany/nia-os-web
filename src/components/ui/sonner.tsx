@@ -3,6 +3,7 @@
 import { Toaster as Sonner, type ToasterProps } from "sonner"
 import { CheckIcon, CircleAlertIcon, InfoIcon, Loader2Icon, TriangleAlertIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { SoundCue } from "@/components/nia/sound-cue"
 
 function ToastIcon({ className, children }: { className?: string; children: React.ReactNode }) {
   return (
@@ -20,10 +21,11 @@ const Toaster = ({ ...props }: ToasterProps) => {
       className="toaster group"
       closeButton
       icons={{
-        success: <ToastIcon className="bg-status-confirmed text-nia-success"><CheckIcon /></ToastIcon>,
+        // Success and error toasts carry their sound (Ika, 2026-10-22), so every one plays it.
+        success: <ToastIcon className="bg-status-confirmed text-nia-success"><CheckIcon /><SoundCue cue="success" /></ToastIcon>,
         info: <ToastIcon className="bg-status-on-hold text-status-on-hold-foreground"><InfoIcon /></ToastIcon>,
         warning: <ToastIcon className="bg-status-pending text-status-pending-foreground"><TriangleAlertIcon /></ToastIcon>,
-        error: <ToastIcon className="bg-status-cancelled text-nia-danger"><CircleAlertIcon /></ToastIcon>,
+        error: <ToastIcon className="bg-status-cancelled text-nia-danger"><CircleAlertIcon /><SoundCue cue="problem" /></ToastIcon>,
         loading: <Loader2Icon className="size-4 animate-spin" />,
       }}
       style={

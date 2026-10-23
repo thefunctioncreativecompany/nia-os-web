@@ -1,13 +1,6 @@
-import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
-import { MarketplaceHome } from "@/components/marketplace/marketplace-home";
-
-export const metadata: Metadata = {
-  title: "Marketplace preview · Nia OS",
-};
-
-// "Preview Marketplace" and every tile on the coming-soon screen: the store with sample listings,
-// before it opens.
+// The store used to live here before Marketplace had invite codes; old links go to /marketplace.
 export default function Page() {
-  return <MarketplaceHome />;
+  redirect("/marketplace");
 }

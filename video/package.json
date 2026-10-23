@@ -1,0 +1,26 @@
+{
+  "name": "nia-os-video",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nia OS product films made with Remotion. Separate from the web app; reads its data and public/ images.",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render MadeInAfrica out/made-in-africa.mp4",
+    "still": "remotion still MadeInAfricaPage out/made-in-africa.png",
+    "narrate": "node scripts/narrate.mjs",
+    "render:demo": "remotion render ProjectsTemplates out/projects-templates.mp4 --port=3123"
+  },
+  "dependencies": {
+    "@elevenlabs/elevenlabs-js": "^2.74.0",
+    "@remotion/cli": "4.0.538",
+    "@remotion/fonts": "4.0.538",
+    "lucide-react": "1.59.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "remotion": "4.0.538"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "typescript": "^5"
+  }
+}

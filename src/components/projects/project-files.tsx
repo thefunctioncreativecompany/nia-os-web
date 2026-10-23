@@ -13,6 +13,7 @@ import { createClient } from "@/lib/supabase/client";
 import { projectLimited } from "@/lib/plan-client";
 import { FREE_LIMITS } from "@/lib/plans";
 import { cn } from "@/lib/utils";
+import { playSound } from "@/lib/sounds";
 import { Button } from "@/components/ui/button";
 import { openUpgrade } from "@/components/nia/upgrade-dialog";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
@@ -171,6 +172,7 @@ export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT,
     const ok = files.filter((f) => f.size <= limitMb * 1e6);
     if (tooBig.length) {
       setRefuse(tooBig.length === 1 ? `${tooBig[0].name} is over ${limitMb} MB` : `${tooBig.length} files are over ${limitMb} MB`);
+      playSound("problem");
       if (!reduced) setShakes((n) => n + 1);
       window.setTimeout(() => setRefuse(null), 2400);
       // Within what a paid plan takes: offer the upgrade.

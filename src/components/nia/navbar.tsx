@@ -8,6 +8,7 @@ import { Compass, FileText, Folder, House, Inbox, Plus, ShoppingBag, type Lucide
 import { useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
+import { playSound } from "@/lib/sounds";
 import { Button } from "@/components/ui/button";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { NavSearch } from "@/components/nia/nav-search";
@@ -103,7 +104,9 @@ function Dock({ segment }: { segment: string | null }) {
         active={active?.label ?? null}
         onSelect={(key) => {
           const href = tabs.find((tab) => tab.label === key)?.href;
-          if (href) router.push(href);
+          if (!href) return;
+          playSound("navigate");
+          router.push(href);
         }}
       />
     </div>
@@ -188,6 +191,9 @@ function NavTabs({ segment }: { segment: string | null }) {
             key={tab.label}
             href={tab.href}
             aria-current={active ? "page" : undefined}
+            // The tick sounds as the press starts, not when it's let go; keys get it on click.
+            onPointerDown={() => !active && playSound("navigate")}
+            onClick={(e) => e.detail === 0 && !active && playSound("navigate")}
             className={cn(pill, "transition-colors duration-fast", active ? "text-foreground" : "text-muted-foreground hover:text-foreground")}
           >
             {icon}

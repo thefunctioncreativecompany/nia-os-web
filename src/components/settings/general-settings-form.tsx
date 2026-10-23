@@ -11,6 +11,7 @@ import {
   type GeneralSettings,
 } from "@/lib/settings";
 import { createClient } from "@/lib/supabase/client";
+import { playSound, setSoundsOn, soundsOn, subscribeSounds } from "@/lib/sounds";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -38,6 +39,8 @@ export function GeneralSettingsForm({
   const router = useRouter();
   const [settings, setSettings] = useState(initial);
   const [isSaving, setIsSaving] = useState(false);
+  // Sounds are a choice for this device, so the switch acts at once rather than on Save.
+  const sounds = useSyncExternalStore(subscribeSounds, soundsOn, () => true);
   const set = <K extends keyof GeneralSettings>(key: K, value: GeneralSettings[K]) =>
     setSettings((s) => ({ ...s, [key]: value }));
 
@@ -197,6 +200,19 @@ export function GeneralSettingsForm({
               onCheckedChange={(checked) => set("weeklyDigest", checked)}
             />
           </div>
+        </SettingsCard>
+
+        <SettingsCard title="Sound" className="gap-4">
+          <SettingsToggleRow
+            id="interface-sounds"
+            title="Interface sounds"
+            description="Soft sounds when something saves, when you switch tabs or something needs a look, and quiet ambience on Explore all. On this device."
+            checked={sounds}
+            onCheckedChange={(checked) => {
+              setSoundsOn(checked);
+              if (checked) playSound("success");
+            }}
+          />
         </SettingsCard>
 
         <SettingsCard title="System backups" className="gap-5">

@@ -118,13 +118,19 @@ Data:
 - (2026-10-20) Marketplace follows Ika's Claude Design and `design-ref/marketplace/MARKETPLACE_SPEC.md`.
   Coming soon is the design's field of product tiles held still (Ika: the panning felt clunky), with
   Explore's looping-motion exception for the amber dot. While `features.marketplaceUnlocked` is off,
-  tiles and "Preview Marketplace" open `/marketplace/preview` (the store with sample data). Notify me
+  tiles show a name on hover but no price and no link (Ika 2026-10-22: nobody should think
+  Marketplace is open), and every page under `/marketplace` is locked like Explore: an invite code
+  on coming soon opens the store for that account (`src/app/(app)/marketplace/layout.tsx`,
+  `src/lib/marketplace-access.ts`, `has_marketplace_access()`; codes only, no email invites, none
+  written in the public repo; added in the SQL Editor as the migration says). `/marketplace/preview`
+  redirects to `/marketplace`. Needs `20261102000000_marketplace_access.sql`. Notify me
   goes to the signed-in account's email, shown on the card; no email box (coming-soon screens are
   signed-in only). Nothing sends those emails yet. The gear rental fee follows the Plans page (renter's
   plan: 5% Free/Starter, 4% Creator, 3% Pro/Enterprise), not the spec's creator/partner split.
   Sample data in `src/features/marketplace/data.ts`. The waitlist name `marketplace` needs
-  `20261029000000_marketplace_waitlist.sql` (run after the plans one). Coming soon has two buttons:
-  Join the waitlist and Preview Marketplace (Ika: no List your gear early).
+  `20261029000000_marketplace_waitlist.sql` (run after the plans one). Coming soon has one button,
+  Join the waitlist, then the invite code field (Ika, 2026-10-22; no List your gear early); photo
+  credits open in a pop-up.
 
 - (2026-10-21) Explore changes (Ika): Top 10 press kits is one still row, 1 to 10 left to right,
   scrolled by hand or with edge arrows (`ScrollRow`), no longer five self-scrolling columns.
@@ -329,12 +335,43 @@ Explore: creator film shapes and order (Ika, 2026-10-22)
   blurred fill (`FramedStill`). The film page's player takes the film's shape and hides
   Instagram's 54 px header (measured: the film runs full width right below it).
 
+Sound and films (Ika, 2026-10-22)
+- [x] Interface sounds, made once with ElevenLabs (`scripts/make-sounds.mjs`, files in
+  `public/sounds`) and played by `src/lib/sounds.ts`: a soft chime with every success toast, a
+  low tone with every error toast and refused upload, a quiet tick on the main tabs (as the press
+  starts). On by default at low volume; Settings → General → Sound turns them off on this device
+  (localStorage, no database). Explore all's canvas has a quiet screening-room ambience with its
+  own on/off button. An opening swoosh was tried and removed (Ika). The ElevenLabs key is in
+  `.env.local` for scripts only: the app never calls ElevenLabs, so Vercel doesn't need it.
+- [x] Product films in `video/` (Remotion, its own packages): Made in Africa, and Projects and
+  templates (`npm run render:demo`), made from real screenshots of the flow (new project →
+  project page → Call Sheet → save to project → Files & references) with an ElevenLabs
+  voice-over (`src/narration.json`, `npm run narrate`; George on eleven_v4). Films render to
+  `video/out` (not committed). Play them in QuickTime or a browser: VS Code's preview has no AAC
+  sound.
+
+Future fixes (2026-10-22, from the sound and film session)
+- The Sound card in Settings → General isn't in Figma: design it in Claude Design and reconcile.
+- Listen to the sounds and the ambience on real speakers (volumes were set by measurement);
+  remake any with `node --env-file=.env.local scripts/make-sounds.mjs <name>`.
+- Phone dock: the tick plays when the finger lifts (the dock chooses on lift), not on press.
+- Projects and templates film: the navbar shows the test account's name "Test Crew" (rename it,
+  then re-capture), and the genre reads Drama (the form's default) for a photo shoot. Capture
+  scripts are in `video/scripts/capture/` (need `puppeteer-core`); empty the clean test account
+  first.
+- Test data from the film: "Studio lookbook" projects on both test accounts (the second has a
+  call sheet and three stills); soft-delete when no longer needed.
+- Creator films: check a playing vertical film in normal Chrome (headless Chrome showed
+  Instagram's "View more on Instagram" bar at every size).
+- ElevenLabs plan: check it allows commercial use before publishing the films.
+
 Next session (Ika, 2026-10-21, asked for, not started)
 - A full-screen "By category" view (from the "By category ›" heading): every category, each
   under a heading that shows or hides it.
 - The link preview video lives on branch `link-preview-draft`, left out until Ika picks a direction.
 - Collections: `20261031000000_collections_references.sql` run (2026-10-21); run
-  `20261031010000_collections_remove.sql` run; `20261101000000_explore_access.sql` to run.
+  `20261031010000_collections_remove.sql` run; `20261101000000_explore_access.sql` and
+  `20261102000000_marketplace_access.sql` (then add a code) to run.
 
 Queued fixes (2026-10-21, done): share link that's off says "This link is off"; project page
 loads its cover cropper, calendar and Add document dialog only when used (604 → 570 KB); the

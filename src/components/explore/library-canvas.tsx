@@ -1,11 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useReducedMotion } from "motion/react";
+import { Volume2, VolumeX } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { ambienceOn, ambientLoop, setAmbienceOn, soundsOn, subscribeSounds } from "@/lib/sounds";
 import { useMediaQuery } from "@/hooks/use-pointer";
 import { exploreHome } from "@/features/explore/made-in-africa";
 import { LIBRARY, type LibraryItem } from "@/features/explore/library";
@@ -201,9 +203,12 @@ export function LibraryCanvas() {
         >
           ← Back to Explore
         </Link>
-        <div className="pointer-events-auto flex items-baseline gap-2.5 rounded-full bg-white/90 px-4 py-2 shadow-card backdrop-blur-sm">
-          <h1 className="text-sm font-bold text-foreground">Explore all</h1>
-          <span className="text-small text-muted-foreground">{N} titles</span>
+        <div className="flex items-center gap-2">
+          <Ambience />
+          <div className="pointer-events-auto flex items-baseline gap-2.5 rounded-full bg-white/90 px-4 py-2 shadow-card backdrop-blur-sm">
+            <h1 className="text-sm font-bold text-foreground">Explore all</h1>
+            <span className="text-small text-muted-foreground">{N} titles</span>
+          </div>
         </div>
       </div>
       <p id="library-help" className="pointer-events-none absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-white/90 px-4 py-2 text-caption text-muted-foreground shadow-card backdrop-blur-sm max-lg:bottom-28">
@@ -220,6 +225,46 @@ export function LibraryCanvas() {
         />
       )}
     </section>
+  );
+}
+
+// The canvas's ambience (Ika, 2026-10-22): a quiet screening-room tone that fades in while you're
+// on Explore all and out when you leave or switch tabs, with a button to turn it off (remembered
+// on this device). Hidden when interface sounds are off in Settings.
+function Ambience() {
+  const sounds = useSyncExternalStore(subscribeSounds, soundsOn, () => false);
+  const on = useSyncExternalStore(subscribeSounds, ambienceOn, () => false);
+
+  useEffect(() => {
+    if (!sounds || !on) return;
+    const loop = ambientLoop("/sounds/explore-ambient.mp3", 2);
+    void loop.start();
+    // Browsers hold sound until someone interacts; the first tap or key starts it.
+    const wake = () => void loop.start();
+    const visibility = () => (document.hidden ? loop.stop() : void loop.start());
+    window.addEventListener("pointerdown", wake);
+    window.addEventListener("keydown", wake);
+    document.addEventListener("visibilitychange", visibility);
+    return () => {
+      loop.stop();
+      window.removeEventListener("pointerdown", wake);
+      window.removeEventListener("keydown", wake);
+      document.removeEventListener("visibilitychange", visibility);
+    };
+  }, [sounds, on]);
+
+  if (!sounds) return null;
+  const Icon = on ? Volume2 : VolumeX;
+  return (
+    <button
+      type="button"
+      aria-pressed={on}
+      aria-label="Background sound"
+      onClick={() => setAmbienceOn(!on)}
+      className="pointer-events-auto flex size-9 items-center justify-center rounded-full bg-white/90 text-muted-foreground shadow-card backdrop-blur-sm outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+    >
+      <Icon aria-hidden className="size-4" />
+    </button>
   );
 }
 

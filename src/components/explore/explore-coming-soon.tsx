@@ -9,7 +9,7 @@ import { ComingSoonCard, comingSoonButton } from "@/components/nia/coming-soon-c
 import { isMouse, pointerIn, useFrame, useMediaQuery } from "@/hooks/use-pointer";
 import { useWaitlist } from "@/hooks/use-waitlist";
 import { getFilm } from "./explore-data";
-import { InviteCodeForm } from "./invite-code-form";
+import { InviteCodeForm } from "@/components/nia/invite-code-form";
 import { PosterArt } from "./poster-art";
 
 // The design's ring, in its order.
@@ -112,7 +112,7 @@ export function ExploreComingSoon() {
                 Notify me
               </Button>
             )}
-            <InviteCodeForm />
+            <InviteCodeForm area="explore" unlocked="Explore is unlocked. Welcome in." />
           </>
         }
       >
