@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { InfoNote } from "@/components/nia/info-note";
 import { ScrollRow } from "@/components/nia/scroll-row";
+import { shuffled } from "@/lib/shuffle";
 import { CREATORS, CREATORS_HREF, creatorFilms } from "@/features/explore/creators";
 import { creatorItems } from "@/features/explore/items";
 import { ExploreCard, cardSpan } from "./title-card";
@@ -12,7 +13,7 @@ import { ExploreCard, cardSpan } from "./title-card";
 // independent creators and studios, in one still row under By category (after Made in Africa, Ika
 // 2026-10-21) so Explore reads as being for creators as much as filmmakers. Landscape films get
 // wider cards. View all opens every film with search (Ika, 2026-10-22).
-export function CreatorsStrip() {
+export function CreatorsStrip({ seed }: { seed: number }) {
   return (
     <section aria-labelledby="creators-title" className="mt-7">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
@@ -33,7 +34,7 @@ export function CreatorsStrip() {
         </Button>
       </div>
       <ScrollRow label={CREATORS.name}>
-        {creatorItems().map((item) => (
+        {shuffled(creatorItems(), seed).map((item) => (
           <li key={item.slug} className="w-[calc(44%*var(--span,1))] flex-none snap-start sm:w-[calc(30%*var(--span,1))] md:w-[calc(22%*var(--span,1))] lg:w-[calc(18%*var(--span,1))]" style={cardSpan(item)}>
             <ExploreCard item={item} href={item.href()} sizes="(min-width: 64rem) 18vw, (min-width: 40rem) 30vw, 44vw" />
           </li>

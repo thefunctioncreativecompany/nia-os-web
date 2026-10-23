@@ -10,11 +10,13 @@ import { ChipMenu, FilterChip, RangeChip, ResultCount, SearchField, type YearRan
 import { CREATORS, creatorFilms, creatorYear, type CreatorFilm } from "@/features/explore/creators";
 import { exploreItem } from "@/features/explore/items";
 import { exploreHome } from "@/features/explore/made-in-africa";
+import { recentFirst, recentViews } from "@/features/explore/views";
+import { shuffled } from "@/lib/shuffle";
 import { CreatorCredit } from "./creators-strip";
 import { FilmGallery } from "./film-gallery";
 
 const ALL = "all";
-const SORTS = { relevance: "Relevance", title: "Title A–Z", newest: "Newest first", oldest: "Oldest first" } as const;
+const SORTS = { relevance: "Relevance", recent: "Recently viewed", title: "Title A–Z", newest: "Newest first", oldest: "Oldest first" } as const;
 type Sort = keyof typeof SORTS;
 const all = (label: string) => ({ value: ALL, label });
 
@@ -36,13 +38,21 @@ function relevance(f: CreatorFilm, q: string) {
 
 // Creators, all of it (Ika, 2026-10-22), like Made in Africa's View all: back to Explore, a search
 // across titles, brands and everyone credited, a chip per production type, then Country, Year and
-// Sort. Films sit in a gallery at their true shape, tagged with their type and frame.
-export function CreatorsAll() {
+// Sort. Films sit in a gallery at their true shape, tagged with their type and frame. Relevance
+// without a search is a new order on each visit (`seed`); Recently viewed brings back the films
+// this person opened, most recent first (Ika, 2026-10-22).
+export function CreatorsAll({ seed }: { seed: number }) {
   const [query, setQuery] = useState("");
   const [type, setType] = useState<string>(ALL);
   const [country, setCountry] = useState<string>(ALL);
   const [years, setYears] = useState<YearRange>(null);
   const [sort, setSort] = useState<Sort>("relevance");
+  // What this person opened, loaded the first time they sort by it.
+  const [recent, setRecent] = useState<string[] | null>(null);
+  const chooseSort = (next: Sort) => {
+    setSort(next);
+    if (next === "recent" && recent === null) void recentViews().then(setRecent);
+  };
 
   const q = query.trim().toLowerCase();
   // Everything but the type, so each type chip can say how many it would show.
@@ -54,14 +64,16 @@ export function CreatorsAll() {
     return true;
   });
   const found = type === ALL ? narrowed : narrowed.filter((f) => f.type === type);
-  const order = new Map(creatorFilms.map((f, i) => [f.code, i]));
-  const curated = (a: CreatorFilm, b: CreatorFilm) => order.get(a.code)! - order.get(b.code)!;
-  const sorted = found.toSorted((a, b) => {
+  // This visit's order, which settles ties and is the order when nothing else decides.
+  const order = new Map(shuffled(creatorFilms, seed).map((f, i) => [f.code, i]));
+  const visit = (a: CreatorFilm, b: CreatorFilm) => order.get(a.code)! - order.get(b.code)!;
+  const ranked = found.toSorted((a, b) => {
     if (sort === "title") return a.title.localeCompare(b.title);
-    if (sort === "newest") return b.date.localeCompare(a.date) || curated(a, b);
-    if (sort === "oldest") return a.date.localeCompare(b.date) || curated(a, b);
-    return (q ? relevance(b, q) - relevance(a, q) : 0) || curated(a, b);
+    if (sort === "newest") return b.date.localeCompare(a.date) || visit(a, b);
+    if (sort === "oldest") return a.date.localeCompare(b.date) || visit(a, b);
+    return (q ? relevance(b, q) - relevance(a, q) : 0) || visit(a, b);
   });
+  const sorted = sort === "recent" ? recentFirst(ranked, recent ?? [], (f) => f.slug) : ranked;
   const anyFilter = q !== "" || type !== ALL || country !== ALL || years !== null;
   const clear = () => {
     setQuery("");
@@ -115,8 +127,9 @@ export function CreatorsAll() {
           <ResultCount>
             {found.length} {found.length === 1 ? "film" : "films"}
           </ResultCount>
-          <ChipMenu label="Sort" value={sort} align="end" options={(Object.keys(SORTS) as Sort[]).map((key) => ({ value: key, label: SORTS[key] }))} onChange={setSort} />
+          <ChipMenu label="Sort" value={sort} align="end" options={(Object.keys(SORTS) as Sort[]).map((key) => ({ value: key, label: SORTS[key] }))} onChange={chooseSort} />
         </div>
+        {sort === "recent" && recent?.length === 0 && <p className="text-sm text-muted-foreground">Nothing viewed yet. Films you open will show here first.</p>}
       </div>
 
       {found.length === 0 ? (

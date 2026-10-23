@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -23,6 +23,7 @@ import {
   type CreatorFilm,
 } from "@/features/explore/creators";
 import { exploreItem } from "@/features/explore/items";
+import { recordView } from "@/features/explore/views";
 import { LIBRARY_HREF, exploreHome } from "@/features/explore/made-in-africa";
 import { CreatorCredit } from "./creators-strip";
 import { AddToProject, SaveToCollection } from "./save-controls";
@@ -44,6 +45,8 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
   const [playing, setPlaying] = useState(false);
   const hero = useRef<HTMLDivElement>(null);
   useStopVideosWhenHidden(hero, () => setPlaying(false));
+  // Remembered for Explore's Recently viewed (Ika, 2026-10-22).
+  useEffect(() => void recordView(film.slug), [film.slug]);
   const more = creatorFilms
     .filter((f) => f.slug !== film.slug)
     .toSorted((a, b) => Number(b.type === film.type) - Number(a.type === film.type))

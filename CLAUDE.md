@@ -344,11 +344,23 @@ Projects × Explore (Ika, 2026-10-21)
 
 Explore: creator film shapes and order (Ika, 2026-10-22)
 - [x] Made in Africa sits above Creators on Explore.
-- [x] Creator films keep their shape (`aspect` in `creators.ts`: landscape as measured, vertical
-  4:5). Rows give landscape films wider cards as tall as the posters beside them (`cardSpan`);
-  grids (`shape="poster"`, Collections) and the Explore all canvas show the whole frame on a
-  blurred fill (`FramedStill`). The film page's player takes the film's shape and hides
-  Instagram's 54 px header (measured: the film runs full width right below it).
+- [x] Films show at their true frame shape everywhere (Ika: shape is how filmmakers judge work;
+  never a 4:3 in 9:16 or the reverse). `aspect` in `creators.ts` is the picture's shape without
+  black bars (vertical reels 9:16; `frame` for a landscape film posted on bars, e.g. adidas
+  Originals 1.55:1). `src/lib/aspect-ratios.ts` lists the standard shapes and names any
+  picture's shape (`recognizeAspect`, within 2%); film pages show it as "Frame". Rows size cards
+  by shape (`cardSpan`); grids of films are a masonry gallery (`FilmGallery`, Ika's Claude Design
+  "Creators · Explore: masonry gallery (no gaps)") with type and frame tags; the Explore all
+  canvas shows the whole frame on a blurred fill (`FramedStill`). The player hides Instagram's
+  54 px header; Instagram's player crops vertical reels to 4:5, so their play window is 4:5.
+  Next: record width, height and shape when files are uploaded (needs a `project_files`
+  migration) and show uploads at their shape.
+- [x] New order on each visit (Ika, 2026-10-22): Explore's Made in Africa and Creators rows and
+  both View all pages are shuffled by a per-request seed (`src/lib/shuffle.ts`, picked after
+  `connection()`, so server and browser agree). Explore's top grid keeps its "Most popular" sort.
+  "Recently viewed" in both View all pages' Sort brings back what this person opened, newest
+  first, on any device (`explore_views`, `src/features/explore/views.ts`; recorded when a title or
+  creator film page opens).
 
 Sound and films (Ika, 2026-10-22)
 - [x] Interface sounds, made once with ElevenLabs (`scripts/make-sounds.mjs`, files in

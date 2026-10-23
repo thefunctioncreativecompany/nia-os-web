@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { LIBRARY_HREF, MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, similarTo, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
+import { recordView } from "@/features/explore/views";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { AddToProject, SaveToCollection } from "./save-controls";
 import { TitleCard } from "./title-card";
@@ -33,6 +34,8 @@ export function TitleView({ entry }: { entry: Entry }) {
   const back = from === "all" ? { href: MADE_IN_AFRICA_HREF, label: "← Back to Made in Africa" } : from === "library" ? { href: LIBRARY_HREF, label: "← Back to Explore all" } : { href: exploreHome(), label: "← Back to Explore" };
   const asked = Number(params.get("season"));
   const [season, setSeason] = useState<Season | null>(() => pickSeason(title, Number.isInteger(asked) && asked > 0 ? asked : null, pinnedSeason));
+  // Remembered for Explore's Recently viewed (Ika, 2026-10-22).
+  useEffect(() => void recordView(title.slug), [title.slug]);
   const videos = season ? season.videos : title.videos;
   const [video, setVideo] = useState<Video | null>(() => primaryVideo(videos));
   const [playing, setPlaying] = useState(false);

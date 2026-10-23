@@ -10,24 +10,19 @@ const POSTER = 268 / 373;
 
 export type GalleryEntry = { item: ExploreItem; href: string; actions?: React.ReactNode };
 
-// A gallery of films at their true shape (Ika, 2026-10-22): a 9:16 reel narrow, a 2.39:1 film
-// wide, never squeezed into another's frame, because the shape is part of how a filmmaker reads
-// the work. Rows of equal height that fill the width (each card grows in proportion to its
-// shape, so a row stays one height); the last row keeps its natural size. Tags on the picture
-// say what it is and its frame; the title and who made it sit below.
+// A masonry gallery of films at their true shape (Ika's Claude Design "Creators · Explore: masonry
+// gallery (no gaps)", 2026-10-22): columns of equal width, each film as tall as its shape needs,
+// stacked with no gaps, so a 9:16 reel stands tall and a 2.39:1 film lies wide, never squeezed into
+// another's frame. Tags on the picture say what it is and its frame; the title and who made it
+// sit below. Items run down each column in order.
 export function FilmGallery({ entries, label, className }: { entries: GalleryEntry[]; label: string; className?: string }) {
   return (
-    <ul aria-label={label} className={cn("flex flex-wrap gap-x-4 gap-y-7 [--row:9rem] sm:[--row:12rem] lg:[--row:15rem]", className)}>
-      {entries.map(({ item, href, actions }, i) => {
-        const aspect = item.aspect ?? POSTER;
-        return (
-          <li key={item.slug} className="min-w-0" style={{ flexGrow: aspect, flexBasis: `calc(var(--row) * ${aspect})` }}>
-            <GalleryCard item={item} href={href} aspect={aspect} first={i === 0} actions={actions} />
-          </li>
-        );
-      })}
-      {/* Takes up the last row's spare width, so its films keep the row height. */}
-      <li aria-hidden className="grow-[1000]" />
+    <ul aria-label={label} className={cn("columns-2 gap-x-5 md:columns-3 lg:columns-4 2xl:columns-5", className)}>
+      {entries.map(({ item, href, actions }, i) => (
+        <li key={item.slug} className="mb-6 break-inside-avoid">
+          <GalleryCard item={item} href={href} aspect={item.aspect ?? POSTER} first={i === 0} actions={actions} />
+        </li>
+      ))}
     </ul>
   );
 }
@@ -37,10 +32,10 @@ function GalleryCard({ item, href, aspect, first, actions }: { item: ExploreItem
   const frame = item.kind === "creator" ? recognizeAspect(aspect).label : null;
   return (
     <div className="flex flex-col gap-2.5">
-      <Link href={href} aria-label={`${item.title}, ${item.meta}`} className="group flex flex-col gap-2 rounded-lg text-left text-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+      <Link href={href} aria-label={`${item.title}, ${item.meta}`} className="group flex flex-col gap-2 rounded-xl text-left text-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
         <span
           className={cn(
-            "relative block w-full overflow-hidden rounded-lg transition-[transform,box-shadow] duration-lift ease-glide group-hover:-translate-y-1 group-hover:shadow-card-hover group-focus-visible:-translate-y-1 motion-reduce:translate-y-0!",
+            "relative block w-full overflow-hidden rounded-xl transition-[transform,box-shadow] duration-lift ease-glide group-hover:-translate-y-1 group-hover:shadow-card-hover group-focus-visible:-translate-y-1 motion-reduce:translate-y-0!",
             item.image ? "bg-muted" : item.grain,
           )}
           style={{ aspectRatio: aspect }}
@@ -50,7 +45,7 @@ function GalleryCard({ item, href, aspect, first, actions }: { item: ExploreItem
               src={item.image}
               alt=""
               fill
-              sizes={`(min-width: 64rem) ${Math.ceil(aspect * 21)}rem, (min-width: 40rem) ${Math.ceil(aspect * 17)}rem, ${Math.ceil(aspect * 13)}rem`}
+              sizes="(min-width: 96rem) 20vw, (min-width: 64rem) 25vw, (min-width: 48rem) 33vw, 50vw"
               quality={90}
               loading={first ? "eager" : undefined}
               fetchPriority={first ? "high" : undefined}
@@ -73,8 +68,10 @@ function GalleryCard({ item, href, aspect, first, actions }: { item: ExploreItem
             </span>
           )}
         </span>
-        <span className="line-clamp-2 text-lead leading-snug font-semibold">{item.title}</span>
-        <span className="-mt-1.5 truncate text-small text-muted-foreground">{item.credit}</span>
+        <span className="flex flex-col gap-0.5">
+          <span className="text-lead leading-snug font-semibold">{item.title}</span>
+          <span className="truncate text-small text-muted-foreground">{item.credit}</span>
+        </span>
       </Link>
       {actions && <div className="flex flex-wrap gap-1.5">{actions}</div>}
     </div>

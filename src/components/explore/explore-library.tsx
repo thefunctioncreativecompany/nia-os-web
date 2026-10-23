@@ -26,8 +26,9 @@ const DRIFT = [-50, 40, -80, 30, -45];
 const ODD_OFFSET = -60;
 
 // Explore, the library: Ika's Claude Design "ExploreLibrary" as designed (layout, motion, images),
-// in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts.
-export function ExploreLibrary() {
+// in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts. The
+// rows under By category come in a new order on each visit (`seed`, Ika 2026-10-22).
+export function ExploreLibrary({ seed }: { seed: number }) {
   const [chip, setChip] = useState<(typeof CHIPS)[number]>("All");
   const [sort, setSort] = useState<Sort>("popular");
 
@@ -69,8 +70,8 @@ export function ExploreLibrary() {
         <ChevronRight aria-hidden className="size-5" strokeWidth={2} />
       </div>
 
-      <MadeInAfricaStrip />
-      <CreatorsStrip />
+      <MadeInAfricaStrip seed={seed} />
+      <CreatorsStrip seed={seed} />
       <EpkLanes category={getCategory("epk")} />
       <DirectorsNotes category={getCategory("notes")} />
       <LatestStrips category={getCategory("latest")} />

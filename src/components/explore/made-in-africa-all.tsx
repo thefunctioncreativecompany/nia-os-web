@@ -20,11 +20,13 @@ import {
   typeName,
   type Entry,
 } from "@/features/explore/made-in-africa";
+import { recentFirst, recentViews } from "@/features/explore/views";
+import { shuffled } from "@/lib/shuffle";
 import { TitleCard } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
 
 const ALL = "all";
-const SORTS = { relevance: "Relevance", title: "Title A–Z", newest: "Newest first", oldest: "Oldest first", country: "Country A–Z" } as const;
+const SORTS = { relevance: "Relevance", recent: "Recently viewed", title: "Title A–Z", newest: "Newest first", oldest: "Oldest first", country: "Country A–Z" } as const;
 type Sort = keyof typeof SORTS;
 const all = (label: string) => ({ value: ALL, label });
 
@@ -44,8 +46,10 @@ function relevance(e: Entry, q: string) {
 // Made in Africa, all of it (Ika, 2026-10-21): back to Explore, a search, a chip per collection,
 // then Genre, Country, Year (one year or a span) and Type, in the projects' own genre and
 // production-type lists so Explore and projects speak the same language, and Sort. With nothing
-// narrowed and Relevance chosen, titles sit in their collections; otherwise one grid.
-export function MadeInAfricaAll() {
+// narrowed and Relevance chosen, titles sit in their collections; otherwise one grid. Titles come
+// in a new order on each visit (`seed`), and Recently viewed brings back the ones this person
+// opened, most recent first (Ika, 2026-10-22).
+export function MadeInAfricaAll({ seed }: { seed: number }) {
   const [query, setQuery] = useState("");
   const [collection, setCollection] = useState<string>(ALL);
   const [genre, setGenre] = useState<string>(ALL);
@@ -53,6 +57,12 @@ export function MadeInAfricaAll() {
   const [type, setType] = useState<string>(ALL);
   const [years, setYears] = useState<YearRange>(null);
   const [sort, setSort] = useState<Sort>("relevance");
+  // What this person opened, loaded the first time they sort by it.
+  const [recent, setRecent] = useState<string[] | null>(null);
+  const chooseSort = (next: Sort) => {
+    setSort(next);
+    if (next === "recent" && recent === null) void recentViews().then(setRecent);
+  };
 
   const q = query.trim().toLowerCase();
   // Everything but the collection, so each collection chip can say how many it would show.
@@ -66,15 +76,17 @@ export function MadeInAfricaAll() {
     return true;
   });
   const found = collection === ALL ? narrowed : narrowed.filter((e) => e.collection.slug === collection);
-  const order = new Map(madeInAfrica.map((e, i) => [e.title.slug, i]));
-  const curated = (a: Entry, b: Entry) => order.get(a.title.slug)! - order.get(b.title.slug)!;
-  const sorted = found.toSorted((a, b) => {
+  // This visit's order, which settles ties and is the order when nothing else decides.
+  const order = new Map(shuffled(madeInAfrica, seed).map((e, i) => [e.title.slug, i]));
+  const visit = (a: Entry, b: Entry) => order.get(a.title.slug)! - order.get(b.title.slug)!;
+  const ranked = found.toSorted((a, b) => {
     if (sort === "title") return a.title.title.localeCompare(b.title.title);
-    if (sort === "newest") return (b.title.year ?? 0) - (a.title.year ?? 0) || curated(a, b);
-    if (sort === "oldest") return (a.title.year ?? 9999) - (b.title.year ?? 9999) || curated(a, b);
-    if (sort === "country") return a.title.countries[0].localeCompare(b.title.countries[0]) || curated(a, b);
-    return (q ? relevance(b, q) - relevance(a, q) : 0) || curated(a, b);
+    if (sort === "newest") return (b.title.year ?? 0) - (a.title.year ?? 0) || visit(a, b);
+    if (sort === "oldest") return (a.title.year ?? 9999) - (b.title.year ?? 9999) || visit(a, b);
+    if (sort === "country") return a.title.countries[0].localeCompare(b.title.countries[0]) || visit(a, b);
+    return (q ? relevance(b, q) - relevance(a, q) : 0) || visit(a, b);
   });
+  const sorted = sort === "recent" ? recentFirst(ranked, recent ?? [], (e) => e.title.slug) : ranked;
   const anyFilter = q !== "" || genre !== ALL || country !== ALL || type !== ALL || years !== null;
   const grouped = sort === "relevance" && !anyFilter;
   const groups = grouped
@@ -139,8 +151,9 @@ export function MadeInAfricaAll() {
           <ResultCount>
             {found.length} {found.length === 1 ? "title" : "titles"}
           </ResultCount>
-          <ChipMenu label="Sort" value={sort} align="end" options={(Object.keys(SORTS) as Sort[]).map((key) => ({ value: key, label: SORTS[key] }))} onChange={setSort} />
+          <ChipMenu label="Sort" value={sort} align="end" options={(Object.keys(SORTS) as Sort[]).map((key) => ({ value: key, label: SORTS[key] }))} onChange={chooseSort} />
         </div>
+        {sort === "recent" && recent?.length === 0 && <p className="text-sm text-muted-foreground">Nothing viewed yet. Titles you open will show here first.</p>}
       </div>
 
       {found.length === 0 ? (
