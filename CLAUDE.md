@@ -394,6 +394,12 @@ document editor's sticky section outline, pill toolbar with Print in the one dow
 "What's next" (from each template's `related` links; no workflow steps exist yet); calendar range
 band and today's gold dot.
 
+Old prototypes (Ika, 2026-10-22): the earlier "nOS" versions (single-file React apps Apr–Aug 2026,
+a Figma Make export, May change sets) are gathered in `~/Downloads/Nia Technologies/Old prototypes`
+with a README index. They aren't a source for this app's code or design; assess them later for
+features worth keeping (AI-filled production frameworks, Crew roster, Contacts and Events), each
+designed first and built to the current rules.
+
 Future builds (agreed with Ika, build later; need designs first)
 - Project cards: a no-cover look, production-type chip and stage badge, hover lift.
 - Home: Next shoot, Complete your profile / set up your workspace (W1).
