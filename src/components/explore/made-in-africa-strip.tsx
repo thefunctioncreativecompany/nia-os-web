@@ -17,9 +17,12 @@ export function MadeInAfricaStrip() {
     <section aria-labelledby="made-in-africa-title" className="mt-7">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
         <div className="min-w-0">
-          <h3 id="made-in-africa-title" className="text-subtitle font-semibold text-foreground">
-            {MADE_IN_AFRICA.name}
-          </h3>
+          <div className="flex items-center gap-1">
+            <h3 id="made-in-africa-title" className="text-subtitle font-semibold text-foreground">
+              {MADE_IN_AFRICA.name}
+            </h3>
+            <TmdbCredit />
+          </div>
           <p className="mt-1 max-w-160 text-sm text-muted-foreground">{MADE_IN_AFRICA.description}</p>
         </div>
         <Button variant="outline" asChild>
@@ -36,7 +39,6 @@ export function MadeInAfricaStrip() {
           </li>
         ))}
       </ScrollRow>
-      <TmdbCredit className="mt-2" />
     </section>
   );
 }

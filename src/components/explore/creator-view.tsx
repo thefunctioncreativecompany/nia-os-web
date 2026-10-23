@@ -9,13 +9,16 @@ import { ArrowUpRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
+import { recognizeAspect } from "@/lib/aspect-ratios";
 import {
+  CREATORS_HREF,
   creatorFilms,
   creatorImage,
   creatorYear,
   creditName,
   instagramEmbed,
   instagramUrl,
+  playerAspect,
   profileUrl,
   type CreatorFilm,
 } from "@/features/explore/creators";
@@ -31,8 +34,13 @@ import { ExploreCard, cardSpan } from "./title-card";
 // each linked to the person's Instagram, on the right. More from creators closes the page.
 export function CreatorView({ film }: { film: CreatorFilm }) {
   const params = useSearchParams();
-  const fromLibrary = params.get("from") === "library";
-  const back = fromLibrary ? { href: LIBRARY_HREF, label: "← Back to Explore all" } : { href: exploreHome(), label: "← Back to Explore" };
+  const from = params.get("from");
+  const fromLibrary = from === "library";
+  const back = fromLibrary
+    ? { href: LIBRARY_HREF, label: "← Back to Explore all" }
+    : from === "all"
+      ? { href: CREATORS_HREF, label: "← Back to Creators" }
+      : { href: exploreHome(), label: "← Back to Explore" };
   const [playing, setPlaying] = useState(false);
   const hero = useRef<HTMLDivElement>(null);
   useStopVideosWhenHidden(hero, () => setPlaying(false));
@@ -61,12 +69,13 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
           <div
             ref={hero}
             className="relative w-full max-w-[calc(min(80svh,46rem)*var(--shape))] overflow-hidden rounded-3xl bg-foreground"
-            style={{ aspectRatio: film.aspect, "--shape": film.aspect } as React.CSSProperties}
+            style={{ aspectRatio: playerAspect(film), "--shape": playerAspect(film) } as React.CSSProperties}
           >
             {playing ? (
               // Instagram's player opens with a 54 px bar naming who posted it, then the film at
               // full width, then likes and comments. The frame shows only the film: the player sits
-              // 54 px higher and runs on below, clipped. (Measured 2026-10-22.)
+              // 54 px higher and runs on below, clipped. (Measured 2026-10-22.) A film on black bars
+              // inside a taller post also moves up by its top bar, so only the picture shows.
               <iframe
                 src={instagramEmbed(film)}
                 title={`${film.title}, on Instagram`}
@@ -75,6 +84,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
                 allowFullScreen
                 scrolling="no"
                 className="absolute inset-x-0 -top-13.5 h-[calc(100%+--spacing(13.5)+--spacing(60))] w-full bg-foreground"
+                style={letterbox(film)}
               />
             ) : (
               <button
@@ -95,7 +105,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
             <a href={profileUrl(film.account)} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
               @{film.account}
             </a>
-            . Credits from the post&rsquo;s caption.
+            . Credits from the post&rsquo;s caption. <CreatorCredit className="-my-1.5 align-middle" />
           </p>
 
           <div className="flex flex-col gap-3">
@@ -116,6 +126,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
             </h2>
             <dl className="flex flex-col gap-3">
               {row("Type", film.type)}
+              {row("Frame", aspectLabel(film.aspect))}
               {film.brand && row("Brand", film.brand)}
               {row("Posted by", <Handle handle={film.account} />)}
               {row("Posted", date)}
@@ -167,10 +178,26 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
           ))}
         </ScrollRow>
       </section>
-
-      <CreatorCredit />
     </div>
   );
+}
+
+/** For a film on black bars inside a taller post: the player's position in a frame the picture's
+ * shape. The post shows `aspect ÷ frame` times the frame's height, picture centred, so the player
+ * moves up by the top bar as well as Instagram's 54 px bar. */
+function letterbox(film: CreatorFilm): React.CSSProperties | undefined {
+  if (!film.frame) return undefined;
+  const post = film.aspect / film.frame;
+  return {
+    top: `calc(var(--spacing) * -13.5 - ${((post - 1) / 2) * 100}%)`,
+    height: `calc(${post * 100}% + var(--spacing) * 73.5)`,
+  };
+}
+
+/** "16:9 · HD widescreen: TV, streaming, YouTube", or the measured shape ("1.55:1"). */
+function aspectLabel(aspect: number) {
+  const r = recognizeAspect(aspect);
+  return r.standard ? `${r.label} · ${r.standard.name}` : r.label;
 }
 
 function Handle({ handle }: { handle: string }) {

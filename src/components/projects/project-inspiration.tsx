@@ -14,6 +14,9 @@ import { ExploreCard, cardSpan } from "@/components/explore/title-card";
 import { TmdbCredit } from "@/components/explore/tmdb-credit";
 import { exploreItem, suggestItemsForProject } from "@/features/explore/items";
 import { addReference, exploreAccess, loadReferences, removeReference, type Reference } from "@/features/explore/saves";
+import { loadInstagramReferences, type InstagramReference } from "@/lib/instagram-references";
+import { AddInstagramReference } from "./add-instagram-reference";
+import { InstagramReferenceCard, referenceSpan } from "./instagram-reference-card";
 
 // Landscape films get wider cells (`cardSpan`).
 const cell = "w-[calc(44%*var(--span,1))] flex-none snap-start sm:w-[calc(30%*var(--span,1))] md:w-[calc(22%*var(--span,1))] lg:w-[calc(16%*var(--span,1))]";
@@ -21,7 +24,9 @@ const sizes = "(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw";
 
 // Explore on a project page (Ika, 2026-10-21): the titles the team added to its references, then
 // Explore titles that match its genres and production type, each one tap from being a reference.
-// Explore is there to inspire the work, so it sits with the project's files.
+// Explore is there to inspire the work, so it sits with the project's files. References also take
+// Instagram links pasted by the team (Ika, 2026-10-22), private to the project, newest first with
+// the Explore titles.
 export function ProjectInspiration({
   projectId,
   genres,
@@ -35,13 +40,18 @@ export function ProjectInspiration({
 }) {
   const [refs, setRefs] = useState<Reference[] | null>(null);
   const [problem, setProblem] = useState<string | null>(null);
+  // Pasted Instagram links; null until loaded, or when their migration hasn't run.
+  const [posts, setPosts] = useState<InstagramReference[] | null>(null);
+  const [postsOff, setPostsOff] = useState(false);
   // Suggestions and adding come with Explore's early access (Ika, 2026-10-21).
   const [access, setAccess] = useState<boolean | null>(null);
 
   const load = async () => {
-    const result = await loadReferences(createClient(), projectId);
+    const db = createClient();
+    const [result, list] = await Promise.all([loadReferences(db, projectId), loadInstagramReferences(db, projectId).catch(() => null)]);
     if (result.ready) setRefs(result.data);
     else setProblem(result.error);
+    if (list) setPosts(list);
   };
   useEffect(() => {
     let live = true;
@@ -51,6 +61,10 @@ export function ProjectInspiration({
       if (result.ready) setRefs(result.data);
       else setProblem(result.error);
     });
+    void loadInstagramReferences(db, projectId).then(
+      (list) => live && setPosts(list),
+      () => live && (setPosts([]), setPostsOff(true)),
+    );
     void exploreAccess(db).then((yes) => live && setAccess(yes));
     return () => {
       live = false;
@@ -63,7 +77,7 @@ export function ProjectInspiration({
     toast.success(`Added ${name} to references.`);
     void load();
   };
-  const remove = async (ref: Reference, name: string) => {
+  const remove = async (ref: { id: string }, name: string) => {
     const result = await removeReference(createClient(), ref.id);
     if (!result.ready) return void toast.error(result.error);
     toast.success(`Removed ${name} from references.`);
@@ -73,41 +87,63 @@ export function ProjectInspiration({
   const held = new Set((refs ?? []).map((r) => r.slug));
   const suggestions = suggestItemsForProject({ genres, productionType }, held);
   const matched = genres.trim() !== "" || !!productionType;
+  // Explore titles and pasted posts in one row, newest first.
+  const row =
+    refs && posts
+      ? [
+          ...refs.flatMap((r) => {
+            const entry = exploreItem(r.slug);
+            return entry ? [{ at: r.createdAt, explore: { ref: r, entry } }] : [];
+          }),
+          ...posts.map((post) => ({ at: post.createdAt, post })),
+        ].toSorted((a, b) => b.at.localeCompare(a.at))
+      : null;
+  const removeButton = (ref: { id: string }, title: string) =>
+    canEdit && (
+      <Button variant="ghost" size="compact" aria-label={`Remove ${title} from references`} onClick={() => void remove(ref, title)}>
+        <X aria-hidden /> Remove
+      </Button>
+    );
 
   return (
     <div className="flex flex-col gap-10">
-      <section id="references" aria-labelledby="explore-references" className="flex scroll-mt-24 flex-col gap-4">
-        <h2 id="explore-references" className="text-xl leading-[1.4] font-bold text-foreground">
-          References from Explore {refs && refs.length > 0 && <span className="text-micro font-normal text-muted-foreground">{refs.length}</span>}
+      <section id="references" aria-labelledby="project-references" className="flex scroll-mt-24 flex-col gap-4">
+        <h2 id="project-references" className="text-xl leading-[1.4] font-bold text-foreground">
+          References {row && row.length > 0 && <span className="text-micro font-normal text-muted-foreground">{row.length}</span>}
         </h2>
+        {canEdit &&
+          (postsOff ? (
+            <NotYet>Adding Instagram links isn&rsquo;t switched on yet.</NotYet>
+          ) : (
+            <AddInstagramReference projectId={projectId} held={new Set((posts ?? []).map((p) => p.link.code))} onAdded={() => void load()} />
+          ))}
         {problem ? (
           <NotYet>{problem} Titles added from Explore will show here.</NotYet>
-        ) : refs && refs.length === 0 ? (
+        ) : row && row.length === 0 ? (
           <p className="text-sm text-muted-foreground">
-            {canEdit && access ? "Add titles from the suggestions below, from Explore, or from your collections." : "Nothing added from Explore yet."}
+            {!canEdit
+              ? "No references yet."
+              : postsOff
+                ? access
+                  ? "Add titles from the suggestions below, from Explore, or from your collections."
+                  : "Nothing added yet."
+                : access
+                  ? "Paste a link above, or add titles from the suggestions below, from Explore, or from your collections."
+                  : "Paste a link above to add your first reference."}
           </p>
-        ) : refs ? (
-          <ScrollRow label="References from Explore">
-            {refs.map((r) => {
-              const entry = exploreItem(r.slug);
-              if (!entry) return null;
-              return (
-                <li key={r.id} className={cell} style={cardSpan(entry)}>
-                  <ExploreCard
-                    item={entry}
-                    href={entry.href()}
-                    sizes={sizes}
-                    actions={
-                      canEdit && (
-                        <Button variant="ghost" size="compact" aria-label={`Remove ${entry.title} from references`} onClick={() => void remove(r, entry.title)}>
-                          <X aria-hidden /> Remove
-                        </Button>
-                      )
-                    }
-                  />
+        ) : row ? (
+          <ScrollRow label="References">
+            {row.map((item) =>
+              "post" in item ? (
+                <li key={item.post.id} className={cell} style={referenceSpan(item.post)}>
+                  <InstagramReferenceCard projectId={projectId} reference={item.post} actions={removeButton(item.post, item.post.title)} />
                 </li>
-              );
-            })}
+              ) : (
+                <li key={item.explore.ref.id} className={cell} style={cardSpan(item.explore.entry)}>
+                  <ExploreCard item={item.explore.entry} href={item.explore.entry.href()} sizes={sizes} actions={removeButton(item.explore.ref, item.explore.entry.title)} />
+                </li>
+              ),
+            )}
           </ScrollRow>
         ) : null}
       </section>
@@ -128,9 +164,12 @@ export function ProjectInspiration({
       ) : access ? (
         <section aria-labelledby="inspiration" className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
-            <h2 id="inspiration" className="text-xl leading-[1.4] font-bold text-foreground">
-              Inspiration for this project
-            </h2>
+            <div className="flex items-center gap-1">
+              <h2 id="inspiration" className="text-xl leading-[1.4] font-bold text-foreground">
+                Inspiration for this project
+              </h2>
+              <TmdbCredit />
+            </div>
             <p className="text-sm text-muted-foreground">
               {matched
                 ? "From Explore's films, series and creators' work, matched to this project's genres and production type."
@@ -158,7 +197,6 @@ export function ProjectInspiration({
               </li>
             ))}
           </ScrollRow>
-          <TmdbCredit />
         </section>
       ) : null}
     </div>

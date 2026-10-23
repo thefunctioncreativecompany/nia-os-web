@@ -16,7 +16,8 @@ export type ExploreItem = {
   grain: string;
   /** A small label on the card (a creator film's type). */
   badge?: string;
-  /** A landscape film's shape (width ÷ height); its card keeps that shape. Posters have none. */
+  /** A creator film's true shape (width ÷ height); its card keeps that shape. Posters have none
+   * and show at the poster shape. */
   aspect?: number;
   href: (from?: "all" | "library") => string;
 };
@@ -49,8 +50,8 @@ export function exploreItem(slug: string): ExploreItem | null {
     image: creatorImage(film),
     grain: CREATOR_GRAINS[creatorFilms.indexOf(film) % CREATOR_GRAINS.length],
     badge: film.type,
-    aspect: film.aspect > 1 ? film.aspect : undefined,
-    href: (from) => creatorHref(film, from === "library" ? "library" : undefined),
+    aspect: film.aspect,
+    href: (from) => creatorHref(film, from),
   };
 }
 

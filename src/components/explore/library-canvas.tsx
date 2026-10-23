@@ -276,8 +276,8 @@ function Tile({ item, x, y, w, h, onFilm }: { item: LibraryItem; x: number; y: n
   );
   const body = (
     <>
-      {item.image && item.wide ? (
-        <FramedStill src={item.image} sizes={`${w}px`} draggable={false} />
+      {item.image && item.aspect ? (
+        <FramedStill src={item.image} aspect={item.aspect} sizes={`${w}px`} draggable={false} />
       ) : item.image ? (
         <Image src={item.image} alt="" fill sizes={`${w}px`} quality={90} draggable={false} className="pointer-events-none object-cover" />
       ) : (

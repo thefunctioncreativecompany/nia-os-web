@@ -8,7 +8,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { currentUser } from "@/lib/supabase/current-user";
 
 export type Collection = { id: string; name: string; items: { id: string; slug: string }[] };
-export type Reference = { id: string; slug: string; addedBy: string };
+export type Reference = { id: string; slug: string; addedBy: string; createdAt: string };
 export type EditableProject = { id: string; title: string; coverUrl: string | null };
 
 /** Whether this person can use Explore (early access by invite or code), from the browser. */
@@ -73,10 +73,11 @@ export async function loadReferences(db: SupabaseClient, projectId: string): Pro
     .from("project_references")
     .select("id, title_slug, added_by, created_at")
     .eq("project_id", projectId)
+    .eq("kind", "explore")
     .is("deleted_at", null)
     .order("created_at", { ascending: false });
   if (error) return fail(error);
-  return { ready: true, data: data.map((r) => ({ id: r.id, slug: r.title_slug, addedBy: r.added_by })) };
+  return { ready: true, data: data.map((r) => ({ id: r.id, slug: r.title_slug, addedBy: r.added_by, createdAt: r.created_at })) };
 }
 
 /** Adds a title to a project's references; already there counts as done. */

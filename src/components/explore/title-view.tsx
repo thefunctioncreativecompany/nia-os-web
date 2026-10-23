@@ -132,7 +132,10 @@ export function TitleView({ entry }: { entry: Entry }) {
           )}
 
           <div className="flex flex-col gap-3">
-            <p className="text-small font-semibold text-muted-foreground">{metaLine(title)}</p>
+            <div className="flex items-center gap-1">
+              <p className="text-small font-semibold text-muted-foreground">{metaLine(title)}</p>
+              <TmdbCredit />
+            </div>
             <h1 className="text-h3 font-bold text-foreground md:text-h2">{title.title}</h1>
             {/* Keep it, or put it to work in a project (Ika, 2026-10-21). */}
             <div className="flex flex-wrap gap-2">
@@ -240,8 +243,6 @@ export function TitleView({ entry }: { entry: Entry }) {
           ))}
         </ScrollRow>
       </section>
-
-      <TmdbCredit />
     </div>
   );
 }

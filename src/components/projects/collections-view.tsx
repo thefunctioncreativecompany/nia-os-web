@@ -11,7 +11,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/nia/empty-state";
 import { NotYet } from "@/components/nia/not-yet";
 import { AddToProject } from "@/components/explore/save-controls";
-import { ExploreCard } from "@/components/explore/title-card";
+import { FilmGallery } from "@/components/explore/film-gallery";
 import { exploreItem } from "@/features/explore/items";
 import { exploreHome } from "@/features/explore/made-in-africa";
 import { exploreAccess, loadCollections, unsaveTitle, type Collection } from "@/features/explore/saves";
@@ -92,30 +92,28 @@ export function CollectionsView() {
             <h2 id={`collection-${c.id}`} className="text-subtitle font-semibold text-foreground">
               {c.name} <span className="text-micro font-normal text-muted-foreground">{c.items.length}</span>
             </h2>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-              {c.items.map((item) => {
+            {/* At their true shapes, like Explore's galleries (Ika, 2026-10-22). */}
+            <FilmGallery
+              label={c.name}
+              entries={c.items.flatMap((item) => {
                 const entry = exploreItem(item.slug);
-                if (!entry) return null;
-                return (
-                  <li key={item.id}>
-                    <ExploreCard
-                      item={entry}
-                      href={entry.href()}
-                      shape="poster"
-                      sizes="(min-width: 80rem) 18vw, (min-width: 64rem) 23vw, (min-width: 40rem) 31vw, 48vw"
-                      actions={
-                        <>
-                          <AddToProject slug={entry.slug} title={entry.title} size="compact" />
-                          <Button variant="ghost" size="compact" aria-label={`Remove ${entry.title} from ${c.name}`} onClick={() => void remove(c, item.id, entry.title)}>
-                            <X aria-hidden /> Remove
-                          </Button>
-                        </>
-                      }
-                    />
-                  </li>
-                );
+                if (!entry) return [];
+                return [
+                  {
+                    item: entry,
+                    href: entry.href(),
+                    actions: (
+                      <>
+                        <AddToProject slug={entry.slug} title={entry.title} size="compact" />
+                        <Button variant="ghost" size="compact" aria-label={`Remove ${entry.title} from ${c.name}`} onClick={() => void remove(c, item.id, entry.title)}>
+                          <X aria-hidden /> Remove
+                        </Button>
+                      </>
+                    ),
+                  },
+                ];
               })}
-            </ul>
+            />
           </section>
         ))
       )}

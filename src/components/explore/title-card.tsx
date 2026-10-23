@@ -9,25 +9,34 @@ import { coverFor, metaLine, type Entry } from "@/features/explore/made-in-afric
 // An Explore card (Ika, 2026-10-21: equal cards, like the Top 10 press kits, without numbers): the
 // cover, then the title and who made it. Without a cover it gets a typographic poster on its
 // grain gradient. A creator's film carries its type in the corner. Opens the item's page.
-// A landscape creator's film keeps its shape (Ika, 2026-10-21): a wider card in rows, or the whole
-// frame on a blurred fill where every cell is poster-shaped (grids).
+// A creator's film keeps its true shape (Ika, 2026-10-21, 2026-10-22): a wider or narrower card in
+// rows; grids of films are galleries (film-gallery.tsx), never poster-shaped cells.
 
 /** A poster's shape, width ÷ height. */
 const POSTER = 268 / 373;
 
-/** For a row's cell: a landscape card is as tall as the posters beside it, so its cell is wider
- * by this much. Cells size themselves as `w-[calc(30%*var(--span,1))]`. */
+/** For a row's cell: a film's card is as tall as the posters beside it, so its cell is wider (or,
+ * for a vertical film, narrower) by this much. Cells size themselves as
+ * `w-[calc(30%*var(--span,1))]`. */
 export function cardSpan(item: ExploreItem): CSSProperties | undefined {
   return item.aspect ? ({ "--span": item.aspect / POSTER } as CSSProperties) : undefined;
 }
 
-/** A landscape picture in a poster-shaped frame: the whole picture, on a blurred copy of itself. */
-export function FramedStill({ src, sizes, draggable }: { src: string; sizes: string; draggable?: boolean }) {
+/** A picture in a frame of another shape (the Explore all canvas's poster-shaped tiles): the whole
+ * picture at its true `aspect`, as large as fits, on a blurred copy of itself. Both are cut to
+ * `aspect`, so a still with black bars (a landscape film posted inside a vertical post) shows only
+ * the picture. Sized with container units, so it fits tall and wide pictures alike. */
+export function FramedStill({ src, aspect, sizes, draggable }: { src: string; aspect: number; sizes: string; draggable?: boolean }) {
+  const box = "absolute top-1/2 left-1/2 -translate-1/2 overflow-hidden";
   return (
-    <>
-      <Image src={src} alt="" fill sizes={sizes} draggable={draggable} className="pointer-events-none scale-125 object-cover blur-xl" />
-      <Image src={src} alt="" fill sizes={sizes} quality={90} draggable={draggable} className="pointer-events-none object-contain" />
-    </>
+    <span aria-hidden className="absolute inset-0 [container-type:size]">
+      <span className={box} style={{ width: `max(100cqw, 100cqh * ${aspect})`, height: `max(100cqh, 100cqw / ${aspect})` }}>
+        <Image src={src} alt="" fill sizes={sizes} draggable={draggable} className="pointer-events-none scale-125 object-cover blur-xl" />
+      </span>
+      <span className={box} style={{ width: `min(100cqw, 100cqh * ${aspect})`, height: `min(100cqh, 100cqw / ${aspect})` }}>
+        <Image src={src} alt="" fill sizes={sizes} quality={90} draggable={draggable} className="pointer-events-none object-cover" />
+      </span>
+    </span>
   );
 }
 
@@ -61,22 +70,19 @@ export function TitleCard({
   );
 }
 
-/** The same card for any Explore item (a title or a creator's film). In a grid, pass
- * `shape="poster"` so landscape films fit the grid's poster-shaped cells. */
+/** The same card for any Explore item (a title or a creator's film), at the item's true shape. */
 export function ExploreCard({
   item,
   href,
   sizes,
   first = false,
   actions,
-  shape = "film",
 }: {
   item: ExploreItem;
   href: string;
   sizes: string;
   first?: boolean;
   actions?: React.ReactNode;
-  shape?: "film" | "poster";
 }) {
   return (
     <PosterCard
@@ -88,7 +94,6 @@ export function ExploreCard({
       grain={item.grain}
       badge={item.badge}
       aspect={item.aspect}
-      shape={shape}
       sizes={sizes}
       first={first}
       actions={actions}
@@ -105,7 +110,6 @@ function PosterCard({
   grain,
   badge,
   aspect,
-  shape = "film",
   sizes,
   first,
   actions,
@@ -118,12 +122,10 @@ function PosterCard({
   grain: string;
   badge?: string;
   aspect?: number;
-  shape?: "film" | "poster";
   sizes: string;
   first: boolean;
   actions?: React.ReactNode;
 }) {
-  const framed = Boolean(aspect && image && shape === "poster");
   const card = (
     <Link href={href} aria-label={label} className="group flex w-full flex-col gap-2 rounded-lg text-left text-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
       <span
@@ -131,11 +133,9 @@ function PosterCard({
           "relative block overflow-hidden rounded-lg transition-[transform,box-shadow] duration-lift ease-glide group-hover:-translate-y-1 group-hover:shadow-card-hover group-focus-visible:-translate-y-1 motion-reduce:translate-y-0!",
           image ? "bg-muted" : grain,
         )}
-        style={{ aspectRatio: aspect && shape === "film" ? aspect : POSTER }}
+        style={{ aspectRatio: aspect ?? POSTER }}
       >
-        {image && framed ? (
-          <FramedStill src={image} sizes={sizes} />
-        ) : image ? (
+        {image ? (
           <Image
             src={image}
             alt=""

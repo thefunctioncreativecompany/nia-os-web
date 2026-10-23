@@ -330,6 +330,17 @@ Projects × Explore (Ika, 2026-10-21)
   these say they aren't switched on). Helpers in `src/features/explore/saves.ts`.
 - [x] Document editor: a live preview of the PDF you'll download (`LivePreview`), redrawn a moment
   after each change, in place of the template's description.
+- [x] Instagram links as project references (Ika, 2026-10-22): editors paste a post or reel link
+  under References on an open project; Nia reads the post's public page (account, date, caption,
+  full-size cover with black bars measured off, as done by hand for Explore's creators) into a
+  draft to check (title, type, note, credits to remove), then saves it beside the Explore titles.
+  Private to the project (owner and invited people; cover in the private `project-files` folder),
+  no Explore invite needed, duplicates caught before Instagram is asked. Each opens a page like a
+  creator film's at `/projects/[id]/references/[refId]`. Code: `src/lib/instagram*.ts`,
+  `add-instagram-reference.tsx`, `instagram-reference-{card,view}.tsx`. Migration
+  `20261104000000_project_instagram_references.sql` (run). To do: the New project form's field;
+  check the player in normal Chrome; check Instagram answers Vercel's servers once live (if not,
+  Meta's oEmbed API); reconcile the paste field, draft pop-up and reference page into Figma.
 
 Explore: creator film shapes and order (Ika, 2026-10-22)
 - [x] Made in Africa sits above Creators on Explore.
@@ -407,4 +418,5 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261025030000_project_files_tags.sql`, `20261026010000_activity_documents_files.sql`,
 `20261026020000_link_shared_projects.sql`, `20261025040000_document_limits_file_archive.sql`,
 `20261026030000_document_rules_wording.sql`, `20261026000000_remove_pilot_clients.sql`,
-`20261027000000_feature_waitlist.sql`, `20261031000000_collections_references.sql`, `20261031010000_collections_remove.sql`.
+`20261027000000_feature_waitlist.sql`, `20261031000000_collections_references.sql`, `20261031010000_collections_remove.sql`,
+`20261101000000_explore_access.sql`, `20261102000000_marketplace_access.sql`, `20261104000000_project_instagram_references.sql`.

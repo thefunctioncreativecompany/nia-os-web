@@ -101,7 +101,10 @@ export function MadeInAfricaAll() {
         ← Back to Explore
       </Link>
 
-      <h1 className="mt-8 text-h2 font-semibold tracking-tight text-foreground">{MADE_IN_AFRICA.name}</h1>
+      <div className="mt-8 flex items-center gap-1">
+        <h1 className="text-h2 font-semibold tracking-tight text-foreground">{MADE_IN_AFRICA.name}</h1>
+        <TmdbCredit />
+      </div>
       <p className="mt-2 max-w-160 text-lead text-muted-foreground">{MADE_IN_AFRICA.description}</p>
 
       <div className="mt-8 flex flex-col gap-4">
@@ -177,8 +180,6 @@ export function MadeInAfricaAll() {
           </section>
         ))
       )}
-
-      <TmdbCredit className="mt-16" />
     </div>
   );
 }
