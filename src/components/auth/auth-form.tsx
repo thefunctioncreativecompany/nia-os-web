@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { GoogleButton } from "@/components/auth/google-button";
 
-// Shared body for the auth forms: heading, fields, error, primary action,
-// optional "or" divider + Google button, and the links underneath.
+// Shared body for the auth forms: heading, optional Google button + "or" divider
+// (first, to lead with Google sign-in; Ika, 2026-10-22), fields, error, primary
+// action, and the links underneath.
 // The Supabase form components (login-form.tsx etc.) own the state and submit logic.
 export function AuthForm({
   title,
@@ -41,6 +42,19 @@ export function AuthForm({
         </p>
       </div>
 
+      {withGoogle && (
+        <div className="flex flex-col gap-4">
+          <GoogleButton />
+          <div className="flex items-center gap-3">
+            <Separator className="flex-1 bg-nia-line" />
+            <span className="text-small leading-normal text-nia-ink-muted">
+              or
+            </span>
+            <Separator className="flex-1 bg-nia-line" />
+          </div>
+        </div>
+      )}
+
       <form onSubmit={onSubmit} className="flex flex-col gap-7">
         <div className="flex flex-col gap-4">
           {children}
@@ -51,24 +65,9 @@ export function AuthForm({
           )}
         </div>
 
-        <div className="flex flex-col gap-4">
-          <Button type="submit" disabled={isPending} className="w-full">
-            {isPending ? pendingLabel : submitLabel}
-          </Button>
-
-          {withGoogle && (
-            <>
-              <div className="flex items-center gap-3">
-                <Separator className="flex-1 bg-nia-line" />
-                <span className="text-small leading-normal text-nia-ink-muted">
-                  or
-                </span>
-                <Separator className="flex-1 bg-nia-line" />
-              </div>
-              <GoogleButton />
-            </>
-          )}
-        </div>
+        <Button type="submit" disabled={isPending} className="w-full">
+          {isPending ? pendingLabel : submitLabel}
+        </Button>
       </form>
 
       <div className="text-small text-nia-ink-muted">{footer}</div>

@@ -167,6 +167,10 @@ Data:
   Pay, Publish listing, fleet request and the lister dashboard's Accept / Decline / pause; Explore's
   Open press kit / film page (this drops the free-plan upgrade prompt there, to confirm with Ika) and
   Latest projects. Remove the `disabled` and the note when the feature opens.
+- (2026-10-22) Log in and Create account lead with "Continue with Google", then "or", then the
+  email fields (`src/components/auth/auth-form.tsx`), to encourage Google sign-ins. Figma's auth
+  screens still show email first; update them to match. Email sign-up tested end to end (Resend
+  email arrives in Gmail, link confirms and signs in).
 
 ## Working notes
 
