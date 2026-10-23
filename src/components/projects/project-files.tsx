@@ -285,18 +285,17 @@ function TagMenu({ file, canEdit, onChange }: { file: ProjectFile; canEdit: bool
 
 type Tab = "all" | FileTag;
 
-export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: string; files: ProjectFile[]; canEdit: boolean; now: number }) {
+// Final assets sit apart, under the project's description (Ika, 2026-10-22); Files & references
+// holds everything else.
+const isFinal = (file: ProjectFile) => file.tag === "final";
+
+/** A project's files as shown: archiving and retagging take effect at once, then the page reloads. */
+function useProjectFiles(files: ProjectFile[]) {
   const router = useRouter();
-  const [tab, setTab] = useState<Tab>("all");
-  const [uploadTag, setUploadTag] = useState<FileTag | "auto">("auto");
-  const [viewing, setViewing] = useState<number | null>(null);
   const [removed, setRemoved] = useState<string[]>([]);
   const [retagged, setRetagged] = useState<Record<string, FileTag>>({});
 
   const live = files.filter((f) => !removed.includes(f.id)).map((f) => (retagged[f.id] ? { ...f, tag: retagged[f.id] } : f));
-  const inTab = tab === "all" ? live : live.filter((f) => f.tag === tab);
-  const of = (kind: FileKind) => inTab.filter((f) => f.kind === kind);
-  const stills = of("image");
 
   const remove = async (file: ProjectFile) => {
     setRemoved((r) => [...r, file.id]);
@@ -332,6 +331,15 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
     }
     router.refresh();
   };
+
+  return { live, remove, retag, refresh: () => router.refresh(), restored: (id: string) => setRemoved((r) => r.filter((x) => x !== id)) };
+}
+
+/** Files by kind: stills as a mood board (with a viewer), documents as covers, audio, video. */
+function FileGroups({ files, canEdit, now, remove, retag }: { files: ProjectFile[]; canEdit: boolean; now: number; remove: (file: ProjectFile) => void; retag: (file: ProjectFile, tag: FileTag) => void }) {
+  const [viewing, setViewing] = useState<number | null>(null);
+  const of = (kind: FileKind) => files.filter((f) => f.kind === kind);
+  const stills = of("image");
 
   const actions = (file: ProjectFile) => (
     <span className="flex shrink-0 items-center gap-1">
@@ -389,49 +397,8 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
       </div>
     );
 
-  const counts = Object.fromEntries(TAGS.map((t) => [t.value, live.filter((f) => f.tag === t.value).length]));
-
   return (
-    <section aria-labelledby="files" className="flex flex-col gap-4">
-      <div className="flex flex-col gap-3">
-        <h2 id="files" className="text-lg leading-[1.4] font-bold text-foreground">
-          Files &amp; references
-        </h2>
-        {live.length > 0 && (
-          <SegmentedControl
-            className="-mx-4 max-w-[calc(100%+2rem)] overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:max-w-full sm:px-0"
-            label="Show files"
-            value={tab}
-            onChange={(v) => setTab(v as Tab)}
-            segments={[{ value: "all", label: "All", count: live.length }, ...TAGS.map((t) => ({ value: t.value, label: t.plural, count: counts[t.value] }))]}
-          />
-        )}
-      </div>
-      {canEdit && (
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2 text-small text-muted-foreground">
-            <span id="upload-tag">Tag new files as</span>
-            <Select value={uploadTag} onValueChange={(v) => setUploadTag(v as FileTag | "auto")}>
-              <SelectTrigger aria-labelledby="upload-tag" className="h-8 w-auto rounded-full text-small">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="auto">Automatic (by kind of file)</SelectItem>
-                {TAGS.map((t) => (
-                  <SelectItem key={t.value} value={t.value}>
-                    {t.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <Dropzone projectId={projectId} tag={uploadTag} onUploaded={() => router.refresh()} />
-        </div>
-      )}
-      {live.length === 0 && !canEdit && <p className="text-small text-muted-foreground">No files yet.</p>}
-      {canEdit && <ArchiveButton projectId={projectId} onChanged={() => router.refresh()} onRestored={(id) => setRemoved((r) => r.filter((x) => x !== id))} />}
-      {live.length > 0 && inTab.length === 0 && <p className="text-small text-muted-foreground">Nothing tagged {TAGS.find((t) => t.value === tab)?.label.toLowerCase()} yet. Change a file&rsquo;s tag from the menu on it.</p>}
-
+    <>
       {group(
         "Stills",
         stills.length,
@@ -545,6 +512,79 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
           )}
         </DialogContent>
       </Dialog>
+    </>
+  );
+}
+
+/** The project's final assets, under its description; hidden until a file is tagged final. */
+export function ProjectFinalAssets({ files, canEdit, now }: { files: ProjectFile[]; canEdit: boolean; now: number }) {
+  const { live, remove, retag } = useProjectFiles(files);
+  const finals = live.filter(isFinal);
+  if (finals.length === 0) return null;
+  return (
+    <section aria-labelledby="final-assets" className="flex flex-col gap-4">
+      <h2 id="final-assets" className="text-lg leading-[1.4] font-bold text-foreground">
+        Final assets · {finals.length}
+      </h2>
+      <FileGroups files={finals} canEdit={canEdit} now={now} remove={remove} retag={retag} />
+    </section>
+  );
+}
+
+// Tabs in Files & references: every tag but final, which has its own section.
+const TABS = TAGS.filter((t) => t.value !== "final");
+
+export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: string; files: ProjectFile[]; canEdit: boolean; now: number }) {
+  const [tab, setTab] = useState<Tab>("all");
+  const [uploadTag, setUploadTag] = useState<FileTag | "auto">("auto");
+  const { live: all, remove, retag, refresh, restored } = useProjectFiles(files);
+
+  const live = all.filter((f) => !isFinal(f));
+  const inTab = tab === "all" ? live : live.filter((f) => f.tag === tab);
+  const counts = Object.fromEntries(TABS.map((t) => [t.value, live.filter((f) => f.tag === t.value).length]));
+
+  return (
+    <section aria-labelledby="files" className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3">
+        <h2 id="files" className="text-lg leading-[1.4] font-bold text-foreground">
+          Files &amp; references
+        </h2>
+        {live.length > 0 && (
+          <SegmentedControl
+            className="-mx-4 max-w-[calc(100%+2rem)] overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:max-w-full sm:px-0"
+            label="Show files"
+            value={tab}
+            onChange={(v) => setTab(v as Tab)}
+            segments={[{ value: "all", label: "All", count: live.length }, ...TABS.map((t) => ({ value: t.value, label: t.plural, count: counts[t.value] }))]}
+          />
+        )}
+      </div>
+      {canEdit && (
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2 text-small text-muted-foreground">
+            <span id="upload-tag">Tag new files as</span>
+            <Select value={uploadTag} onValueChange={(v) => setUploadTag(v as FileTag | "auto")}>
+              <SelectTrigger aria-labelledby="upload-tag" className="h-8 w-auto rounded-full text-small">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="auto">Automatic (by kind of file)</SelectItem>
+                {TAGS.map((t) => (
+                  <SelectItem key={t.value} value={t.value}>
+                    {t.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <Dropzone projectId={projectId} tag={uploadTag} onUploaded={refresh} />
+        </div>
+      )}
+      {live.length === 0 && !canEdit && <p className="text-small text-muted-foreground">No files yet.</p>}
+      {canEdit && <ArchiveButton projectId={projectId} onChanged={refresh} onRestored={restored} />}
+      {live.length > 0 && inTab.length === 0 && <p className="text-small text-muted-foreground">Nothing tagged {TAGS.find((t) => t.value === tab)?.label.toLowerCase()} yet. Change a file&rsquo;s tag from the menu on it.</p>}
+
+      <FileGroups files={inTab} canEdit={canEdit} now={now} remove={remove} retag={retag} />
     </section>
   );
 }

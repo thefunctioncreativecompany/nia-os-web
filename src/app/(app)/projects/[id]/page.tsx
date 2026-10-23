@@ -9,7 +9,7 @@ import { ProjectActions } from "@/components/projects/project-actions";
 import { ProjectEditor } from "@/components/projects/project-editor";
 import { ProjectLive } from "@/components/projects/project-live";
 import { DocumentPills, ProjectDocuments } from "@/components/projects/project-documents";
-import { ProjectFiles } from "@/components/projects/project-files";
+import { ProjectFiles, ProjectFinalAssets } from "@/components/projects/project-files";
 import { ProjectInspiration } from "@/components/projects/project-inspiration";
 import { catalog } from "@/features/templates/catalog";
 
@@ -47,6 +47,7 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
         project={project}
         canEdit={canEdit}
         behind={<DocumentPills projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} />}
+        finals={<ProjectFinalAssets files={files} canEdit={canEdit} now={now} />}
         files={<ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />}
         inspiration={<ProjectInspiration projectId={id} genres={project.genres} productionType={project.productionType} canEdit={canEdit} />}
         manage={
