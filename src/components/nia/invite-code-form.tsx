@@ -7,11 +7,12 @@ import { toast } from "sonner";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { redeemCode } from "@/features/explore/saves";
+import { redeemCode, type CodeArea } from "@/lib/invite-codes";
 
-// "Have an invite code?" on Explore's coming-soon card (Ika, 2026-10-21). A right code unlocks
-// Explore, collections and project references for this account, and the page opens straight away.
-export function InviteCodeForm() {
+// "Have an invite code?" on a coming-soon card: Explore's (Ika, 2026-10-21; a right code unlocks
+// Explore, collections and project references) and Marketplace's (2026-10-22; the store). The
+// page opens straight away for this account.
+export function InviteCodeForm({ area, unlocked }: { area: CodeArea; /** The toast on a right code. */ unlocked: string }) {
   const router = useRouter();
   const [code, setCode] = useState("");
   const [busy, setBusy] = useState(false);
@@ -22,10 +23,10 @@ export function InviteCodeForm() {
     if (!code.trim()) return;
     setBusy(true);
     setProblem(null);
-    const result = await redeemCode(createClient(), code);
+    const result = await redeemCode(createClient(), area, code);
     setBusy(false);
     if (result === "unlocked") {
-      toast.success("Explore is unlocked. Welcome in.");
+      toast.success(unlocked);
       router.refresh();
     } else if (result === "wrong") {
       setProblem("That code didn't work. Check it and try again.");
