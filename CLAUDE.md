@@ -475,6 +475,43 @@ Future builds (agreed with Ika, build later; need designs first)
 - Vercel: sign the CLI in as the nia-technologies account (it's on a personal one), then
   disconnect the extra projects (`nia-os-web`, `nia-os-web-s5dn`) that build every commit.
 
+Week of 2026-10-19 (done, live; summary for Ika)
+- Speed: a second performance audit; every signed-in page sends 18–46 KB less (animations via
+  `framer-motion` + `MotionProvider`, pop-ups and calendars load on first use). Live, signed in:
+  server ~20 ms, main content in 0.7–1.3 s on desktop and a phone over 4G. Final check
+  2026-10-24: Home 405 KB, Projects 413, project page 433, editor 439, Explore 389, Login 300
+  (compressed JavaScript); the welcome tour now downloads only when it opens.
+- Product: Marketplace hidden; welcome tour for new accounts; New project form (live heading,
+  Instagram links, more genres and types); global search on desktop; project Details for
+  production (shoot dates, client, agency, deliverables, due date, budget, notes, by type) and
+  Crew & talent; Explore all as a masonry of true frame shapes.
+- Beta: pilot feedback (Send feedback, job tracking in `product_events`, one-tap questions);
+  read it with `select * from feedback_review` in the SQL Editor.
+- Fixes: a Vercel build failure (feedback outside Suspense) and Explore's shuffled pages in local
+  dev; the Mac's disk filled up (caches cleared; keep an eye on free space).
+
+Next week (from 2026-10-26, in order; agree each with Ika first)
+1. Beta pilot setup: invite 3 ICP groups (producers and production managers; photographers and
+   fashion or editorial creatives; creators and brand content), 5–8 people each, with a real
+   shoot in the next 2–4 weeks. Move testers to Pro by hand, give them the Explore code, read
+   `feedback_review` and the `product_events` funnel weekly, close the loop with testers.
+2. Security before more testers: a migration revoking `anon` execute on internal helper and
+   trigger functions (`can_edit_project`, `can_view_project`, `is_project_owner`,
+   `is_workspace_*`, `handle_new_user`, `projects_before_write`/`after_write`,
+   `accept_project_invites`; keep `shared_project`), and turn on leaked password protection
+   (Supabase → Authentication → Passwords).
+3. Milestone 4, "enter it once": shoot days, crew and locations on the project feed the call
+   sheet, shot list, crew list and invoice (Details and Crew & talent are the start). Plan it
+   for Ika's OK first; designs in Figma.
+4. Then Home that knows the phase (prep: what's missing; shoot day: the call sheet; after wrap:
+   final assets, invoices) and double-booking warnings for crew and locations.
+5. Figma reconcile: welcome tour, Send feedback and the one-tap question, global search, project
+   Details and Crew & talent, New project's Instagram field.
+6. Vercel tidy-up (above): the CLI on the nia-technologies account, disconnect the two extra
+   projects, set deployment retention.
+7. Small: phones' search (global search is desktop only), the genre pills on Details are long
+   now (24): consider a "More genres" fold.
+
 Milestone 4 — Shoot day: not started.
 
 Milestone 5 — Copilot: not started.

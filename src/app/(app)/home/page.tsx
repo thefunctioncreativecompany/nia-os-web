@@ -16,7 +16,7 @@ import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { ActivityFeed } from "@/components/home/activity-feed";
 import { HomeTemplates } from "@/components/home/home-templates";
 import { ImportFilesDialog } from "@/components/home/import-files-dialog";
-import { WelcomeTour } from "@/components/home/welcome-tour";
+import { WelcomeTourLoader } from "@/components/home/welcome-tour-loader";
 import { ProjectGrid } from "@/components/projects/project-grid";
 
 export const metadata: Metadata = {
@@ -94,7 +94,7 @@ export default function Page() {
 // The welcome tour opens by itself once, for a new account just out of onboarding.
 async function Tour() {
   const [{ user }, current] = await Promise.all([getSession(), getCurrentUser()]);
-  return <WelcomeTour firstName={current.name.split(" ")[0]} firstVisit={user?.metadata.tour_pending === true} />;
+  return <WelcomeTourLoader firstName={current.name.split(" ")[0]} firstVisit={user?.metadata.tour_pending === true} />;
 }
 
 async function Welcome() {
