@@ -451,6 +451,14 @@ Future builds (agreed with Ika, build later; need designs first)
 - Home: Next shoot, Complete your profile / set up your workspace (W1).
 - Projects: Team Members (2.3), References gallery (R1).
 - Templates: Editorial Shoot launcher (3.1, Fix 13); then "What's next" can follow its steps.
+- Explore weekly import (Ika, 2026-10-23, left for later): new and trending films and series from
+  TMDB (trending lists, by streamer and studio: Netflix, Hulu, Paramount+, Peacock/NBC, Skydance,
+  A24, Neon…; official trailers), never the streamers' own sites. Genres and types matched to
+  Nia's lists; each title arrives as a proposal with a Nia-written summary for Ika to approve.
+  Needs Explore reading from Supabase first (`20261030000000_explore_made_in_africa.sql` + seed),
+  a `TMDB_API_KEY`, and the TMDB commercial licence (plus a JustWatch credit) before launch.
+- Vercel: sign the CLI in as the nia-technologies account (it's on a personal one), then
+  disconnect the extra projects (`nia-os-web`, `nia-os-web-s5dn`) that build every commit.
 
 Milestone 4 — Shoot day: not started.
 
