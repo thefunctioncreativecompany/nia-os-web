@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Check, FolderPlus, Search } from 'lucide-react';
 
 import { createClient } from '@/lib/supabase/client';
+import { recordEvent } from '@/lib/product-events';
 import { currentUser } from '@/lib/supabase/current-user';
 import { projectLimitReached, workspacePlans } from '@/lib/plan-client';
 import { FREE_LIMITS } from '@/lib/plans';
@@ -63,7 +64,9 @@ async function createProject(title: string): Promise<DocumentProject | 'limit' |
   if (wsError) return null;
   if (await projectLimitReached(supabase, workspaceId)) return 'limit';
   const { data, error } = await supabase.from('projects').insert({ workspace_id: workspaceId, title, description: '' }).select('id, title').single();
-  return error ? null : { id: data.id, title: data.title };
+  if (error) return null;
+  recordEvent('project_created', { projectId: data.id, props: { from: 'document' } });
+  return { id: data.id, title: data.title };
 }
 
 // "Save to project" (build step 8, Ika 2026-10-19): file the document under one of your

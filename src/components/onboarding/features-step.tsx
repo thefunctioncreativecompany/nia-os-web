@@ -42,8 +42,9 @@ export function FeaturesStep({ userId }: { userId: string }) {
         .update({ onboarding_completed_at: new Date().toISOString() })
         .eq("id", userId);
       if (error) throw error;
-      // The app checks this flag in the sign-in token; refresh it so the new token has it.
-      const { error: userError } = await supabase.auth.updateUser({ data: { onboarded: true } });
+      // The app checks these flags in the sign-in token; refresh it so the new token has them.
+      // `tour_pending`: a new account gets the welcome tour on its first visit to Home.
+      const { error: userError } = await supabase.auth.updateUser({ data: { onboarded: true, tour_pending: true } });
       if (userError) throw userError;
       await supabase.auth.refreshSession();
     });

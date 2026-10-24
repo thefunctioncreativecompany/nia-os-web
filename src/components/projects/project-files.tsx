@@ -10,6 +10,7 @@ import { pdfFirstPage } from "@/lib/pdf-preview";
 import type { FileKind, FileTag, ProjectFile } from "@/lib/projects-data";
 import { timeAgo } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
+import { recordEvent } from "@/lib/product-events";
 import { projectLimited } from "@/lib/plan-client";
 import { FREE_LIMITS } from "@/lib/plans";
 import { cn } from "@/lib/utils";
@@ -142,6 +143,7 @@ export async function uploadProjectFile(projectId: string, file: File, token: st
     thumb_path: thumb,
   });
   if (error) throw new Error(error.message);
+  recordEvent("file_uploaded", { projectId, props: { kind } });
 }
 
 export const MAX_UPLOAD_MB = MAX_MB;

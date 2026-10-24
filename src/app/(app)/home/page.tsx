@@ -91,10 +91,10 @@ export default function Page() {
   );
 }
 
-// The welcome tour opens by itself until it has been seen once on this account.
+// The welcome tour opens by itself once, for a new account just out of onboarding.
 async function Tour() {
   const [{ user }, current] = await Promise.all([getSession(), getCurrentUser()]);
-  return <WelcomeTour firstName={current.name.split(" ")[0]} firstVisit={!user?.metadata.toured} />;
+  return <WelcomeTour firstName={current.name.split(" ")[0]} firstVisit={user?.metadata.tour_pending === true} />;
 }
 
 async function Welcome() {

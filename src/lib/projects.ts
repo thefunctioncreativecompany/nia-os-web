@@ -11,6 +11,20 @@ export const PRODUCTION_TYPES = [
   "Behind the Scenes",
   "Photo Shoot",
   "Live Event",
+  // Added for creators and brand work (Ika, 2026-10-23); the database list matches
+  // (supabase/migrations/20261105010000_more_production_types.sql).
+  "Feature Film",
+  "Web Series",
+  "Fashion Film",
+  "Editorial",
+  "Lookbook",
+  "Campaign",
+  "Branded Content",
+  "Social Content",
+  "Podcast",
+  "Corporate Video",
+  "Trailer",
+  "Stage Production",
 ] as const;
 
 // Figma "Genre Selector Dropdown".
@@ -25,6 +39,21 @@ export const GENRES = [
   "Sci-Fi",
   "Animation",
   "Musical",
+  // Added (Ika, 2026-10-23). Genres are free text in the database, so these need no migration.
+  "Crime",
+  "Mystery",
+  "Fantasy",
+  "Adventure",
+  "Historical",
+  "Biography",
+  "Family",
+  "Coming of Age",
+  "Experimental",
+  "Fashion",
+  "Lifestyle",
+  "Sports",
+  "Music",
+  "Faith",
 ] as const;
 
 export const STAGES = [

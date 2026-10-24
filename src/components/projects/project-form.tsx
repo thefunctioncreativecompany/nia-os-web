@@ -4,12 +4,15 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Camera, Upload, X } from "lucide-react";
+import { Camera, Link2, Upload, X } from "lucide-react";
 import { toast } from "sonner";
 
 import { checkCoverFile, shrinkImage } from "@/lib/images";
 import { GENRES, PRODUCTION_TYPES } from "@/lib/projects";
+import { parseInstagramLink } from "@/lib/instagram";
+import { addInstagramReference, readInstagramPost } from "@/lib/instagram-post";
 import { createClient } from "@/lib/supabase/client";
+import { recordEvent } from "@/lib/product-events";
 import { myPlan, projectLimitReached } from "@/lib/plan-client";
 import { FREE_LIMITS, isLimited } from "@/lib/plans";
 import { cn } from "@/lib/utils";
@@ -67,8 +70,17 @@ export function ProjectForm() {
   const [isSaving, setIsSaving] = useState(false);
   // Files to upload once the project exists (audit #12): briefs, scripts, stills, voice memos.
   const [files, setFiles] = useState<File[]>([]);
-  const [uploading, setUploading] = useState<{ done: number; of: number } | null>(null);
+  const [uploading, setUploading] = useState<{ done: number; of: number; what: "Uploading" | "Adding reference" } | null>(null);
   const filesInput = useRef<HTMLInputElement>(null);
+  // Instagram posts to add as references once the project exists (Ika, 2026-10-23).
+  const [links, setLinks] = useState<string[]>([]);
+  const [link, setLink] = useState("");
+  const addLink = () => {
+    const parsed = parseInstagramLink(link);
+    if (!parsed) return void toast.error("That isn't a link to an Instagram post or reel. Copy it from the post's Share or ⋯ menu.");
+    if (!links.includes(parsed.link)) setLinks((list) => [...list, parsed.link]);
+    setLink("");
+  };
   const addFiles = (picked: File[]) => {
     const tooBig = picked.filter((f) => f.size > limitMb * 1e6);
     if (tooBig.length) {
@@ -119,6 +131,7 @@ export function ProjectForm() {
         .select("id")
         .single();
       if (error) throw error;
+      recordEvent("project_created", { projectId: project.id, props: { from: "form" } });
 
       if (cover) {
         try {
@@ -134,7 +147,7 @@ export function ProjectForm() {
         } = await supabase.auth.getSession();
         let failed = 0;
         for (const [i, file] of files.entries()) {
-          setUploading({ done: i, of: files.length });
+          setUploading({ done: i, of: files.length, what: "Uploading" });
           try {
             if (!session) throw new Error("signed out");
             await uploadProjectFile(project.id, file, session.access_token);
@@ -143,6 +156,20 @@ export function ProjectForm() {
           }
         }
         if (failed) toast.error(`Project created, but ${failed} ${failed === 1 ? "file" : "files"} didn't upload. Add ${failed === 1 ? "it" : "them"} from the project page.`);
+      }
+      // Each post is read and saved as on the project page; a post that can't be read is skipped.
+      if (links.length) {
+        let failed = 0;
+        for (const [i, url] of links.entries()) {
+          setUploading({ done: i, of: links.length, what: "Adding reference" });
+          const read = await readInstagramPost(url).catch(() => null);
+          const saved = read?.ok
+            ? await addInstagramReference(project.id, { link: url, title: read.draft.title || "Instagram post", productionType: null, note: "", credits: read.draft.credits }).catch(() => null)
+            : null;
+          if (saved?.ok) recordEvent("reference_added", { projectId: project.id, props: { from: "instagram" } });
+          else failed += 1;
+        }
+        if (failed) toast.error(`Project created, but ${failed} Instagram ${failed === 1 ? "link" : "links"} couldn't be read. Add ${failed === 1 ? "it" : "them"} under References on the project page.`);
       }
       router.push(`/projects/${project.id}`);
     } catch (error: unknown) {
@@ -156,7 +183,8 @@ export function ProjectForm() {
       onSubmit={handleSubmit}
       className="flex w-full max-w-[600px] flex-col gap-7 rounded-2xl bg-white p-6 shadow-elevation-2 sm:p-10"
     >
-      <h1 className="text-h2 font-bold text-foreground">New blank project</h1>
+      {/* The heading follows the name as it's typed (Ika, 2026-10-23). */}
+      <h1 className="text-h2 font-bold break-words text-foreground">{title.trim() || "New blank project"}</h1>
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="project-name" className={fieldLabelClassName}>
@@ -318,6 +346,50 @@ export function ProjectForm() {
         )}
       </div>
 
+      <div className="flex flex-col gap-2">
+        <Label htmlFor="project-instagram" className={fieldLabelClassName}>
+          Instagram references <span className="font-normal">(optional)</span>
+        </Label>
+        <div className="flex gap-2">
+          <Input
+            id="project-instagram"
+            type="url"
+            inputMode="url"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key !== "Enter") return;
+              e.preventDefault();
+              if (link.trim()) addLink();
+            }}
+            placeholder="Paste a link to a post or reel"
+            className={fieldClassName}
+          />
+          <Button type="button" variant="outline" disabled={!link.trim()} onClick={addLink} className="h-auto shrink-0 rounded-lg px-5">
+            Add
+          </Button>
+        </div>
+        <span className="text-caption text-muted-foreground">Saved to the project&rsquo;s references when it&rsquo;s created, private to the project.</span>
+        {links.length > 0 && (
+          <ul className="flex flex-col gap-1">
+            {links.map((url) => (
+              <li key={url} className="flex items-center gap-2 rounded-md border border-border px-3 py-2 text-small">
+                <Link2 aria-hidden className="size-3.5 shrink-0 text-muted-foreground" />
+                <span className="min-w-0 flex-1 truncate text-foreground">{url.replace(/^https?:\/\/(www\.)?/, "")}</span>
+                <button
+                  type="button"
+                  aria-label={`Don't add ${url}`}
+                  onClick={() => setLinks((list) => list.filter((x) => x !== url))}
+                  className="inline-flex size-6 items-center justify-center rounded-md text-muted-foreground outline-none hover:bg-muted hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+                >
+                  <X aria-hidden className="size-3.5" />
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       <div className="flex justify-end gap-4">
         <Button asChild variant="outline" className="h-auto rounded-lg px-6 py-3 text-lead font-semibold">
           <Link href="/projects">Cancel</Link>
@@ -327,7 +399,7 @@ export function ProjectForm() {
           disabled={isSaving || !title.trim()}
           className="h-auto rounded-lg px-6 py-3 text-lead font-semibold"
         >
-          {uploading ? `Uploading ${uploading.done + 1} of ${uploading.of}…` : isSaving ? "Creating…" : "Create project"}
+          {uploading ? `${uploading.what} ${uploading.done + 1} of ${uploading.of}…` : isSaving ? "Creating…" : "Create project"}
         </Button>
       </div>
     </form>

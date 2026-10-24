@@ -181,8 +181,20 @@ Data:
   left, a preview built from our components on the right (above on phones). Seven steps: welcome,
   Projects, Documents (the real Call Sheet miniature), Files and references, Your crew, Explore,
   "You're set" (Start a project). No Copilot until it's built. Opens by itself on the first Home
-  visit until finished or skipped (`toured` in the account's sign-in metadata, no migration);
+  visit after onboarding, once (`tour_pending` in the sign-in metadata, set when onboarding
+  finishes and cleared when the tour opens; older accounts never get it by itself, no migration);
   "Take the tour" in the profile menu opens `/home?tour=1`. Not in Figma yet: reconcile it.
+- (2026-10-23) MVP pilot feedback (`src/components/nia/feedback.tsx`, `src/lib/product-events.ts`):
+  "Send feedback" (profile menu, and a Feedback button bottom-right on wide screens) saves a note,
+  its kind, the page and an optional screenshot to `feedback`; the key jobs (project created,
+  document created or downloaded, crew invited, file uploaded, reference added) go to
+  `product_events`; the first project, download and invite each ask one thumbs up/down question,
+  once. Read it in the SQL Editor: `select * from feedback_review` (with name and profession).
+  Needs `20261105000000_feedback.sql`. Not in Figma yet.
+- (2026-10-23) New project form: the heading shows the name as it's typed; Instagram links can be
+  added there and become references when the project is created. More genres (free text) and
+  production types (database rule: needs `20261105010000_more_production_types.sql` before the
+  new types can be saved).
 
 ## Working notes
 

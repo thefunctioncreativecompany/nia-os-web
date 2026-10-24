@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { sendProjectInvite } from "@/lib/project-invite";
 import type { ProjectRole } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
+import { recordEvent } from "@/lib/product-events";
 import { projectLimited } from "@/lib/plan-client";
 import { FREE_LIMITS } from "@/lib/plans";
 import { getInitials } from "@/lib/utils";
@@ -119,6 +120,7 @@ export function ShareProjectDialog({
       toast.error(error.message);
       return;
     }
+    recordEvent("crew_invited", { projectId, props: { role: inviteRole } });
     const { sent } = await sendProjectInvite(projectId, address).catch(() => ({ sent: false }));
     setBusy(false);
     toast.success(

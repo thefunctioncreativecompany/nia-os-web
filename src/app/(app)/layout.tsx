@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 
 import { getCurrentUser } from "@/lib/auth";
+import { Feedback } from "@/components/nia/feedback";
 import { MotionProvider } from "@/components/nia/motion-provider";
 import { NavDock, Navbar } from "@/components/nia/navbar";
 import { UserMenu, UserMenuSkeleton } from "@/components/nia/user-menu";
@@ -26,6 +27,8 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
           <NavDock />
           {/* The upgrade prompt, opened when a free limit is reached. */}
           <UpgradeDialog />
+          {/* Feedback for the MVP pilot: the button, the dialog and the after-job question. */}
+          <Feedback />
         </div>
       </TooltipProvider>
     </MotionProvider>

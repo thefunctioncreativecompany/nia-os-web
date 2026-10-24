@@ -6,6 +6,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 
 import { currentUser } from "@/lib/supabase/current-user";
+import { recordEvent } from "@/lib/product-events";
 
 export type Collection = { id: string; name: string; items: { id: string; slug: string }[] };
 export type Reference = { id: string; slug: string; addedBy: string; createdAt: string };
@@ -84,7 +85,9 @@ export async function loadReferences(db: SupabaseClient, projectId: string): Pro
 export async function addReference(db: SupabaseClient, projectId: string, slug: string): Promise<Result<{ id: string } | null>> {
   const { data, error } = await db.from("project_references").insert({ project_id: projectId, title_slug: slug }).select("id").single();
   if (error?.code === "23505") return { ready: true, data: null };
-  return error ? fail(error) : { ready: true, data: { id: data.id } };
+  if (error) return fail(error);
+  recordEvent("reference_added", { projectId, props: { from: "explore", title: slug } });
+  return { ready: true, data: { id: data.id } };
 }
 
 export async function removeReference(db: SupabaseClient, referenceId: string): Promise<Result<null>> {

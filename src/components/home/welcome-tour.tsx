@@ -38,9 +38,10 @@ const [, , CAMERA, , , , FITTING, SHOWROOM, TEAM] = HERO_SET.map((h) => h.src);
 
 // The welcome tour (Ika, 2026-10-23, after Gabriel's "Onboarding Experience made with Figma
 // Motion" on Collect UI): a card over Home with the step on the left and a preview of that part of
-// Nia on the right, drawn with the app's own components. It opens by itself on someone's first
-// visit to Home (until they finish or skip it, remembered on their account), and again from
-// "Take the tour" in the profile menu (`/home?tour=1`).
+// Nia on the right, drawn with the app's own components. It opens by itself once: on a new
+// account's first visit to Home after onboarding (`tour_pending`, set when onboarding finishes and
+// cleared when the tour first opens), and again from "Take the tour" in the profile menu
+// (`/home?tour=1`). Accounts from before the tour never get it by itself.
 export function WelcomeTour({ firstName, firstVisit }: { firstName: string; firstVisit: boolean }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -49,7 +50,6 @@ export function WelcomeTour({ firstName, firstVisit }: { firstName: string; firs
   const [open, setOpen] = useState(firstVisit || asked);
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(1);
-  const remembered = useRef(!firstVisit);
   const primary = useRef<HTMLButtonElement>(null);
 
   // "Take the tour" while already on Home: start again from the first step.
@@ -62,23 +62,28 @@ export function WelcomeTour({ firstName, firstVisit }: { firstName: string; firs
     }
   }
 
+  // Shown once: the flag clears as soon as the tour opens by itself, so leaving or reloading
+  // Home never brings it back.
+  useEffect(() => {
+    if (!firstVisit) return;
+    void (async () => {
+      const supabase = createClient();
+      const { error } = await supabase.auth.updateUser({ data: { tour_pending: false } });
+      // The sign-in token carries the flag; refresh it so Home stops opening the tour.
+      if (!error) await supabase.auth.refreshSession();
+    })();
+  }, [firstVisit]);
+
   const go = (next: number) => {
     if (next < 0 || next >= STEPS.length) return;
     setDirection(next > step ? 1 : -1);
     setStep(next);
   };
 
-  // Closing in any way (Skip, the last step, Escape, the cross) counts as seen.
-  const close = async (then?: string) => {
+  const close = (then?: string) => {
     setOpen(false);
     if (asked) router.replace(pathname, { scroll: false });
     if (then) router.push(then);
-    if (remembered.current) return;
-    remembered.current = true;
-    const supabase = createClient();
-    const { error } = await supabase.auth.updateUser({ data: { toured: true } });
-    // The sign-in token carries the flag; refresh it so Home stops opening the tour.
-    if (!error) await supabase.auth.refreshSession();
   };
 
   const current = STEPS[step];
@@ -88,7 +93,7 @@ export function WelcomeTour({ firstName, firstVisit }: { firstName: string; firs
   const enter = { duration: reduce ? 0 : DURATION.base, ease: EASE_OUT };
 
   return (
-    <Dialog open={open} onOpenChange={(next) => !next && void close()}>
+    <Dialog open={open} onOpenChange={(next) => !next && close()}>
       <DialogContent
         showCloseButton={false}
         // The main button takes focus (not the first dot), so Enter moves on.
@@ -143,10 +148,10 @@ export function WelcomeTour({ firstName, firstVisit }: { firstName: string; firs
             <Dots count={STEPS.length} current={step} onSelect={go} label="Step" />
             {/* One main button that changes its words, so focus stays on it from step to step. */}
             <div className="flex flex-wrap items-center gap-2">
-              <Button ref={primary} onClick={() => (last ? void close("/projects/new") : go(step + 1))}>
+              <Button ref={primary} onClick={() => (last ? close("/projects/new") : go(step + 1))}>
                 {step === 0 ? "Get started" : last ? "Start a project" : "Next"}
               </Button>
-              <Button variant="ghost" onClick={() => (step === 0 ? void close() : go(step - 1))}>
+              <Button variant="ghost" onClick={() => (step === 0 ? close() : go(step - 1))}>
                 {step === 0 ? "Skip for now" : "Back"}
               </Button>
             </div>

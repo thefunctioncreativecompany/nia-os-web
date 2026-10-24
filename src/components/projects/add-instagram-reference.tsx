@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { PRODUCTION_TYPES } from "@/lib/projects";
 import { parseInstagramLink } from "@/lib/instagram";
+import { recordEvent } from "@/lib/product-events";
 import { addInstagramReference, readInstagramPost, type InstagramDraft } from "@/lib/instagram-post";
 import type { Credit } from "@/features/explore/creators";
 import { Button } from "@/components/ui/button";
@@ -112,6 +113,7 @@ export function AddInstagramReference({ projectId, held, onAdded }: { projectId:
           onAdded={() => {
             setChecking(null);
             setUrl("");
+            recordEvent("reference_added", { projectId, props: { from: "instagram" } });
             onAdded();
           }}
         />

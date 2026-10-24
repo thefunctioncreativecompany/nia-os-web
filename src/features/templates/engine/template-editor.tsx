@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { BadgeCheck, Download, Eye, FileText, FileType, FolderCheck, FolderPlus, Plus, Printer, Redo2, Trash2, Undo2 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
+import { recordEvent } from '@/lib/product-events';
 import { cn } from '@/lib/utils';
 import { myPlan, projectPlan } from '@/lib/plan-client';
 import { toast } from 'sonner';
@@ -94,6 +95,7 @@ export function TemplateEditor({
       if (kind === 'md') downloadFile(fileName(schema, 'md'), toMarkdown(schema, doc.data, branded), 'text/markdown;charset=utf-8');
       if (kind === 'txt') downloadFile(fileName(schema, 'txt'), toPlainText(schema, doc.data, branded));
       if (kind === 'docx') downloadFile(fileName(schema, 'docx'), await toWord(schema, doc.data, branded));
+      recordEvent('document_downloaded', { projectId, props: { template: schema.code, format: kind } });
     } catch {
       toast.error("Couldn't make that file. Try again.");
     }

@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 import { openUpgrade } from '@/components/nia/upgrade-dialog';
 
 import { createClient } from '@/lib/supabase/client';
+import { recordEvent } from '@/lib/product-events';
 import type { TemplateSchema } from '../types';
 import { filledCount, type SectionValue } from './sections';
 
@@ -88,6 +89,7 @@ export function useDocument(schema: TemplateSchema, documentId: string | null, i
         if (error) return void (limitReached(error) || toast.error(`Couldn't save: ${error.message}`));
         id.current = row.id;
         setSavedId(row.id);
+        recordEvent('document_created', { projectId: projectRef.current?.id, props: { template: schema.code } });
         window.history.replaceState(window.history.state, '', `?doc=${row.id}`);
       } else {
         const { error } = await supabase.from('documents').update({ data, status }).eq('id', id.current);
@@ -122,6 +124,7 @@ export function useDocument(schema: TemplateSchema, documentId: string | null, i
             if (result.data) {
               id.current = result.data.id;
               setSavedId(result.data.id);
+              recordEvent('document_created', { projectId: next?.id, props: { template: schema.code } });
               window.history.replaceState(window.history.state, '', `?doc=${result.data.id}`);
             }
           } else {
