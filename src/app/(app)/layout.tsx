@@ -27,8 +27,11 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
           <NavDock />
           {/* The upgrade prompt, opened when a free limit is reached. */}
           <UpgradeDialog />
-          {/* Feedback for the MVP pilot: the button, the dialog and the after-job question. */}
-          <Feedback />
+          {/* Feedback for the MVP pilot: the button, the dialog and the after-job question. It reads
+              the address, known only at request time, so it streams in after the page. */}
+          <Suspense fallback={null}>
+            <Feedback />
+          </Suspense>
         </div>
       </TooltipProvider>
     </MotionProvider>
