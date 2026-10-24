@@ -5,7 +5,7 @@ import { CalendarDays, Check, ChevronDown, Clock, Minus, Plus, X } from 'lucide-
 
 import { PROFESSION_SECTORS } from '@/lib/onboarding';
 import { cn } from '@/lib/utils';
-import { Calendar } from '@/components/ui/calendar';
+import { Calendar } from '@/components/nia/lazy-calendar';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { Input } from '@/components/ui/input';

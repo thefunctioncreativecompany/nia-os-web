@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { useReducedMotion } from "motion/react";
+import { useReducedMotion } from "framer-motion";
 import type { DateRange } from "react-day-picker";
 
 import { cn } from "@/lib/utils";

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion, type Transition } from "motion/react";
+import { AnimatePresence, m, useReducedMotion, type Transition } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, ChevronDown, History } from "lucide-react";
 
 import { cn, getInitials } from "@/lib/utils";
@@ -231,7 +231,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
                     onClick={() => jumpTo(g.key)}
                     className="relative isolate h-8 rounded-full px-3 text-small font-medium text-muted-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50 aria-[current=true]:text-foreground"
                   >
-                    {selected && <motion.span layoutId="activity-month" aria-hidden className="absolute inset-0 -z-10 rounded-full bg-secondary" transition={ease} />}
+                    {selected && <m.span layoutId="activity-month" aria-hidden className="absolute inset-0 -z-10 rounded-full bg-secondary" transition={ease} />}
                     {g.short}
                   </button>
                 );
@@ -302,13 +302,13 @@ function Row({ entry, open, onToggle, ease }: { entry: Entry; open: boolean; onT
           </span>
           <span className="block text-sm text-foreground">{entry.line}</span>
         </span>
-        <motion.span aria-hidden initial={false} animate={{ rotate: open ? 180 : 0 }} transition={ease} className="mt-1 shrink-0 text-muted-foreground">
+        <m.span aria-hidden initial={false} animate={{ rotate: open ? 180 : 0 }} transition={ease} className="mt-1 shrink-0 text-muted-foreground">
           <ChevronDown className="size-4" />
-        </motion.span>
+        </m.span>
       </button>
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div key="panel" id={panel} initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={ease} className="overflow-hidden">
+          <m.div key="panel" id={panel} initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={ease} className="overflow-hidden">
             <div className="flex flex-wrap items-center justify-between gap-3 pb-4 sm:pl-30">
               <span className="text-small text-muted-foreground">
                 {new Date(entry.at).toLocaleString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}
@@ -322,7 +322,7 @@ function Row({ entry, open, onToggle, ease }: { entry: Entry; open: boolean; onT
                 </Button>
               )}
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </li>

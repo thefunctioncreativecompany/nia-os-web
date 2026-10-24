@@ -15,8 +15,7 @@ export type LibraryItem = {
   image: string | null;
   /** The stand-in gradient when there's no picture. */
   grain: string;
-  /** A creator film's true shape (width ÷ height), shown whole on a blurred fill in its
-   * poster-shaped tile. */
+  /** A creator film's true shape (width ÷ height); its tile on the canvas takes this shape. */
   aspect?: number;
   /** A title page to go to, or one of Explore's films to preview in its pop-up. */
   open: { kind: "page"; href: string } | { kind: "film"; filmId: string };

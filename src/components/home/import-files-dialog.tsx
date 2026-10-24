@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -9,7 +10,12 @@ import { currentUser } from "@/lib/supabase/current-user";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Dropzone } from "@/components/projects/project-files";
+
+// The upload box loads once a project is chosen, not with Home.
+const Dropzone = dynamic(() => import("@/components/projects/project-files").then((m) => m.Dropzone), {
+  ssr: false,
+  loading: () => <Skeleton className="h-28 rounded-2xl" />,
+});
 
 type Choice = { id: string; title: string; coverUrl: string | null };
 

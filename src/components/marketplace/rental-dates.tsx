@@ -4,7 +4,7 @@ import { useSyncExternalStore } from "react";
 import { CalendarDays } from "lucide-react";
 import type { DateRange } from "react-day-picker";
 
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "@/components/nia/lazy-calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 const DAY_MS = 86_400_000;

@@ -1,19 +1,24 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { FileText } from "lucide-react";
 import { toast } from "sonner";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
-import { PreviewModal } from "@/features/templates/components/preview-modal";
 import { works, type GalleryTemplate } from "@/features/templates/gallery";
 import { workingSuggestions } from "@/features/templates/recommend";
 import { useHoverIntent } from "@/features/templates/use-hover-intent";
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
 
 const SHOWN = 8;
+
+// The preview pop-up isn't needed to show Home: it loads once the page is idle, before anyone
+// points at a template.
+const loadPreview = () => import("@/features/templates/components/preview-modal").then((m) => m.PreviewModal);
+const PreviewModal = dynamic(loadPreview, { ssr: false });
 
 // "Start from a template" on Home (H4, Ika 2026-10-19): cards the width of the project cards,
 // icon beside the name with the stage under it. Only templates that work in the editor, recently
@@ -28,6 +33,11 @@ export function HomeTemplates({ templates }: { templates: GalleryTemplate[] }) {
 
   // Only templates that work (Ika, 2026-10-19): recently viewed first, then suggested, then the rest.
   const shown = learning.ready ? workingSuggestions(templates, learning.profile, SHOWN).map((s) => s.template) : [];
+
+  useEffect(() => {
+    const idle = window.requestIdleCallback ?? ((run: () => void) => window.setTimeout(run, 1500));
+    idle(() => void loadPreview());
+  }, []);
 
   // Every template shown in the preview counts as a view, as on the Templates page.
   const openCode = open?.code;

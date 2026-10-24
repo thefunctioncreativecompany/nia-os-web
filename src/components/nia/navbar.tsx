@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSelectedLayoutSegment } from "next/navigation";
 import { Compass, FileText, Folder, House, Inbox, Plus, ShoppingBag, type LucideIcon } from "lucide-react";
-import { useReducedMotion } from "motion/react";
+import { useReducedMotion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { playSound } from "@/lib/sounds";

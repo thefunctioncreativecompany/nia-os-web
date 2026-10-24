@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { motion, useReducedMotion } from "motion/react";
+import { m, useReducedMotion } from "framer-motion";
 import { Archive, ArchiveRestore, Check, ChevronLeft, ChevronRight, Download, Trash2, Upload as UpIcon, X } from "lucide-react";
 import { toast } from "sonner";
 
@@ -206,7 +206,7 @@ export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT,
   return (
     <div className="flex flex-col gap-2">
       <input ref={input} type="file" multiple accept={accept} className="sr-only" tabIndex={-1} aria-hidden onChange={(e) => { void take([...(e.target.files ?? [])]); e.target.value = ""; }} />
-      <motion.div key={shakes} initial={{ x: 0 }} animate={shakes ? { x: [0, -7, 6, -4, 2, 0] } : { x: 0 }} transition={{ duration: 0.42 }}>
+      <m.div key={shakes} initial={{ x: 0 }} animate={shakes ? { x: [0, -7, 6, -4, 2, 0] } : { x: 0 }} transition={{ duration: 0.42 }}>
       <button
         type="button"
         onClick={() => input.current?.click()}
@@ -232,7 +232,7 @@ export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT,
           {hint ?? "Stills, PDFs and documents, voice memos, video"} · up to {MAX_MB} MB each
         </span>
       </button>
-      </motion.div>
+      </m.div>
       {uploads.length > 0 && (
         <ul className="flex flex-col gap-2" aria-label="Uploading">
           {uploads.map((u) => (
@@ -250,9 +250,9 @@ export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT,
               {/* the tick's room is kept from the start, so nothing moves when it arrives */}
               <span className="flex size-6 shrink-0 items-center justify-center">
                 {u.done && (
-                  <motion.span initial={reduced ? false : { scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="flex size-6 items-center justify-center rounded-full bg-foreground text-background">
+                  <m.span initial={reduced ? false : { scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="flex size-6 items-center justify-center rounded-full bg-foreground text-background">
                     <Check aria-hidden className="size-3.5" />
-                  </motion.span>
+                  </m.span>
                 )}
               </span>
             </li>

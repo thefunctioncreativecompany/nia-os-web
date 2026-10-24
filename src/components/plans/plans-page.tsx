@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
-import { animate, useReducedMotion } from "motion/react";
+import { animate, useReducedMotion } from "framer-motion";
 import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";

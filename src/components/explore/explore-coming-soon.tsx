@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
-import { useReducedMotion } from "motion/react";
+import { useReducedMotion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { ComingSoonCard, comingSoonButton } from "@/components/nia/coming-soon-card";

@@ -3,8 +3,8 @@
 import { isValidElement, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode, RefObject } from "react";
 import * as DropdownPrimitive from "@radix-ui/react-dropdown-menu";
-import { AnimatePresence, animate, motion, useMotionValue, useReducedMotion } from "motion/react";
-import type { TargetAndTransition } from "motion/react";
+import { AnimatePresence, animate, m, useMotionValue, useReducedMotion } from "framer-motion";
+import type { TargetAndTransition } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { motionTokens } from "../motion-tokens";
 import styles from "./split-button.module.css";
@@ -82,7 +82,7 @@ function MorphText({ text, reduced }: { text: string; reduced: boolean }) {
   const glyphs = useGlyphs(text);
   return <span className={styles.glyphs}>
     <AnimatePresence mode="popLayout" initial={false}>
-      {glyphs.map(glyph => <motion.span key={glyph.id} className={styles.glyph} layout={reduced ? false : "position"} layoutDependency={text} initial={reduced ? fadeIn : glyphIn} animate={rest} exit={reduced ? fadeOut : glyphOut} transition={reduced ? { duration: motionTokens.duration.instant } : { duration: motionTokens.duration.standard, ease: [...motionTokens.ease.enter], delay: Math.min(glyph.order * motionTokens.stagger.char, .1), layout: motionTokens.spring.morph }}>{glyph.char}</motion.span>)}
+      {glyphs.map(glyph => <m.span key={glyph.id} className={styles.glyph} layout={reduced ? false : "position"} layoutDependency={text} initial={reduced ? fadeIn : glyphIn} animate={rest} exit={reduced ? fadeOut : glyphOut} transition={reduced ? { duration: motionTokens.duration.instant } : { duration: motionTokens.duration.standard, ease: [...motionTokens.ease.enter], delay: Math.min(glyph.order * motionTokens.stagger.char, .1), layout: motionTokens.spring.morph }}>{glyph.char}</m.span>)}
     </AnimatePresence>
   </span>;
 }
@@ -96,12 +96,12 @@ export function SplitButton({ label, actions, onClick, disabled, icon, variant =
   return <DropdownPrimitive.Root>
     <div className={[styles.group, variant === "secondary" ? styles.secondary : "", className].filter(Boolean).join(" ")}>
       <button className={styles.primary} type="button" onClick={onClick} disabled={disabled}>
-        <motion.span className={styles.primarySlot} style={{ width }} aria-hidden="true">
+        <m.span className={styles.primarySlot} style={{ width }} aria-hidden="true">
           <span ref={contentRef} className={styles.primaryContent}>
-            {icon ? <span className={styles.mainIcon}><AnimatePresence initial={false}><motion.span key={glyph} className={styles.iconPhase} initial={reduced ? fadeIn : iconIn} animate={rest} exit={reduced ? fadeOut : iconOut} transition={reduced ? { duration: motionTokens.duration.instant } : iconEnter}>{icon}</motion.span></AnimatePresence></span> : null}
+            {icon ? <span className={styles.mainIcon}><AnimatePresence initial={false}><m.span key={glyph} className={styles.iconPhase} initial={reduced ? fadeIn : iconIn} animate={rest} exit={reduced ? fadeOut : iconOut} transition={reduced ? { duration: motionTokens.duration.instant } : iconEnter}>{icon}</m.span></AnimatePresence></span> : null}
             <MorphText text={label} reduced={reduced} />
           </span>
-        </motion.span>
+        </m.span>
         <span className={styles.srOnly} aria-live="polite">{label}</span>
       </button>
       <DropdownPrimitive.Trigger className={styles.trigger} type="button" aria-label={`${label} more actions`} disabled={disabled}><ChevronDown className={styles.chevron} size={16} strokeWidth={1.75} aria-hidden="true" /></DropdownPrimitive.Trigger>

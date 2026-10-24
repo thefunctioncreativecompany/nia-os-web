@@ -4,7 +4,7 @@ import { useState } from "react";
 import { CalendarDays, Clock } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "@/components/nia/lazy-calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { TimeWheel, formatTime, type TimeValue } from "@/components/nia/time-wheel";
 

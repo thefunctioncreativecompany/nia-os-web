@@ -26,7 +26,7 @@ Developer handoff board (ordered by user journey): node `796-7730`. If a step na
 
 ## Stack
 
-Next.js (App Router) + TypeScript + Tailwind + shadcn/ui, Supabase (Postgres, Auth, Storage, Realtime), Vercel, GitHub. Animations with Framer Motion (`motion`). Icons: Lucide only.
+Next.js (App Router) + TypeScript + Tailwind + shadcn/ui, Supabase (Postgres, Auth, Storage, Realtime), Vercel, GitHub. Animations with Framer Motion (`framer-motion`). Icons: Lucide only.
 
 ## Product rules (apply to every screen)
 

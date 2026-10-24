@@ -3,8 +3,8 @@
 import { createContext, useContext, useEffect, useEffectEvent, useId, useMemo, useRef, useState } from "react";
 import type { CSSProperties, Dispatch, MouseEvent as ReactMouseEvent, PointerEvent as ReactPointerEvent, ReactNode, SetStateAction } from "react";
 import * as Menu from "@radix-ui/react-dropdown-menu";
-import { AnimatePresence, animate, motion, useIsPresent, useMotionValue, useReducedMotion, useTransform } from "motion/react";
-import type { AnimationPlaybackControls, MotionValue } from "motion/react";
+import { AnimatePresence, animate, m, useIsPresent, useMotionValue, useReducedMotion, useTransform } from "framer-motion";
+import type { AnimationPlaybackControls, MotionValue } from "framer-motion";
 import { MoreHorizontal } from "lucide-react";
 import { motionTokens } from "../lib/motion-tokens";
 import styles from "./swipe-actions.module.css";
@@ -285,7 +285,7 @@ export function SwipeActionsRow({ label, leading = [], trailing = [], fullSwipe 
     ? { opacity: 0, transition: { duration: .15 } }
     : { height: 0, opacity: 0, transition: { height: { ...motionTokens.spring.smooth, delay: .12 }, opacity: { duration: motionTokens.duration.instant, delay: .34 } } };
 
-  return <motion.li ref={rowRef} className={[styles.row, className].filter(Boolean).join(" ")} style={{ "--swipe-action-width": `${ACTION}px` } as CSSProperties}
+  return <m.li ref={rowRef} className={[styles.row, className].filter(Boolean).join(" ")} style={{ "--swipe-action-width": `${ACTION}px` } as CSSProperties}
     initial={reduced ? { opacity: 0 } : { height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={collapse}
     transition={reduced ? { duration: .15 } : { height: motionTokens.spring.smooth, opacity: { duration: motionTokens.duration.standard, ease: [...motionTokens.ease.enter] } }}>
     {(["leading", "trailing"] as const).map(side => actionsOf(side).map((action, index) => {
@@ -294,7 +294,7 @@ export function SwipeActionsRow({ label, leading = [], trailing = [], fullSwipe 
       const coverRank = covering?.side === side ? (side === "leading" ? count - 1 - covering.index : covering.index) : null;
       return <ActionLayer key={`${side}-${index}`} action={action} side={side} rank={rank} count={count} coverRank={coverRank} x={x} cover={cover} onPress={() => commit(side, index)} />;
     }))}
-    <motion.div className={styles.content} style={{ x }} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerEnd} onPointerCancel={onPointerEnd} onClickCapture={onClickCapture}>
+    <m.div className={styles.content} style={{ x }} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerEnd} onPointerCancel={onPointerEnd} onClickCapture={onClickCapture}>
       <div className={styles.body}>{children}</div>
       {menuItems.length > 0 && <Menu.Root open={menuOpen} onOpenChange={setMenuOpen}>
         {/* Opens on click rather than on press, so a swipe that starts on the button still moves the row. */}
@@ -309,8 +309,8 @@ export function SwipeActionsRow({ label, leading = [], trailing = [], fullSwipe 
           </Menu.Content>
         </Menu.Portal>
       </Menu.Root>}
-    </motion.div>
-  </motion.li>;
+    </m.div>
+  </m.li>;
 }
 
 type LayerProps = { action: SwipeAction; side: Side; rank: number; count: number; coverRank: number | null; x: MotionValue<number>; cover: MotionValue<number>; onPress: () => void };
@@ -344,14 +344,14 @@ function ActionLayer({ action, side, rank, count, coverRank, x, cover, onPress }
   });
   const iconScale = useTransform(iconReveal, value => .6 + .4 * value);
   // The menu button is the accessible path, so the revealed copy stays out of the tab order and the accessibility tree.
-  return <motion.button type="button" tabIndex={-1} aria-hidden="true" className={styles.layer} data-side={side} data-tone={action.tone ?? "neutral"} style={{ x: shift, zIndex: rank + 1 }} onClick={onPress}>
-    <motion.span className={styles.anchor} style={{ x: glyphX }}>
+  return <m.button type="button" tabIndex={-1} aria-hidden="true" className={styles.layer} data-side={side} data-tone={action.tone ?? "neutral"} style={{ x: shift, zIndex: rank + 1 }} onClick={onPress}>
+    <m.span className={styles.anchor} style={{ x: glyphX }}>
       <span className={styles.glyph}>
-        <motion.span className={styles.icon} style={{ opacity: iconReveal, scale: iconScale }}>{action.icon}</motion.span>
-        <motion.span className={styles.label} style={{ opacity: labelReveal }}>{action.label}</motion.span>
+        <m.span className={styles.icon} style={{ opacity: iconReveal, scale: iconScale }}>{action.icon}</m.span>
+        <m.span className={styles.label} style={{ opacity: labelReveal }}>{action.label}</m.span>
       </span>
-    </motion.span>
-  </motion.button>;
+    </m.span>
+  </m.button>;
 }
 
 export default SwipeActions;

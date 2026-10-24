@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
-import { animate, AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { animate, AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "../../button/button";
 import SegmentedControl from "../../segmented-control/segmented-control";
@@ -94,7 +94,7 @@ export function PlanComparison() {
               <div className={styles.planTop}><h3>{plan === "team" ? "Team" : "Studio"}</h3><span>{plan === "team" ? "For smaller teams" : "For work across teams"}</span></div>
               <div className={styles.price}><span className={styles.priceValue} aria-live="polite" aria-atomic="true">$<AnimatedNumber value={pricing[plan][billing]} /></span><span className={styles.pricePeriod}>per seat / month</span></div>
               <Button type="button" variant={selected === plan ? "primary" : "secondary"} className={styles.selectButton} aria-pressed={selected === plan} onClick={() => setSelected(current => current === plan ? null : plan)}>{selected === plan ? "Selected" : `Select ${plan === "team" ? "Team" : "Studio"}`}</Button>
-              {selected === plan && <motion.span className={styles.selectedRail} layoutId={`${id}-selected-rail`} transition={reduce ? { duration: 0 } : motionTokens.spring.responsive} aria-hidden="true" />}
+              {selected === plan && <m.span className={styles.selectedRail} layoutId={`${id}-selected-rail`} transition={reduce ? { duration: 0 } : motionTokens.spring.responsive} aria-hidden="true" />}
             </div>
           ))}
         </div>
@@ -102,11 +102,11 @@ export function PlanComparison() {
         <div className={styles.rows} role="rowgroup">
           <AnimatePresence initial={false}>
             {visibleFeatures.map((feature) => (
-              <motion.div key={feature.label} className={styles.featureRow} role="row" initial={reduce ? false : { height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={reduce ? undefined : { height: 0, opacity: 0, transition: { height: motionTokens.spring.smooth, opacity: { duration: motionTokens.duration.fast } } }} transition={reduce ? { duration: 0 } : { height: motionTokens.spring.smooth, opacity: { duration: motionTokens.duration.standard, ease: [...motionTokens.ease.enter], delay: .04 } }}>
+              <m.div key={feature.label} className={styles.featureRow} role="row" initial={reduce ? false : { height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={reduce ? undefined : { height: 0, opacity: 0, transition: { height: motionTokens.spring.smooth, opacity: { duration: motionTokens.duration.fast } } }} transition={reduce ? { duration: 0 } : { height: motionTokens.spring.smooth, opacity: { duration: motionTokens.duration.standard, ease: [...motionTokens.ease.enter], delay: .04 } }}>
                 <div className={styles.featureName} role="rowheader">{feature.label}</div>
                 <div className={`${styles.featureValue} ${selected === "team" ? styles.valueSelected : ""}`} role="cell"><span className={styles.mobilePlan}>Team</span><Value text={feature.team} /></div>
                 <div className={`${styles.featureValue} ${selected === "studio" ? styles.valueSelected : ""}`} role="cell"><span className={styles.mobilePlan}>Studio</span><Value text={feature.studio} /></div>
-              </motion.div>
+              </m.div>
             ))}
           </AnimatePresence>
         </div>

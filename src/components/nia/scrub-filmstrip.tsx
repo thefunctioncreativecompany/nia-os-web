@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
-import { useReducedMotion } from "motion/react";
+import { useReducedMotion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { FINE_POINTER, isMouse, pointerIn, useFrame, useMediaQuery } from "@/hooks/use-pointer";

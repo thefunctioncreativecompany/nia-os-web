@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useReducedMotion } from 'motion/react';
+import { useReducedMotion } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
 import { pdfPages } from '@/lib/pdf-preview';
@@ -12,6 +12,8 @@ import type { SectionValue } from './sections';
 
 // How long after the last change the preview redraws.
 const SETTLE_MS = 600;
+// The longest the first drawing waits for the editor to be idle.
+const FIRST_MS = 1000;
 // Page pictures this wide: sharp in the panel on a retina screen.
 const PAGE_PX = 1000;
 
@@ -28,7 +30,7 @@ export function LivePreview({ schema, data, branded }: { schema: TemplateSchema;
 
   useEffect(() => {
     const mine = ++run.current;
-    const timer = window.setTimeout(async () => {
+    const draw = async () => {
       setUpdating(true);
       try {
         const blobs = await pdfPages(await toPdf(schema, data, branded), PAGE_PX);
@@ -44,8 +46,19 @@ export function LivePreview({ schema, data, branded }: { schema: TemplateSchema;
       } finally {
         if (mine === run.current) setUpdating(false);
       }
-    }, pages ? SETTLE_MS : 0);
-    return () => window.clearTimeout(timer);
+    };
+    // A redraw waits for typing to settle. The first waits until the editor is ready to type
+    // in, so the PDF libraries (the page's heaviest download) don't hold up the first taps.
+    if (pages) {
+      const timer = window.setTimeout(draw, SETTLE_MS);
+      return () => window.clearTimeout(timer);
+    }
+    if (typeof requestIdleCallback === 'undefined') {
+      const timer = setTimeout(draw, FIRST_MS);
+      return () => clearTimeout(timer);
+    }
+    const idle = requestIdleCallback(() => void draw(), { timeout: FIRST_MS });
+    return () => cancelIdleCallback(idle);
     // `pages` only decides the first wait; it mustn't start another redraw.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schema, data, branded]);

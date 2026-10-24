@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
-import { useReducedMotion } from "motion/react";
+import { useReducedMotion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { isMouse, pointerIn, useFrame } from "@/hooks/use-pointer";

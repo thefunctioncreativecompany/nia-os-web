@@ -22,24 +22,6 @@ export function cardSpan(item: ExploreItem): CSSProperties | undefined {
   return item.aspect ? ({ "--span": item.aspect / POSTER } as CSSProperties) : undefined;
 }
 
-/** A picture in a frame of another shape (the Explore all canvas's poster-shaped tiles): the whole
- * picture at its true `aspect`, as large as fits, on a blurred copy of itself. Both are cut to
- * `aspect`, so a still with black bars (a landscape film posted inside a vertical post) shows only
- * the picture. Sized with container units, so it fits tall and wide pictures alike. */
-export function FramedStill({ src, aspect, sizes, draggable }: { src: string; aspect: number; sizes: string; draggable?: boolean }) {
-  const box = "absolute top-1/2 left-1/2 -translate-1/2 overflow-hidden";
-  return (
-    <span aria-hidden className="absolute inset-0 [container-type:size]">
-      <span className={box} style={{ width: `max(100cqw, 100cqh * ${aspect})`, height: `max(100cqh, 100cqw / ${aspect})` }}>
-        <Image src={src} alt="" fill sizes={sizes} draggable={draggable} className="pointer-events-none scale-125 object-cover blur-xl" />
-      </span>
-      <span className={box} style={{ width: `min(100cqw, 100cqh * ${aspect})`, height: `min(100cqh, 100cqw / ${aspect})` }}>
-        <Image src={src} alt="" fill sizes={sizes} quality={90} draggable={draggable} className="pointer-events-none object-cover" />
-      </span>
-    </span>
-  );
-}
-
 export function TitleCard({
   entry,
   href,

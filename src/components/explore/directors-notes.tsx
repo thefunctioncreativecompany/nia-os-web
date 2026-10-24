@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { useReducedMotion } from "motion/react";
+import { useReducedMotion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { isMouse, pointerIn, useFrame } from "@/hooks/use-pointer";

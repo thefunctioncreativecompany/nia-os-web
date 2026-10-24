@@ -1,9 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useReducedMotion } from "motion/react";
+import { useReducedMotion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -13,11 +13,10 @@ import { exploreHome } from "@/features/explore/made-in-africa";
 import { LIBRARY, type LibraryItem } from "@/features/explore/library";
 import type { CategoryItem } from "./explore-data";
 import { PressKitPreview } from "./press-kit-preview";
-import { FramedStill } from "./title-card";
 
 // The gap between posters, as on Explore all's grid (0.8125rem).
 const GAP = 13;
-// Poster shape, as on Explore all's grid.
+// Poster shape (height ÷ width), as on Explore all's grid.
 const RATIO = 373 / 268;
 // Every title appears once in any run of LIBRARY.length posters across; going down, each row
 // starts this many titles further on, so the same poster never sits above or beside itself.
@@ -29,12 +28,17 @@ const STRIDE = (() => {
   return s;
 })();
 const mod = (a: number, n: number) => ((a % n) + n) % n;
+// A tile's height at a given width: a creator film at its true shape, as in the Creators
+// gallery, a poster at the poster shape.
+const heightOf = (item: LibraryItem, w: number) => Math.round(item.aspect ? w / item.aspect : w * RATIO);
 
-type Range = { c0: number; c1: number; r0: number; r1: number };
+// The columns on screen, and the stretch of the canvas (top to bottom) they need to fill.
+type Range = { c0: number; c1: number; top: number; bottom: number };
 
 // Explore all (Ika, 2026-10-21): the whole library on one canvas that goes on in every direction,
 // like Marketplace's coming-soon field but with posters as close as Explore all's grid, odd
-// columns stepped down. Drag it (it glides on after a flick), scroll with a trackpad or wheel, or
+// columns stepped down. Columns are a masonry like the Creators gallery (Ika, 2026-10-23): each
+// tile as tall as its shape needs, so a 9:16 reel stands tall and a wide film lies flat. Drag it (it glides on after a flick), scroll with a trackpad or wheel, or
 // use the arrow keys. Only the posters in view are drawn. A poster lifts and shows its name when
 // pointed at; a click opens it (a drag never does). Reduced motion: no glide, no lift.
 export function LibraryCanvas() {
@@ -42,10 +46,26 @@ export function LibraryCanvas() {
   const phone = useMediaQuery("(max-width: 47.99rem)");
   const touch = useMediaQuery("(pointer: coarse)");
   const tileW = phone ? 132 : 208;
-  const tileH = Math.round(tileW * RATIO);
   const cw = tileW + GAP;
-  const ch = tileH + GAP;
+  // A poster's row: the step for the arrow keys and for working out what's in view.
+  const ch = Math.round(tileW * RATIO) + GAP;
   const stagger = Math.round(ch * 0.42);
+  // Every column runs through the whole library once per N rows, so each column repeats every
+  // `period` pixels; `tops` is where each of a column's N rows starts within that stretch.
+  const { period, tops } = useMemo(() => {
+    const cache = new Map<number, number[]>();
+    const tops = (c: number) => {
+      const key = mod(c, N);
+      let list = cache.get(key);
+      if (!list) {
+        list = [0];
+        for (let r = 0; r < N; r++) list.push(list[r] + heightOf(LIBRARY[mod(key + r * STRIDE, N)], tileW) + GAP);
+        cache.set(key, list);
+      }
+      return list;
+    };
+    return { period: tops(0)[N], tops };
+  }, [tileW]);
 
   const box = useRef<HTMLElement>(null);
   const plane = useRef<HTMLDivElement>(null);
@@ -65,10 +85,10 @@ export function LibraryCanvas() {
     const next = {
       c0: Math.floor(-x / cw) - 1,
       c1: Math.ceil((el.clientWidth - x) / cw) + 1,
-      r0: Math.floor(-y / ch) - 2,
-      r1: Math.ceil((el.clientHeight - y) / ch) + 1,
+      top: (Math.floor(-y / ch) - 2) * ch,
+      bottom: (Math.ceil((el.clientHeight - y) / ch) + 1) * ch,
     };
-    setRange((r) => (r && r.c0 === next.c0 && r.c1 === next.c1 && r.r0 === next.r0 && r.r1 === next.r1 ? r : next));
+    setRange((r) => (r && r.c0 === next.c0 && r.c1 === next.c1 && r.top === next.top && r.bottom === next.bottom ? r : next));
   }, [cw, ch]);
 
   const pan = useCallback(
@@ -161,11 +181,20 @@ export function LibraryCanvas() {
     pan(...m);
   };
 
-  const cells: { key: string; item: LibraryItem; x: number; y: number }[] = [];
+  const cells: { key: string; item: LibraryItem; x: number; y: number; h: number }[] = [];
   if (range) {
     for (let c = range.c0; c <= range.c1; c++) {
-      for (let r = range.r0; r <= range.r1; r++) {
-        cells.push({ key: `${c}:${r}`, item: LIBRARY[mod(c + r * STRIDE, N)], x: c * cw, y: r * ch + (mod(c, 2) ? stagger : 0) });
+      const list = tops(c);
+      const shift = mod(c, 2) ? stagger : 0;
+      // The first row that reaches into view: whole repeats of the column, then a step through one.
+      const start = range.top - shift;
+      let r = Math.floor(start / period) * N;
+      while (list[mod(r + 1, N)] + Math.floor((r + 1) / N) * period <= start) r++;
+      for (; ; r++) {
+        const y = Math.floor(r / N) * period + list[mod(r, N)] + shift;
+        if (y > range.bottom) break;
+        const item = LIBRARY[mod(c + r * STRIDE, N)];
+        cells.push({ key: `${c}:${r}`, item, x: c * cw, y, h: heightOf(item, tileW) });
       }
     }
   }
@@ -190,8 +219,8 @@ export function LibraryCanvas() {
       className="relative isolate h-[calc(100svh-5rem)] min-h-140 cursor-grab touch-none overflow-hidden bg-nia-canvas outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset active:cursor-grabbing"
     >
       <div ref={plane} className="absolute top-0 left-0 will-change-transform">
-        {cells.map(({ key, item, x, y }) => (
-          <Tile key={key} item={item} x={x} y={y} w={tileW} h={tileH} onFilm={(filmId) => setOpen({ filmId })} />
+        {cells.map(({ key, item, x, y, h }) => (
+          <Tile key={key} item={item} x={x} y={y} w={tileW} h={h} onFilm={(filmId) => setOpen({ filmId })} />
         ))}
       </div>
 
@@ -268,7 +297,7 @@ function Ambience() {
   );
 }
 
-// One poster on the canvas: a title page link, or a button that opens the film's pop-up.
+// One tile on the canvas, at its shape: a title page link, or a button that opens the film's pop-up.
 function Tile({ item, x, y, w, h, onFilm }: { item: LibraryItem; x: number; y: number; w: number; h: number; onFilm: (filmId: string) => void }) {
   const className = cn(
     "group absolute overflow-hidden rounded-lg text-left text-foreground shadow-card outline-none transition-[scale,box-shadow] duration-lift ease-glide hover:z-[3] hover:scale-104 hover:shadow-card-hover focus-visible:z-[3] focus-visible:scale-104 focus-visible:shadow-card-hover focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:hover:scale-100 motion-reduce:focus-visible:scale-100",
@@ -276,9 +305,7 @@ function Tile({ item, x, y, w, h, onFilm }: { item: LibraryItem; x: number; y: n
   );
   const body = (
     <>
-      {item.image && item.aspect ? (
-        <FramedStill src={item.image} aspect={item.aspect} sizes={`${w}px`} draggable={false} />
-      ) : item.image ? (
+      {item.image ? (
         <Image src={item.image} alt="" fill sizes={`${w}px`} quality={90} draggable={false} className="pointer-events-none object-cover" />
       ) : (
         <span aria-hidden className="absolute inset-x-0 bottom-0 p-3 text-lead leading-tight font-bold">

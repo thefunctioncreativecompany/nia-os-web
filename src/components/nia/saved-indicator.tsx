@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { m, useReducedMotion } from "framer-motion";
 
 import { DURATION, EASE_OUT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -26,7 +26,7 @@ export function SavedIndicator({
     >
       <span aria-hidden className="size-1.5 rounded-full bg-nia-success" />
       All changes saved
-      <motion.span
+      <m.span
         key={savedAt}
         aria-hidden
         initial={reduceMotion ? false : { scale: 0.4, opacity: 0 }}
@@ -35,7 +35,7 @@ export function SavedIndicator({
         className="inline-block"
       >
         ✓
-      </motion.span>
+      </m.span>
     </p>
   );
 }

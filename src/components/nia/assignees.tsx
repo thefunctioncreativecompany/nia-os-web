@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { AtSign, Check, ChevronDown, Mail, UserPlus } from "lucide-react";
 
 import { cn, getInitials } from "@/lib/utils";
@@ -126,7 +126,7 @@ export function Assignees({
         <span className="relative shrink-0 transition-[width] duration-base ease-out" style={{ width: rail, height: face }}>
           <AnimatePresence initial={false}>
             {value.map((person, i) => (
-              <motion.span
+              <m.span
                 key={person.userId ?? person.name}
                 className="absolute top-0 left-0"
                 style={{ zIndex: value.length - i }}
@@ -139,7 +139,7 @@ export function Assignees({
                 transition={{ ...settle, opacity: { duration: motionTokens.duration.fast } }}
               >
                 <Face person={person} size={face} />
-              </motion.span>
+              </m.span>
             ))}
           </AnimatePresence>
         </span>
@@ -169,7 +169,7 @@ export function Assignees({
         <div role="listbox" aria-label={label} aria-multiselectable={!single} className="flex max-h-72 flex-col overflow-y-auto">
           {/* Who is on it already, then who matches, then "add as typed". */}
           {[...value.map((p) => ({ person: p, on: true })), ...matches.map(fromMatch).filter((p) => !value.some((v) => same(v, p))).map((p) => ({ person: p, on: false }))].map(({ person, on }, i) => (
-            <motion.button
+            <m.button
               key={`${person.userId ?? person.name}-${on}`}
               type="button"
               role="option"
@@ -192,13 +192,13 @@ export function Assignees({
               <span className="flex size-5 shrink-0 items-center justify-center rounded-md border border-border">
                 <AnimatePresence initial={false}>
                   {on && (
-                    <motion.span initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.4, opacity: 0 }} transition={settle}>
+                    <m.span initial={{ scale: 0.4, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.4, opacity: 0 }} transition={settle}>
                       <Check aria-hidden className="size-3.5" />
-                    </motion.span>
+                    </m.span>
                   )}
                 </AnimatePresence>
               </span>
-            </motion.button>
+            </m.button>
           ))}
           {offerTyped && (
             <button

@@ -20,7 +20,9 @@ Figma first, never invented in code.
 
 Next.js 16 (App Router, Cache Components, partial prefetching) + TypeScript + Tailwind 4 + shadcn/ui
 (radix-nova), Supabase (Postgres, Auth, Storage, Realtime), Vercel, GitHub. Motion via Framer Motion
-(`motion`). Icons: Lucide only.
+(`framer-motion`; import from it, not `motion/react`, which drags the whole library into every
+page; write `m.div`, not `motion.div`: `MotionProvider` loads the features after the page).
+Icons: Lucide only.
 
 ## Rules (short form; full text in BUILD_PLAN.md)
 
@@ -316,8 +318,17 @@ Performance audit (2026-10-21)
   Figma and Airtable. Fixed: local sign-in check on the server, browser session reads, search loads on
   first use, one-request plan lookups, parallel template-editor queries, unused fonts not preloaded,
   theme library removed, tooltips only in the app, Explore's first poster fetched first, non-working
-  actions greyed out. Next: the navbar's menu and search pull in the animation library (~77 KB) on
-  every signed-in page; move them to `LazyMotion` as its own step.
+  actions greyed out.
+- [x] Second audit (2026-10-23). Live, signed in: server ~20 ms; main content in 0.7–0.9 s on
+  desktop and 0.8–1.3 s on a phone over 4G; database advisors show only notes. Every signed-in
+  page now sends 18–46 KB less: animations import `framer-motion` (not `motion/react`) as `m.*`
+  inside `MotionProvider` (77 → 50 KB on every page; the rest is the spring engine the navbar
+  search and buttons call directly); pop-up calendars load on first open
+  (`src/components/nia/lazy-calendar.tsx`); the project page's References and Inspiration come in
+  their own download; Home's upload box and template preview load on demand; the editor's first
+  PDF preview waits until the page is idle. Left for later: ten unindexed foreign keys and two
+  `project_files` read rules (fine at today's size); `/projects/[id]#references` doesn't scroll
+  to References (already so before this audit).
 
 Projects × Explore (Ika, 2026-10-21)
 - [x] Projects: find and sort (search, a chip per stage with counts, Type and Genre in the shared
@@ -351,7 +362,8 @@ Explore: creator film shapes and order (Ika, 2026-10-22)
   picture's shape (`recognizeAspect`, within 2%); film pages show it as "Frame". Rows size cards
   by shape (`cardSpan`); grids of films are a masonry gallery (`FilmGallery`, Ika's Claude Design
   "Creators · Explore: masonry gallery (no gaps)") with type and frame tags; the Explore all
-  canvas shows the whole frame on a blurred fill (`FramedStill`). The player hides Instagram's
+  canvas is a masonry too (Ika, 2026-10-23): each tile at its film's shape, posters at the
+  poster shape (`LibraryCanvas`). The player hides Instagram's
   54 px header; Instagram's player crops vertical reels to 4:5, so their play window is 4:5.
   Next: record width, height and shape when files are uploaded (needs a `project_files`
   migration) and show uploads at their shape.

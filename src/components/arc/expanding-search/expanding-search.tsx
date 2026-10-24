@@ -3,8 +3,8 @@
 import { useCallback, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { KeyboardEvent, ReactNode, RefObject } from "react";
 import { flushSync } from "react-dom";
-import { AnimatePresence, animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion } from "motion/react";
-import type { MotionValue } from "motion/react";
+import { AnimatePresence, animate, m, useMotionValue, useMotionValueEvent, useReducedMotion } from "framer-motion";
+import type { MotionValue } from "framer-motion";
 import { Search, X } from "lucide-react";
 import { motionTokens } from "../lib/motion-tokens";
 import styles from "./expanding-search.module.css";
@@ -100,12 +100,12 @@ function Panel({ width, reduced, children }: { width: MotionValue<number>; reduc
     return () => observer.disconnect();
   }, [height, reduced]);
   // Reduced motion skips the unfold: the panel is its content's height from the first frame and only fades.
-  return <motion.div ref={panelRef} className={styles.panel} style={{ width, height: reduced ? "auto" : height }}
+  return <m.div ref={panelRef} className={styles.panel} style={{ width, height: reduced ? "auto" : height }}
     initial={{ opacity: 0 }}
     animate={{ opacity: 1, transition: { duration: reduced ? .15 : motionTokens.duration.fast, ease: enter } }}
     exit={{ opacity: 0, transition: { duration: reduced ? .1 : motionTokens.duration.instant, ease: standard } }}>
     <div ref={bodyRef} className={styles.body}>{children}</div>
-  </motion.div>;
+  </m.div>;
 }
 
 /** Offsets ignore transforms, so they describe where rows sit in the list, not where a gliding row happens to be mid-flight. */
@@ -154,7 +154,7 @@ function Listbox({ id, label, groups, query, activeIndex, optionId, reduced, key
     <AnimatePresence mode="popLayout" initial={false}>
       {groups.map(group => {
         const headingId = `${id}-${group.name || "results"}`.replace(/\s+/g, "-");
-        return <motion.div key={group.name} role="group" aria-labelledby={group.name ? headingId : undefined} className={styles.group}
+        return <m.div key={group.name} role="group" aria-labelledby={group.name ? headingId : undefined} className={styles.group}
           layout={reduced ? false : "position"} layoutDependency={layoutKey}
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: .08 } }}
           transition={{ opacity: { duration: motionTokens.duration.fast, ease: enter }, layout: motionTokens.spring.smooth }}>
@@ -163,23 +163,23 @@ function Listbox({ id, label, groups, query, activeIndex, optionId, reduced, key
             {group.items.map(item => {
               const position = flat.indexOf(item);
               const active = position === activeIndex;
-              return <motion.div key={item.id} id={optionId(item)} role="option" aria-selected={active} data-active={active || undefined} className={styles.option}
+              return <m.div key={item.id} id={optionId(item)} role="option" aria-selected={active} data-active={active || undefined} className={styles.option}
                 layout={reduced ? false : "position"} layoutDependency={layoutKey}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { duration: .08 } }}
                 transition={{ opacity: { duration: motionTokens.duration.fast, ease: enter }, layout: motionTokens.spring.smooth }}
                 onPointerMove={() => { if (!active) { keyboard.current = false; onHover(position); } }}
                 onMouseDown={event => event.preventDefault()}
                 onClick={() => onChoose(item)}>
-                {active && <motion.span className={styles.highlight} style={{ y: travel, opacity: fade }} aria-hidden="true" />}
+                {active && <m.span className={styles.highlight} style={{ y: travel, opacity: fade }} aria-hidden="true" />}
                 {item.icon && <span className={styles.optionIcon} aria-hidden="true">{item.icon}</span>}
                 <span className={styles.optionText}>
                   <span className={styles.optionTitle}><Match text={item.title} query={query} /></span>
                   {item.meta && <span className={styles.optionMeta}>{item.meta}</span>}
                 </span>
-              </motion.div>;
+              </m.div>;
             })}
           </AnimatePresence>
-        </motion.div>;
+        </m.div>;
       })}
     </AnimatePresence>
   </div>;
@@ -292,11 +292,11 @@ export function ExpandingSearch({ label, items, suggestions = [], suggestionsLab
   const clearHidden = reduced ? { opacity: 0 } : { opacity: 0, scale: .6, filter: `blur(${motionTokens.blur.subtle}px)` };
 
   return <div ref={rootRef} className={[styles.root, className].filter(Boolean).join(" ")} data-anchor={anchor}>
-    <motion.div ref={shellRef} className={styles.shell} data-expanded={expanded || undefined} style={{ width }}>
+    <m.div ref={shellRef} className={styles.shell} data-expanded={expanded || undefined} style={{ width }}>
       <button ref={buttonRef} type="button" className={styles.trigger} aria-label={label} hidden={expanded} onClick={expand} />
       <Search className={styles.icon} width={18} height={18} strokeWidth={1.75} aria-hidden="true" />
       {/* The placeholder waits for the shape to start moving, then fades in; on close it leaves first. */}
-      <motion.input ref={inputRef} className={styles.input} type="text" role="combobox" inert={!expanded} value={query} placeholder={placeholder ?? label}
+      <m.input ref={inputRef} className={styles.input} type="text" role="combobox" inert={!expanded} value={query} placeholder={placeholder ?? label}
         aria-label={label} aria-expanded={panelOpen} aria-controls={panelOpen && mode !== "empty" ? listboxId : undefined} aria-autocomplete="list"
         aria-activedescendant={panelOpen && activeItem ? optionId(activeItem) : undefined}
         autoComplete="off" autoCorrect="off" spellCheck={false} enterKeyHint="search"
@@ -314,20 +314,20 @@ export function ExpandingSearch({ label, items, suggestions = [], suggestionsLab
         }}
         onKeyDown={handleKeyDown} />
       <AnimatePresence initial={false}>
-        {expanded && query && <motion.button key="clear" type="button" tabIndex={-1} className={styles.clear} aria-label="Clear search"
+        {expanded && query && <m.button key="clear" type="button" tabIndex={-1} className={styles.clear} aria-label="Clear search"
           onMouseDown={event => event.preventDefault()}
           onClick={() => { setQuery(""); setActive(-1); inputRef.current?.focus({ preventScroll: true }); }}
           initial={clearHidden} animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           exit={{ ...clearHidden, transition: { duration: reduced ? .1 : motionTokens.duration.instant, ease: standard } }}
           transition={reduced ? { duration: .15 } : { ...motionTokens.spring.snappy, opacity: { duration: motionTokens.duration.fast }, filter: { duration: motionTokens.duration.fast } }}>
           <X width={16} height={16} strokeWidth={1.75} aria-hidden="true" />
-        </motion.button>}
+        </m.button>}
       </AnimatePresence>
-    </motion.div>
+    </m.div>
     <AnimatePresence>
       {panelOpen && <Panel key="panel" width={width} reduced={reduced}>
         <AnimatePresence mode="popLayout" initial={false}>
-            <motion.div key={mode} className={styles.view}
+            <m.div key={mode} className={styles.view}
               initial={reduced ? { opacity: 0 } : { opacity: 0, filter: `blur(${motionTokens.blur.subtle}px)` }}
               animate={{ opacity: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, transition: { duration: .1, ease: standard } }}
@@ -335,7 +335,7 @@ export function ExpandingSearch({ label, items, suggestions = [], suggestionsLab
               {mode === "empty"
                 ? <div className={styles.empty}><p className={styles.emptyTitle}>No results for “{trimmed}”</p><p className={styles.emptyHint}>{emptyHint}</p></div>
                 : <Listbox id={listboxId} label={mode === "suggestions" ? suggestionsLabel : `Results for ${trimmed}`} groups={groups} query={mode === "results" ? trimmed : ""} activeIndex={activeIndex} optionId={optionId} reduced={reduced} keyboard={keyboard} onHover={setActive} onChoose={choose} />}
-            </motion.div>
+            </m.div>
         </AnimatePresence>
       </Panel>}
     </AnimatePresence>

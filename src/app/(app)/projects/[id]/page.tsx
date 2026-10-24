@@ -10,7 +10,7 @@ import { ProjectEditor } from "@/components/projects/project-editor";
 import { ProjectLive } from "@/components/projects/project-live";
 import { DocumentPills, ProjectDocuments } from "@/components/projects/project-documents";
 import { ProjectFiles, ProjectFinalAssets } from "@/components/projects/project-files";
-import { ProjectInspiration } from "@/components/projects/project-inspiration";
+import { ProjectInspiration } from "@/components/projects/project-inspiration-lazy";
 import { catalog } from "@/features/templates/catalog";
 
 // Each template's icon, for the documents list.
