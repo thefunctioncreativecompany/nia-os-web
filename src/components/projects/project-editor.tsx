@@ -8,17 +8,18 @@ import { Camera, Crop } from "lucide-react";
 import { toast } from "sonner";
 
 import { checkCoverFile } from "@/lib/images";
-import { GENRES, type Project } from "@/lib/projects";
+import { GENRES, typeDetails, type Project } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Assignees, type PersonMatch, type PersonRef } from "@/components/nia/assignees";
+import type { PersonMatch } from "@/components/nia/assignees";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { SavedIndicator } from "@/components/nia/saved-indicator";
 import { SegmentedControl } from "@/components/nia/segmented-control";
 import { EditableDate } from "@/components/projects/editable-date";
 import { EditableText } from "@/components/projects/editable-text";
+import { BudgetField, CrewSection, DeliverablesField, NumberField, ShootDatesField } from "@/components/projects/project-details";
 import { uploadCover } from "@/components/projects/project-form";
 import { useCoverCropper } from "@/components/projects/use-cover-cropper";
 
@@ -28,11 +29,7 @@ function coverPath(url: string | null, projectId: string) {
   return path?.startsWith(`${projectId}/`) ? decodeURIComponent(path) : null;
 }
 
-// Names stay plain text in the project ("Kai Cenat, Homer"), so they read the same everywhere
-// (share link, search, downloads). Linking them to Nia profiles comes with Cast & Crew.
 const toList = (value: string) => value.split(",").map((v) => v.trim()).filter(Boolean);
-const toPeople = (value: string): PersonRef[] => toList(value).map((name) => ({ name }));
-const fromPeople = (people: PersonRef[]) => people.map((p) => p.name).join(", ");
 
 async function findPeople(q: string): Promise<PersonMatch[]> {
   const { data, error } = await createClient().rpc("find_people", { q });
@@ -142,10 +139,12 @@ export function ProjectEditor({
   }
   const [isUploading, setIsUploading] = useState(false);
 
-  const save = async (column: string, field: keyof Project, value: string | null) => {
+  const save = (column: string, field: keyof Project, value: Project[keyof Project]) => saveMany({ [column]: value }, { [field]: value });
+  // Several columns at once (a shoot's first and last day). Empty dates are saved as none.
+  const saveMany = async (columns: Record<string, unknown>, fields: Partial<Project>) => {
     const before = project;
-    setProject((p) => ({ ...p, [field]: value }));
-    const { error } = await createClient().from("projects").update({ [column]: value }).eq("id", project.id);
+    setProject((p) => ({ ...p, ...fields }));
+    const { error } = await createClient().from("projects").update(columns).eq("id", project.id);
     if (error) {
       toast.error(`Couldn't save: ${error.message}`);
       setProject(before);
@@ -198,15 +197,24 @@ export function ProjectEditor({
     </div>
   );
 
-  const people = (label: string, column: string, field: "director" | "writers" | "stars") =>
+  const text = (label: string, column: string, field: "client" | "agency" | "usage" | "publication" | "logline" | "notes", placeholder: string, max: number, multiline = false) =>
     row(
       label,
-      canEdit ? (
-        <Assignees label={label} value={toPeople(project[field])} onChange={(next) => void save(column, field, fromPeople(next)).catch(() => {})} search={findPeople} />
-      ) : (
-        readValues(toList(project[field]))
-      ),
+      <EditableText
+        label={label}
+        value={project[field]}
+        placeholder={placeholder}
+        emptyText="—"
+        maxLength={max}
+        multiline={multiline}
+        readOnly={!canEdit}
+        onSave={(next) => save(column, field, next.trim())}
+        className="px-1.5 py-1 text-sm leading-normal font-medium text-muted-foreground"
+      />,
     );
+  const extras = typeDetails(project.productionType);
+  // Photo shoots, editorials and lookbooks are stills: no running time.
+  const stills = extras.includes("looks");
 
   return (
     <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
@@ -314,18 +322,28 @@ export function ProjectEditor({
                 </h2>
                 <dl className="flex flex-col gap-3">
                   {row(
-                    "Date",
-                    <EditableDate
-                      label="Date"
-                      value={project.productionDate}
+                    "Shoot dates",
+                    <ShootDatesField
+                      start={project.shootStart}
+                      end={project.shootEnd}
                       readOnly={!canEdit}
-                      onSave={(next) => save("production_date", "productionDate", next)}
+                      onSave={(start, end) => saveMany({ shoot_start: start, shoot_end: end }, { shootStart: start, shootEnd: end })}
+                    />,
+                  )}
+                  {text("Client", "client", "client", "Who it's for", 120)}
+                  {text("Agency", "agency", "agency", "Who commissioned it", 120)}
+                  {row("Deliverables", <DeliverablesField value={project.deliverables} readOnly={!canEdit} onSave={(next) => save("deliverables", "deliverables", next)} />)}
+                  {row(
+                    "Due",
+                    <EditableDate
+                      label="Delivery date"
+                      value={project.dueDate ?? ""}
+                      readOnly={!canEdit}
+                      onSave={(next) => save("due_date", "dueDate", next || null)}
                       className="px-1.5 py-1 text-sm leading-normal font-medium text-muted-foreground"
                     />,
                   )}
-                  {row("Duration", <DurationField value={project.duration} readOnly={!canEdit} onSave={(next) => save("duration", "duration", next)} />)}
-                  {people("Director", "director", "director")}
-                  {people("Writers", "writers", "writers")}
+                  {!stills && row("Duration", <DurationField value={project.duration} readOnly={!canEdit} onSave={(next) => save("duration", "duration", next)} />)}
                   {row(
                     "Genres",
                     canEdit ? (
@@ -342,9 +360,16 @@ export function ProjectEditor({
                       readValues(genres)
                     ),
                   )}
-                  {people("Stars", "stars", "stars")}
+                  {extras.includes("logline") && text("Logline", "logline", "logline", "The story in a sentence", 300, true)}
+                  {extras.includes("usage") && text("Usage", "usage", "usage", "e.g. Social and online, 12 months, worldwide", 200)}
+                  {extras.includes("looks") && row("Looks", <NumberField label="Looks" value={project.looks} readOnly={!canEdit} onSave={(next) => save("looks", "looks", next)} />)}
+                  {extras.includes("publication") && text("Publication", "publication", "publication", "Where it's published", 120)}
+                  {canEdit && row("Budget", <BudgetField projectId={project.id} onSaved={() => setSavedAt(Date.now())} />)}
+                  {text("Notes", "notes", "notes", "Anything the team should know: access, permits, allergies…", 2000, true)}
                 </dl>
               </section>
+
+              <CrewSection crew={project.crew} readOnly={!canEdit} onSave={(next) => save("crew", "crew", next)} search={findPeople} />
 
               <section aria-labelledby="behind" className="flex flex-col gap-4">
                 <h2 id="behind" className="text-xl leading-[1.4] font-bold text-foreground">

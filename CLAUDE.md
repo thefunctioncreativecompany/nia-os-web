@@ -191,6 +191,14 @@ Data:
   `product_events`; the first project, download and invite each ask one thumbs up/down question,
   once. Read it in the SQL Editor: `select * from feedback_review` (with name and profession).
   Needs `20261105000000_feedback.sql`. Not in Figma yet.
+- (2026-10-23) Project details (Ika): Details are shoot dates (a range, with the number of shoot
+  days), client, agency, deliverables (count × what · frame shape), due date, duration (not for
+  stills), genres, a few by type (`typeDetails`: logline for film and series; usage for brand
+  work; looks and publication for photo shoots, editorials and lookbooks), budget (own table
+  `project_budgets`, owner and editors only) and notes. Director, writers and stars moved into
+  Crew & talent (`crew`, people by role, `src/components/projects/project-details.tsx`); the old
+  columns stay unused. The share link shows the same, never the budget. Needs
+  `20261106000000_project_details_crew.sql`. Not in Figma yet.
 - (2026-10-23) Global search on desktop (`src/components/nia/global-search.tsx`): the navbar field
   or ⌘K / Ctrl K opens one window for projects, documents, files, templates and Explore (with
   early access): a filter chip per kind with its count, results grouped by kind (recent ones

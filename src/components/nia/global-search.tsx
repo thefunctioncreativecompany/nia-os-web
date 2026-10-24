@@ -76,7 +76,7 @@ async function load(): Promise<Result[]> {
   if (cache && Date.now() - cache.at < FRESH_MS) return cache.results;
   const supabase = createClient();
   const [projects, documents, files, templates, explore] = await Promise.all([
-    supabase.from("projects").select("id, title, production_type, stage, director, genres, description, cover_url, updated_at").is("deleted_at", null).order("updated_at", { ascending: false }).limit(300),
+    supabase.from("projects").select("id, title, production_type, stage, director, genres, description, cover_url, updated_at, client, crew").is("deleted_at", null).order("updated_at", { ascending: false }).limit(300),
     supabase.from("documents").select("id, template_code, title, status, updated_at, project:projects(id, title)").is("deleted_at", null).order("updated_at", { ascending: false }).limit(300),
     supabase.from("project_files").select("id, name, kind, tag, size, path, thumb_path, created_at, project:projects(id, title)").is("deleted_at", null).order("created_at", { ascending: false }).limit(300),
     loadTemplateIndex().catch(() => []),
@@ -91,10 +91,10 @@ async function load(): Promise<Result[]> {
       kind: "project",
       title: p.title || "Untitled project",
       meta: [p.production_type, p.stage].filter(Boolean).join(" · "),
-      words: `${p.director} ${p.genres}`,
+      words: `${p.client ?? ""} ${(Array.isArray(p.crew) ? (p.crew as { name: string }[]) : []).map((c) => c.name).join(" ")} ${p.genres}`,
       href: `/projects/${p.id}`,
       at: p.updated_at,
-      project: { title: p.title, type: p.production_type, stage: p.stage, genres: p.genres, director: p.director, description: p.description, cover: p.cover_url },
+      project: { title: p.title, type: p.production_type, stage: p.stage, genres: p.genres, director: (Array.isArray(p.crew) ? (p.crew as { role: string; name: string }[]) : []).filter((c) => c.role === "Director").map((c) => c.name).join(", ") || p.director, description: p.description, cover: p.cover_url },
     })),
     ...(documents.data ?? []).map((d): Result => {
       const project = d.project as unknown as Ref;

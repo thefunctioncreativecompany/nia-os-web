@@ -5,7 +5,7 @@ import Link from "next/link";
 import { connection } from "next/server";
 
 import { formatDay } from "@/lib/dates";
-import { PRODUCTION_INFO } from "@/lib/projects";
+import { deliverableText, shootDatesText, typeDetails, type CrewMember, type Deliverable, type ProductionType } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/server";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -75,15 +75,18 @@ type SharedRow = {
   genres: string;
   stars: string;
   owner_name: string;
-};
-
-const COLUMN_FOR: Record<string, keyof SharedRow> = {
-  productionDate: "production_date",
-  duration: "duration",
-  director: "director",
-  writers: "writers",
-  genres: "genres",
-  stars: "stars",
+  shoot_start: string | null;
+  shoot_end: string | null;
+  client: string;
+  agency: string;
+  due_date: string | null;
+  deliverables: Deliverable[] | null;
+  notes: string;
+  logline: string;
+  usage: string;
+  looks: number | null;
+  publication: string;
+  crew: CrewMember[] | null;
 };
 
 async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "params">) {
@@ -97,6 +100,26 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
   // signed out.
   const supabase = await createClient();
   await supabase.rpc("remember_shared_link", { token });
+
+  // The same details as the project page, never the budget; type-specific ones only when set.
+  const type = data.production_type as ProductionType | null;
+  const extras = typeDetails(type);
+  const details: [string, string][] = [
+    ["Shoot dates", shootDatesText(data.shoot_start, data.shoot_end)],
+    ["Client", data.client],
+    ["Agency", data.agency],
+    ["Deliverables", (data.deliverables ?? []).map(deliverableText).join("\n")],
+    ["Due", data.due_date ? formatDay(data.due_date) : ""],
+    ...(extras.includes("looks") ? [] : ([["Duration", data.duration]] as [string, string][])),
+    ["Genres", data.genres],
+    ...(extras.includes("logline") ? ([["Logline", data.logline]] as [string, string][]) : []),
+    ...(extras.includes("usage") ? ([["Usage", data.usage]] as [string, string][]) : []),
+    ...(extras.includes("looks") ? ([["Looks", data.looks === null ? "" : String(data.looks)]] as [string, string][]) : []),
+    ...(extras.includes("publication") ? ([["Publication", data.publication]] as [string, string][]) : []),
+    ["Notes", data.notes],
+  ];
+  const crew = data.crew ?? [];
+  const roles = [...new Set(crew.map((c) => c.role))];
 
   return (
     <article className="flex flex-col gap-9">
@@ -115,17 +138,32 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
       </div>
       <section aria-labelledby="shared-info" className="flex flex-col gap-4">
         <h2 id="shared-info" className="text-lg leading-[1.4] font-bold text-foreground">
-          Production info
+          Details
         </h2>
         <dl className="flex flex-col gap-3 text-sm">
-          {PRODUCTION_INFO.map((row) => (
-            <div key={row.field} className="flex gap-4">
-              <dt className="w-[120px] shrink-0 leading-[1.4] font-bold text-muted-foreground">{row.label}</dt>
-              <dd className="leading-normal font-medium text-foreground">{(row.field === "productionDate" ? formatDay(data.production_date) : data[COLUMN_FOR[row.field]]) || "—"}</dd>
+          {details.map(([label, value]) => (
+            <div key={label} className="flex gap-4">
+              <dt className="w-[120px] shrink-0 leading-[1.4] font-bold text-muted-foreground">{label}</dt>
+              <dd className="leading-normal font-medium whitespace-pre-line text-foreground">{value || "—"}</dd>
             </div>
           ))}
         </dl>
       </section>
+      {roles.length > 0 && (
+        <section aria-labelledby="shared-crew" className="flex flex-col gap-4">
+          <h2 id="shared-crew" className="text-lg leading-[1.4] font-bold text-foreground">
+            Crew &amp; talent
+          </h2>
+          <dl className="flex flex-col gap-3 text-sm">
+            {roles.map((role) => (
+              <div key={role} className="flex gap-4">
+                <dt className="w-[120px] shrink-0 leading-[1.4] font-bold text-muted-foreground">{role}</dt>
+                <dd className="leading-normal font-medium text-foreground">{crew.filter((c) => c.role === role).map((c) => c.name).join(", ")}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
     </article>
   );
 }

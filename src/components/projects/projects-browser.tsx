@@ -49,7 +49,7 @@ export function ProjectsBrowser({
   const q = query.trim().toLowerCase();
 
   const keepProject = (p: Project, ignoreStage = false) =>
-    (!q || [p.title, p.description, p.director, p.genres, p.productionType, p.stage].filter(Boolean).join(" ").toLowerCase().includes(q)) &&
+    (!q || [p.title, p.description, p.client, ...p.crew.map((c) => c.name), p.genres, p.productionType, p.stage].filter(Boolean).join(" ").toLowerCase().includes(q)) &&
     (ignoreStage || stage === ALL || p.stage === stage) &&
     (type === ALL || p.productionType === type) &&
     (genre === ALL || genresOf(p).includes(genre));
@@ -86,7 +86,7 @@ export function ProjectsBrowser({
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-4">
-        <SearchField label="Search projects" placeholder="Search titles, directors, genres..." value={query} onChange={(e) => setQuery(e.target.value)} className="max-w-150" />
+        <SearchField label="Search projects" placeholder="Search titles, clients, crew, genres..." value={query} onChange={(e) => setQuery(e.target.value)} className="max-w-150" />
         <div role="group" aria-label="Stage" className="flex flex-wrap gap-2">
           <FilterChip on={stage === ALL} onClick={() => setStage(ALL)}>
             All stages

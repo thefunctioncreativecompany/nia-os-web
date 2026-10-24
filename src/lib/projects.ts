@@ -1,3 +1,5 @@
+import { formatDay, parseDay } from "@/lib/dates";
+
 // Shared by the project screens on the server and in the browser.
 
 export const PRODUCTION_TYPES = [
@@ -80,12 +82,64 @@ export type Project = {
   writers: string;
   genres: string;
   stars: string;
+  shootStart: string | null;
+  shootEnd: string | null;
+  client: string;
+  agency: string;
+  dueDate: string | null;
+  deliverables: Deliverable[];
+  notes: string;
+  logline: string;
+  usage: string;
+  looks: number | null;
+  publication: string;
+  crew: CrewMember[];
   ownerId: string;
   shareToken: string | null;
   updatedByName: string;
   createdAt: string;
   updatedAt: string;
 };
+
+/** Something handed over at the end: "3 × 15s cutdown, 9:16". */
+export type Deliverable = { what: string; count: number; frame: string | null };
+/** A person on the production with their role; `userId` when they're on Nia. */
+export type CrewMember = { role: string; name: string; userId?: string };
+
+/** "20 stills", "1 × 60s film · 16:9". */
+export const deliverableText = (d: Deliverable) => `${d.count > 1 ? `${d.count} × ` : ""}${d.what}${d.frame ? ` · ${d.frame}` : ""}`;
+
+/** "Nov 12, 2026 – Nov 14, 2026 · 3 shoot days", or one day. */
+export function shootDatesText(start: string | null, end: string | null) {
+  const a = start ? parseDay(start) : undefined;
+  if (!start || !a) return "";
+  const b = (end && parseDay(end)) || a;
+  const n = Math.round((b.getTime() - a.getTime()) / 864e5) + 1;
+  const range = !end || end === start ? formatDay(start) : `${formatDay(start)} – ${formatDay(end)}`;
+  return `${range} · ${n} shoot ${n === 1 ? "day" : "days"}`;
+}
+
+// Roles offered in Crew & talent (any other can be typed). Director, Writer and Talent hold the
+// names that used to be Director, Writers and Stars.
+export const CREW_ROLES = [
+  "Director", "Producer", "Executive Producer", "Writer", "Director of Photography", "Camera Operator",
+  "Gaffer", "Production Designer", "Art Director", "Editor", "Colourist", "Sound", "Composer",
+  "Photographer", "Stylist", "Hair & Make-up", "Casting", "Production Manager", "Assistant Director",
+  "Talent", "Model", "Creative Director", "Client Lead",
+] as const;
+
+// Details that fit some production types (Ika, 2026-10-23), beside the ones every project has.
+export type TypeDetail = "logline" | "usage" | "looks" | "publication";
+const STORY: ProductionType[] = ["Film", "Feature Film", "TV Series", "Web Series", "Short Film", "Documentary", "Trailer", "Stage Production"];
+const BRAND: ProductionType[] = ["Commercial", "Campaign", "Branded Content", "Social Content", "Music Video", "Fashion Film", "Corporate Video"];
+const STILLS: ProductionType[] = ["Photo Shoot", "Editorial", "Lookbook"];
+export function typeDetails(type: ProductionType | null): TypeDetail[] {
+  if (!type) return [];
+  if (STORY.includes(type)) return ["logline"];
+  if (BRAND.includes(type)) return ["usage"];
+  if (STILLS.includes(type)) return ["looks", "publication"];
+  return [];
+}
 
 // Production Info rows, in Figma order. `field` is the Project key; `column` the database one.
 export const PRODUCTION_INFO = [
@@ -111,7 +165,7 @@ export type ActivityItem = {
 };
 
 export const PROJECT_COLUMNS =
-  "id, title, description, cover_url, production_type, stage, production_date, duration, director, writers, genres, stars, owner_id, share_token, updated_by_name, created_at, updated_at";
+  "id, title, description, cover_url, production_type, stage, production_date, duration, director, writers, genres, stars, shoot_start, shoot_end, client, agency, due_date, deliverables, notes, logline, usage, looks, publication, crew, owner_id, share_token, updated_by_name, created_at, updated_at";
 
 type ProjectRow = {
   id: string;
@@ -126,6 +180,18 @@ type ProjectRow = {
   writers: string;
   genres: string;
   stars: string;
+  shoot_start: string | null;
+  shoot_end: string | null;
+  client: string;
+  agency: string;
+  due_date: string | null;
+  deliverables: Deliverable[] | null;
+  notes: string;
+  logline: string;
+  usage: string;
+  looks: number | null;
+  publication: string;
+  crew: CrewMember[] | null;
   owner_id: string;
   share_token: string | null;
   updated_by_name: string;
@@ -147,6 +213,18 @@ export function toProject(row: ProjectRow): Project {
     writers: row.writers,
     genres: row.genres,
     stars: row.stars,
+    shootStart: row.shoot_start,
+    shootEnd: row.shoot_end,
+    client: row.client ?? "",
+    agency: row.agency ?? "",
+    dueDate: row.due_date,
+    deliverables: Array.isArray(row.deliverables) ? row.deliverables : [],
+    notes: row.notes ?? "",
+    logline: row.logline ?? "",
+    usage: row.usage ?? "",
+    looks: row.looks,
+    publication: row.publication ?? "",
+    crew: Array.isArray(row.crew) ? row.crew : [],
     ownerId: row.owner_id,
     shareToken: row.share_token,
     updatedByName: row.updated_by_name,
