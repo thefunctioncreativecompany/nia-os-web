@@ -8,4 +8,7 @@ export const features = {
   // Marketplace has no launch date yet (MARKETPLACE_SPEC.md). Until then /marketplace shows the
   // coming-soon screen.
   marketplaceUnlocked: false,
+  // Marketplace is hidden for now (Ika, 2026-10-23): no tab in the navbar or dock, and its
+  // addresses go to Home (next.config.ts). The pages and code stay; flip to true to bring it back.
+  marketplaceShown: false,
 } as const;

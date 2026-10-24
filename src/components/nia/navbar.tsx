@@ -8,6 +8,7 @@ import { Compass, FileText, Folder, House, Inbox, Plus, ShoppingBag, type Lucide
 import { useReducedMotion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
+import { features } from "@/lib/features";
 import { playSound } from "@/lib/sounds";
 import { Button } from "@/components/ui/button";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
@@ -35,7 +36,9 @@ const tabs: Tab[] = [
   { label: "Projects", icon: "/app/folder.svg", glyph: Folder, href: "/projects", match: ["projects"] },
   { label: "Templates", icon: "/app/file-text.svg", glyph: FileText, href: "/templates", match: ["templates"] },
   { label: "Explore", icon: "/app/explore.svg", glyph: Compass, href: "/explore", match: ["explore"] },
-  { label: "Marketplace", icon: "/app/shopping-bag.svg", glyph: ShoppingBag, href: "/marketplace", match: ["marketplace"] },
+  ...(features.marketplaceShown
+    ? [{ label: "Marketplace", icon: "/app/shopping-bag.svg", glyph: ShoppingBag, href: "/marketplace", match: ["marketplace"] }]
+    : []),
   { label: "Inbox", icon: "/app/inbox.svg", glyph: Inbox, href: null, match: [] },
 ];
 

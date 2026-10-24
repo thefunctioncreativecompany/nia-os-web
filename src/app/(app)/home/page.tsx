@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Inbox } from "lucide-react";
 
 import { getCurrentUser } from "@/lib/auth";
+import { getSession } from "@/lib/supabase/session";
 import { catalog, getSchema } from "@/features/templates/catalog";
 import { canEdit } from "@/features/templates/engine/sections";
 import { toGallery } from "@/features/templates/gallery";
@@ -15,6 +16,7 @@ import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { ActivityFeed } from "@/components/home/activity-feed";
 import { HomeTemplates } from "@/components/home/home-templates";
 import { ImportFilesDialog } from "@/components/home/import-files-dialog";
+import { WelcomeTour } from "@/components/home/welcome-tour";
 import { ProjectGrid } from "@/components/projects/project-grid";
 
 export const metadata: Metadata = {
@@ -29,6 +31,9 @@ const TEMPLATES = catalog.filter((t) => t.status === "live").map((t) => ({ ...to
 export default function Page() {
   return (
     <div className="flex flex-col gap-12 px-4 pt-12 pb-15 md:px-15">
+      <Suspense fallback={null}>
+        <Tour />
+      </Suspense>
       <header className="flex flex-col items-center gap-2 text-center">
         <Suspense fallback={<Skeleton className="h-10 w-72" />}>
           <Welcome />
@@ -84,6 +89,12 @@ export default function Page() {
       </div>
     </div>
   );
+}
+
+// The welcome tour opens by itself until it has been seen once on this account.
+async function Tour() {
+  const [{ user }, current] = await Promise.all([getSession(), getCurrentUser()]);
+  return <WelcomeTour firstName={current.name.split(" ")[0]} firstVisit={!user?.metadata.toured} />;
 }
 
 async function Welcome() {

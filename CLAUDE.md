@@ -173,6 +173,16 @@ Data:
   email fields (`src/components/auth/auth-form.tsx`), to encourage Google sign-ins. Figma's auth
   screens still show email first; update them to match. Email sign-up tested end to end (Resend
   email arrives in Gmail, link confirms and signs in).
+- (2026-10-23) Marketplace is hidden for now (`features.marketplaceShown` off): no navbar or dock
+  tab, every `/marketplace` address goes to Home (next.config.ts), and Plans drops the
+  marketplace line and gear rental fees. The code stays; flip the switch to bring it back.
+- (2026-10-23) Welcome tour on Home (`src/components/home/welcome-tour.tsx`), after Gabriel's
+  "Onboarding Experience made with Figma Motion" (Collect UI): a card over Home, the step on the
+  left, a preview built from our components on the right (above on phones). Seven steps: welcome,
+  Projects, Documents (the real Call Sheet miniature), Files and references, Your crew, Explore,
+  "You're set" (Start a project). No Copilot until it's built. Opens by itself on the first Home
+  visit until finished or skipped (`toured` in the account's sign-in metadata, no migration);
+  "Take the tour" in the profile menu opens `/home?tour=1`. Not in Figma yet: reconcile it.
 
 ## Working notes
 
