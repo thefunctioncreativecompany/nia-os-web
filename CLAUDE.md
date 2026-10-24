@@ -191,6 +191,13 @@ Data:
   `product_events`; the first project, download and invite each ask one thumbs up/down question,
   once. Read it in the SQL Editor: `select * from feedback_review` (with name and profession).
   Needs `20261105000000_feedback.sql`. Not in Figma yet.
+- (2026-10-23) Global search on desktop (`src/components/nia/global-search.tsx`): the navbar field
+  or ⌘K / Ctrl K opens one window for projects, documents, files, templates and Explore (with
+  early access): a filter chip per kind with its count, results grouped by kind (recent ones
+  when nothing is typed), arrow keys and Enter, and a live preview of the result in focus
+  (cover, document or template miniature, file picture). Its own download, fetched on hover or
+  focus; lists kept two minutes; previews fetch once each. Phones and tablets keep the field.
+  Not in Figma yet.
 - (2026-10-23) New project form: the heading shows the name as it's typed; Instagram links can be
   added there and become references when the project is created. More genres (free text) and
   production types (database rule: needs `20261105010000_more_production_types.sql` before the

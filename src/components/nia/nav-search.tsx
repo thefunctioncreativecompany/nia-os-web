@@ -1,13 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { Clapperboard, FileText, LayoutTemplate } from "lucide-react";
+import { Clapperboard, FileText, LayoutTemplate, Search } from "lucide-react";
 
 import { loadTemplateIndex } from "@/features/templates/actions";
 
 import { createClient } from "@/lib/supabase/client";
 import { ExpandingSearch, type ExpandingSearchItem } from "@/components/arc/expanding-search/expanding-search";
+
+// Desktop's global search is its own download, fetched when someone points at or focuses the
+// search (or presses ⌘K), so pages don't carry it.
+const loadGlobalSearch = () => import("@/components/nia/global-search").then((m) => m.GlobalSearch);
+const GlobalSearch = dynamic(loadGlobalSearch, { ssr: false });
 
 type ProjectRow = { id: string; title: string; production_type: string | null; stage: string; director: string; genres: string };
 type DocumentRow = { id: string; template_code: string; title: string; project: { title: string } | null };
@@ -20,9 +26,27 @@ const templateIcon = <LayoutTemplate className="size-4" />;
 // matches as you type, recent projects before. Finds projects, documents (yours and those in
 // projects you can open) and templates (audit #14). Access rules apply as usual. People come
 // with Cast & Crew (BUILD_PLAN 6.4).
-// On phones and tablets it is always a field, filling the top bar.
+// On phones and tablets it is always a field, filling the top bar. Desktop opens global search
+// instead (global-search.tsx), from the field or ⌘K / Ctrl K.
 export function NavSearch() {
   const router = useRouter();
+  const [globalOpen, setGlobalOpen] = useState(false);
+  const [globalWanted, setGlobalWanted] = useState(false);
+  const preload = () => {
+    setGlobalWanted(true);
+    void loadGlobalSearch();
+  };
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key.toLowerCase() !== "k" || !(e.metaKey || e.ctrlKey) || !window.matchMedia("(min-width: 64rem)").matches) return;
+      e.preventDefault();
+      setGlobalWanted(true);
+      setGlobalOpen(true);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
   const [projects, setProjects] = useState<ExpandingSearchItem[] | null>(null);
   const [more, setMore] = useState<ExpandingSearchItem[]>([]);
   // The lists load the first time someone points at, taps or tabs to the search, not on every page
@@ -88,10 +112,20 @@ export function NavSearch() {
 
   return (
     <>
-      {/* Desktop: a search button that grows into a field. */}
-      <div onPointerEnter={want} onFocusCapture={want} className="relative w-70 shrink-0 max-lg:hidden">
-        <ExpandingSearch {...props} expandedWidth={420} />
-      </div>
+      {/* Desktop: a field that opens global search. */}
+      <button
+        type="button"
+        onPointerEnter={preload}
+        onFocus={preload}
+        onClick={() => (setGlobalWanted(true), setGlobalOpen(true))}
+        aria-haspopup="dialog"
+        className="flex h-10 w-70 shrink-0 items-center gap-2.5 rounded-full border border-border bg-white px-4 text-left text-sm text-nia-placeholder outline-none transition-colors duration-fast hover:border-foreground/40 focus-visible:ring-3 focus-visible:ring-ring/50 max-lg:hidden"
+      >
+        <Search aria-hidden className="size-4 shrink-0 text-muted-foreground" />
+        <span className="min-w-0 flex-1 truncate">Search Nia</span>
+        <kbd className="rounded-md bg-muted px-1.5 py-0.5 font-sans text-caption text-muted-foreground">⌘K</kbd>
+      </button>
+      {globalWanted && <GlobalSearch open={globalOpen} onOpenChange={setGlobalOpen} />}
       {/* Phones and tablets: a field that fills the top bar, in silver glass. */}
       <div onPointerDown={want} onFocusCapture={want} className="nav-search-glass relative min-w-0 flex-1 lg:hidden">
         <ExpandingSearch {...props} alwaysOpen anchor="start" expandedWidth={1200} />
