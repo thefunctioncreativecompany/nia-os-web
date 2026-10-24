@@ -495,4 +495,5 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261026030000_document_rules_wording.sql`, `20261026000000_remove_pilot_clients.sql`,
 `20261027000000_feature_waitlist.sql`, `20261031000000_collections_references.sql`, `20261031010000_collections_remove.sql`,
 `20261101000000_explore_access.sql`, `20261102000000_marketplace_access.sql`, `20261104000000_project_instagram_references.sql`,
-`20261105000000_feedback.sql`, `20261105010000_more_production_types.sql`.
+`20261105000000_feedback.sql`, `20261105010000_more_production_types.sql`,
+`20261106000000_project_details_crew.sql`.
