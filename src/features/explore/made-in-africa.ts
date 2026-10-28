@@ -130,36 +130,5 @@ export const COUNTRY_OPTIONS = [...new Set(madeInAfrica.flatMap((e) => e.title.c
 const years = madeInAfrica.map((e) => e.title.year).filter((y): y is number => y !== null);
 export const YEAR_RANGE = { min: Math.min(...years), max: Math.max(...years) };
 
-// Explore titles for a project (Ika, 2026-10-21: inspiration on the project page): titles sharing
-// the project's genres count most, then its production type, in the curated order when tied. A
-// project with neither gets the curated order. Leaves out titles it already has.
-export function suggestForProject(project: { genres: string; productionType: string | null }, leaveOut: Set<string>, count = 12): Entry[] {
-  const genres = project.genres.split(",").map((g) => g.trim()).filter(Boolean);
-  const score = (e: Entry) => 3 * e.title.genres.filter((g) => genres.includes(g)).length + (project.productionType && typeName(e.title) === project.productionType ? 2 : 0);
-  return madeInAfrica
-    .filter((e) => !leaveOut.has(e.title.slug))
-    .map((e, i) => ({ e, s: score(e), i }))
-    .sort((a, b) => b.s - a.s || a.i - b.i)
-    .slice(0, count)
-    .map((x) => x.e);
-}
-
-// "You may also like" on a title's page: titles sharing its genres count most, then its
-// collection, country, type and era, in the curated order when tied.
-export function similarTo(entry: Entry, count = 10): Entry[] {
-  const t = entry.title;
-  const score = (e: Entry) =>
-    3 * e.title.genres.filter((g) => t.genres.includes(g)).length +
-    (e.collection.slug === entry.collection.slug ? 2 : 0) +
-    (e.title.countries.some((c) => t.countries.includes(c)) ? 1.5 : 0) +
-    (e.title.type === t.type ? 1 : 0) +
-    (t.year && e.title.year && Math.abs(t.year - e.title.year) <= 5 ? 0.5 : 0);
-  return madeInAfrica
-    .filter((e) => e.title.slug !== t.slug)
-    .map((e, i) => ({ e, s: score(e), i }))
-    .sort((a, b) => b.s - a.s || a.i - b.i)
-    .slice(0, count)
-    .map((x) => x.e);
-}
 /** "Directed by" for films, "Created by" for series. */
 export const creditTerm = (t: Title) => (t.type === "series" ? "Created by" : "Directed by");

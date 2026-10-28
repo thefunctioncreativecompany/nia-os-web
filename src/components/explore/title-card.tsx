@@ -59,15 +59,19 @@ export function ExploreCard({
   sizes,
   first = false,
   actions,
+  note,
 }: {
   item: ExploreItem;
   href: string;
   sizes: string;
   first?: boolean;
   actions?: React.ReactNode;
+  /** A short line under the credit: why it was suggested. */
+  note?: string;
 }) {
   return (
     <PosterCard
+      note={note}
       href={href}
       title={item.title}
       credit={item.credit}
@@ -95,6 +99,7 @@ function PosterCard({
   sizes,
   first,
   actions,
+  note,
 }: {
   href: string;
   title: string;
@@ -107,6 +112,7 @@ function PosterCard({
   sizes: string;
   first: boolean;
   actions?: React.ReactNode;
+  note?: string;
 }) {
   const card = (
     <Link href={href} aria-label={label} className="group flex w-full flex-col gap-2 rounded-lg text-left text-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
@@ -138,6 +144,7 @@ function PosterCard({
       </span>
       <span className="truncate text-lead font-semibold">{title}</span>
       <span className="-mt-1.5 truncate text-small text-muted-foreground">{credit}</span>
+      {note && <span className="-mt-1 line-clamp-2 text-caption leading-snug text-foreground/70">{note}</span>}
     </Link>
   );
   if (!actions) return card;

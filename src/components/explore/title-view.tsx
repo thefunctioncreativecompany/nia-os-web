@@ -11,7 +11,9 @@ import { attribution, embedUrl, imdbUrl, pickSeason, primaryVideo, videoName, wa
 import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { ScrollRow } from "@/components/nia/scroll-row";
-import { LIBRARY_HREF, MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, similarTo, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
+import { LIBRARY_HREF, MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, findEntry, madeInAfrica, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
+import { similarItems } from "@/features/explore/match";
+import { ProductionNotes } from "./production-notes";
 import { recordView } from "@/features/explore/views";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { AddToProject, SaveToCollection } from "./save-controls";
@@ -188,6 +190,8 @@ export function TitleView({ entry }: { entry: Entry }) {
               </div>
             )}
           </section>
+
+          <ProductionNotes slug={title.slug} listHref={MADE_IN_AFRICA_HREF} />
         </div>
       </div>
 
@@ -239,7 +243,7 @@ export function TitleView({ entry }: { entry: Entry }) {
           You may also like
         </h2>
         <ScrollRow label="You may also like">
-          {similarTo(entry).map((e) => (
+          {similarItems(title.slug, madeInAfrica.map((e) => e.title.slug)).map((slug) => findEntry(slug)!).map((e) => (
             <li key={e.title.slug} className="w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[16%]">
               <TitleCard entry={e} href={titleHref(e.title.slug, from)} sizes="(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw" />
             </li>

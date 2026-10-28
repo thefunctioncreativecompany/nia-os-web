@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Clapperboard } from "lucide-react";
+import { Clapperboard, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/nia/empty-state";
@@ -21,12 +21,15 @@ import {
   type Entry,
 } from "@/features/explore/made-in-africa";
 import { recentFirst, recentViews } from "@/features/explore/views";
+import { tasteScore } from "@/features/explore/match";
+import { isTag, tagLabel, tagText, tagsFor } from "@/features/explore/tags";
+import { useTaste } from "./use-taste";
 import { shuffled } from "@/lib/shuffle";
 import { TitleCard } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
 
 const ALL = "all";
-const SORTS = { relevance: "Relevance", recent: "Recently viewed", title: "Title A–Z", newest: "Newest first", oldest: "Oldest first", country: "Country A–Z" } as const;
+const SORTS = { relevance: "Relevance", forYou: "For you", recent: "Recently viewed", title: "Title A–Z", newest: "Newest first", oldest: "Oldest first", country: "Country A–Z" } as const;
 type Sort = keyof typeof SORTS;
 const all = (label: string) => ({ value: ALL, label });
 
@@ -39,6 +42,7 @@ function relevance(e: Entry, q: string) {
   if (t.credit?.toLowerCase().includes(q)) return 4;
   if (t.countries.some((c) => c.toLowerCase().includes(q))) return 3;
   if (t.genres.some((g) => g.toLowerCase().includes(q))) return 3;
+  if (tagText(t.slug).includes(q)) return 2;
   const rest = [t.platform, t.pair_with, t.study_note, t.recognition, e.collection.name].filter(Boolean).join(" ").toLowerCase();
   return rest.includes(q) ? 1 : 0;
 }
@@ -49,8 +53,11 @@ function relevance(e: Entry, q: string) {
 // narrowed and Relevance chosen, titles sit in their collections; otherwise one grid. Titles come
 // in a new order on each visit (`seed`), and Recently viewed brings back the ones this person
 // opened, most recent first (Ika, 2026-10-22).
-export function MadeInAfricaAll({ seed }: { seed: number }) {
+export function MadeInAfricaAll({ seed, tag: initialTag }: { seed: number; tag?: string }) {
   const [query, setQuery] = useState("");
+  // A tag from a title's page (`?tag=`), shown as a chip that clears it.
+  const [tag, setTag] = useState<string | null>(initialTag && isTag(initialTag) ? initialTag : null);
+  const forYou = useTaste();
   const [collection, setCollection] = useState<string>(ALL);
   const [genre, setGenre] = useState<string>(ALL);
   const [country, setCountry] = useState<string>(ALL);
@@ -62,6 +69,7 @@ export function MadeInAfricaAll({ seed }: { seed: number }) {
   const chooseSort = (next: Sort) => {
     setSort(next);
     if (next === "recent" && recent === null) void recentViews().then(setRecent);
+    if (next === "forYou") forYou.load();
   };
 
   const q = query.trim().toLowerCase();
@@ -69,6 +77,7 @@ export function MadeInAfricaAll({ seed }: { seed: number }) {
   const narrowed = madeInAfrica.filter((e) => {
     const t = e.title;
     if (q && relevance(e, q) === 0) return false;
+    if (tag && !tagsFor(t.slug).includes(tag)) return false;
     if (genre !== ALL && !t.genres.includes(genre)) return false;
     if (country !== ALL && !t.countries.includes(country)) return false;
     if (type !== ALL && typeName(t) !== type) return false;
@@ -83,11 +92,12 @@ export function MadeInAfricaAll({ seed }: { seed: number }) {
     if (sort === "title") return a.title.title.localeCompare(b.title.title);
     if (sort === "newest") return (b.title.year ?? 0) - (a.title.year ?? 0) || visit(a, b);
     if (sort === "oldest") return (a.title.year ?? 9999) - (b.title.year ?? 9999) || visit(a, b);
+    if (sort === "forYou" && forYou.taste) return tasteScore(b.title.slug, forYou.taste) - tasteScore(a.title.slug, forYou.taste) || visit(a, b);
     if (sort === "country") return a.title.countries[0].localeCompare(b.title.countries[0]) || visit(a, b);
     return (q ? relevance(b, q) - relevance(a, q) : 0) || visit(a, b);
   });
   const sorted = sort === "recent" ? recentFirst(ranked, recent ?? [], (e) => e.title.slug) : ranked;
-  const anyFilter = q !== "" || genre !== ALL || country !== ALL || type !== ALL || years !== null;
+  const anyFilter = q !== "" || tag !== null || genre !== ALL || country !== ALL || type !== ALL || years !== null;
   const grouped = sort === "relevance" && !anyFilter;
   const groups = grouped
     ? madeInAfricaCollections
@@ -97,6 +107,7 @@ export function MadeInAfricaAll({ seed }: { seed: number }) {
     : [{ id: "results", name: null, description: null, items: sorted }];
   const clear = () => {
     setQuery("");
+    setTag(null);
     setCollection(ALL);
     setGenre(ALL);
     setCountry(ALL);
@@ -138,6 +149,11 @@ export function MadeInAfricaAll({ seed }: { seed: number }) {
           ))}
         </div>
         <div className="flex flex-wrap items-center gap-2">
+          {tag && (
+            <FilterChip on onClick={() => setTag(null)} aria-label={`Remove the ${tagLabel(tag)} tag`}>
+              {tagLabel(tag)} <X aria-hidden className="size-3.5" />
+            </FilterChip>
+          )}
           <ChipMenu label="Genre" value={genre} defaultValue={ALL} options={[all("All"), ...GENRE_OPTIONS.map((g) => ({ value: g, label: g }))]} onChange={setGenre} />
           <ChipMenu label="Country" value={country} defaultValue={ALL} columns={2} options={[all("All"), ...COUNTRY_OPTIONS.map((c) => ({ value: c, label: c }))]} onChange={setCountry} />
           <RangeChip label="Year" min={YEAR_RANGE.min} max={YEAR_RANGE.max} value={years} onChange={setYears} />
@@ -154,6 +170,7 @@ export function MadeInAfricaAll({ seed }: { seed: number }) {
           <ChipMenu label="Sort" value={sort} align="end" options={(Object.keys(SORTS) as Sort[]).map((key) => ({ value: key, label: SORTS[key] }))} onChange={chooseSort} />
         </div>
         {sort === "recent" && recent?.length === 0 && <p className="text-sm text-muted-foreground">Nothing viewed yet. Titles you open will show here first.</p>}
+        {sort === "forYou" && forYou.taste?.size === 0 && <p className="text-sm text-muted-foreground">Open, save or add titles to a project and they&rsquo;ll shape this order.</p>}
       </div>
 
       {found.length === 0 ? (

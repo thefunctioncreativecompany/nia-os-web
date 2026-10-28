@@ -13,6 +13,8 @@ import { SaveToCollection } from "@/components/explore/save-controls";
 import { ExploreCard, cardSpan } from "@/components/explore/title-card";
 import { TmdbCredit } from "@/components/explore/tmdb-credit";
 import { exploreItem, suggestItemsForProject } from "@/features/explore/items";
+import type { ProjectSignals, Taste } from "@/features/explore/match";
+import { loadTaste } from "@/features/explore/taste";
 import { addReference, exploreAccess, loadReferences, removeReference, type Reference } from "@/features/explore/saves";
 import { loadInstagramReferences, type InstagramReference } from "@/lib/instagram-references";
 import { AddInstagramReference } from "./add-instagram-reference";
@@ -29,13 +31,12 @@ const sizes = "(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw";
 // the Explore titles.
 export function ProjectInspiration({
   projectId,
-  genres,
-  productionType,
+  signals,
   canEdit,
 }: {
   projectId: string;
-  genres: string;
-  productionType: string | null;
+  /** What the suggestions match on: type, genres, frames and the project's own words. */
+  signals: ProjectSignals;
   canEdit: boolean;
 }) {
   const [refs, setRefs] = useState<Reference[] | null>(null);
@@ -45,6 +46,8 @@ export function ProjectInspiration({
   const [postsOff, setPostsOff] = useState(false);
   // Suggestions and adding come with Explore's early access (Ika, 2026-10-21).
   const [access, setAccess] = useState<boolean | null>(null);
+  // What this person tends to open, save and add, which nudges the order (match.ts).
+  const [taste, setTaste] = useState<Taste | undefined>(undefined);
 
   const load = async () => {
     const db = createClient();
@@ -65,7 +68,11 @@ export function ProjectInspiration({
       (list) => live && setPosts(list),
       () => live && (setPosts([]), setPostsOff(true)),
     );
-    void exploreAccess(db).then((yes) => live && setAccess(yes));
+    void exploreAccess(db).then((yes) => {
+      if (!live) return;
+      setAccess(yes);
+      if (yes) void loadTaste().then((t) => live && setTaste(t), () => undefined);
+    });
     return () => {
       live = false;
     };
@@ -85,8 +92,8 @@ export function ProjectInspiration({
   };
 
   const held = new Set((refs ?? []).map((r) => r.slug));
-  const suggestions = suggestItemsForProject({ genres, productionType }, held);
-  const matched = genres.trim() !== "" || !!productionType;
+  const suggestions = suggestItemsForProject(signals, held, [...held], taste);
+  const matched = signals.genres.trim() !== "" || !!signals.productionType || !!signals.description?.trim();
   // Explore titles and pasted posts in one row, newest first.
   const row =
     refs && posts
@@ -172,17 +179,18 @@ export function ProjectInspiration({
             </div>
             <p className="text-sm text-muted-foreground">
               {matched
-                ? "From Explore's films, series and creators' work, matched to this project's genres and production type."
-                : "From Explore. Add genres and a production type to get closer matches."}
+                ? "From Explore's films, series and creators' work, matched to this project's type, genres, deliverables, description and references."
+                : "From Explore. Add a production type, genres and a description to get closer matches."}
             </p>
           </div>
           <ScrollRow label="Inspiration for this project">
-            {suggestions.map((e) => (
+            {suggestions.map(({ item: e, reasons }) => (
               <li key={e.slug} className={cell} style={cardSpan(e)}>
                 <ExploreCard
                   item={e}
                   href={e.href()}
                   sizes={sizes}
+                  note={reasons.length ? reasons.join(" · ") : undefined}
                   actions={
                     <>
                       {canEdit && !problem && (

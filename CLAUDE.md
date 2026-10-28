@@ -140,7 +140,7 @@ Data:
   (`TitleCard` in `ScrollRow`); Templates' strips keep pointer scrubbing. Explore all lists each
   film once. View all has Genre, Country, Year (one year or a span), Type and Sort (Relevance,
   Title, Newest, Oldest, Country), using the projects' `GENRES` and `PRODUCTION_TYPES` so Explore
-  and projects share one vocabulary; title pages end with "You may also like" (`similarTo`).
+  and projects share one vocabulary; title pages end with "You may also like" (by shared tags, `similarItems` in `match.ts`).
   "Explore all" opens `/explore/all`: the whole library (`src/features/explore/library.ts`, each
   title once; user projects join later) on a canvas that goes on in every direction, posters as
   close as the Explore all grid (`LibraryCanvas`: drag with a glide, scroll, arrow keys; only
@@ -221,6 +221,19 @@ Data:
   `templates_announced` in the sign-in metadata; no migration). The first nine (2026-10-19) are
   the starting set and never marked new. Every preview shows the for-you and for-your-team lines.
   Not in Figma yet: reconcile Just added, the Home card and the marker.
+- (2026-10-28) Explore tags (Ika): every title and creator film has 15 to 20 tags from one fixed
+  list (`src/features/explore/tags.ts`: look, camera, setting, subject, mood, how it was made,
+  made for, frame and origin). Hand-written ones are in `tag-data.ts`; the cover's look is measured
+  by `node scripts/measure-explore-covers.mjs` (re-run after adding covers) into
+  `cover-looks.json`; frame, region, decade, crew size and awards are worked out from the data.
+  New Explore items need tags (the test fails without them). Search matches tags; each film's
+  page has Production notes (tags by group, each opening View all with `?tag=`), plus Crew
+  credited, Camera and spec-ad rows on creator films. Matching (`match.ts`): a project's
+  suggestions score its type, genres, deliverables' frames, the words in its title, description,
+  logline, usage and notes, its references' tags, and the person's taste, and show the two
+  strongest reasons on each card. Taste (`taste.ts`) comes from what they open, save and add to
+  projects, plus their profession; View all pages have a "For you" sort. No migration. Not in
+  Figma yet: Production notes, the reason line on cards, the tag chip.
 
 ## Working notes
 

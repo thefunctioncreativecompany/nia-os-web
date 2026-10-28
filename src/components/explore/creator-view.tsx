@@ -23,11 +23,16 @@ import {
   type CreatorFilm,
 } from "@/features/explore/creators";
 import { exploreItem } from "@/features/explore/items";
+import { similarItems } from "@/features/explore/match";
+import { tagLabel, tagsFor } from "@/features/explore/tags";
+import { ProductionNotes } from "./production-notes";
 import { recordView } from "@/features/explore/views";
 import { LIBRARY_HREF, exploreHome } from "@/features/explore/made-in-africa";
 import { CreatorCredit } from "./creators-strip";
 import { AddToProject, SaveToCollection } from "./save-controls";
 import { ExploreCard, cardSpan } from "./title-card";
+
+const CAMERA_TAGS = new Set(["shot-on-iphone", "shot-on-film", "red-komodo", "sony-fx", "ai-shots"]);
 
 // A creator's film, full screen (Ika, 2026-10-21), laid out like a title or project page: the film
 // where the cover sits (Instagram's own player, loaded only on Play and stopped when the page is
@@ -47,10 +52,10 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
   useStopVideosWhenHidden(hero, () => setPlaying(false));
   // Remembered for Explore's Recently viewed (Ika, 2026-10-22).
   useEffect(() => void recordView(film.slug), [film.slug]);
-  const more = creatorFilms
-    .filter((f) => f.slug !== film.slug)
-    .toSorted((a, b) => Number(b.type === film.type) - Number(a.type === film.type))
-    .map((f) => exploreItem(f.slug)!);
+  // The films most like this one by their tags (match.ts).
+  const more = similarItems(film.slug, creatorFilms.map((f) => f.slug), 16).map((slug) => exploreItem(slug)!);
+  // Cameras named in the caption or seen in the film, from its tags.
+  const cameras = tagsFor(film.slug).filter((t) => CAMERA_TAGS.has(t)).map(tagLabel);
   const date = new Date(`${film.date}T12:00:00`).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" });
 
   const row = (label: string, value: React.ReactNode) => (
@@ -134,6 +139,9 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
               {row("Posted by", <Handle handle={film.account} />)}
               {row("Posted", date)}
               {film.country && row("Country", film.country)}
+              {film.credits.length >= 3 && row("Crew credited", `${film.credits.length} people`)}
+              {cameras.length > 0 && row("Camera", cameras.join(", "))}
+              {tagsFor(film.slug).includes("spec-ad") && row("Made as", "A spec ad: made on spec, not commissioned by the brand")}
             </dl>
             <div className="flex flex-wrap gap-2.5 pt-2">
               <Button variant="outline" size="md" asChild>
@@ -145,6 +153,8 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
               </Button>
             </div>
           </section>
+
+          <ProductionNotes slug={film.slug} listHref={CREATORS_HREF} />
 
           <section aria-labelledby="credits" className="flex flex-col gap-4">
             <h2 id="credits" className="text-xl leading-[1.4] font-bold text-foreground">

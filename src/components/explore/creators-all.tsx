@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Clapperboard } from "lucide-react";
+import { Clapperboard, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/nia/empty-state";
@@ -11,12 +11,15 @@ import { CREATORS, creatorFilms, creatorYear, type CreatorFilm } from "@/feature
 import { exploreItem } from "@/features/explore/items";
 import { exploreHome } from "@/features/explore/made-in-africa";
 import { recentFirst, recentViews } from "@/features/explore/views";
+import { tasteScore } from "@/features/explore/match";
+import { isTag, tagLabel, tagText, tagsFor } from "@/features/explore/tags";
+import { useTaste } from "./use-taste";
 import { shuffled } from "@/lib/shuffle";
 import { CreatorCredit } from "./creators-strip";
 import { FilmGallery } from "./film-gallery";
 
 const ALL = "all";
-const SORTS = { relevance: "Relevance", recent: "Recently viewed", title: "Title A–Z", newest: "Newest first", oldest: "Oldest first" } as const;
+const SORTS = { relevance: "Relevance", forYou: "For you", recent: "Recently viewed", title: "Title A–Z", newest: "Newest first", oldest: "Oldest first" } as const;
 type Sort = keyof typeof SORTS;
 const all = (label: string) => ({ value: ALL, label });
 
@@ -33,6 +36,7 @@ function relevance(f: CreatorFilm, q: string) {
   if (title.includes(q)) return 5;
   if ([f.brand, f.account].some((x) => x?.toLowerCase().includes(q))) return 4;
   if (f.credits.some((x) => x.name.toLowerCase().includes(q) || x.handle?.toLowerCase().includes(q))) return 3;
+  if (tagText(f.slug).includes(q)) return 2;
   return [f.type, f.country, f.summary].filter(Boolean).join(" ").toLowerCase().includes(q) ? 1 : 0;
 }
 
@@ -41,8 +45,11 @@ function relevance(f: CreatorFilm, q: string) {
 // Sort. Films sit in a gallery at their true shape, tagged with their type and frame. Relevance
 // without a search is a new order on each visit (`seed`); Recently viewed brings back the films
 // this person opened, most recent first (Ika, 2026-10-22).
-export function CreatorsAll({ seed }: { seed: number }) {
+export function CreatorsAll({ seed, tag: initialTag }: { seed: number; tag?: string }) {
   const [query, setQuery] = useState("");
+  // A tag from a film's page (`?tag=`), shown as a chip that clears it.
+  const [tag, setTag] = useState<string | null>(initialTag && isTag(initialTag) ? initialTag : null);
+  const forYou = useTaste();
   const [type, setType] = useState<string>(ALL);
   const [country, setCountry] = useState<string>(ALL);
   const [years, setYears] = useState<YearRange>(null);
@@ -52,12 +59,14 @@ export function CreatorsAll({ seed }: { seed: number }) {
   const chooseSort = (next: Sort) => {
     setSort(next);
     if (next === "recent" && recent === null) void recentViews().then(setRecent);
+    if (next === "forYou") forYou.load();
   };
 
   const q = query.trim().toLowerCase();
   // Everything but the type, so each type chip can say how many it would show.
   const narrowed = creatorFilms.filter((f) => {
     if (q && relevance(f, q) === 0) return false;
+    if (tag && !tagsFor(f.slug).includes(tag)) return false;
     if (country !== ALL && f.country !== country) return false;
     const year = creatorYear(f);
     if (years && (year < years.from || year > years.to)) return false;
@@ -71,12 +80,14 @@ export function CreatorsAll({ seed }: { seed: number }) {
     if (sort === "title") return a.title.localeCompare(b.title);
     if (sort === "newest") return b.date.localeCompare(a.date) || visit(a, b);
     if (sort === "oldest") return a.date.localeCompare(b.date) || visit(a, b);
+    if (sort === "forYou" && forYou.taste) return tasteScore(b.slug, forYou.taste) - tasteScore(a.slug, forYou.taste) || visit(a, b);
     return (q ? relevance(b, q) - relevance(a, q) : 0) || visit(a, b);
   });
   const sorted = sort === "recent" ? recentFirst(ranked, recent ?? [], (f) => f.slug) : ranked;
-  const anyFilter = q !== "" || type !== ALL || country !== ALL || years !== null;
+  const anyFilter = q !== "" || tag !== null || type !== ALL || country !== ALL || years !== null;
   const clear = () => {
     setQuery("");
+    setTag(null);
     setType(ALL);
     setCountry(ALL);
     setYears(null);
@@ -116,6 +127,11 @@ export function CreatorsAll({ seed }: { seed: number }) {
           ))}
         </div>
         <div className="flex flex-wrap items-center gap-2">
+          {tag && (
+            <FilterChip on onClick={() => setTag(null)} aria-label={`Remove the ${tagLabel(tag)} tag`}>
+              {tagLabel(tag)} <X aria-hidden className="size-3.5" />
+            </FilterChip>
+          )}
           <ChipMenu label="Country" value={country} defaultValue={ALL} options={[all("All"), ...COUNTRIES.map((c) => ({ value: c, label: c }))]} onChange={setCountry} />
           <RangeChip label="Year" min={YEARS.min} max={YEARS.max} value={years} onChange={setYears} />
           {anyFilter && (
@@ -130,6 +146,7 @@ export function CreatorsAll({ seed }: { seed: number }) {
           <ChipMenu label="Sort" value={sort} align="end" options={(Object.keys(SORTS) as Sort[]).map((key) => ({ value: key, label: SORTS[key] }))} onChange={chooseSort} />
         </div>
         {sort === "recent" && recent?.length === 0 && <p className="text-sm text-muted-foreground">Nothing viewed yet. Films you open will show here first.</p>}
+        {sort === "forYou" && forYou.taste?.size === 0 && <p className="text-sm text-muted-foreground">Open, save or add films to a project and they&rsquo;ll shape this order.</p>}
       </div>
 
       {found.length === 0 ? (

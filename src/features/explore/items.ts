@@ -1,7 +1,8 @@
 // One shape for anything Explore can show as a card, save to a collection or add to a project's
 // references: a Made in Africa title or a creator's film (Ika, 2026-10-21). Collections and
 // references store the item's slug; this turns it back into a card.
-import { coverFor, findEntry, metaLine, suggestForProject, titleHref } from "./made-in-africa";
+import { coverFor, findEntry, metaLine, titleHref } from "./made-in-africa";
+import { rankForProject, type ProjectSignals, type Taste } from "./match";
 import { creatorFilms, creatorHref, creatorImage, creatorYear, findCreatorFilm, leadCredit } from "./creators";
 
 export type ExploreItem = {
@@ -57,11 +58,17 @@ export function exploreItem(slug: string): ExploreItem | null {
 
 export const creatorItems = (): ExploreItem[] => creatorFilms.map((f) => exploreItem(f.slug)!);
 
-// Explore for a project page: Made in Africa titles by genre and type, and creators' films by type
-// (a commercial or music video project gets commercials and music videos), best first.
-export function suggestItemsForProject(project: { genres: string; productionType: string | null }, leaveOut: Set<string>, count = 12): ExploreItem[] {
-  const titles = suggestForProject(project, leaveOut, count).map((e) => exploreItem(e.title.slug)!);
-  const films = creatorFilms.filter((f) => !leaveOut.has(f.slug) && project.productionType === f.type).map((f) => exploreItem(f.slug)!);
-  // Matching creators' films lead for the formats they're made in; titles follow.
-  return [...films, ...titles].slice(0, count);
+// Explore for a project page (Ika, 2026-10-28): every title and creator film scored against the
+// project's type, genres, frames, words and references (match.ts), each with why it was picked.
+export function suggestItemsForProject(
+  signals: ProjectSignals,
+  leaveOut: Set<string>,
+  references: string[] = [],
+  taste?: Taste,
+  count = 12,
+): { item: ExploreItem; reasons: string[] }[] {
+  return rankForProject(signals, leaveOut, references, taste, count).flatMap((m) => {
+    const item = exploreItem(m.slug);
+    return item ? [{ item, reasons: m.reasons }] : [];
+  });
 }

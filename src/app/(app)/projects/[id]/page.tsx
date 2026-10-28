@@ -12,9 +12,25 @@ import { DocumentPills, ProjectDocuments } from "@/components/projects/project-d
 import { ProjectFiles, ProjectFinalAssets } from "@/components/projects/project-files";
 import { ProjectInspiration } from "@/components/projects/project-inspiration-lazy";
 import { everyTemplate } from "@/features/templates/catalog";
+import type { ProjectSignals } from "@/features/explore/match";
+import type { Project } from "@/lib/projects";
 
 // Each template's icon, for the documents list.
 const ICONS = Object.fromEntries(everyTemplate.map((t) => [t.code, t.icon]));
+
+// What Explore's suggestions match on (match.ts): the project's type, genres, deliverables'
+// frames and its own words.
+const inspirationSignals = (p: Project): ProjectSignals => ({
+  title: p.title,
+  description: p.description,
+  logline: p.logline,
+  usage: p.usage,
+  notes: p.notes,
+  publication: p.publication,
+  genres: p.genres,
+  productionType: p.productionType,
+  frames: p.deliverables.map((d) => d.frame),
+});
 
 export const metadata: Metadata = {
   title: "Project · Nia OS",
@@ -49,7 +65,7 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
         behind={<DocumentPills projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} />}
         finals={<ProjectFinalAssets files={files} canEdit={canEdit} now={now} />}
         files={<ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />}
-        inspiration={<ProjectInspiration projectId={id} genres={project.genres} productionType={project.productionType} canEdit={canEdit} />}
+        inspiration={<ProjectInspiration projectId={id} signals={inspirationSignals(project)} canEdit={canEdit} />}
         manage={
           <div className="flex flex-col gap-6">
             <ProjectActions project={project} role={role} />
