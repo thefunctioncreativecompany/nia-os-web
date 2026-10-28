@@ -160,7 +160,7 @@ Data:
   use; before launch, use Meta's oEmbed API (needs a Meta app) instead of reading public pages.
 - (2026-10-21) Explore is early access (Ika): every `/explore` page is gated by `has_explore_access()`
   (`src/app/(app)/explore/layout.tsx`, `src/lib/explore-access.ts`): a confirmed Supabase email
-  invite, an email on `explore_invites`, or an invite code (CREATIVITY2026; stored as a sha256
+  invite, an email on `explore_invites`, or an invite code (kept only in the SQL Editor, never in this public repo; stored as a sha256
   fingerprint in `explore_codes`, 10 wrong tries an hour). Others get coming soon with the code
   field. Saving to collections and adding project references need it too (database rules).
   `/explore/preview` redirects to `/explore`. Needs `20261101000000_explore_access.sql`.
@@ -269,6 +269,13 @@ Data:
   YouTube uploads, Wikidata) plus searched reviews, checked by hand, applied with
   `scripts/apply-press-kits.mjs`. Process and gaps: `docs/press-kits.md`. Run it for every new
   Explore title.
+- (2026-10-28) Security review. Fixed: security headers on every page (no framing by other
+  sites, nosniff, referrer policy, camera/mic/location off); invitation emails only link to
+  Nia's own addresses; the Explore invite code taken out of the repo (it's public). For Ika:
+  run `20261107000000_security_function_access.sql`; turn on leaked password protection
+  (Supabase → Authentication → Passwords); replace the Explore invite code in the SQL Editor
+  (the old one is in git history); update the privacy policy. Full notes were given in the
+  session, not kept in this public repo.
 
 ## Working notes
 

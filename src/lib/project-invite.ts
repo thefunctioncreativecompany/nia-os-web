@@ -6,6 +6,7 @@ import { inviteEmail } from "@/lib/invite-email";
 import { createClient } from "@/lib/supabase/server";
 
 const SITE = "https://app.niatechnologies.co";
+const TRUSTED_ORIGINS = new Set([SITE, "https://nia-os-web-9ahh.vercel.app", "http://localhost:3000"]);
 
 type Person = { kind: "owner" | "member" | "invite"; user_id: string | null; name: string; email: string; role: string };
 
@@ -35,7 +36,10 @@ export async function sendProjectInvite(projectId: string, email: string): Promi
   const person = list.find((p) => p.kind !== "owner" && p.email.toLowerCase() === address);
   if (!person || (person.role !== "editor" && person.role !== "viewer")) return { sent: false };
 
-  const origin = (await headers()).get("origin") ?? SITE;
+  // The link in the email only ever points at Nia (security review, 2026-10-28): the Origin
+  // header can be set by whoever calls this, so anything else falls back to the live site.
+  const sent = (await headers()).get("origin");
+  const origin = sent && TRUSTED_ORIGINS.has(sent) ? sent : SITE;
   const hasAccount = person.kind === "member";
   const { subject, html, text } = inviteEmail({
     actor: owner.name,

@@ -17,6 +17,25 @@ const nextConfig: NextConfig = {
     ],
   },
   partialPrefetching: true,
+  // Security headers on every page (security review, 2026-10-28): no other site may show Nia
+  // inside a frame (stops clickjacking on sign-in, Share and Delete), browsers mustn't guess
+  // file types, other sites see only our address (not the page or its share token) when someone
+  // follows a link out, and camera, microphone and location stay off (nothing uses them).
+  // HTTPS-only (HSTS) is already sent by Vercel.
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "Content-Security-Policy", value: "frame-ancestors 'none'" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
+        ],
+      },
+    ];
+  },
   // Home moved from /dashboard; keep old links and bookmarks working.
   async redirects() {
     return [

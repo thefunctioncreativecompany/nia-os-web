@@ -7,7 +7,7 @@
 --      confirmed their email.
 --   2. Their confirmed email is on the invite list (explore_invites). Add people with:
 --        insert into public.explore_invites (email) values ('name@example.com');
---   3. They entered an invite code (CREATIVITY2026 to start). Codes are stored only as a
+--   3. They entered an invite code. Codes are stored only as a
 --      fingerprint (sha256), never in plain text. Ten wrong codes an hour, then wait.
 -- has_explore_access() answers the question for the app and for the database rules below.
 
@@ -50,9 +50,9 @@ alter table public.explore_code_attempts enable row level security;
 -- Nobody reads or writes these directly; only the functions below do (and Ika in the SQL Editor).
 revoke all on public.explore_access, public.explore_invites, public.explore_codes, public.explore_code_attempts from anon, authenticated;
 
-insert into public.explore_codes (code_hash, label)
-values (encode(extensions.digest('CREATIVITY2026', 'sha256'), 'hex'), 'CREATIVITY2026 (launch code, 2026-10-21)')
-on conflict (code_hash) do nothing;
+-- Add codes in the SQL Editor, never in this file (the repo is public; security review 2026-10-28):
+--   insert into public.explore_codes (code_hash, label)
+--   values (encode(extensions.digest('YOUR-CODE', 'sha256'), 'hex'), 'What the code is for');
 
 create or replace function public.has_explore_access()
 returns boolean
