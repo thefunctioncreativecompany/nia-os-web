@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Drafts from scripts (press kits etc.), reviewed before they reach src/
+scripts/out/

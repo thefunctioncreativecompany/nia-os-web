@@ -9,7 +9,8 @@ import { Dialog, DialogClose, DialogContent, DialogTitle } from "@/components/ui
 import { getFilm, type CategoryItem } from "./explore-data";
 import { filmHref, getFilmDetails, lengthOf } from "./film-details";
 import { NotYet } from "@/components/nia/not-yet";
-import { PressKitBody } from "./press-kit-body";
+import { PressKitBody, pressSummary } from "./press-kit-body";
+import { getPress } from "./press-coverage";
 
 // The film preview (Ika, 2026-10-20), opened from Explore's press kits, poster grid and director's
 // notes (not Latest projects), laid out like the template preview pop-up: the film's
@@ -37,6 +38,7 @@ export function PressKitPreview({
   const details = getFilmDetails(item.filmId);
   // Films open their own page; documents from the director's notes wait for the editor.
   const href = details && !item.documentType ? filmHref(item.filmId) : null;
+  const press = getPress(item.filmId);
   const scroller = useRef<HTMLDivElement>(null);
   const index = list.findIndex((x) => x.filmId === item.filmId);
   const prev = index > 0 ? list[index - 1] : null;
@@ -90,9 +92,13 @@ export function PressKitPreview({
                 <span className="font-semibold text-foreground">{details?.createdBy ?? film.director}</span>
               </p>
               {href ? (
-                <Button asChild className="px-6.5">
-                  <Link href={href}>{actionLabel(item)}</Link>
-                </Button>
+                // What the full press kit holds, so it's clear there's more than the pop-up shows.
+                <div className="flex flex-col items-end gap-1.5">
+                  <Button asChild className="px-6.5">
+                    <Link href={href}>{actionLabel(item)}</Link>
+                  </Button>
+                  {press && <p className="text-caption text-muted-foreground">{pressSummary(press)} in the press kit</p>}
+                </div>
               ) : (
                 // Director's notes documents open with the document editor.
                 <div className="flex flex-col items-end gap-1.5">

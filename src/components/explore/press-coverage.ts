@@ -10,6 +10,7 @@
 //    publications with editors. Each is linked, never copied, and has our one-word read of its
 //    verdict. No scores (Rotten Tomatoes' and IMDb's terms).
 //  • Articles add context: history, controversy, how a film did.
+import kits from "@/features/explore/press-kits.json";
 
 export type PressVideo = {
   /** The YouTube video id. */
@@ -22,7 +23,8 @@ export type PressVideo = {
 
 export type Verdict = "Positive" | "Mixed" | "Critical";
 export type PressPiece = { outlet: string; title: string; href: string };
-export type Review = PressPiece & { verdict: Verdict };
+// `verdict` is left out when the citing sentence doesn't make the critic's stance clear.
+export type Review = PressPiece & { verdict?: Verdict };
 
 export type PressCoverage = {
   videos: PressVideo[];
@@ -32,6 +34,8 @@ export type PressCoverage = {
   streaming?: string;
   /** Released in cinemas, so Box Office Mojo has its takings. */
   cinemaRelease?: boolean;
+  /** IMDb id, for the box office link when the title data has none (Wikidata). */
+  imdb?: string;
 };
 
 export const PRESS: Record<string, PressCoverage> = {
@@ -225,4 +229,8 @@ export const PRESS: Record<string, PressCoverage> = {
 // The Top 10 has "obsession-series"; the poster grid's "obsession" is the same show.
 PRESS.obsession = PRESS["obsession-series"];
 
-export const getPress = (id: string): PressCoverage | null => PRESS[id] ?? null;
+// Every other film and title's press kit, built by scripts/build-press-kits.mjs from Wikipedia's
+// cited reviews and official YouTube uploads, then checked by hand (Ika, 2026-10-28).
+const KITS = kits as unknown as Record<string, PressCoverage>;
+
+export const getPress = (id: string): PressCoverage | null => PRESS[id] ?? KITS[id] ?? null;

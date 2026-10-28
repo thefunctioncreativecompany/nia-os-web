@@ -260,6 +260,15 @@ Data:
   Add to project (saved as `film-<id>`, so films join collections and project references like
   any Explore title). The pop-up's "Open press kit" / "Open film page" now open it; director's
   notes documents stay greyed until documents open. The "4 new" pill on Recently added is gone.
+- (2026-10-28) Press kits for all of Explore (Ika): every title and film except creator films
+  has one, shown on title pages between Videos and You may also like, on film pages (now laid
+  out like a project page: video, title, Save / Add to project and summary left; Details and
+  Behind the production right; press kit full width below) and summarised beside the pop-up's
+  Open press kit button. 60 kits in `src/features/explore/press-kits.json` (92 videos, 214
+  reviews, 81 articles), built by `scripts/build-press-kits.mjs` (Wikipedia reception, official
+  YouTube uploads, Wikidata) plus searched reviews, checked by hand, applied with
+  `scripts/apply-press-kits.mjs`. Process and gaps: `docs/press-kits.md`. Run it for every new
+  Explore title.
 
 ## Working notes
 

@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button";
 import { DialogDescription } from "@/components/ui/dialog";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { getFilm } from "./explore-data";
-import { getFilmDetails, linksFor, type FilmDetails } from "./film-details";
+import { getFilmDetails, linksFor } from "./film-details";
 import { PosterArt } from "./poster-art";
 import { getPress, type PressCoverage, type PressVideo } from "./press-coverage";
 
-type PlayerVideo = { id: string; label: string; channel: string };
+export type PlayerVideo = { id: string; label: string; channel: string };
 
 // A film's press kit below its title, shared by the pop-up and the film's own page (Ika,
 // 2026-10-28): the official video (or a press-tour video once one is chosen), summary, facts,
@@ -58,7 +58,7 @@ export function PressKitBody({ filmId, inDialog = false }: { filmId: string; inD
           </dl>
 
           <div className="mt-8 flex flex-wrap gap-2.5">
-            {[...linksFor(details), ...pressLinks(film.title, details, press)].map((l) => (
+            {[...linksFor(details), ...pressLinks(film.title, details.imdb, press)].map((l) => (
               <Button key={l.label} variant="outline" size="md" asChild>
                 <a href={l.href} target="_blank" rel="noopener noreferrer">
                   {l.label}
@@ -86,8 +86,20 @@ export function PressKitBody({ filmId, inDialog = false }: { filmId: string; inD
 }
 
 // The film's still with a Play button; pressing it swaps in the YouTube player and starts it.
-// Nothing is loaded from YouTube until then.
-function FilmVideoPlayer({ filmId, title, video, autoPlay }: { filmId: string; title: string; video: PlayerVideo | null; autoPlay: boolean }) {
+// Nothing is loaded from YouTube until then. `className` sets the frame (the pop-up's by default).
+export function FilmVideoPlayer({
+  filmId,
+  title,
+  video,
+  autoPlay,
+  className = "mt-6.5 aspect-video rounded-2xl",
+}: {
+  filmId: string;
+  title: string;
+  video: PlayerVideo | null;
+  autoPlay: boolean;
+  className?: string;
+}) {
   const [playing, setPlaying] = useState(false);
   const film = getFilm(filmId);
   const box = useRef<HTMLDivElement>(null);
@@ -102,7 +114,7 @@ function FilmVideoPlayer({ filmId, title, video, autoPlay }: { filmId: string; t
   }, [autoPlay]);
 
   return (
-    <div ref={box} className="relative mt-6.5 aspect-video overflow-hidden rounded-2xl border border-border bg-foreground">
+    <div ref={box} className={`relative overflow-hidden border border-border bg-foreground ${className}`}>
       {playing && video ? (
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
@@ -146,23 +158,23 @@ function Fact({ term, children }: { term: string; children: React.ReactNode }) {
   );
 }
 
-/** Box office (for cinema releases) and where to watch, beside IMDb and the rest. */
-function pressLinks(title: string, details: FilmDetails, press: PressCoverage | null) {
+/** Box office (for cinema releases with an IMDb id) and where to watch, beside IMDb and the rest. */
+export function pressLinks(title: string, imdb: string | null, press: PressCoverage | null) {
   if (!press) return [];
   return [
-    press.cinemaRelease && { label: "Box office", href: `https://www.boxofficemojo.com/title/${details.imdb}/` },
+    press.cinemaRelease && imdb && { label: "Box office", href: `https://www.boxofficemojo.com/title/${imdb}/` },
     { label: "Where to watch", href: `https://www.justwatch.com/us/search?q=${encodeURIComponent(title)}` },
   ].filter((l): l is { label: string; href: string } => !!l);
 }
 
 // The press tour, what critics said and the context around the film.
-function PressSections({ press, playing, onChoose }: { press: PressCoverage; playing: string | null; onChoose: (video: PressVideo) => void }) {
+export function PressSections({ press, playing, onChoose }: { press: PressCoverage; playing: string | null; onChoose: (video: PressVideo) => void }) {
   return (
     <>
       {press.videos.length > 0 && (
         <section aria-labelledby="press-tour" className="mt-10">
           <h3 id="press-tour" className="text-subtitle font-bold tracking-tight text-foreground">Press tour</h3>
-          <p className="mt-1 text-small text-muted-foreground">Official videos first: the trailer, then interviews and featurettes from the studio and the press.</p>
+          <p className="mt-1 text-small text-muted-foreground">Interviews, featurettes and Q&As from the studios, festivals and the press, official uploads first.</p>
           <ul className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
             {press.videos.map((v) => (
               <li key={v.id}>
@@ -234,5 +246,53 @@ function OutRow({ href, outlet, title, tag }: { href: string; outlet: string; ti
       <ArrowUpRight aria-hidden className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
       <span className="sr-only"> (opens in a new tab)</span>
     </a>
+  );
+}
+
+/** What a press kit holds, in a line: "7 videos · 5 reviews · 1 article". */
+export function pressSummary(press: PressCoverage) {
+  const n = (count: number, one: string) => (count ? `${count} ${one}${count === 1 ? "" : "s"}` : null);
+  return [n(press.videos.length, "video"), n(press.reviews.length, "review"), n(press.articles.length, "article")].filter(Boolean).join(" · ");
+}
+
+// A full page's "Press kit" (Ika, 2026-10-28): links to box office and where to watch, then the
+// press tour, what critics said and context. Used by film pages and title pages.
+export function PressKitSection({
+  title,
+  imdb,
+  press,
+  playing,
+  onChoose,
+}: {
+  title: string;
+  imdb: string | null;
+  press: PressCoverage;
+  playing: string | null;
+  onChoose: (video: PressVideo) => void;
+}) {
+  const links = pressLinks(title, imdb, press);
+  return (
+    <section aria-labelledby="press-kit" className="flex flex-col">
+      <h2 id="press-kit" className="text-xl leading-[1.4] font-bold text-foreground">
+        Press kit <span className="text-micro font-normal text-muted-foreground">{pressSummary(press)}</span>
+      </h2>
+      <p className="mt-1 max-w-160 text-sm text-muted-foreground">
+        The press tour, what critics said and the context around the film, from the studios, festivals and publications themselves.
+      </p>
+      {links.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-2.5">
+          {links.map((l) => (
+            <Button key={l.label} variant="outline" size="md" asChild>
+              <a href={l.href} target="_blank" rel="noopener noreferrer">
+                {l.label}
+                <ArrowUpRight aria-hidden data-icon="inline-end" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </Button>
+          ))}
+        </div>
+      )}
+      <PressSections press={press} playing={playing} onChoose={onChoose} />
+    </section>
   );
 }

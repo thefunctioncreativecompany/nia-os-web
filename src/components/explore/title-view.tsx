@@ -14,6 +14,8 @@ import { ScrollRow } from "@/components/nia/scroll-row";
 import { LIBRARY_HREF, MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, findEntry, madeInAfrica, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
 import { similarItems } from "@/features/explore/match";
 import { ProductionNotes } from "./production-notes";
+import { PressKitSection } from "./press-kit-body";
+import { getPress } from "./press-coverage";
 import { recordView } from "@/features/explore/views";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { AddToProject, SaveToCollection } from "./save-controls";
@@ -64,6 +66,7 @@ export function TitleView({ entry }: { entry: Entry }) {
   };
 
   const imdb = imdbUrl(title);
+  const press = getPress(title.slug);
   const row = (label: string, value: React.ReactNode) => (
     <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-6">
       <dt className="w-28 shrink-0 pt-1.5 text-sm leading-[1.4] font-bold text-foreground">{label}</dt>
@@ -236,6 +239,18 @@ export function TitleView({ entry }: { entry: Entry }) {
             })}
           </ul>
         </section>
+      )}
+
+      {/* The press kit, between Videos and You may also like (Ika, 2026-10-28). Its videos play
+          in the trailer's place at the top. */}
+      {press && (
+        <PressKitSection
+          title={title.title}
+          imdb={title.imdb_id ?? press.imdb ?? null}
+          press={press}
+          playing={playing ? (video?.video_id ?? null) : null}
+          onChoose={(v) => play({ provider: "youtube", video_id: v.id, kind: "clip", label: v.kind, channel: v.channel, is_official: true, is_primary: false, season_id: null })}
+        />
       )}
 
       <section aria-labelledby="also-like" className="flex flex-col gap-4">
