@@ -242,6 +242,18 @@ Data:
   Nickel Boys and Capernaum (Explore all), with official trailers and TMDB posters. Atlantique
   was already there as Atlantics. The 53 creator films from the same day have no `added` day.
   Explore's Latest projects row is hidden (`features.exploreLatestShown`) until it works.
+- (2026-10-28) Press kits as a source of information (Ika): the Top 10 press kits gather the
+  press tour on video (official trailer first, then interviews and featurettes from the studio,
+  streamer, festival or a major outlet, then established critics' video reviews), "What critics
+  said" (a spread of reviews from edited publications, praise and criticism alike, each with our
+  one-word read: Positive, Mixed or Critical; linked, never copied, no scores) and Context
+  articles, plus Box office (Box Office Mojo, cinema releases) and Where to watch (JustWatch).
+  Choosing a video plays it in the main player. Data in `src/components/explore/press-coverage.ts`;
+  `node scripts/find-press-videos.mjs "<search>"` lists YouTube results with verified channels and
+  whether each may be embedded. Some publications (Guardian, NYT, Vulture, New Yorker) couldn't be
+  searched from here; add them by hand. Fixed: Scream's trailer was the 2022 film's (now
+  Miramax's 1996 one); Obsession now has Netflix's official trailer. Next: press kits for the
+  other titles. Not in Figma yet: Press tour, What critics said, Context.
 
 ## Working notes
 

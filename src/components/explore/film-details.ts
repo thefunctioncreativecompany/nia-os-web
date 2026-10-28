@@ -46,8 +46,8 @@ const OBSESSION: FilmDetails = {
   basedOn: "Damage by Josephine Hart",
   country: "United Kingdom",
   summary: "A respected surgeon falls into an all-consuming affair with the woman his son is about to marry.",
-  // Netflix's own upload couldn't be found; only copies on other channels.
-  video: null,
+  // Netflix's own upload, found 2026-10-28.
+  video: { id: "QparPBLUeEI", label: "Official trailer", channel: "Netflix" },
   imdb: "tt18831118",
   rottenTomatoes: "tv/obsession_2023",
   wikipedia: "Obsession (2023 TV series)",
@@ -211,7 +211,8 @@ export const FILM_DETAILS: Record<string, FilmDetails> = {
     starring: ["Neve Campbell", "Courteney Cox", "David Arquette", "Skeet Ulrich", "Drew Barrymore"],
     country: "United States",
     summary: "A year after her mother's murder, a teenager is hunted by a masked killer who knows every rule of horror films.",
-    video: { id: "U0LETmDvuXc", label: "Official trailer", channel: "Paramount Movies" },
+    // Wes Craven's 1996 film, from Miramax (Paramount's upload is the 2022 film's trailer).
+    video: { id: "i3J6ACKQ7K0", label: "Official trailer", channel: "Miramax" },
     imdb: "tt0117571",
     rottenTomatoes: "m/1074316-scream",
     wikipedia: "Scream (1996 film)",
