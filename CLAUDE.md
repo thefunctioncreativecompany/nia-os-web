@@ -391,6 +391,10 @@ Projects × Explore (Ika, 2026-10-21)
   Meta's oEmbed API); reconcile the paste field, draft pop-up and reference page into Figma.
 
 Explore: creator film shapes and order (Ika, 2026-10-22)
+- [x] 53 more creator films from Ika's list (2026-10-28): 72 in all, read from each post's
+  public page and written up by hand (titles, summaries, credits); they use the newer types
+  (Fashion Film, Campaign, Social Content, Editorial, Lookbook). To check in normal Chrome: the
+  three `/p/` posts play (CLKPHqopjJn, DR5FZaLiWM1, DcKR_wJnAe3).
 - [x] Made in Africa sits above Creators on Explore.
 - [x] Films show at their true frame shape everywhere (Ika: shape is how filmmakers judge work;
   never a 4:3 in 9:16 or the reverse). `aspect` in `creators.ts` is the picture's shape without
@@ -533,4 +537,6 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261027000000_feature_waitlist.sql`, `20261031000000_collections_references.sql`, `20261031010000_collections_remove.sql`,
 `20261101000000_explore_access.sql`, `20261102000000_marketplace_access.sql`, `20261104000000_project_instagram_references.sql`,
 `20261105000000_feedback.sql`, `20261105010000_more_production_types.sql`,
-`20261106000000_project_details_crew.sql`.
+`20261106000000_project_details_crew.sql`; also `20261028000000_plans.sql`,
+`20261029000000_marketplace_waitlist.sql` and `20261103000000_explore_views.sql` (found run,
+2026-10-28). Not run: `20261030000000_explore_made_in_africa.sql` (Explore reads sample data).
