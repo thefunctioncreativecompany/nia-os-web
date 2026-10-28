@@ -221,7 +221,8 @@ const REGIONS: Record<string, string> = {
   "South Africa": "africa", Nigeria: "africa", Kenya: "africa", Senegal: "africa", Lesotho: "africa", Mauritania: "africa", Zambia: "africa",
   Sudan: "africa", Chad: "africa", "DR Congo": "africa", Egypt: "africa", Morocco: "africa", Ghana: "africa", Rwanda: "africa", Benin: "africa",
   Tunisia: "africa", "United Kingdom": "europe", Belgium: "europe", Netherlands: "europe", France: "europe", "United States": "north-america",
-  Canada: "north-america", Japan: "asia", Taiwan: "asia", Indonesia: "asia", "United Arab Emirates": "middle-east", Australia: "oceania",
+  Canada: "north-america", Japan: "asia", Taiwan: "asia", Indonesia: "asia", "United Arab Emirates": "middle-east", Lebanon: "middle-east",
+  "Saudi Arabia": "middle-east", Australia: "oceania",
 };
 const era = (year: number | null) => (!year ? null : year >= 2020 ? "2020s" : year >= 2010 ? "2010s" : year >= 2000 ? "2000s" : "before-2000");
 const frame = (aspect: number) => (aspect < 0.7 ? "vertical" : aspect < 1.2 ? "near-square" : aspect < 1.5 ? "four-three" : "widescreen");

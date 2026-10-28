@@ -1743,6 +1743,121 @@
           "is_primary": true
         }
       ]
+    },
+    {
+      "slug": "the-heart-is-a-muscle",
+      "collection": "interior-lives",
+      "title": "The Heart Is a Muscle",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
+      "year": 2025,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Imran Hamdulay",
+      "platform": "Indigenous Film Distribution",
+      "recognition": "Berlinale 2025, Panorama; South Africa's entry for the 98th Academy Awards",
+      "pair_with": "Tsotsi (Hood)",
+      "study_note": "A father's violent search for his missing son, and the masculinity that drives it; Imran Hamdulay's debut feature",
+      "added": "2026-10-28",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "8X129RPMmOM",
+          "kind": "trailer",
+          "channel": "Indigenous Film Distribution",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "jerusalema",
+      "collection": "genre-reimagined",
+      "title": "Gangster's Paradise: Jerusalema",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "year": 2008,
+      "countries": [
+        "South Africa"
+      ],
+      "credit": "Ralph Ziman",
+      "recognition": "Berlinale 2008, Panorama; South Africa's entry for the 81st Academy Awards",
+      "pair_with": "City of God (Meirelles)",
+      "study_note": "Hillbrow's building hijacks seen from the inside, inspired by true events; Johannesburg's 1990s on a crime-epic scale",
+      "added": "2026-10-28",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "t6EohBg3QoY",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "nickel-boys",
+      "collection": "explore-all",
+      "title": "Nickel Boys",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Historical"
+      ],
+      "year": 2024,
+      "countries": [
+        "United States"
+      ],
+      "credit": "RaMell Ross",
+      "platform": "Amazon MGM Studios",
+      "recognition": "Academy Award nominee, Best Picture and Best Adapted Screenplay; premiered at Telluride 2024",
+      "pair_with": "Son of Saul (Nemes)",
+      "study_note": "Colson Whitehead's novel shot almost entirely in first person by Jomo Fray: the camera is the boys' eyes",
+      "added": "2026-10-28",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "-2qZ429rUZw",
+          "kind": "trailer",
+          "channel": "Amazon MGM Studios",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "capernaum",
+      "collection": "explore-all",
+      "title": "Capernaum",
+      "type": "film",
+      "genres": [
+        "Drama"
+      ],
+      "year": 2018,
+      "countries": [
+        "Lebanon"
+      ],
+      "credit": "Nadine Labaki",
+      "platform": "Sony Pictures Classics",
+      "recognition": "Cannes 2018 Jury Prize; Academy Award nominee, Best Foreign Language Film",
+      "pair_with": "Pixote (Babenco)",
+      "study_note": "A non-professional cast found on Beirut's streets, filmed at a child's eye level over months to catch real behaviour",
+      "added": "2026-10-28",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "ULUo0048xZE",
+          "kind": "trailer",
+          "channel": "Sony Pictures Classics",
+          "is_primary": true
+        }
+      ]
     }
   ],
   "categories": [

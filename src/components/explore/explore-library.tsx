@@ -12,6 +12,9 @@ import { DirectorsNotes } from "./directors-notes";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory, getFilm, type CategoryItem, type Film } from "./explore-data";
 import { LatestStrips } from "./latest-strips";
+import { RecentlyAddedStrip } from "./recently-added-strip";
+import type { Added } from "@/features/explore/recent";
+import { features } from "@/lib/features";
 import { MadeInAfricaStrip } from "./made-in-africa-strip";
 import { PosterArt } from "./poster-art";
 import { PressKitPreview } from "./press-kit-preview";
@@ -28,7 +31,7 @@ const ODD_OFFSET = -60;
 // Explore, the library: Ika's Claude Design "ExploreLibrary" as designed (layout, motion, images),
 // in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts. The
 // rows under By category come in a new order on each visit (`seed`, Ika 2026-10-22).
-export function ExploreLibrary({ seed }: { seed: number }) {
+export function ExploreLibrary({ seed, recent }: { seed: number; recent: Added[] }) {
   const [chip, setChip] = useState<(typeof CHIPS)[number]>("All");
   const [sort, setSort] = useState<Sort>("popular");
 
@@ -70,11 +73,12 @@ export function ExploreLibrary({ seed }: { seed: number }) {
         <ChevronRight aria-hidden className="size-5" strokeWidth={2} />
       </div>
 
+      <RecentlyAddedStrip added={recent} />
       <MadeInAfricaStrip seed={seed} />
       <CreatorsStrip seed={seed} />
       <EpkLanes category={getCategory("epk")} />
       <DirectorsNotes category={getCategory("notes")} />
-      <LatestStrips category={getCategory("latest")} />
+      {features.exploreLatestShown && <LatestStrips category={getCategory("latest")} />}
     </div>
   );
 }

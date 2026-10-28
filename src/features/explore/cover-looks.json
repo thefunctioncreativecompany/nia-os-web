@@ -242,6 +242,10 @@
   "cool-palette",
   "low-key"
  ],
+ "capernaum": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "dahomey": [
   "vivid-colour",
   "warm-palette",
@@ -313,6 +317,10 @@
  "inxeba": [
   "warm-palette"
  ],
+ "jerusalema": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "kandasamys-the-baby": [
   "vivid-colour",
   "warm-palette"
@@ -336,6 +344,10 @@
  "neptune-frost": [
   "warm-palette",
   "bright-airy"
+ ],
+ "nickel-boys": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "on-becoming-a-guinea-fowl": [
   "vivid-colour",
@@ -378,6 +390,11 @@
  ],
  "the-burial-of-kojo": [
   "cool-palette"
+ ],
+ "the-heart-is-a-muscle": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "the-mother-of-all-lies": [
   "vivid-colour",

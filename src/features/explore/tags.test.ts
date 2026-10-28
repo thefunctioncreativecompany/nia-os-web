@@ -70,3 +70,14 @@ describe('matching', () => {
     expect(like).toEqual(['creator-Ddab8atTDEs']);
   });
 });
+
+describe('recently added', () => {
+  const at = (day: string) => Date.parse(`${day}T12:00:00Z`);
+  it('keeps a title in the row for 7 days', async () => {
+    const { recentlyAdded } = await import('./recent');
+    expect(recentlyAdded(at('2026-10-28')).map((x) => x.slug)).toContain('nickel-boys');
+    expect(recentlyAdded(at('2026-11-03')).map((x) => x.slug)).toContain('nickel-boys');
+    expect(recentlyAdded(at('2026-11-04')).map((x) => x.slug)).not.toContain('nickel-boys');
+    expect(recentlyAdded(at('2026-10-27'))).toEqual([]);
+  });
+});

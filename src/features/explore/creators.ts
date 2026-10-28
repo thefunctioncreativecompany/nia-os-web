@@ -28,6 +28,8 @@ export type CreatorFilm = {
   frame?: number;
   /** When it was posted. */
   date: string;
+  /** The day it joined Explore (YYYY-MM-DD), for "Recently added on Explore" (recent.ts). */
+  added?: string;
   country: string | null;
   summary: string;
   credits: Credit[];

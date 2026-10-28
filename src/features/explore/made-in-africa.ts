@@ -22,6 +22,8 @@ type RawTitle = {
   recognition?: string;
   pair_with: string;
   study_note: string;
+  /** The day it joined Explore (YYYY-MM-DD), for "Recently added on Explore" (recent.ts). */
+  added?: string;
   imdb_id?: string;
   pinned_season?: number;
   videos?: RawVideo[];
@@ -88,6 +90,9 @@ const ENTRIES: (Entry & { category: string })[] = (raw.titles as RawTitle[]).map
   const collection = COLLECTIONS.get(t.collection)!;
   return { title: toTitle(t), collection, category: collection.category, pinnedSeason: t.pinned_season ?? null, grain: GRAINS[i % GRAINS.length] };
 });
+
+/** When each title joined Explore, for the ones that say (recent.ts). */
+export const titleAddedOn = new Map((raw.titles as RawTitle[]).flatMap((t) => (t.added ? [[t.slug, t.added] as const] : [])));
 
 export const MADE_IN_AFRICA = raw.categories.find((c) => c.slug === "made-in-africa")!;
 

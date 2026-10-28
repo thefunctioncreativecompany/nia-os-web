@@ -129,5 +129,9 @@ export const HAND_TAGS: Record<string, string[]> = {
   "the-brave-ones": ["myth", "revenge", "women", "youth", "identity", "vfx", "mysterious", "tense", "dreamlike", "local-language", "streaming"],
   unseen: ["women", "crime", "family", "revenge", "city-streets", "home", "tense", "mysterious", "raw", "gritty", "streaming", "interiors"],
   marked: ["crime", "money", "family", "city-streets", "roads", "cars", "tense", "gritty", "energetic", "moody", "streaming"],
+  "the-heart-is-a-muscle": ["family", "identity", "crime", "community", "city-streets", "home", "close-ups", "natural-light", "tense", "raw", "intimate", "local-language", "cinema"],
+  jerusalema: ["crime", "money", "city-streets", "township", "history", "true-story", "ensemble", "handheld", "gritty", "tense", "energetic", "local-language", "cinema"],
+  "nickel-boys": ["history", "politics", "friendship", "coming-of-age", "school", "period-setting", "adaptation", "close-ups", "long-takes", "intimate", "melancholy", "painterly", "cinema"],
+  capernaum: ["family", "youth", "city-streets", "money", "politics", "non-actors", "handheld", "natural-light", "close-ups", "raw", "gritty", "melancholy", "cinema"],
   "lobola-man": ["love", "family", "money", "community", "identity", "city-streets", "ensemble", "playful", "joyful", "local-language", "streaming"],
 };

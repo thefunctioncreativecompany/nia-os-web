@@ -11,4 +11,7 @@ export const features = {
   // Marketplace is hidden for now (Ika, 2026-10-23): no tab in the navbar or dock, and its
   // addresses go to Home (next.config.ts). The pages and code stay; flip to true to bring it back.
   marketplaceShown: false,
+  // Explore's Latest projects row is hidden until it works (Ika, 2026-10-28). The code stays in
+  // src/components/explore/latest-strips.tsx; flip to true to bring it back.
+  exploreLatestShown: false,
 } as const;

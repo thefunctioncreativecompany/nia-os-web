@@ -240,5 +240,25 @@
   "source": "TMDB",
   "tmdb": "tv/220932",
   "image": "https://image.tmdb.org/t/p/original/uY6eh9Ax8wSTPIP9odpcoSCbbav.jpg"
+ },
+ "nickel-boys": {
+  "source": "TMDB",
+  "tmdb": "movie/1028196",
+  "image": "https://image.tmdb.org/t/p/original/lu2vmmtStmTNMmSZl2LgrrQpLZo.jpg"
+ },
+ "capernaum": {
+  "source": "TMDB",
+  "tmdb": "movie/517814",
+  "image": "https://image.tmdb.org/t/p/original/cqkqrIDzvkFRWVbRRQLqtkXQoPu.jpg"
+ },
+ "the-heart-is-a-muscle": {
+  "source": "TMDB",
+  "tmdb": "movie/1418520",
+  "image": "https://image.tmdb.org/t/p/original/9Z3GHCiaqzy7lcTv1L2iggGF7Kb.jpg"
+ },
+ "jerusalema": {
+  "source": "TMDB",
+  "tmdb": "movie/22600",
+  "image": "https://image.tmdb.org/t/p/original/fVmlqgIyHjEsONDcaFiP8jBdqvU.jpg"
  }
 }

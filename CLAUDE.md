@@ -234,6 +234,14 @@ Data:
   strongest reasons on each card. Taste (`taste.ts`) comes from what they open, save and add to
   projects, plus their profession; View all pages have a "For you" sort. No migration. Not in
   Figma yet: Production notes, the reason line on cards, the tag chip.
+- (2026-10-28) "Recently added on Explore" (Ika): the first row under By category, showing
+  whatever joined Explore in the last 7 days, newest first, each card saying the day it was
+  added; the row hides itself when nothing is that new. A title or creator film joins it when
+  given an `added` day (`made-in-africa.json`, `creators.ts`; `src/features/explore/recent.ts`).
+  First four: The Heart Is a Muscle and Gangster's Paradise: Jerusalema (Made in Africa, now 52),
+  Nickel Boys and Capernaum (Explore all), with official trailers and TMDB posters. Atlantique
+  was already there as Atlantics. The 53 creator films from the same day have no `added` day.
+  Explore's Latest projects row is hidden (`features.exploreLatestShown`) until it works.
 
 ## Working notes
 
