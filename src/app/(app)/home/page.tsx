@@ -5,9 +5,7 @@ import { Inbox } from "lucide-react";
 
 import { getCurrentUser } from "@/lib/auth";
 import { getSession } from "@/lib/supabase/session";
-import { catalog, getSchema } from "@/features/templates/catalog";
-import { canEdit } from "@/features/templates/engine/sections";
-import { toGallery } from "@/features/templates/gallery";
+import { workingGallery } from "@/features/templates/working";
 import { listActivity, listProjects } from "@/lib/projects-data";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -15,6 +13,7 @@ import { EmptyState } from "@/components/nia/empty-state";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { ActivityFeed } from "@/components/home/activity-feed";
 import { HomeTemplates } from "@/components/home/home-templates";
+import { NewTemplatesNotice } from "@/components/home/new-templates-notice";
 import { ImportFilesDialog } from "@/components/home/import-files-dialog";
 import { WelcomeTourLoader } from "@/components/home/welcome-tour-loader";
 import { ProjectGrid } from "@/components/projects/project-grid";
@@ -22,10 +21,6 @@ import { ProjectGrid } from "@/components/projects/project-grid";
 export const metadata: Metadata = {
   title: "Home · Nia OS",
 };
-
-// "Start from a template" (H4): the live catalogue with `ready` for the ones that open in the
-// editor; the row offers only those, ordered in the browser by what the person viewed last.
-const TEMPLATES = catalog.filter((t) => t.status === "live").map((t) => ({ ...toGallery(t), ready: canEdit(getSchema(t.code)) }));
 
 // Home (Figma 872:42636 empty, 872:42800 active), without the old stat cards.
 export default function Page() {
@@ -41,7 +36,11 @@ export default function Page() {
         <p className="text-lead text-muted-foreground">What would you like to create today?</p>
       </header>
 
-      <HomeTemplates templates={TEMPLATES} />
+      <Suspense fallback={null}>
+        <TemplateNews />
+      </Suspense>
+
+      <Templates />
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         <h2 id="recent-projects" className="text-xl leading-[1.4] font-bold text-foreground">
@@ -95,6 +94,22 @@ export default function Page() {
 async function Tour() {
   const [{ user }, current] = await Promise.all([getSession(), getCurrentUser()]);
   return <WelcomeTourLoader firstName={current.name.split(" ")[0]} firstVisit={user?.metadata.tour_pending === true} />;
+}
+
+// New templates, announced once (launches.ts): until the person uses one or closes the card, or
+// it stops being new. Not while the welcome tour is about to open.
+async function TemplateNews() {
+  const [{ user }, templates] = await Promise.all([getSession(), workingGallery()]);
+  if (!user || user.metadata.tour_pending) return null;
+  const announced = user.metadata.templates_announced ?? [];
+  const fresh = templates.filter((t) => t.fresh && !announced.includes(t.code));
+  return fresh.length ? <NewTemplatesNotice templates={fresh} announced={announced} /> : null;
+}
+
+// "Start from a template" (H4): the working templates, ordered in the browser by what the person
+// viewed last.
+async function Templates() {
+  return <HomeTemplates templates={await workingGallery()} />;
 }
 
 async function Welcome() {

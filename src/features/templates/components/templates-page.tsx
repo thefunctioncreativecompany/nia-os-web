@@ -17,6 +17,7 @@ import { SuggestedRow } from "@/features/templates/components/showcase-rows";
 import { CategorySections } from "@/features/templates/components/category-sections";
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
 import { MyDrafts } from "@/features/templates/components/my-drafts";
+import { JustAdded } from "@/features/templates/components/just-added";
 import { FilterChip } from "@/components/nia/filter-bar";
 
 const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1fr))] gap-3.5";
@@ -161,6 +162,8 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
         </section>
       ) : (
         <>
+          {/* New templates lead while they're new (launches.ts). */}
+          <JustAdded templates={templates} onPreview={(t) => openPreview(t, templates.filter((x) => x.fresh))} onUse={use} className="px-4 pt-7.5 pb-6 md:px-11" />
           {/* Documents you started and haven't put in a project (audit #3). */}
           <MyDrafts icons={icons} />
           {/* Phones: the suggested templates lead (Apple Music style). */}

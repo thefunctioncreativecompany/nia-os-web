@@ -210,6 +210,17 @@ Data:
   added there and become references when the project is created. More genres (free text) and
   production types (database rule: needs `20261105010000_more_production_types.sql` before the
   new types can be saved).
+- (2026-10-28) Templates show only the ones that fully work (Ika): 9 of 63 (Call Sheet, Crew
+  Contact List, Invoice, Shotlist, Filming Notice, Equipment Rental Log, 3-Column AV Script,
+  Continuity Log, Shot Logging Sheet). `catalog` (`src/features/templates/catalog.ts`) is the
+  working ones only, so Templates, Home, search, From Template and "What's next" follow; the
+  other 54 stay in the manifest and are built one per session. When one is built, add it to
+  `src/features/templates/launches.ts` with the day it goes live and what it does "for you" and
+  "for your team". For 30 days it gets the gold "New" marker (`NewMarker`), leads Templates in
+  "Just added", and is announced once on Home (closing or using it records the code in
+  `templates_announced` in the sign-in metadata; no migration). The first nine (2026-10-19) are
+  the starting set and never marked new. Every preview shows the for-you and for-your-team lines.
+  Not in Figma yet: reconcile Just added, the Home card and the marker.
 
 ## Working notes
 

@@ -8,6 +8,7 @@ import { toast } from "sonner";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
+import { NewMarker } from "@/components/nia/new-marker";
 import { works, type GalleryTemplate } from "@/features/templates/gallery";
 import { workingSuggestions } from "@/features/templates/recommend";
 import { useHoverIntent } from "@/features/templates/use-hover-intent";
@@ -31,8 +32,12 @@ export function HomeTemplates({ templates }: { templates: GalleryTemplate[] }) {
   const [open, setOpen] = useState<GalleryTemplate | null>(null);
   const quietUntil = useRef(0);
 
-  // Only templates that work (Ika, 2026-10-19): recently viewed first, then suggested, then the rest.
-  const shown = learning.ready ? workingSuggestions(templates, learning.profile, SHOWN).map((s) => s.template) : [];
+  // Only templates that work (Ika, 2026-10-19): new ones first, then recently viewed, suggested,
+  // and the rest.
+  const fresh = templates.filter((t) => t.fresh);
+  const shown = learning.ready
+    ? [...fresh, ...workingSuggestions(templates, learning.profile, SHOWN).map((s) => s.template).filter((t) => !t.fresh)].slice(0, SHOWN)
+    : [];
 
   useEffect(() => {
     const idle = window.requestIdleCallback ?? ((run: () => void) => window.setTimeout(run, 1500));
@@ -101,7 +106,10 @@ function TemplateTile({ template: t, onOpen }: { template: GalleryTemplate; onOp
       </span>
       <span className="min-w-0">
         <span className="block truncate text-sm leading-[1.4] font-bold text-foreground">{t.name}</span>
-        <span className="block truncate text-small text-muted-foreground">{t.stage}</span>
+        <span className="flex items-center gap-2 truncate text-small text-muted-foreground">
+          {t.fresh && <NewMarker />}
+          {t.stage}
+        </span>
       </span>
     </button>
   );

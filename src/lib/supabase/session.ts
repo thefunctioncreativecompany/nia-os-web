@@ -7,7 +7,14 @@ import { createClient } from "@/lib/supabase/server";
 export type SessionUser = {
   id: string;
   email: string;
-  metadata: { full_name?: string; avatar_url?: string; onboarded?: boolean; tour_pending?: boolean };
+  metadata: {
+    full_name?: string;
+    avatar_url?: string;
+    onboarded?: boolean;
+    tour_pending?: boolean;
+    /** New templates already announced on Home (launches.ts). */
+    templates_announced?: string[];
+  };
 };
 
 // The signed-in person and one Supabase client, shared by everything on a page (layout, navbar,

@@ -4,7 +4,7 @@ import { catalog, getSchema, getTemplate } from "./catalog";
 import { relatedTemplates } from "./recommend";
 import { toGallery, type GalleryTemplate } from "./gallery";
 import type { TemplateDetails, TemplateSchema } from "./types";
-import { canEdit } from "./engine/sections";
+import { workingGallery } from "./working";
 
 export type TemplatePreview = {
   details: TemplateDetails;
@@ -30,12 +30,10 @@ export async function loadTemplatePreview(code: string): Promise<TemplatePreview
 // The templates that open in the editor today, for "From Template" in the New Project dialog.
 // Public catalogue data, so no sign-in check is needed.
 export async function loadWorkingTemplates(): Promise<GalleryTemplate[]> {
-  return catalog.filter((t) => t.status === "live" && canEdit(getSchema(t.code))).map((t) => ({ ...toGallery(t), ready: true }));
+  return workingGallery();
 }
 
-// Every live template, small, for the navbar search (audit #14). Public catalogue data.
+// Every working template, small, for the navbar search (audit #14). Public catalogue data.
 export async function loadTemplateIndex(): Promise<{ code: string; name: string; stage: string; icon: string; keywords: string[]; ready: boolean }[]> {
-  return catalog
-    .filter((t) => t.status === "live")
-    .map((t) => ({ code: t.code, name: t.name, stage: t.stage, icon: t.icon, keywords: t.keywords.slice(0, 8), ready: canEdit(getSchema(t.code)) }));
+  return catalog.map((t) => ({ code: t.code, name: t.name, stage: t.stage, icon: t.icon, keywords: t.keywords.slice(0, 8), ready: true }));
 }

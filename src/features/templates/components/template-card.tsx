@@ -8,6 +8,7 @@ import { COMING_SOON, works, type GalleryTemplate } from "@/features/templates/g
 import { useHoverIntent } from "@/features/templates/use-hover-intent";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { MiniMap } from "@/features/templates/components/mini-map";
+import { NewMarker } from "@/components/nia/new-marker";
 
 // The large Showcase card (TEMPLATES_BUILD.md §2, prototype TemplateCard): title and stage
 // above a flat 16:11 card with the template's icon, its one-line description, and a mini
@@ -37,11 +38,11 @@ export function TemplateCard({
   return (
     <div className={cn("w-140 max-w-[calc(100vw-2rem)] shrink-0 snap-start", className)}>
       <div className="mb-3">
-        {badge && (
+        {badge ? (
           <span className="mb-1.5 inline-block rounded-full border border-foreground px-2 py-0.5 text-micro font-semibold">
             {badge}
           </span>
-        )}
+        ) : template.fresh && <NewMarker className="mb-1.5" />}
         <h3 className="text-title font-semibold text-foreground">{template.name}</h3>
         <p className="mt-0.5 text-lead text-muted-foreground">{template.stage}</p>
       </div>

@@ -67,6 +67,12 @@ export type GalleryTemplate = Pick<
 > & {
   /** Opens in the editor today (set on the server). Others are greyed out as "Coming soon". */
   ready?: boolean;
+  /** What it does for the person using it, and for their team (launches.ts). */
+  forYou?: string;
+  forTeam?: string;
+  /** The day it went live, and whether it's still new (launches.ts; set on the server). */
+  launched?: string;
+  fresh?: boolean;
 };
 
 /** Whether "Use this template" works for it yet (Ika, 2026-10-19: grey out the rest). */
