@@ -68,10 +68,11 @@ export function ExploreLibrary({ seed, recent }: { seed: number; recent: Added[]
 
       <ExploreAllGrid films={films} />
 
-      <div className="mt-14 flex items-center gap-3">
-        <h2 className="text-h3 font-semibold text-foreground">By category</h2>
-        <ChevronRight aria-hidden className="size-5" strokeWidth={2} />
-      </div>
+      {/* Opens every category on one page, each shown or hidden by its heading. */}
+      <Link href="/explore/categories" className="group mt-14 flex w-fit items-center gap-3 rounded-md outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+        <h2 className="text-h3 font-semibold text-foreground group-hover:underline group-hover:underline-offset-4">By category</h2>
+        <ChevronRight aria-hidden className="size-5 transition-transform duration-fast group-hover:translate-x-0.5" strokeWidth={2} />
+      </Link>
 
       <RecentlyAddedStrip added={recent} />
       <MadeInAfricaStrip seed={seed} />

@@ -11,12 +11,12 @@ import { PressKitPreview } from "./press-kit-preview";
 // Top 10 press kits as one still row, number 1 on the left to 10 on the right (Ika, 2026-10-21;
 // it was five columns that scrolled on their own). Swipe, scroll or use the arrows. Choosing a
 // card opens its press-kit preview.
-export function EpkLanes({ category }: { category: Category }) {
+export function EpkLanes({ category, bare = false }: { category: Category; bare?: boolean }) {
   const [open, setOpen] = useState<CategoryItem | null>(null);
 
   return (
-    <section aria-labelledby={`${category.id}-title`} className="mt-12">
-      <h3 id={`${category.id}-title`} className="mb-4 text-subtitle font-semibold text-foreground">
+    <section aria-labelledby={`${category.id}-title`} className={bare ? undefined : "mt-12"}>
+      <h3 id={`${category.id}-title`} className={bare ? "sr-only" : "mb-4 text-subtitle font-semibold text-foreground"}>
         {category.title}
       </h3>
       <ScrollRow label={category.title}>

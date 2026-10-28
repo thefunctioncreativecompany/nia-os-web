@@ -277,6 +277,8 @@ export const FILM_DETAILS: Record<string, FilmDetails> = {
 };
 
 export const getFilmDetails = (id: string): FilmDetails | null => FILM_DETAILS[id] ?? null;
+/** A film's own page: its press kit in full (Ika, 2026-10-28). */
+export const filmHref = (id: string) => `/explore/film/${id}`;
 
 // "2 h 5 min", "7 episodes".
 export function lengthOf(d: FilmDetails) {

@@ -18,7 +18,7 @@ const MAX_TILT = 8;
 // Top 10 director's notes as a ranked list; choosing a row opens the film's preview. Pointing at a row brings it forward, greys the others
 // and shows the film's poster beside the pointer, leaning with the pointer's speed. Keyboard focus
 // (and reduced motion) shows the same poster, standing still beside the row.
-export function DirectorsNotes({ category }: { category: Category }) {
+export function DirectorsNotes({ category, bare = false }: { category: Category; bare?: boolean }) {
   const reduce = useReducedMotion();
   const [active, setActive] = useState<string | null>(null);
   const [openItem, setOpenItem] = useState<CategoryItem | null>(null);
@@ -56,9 +56,9 @@ export function DirectorsNotes({ category }: { category: Category }) {
       aria-labelledby={`${category.id}-title`}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
-      className="relative mt-16"
+      className={bare ? "relative" : "relative mt-16"}
     >
-      <h3 id={`${category.id}-title`} className="mb-3 text-subtitle font-semibold text-foreground">
+      <h3 id={`${category.id}-title`} className={bare ? "sr-only" : "mb-3 text-subtitle font-semibold text-foreground"}>
         {category.title}
       </h3>
       <div aria-hidden className="flex gap-4 border-b border-border px-2 py-3 text-caption font-medium text-muted-foreground max-md:hidden">

@@ -14,26 +14,32 @@ const SHOWN = 15;
 // Made in Africa on Explore (Ika, 2026-10-21): 15 titles as equal cards in one still row, like the
 // Top 10 press kits (without numbers), and View all for the full category. A different 15 on each
 // visit (Ika, 2026-10-22).
-export function MadeInAfricaStrip({ seed }: { seed: number }) {
+export function MadeInAfricaStrip({ seed, bare = false }: { seed: number; bare?: boolean }) {
   return (
-    <section aria-labelledby="made-in-africa-title" className="mt-7">
-      <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
-        <div className="min-w-0">
-          <div className="flex items-center gap-1">
-            <h3 id="made-in-africa-title" className="text-subtitle font-semibold text-foreground">
-              {MADE_IN_AFRICA.name}
-            </h3>
-            <TmdbCredit />
+    <section aria-labelledby="made-in-africa-title" className={bare ? undefined : "mt-7"}>
+      {bare ? (
+        <h3 id="made-in-africa-title" className="sr-only">
+          {MADE_IN_AFRICA.name}
+        </h3>
+      ) : (
+        <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
+          <div className="min-w-0">
+            <div className="flex items-center gap-1">
+              <h3 id="made-in-africa-title" className="text-subtitle font-semibold text-foreground">
+                {MADE_IN_AFRICA.name}
+              </h3>
+              <TmdbCredit />
+            </div>
+            <p className="mt-1 max-w-160 text-sm text-muted-foreground">{MADE_IN_AFRICA.description}</p>
           </div>
-          <p className="mt-1 max-w-160 text-sm text-muted-foreground">{MADE_IN_AFRICA.description}</p>
+          <Button variant="outline" asChild>
+            <Link href={MADE_IN_AFRICA_HREF}>
+              View all {madeInAfrica.length}
+              <ArrowRight aria-hidden data-icon="inline-end" />
+            </Link>
+          </Button>
         </div>
-        <Button variant="outline" asChild>
-          <Link href={MADE_IN_AFRICA_HREF}>
-            View all {madeInAfrica.length}
-            <ArrowRight aria-hidden data-icon="inline-end" />
-          </Link>
-        </Button>
-      </div>
+      )}
       <ScrollRow label={MADE_IN_AFRICA.name}>
         {shuffled(madeInAfrica, seed).slice(0, SHOWN).map((e) => (
           <li key={e.title.slug} className="w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[18%]">

@@ -3,11 +3,13 @@
 // references store the item's slug; this turns it back into a card.
 import { coverFor, findEntry, metaLine, titleHref } from "./made-in-africa";
 import { rankForProject, type ProjectSignals, type Taste } from "./match";
+import { getFilm } from "@/components/explore/explore-data";
+import { filmHref, getFilmDetails } from "@/components/explore/film-details";
 import { creatorFilms, creatorHref, creatorImage, creatorYear, findCreatorFilm, leadCredit } from "./creators";
 
 export type ExploreItem = {
   slug: string;
-  kind: "title" | "creator";
+  kind: "title" | "creator" | "film";
   title: string;
   /** Who made it. */
   credit: string;
@@ -26,7 +28,26 @@ export type ExploreItem = {
 // Creator films have no grain of their own; these sit behind a picture while it loads.
 const CREATOR_GRAINS = ["grain-2", "grain-5", "grain-8", "grain-11"] as const;
 
+/** A press-kit film as an Explore item: `film-<id>`, so it can't clash with a title's slug. */
+export const filmSlug = (id: string) => `film-${id}`;
+
 export function exploreItem(slug: string): ExploreItem | null {
+  if (slug.startsWith("film-")) {
+    const id = slug.slice(5);
+    const details = getFilmDetails(id);
+    if (!details) return null;
+    const film = getFilm(id);
+    return {
+      slug,
+      kind: "film",
+      title: film.title,
+      credit: details.createdBy ?? film.director,
+      meta: [details.kind, details.year, details.country].filter(Boolean).join(" · "),
+      image: film.posterUrl,
+      grain: "grain-3",
+      href: () => filmHref(id),
+    };
+  }
   const entry = findEntry(slug);
   if (entry) {
     return {

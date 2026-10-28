@@ -254,6 +254,12 @@ Data:
   searched from here; add them by hand. Fixed: Scream's trailer was the 2022 film's (now
   Miramax's 1996 one); Obsession now has Netflix's official trailer. Next: press kits for the
   other titles. Not in Figma yet: Press tour, What critics said, Context.
+- (2026-10-28) Explore fixes (Ika): "By category ›" opens `/explore/categories`, every category
+  under a heading that shows or hides it (Show all / Hide all). Each press-kit film has its own
+  page, `/explore/film/<id>` (`FilmView`, sharing `PressKitBody` with the pop-up), with Save and
+  Add to project (saved as `film-<id>`, so films join collections and project references like
+  any Explore title). The pop-up's "Open press kit" / "Open film page" now open it; director's
+  notes documents stay greyed until documents open. The "4 new" pill on Recently added is gone.
 
 ## Working notes
 
@@ -490,8 +496,6 @@ Future fixes (2026-10-22, from the sound and film session)
 - ElevenLabs plan: check it allows commercial use before publishing the films.
 
 Next session (Ika, 2026-10-21, asked for, not started)
-- A full-screen "By category" view (from the "By category ›" heading): every category, each
-  under a heading that shows or hides it.
 - The link preview video lives on branch `link-preview-draft`, left out until Ika picks a direction.
 - Collections: `20261031000000_collections_references.sql` run (2026-10-21); run
   `20261031010000_collections_remove.sql` run; `20261101000000_explore_access.sql` and
