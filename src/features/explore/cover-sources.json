@@ -260,5 +260,80 @@
   "source": "TMDB",
   "tmdb": "movie/22600",
   "image": "https://image.tmdb.org/t/p/original/fVmlqgIyHjEsONDcaFiP8jBdqvU.jpg"
+ },
+ "the-wizard-of-oz": {
+  "source": "Wikimedia Commons",
+  "file": "WIZARD OF OZ ORIGINAL POSTER 1939.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/WIZARD%20OF%20OZ%20ORIGINAL%20POSTER%201939.jpg"
+ },
+ "casablanca": {
+  "source": "Wikimedia Commons",
+  "file": "CasablancaPoster-Gold.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/CasablancaPoster-Gold.jpg"
+ },
+ "its-a-wonderful-life": {
+  "source": "Wikimedia Commons",
+  "file": "It's a Wonderful Life (1946 poster).jpeg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/It's%20a%20Wonderful%20Life%20(1946%20poster).jpeg"
+ },
+ "all-about-eve": {
+  "source": "Wikimedia Commons",
+  "file": "All About Eve (1950 poster - retouch).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/All%20About%20Eve%20(1950%20poster%20-%20retouch).jpg"
+ },
+ "singin-in-the-rain": {
+  "source": "Wikimedia Commons",
+  "file": "Singin' in the Rain (1952 poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Singin'%20in%20the%20Rain%20(1952%20poster).jpg"
+ },
+ "roman-holiday": {
+  "source": "Wikimedia Commons",
+  "file": "Roman Holiday (1953 poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Roman%20Holiday%20(1953%20poster).jpg"
+ },
+ "rebel-without-a-cause": {
+  "source": "Wikimedia Commons",
+  "file": "Rebel Without a Cause (1955 poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Rebel%20Without%20a%20Cause%20(1955%20poster).jpg"
+ },
+ "the-searchers": {
+  "source": "Wikimedia Commons",
+  "file": "SearchersPoster-BillGold.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/SearchersPoster-BillGold.jpg"
+ },
+ "vertigo": {
+  "source": "Wikimedia Commons",
+  "file": "Vertigomovie.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vertigomovie.jpg"
+ },
+ "some-like-it-hot": {
+  "source": "Wikimedia Commons",
+  "file": "Some Like It Hot (1959 poster).png",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Some%20Like%20It%20Hot%20(1959%20poster).png"
+ },
+ "imitation-of-life": {
+  "source": "Wikimedia Commons",
+  "file": "Imitation of Life 1959 poster.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Imitation%20of%20Life%201959%20poster.jpg"
+ },
+ "psycho": {
+  "source": "Wikimedia Commons",
+  "file": "Psycho (1960) theatrical poster (retouched).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Psycho%20(1960)%20theatrical%20poster%20(retouched).jpg"
+ },
+ "lawrence-of-arabia": {
+  "source": "Wikimedia Commons",
+  "file": "Lawrence of arabia ver3 xxlg.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Lawrence%20of%20arabia%20ver3%20xxlg.jpg"
+ },
+ "to-kill-a-mockingbird": {
+  "source": "Wikimedia Commons",
+  "file": "To Kill a Mockingbird (1963 US theatrical poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/To%20Kill%20a%20Mockingbird%20(1963%20US%20theatrical%20poster).jpg"
+ },
+ "bonnie-and-clyde": {
+  "source": "Wikimedia Commons",
+  "file": "Bonnie and Clyde (1967 teaser poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bonnie%20and%20Clyde%20(1967%20teaser%20poster).jpg"
  }
 }

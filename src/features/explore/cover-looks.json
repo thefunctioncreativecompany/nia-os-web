@@ -219,6 +219,11 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "all-about-eve": [
+  "muted-colour",
+  "warm-palette",
+  "bright-airy"
+ ],
  "anikulapo": [
   "vivid-colour",
   "warm-palette",
@@ -242,8 +247,16 @@
   "cool-palette",
   "low-key"
  ],
+ "bonnie-and-clyde": [
+  "warm-palette",
+  "bright-airy"
+ ],
  "capernaum": [
   "vivid-colour",
+  "warm-palette"
+ ],
+ "casablanca": [
+  "muted-colour",
   "warm-palette"
  ],
  "dahomey": [
@@ -306,6 +319,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "imitation-of-life": [
+  "warm-palette",
+  "bright-airy"
+ ],
  "inumber-number-jozi-gold": [
   "vivid-colour",
   "warm-palette"
@@ -317,6 +334,10 @@
  "inxeba": [
   "warm-palette"
  ],
+ "its-a-wonderful-life": [
+  "warm-palette",
+  "bright-airy"
+ ],
  "jerusalema": [
   "vivid-colour",
   "warm-palette"
@@ -326,6 +347,11 @@
   "warm-palette"
  ],
  "kings-of-joburg": [],
+ "lawrence-of-arabia": [
+  "muted-colour",
+  "warm-palette",
+  "bright-airy"
+ ],
  "lingui-the-sacred-bonds": [
   "vivid-colour",
   "warm-palette"
@@ -353,6 +379,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "psycho": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "pumzi": [],
  "queen-sono": [
   "warm-palette",
@@ -361,6 +391,14 @@
  "rafiki": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "rebel-without-a-cause": [
+  "warm-palette"
+ ],
+ "roman-holiday": [
+  "vivid-colour",
+  "warm-palette",
+  "bright-airy"
  ],
  "saloum": [
   "muted-colour"
@@ -384,6 +422,13 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "singin-in-the-rain": [
+  "bright-airy"
+ ],
+ "some-like-it-hot": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "the-brave-ones": [
   "vivid-colour",
   "warm-palette"
@@ -404,12 +449,23 @@
   "warm-palette",
   "low-key"
  ],
+ "the-searchers": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "the-wizard-of-oz": [
+  "warm-palette"
+ ],
  "this-is-not-a-burial": [
   "vivid-colour",
   "cool-palette",
   "low-key"
  ],
  "timbuktu": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "to-kill-a-mockingbird": [
   "vivid-colour",
   "warm-palette"
  ],
@@ -420,5 +476,9 @@
   "vivid-colour",
   "warm-palette"
  ],
- "unseen": []
+ "unseen": [],
+ "vertigo": [
+  "vivid-colour",
+  "warm-palette"
+ ]
 }

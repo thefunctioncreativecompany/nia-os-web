@@ -42,6 +42,8 @@ const nextConfig: NextConfig = {
       { source: "/dashboard", destination: "/home", permanent: true },
       // "Preview Explore" before early access opened Explore itself (Ika, 2026-10-21).
       { source: "/explore/preview", destination: "/explore", permanent: false },
+      // By category now lives on Explore itself (Ika, 2026-10-29).
+      { source: "/explore/categories", destination: "/explore#by-category", permanent: false },
       // Marketplace is hidden for now (Ika, 2026-10-23).
       ...(features.marketplaceShown ? [] : [{ source: "/marketplace/:path*", destination: "/home", permanent: false }]),
     ];

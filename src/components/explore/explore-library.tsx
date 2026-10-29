@@ -7,15 +7,11 @@ import { ChevronRight } from "lucide-react";
 import { DriftColumns } from "@/components/nia/drift-columns";
 import { ChipMenu, FilterChip } from "@/components/nia/filter-bar";
 import { LIBRARY_HREF } from "@/features/explore/made-in-africa";
-import { CreatorsStrip } from "./creators-strip";
-import { DirectorsNotes } from "./directors-notes";
-import { EpkLanes } from "./epk-lanes";
 import { getCategory, getFilm, type CategoryItem, type Film } from "./explore-data";
 import { LatestStrips } from "./latest-strips";
-import { RecentlyAddedStrip } from "./recently-added-strip";
+import { CategorySections } from "./explore-categories";
 import type { Added } from "@/features/explore/recent";
 import { features } from "@/lib/features";
-import { MadeInAfricaStrip } from "./made-in-africa-strip";
 import { PosterArt } from "./poster-art";
 import { PressKitPreview } from "./press-kit-preview";
 
@@ -68,17 +64,8 @@ export function ExploreLibrary({ seed, recent }: { seed: number; recent: Added[]
 
       <ExploreAllGrid films={films} />
 
-      {/* Opens every category on one page, each shown or hidden by its heading. */}
-      <Link href="/explore/categories" className="group mt-14 flex w-fit items-center gap-3 rounded-md outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-        <h2 className="text-h3 font-semibold text-foreground group-hover:underline group-hover:underline-offset-4">By category</h2>
-        <ChevronRight aria-hidden className="size-5 transition-transform duration-fast group-hover:translate-x-0.5" strokeWidth={2} />
-      </Link>
-
-      <RecentlyAddedStrip added={recent} />
-      <MadeInAfricaStrip seed={seed} />
-      <CreatorsStrip seed={seed} />
-      <EpkLanes category={getCategory("epk")} />
-      <DirectorsNotes category={getCategory("notes")} />
+      {/* Every category under a heading that shows or hides it (Ika, 2026-10-29). */}
+      <CategorySections seed={seed} recent={recent} />
       {features.exploreLatestShown && <LatestStrips category={getCategory("latest")} />}
     </div>
   );

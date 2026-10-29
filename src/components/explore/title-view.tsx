@@ -11,7 +11,7 @@ import { attribution, embedUrl, imdbUrl, pickSeason, primaryVideo, videoName, wa
 import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { ScrollRow } from "@/components/nia/scroll-row";
-import { LIBRARY_HREF, MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, findEntry, madeInAfrica, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
+import { LIBRARY_HREF, MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, findEntry, sameCategory, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
 import { similarItems } from "@/features/explore/match";
 import { ProductionNotes } from "./production-notes";
 import { PressKitSection } from "./press-kit-body";
@@ -258,7 +258,7 @@ export function TitleView({ entry }: { entry: Entry }) {
           You may also like
         </h2>
         <ScrollRow label="You may also like">
-          {similarItems(title.slug, madeInAfrica.map((e) => e.title.slug)).map((slug) => findEntry(slug)!).map((e) => (
+          {similarItems(title.slug, sameCategory(entry).map((e) => e.title.slug)).map((slug) => findEntry(slug)!).map((e) => (
             <li key={e.title.slug} className="w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[16%]">
               <TitleCard entry={e} href={titleHref(e.title.slug, from)} sizes="(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw" />
             </li>

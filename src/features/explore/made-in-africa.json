@@ -47,6 +47,18 @@
       "category": "explore-all",
       "name": "Explore all",
       "description": "International films and series."
+    },
+    {
+      "slug": "studio-era",
+      "category": "hollywood-classics",
+      "name": "The studio era",
+      "description": "1939 to 1959: the studios' stars, sets and storytelling at their height."
+    },
+    {
+      "slug": "new-hollywood",
+      "category": "hollywood-classics",
+      "name": "New Hollywood",
+      "description": "1960 to 1979: directors break the old rules, on location and in colour."
     }
   ],
   "titles": [
@@ -1858,6 +1870,885 @@
           "is_primary": true
         }
       ]
+    },
+    {
+      "slug": "the-wizard-of-oz",
+      "collection": "studio-era",
+      "title": "The Wizard of Oz",
+      "type": "film",
+      "genres": [
+        "Fantasy",
+        "Musical",
+        "Family"
+      ],
+      "year": 1939,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Victor Fleming",
+      "recognition": "Academy Awards for Best Original Song and Best Original Score",
+      "pair_with": "Neptune Frost (Williams, Uzeyman)",
+      "study_note": "Sepia Kansas gives way to three-strip Technicolor Oz: colour as the story's turning point",
+      "added": "2026-10-29",
+      "imdb_id": "tt0032138",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "njdreZRjvpc",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "citizen-kane",
+      "collection": "studio-era",
+      "title": "Citizen Kane",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Mystery"
+      ],
+      "year": 1941,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Orson Welles",
+      "recognition": "Academy Award for Best Original Screenplay",
+      "pair_with": "The Mother of All Lies (El Moudir)",
+      "study_note": "Gregg Toland's deep focus and low angles; a life pieced together from other people's memories",
+      "added": "2026-10-29",
+      "imdb_id": "tt0033467",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "8dxh3lwdOFw",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-maltese-falcon",
+      "collection": "studio-era",
+      "title": "The Maltese Falcon",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Mystery",
+        "Thriller"
+      ],
+      "year": 1941,
+      "countries": [
+        "United States"
+      ],
+      "credit": "John Huston",
+      "recognition": "Three Academy Award nominations, including Best Picture",
+      "pair_with": "Hounds (Lazraq)",
+      "study_note": "Hard-boiled dialogue and low-key light that set the pattern for film noir",
+      "added": "2026-10-29",
+      "imdb_id": "tt0033870",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "Yv-BPuqhW9U",
+          "kind": "trailer",
+          "channel": "Warner Bros. Entertainment",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "casablanca",
+      "collection": "studio-era",
+      "title": "Casablanca",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "year": 1942,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Michael Curtiz",
+      "recognition": "Academy Awards for Best Picture, Director and Screenplay",
+      "pair_with": "Atlantics (Diop)",
+      "study_note": "A studio-built Morocco, shadowed close-ups and a script rewritten during the shoot",
+      "added": "2026-10-29",
+      "imdb_id": "tt0034583",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "BkL9l7qovsE",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "its-a-wonderful-life",
+      "collection": "studio-era",
+      "title": "It's a Wonderful Life",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Family"
+      ],
+      "year": 1946,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Frank Capra",
+      "recognition": "Five Academy Award nominations, including Best Picture",
+      "pair_with": "How to Ruin Christmas (Ramaphakela)",
+      "study_note": "A whole town's life told in flashback, on a snowbound set built for a summer shoot",
+      "added": "2026-10-29",
+      "imdb_id": "tt0038650",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "iLR3gZrU2Xo",
+          "kind": "trailer",
+          "channel": "Paramount Movies",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "all-about-eve",
+      "collection": "studio-era",
+      "title": "All About Eve",
+      "type": "film",
+      "genres": [
+        "Drama"
+      ],
+      "year": 1950,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Joseph L. Mankiewicz",
+      "recognition": "Six Academy Awards from 14 nominations, including Best Picture and Director",
+      "pair_with": "Savage Beauty (Netflix)",
+      "study_note": "A backstage rivalry carried by dialogue and several voice-over narrators",
+      "added": "2026-10-29",
+      "imdb_id": "tt0042192",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "uRjKPLH2OaQ",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "sunset-boulevard",
+      "collection": "studio-era",
+      "title": "Sunset Boulevard",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
+      "year": 1950,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Billy Wilder",
+      "recognition": "Academy Award for Best Story and Screenplay",
+      "pair_with": "Network (Lumet)",
+      "study_note": "Hollywood looking at itself: a dead narrator, a forgotten silent star and a decaying mansion",
+      "added": "2026-10-29",
+      "imdb_id": "tt0043014",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "_dY0SVxnHjQ",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "singin-in-the-rain",
+      "collection": "studio-era",
+      "title": "Singin' in the Rain",
+      "type": "film",
+      "genres": [
+        "Musical",
+        "Comedy",
+        "Romance"
+      ],
+      "year": 1952,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Gene Kelly, Stanley Donen",
+      "recognition": "Two Academy Award nominations",
+      "pair_with": "Félicité (Gomis)",
+      "study_note": "Dance staged for the camera; the move from silent films to sound played as comedy",
+      "added": "2026-10-29",
+      "imdb_id": "tt0045152",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "5_EVHeNEIJY",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "roman-holiday",
+      "collection": "studio-era",
+      "title": "Roman Holiday",
+      "type": "film",
+      "genres": [
+        "Romance",
+        "Comedy"
+      ],
+      "year": 1953,
+      "countries": [
+        "United States"
+      ],
+      "credit": "William Wyler",
+      "recognition": "Academy Awards for Best Actress (Audrey Hepburn) and Best Story",
+      "pair_with": "Lobola Man (Moleya)",
+      "study_note": "Shot on location in Rome, rare for a studio picture of its time",
+      "added": "2026-10-29",
+      "imdb_id": "tt0046250",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "ELb4S8P3q20",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "on-the-waterfront",
+      "collection": "studio-era",
+      "title": "On the Waterfront",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "year": 1954,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Elia Kazan",
+      "recognition": "Eight Academy Awards, including Best Picture, Director and Actor (Marlon Brando)",
+      "pair_with": "Eyimofe (Esiri)",
+      "study_note": "Method acting on the real Hoboken docks; the taxi-cab scene",
+      "added": "2026-10-29",
+      "imdb_id": "tt0047296",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "vOdYAXOfLMc",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "carmen-jones",
+      "collection": "studio-era",
+      "title": "Carmen Jones",
+      "type": "film",
+      "genres": [
+        "Musical",
+        "Drama",
+        "Romance"
+      ],
+      "year": 1954,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Otto Preminger",
+      "recognition": "Dorothy Dandridge became the first Black woman nominated for the Academy Award for Best Actress",
+      "pair_with": "Félicité (Gomis)",
+      "study_note": "Bizet's opera reset with an all-Black cast, in CinemaScope colour",
+      "added": "2026-10-29",
+      "imdb_id": "tt0046828"
+    },
+    {
+      "slug": "rebel-without-a-cause",
+      "collection": "studio-era",
+      "title": "Rebel Without a Cause",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Coming of Age"
+      ],
+      "year": 1955,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Nicholas Ray",
+      "recognition": "Three Academy Award nominations",
+      "pair_with": "Blood & Water (Dumisa)",
+      "study_note": "Wide CinemaScope colour turned on teenage anguish; James Dean's defining role",
+      "added": "2026-10-29",
+      "imdb_id": "tt0048545",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "AnQ5CPEMjPI",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-searchers",
+      "collection": "studio-era",
+      "title": "The Searchers",
+      "type": "film",
+      "genres": [
+        "Adventure",
+        "Drama"
+      ],
+      "year": 1956,
+      "countries": [
+        "United States"
+      ],
+      "credit": "John Ford",
+      "recognition": "Named the greatest American western by the American Film Institute (2008)",
+      "pair_with": "Five Fingers for Marseilles (Matthews)",
+      "study_note": "Monument Valley in VistaVision; the doorway shots that open and close the film",
+      "added": "2026-10-29",
+      "imdb_id": "tt0049730",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "ii_7QnXPQxA",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "vertigo",
+      "collection": "studio-era",
+      "title": "Vertigo",
+      "type": "film",
+      "genres": [
+        "Mystery",
+        "Thriller",
+        "Romance"
+      ],
+      "year": 1958,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Alfred Hitchcock",
+      "recognition": "Voted the greatest film of all time in Sight and Sound's 2012 critics' poll",
+      "pair_with": "Fatal Seduction (Netflix)",
+      "study_note": "The dolly zoom; colour, especially green, as obsession; Saul Bass's titles",
+      "added": "2026-10-29",
+      "imdb_id": "tt0052357",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "Z5jvQwwHQNY",
+          "kind": "trailer",
+          "channel": "Movieclips",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "some-like-it-hot",
+      "collection": "studio-era",
+      "title": "Some Like It Hot",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Romance",
+        "Crime"
+      ],
+      "year": 1959,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Billy Wilder",
+      "recognition": "Academy Award for Best Costume Design",
+      "pair_with": "Seriously Single (Netflix)",
+      "study_note": "Shot in black and white so the drag make-up would read; comic timing held in long takes",
+      "added": "2026-10-29",
+      "imdb_id": "tt0053291",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "97TYs2YXbJw",
+          "kind": "trailer",
+          "channel": "Amazon MGM Studios",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "imitation-of-life",
+      "collection": "studio-era",
+      "title": "Imitation of Life",
+      "type": "film",
+      "genres": [
+        "Drama"
+      ],
+      "year": 1959,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Douglas Sirk",
+      "recognition": "Academy Award nominations for Juanita Moore and Susan Kohner",
+      "pair_with": "Black Girl (Sembène)",
+      "study_note": "Melodrama as social critique: colour, mirrors and a funeral finale",
+      "added": "2026-10-29",
+      "imdb_id": "tt0052918",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "HaanE7v6uJI",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "psycho",
+      "collection": "new-hollywood",
+      "title": "Psycho",
+      "type": "film",
+      "genres": [
+        "Horror",
+        "Thriller",
+        "Mystery"
+      ],
+      "year": 1960,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Alfred Hitchcock",
+      "recognition": "Four Academy Award nominations",
+      "pair_with": "Saloum (Herbulot)",
+      "study_note": "Killing off the star halfway through; the shower scene's rapid cutting and Bernard Herrmann's strings",
+      "added": "2026-10-29",
+      "imdb_id": "tt0054215",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "DTJQfFQ40lI",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "west-side-story",
+      "collection": "new-hollywood",
+      "title": "West Side Story",
+      "type": "film",
+      "genres": [
+        "Musical",
+        "Romance",
+        "Drama"
+      ],
+      "year": 1961,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Robert Wise, Jerome Robbins",
+      "recognition": "Ten Academy Awards, including Best Picture",
+      "pair_with": "Rafiki (Kahiu)",
+      "study_note": "Gang conflict as dance on real New York streets; colour-coded light",
+      "added": "2026-10-29",
+      "imdb_id": "tt0055614",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "HpKbrpPiExA",
+          "kind": "trailer",
+          "channel": "Amazon MGM Studios",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "lawrence-of-arabia",
+      "collection": "new-hollywood",
+      "title": "Lawrence of Arabia",
+      "type": "film",
+      "genres": [
+        "Adventure",
+        "Historical",
+        "Biography"
+      ],
+      "year": 1962,
+      "countries": [
+        "United Kingdom",
+        "United States"
+      ],
+      "credit": "David Lean",
+      "recognition": "Seven Academy Awards, including Best Picture and Director",
+      "pair_with": "Timbuktu (Sissako)",
+      "study_note": "Desert vistas in Super Panavision 70; the cut from a blown-out match to the sunrise",
+      "added": "2026-10-29",
+      "imdb_id": "tt0056172",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "vOlRhGEhG7k",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "to-kill-a-mockingbird",
+      "collection": "new-hollywood",
+      "title": "To Kill a Mockingbird",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Coming of Age",
+        "Crime"
+      ],
+      "year": 1962,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Robert Mulligan",
+      "recognition": "Academy Awards for Best Actor (Gregory Peck) and Adapted Screenplay",
+      "pair_with": "The Burial of Kojo (Bazawule)",
+      "study_note": "A novel adapted through a child's eyes; the courtroom as the film's moral centre",
+      "added": "2026-10-29",
+      "imdb_id": "tt0056592",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "KR7loA_oziY",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "in-the-heat-of-the-night",
+      "collection": "new-hollywood",
+      "title": "In the Heat of the Night",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "year": 1967,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Norman Jewison",
+      "recognition": "Academy Awards for Best Picture and Best Actor (Rod Steiger)",
+      "pair_with": "Umthetho (Netflix)",
+      "study_note": "Racial tension built into a murder procedural; Haskell Wexler's lighting for Sidney Poitier",
+      "added": "2026-10-29",
+      "imdb_id": "tt0061811",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "d15DhX_ltls",
+          "kind": "trailer",
+          "channel": "Amazon MGM Studios",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-graduate",
+      "collection": "new-hollywood",
+      "title": "The Graduate",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance",
+        "Coming of Age"
+      ],
+      "year": 1967,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Mike Nichols",
+      "recognition": "Academy Award for Best Director",
+      "pair_with": "Touki Bouki (Mambéty)",
+      "study_note": "Long lenses that trap Benjamin in the frame; Simon & Garfunkel songs as narration",
+      "added": "2026-10-29",
+      "imdb_id": "tt0061722",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "6KnSucVko1s",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "bonnie-and-clyde",
+      "collection": "new-hollywood",
+      "title": "Bonnie and Clyde",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Biography",
+        "Drama"
+      ],
+      "year": 1967,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Arthur Penn",
+      "recognition": "Academy Awards for Best Supporting Actress (Estelle Parsons) and Cinematography",
+      "pair_with": "iNumber Number (Marsh)",
+      "study_note": "New Hollywood's break with the old code: violence, sex and abrupt editing",
+      "added": "2026-10-29",
+      "imdb_id": "tt0061418",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "hZpm1zj9510",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "2001-a-space-odyssey",
+      "collection": "new-hollywood",
+      "title": "2001: A Space Odyssey",
+      "type": "film",
+      "genres": [
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "year": 1968,
+      "countries": [
+        "United Kingdom",
+        "United States"
+      ],
+      "credit": "Stanley Kubrick",
+      "recognition": "Academy Award for Best Visual Effects",
+      "pair_with": "Pumzi (Kahiu)",
+      "study_note": "Front projection, practical effects and long silences; the bone-to-satellite match cut",
+      "added": "2026-10-29",
+      "imdb_id": "tt0062622",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "oR_e9y-bka0",
+          "kind": "trailer",
+          "channel": "Warner Bros.",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-godfather",
+      "collection": "new-hollywood",
+      "title": "The Godfather",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "year": 1972,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Francis Ford Coppola",
+      "recognition": "Academy Awards for Best Picture, Actor (Marlon Brando) and Adapted Screenplay",
+      "pair_with": "Kings of Jo'burg (Ferguson)",
+      "study_note": "Gordon Willis's top-lit darkness; the baptism cross-cut with the killings",
+      "added": "2026-10-29",
+      "imdb_id": "tt0068646",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "UaVTIH8mujA",
+          "kind": "trailer",
+          "channel": "Paramount Pictures",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "jaws",
+      "collection": "new-hollywood",
+      "title": "Jaws",
+      "type": "film",
+      "genres": [
+        "Thriller",
+        "Adventure",
+        "Horror"
+      ],
+      "year": 1975,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Steven Spielberg",
+      "recognition": "Three Academy Awards (editing, score and sound); the first summer blockbuster",
+      "pair_with": "Mami Wata (Obasi)",
+      "study_note": "A broken mechanical shark turned into suspense: the threat mostly unseen, John Williams's two notes",
+      "added": "2026-10-29",
+      "imdb_id": "tt0073195",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "U1fu_sA7XhE",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "taxi-driver",
+      "collection": "new-hollywood",
+      "title": "Taxi Driver",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "year": 1976,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Martin Scorsese",
+      "recognition": "Palme d'Or, Cannes 1976",
+      "pair_with": "Shadow (Crocker)",
+      "study_note": "New York at night through a disturbed narrator; Bernard Herrmann's last score",
+      "added": "2026-10-29",
+      "imdb_id": "tt0075314",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "T5IligQP7Fo",
+          "kind": "trailer",
+          "channel": "Sony Pictures Entertainment",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "network",
+      "collection": "new-hollywood",
+      "title": "Network",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "year": 1976,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Sidney Lumet",
+      "recognition": "Four Academy Awards, three of them for acting",
+      "pair_with": "Sunset Boulevard (Wilder)",
+      "study_note": "Paddy Chayefsky's satire of television, delivered in long, theatrical speeches",
+      "added": "2026-10-29",
+      "imdb_id": "tt0074958",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "1cSGvqQHpjs",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "star-wars",
+      "collection": "new-hollywood",
+      "title": "Star Wars",
+      "type": "film",
+      "genres": [
+        "Sci-Fi",
+        "Adventure",
+        "Fantasy"
+      ],
+      "year": 1977,
+      "countries": [
+        "United States"
+      ],
+      "credit": "George Lucas",
+      "recognition": "Six Academy Awards",
+      "pair_with": "Children of Blood and Bone (Prince-Bythewood)",
+      "study_note": "A lived-in, used-future world built from models, production design and sound design",
+      "added": "2026-10-29",
+      "imdb_id": "tt0076759",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "vZ734NWnAHA",
+          "kind": "trailer",
+          "channel": "Star Wars",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "apocalypse-now",
+      "collection": "new-hollywood",
+      "title": "Apocalypse Now",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Historical"
+      ],
+      "year": 1979,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Francis Ford Coppola",
+      "recognition": "Palme d'Or, Cannes 1979",
+      "pair_with": "Sew the Winter to My Skin (Qubeka)",
+      "study_note": "A troubled shoot in the Philippines; Vittorio Storaro's colour and Walter Murch's sound design",
+      "added": "2026-10-29",
+      "imdb_id": "tt0078788",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "9l-ViOOFH-s",
+          "kind": "trailer",
+          "channel": "StudiocanalUK",
+          "is_primary": true
+        }
+      ]
     }
   ],
   "categories": [
@@ -1870,6 +2761,11 @@
       "slug": "explore-all",
       "name": "Explore all",
       "description": "The broader Explore library: international titles outside Made in Africa."
+    },
+    {
+      "slug": "hollywood-classics",
+      "name": "Hollywood Classics",
+      "description": "Hollywood's defining films from 1939 to 1979, each paired with a title on Explore that shares its craft."
     }
   ]
 }

@@ -8,20 +8,21 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CREATORS, CREATORS_HREF, creatorFilms } from "@/features/explore/creators";
-import { MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, exploreHome, madeInAfrica } from "@/features/explore/made-in-africa";
+import { HOLLYWOOD_CLASSICS, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, hollywoodClassics, madeInAfrica } from "@/features/explore/made-in-africa";
 import { RECENT_DAYS, type Added } from "@/features/explore/recent";
 import { CreatorsStrip } from "./creators-strip";
 import { DirectorsNotes } from "./directors-notes";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory } from "./explore-data";
+import { HollywoodClassicsStrip } from "./hollywood-classics-strip";
 import { MadeInAfricaStrip } from "./made-in-africa-strip";
 import { RecentlyAddedStrip } from "./recently-added-strip";
 
 type Section = { id: string; name: string; description: string; count: string; href?: string; row: React.ReactNode };
 
-// By category, in full (Ika, 2026-10-21; built 2026-10-28): every Explore category, each under a
-// heading that shows or hides it, opened from "By category ›" on Explore. All start open.
-export function ExploreCategories({ seed, recent }: { seed: number; recent: Added[] }) {
+// By category on Explore (Ika, 2026-10-21; on the Explore page itself since 2026-10-29): every
+// category under a heading that shows or hides it, with Show all / Hide all. All start open.
+export function CategorySections({ seed, recent }: { seed: number; recent: Added[] }) {
   const epk = getCategory("epk");
   const notes = getCategory("notes");
   const sections: Section[] = [
@@ -29,6 +30,7 @@ export function ExploreCategories({ seed, recent }: { seed: number; recent: Adde
       ? [{ id: "recent", name: "Recently added on Explore", description: `Titles and films added in the last ${RECENT_DAYS} days.`, count: `${recent.length} ${recent.length === 1 ? "title" : "titles"}`, row: <RecentlyAddedStrip added={recent} bare /> }]
       : []),
     { id: "made-in-africa", name: MADE_IN_AFRICA.name, description: MADE_IN_AFRICA.description, count: `${madeInAfrica.length} titles`, href: MADE_IN_AFRICA_HREF, row: <MadeInAfricaStrip seed={seed} bare /> },
+    { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, description: HOLLYWOOD_CLASSICS.description, count: `${hollywoodClassics.length} titles`, row: <HollywoodClassicsStrip bare /> },
     { id: "creators", name: CREATORS.name, description: CREATORS.description, count: `${creatorFilms.length} films`, href: CREATORS_HREF, row: <CreatorsStrip seed={seed} bare /> },
     { id: "epk", name: epk.title, description: "Each film's official trailer, press tour, what critics said and context.", count: `${epk.items.length} films`, row: <EpkLanes category={epk} bare /> },
     { id: "notes", name: notes.title, description: "The documents behind well-known productions.", count: `${notes.items.length} documents`, row: <DirectorsNotes category={notes} bare /> },
@@ -43,21 +45,19 @@ export function ExploreCategories({ seed, recent }: { seed: number; recent: Adde
     });
 
   return (
-    <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-7.5 lg:pt-12.5">
-      <Link
-        href={exploreHome()}
-        className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
-      >
-        ← Back to Explore
-      </Link>
-      <h1 className="mt-8 text-h2 font-semibold tracking-tight text-foreground">By category</h1>
-      <div className="mt-6 flex flex-wrap gap-2">
-        <Button variant="outline" size="compact" onClick={() => setOpen(new Set(sections.map((s) => s.id)))}>
-          Show all
-        </Button>
-        <Button variant="outline" size="compact" onClick={() => setOpen(new Set())}>
-          Hide all
-        </Button>
+    <section aria-labelledby="by-category" className="mt-14 scroll-mt-24">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h2 id="by-category" className="text-h3 font-semibold text-foreground">
+          By category
+        </h2>
+        <div className="flex flex-wrap gap-2">
+          <Button variant="outline" size="compact" onClick={() => setOpen(new Set(sections.map((s) => s.id)))}>
+            Show all
+          </Button>
+          <Button variant="outline" size="compact" onClick={() => setOpen(new Set())}>
+            Hide all
+          </Button>
+        </div>
       </div>
 
       <div className="mt-8 flex flex-col divide-y divide-border border-y border-border">
@@ -87,6 +87,6 @@ export function ExploreCategories({ seed, recent }: { seed: number; recent: Adde
           </Collapsible>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

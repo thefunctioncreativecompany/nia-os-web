@@ -276,6 +276,15 @@ Data:
   (Supabase → Authentication → Passwords); replace the Explore invite code in the SQL Editor
   (the old one is in git history); update the privacy policy. Full notes were given in the
   session, not kept in this public repo.
+- (2026-10-29) Hollywood Classics (Ika): a new Explore category of 30 films, 1939 to 1979, in
+  two collections (The studio era, New Hollywood), shown in release order, each with a "pair
+  with" title on Explore and a "what to study" note, official trailers (Carmen Jones has none
+  yet) and tags. 15 posters are public-domain ones from Wikimedia Commons; the other 15 show the
+  typographic cover until a `TMDB_API_KEY` is added (`scripts/find-title-assets.mjs` then
+  fetches them through TMDB's API; TMDB's website must not be scraped). By category now sits on
+  the Explore page itself: each category under a heading that shows or hides it, Show all /
+  Hide all; `/explore/categories` redirects there. Title pages' "You may also like" draws from
+  the title's own category.
 
 ## Working notes
 

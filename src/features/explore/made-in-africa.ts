@@ -32,7 +32,7 @@ type RawTitle = {
 
 export type Collection = { slug: string; name: string; description: string };
 /** A title as listed in a collection: its season pin and a stand-in look for when it has no cover. */
-export type Entry = { title: Title; collection: Collection; pinnedSeason: number | null; grain: Grain };
+export type Entry = { title: Title; collection: Collection; pinnedSeason: number | null; grain: Grain; category: string };
 
 // Every Made in Africa title's cover (Ika, 2026-10-21: official covers in high resolution), in
 // public/explore/made-in-africa/<slug>.jpg, up to 1600 wide. Mami Wata, This Is Not a Burial,
@@ -95,6 +95,12 @@ const ENTRIES: (Entry & { category: string })[] = (raw.titles as RawTitle[]).map
 export const titleAddedOn = new Map((raw.titles as RawTitle[]).flatMap((t) => (t.added ? [[t.slug, t.added] as const] : [])));
 
 export const MADE_IN_AFRICA = raw.categories.find((c) => c.slug === "made-in-africa")!;
+
+/** Hollywood Classics (Ika, 2026-10-29): 30 defining films, 1939 to 1979, in release order. */
+export const HOLLYWOOD_CLASSICS = raw.categories.find((c) => c.slug === "hollywood-classics")!;
+export const hollywoodClassics: Entry[] = ENTRIES.filter((e) => e.category === "hollywood-classics").toSorted((a, b) => (a.title.year ?? 0) - (b.title.year ?? 0));
+/** The titles in the same category as this one, for "You may also like". */
+export const sameCategory = (entry: Entry): Entry[] => ENTRIES.filter((e) => e.category === entry.category);
 
 /** Made in Africa's titles, collection by collection, in the curated order. */
 export const madeInAfrica: Entry[] = ENTRIES.filter((e) => e.category === "made-in-africa");
