@@ -43,7 +43,7 @@ function relevance(e: Entry, q: string) {
   if (t.countries.some((c) => c.toLowerCase().includes(q))) return 3;
   if (t.genres.some((g) => g.toLowerCase().includes(q))) return 3;
   if (tagText(t.slug).includes(q)) return 2;
-  const rest = [t.platform, t.pair_with, t.study_note, t.recognition, e.collection.name].filter(Boolean).join(" ").toLowerCase();
+  const rest = [t.platform, t.study_note, t.recognition, e.collection.name].filter(Boolean).join(" ").toLowerCase();
   return rest.includes(q) ? 1 : 0;
 }
 

@@ -2755,7 +2755,7 @@
     {
       "slug": "made-in-africa",
       "name": "Made in Africa",
-      "description": "African film and series, curated for cinematography and writing, each paired with a global film that shares its craft."
+      "description": "African film and series, curated for cinematography and writing."
     },
     {
       "slug": "explore-all",
@@ -2765,7 +2765,7 @@
     {
       "slug": "hollywood-classics",
       "name": "Hollywood Classics",
-      "description": "Hollywood's defining films from 1939 to 1979, each paired with a title on Explore that shares its craft."
+      "description": "Hollywood's defining films from 1939 to 1979."
     }
   ]
 }

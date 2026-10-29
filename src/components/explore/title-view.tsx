@@ -184,7 +184,6 @@ export function TitleView({ entry }: { entry: Entry }) {
             </h2>
             <dl className="flex flex-col gap-3">
               {row("Recognition", title.recognition ?? "To be confirmed")}
-              {row("Pair with", title.pair_with ?? "—")}
             </dl>
             {(video || imdb) && (
               <div className="flex flex-wrap gap-2.5 pt-2">

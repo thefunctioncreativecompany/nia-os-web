@@ -20,6 +20,7 @@ type RawTitle = {
   credit?: string;
   platform?: string;
   recognition?: string;
+  /** Kept for a side-by-side compare feature to come (Ika, 2026-10-29); not shown for now. */
   pair_with: string;
   study_note: string;
   /** The day it joined Explore (YYYY-MM-DD), for "Recently added on Explore" (recent.ts). */
