@@ -11,7 +11,7 @@ import { attribution, embedUrl, imdbUrl, pickSeason, primaryVideo, videoName, wa
 import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { ScrollRow } from "@/components/nia/scroll-row";
-import { LIBRARY_HREF, MADE_IN_AFRICA_HREF, coverFor, creditTerm, exploreHome, metaLine, findEntry, sameCategory, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
+import { LIBRARY_HREF, categoryViews, coverFor, essentialWhy, type CategoryKey, creditTerm, exploreHome, metaLine, findEntry, sameCategory, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
 import { similarItems } from "@/features/explore/match";
 import { ProductionNotes } from "./production-notes";
 import { PressKitSection } from "./press-kit-body";
@@ -35,7 +35,9 @@ export function TitleView({ entry }: { entry: Entry }) {
   const params = useSearchParams();
   const { title, collection, pinnedSeason } = entry;
   const from = params.get("from") === "all" ? "all" : params.get("from") === "library" ? "library" : undefined;
-  const back = from === "all" ? { href: MADE_IN_AFRICA_HREF, label: "← Back to Made in Africa" } : from === "library" ? { href: LIBRARY_HREF, label: "← Back to Explore all" } : { href: exploreHome(), label: "← Back to Explore" };
+  // Back to the title's own category's View all (Made in Africa or Hollywood Classics).
+  const view = categoryViews[entry.category as CategoryKey] ?? categoryViews["made-in-africa"];
+  const back = from === "all" ? { href: view.href, label: `← Back to ${view.name}` } : from === "library" ? { href: LIBRARY_HREF, label: "← Back to Explore all" } : { href: exploreHome(), label: "← Back to Explore" };
   const asked = Number(params.get("season"));
   const [season, setSeason] = useState<Season | null>(() => pickSeason(title, Number.isInteger(asked) && asked > 0 ? asked : null, pinnedSeason));
   // Remembered for Explore's Recently viewed (Ika, 2026-10-22).
@@ -151,6 +153,12 @@ export function TitleView({ entry }: { entry: Entry }) {
               <AddToProject slug={title.slug} title={title.title} />
             </div>
             {title.synopsis && <p className="text-sm leading-relaxed text-foreground/80">{title.synopsis}</p>}
+            {essentialWhy.has(title.slug) && (
+              <div className="flex flex-col gap-1 rounded-xl border border-gold/50 bg-gold/10 px-4 py-3">
+                <h2 className="text-sm font-bold text-foreground">Why you should know it</h2>
+                <p className="text-sm leading-relaxed text-foreground/80">{essentialWhy.get(title.slug)}</p>
+              </div>
+            )}
             {title.study_note && (
               <div className="flex flex-col gap-1">
                 <h2 className="text-sm font-bold text-foreground">What to study</h2>
@@ -193,7 +201,7 @@ export function TitleView({ entry }: { entry: Entry }) {
             )}
           </section>
 
-          <ProductionNotes slug={title.slug} listHref={MADE_IN_AFRICA_HREF} />
+          <ProductionNotes slug={title.slug} listHref={view.href} />
         </div>
       </div>
 

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CREATORS, CREATORS_HREF, creatorFilms } from "@/features/explore/creators";
-import { HOLLYWOOD_CLASSICS, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, hollywoodClassics, madeInAfrica } from "@/features/explore/made-in-africa";
+import { HOLLYWOOD_CLASSICS, HOLLYWOOD_CLASSICS_HREF, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, hollywoodClassics, madeInAfrica } from "@/features/explore/made-in-africa";
 import { RECENT_DAYS, type Added } from "@/features/explore/recent";
 import { CreatorsStrip } from "./creators-strip";
 import { DirectorsNotes } from "./directors-notes";
@@ -30,7 +30,7 @@ export function CategorySections({ seed, recent }: { seed: number; recent: Added
       ? [{ id: "recent", name: "Recently added on Explore", description: `Titles and films added in the last ${RECENT_DAYS} days.`, count: `${recent.length} ${recent.length === 1 ? "title" : "titles"}`, row: <RecentlyAddedStrip added={recent} bare /> }]
       : []),
     { id: "made-in-africa", name: MADE_IN_AFRICA.name, description: MADE_IN_AFRICA.description, count: `${madeInAfrica.length} titles`, href: MADE_IN_AFRICA_HREF, row: <MadeInAfricaStrip seed={seed} bare /> },
-    { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, description: HOLLYWOOD_CLASSICS.description, count: `${hollywoodClassics.length} titles`, row: <HollywoodClassicsStrip bare /> },
+    { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, description: HOLLYWOOD_CLASSICS.description, count: `${hollywoodClassics.length} titles`, href: HOLLYWOOD_CLASSICS_HREF, row: <HollywoodClassicsStrip bare /> },
     { id: "creators", name: CREATORS.name, description: CREATORS.description, count: `${creatorFilms.length} films`, href: CREATORS_HREF, row: <CreatorsStrip seed={seed} bare /> },
     { id: "epk", name: epk.title, description: "Each film's official trailer, press tour, what critics said and context.", count: `${epk.items.length} films`, row: <EpkLanes category={epk} bare /> },
     { id: "notes", name: notes.title, description: "The documents behind well-known productions.", count: `${notes.items.length} documents`, row: <DirectorsNotes category={notes} bare /> },

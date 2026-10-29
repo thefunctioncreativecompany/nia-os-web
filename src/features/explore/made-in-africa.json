@@ -59,6 +59,18 @@
       "category": "hollywood-classics",
       "name": "New Hollywood",
       "description": "1960 to 1979: directors break the old rules, on location and in colour."
+    },
+    {
+      "slug": "modern-classics",
+      "category": "hollywood-classics",
+      "name": "Modern classics",
+      "description": "1985 to 1999: the films that shaped how the industry makes and sells films today."
+    },
+    {
+      "slug": "black-and-poc-leads",
+      "category": "hollywood-classics",
+      "name": "Black and POC leads",
+      "description": "Studio films led by Black, Asian and Latino stars, from Coming to America to Black Panther."
     }
   ],
   "titles": [
@@ -1928,7 +1940,8 @@
           "channel": "Rotten Tomatoes Classic Trailers",
           "is_primary": true
         }
-      ]
+      ],
+      "essential": "It topped Sight and Sound's critics' poll for 50 years: the shorthand for an ambitious debut and for deep-focus craft."
     },
     {
       "slug": "the-maltese-falcon",
@@ -1987,7 +2000,8 @@
           "channel": "Rotten Tomatoes Classic Trailers",
           "is_primary": true
         }
-      ]
+      ],
+      "essential": "The model studio-system picture: written while it was shot, endlessly quoted, still the reference for romance on screen."
     },
     {
       "slug": "its-a-wonderful-life",
@@ -2074,7 +2088,8 @@
           "channel": "Rotten Tomatoes Classic Trailers",
           "is_primary": true
         }
-      ]
+      ],
+      "essential": "Hollywood's own warning about fame and the studio machine; its last line is one of the most quoted."
     },
     {
       "slug": "singin-in-the-rain",
@@ -2104,7 +2119,8 @@
           "channel": "Rotten Tomatoes Classic Trailers",
           "is_primary": true
         }
-      ]
+      ],
+      "essential": "The industry laughing at itself over the arrival of sound: the musical everyone in the room has seen."
     },
     {
       "slug": "roman-holiday",
@@ -2271,7 +2287,8 @@
           "channel": "Movieclips",
           "is_primary": true
         }
-      ]
+      ],
+      "essential": "It replaced Citizen Kane at the top of Sight and Sound's poll in 2012: the film people mean when they talk about Hitchcock's craft."
     },
     {
       "slug": "some-like-it-hot",
@@ -2359,7 +2376,8 @@
           "channel": "Rotten Tomatoes Classic Trailers",
           "is_primary": true
         }
-      ]
+      ],
+      "essential": "Made cheaply with a TV crew and sold with a no-late-admission rule: proof that marketing and craft can turn a small film into an event."
     },
     {
       "slug": "west-side-story",
@@ -2571,7 +2589,8 @@
           "channel": "Warner Bros.",
           "is_primary": true
         }
-      ]
+      ],
+      "essential": "The reference point for practical visual effects and for trusting an audience with silence."
     },
     {
       "slug": "the-godfather",
@@ -2600,7 +2619,8 @@
           "channel": "Paramount Pictures",
           "is_primary": true
         }
-      ]
+      ],
+      "essential": "The yardstick for adaptation and ensemble casting, and for the fight between a director and his studio that New Hollywood was made of."
     },
     {
       "slug": "jaws",
@@ -2630,7 +2650,8 @@
           "channel": "Rotten Tomatoes Classic Trailers",
           "is_primary": true
         }
-      ]
+      ],
+      "essential": "It invented the summer blockbuster: a wide release backed by national TV advertising, the plan most tentpole releases still follow."
     },
     {
       "slug": "taxi-driver",
@@ -2689,7 +2710,8 @@
           "channel": "Rotten Tomatoes Classic Trailers",
           "is_primary": true
         }
-      ]
+      ],
+      "essential": "Its predictions about television news are quoted in every conversation about media; 'mad as hell' is part of the vocabulary."
     },
     {
       "slug": "star-wars",
@@ -2719,7 +2741,8 @@
           "channel": "Star Wars",
           "is_primary": true
         }
-      ]
+      ],
+      "essential": "George Lucas kept the sequel and merchandising rights: it turned merchandise into the business model and changed how deals are made."
     },
     {
       "slug": "apocalypse-now",
@@ -2748,6 +2771,906 @@
           "channel": "StudiocanalUK",
           "is_primary": true
         }
+      ],
+      "essential": "The cautionary tale of a shoot running out of control, retold in the documentary Hearts of Darkness."
+    },
+    {
+      "slug": "ride-along",
+      "collection": "black-and-poc-leads",
+      "title": "Ride Along",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Action"
+      ],
+      "year": 2014,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Tim Story",
+      "recognition": "Number one at the US box office on its opening weekend",
+      "pair_with": "",
+      "study_note": "Buddy-comedy chemistry between Ice Cube and Kevin Hart; comic timing inside action set pieces",
+      "added": "2026-10-29",
+      "imdb_id": "tt1408253",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "5klp6rkHIks",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-matrix",
+      "collection": "black-and-poc-leads",
+      "title": "The Matrix",
+      "type": "film",
+      "genres": [
+        "Sci-Fi",
+        "Action"
+      ],
+      "year": 1999,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Lana Wachowski, Lilly Wachowski",
+      "recognition": "Four Academy Awards, including Best Visual Effects",
+      "pair_with": "",
+      "study_note": "Bullet time, Yuen Woo-ping's wire-work fights and a green-tinted digital world",
+      "added": "2026-10-29",
+      "essential": "Bullet time, the Wachowskis' world-building and a franchise blueprint: still the reference in action and visual-effects pitches.",
+      "imdb_id": "tt0133093",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "vKQi3bBA1y8",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "coming-to-america",
+      "collection": "black-and-poc-leads",
+      "title": "Coming to America",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "year": 1988,
+      "countries": [
+        "United States"
+      ],
+      "credit": "John Landis",
+      "recognition": "Two Academy Award nominations (costume design and make-up)",
+      "pair_with": "",
+      "study_note": "Eddie Murphy and Arsenio Hall in several roles each under Rick Baker's make-up",
+      "added": "2026-10-29",
+      "imdb_id": "tt0094898",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "KFroCRDXw5E",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "coming-2-america",
+      "collection": "black-and-poc-leads",
+      "title": "Coming 2 America",
+      "type": "film",
+      "genres": [
+        "Comedy"
+      ],
+      "year": 2021,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Craig Brewer",
+      "recognition": "Academy Award nomination for Best Makeup and Hairstyling",
+      "pair_with": "",
+      "study_note": "Ruth E. Carter's costumes bring Zamunda back in colour; a legacy sequel built on its returning cast",
+      "added": "2026-10-29",
+      "imdb_id": "tt6802400",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "RIQmGib9tZU",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-karate-kid-2010",
+      "collection": "black-and-poc-leads",
+      "title": "The Karate Kid",
+      "type": "film",
+      "genres": [
+        "Action",
+        "Drama",
+        "Family",
+        "Coming of Age"
+      ],
+      "year": 2010,
+      "countries": [
+        "United States",
+        "China"
+      ],
+      "credit": "Harald Zwart",
+      "recognition": "Over $350 million worldwide",
+      "pair_with": "",
+      "study_note": "The remake moved to Beijing: Jackie Chan's dramatic turn and training scenes shot on location in China",
+      "added": "2026-10-29",
+      "imdb_id": "tt1155076",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "XY8amUImEu0",
+          "kind": "trailer",
+          "channel": "Sony Pictures Entertainment",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-pursuit-of-happyness",
+      "collection": "black-and-poc-leads",
+      "title": "The Pursuit of Happyness",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Biography"
+      ],
+      "year": 2006,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Gabriele Muccino",
+      "recognition": "Academy Award nomination for Best Actor (Will Smith)",
+      "pair_with": "",
+      "study_note": "A true story played close to the ground; Will Smith opposite his son Jaden",
+      "added": "2026-10-29",
+      "imdb_id": "tt0454921",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "DMOBlEcRuw8",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "do-the-right-thing",
+      "collection": "black-and-poc-leads",
+      "title": "Do the Right Thing",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "year": 1989,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Spike Lee",
+      "recognition": "Academy Award nominations for Best Original Screenplay and Supporting Actor (Danny Aiello)",
+      "pair_with": "",
+      "study_note": "Ernest Dickerson's heat-soaked colour, tilted angles and a single Brooklyn block",
+      "added": "2026-10-29",
+      "essential": "Spike Lee's breakthrough, on every list of essential American films; the reference for colour, heat and point of view.",
+      "imdb_id": "tt0097216",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "5Ny631yQ-DM",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "boyz-n-the-hood",
+      "collection": "black-and-poc-leads",
+      "title": "Boyz n the Hood",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Crime",
+        "Coming of Age"
+      ],
+      "year": 1991,
+      "countries": [
+        "United States"
+      ],
+      "credit": "John Singleton",
+      "recognition": "John Singleton became the youngest person and the first Black director nominated for Best Director",
+      "pair_with": "",
+      "study_note": "Coming of age in South Central Los Angeles; a debut written from life",
+      "added": "2026-10-29",
+      "imdb_id": "tt0101507",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "sLgCCdLbQNc",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "malcolm-x",
+      "collection": "black-and-poc-leads",
+      "title": "Malcolm X",
+      "type": "film",
+      "genres": [
+        "Biography",
+        "Drama",
+        "Historical"
+      ],
+      "year": 1992,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Spike Lee",
+      "recognition": "Academy Award nominations for Best Actor (Denzel Washington) and Costume Design",
+      "pair_with": "",
+      "study_note": "A three-hour epic biopic: Ruth E. Carter's costumes and Denzel Washington's transformation",
+      "added": "2026-10-29",
+      "imdb_id": "tt0104797",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "sx4sEvhYeVE",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "training-day",
+      "collection": "black-and-poc-leads",
+      "title": "Training Day",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Thriller"
+      ],
+      "year": 2001,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Antoine Fuqua",
+      "recognition": "Academy Award for Best Actor (Denzel Washington)",
+      "pair_with": "",
+      "study_note": "One day in a car with a corrupt detective; Denzel Washington cast against type",
+      "added": "2026-10-29",
+      "imdb_id": "tt0139654",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "DXPJqRtkDP0",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "ray",
+      "collection": "black-and-poc-leads",
+      "title": "Ray",
+      "type": "film",
+      "genres": [
+        "Biography",
+        "Drama",
+        "Music"
+      ],
+      "year": 2004,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Taylor Hackford",
+      "recognition": "Academy Award for Best Actor (Jamie Foxx)",
+      "pair_with": "",
+      "study_note": "A music biopic built on Jamie Foxx's performance and Ray Charles's own recordings",
+      "added": "2026-10-29",
+      "imdb_id": "tt0350258",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "jVHCQfcugdw",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "dreamgirls",
+      "collection": "black-and-poc-leads",
+      "title": "Dreamgirls",
+      "type": "film",
+      "genres": [
+        "Musical",
+        "Drama"
+      ],
+      "year": 2006,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Bill Condon",
+      "recognition": "Academy Award for Best Supporting Actress (Jennifer Hudson)",
+      "pair_with": "",
+      "study_note": "A Broadway musical brought to the screen, with performances staged after the Motown era",
+      "added": "2026-10-29",
+      "imdb_id": "tt0443489",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "DTgGuFOh2M0",
+          "kind": "trailer",
+          "channel": "Paramount Movies",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "bad-boys",
+      "collection": "black-and-poc-leads",
+      "title": "Bad Boys",
+      "type": "film",
+      "genres": [
+        "Action",
+        "Comedy",
+        "Crime"
+      ],
+      "year": 1995,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Michael Bay",
+      "recognition": "The start of a four-film franchise",
+      "pair_with": "",
+      "study_note": "Will Smith and Martin Lawrence improvising inside glossy, fast-cut action",
+      "added": "2026-10-29",
+      "imdb_id": "tt0112442",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "Xm12NSa8jsM",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "waiting-to-exhale",
+      "collection": "black-and-poc-leads",
+      "title": "Waiting to Exhale",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "year": 1995,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Forest Whitaker",
+      "recognition": "Adapted from Terry McMillan's best-selling novel",
+      "pair_with": "",
+      "study_note": "Four friends' lives in parallel; an ensemble led by Whitney Houston and Angela Bassett",
+      "added": "2026-10-29",
+      "imdb_id": "tt0114885",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "t5iE3Wt2cJs",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "crouching-tiger-hidden-dragon",
+      "collection": "black-and-poc-leads",
+      "title": "Crouching Tiger, Hidden Dragon",
+      "type": "film",
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Romance"
+      ],
+      "year": 2000,
+      "countries": [
+        "Taiwan",
+        "United States"
+      ],
+      "credit": "Ang Lee",
+      "recognition": "Four Academy Awards, including Best Foreign Language Film",
+      "pair_with": "",
+      "study_note": "Yuen Woo-ping's wire-work; fights staged like dance in the bamboo treetops",
+      "added": "2026-10-29",
+      "imdb_id": "tt2652118",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "-jTdOdcMKoY",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "get-out",
+      "collection": "black-and-poc-leads",
+      "title": "Get Out",
+      "type": "film",
+      "genres": [
+        "Horror",
+        "Thriller",
+        "Mystery"
+      ],
+      "year": 2017,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Jordan Peele",
+      "recognition": "Academy Award for Best Original Screenplay",
+      "pair_with": "",
+      "study_note": "Social horror built from everyday racism; the Sunken Place",
+      "added": "2026-10-29",
+      "essential": "A $4.5 million film that took over $250 million and won Best Original Screenplay: the model for genre with something to say.",
+      "imdb_id": "tt5052448",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "DzfpyUB60YY",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "black-panther",
+      "collection": "black-and-poc-leads",
+      "title": "Black Panther",
+      "type": "film",
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "year": 2018,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Ryan Coogler",
+      "recognition": "Three Academy Awards (costume design, production design and score)",
+      "pair_with": "",
+      "study_note": "Afrofuturist world-building: Ruth E. Carter's costumes and Hannah Beachler's production design",
+      "added": "2026-10-29",
+      "essential": "Over $1.3 billion worldwide and the first superhero film nominated for Best Picture: it ended the argument about Black-led blockbusters.",
+      "imdb_id": "tt1825683",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "oHLU3T-e2t4",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "moonlight",
+      "collection": "black-and-poc-leads",
+      "title": "Moonlight",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Coming of Age"
+      ],
+      "year": 2016,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Barry Jenkins",
+      "recognition": "Academy Award for Best Picture",
+      "pair_with": "",
+      "study_note": "One life in three chapters played by three actors; James Laxton's saturated Miami colour",
+      "added": "2026-10-29",
+      "essential": "A Best Picture winner made for about $4 million, and the envelope mix-up at the Oscars made it a story everyone tells.",
+      "imdb_id": "tt4975722",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "9NJj12tJzqc",
+          "kind": "trailer",
+          "channel": "A24",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "hidden-figures",
+      "collection": "black-and-poc-leads",
+      "title": "Hidden Figures",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Biography",
+        "Historical"
+      ],
+      "year": 2016,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Theodore Melfi",
+      "recognition": "Three Academy Award nominations, including Best Picture",
+      "pair_with": "",
+      "study_note": "The true story of the Black women mathematicians behind NASA's early space flights",
+      "added": "2026-10-29",
+      "imdb_id": "tt4846340",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "5wfrDhgUMGI",
+          "kind": "trailer",
+          "channel": "20th Century Studios",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "crazy-rich-asians",
+      "collection": "black-and-poc-leads",
+      "title": "Crazy Rich Asians",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "year": 2018,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Jon M. Chu",
+      "recognition": "The first major Hollywood studio film with a majority Asian cast in 25 years",
+      "pair_with": "",
+      "study_note": "A romantic comedy staged as spectacle in Singapore; casting and costume as world-building",
+      "added": "2026-10-29",
+      "imdb_id": "tt3104988",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "ZQ-YX-5bAs0",
+          "kind": "trailer",
+          "channel": "Warner Bros.",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "rocky",
+      "collection": "new-hollywood",
+      "title": "Rocky",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Sports"
+      ],
+      "year": 1976,
+      "countries": [
+        "United States"
+      ],
+      "credit": "John G. Avildsen",
+      "recognition": "Academy Awards for Best Picture and Director",
+      "pair_with": "",
+      "study_note": "Made for about $1 million; the training montage and the museum steps shot with an early Steadicam",
+      "added": "2026-10-29",
+      "essential": "Sylvester Stallone wouldn't sell his script unless he starred in it: the story every writer-actor hears about betting on yourself.",
+      "imdb_id": "tt0075148",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "-Hk-LYcavrw",
+          "kind": "trailer",
+          "channel": "Amazon MGM Studios",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-godfather-part-ii",
+      "collection": "new-hollywood",
+      "title": "The Godfather Part II",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "year": 1974,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Francis Ford Coppola",
+      "recognition": "Academy Awards for Best Picture, Director and Supporting Actor (Robert De Niro)",
+      "pair_with": "",
+      "study_note": "A sequel and a prequel cut together: two timelines in parallel",
+      "added": "2026-10-29",
+      "essential": "The first sequel to win Best Picture: the answer whenever someone says sequels can't be art.",
+      "imdb_id": "tt0071562",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "tF_v4ZZkQWE",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "back-to-the-future",
+      "collection": "modern-classics",
+      "title": "Back to the Future",
+      "type": "film",
+      "genres": [
+        "Sci-Fi",
+        "Comedy",
+        "Adventure"
+      ],
+      "year": 1985,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Robert Zemeckis",
+      "recognition": "Academy Award for Best Sound Effects Editing",
+      "pair_with": "",
+      "study_note": "Every scene sets up a payoff; Michael J. Fox replaced the original lead weeks into the shoot",
+      "added": "2026-10-29",
+      "essential": "Taught in screenwriting classes for its setups and payoffs: nothing on screen is wasted.",
+      "imdb_id": "tt0088763",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "qvsgGtivCgs",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "die-hard",
+      "collection": "modern-classics",
+      "title": "Die Hard",
+      "type": "film",
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "year": 1988,
+      "countries": [
+        "United States"
+      ],
+      "credit": "John McTiernan",
+      "recognition": "Four Academy Award nominations",
+      "pair_with": "",
+      "study_note": "One building as the whole world; the hero as an ordinary man",
+      "added": "2026-10-29",
+      "essential": "'Die Hard on a…' is how countless action films are pitched: the template for a contained, single-location thriller.",
+      "imdb_id": "tt0095016",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "jaJuwKCmJbY",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "jurassic-park",
+      "collection": "modern-classics",
+      "title": "Jurassic Park",
+      "type": "film",
+      "genres": [
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "year": 1993,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Steven Spielberg",
+      "recognition": "Three Academy Awards, including Best Visual Effects",
+      "pair_with": "",
+      "study_note": "Stan Winston's animatronics alongside Industrial Light & Magic's computer-generated dinosaurs",
+      "added": "2026-10-29",
+      "essential": "The turning point from practical effects to computer-generated creatures, made by blending both.",
+      "imdb_id": "tt0107290",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "QWBKEmWWL38",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "pulp-fiction",
+      "collection": "modern-classics",
+      "title": "Pulp Fiction",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "year": 1994,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Quentin Tarantino",
+      "recognition": "Palme d'Or, Cannes 1994, and the Academy Award for Best Original Screenplay",
+      "pair_with": "",
+      "study_note": "Chapters told out of order; long, dialogue-led scenes",
+      "added": "2026-10-29",
+      "essential": "Won the Palme d'Or and turned an independent film into a box-office hit: the reference for non-linear structure and dialogue.",
+      "imdb_id": "tt0110912",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "s7EdQ4FqbhY",
+          "kind": "trailer",
+          "channel": "Movieclips",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-shawshank-redemption",
+      "collection": "modern-classics",
+      "title": "The Shawshank Redemption",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
+      "year": 1994,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Frank Darabont",
+      "recognition": "Seven Academy Award nominations, including Best Picture",
+      "pair_with": "",
+      "study_note": "Roger Deakins's restrained photography; a voice-over carrying a decades-long story",
+      "added": "2026-10-29",
+      "essential": "It disappointed at the box office, then became beloved on home video and TV: the case study for a film's second life.",
+      "imdb_id": "tt0111161",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "NmzuHjWmXOc",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "toy-story",
+      "collection": "modern-classics",
+      "title": "Toy Story",
+      "type": "film",
+      "genres": [
+        "Animation",
+        "Family",
+        "Comedy"
+      ],
+      "year": 1995,
+      "countries": [
+        "United States"
+      ],
+      "credit": "John Lasseter",
+      "recognition": "A Special Achievement Academy Award as the first feature-length computer-animated film",
+      "pair_with": "",
+      "study_note": "Characters designed around what computers could render; story first",
+      "added": "2026-10-29",
+      "essential": "The first fully computer-animated feature; its story-first process is still copied by studios.",
+      "imdb_id": "tt0114709",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "v-PjgYDrg70",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "titanic",
+      "collection": "modern-classics",
+      "title": "Titanic",
+      "type": "film",
+      "genres": [
+        "Romance",
+        "Drama",
+        "Historical"
+      ],
+      "year": 1997,
+      "countries": [
+        "United States"
+      ],
+      "credit": "James Cameron",
+      "recognition": "Eleven Academy Awards, including Best Picture",
+      "pair_with": "",
+      "study_note": "A near-full-scale ship built in a tank in Mexico; spectacle carried by a love story",
+      "added": "2026-10-29",
+      "essential": "It ran far over budget with the industry predicting disaster, then became the highest-grossing film of its time.",
+      "imdb_id": "tt0120338",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "CHekzSiZjrY",
+          "kind": "trailer",
+          "channel": "20th Century Studios",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-blair-witch-project",
+      "collection": "modern-classics",
+      "title": "The Blair Witch Project",
+      "type": "film",
+      "genres": [
+        "Horror",
+        "Mystery"
+      ],
+      "year": 1999,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Daniel Myrick, Eduardo Sánchez",
+      "recognition": "Made for a reported $60,000; it earned about $248 million",
+      "pair_with": "",
+      "study_note": "Found footage shot by the actors themselves; largely improvised performances",
+      "added": "2026-10-29",
+      "essential": "Sold through an early internet campaign that blurred fact and fiction: the case study in viral marketing.",
+      "imdb_id": "tt0185937",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "MBZ-POVsrlI",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
       ]
     }
   ],
@@ -2765,7 +3688,7 @@
     {
       "slug": "hollywood-classics",
       "name": "Hollywood Classics",
-      "description": "Hollywood's defining films from 1939 to 1979."
+      "description": "Hollywood's defining films, from the studio era to today."
     }
   ]
 }

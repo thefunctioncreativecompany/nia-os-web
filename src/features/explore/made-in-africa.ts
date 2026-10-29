@@ -25,6 +25,8 @@ type RawTitle = {
   study_note: string;
   /** The day it joined Explore (YYYY-MM-DD), for "Recently added on Explore" (recent.ts). */
   added?: string;
+  /** Why someone starting out in the industry should know it (Hollywood Classics' essentials). */
+  essential?: string;
   imdb_id?: string;
   pinned_season?: number;
   videos?: RawVideo[];
@@ -150,6 +152,46 @@ export const TYPE_OPTIONS = PRODUCTION_TYPES.filter((p) => madeInAfrica.some((e)
 export const COUNTRY_OPTIONS = [...new Set(madeInAfrica.flatMap((e) => e.title.countries))].sort((a, b) => a.localeCompare(b));
 const years = madeInAfrica.map((e) => e.title.year).filter((y): y is number => y !== null);
 export const YEAR_RANGE = { min: Math.min(...years), max: Math.max(...years) };
+
+/** Why each essential is worth knowing (Ika, 2026-10-29), shown on its page. */
+export const essentialWhy = new Map((raw.titles as RawTitle[]).flatMap((t) => (t.essential ? [[t.slug, t.essential] as const] : [])));
+
+// Each category's View all: its titles, collections and the filter choices they have.
+export type CategoryKey = "made-in-africa" | "hollywood-classics";
+export type CategoryView = {
+  slug: CategoryKey;
+  name: string;
+  description: string;
+  href: string;
+  entries: Entry[];
+  collections: Collection[];
+  genres: string[];
+  types: ProductionType[];
+  countries: string[];
+  years: { min: number; max: number };
+};
+function viewOf(slug: CategoryKey, href: string): CategoryView {
+  const meta = raw.categories.find((c) => c.slug === slug)!;
+  const entries = slug === "hollywood-classics" ? hollywoodClassics : madeInAfrica;
+  const yrs = entries.map((e) => e.title.year).filter((y): y is number => y !== null);
+  return {
+    slug,
+    name: meta.name,
+    description: meta.description,
+    href,
+    entries,
+    collections: [...COLLECTIONS.values()].filter((c) => c.category === slug && entries.some((e) => e.collection.slug === c.slug)),
+    genres: GENRES.filter((g) => entries.some((e) => e.title.genres.includes(g))),
+    types: PRODUCTION_TYPES.filter((p) => entries.some((e) => typeName(e.title) === p)),
+    countries: [...new Set(entries.flatMap((e) => e.title.countries))].sort((a, b) => a.localeCompare(b)),
+    years: { min: Math.min(...yrs), max: Math.max(...yrs) },
+  };
+}
+export const HOLLYWOOD_CLASSICS_HREF = "/explore/hollywood-classics";
+export const categoryViews: Record<CategoryKey, CategoryView> = {
+  "made-in-africa": viewOf("made-in-africa", "/explore/made-in-africa"),
+  "hollywood-classics": viewOf("hollywood-classics", HOLLYWOOD_CLASSICS_HREF),
+};
 
 /** "Directed by" for films, "Created by" for series. */
 export const creditTerm = (t: Title) => (t.type === "series" ? "Created by" : "Directed by");

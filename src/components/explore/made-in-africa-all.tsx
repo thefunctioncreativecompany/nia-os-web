@@ -7,19 +7,7 @@ import { Clapperboard, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/nia/empty-state";
 import { ChipMenu, FilterChip, RangeChip, ResultCount, SearchField, type YearRange } from "@/components/nia/filter-bar";
-import {
-  COUNTRY_OPTIONS,
-  GENRE_OPTIONS,
-  MADE_IN_AFRICA,
-  TYPE_OPTIONS,
-  YEAR_RANGE,
-  exploreHome,
-  madeInAfrica,
-  madeInAfricaCollections,
-  titleHref,
-  typeName,
-  type Entry,
-} from "@/features/explore/made-in-africa";
+import { categoryViews, essentialWhy, exploreHome, titleHref, typeName, type CategoryKey, type Entry } from "@/features/explore/made-in-africa";
 import { recentFirst, recentViews } from "@/features/explore/views";
 import { tasteScore } from "@/features/explore/match";
 import { isTag, tagLabel, tagText, tagsFor } from "@/features/explore/tags";
@@ -53,7 +41,12 @@ function relevance(e: Entry, q: string) {
 // narrowed and Relevance chosen, titles sit in their collections; otherwise one grid. Titles come
 // in a new order on each visit (`seed`), and Recently viewed brings back the ones this person
 // opened, most recent first (Ika, 2026-10-22).
-export function MadeInAfricaAll({ seed, tag: initialTag }: { seed: number; tag?: string }) {
+export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-africa" }: { seed: number; tag?: string; category?: CategoryKey }) {
+  // Made in Africa or Hollywood Classics: the same page, its own titles and choices.
+  const view = categoryViews[category];
+  // Hollywood Classics' essentials: the films to know when starting out (Ika, 2026-10-29).
+  const [essentials, setEssentials] = useState(false);
+  const hasEssentials = view.entries.some((e) => essentialWhy.has(e.title.slug));
   const [query, setQuery] = useState("");
   // A tag from a title's page (`?tag=`), shown as a chip that clears it.
   const [tag, setTag] = useState<string | null>(initialTag && isTag(initialTag) ? initialTag : null);
@@ -74,10 +67,11 @@ export function MadeInAfricaAll({ seed, tag: initialTag }: { seed: number; tag?:
 
   const q = query.trim().toLowerCase();
   // Everything but the collection, so each collection chip can say how many it would show.
-  const narrowed = madeInAfrica.filter((e) => {
+  const narrowed = view.entries.filter((e) => {
     const t = e.title;
     if (q && relevance(e, q) === 0) return false;
     if (tag && !tagsFor(t.slug).includes(tag)) return false;
+    if (essentials && !essentialWhy.has(t.slug)) return false;
     if (genre !== ALL && !t.genres.includes(genre)) return false;
     if (country !== ALL && !t.countries.includes(country)) return false;
     if (type !== ALL && typeName(t) !== type) return false;
@@ -86,7 +80,7 @@ export function MadeInAfricaAll({ seed, tag: initialTag }: { seed: number; tag?:
   });
   const found = collection === ALL ? narrowed : narrowed.filter((e) => e.collection.slug === collection);
   // This visit's order, which settles ties and is the order when nothing else decides.
-  const order = new Map(shuffled(madeInAfrica, seed).map((e, i) => [e.title.slug, i]));
+  const order = new Map(shuffled(view.entries, seed).map((e, i) => [e.title.slug, i]));
   const visit = (a: Entry, b: Entry) => order.get(a.title.slug)! - order.get(b.title.slug)!;
   const ranked = found.toSorted((a, b) => {
     if (sort === "title") return a.title.title.localeCompare(b.title.title);
@@ -97,10 +91,10 @@ export function MadeInAfricaAll({ seed, tag: initialTag }: { seed: number; tag?:
     return (q ? relevance(b, q) - relevance(a, q) : 0) || visit(a, b);
   });
   const sorted = sort === "recent" ? recentFirst(ranked, recent ?? [], (e) => e.title.slug) : ranked;
-  const anyFilter = q !== "" || tag !== null || genre !== ALL || country !== ALL || type !== ALL || years !== null;
+  const anyFilter = q !== "" || tag !== null || essentials || genre !== ALL || country !== ALL || type !== ALL || years !== null;
   const grouped = sort === "relevance" && !anyFilter;
   const groups = grouped
-    ? madeInAfricaCollections
+    ? view.collections
         .filter((c) => collection === ALL || c.slug === collection)
         .map((c) => ({ id: c.slug, name: c.name, description: c.description, items: sorted.filter((e) => e.collection.slug === c.slug) }))
         .filter((g) => g.items.length > 0)
@@ -108,6 +102,7 @@ export function MadeInAfricaAll({ seed, tag: initialTag }: { seed: number; tag?:
   const clear = () => {
     setQuery("");
     setTag(null);
+    setEssentials(false);
     setCollection(ALL);
     setGenre(ALL);
     setCountry(ALL);
@@ -125,10 +120,10 @@ export function MadeInAfricaAll({ seed, tag: initialTag }: { seed: number; tag?:
       </Link>
 
       <div className="mt-8 flex items-center gap-1">
-        <h1 className="text-h2 font-semibold tracking-tight text-foreground">{MADE_IN_AFRICA.name}</h1>
+        <h1 className="text-h2 font-semibold tracking-tight text-foreground">{view.name}</h1>
         <TmdbCredit />
       </div>
-      <p className="mt-2 max-w-160 text-lead text-muted-foreground">{MADE_IN_AFRICA.description}</p>
+      <p className="mt-2 max-w-160 text-lead text-muted-foreground">{view.description}</p>
 
       <div className="mt-8 flex flex-col gap-4">
         <SearchField
@@ -142,22 +137,27 @@ export function MadeInAfricaAll({ seed, tag: initialTag }: { seed: number; tag?:
           <FilterChip on={collection === ALL} count={narrowed.length} onClick={() => setCollection(ALL)}>
             All
           </FilterChip>
-          {madeInAfricaCollections.map((c) => (
+          {view.collections.map((c) => (
             <FilterChip key={c.slug} on={collection === c.slug} count={narrowed.filter((e) => e.collection.slug === c.slug).length} onClick={() => setCollection(c.slug)}>
               {c.name}
             </FilterChip>
           ))}
         </div>
         <div className="flex flex-wrap items-center gap-2">
+          {hasEssentials && (
+            <FilterChip on={essentials} onClick={() => setEssentials((on) => !on)} count={view.entries.filter((e) => essentialWhy.has(e.title.slug)).length}>
+              Essentials
+            </FilterChip>
+          )}
           {tag && (
             <FilterChip on onClick={() => setTag(null)} aria-label={`Remove the ${tagLabel(tag)} tag`}>
               {tagLabel(tag)} <X aria-hidden className="size-3.5" />
             </FilterChip>
           )}
-          <ChipMenu label="Genre" value={genre} defaultValue={ALL} options={[all("All"), ...GENRE_OPTIONS.map((g) => ({ value: g, label: g }))]} onChange={setGenre} />
-          <ChipMenu label="Country" value={country} defaultValue={ALL} columns={2} options={[all("All"), ...COUNTRY_OPTIONS.map((c) => ({ value: c, label: c }))]} onChange={setCountry} />
-          <RangeChip label="Year" min={YEAR_RANGE.min} max={YEAR_RANGE.max} value={years} onChange={setYears} />
-          <ChipMenu label="Type" value={type} defaultValue={ALL} options={[all("All"), ...TYPE_OPTIONS.map((t) => ({ value: t, label: t }))]} onChange={setType} />
+          <ChipMenu label="Genre" value={genre} defaultValue={ALL} options={[all("All"), ...view.genres.map((g) => ({ value: g, label: g }))]} onChange={setGenre} />
+          <ChipMenu label="Country" value={country} defaultValue={ALL} columns={2} options={[all("All"), ...view.countries.map((c) => ({ value: c, label: c }))]} onChange={setCountry} />
+          <RangeChip label="Year" min={view.years.min} max={view.years.max} value={years} onChange={setYears} />
+          <ChipMenu label="Type" value={type} defaultValue={ALL} options={[all("All"), ...view.types.map((t) => ({ value: t, label: t }))]} onChange={setType} />
           {(anyFilter || collection !== ALL) && (
             <Button variant="ghost" size="compact" onClick={clear}>
               Clear all

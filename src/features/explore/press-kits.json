@@ -1,4 +1,54 @@
 {
+ "all-about-eve": {
+  "videos": [
+   {
+    "id": "DZYLPJXubCI",
+    "kind": "Cast interview",
+    "title": "Meryl Streep Discusses Bette Davis - Deception - All About Eve - Now, Voyager - Women in Film",
+    "channel": "Turner Classic Movies"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "The Screen in Review",
+    "href": "https://www.nytimes.com/1950/10/14/archives/the-screen-in-review-bette-davis-and-anne-baxter-star-in-all-about.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: All About Eve",
+    "href": "https://archive.org/details/variety179-1950-09/page/n67/mode/1up?view=theater",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Washington Post",
+    "title": "Strike Up the Band For 'All About Eve'",
+    "href": "https://archive.org/details/per_washington-post_1950-11-03_27168/page/n46/mode/1up?view=theater",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Harrison's Reports",
+    "title": "'All About Eve' with Bette Davis, Anne Baxter and Celeste Holm",
+    "href": "https://archive.org/details/harrisonsreports32harr/page/n165/mode/1up?view=theater",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New Yorker",
+    "title": "The Current Cinema",
+    "href": "https://www.newyorker.com/magazine/1950/10/21/bonanza-for-bette"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The New York Times",
+    "title": "The Lasting Allure Of 'All About Eve'",
+    "href": "https://www.nytimes.com/2000/10/01/movies/film-the-lasting-allure-of-all-about-eve.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0042192"
+ },
  "anikulapo": {
   "videos": [
    {
@@ -333,6 +383,49 @@
   "streaming": "Netflix",
   "imdb": "tt9839146"
  },
+ "bonnie-and-clyde": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun Times",
+    "title": "Great Movie Reviews - Bonnie and Clyde",
+    "href": "https://www.rogerebert.com/reviews/great-movie-bonnie-and-clyde-1967",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Reel Views",
+    "title": "Bonnie and Clyde (United States, 1967)",
+    "href": "https://www.reelviews.net/reelviews/bonnie-and-clyde",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Screen: 'Bonnie and Clyde' Arrives; Careers of Murderers Pictured as Farce",
+    "href": "https://www.nytimes.com/1967/08/14/archives/screen-bonnie-and-clyde-arrives-careers-of-murderers-pictured-as.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: Bonnie and Clyde",
+    "href": "https://variety.com/1967/film/reviews/bonnie-and-clyde-2-1200421438/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Vanity Fair",
+    "title": "50 Years Later: How Bonnie and Clyde Violently Divided Film Critics",
+    "href": "https://www.vanityfair.com/hollywood/2017/08/bonnie-and-clyde-anniversary-reviews"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Bonnie & Clyde & Joe & Pauline",
+    "href": "https://www.latimes.com/archives/la-xpm-1997-aug-25-ca-25695-story.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0061418"
+ },
  "capernaum": {
   "videos": [
    {
@@ -405,6 +498,45 @@
    }
   ],
   "imdb": "tt8267604"
+ },
+ "casablanca": {
+  "videos": [
+   {
+    "id": "ED3l5fWzFio",
+    "kind": "Featurette",
+    "title": "Casablanca | An Unlikely Classic: Behind The Scenes | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "EV-r4I584A8",
+    "kind": "Featurette",
+    "title": "Tales From The Making Of 'Casablanca', As Told By Ingrid Bergman | The Dick Cavett Show",
+    "channel": "The Dick Cavett Show"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "'Casablanca', with Humphrey Bogart and Ingrid Bergman, at Hollywood",
+    "href": "https://www.nytimes.com/movie/review?res=9C06E1DF1039E33BBC4F51DFB7678389659EDE",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Variety 100 Reviews: Casablanca",
+    "href": "https://www.variety.com/review/VE1117487980/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The New York Times",
+    "title": "Before 'Casablanca', There Was 'Pépé'",
+    "href": "https://www.nytimes.com/2002/03/01/movies/critic-s-choice-film-before-casablanca-there-was-pepe.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0034583"
  },
  "children-of-blood-and-bone": {
   "videos": [],
@@ -1203,6 +1335,30 @@
   "cinemaRelease": true,
   "imdb": "tt6213284"
  },
+ "imitation-of-life": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Senses of Cinema",
+    "title": "White Melodrama: Douglas Sirk",
+    "href": "http://sensesofcinema.com/2005/feature-articles/sirk-2/"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Arizona Quarterly",
+    "title": "'Tain't no tragedy unless you make it one': Imitation of Life, Melodrama, and the Mulatta",
+    "href": "https://muse.jhu.edu/article/406967/summary"
+   },
+   {
+    "outlet": "Bright Lights Film Journal",
+    "title": "Intimations of Lifelessness: Sirk's Ironic Tearjerker",
+    "href": "https://brightlightsfilm.com/intimations-lifelessness-sirks-ironic-tearjerker-imitation-of-life/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0052918"
+ },
  "inumber-number": {
   "videos": [],
   "reviews": [
@@ -1294,6 +1450,56 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt6333070"
+ },
+ "its-a-wonderful-life": {
+  "videos": [
+   {
+    "id": "-IsDtv0lLX0",
+    "kind": "Cast interview",
+    "title": "Karolyn Grimes, 'It's a Wonderful Life' star, visits 10TV ahead of new Jimmy Stewart biopic",
+    "channel": "WBNS 10TV"
+   },
+   {
+    "id": "y_a-Lk8ob0E",
+    "kind": "Cast interview",
+    "title": "Behind the Scene: IT'S A WONDERFUL LIFE Actor Jimmy Hawkins talks about making the Holiday classic",
+    "channel": "American Film Institute"
+   },
+   {
+    "id": "zcOJ0KSA4r0",
+    "kind": "Filmmaker interview",
+    "title": "Frank Capra on making IT'S A WONDERFUL LIFE",
+    "channel": "American Film Institute"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "'It's a Wonderful Life': Film Review",
+    "href": "https://variety.com/1946/film/reviews/it-s-a-wonderful-life-1200414860/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "'It's a Wonderful Life', Screen in Review",
+    "href": "https://www.nytimes.com/2018/12/11/movies/its-a-wonderful-life-review.html",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Washington Post",
+    "title": "'It's a Wonderful Life' is a holiday classic. The FBI thought it was communist propaganda.",
+    "href": "https://www.washingtonpost.com/news/morning-mix/wp/2017/12/21/its-a-wonderful-life-is-a-holiday-classic-the-fbi-thought-it-was-communist-propaganda/"
+   },
+   {
+    "outlet": "BFI",
+    "title": "The 12 films of Christmas: filmmakers on their festive favourites",
+    "href": "https://www.bfi.org.uk/sight-and-sound/lists/12-films-christmas-filmmakers-their-festive-favourites"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0038650"
  },
  "jerusalema": {
   "videos": [],
@@ -1389,6 +1595,57 @@
   "articles": [],
   "streaming": "Netflix",
   "imdb": "tt13453828"
+ },
+ "lawrence-of-arabia": {
+  "videos": [
+   {
+    "id": "LTMeRPPeGFw",
+    "kind": "Cast interview",
+    "title": "1962: PETER O TOOLE on LAWRENCE OF ARABIA | Monitor | Classic Celebrity Interviews | BBC Archive",
+    "channel": "BBC Archive"
+   },
+   {
+    "id": "DMl_npzvsZU",
+    "kind": "Cast interview",
+    "title": "Actor Peter O'Toole Discusses His Career and Making Lawrence of Arabia",
+    "channel": "Turner Classic Movies"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Time",
+    "title": "Cinema: The Spirit in the Wind",
+    "href": "https://content.time.com/time/subscriber/article/0,33009,829725,00.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Total Film",
+    "title": "Lawrence Of Arabia: Two-Disc Set Review",
+    "href": "https://web.archive.org/web/20101119081739/http://www.totalfilm.com/reviews/dvd/lawrence-of-arabia-two-disc-set",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Screen: A Desert Warfare Spectacle",
+    "href": "https://www.nytimes.com/1962/12/17/archives/screen-a-desert-warfare-spectaclelawrence-of-arabia-opens-in-new.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: Lawrence of Arabia",
+    "href": "https://archive.org/details/variety-1962-12/page/n141/mode/1up",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Daily Telegraph",
+    "title": "Stars vote Lawrence of Arabia the best British film of all time",
+    "href": "https://www.telegraph.co.uk/news/uknews/1469436/Stars-vote-Lawrence-of-Arabia-the-best-British-film-of-all-time.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0056172"
  },
  "lingui-the-sacred-bonds": {
   "videos": [
@@ -1822,6 +2079,81 @@
   "cinemaRelease": true,
   "imdb": "tt15398776"
  },
+ "psycho": {
+  "videos": [
+   {
+    "id": "m_wiEVTDXZ8",
+    "kind": "Cast interview",
+    "title": "Janet Leigh's 'Psycho' Body Double, Marli Renfro, Talks Iconic Shower Scene | PeopleTV",
+    "channel": "People"
+   },
+   {
+    "id": "MSiDvki3gbQ",
+    "kind": "Filmmaker interview",
+    "title": "Alfred Hitchcock Explains the Genius Behind the 'Psycho' Shower Scene | The Dick Cavett Show",
+    "channel": "The Dick Cavett Show"
+   },
+   {
+    "id": "fAnn8EsH4cY",
+    "kind": "Filmmaker interview",
+    "title": "Alfred Hitchcock Talks About The Shocking Violence In Psycho | The Dick Cavett Show",
+    "channel": "The Dick Cavett Show"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Washington Post",
+    "title": "It's 'Psycho' And It's Fun",
+    "href": "https://archive.org/details/per_washington-post_1960-07-28_236/page/n19/mode/2up",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Screen: Sudden Shocks",
+    "href": "https://www.nytimes.com/1960/06/17/archives/screen-sudden-shocks-hitchcocks-psycho-bows-at-2-houses.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "'Psycho' as Brilliant as It Is Disagreeable",
+    "href": "https://www.newspapers.com/clip/111492569/psycho/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Daily Mirror",
+    "title": "This Hitch Is Not up to Scratch",
+    "href": "https://www.newspapers.com/article/daily-mirror/148804342/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Sunday People",
+    "title": "New Films: Ditch it, Hitch!",
+    "href": "https://www.newspapers.com/article/the-sunday-people/107587415/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Miami Herald",
+    "title": "Hitchcock Unleashes a Real Shocker: Are You Iron-Nerved? See 'Psycho'",
+    "href": "https://www.newspapers.com/clip/111507949/psycho/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "St. Petersburg Times",
+    "title": "Hitchcock Outdoes Himself",
+    "href": "https://www.newspapers.com/clip/111508116/psycho/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "London Critics Rap 'Psycho'; Policy Vex",
+    "href": "https://archive.org/stream/variety219-1960-08#page/n67/mode/1up"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0054215"
+ },
  "pumzi": {
   "videos": [],
   "reviews": [
@@ -1969,6 +2301,58 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt8286894"
+ },
+ "rebel-without-a-cause": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Rebel Without a Cause",
+    "href": "https://variety.com/1955/film/reviews/rebel-without-a-cause-1200417958/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Rebel Without a Cause': THR's 1955 Review",
+    "href": "https://www.hollywoodreporter.com/review/rebel-a-cause-1955-film-review-940868",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Screen: Delinquency; 'Rebel Without Cause' Has Debut at Astor",
+    "href": "https://www.nytimes.com/1955/10/27/archives/the-screen-delinquency-rebel-without-cause-has-debut-at-astor.html",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0048545"
+ },
+ "roman-holiday": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Roman Holiday': THR's 1953 Review",
+    "href": "https://www.hollywoodreporter.com/news/general-news/roman-holiday-review-movie-1953-2-1234508/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Reelviews Movie Reviews",
+    "title": "Roman Holiday",
+    "href": "https://www.reelviews.net/reelviews/roman-holiday",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Roman Holiday review – charm and innocence by the bucketload",
+    "href": "http://www.theguardian.com/film/2013/jul/18/roman-holiday-review",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0046250"
  },
  "saloum": {
   "videos": [
@@ -2205,6 +2589,39 @@
   "streaming": "Netflix",
   "imdb": "tt18563148"
  },
+ "singin-in-the-rain": {
+  "videos": [
+   {
+    "id": "EEizqKN7dpA",
+    "kind": "Cast interview",
+    "title": "Debbie Reynolds Talks About Singin' in the Rain",
+    "channel": "Turner Classic Movies"
+   },
+   {
+    "id": "NYjMekxGKwc",
+    "kind": "Cast interview",
+    "title": "Singin' in the Rain - Secrets of the Rain and the Cast",
+    "channel": "Oscars"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Singin' in the Rain",
+    "href": "https://www.rogerebert.com/reviews/great-movie-singin-in-the-rain-1952",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Margaret Herrick Library Digital Collections",
+    "title": "Singin' in the Rain, 1952",
+    "href": "https://digitalcollections.oscars.org/digital/collection/p15759coll30/id/13746"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0045152"
+ },
  "sinners": {
   "videos": [
    {
@@ -2272,6 +2689,20 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt31193180"
+ },
+ "some-like-it-hot": {
+  "videos": [
+   {
+    "id": "7UX5l9xH8kY",
+    "kind": "Cast interview",
+    "title": "Jack Lemmon on making SOME LIKE IT HOT",
+    "channel": "American Film Institute"
+   }
+  ],
+  "reviews": [],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0053291"
  },
  "the-brave-ones": {
   "videos": [],
@@ -2550,6 +2981,88 @@
   "streaming": "Netflix",
   "imdb": "tt42543947"
  },
+ "the-searchers": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "The Searchers (1956)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-the-searchers-1956",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Searchers",
+    "href": "https://www.nytimes.com/1956/05/31/archives/screen-the-searchers-find-action-entertaining-western-opens-at.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "The Searchers",
+    "href": "https://www.variety.com/review/VE1117794702?printerfriendly=true",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0049730"
+ },
+ "the-wizard-of-oz": {
+  "videos": [
+   {
+    "id": "waZ_7Ho-v2c",
+    "kind": "Featurette",
+    "title": "The Wizard of Oz | Behind The Scenes: The Little People | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "-ee6MgPxiRE",
+    "kind": "Featurette",
+    "title": "The Making of \"The Wizard of Oz\"",
+    "channel": "Oscars"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Star-Ledger",
+    "title": "The enduring wonder of 'The Wizard of Oz': Opinion",
+    "href": "https://www.nj.com/opinion/2014/08/the_enduring_wonder_of_the_wizard_of_oz_opinion.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Review: 'The Wizard of Oz'",
+    "href": "https://variety.com/1939/film/reviews/the-wizard-of-oz-3-1200412289/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Film Daily",
+    "title": "Reviews: The Wizard of Oz",
+    "href": "https://archive.org/stream/filmdaily76wids#page/n301/mode/2up",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New Yorker",
+    "title": "The Allure of Oz",
+    "href": "https://www.newyorker.com/books/double-take/the-allure-of-oz",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Wizard of Oz, Produced by the Wizards of Hollywood, Works Its Magic on the Capitol's Screen",
+    "href": "https://movies.nytimes.com/movie/review?res=9B07EEDD1138EE3BBC4052DFBE668382629EDE",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Harrison's Reports",
+    "title": "The Wizard of Oz",
+    "href": "https://archive.org/stream/harrisonsreports21harr#page/n161/mode/2up"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0032138"
+ },
  "this-is-not-a-burial": {
   "videos": [
    {
@@ -2669,6 +3182,33 @@
   "cinemaRelease": true,
   "imdb": "tt3409392"
  },
+ "to-kill-a-mockingbird": {
+  "videos": [
+   {
+    "id": "y9v4-VZ7UGA",
+    "kind": "Cast interview",
+    "title": "Gregory Peck on Making TO KILL A MOCKINGBIRD | Spotlight Cinema",
+    "channel": "American Film Institute"
+   },
+   {
+    "id": "RijbFbpSqJo",
+    "kind": "Featurette",
+    "title": "Scout (Mary Badham) from \"To Kill a Mockingbird\" talks about the making of the film",
+    "channel": "Oscars"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "One Adult Omission in a Fine Film: 2 Superb Discoveries Add to Delight",
+    "href": "https://www.nytimes.com/1963/02/15/archives/screen-to-kill-a-mockingbirdone-adult-omission-in-a-fine-film-2.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0056592"
+ },
  "touki-bouki": {
   "videos": [],
   "reviews": [
@@ -2765,5 +3305,44 @@
   ],
   "streaming": "Netflix",
   "imdb": "tt26931883"
+ },
+ "vertigo": {
+  "videos": [
+   {
+    "id": "a-RnaJ6sIsw",
+    "kind": "Filmmaker interview",
+    "title": "Director William Friedkin on Alfred Hitchcock and VERTIGO",
+    "channel": "American Film Institute"
+   },
+   {
+    "id": "RD_kLiG_ycE",
+    "kind": "Filmmaker interview",
+    "title": "1996: Kim Novak talks 'Vertigo,' confidence from Alfred Hitchcock",
+    "channel": "TODAY"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: Vertigo",
+    "href": "https://archive.org/details/variety210-1958-05/page/n87/mode/2up",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "'Vertigo,' Hitchcock's Latest; Melodrama Arrives at the Capitol",
+    "href": "https://archive.nytimes.com/www.nytimes.com/library/film/052958vertigo-review.html",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Screen",
+    "title": "Visual Pleasure and Narrative Cinema",
+    "href": "http://www.composingdigitalmedia.org/f15_mca/mca_reads/mulvey.pdf"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0052357"
  }
 }

@@ -295,6 +295,18 @@ Data:
   to `.env.local`, run `node scripts/find-title-assets.mjs` on them (it fills only what's
   missing), check each poster, add them to `cover-sources.json`; each title then appears on
   Explore by itself, in Recently added from its `added` day.
+- (2026-10-29) Hollywood Classics grows (Ika): 20 studio films with Black and POC leads
+  (collection "Black and POC leads": Ride Along, The Matrix, Coming to America, Coming 2
+  America, The Karate Kid 2010, The Pursuit of Happyness, Do the Right Thing, Boyz n the Hood,
+  Malcolm X, Training Day, Ray, Dreamgirls, Bad Boys, Waiting to Exhale, Crouching Tiger,
+  Get Out, Black Panther, Moonlight, Hidden Figures, Crazy Rich Asians) and "Modern classics"
+  plus Rocky and The Godfather Part II. Essentials: the films people in the industry reference
+  (27, `essential` in `made-in-africa.json`), each with "Why you should know it" on its page
+  and an Essentials filter on View all. Hollywood Classics has View all
+  (`/explore/hollywood-classics`, the same page as Made in Africa's, `categoryViews`). All 30
+  new films wait for covers (TMDB API), as do 15 earlier classics; their press-kit drafts are
+  in `scripts/out/press-kit-drafts-classics-waiting.json` (not in git: rebuild with
+  `build-press-kits.mjs` if lost). 15 visible classics have checked press kits.
 
 ## Working notes
 
