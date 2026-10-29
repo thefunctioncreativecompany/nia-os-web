@@ -17,6 +17,15 @@ const allAdded = (): Added[] => [
 /** What joined Explore in the week before this request, for the server to hand to the page. */
 export const recentlyAddedToday = (): Added[] => recentlyAdded(Date.now());
 
+/** The most recent additions whatever their age, newest first: the gallery's fallback. */
+export const latestAdded = (count = 20): Added[] => allAdded().toSorted((a, b) => b.added.localeCompare(a.added)).slice(0, count);
+
+/** What the top of Explore shows (Ika, 2026-10-29): this week's additions, or the latest 20. */
+export function galleryForToday(): { items: Added[]; thisWeek: boolean } {
+  const week = recentlyAddedToday();
+  return week.length ? { items: week, thisWeek: true } : { items: latestAdded(), thisWeek: false };
+}
+
 /** What joined Explore in the week before `now`, newest first, with the day each joined. */
 export function recentlyAdded(now: number): Added[] {
   return allAdded().filter(({ added }) => {

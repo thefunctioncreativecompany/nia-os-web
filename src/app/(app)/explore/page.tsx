@@ -4,7 +4,7 @@ import { connection } from "next/server";
 
 import { ExploreLibrary } from "@/components/explore/explore-library";
 import { newSeed } from "@/lib/shuffle";
-import { recentlyAddedToday } from "@/features/explore/recent";
+import { galleryForToday } from "@/features/explore/recent";
 
 export const metadata: Metadata = {
   title: "Explore · Nia OS",
@@ -23,6 +23,6 @@ export default function Page() {
 
 async function Shuffled() {
   await connection();
-  // What's still in "Recently added on Explore" (seven days) is worked out per request too.
-  return <ExploreLibrary seed={newSeed()} recent={recentlyAddedToday()} />;
+  // The top gallery's recent additions (seven days, or the latest 20) are worked out per request too.
+  return <ExploreLibrary seed={newSeed()} gallery={galleryForToday()} />;
 }

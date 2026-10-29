@@ -9,26 +9,21 @@ import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CREATORS, CREATORS_HREF, creatorFilms } from "@/features/explore/creators";
 import { HOLLYWOOD_CLASSICS, HOLLYWOOD_CLASSICS_HREF, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, hollywoodClassics, madeInAfrica } from "@/features/explore/made-in-africa";
-import { RECENT_DAYS, type Added } from "@/features/explore/recent";
 import { CreatorsStrip } from "./creators-strip";
 import { DirectorsNotes } from "./directors-notes";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory } from "./explore-data";
 import { HollywoodClassicsStrip } from "./hollywood-classics-strip";
 import { MadeInAfricaStrip } from "./made-in-africa-strip";
-import { RecentlyAddedStrip } from "./recently-added-strip";
 
 type Section = { id: string; name: string; description: string; count: string; href?: string; row: React.ReactNode };
 
 // By category on Explore (Ika, 2026-10-21; on the Explore page itself since 2026-10-29): every
 // category under a heading that shows or hides it, with Show all / Hide all. All start open.
-export function CategorySections({ seed, recent }: { seed: number; recent: Added[] }) {
+export function CategorySections({ seed }: { seed: number }) {
   const epk = getCategory("epk");
   const notes = getCategory("notes");
   const sections: Section[] = [
-    ...(recent.length
-      ? [{ id: "recent", name: "Recently added on Explore", description: `Titles and films added in the last ${RECENT_DAYS} days.`, count: `${recent.length} ${recent.length === 1 ? "title" : "titles"}`, row: <RecentlyAddedStrip added={recent} bare /> }]
-      : []),
     { id: "made-in-africa", name: MADE_IN_AFRICA.name, description: MADE_IN_AFRICA.description, count: `${madeInAfrica.length} titles`, href: MADE_IN_AFRICA_HREF, row: <MadeInAfricaStrip seed={seed} bare /> },
     { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, description: HOLLYWOOD_CLASSICS.description, count: `${hollywoodClassics.length} titles`, href: HOLLYWOOD_CLASSICS_HREF, row: <HollywoodClassicsStrip bare /> },
     { id: "creators", name: CREATORS.name, description: CREATORS.description, count: `${creatorFilms.length} films`, href: CREATORS_HREF, row: <CreatorsStrip seed={seed} bare /> },

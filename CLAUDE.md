@@ -234,9 +234,11 @@ Data:
   strongest reasons on each card. Taste (`taste.ts`) comes from what they open, save and add to
   projects, plus their profession; View all pages have a "For you" sort. No migration. Not in
   Figma yet: Production notes, the reason line on cards, the tag chip.
-- (2026-10-28) "Recently added on Explore" (Ika): the first row under By category, showing
-  whatever joined Explore in the last 7 days, newest first, each card saying the day it was
-  added; the row hides itself when nothing is that new. A title or creator film joins it when
+- (2026-10-28) "Recently added on Explore" (Ika): whatever joined Explore in the last 7 days,
+  newest first, each card saying the day it was added. Since 2026-10-29 it is Explore's top
+  gallery (the drifting poster columns under "Explore all ›", `ExploreLibrary`), with a count and
+  a line saying what it is; when nothing is that new it shows the latest 20 additions
+  (`galleryForToday` in `recent.ts`). The separate row under By category is gone. A title or creator film joins it when
   given an `added` day (`made-in-africa.json`, `creators.ts`; `src/features/explore/recent.ts`).
   First four: The Heart Is a Muscle and Gangster's Paradise: Jerusalema (Made in Africa, now 52),
   Nickel Boys and Capernaum (Explore all), with official trailers and TMDB posters. Atlantique
@@ -294,7 +296,7 @@ Data:
   Godfather, Jaws, Taxi Driver, Network, Star Wars, Apocalypse Now). Plan: add `TMDB_API_KEY`
   to `.env.local`, run `node scripts/find-title-assets.mjs` on them (it fills only what's
   missing), check each poster, add them to `cover-sources.json`; each title then appears on
-  Explore by itself, in Recently added from its `added` day.
+  Explore by itself, in the Recently added gallery from its `added` day.
 - (2026-10-29) Hollywood Classics grows (Ika): 20 studio films with Black and POC leads
   (collection "Black and POC leads": Ride Along, The Matrix, Coming to America, Coming 2
   America, The Karate Kid 2010, The Pursuit of Happyness, Do the Right Thing, Boyz n the Hood,
