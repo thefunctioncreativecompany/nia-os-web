@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { creatorFilms } from './creators';
-import { allEntries } from './made-in-africa';
+import { allEntries, everyTitleSlug } from './made-in-africa';
 import { HAND_TAGS } from './tag-data';
 import { isTag, tagsFor } from './tags';
 import { MAPPED_TAGS, SUGGESTION_POOL, aType, frameTag, rankForProject, similarItems, tasteFrom, tasteScore } from './match';
@@ -15,7 +15,9 @@ describe('Explore tags', () => {
       expect(n >= 15 && n <= 20, `${slug} has ${n}`).toBe(true);
     }
     expect(Object.values(HAND_TAGS).flat().filter((t) => !isTag(t))).toEqual([]);
-    expect(Object.keys(HAND_TAGS).filter((s) => !slugs.includes(s))).toEqual([]);
+    // Titles waiting for a cover keep their tags for when they appear.
+    const known = new Set([...slugs, ...everyTitleSlug]);
+    expect(Object.keys(HAND_TAGS).filter((s) => !known.has(s))).toEqual([]);
   });
 
   it('only refers to tags that exist', () => {

@@ -287,6 +287,14 @@ Data:
   the title's own category.
 - (2026-10-29) "Pair with" is no longer shown anywhere (Ika): it comes back as a proper
   side-by-side compare feature. The `pair_with` data stays in `made-in-africa.json` for it.
+- (2026-10-29) Explore shows only titles with a cover (Ika). Waiting (data, tags and press kits
+  kept; `waitingForCover` in `made-in-africa.ts`): Children of Blood and Bone (out January
+  2027) and 15 Hollywood Classics (Citizen Kane, The Maltese Falcon, Sunset Boulevard, On the
+  Waterfront, Carmen Jones, West Side Story, In the Heat of the Night, The Graduate, 2001, The
+  Godfather, Jaws, Taxi Driver, Network, Star Wars, Apocalypse Now). Plan: add `TMDB_API_KEY`
+  to `.env.local`, run `node scripts/find-title-assets.mjs` on them (it fills only what's
+  missing), check each poster, add them to `cover-sources.json`; each title then appears on
+  Explore by itself, in Recently added from its `added` day.
 
 ## Working notes
 

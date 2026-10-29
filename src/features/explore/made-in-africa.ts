@@ -87,13 +87,22 @@ const COLLECTIONS = new Map<string, Collection & { category: string }>(
   raw.collections.map((c) => [c.slug, { slug: c.slug, name: c.name, description: c.description, category: c.category }]),
 );
 
-const ENTRIES: (Entry & { category: string })[] = (raw.titles as RawTitle[]).map((t, i) => {
+const EVERY: Entry[] = (raw.titles as RawTitle[]).map((t, i) => {
   const collection = COLLECTIONS.get(t.collection)!;
   return { title: toTitle(t), collection, category: collection.category, pinnedSeason: t.pinned_season ?? null, grain: GRAINS[i % GRAINS.length] };
 });
+// Only titles with a cover are on Explore (Ika, 2026-10-29): the rest wait, data, tags and press
+// kits kept, and appear by themselves once their cover is added (cover-sources.json and the
+// image; scripts/find-title-assets.mjs fetches posters through the TMDB API when TMDB_API_KEY is
+// set). Their pages answer "not found" until then.
+const ENTRIES: Entry[] = EVERY.filter((e) => COVERS.has(e.title.slug));
+/** Titles waiting for a cover before they appear on Explore. */
+export const waitingForCover: string[] = EVERY.filter((e) => !COVERS.has(e.title.slug)).map((e) => e.title.slug);
+/** Every title's slug, listed or waiting (for the tag checks). */
+export const everyTitleSlug: string[] = EVERY.map((e) => e.title.slug);
 
 /** When each title joined Explore, for the ones that say (recent.ts). */
-export const titleAddedOn = new Map((raw.titles as RawTitle[]).flatMap((t) => (t.added ? [[t.slug, t.added] as const] : [])));
+export const titleAddedOn = new Map((raw.titles as RawTitle[]).flatMap((t) => (t.added && COVERS.has(t.slug) ? [[t.slug, t.added] as const] : [])));
 
 export const MADE_IN_AFRICA = raw.categories.find((c) => c.slug === "made-in-africa")!;
 
