@@ -276,6 +276,10 @@
   "muted-colour",
   "warm-palette"
  ],
+ "citizen-kane": [
+  "warm-palette",
+  "bright-airy"
+ ],
  "city-lights": [
   "vivid-colour",
   "warm-palette"
@@ -382,6 +386,9 @@
   "warm-palette",
   "bright-airy"
  ],
+ "jaws": [
+  "cool-palette"
+ ],
  "jerusalema": [
   "vivid-colour",
   "warm-palette"
@@ -438,6 +445,10 @@
  "on-becoming-a-guinea-fowl": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "on-the-waterfront": [
+  "warm-palette",
+  "bright-airy"
  ],
  "out-of-the-past": [
   "vivid-colour",
@@ -518,6 +529,10 @@
  "sunrise": [
   "warm-palette"
  ],
+ "sunset-boulevard": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "the-blood-of-jesus": [
   "vivid-colour",
   "warm-palette"
@@ -544,6 +559,10 @@
   "low-key"
  ],
  "the-joe-louis-story": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "the-maltese-falcon": [
   "vivid-colour",
   "warm-palette"
  ],
@@ -595,6 +614,10 @@
  ],
  "unseen": [],
  "vertigo": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "west-side-story": [
   "vivid-colour",
   "warm-palette"
  ]

@@ -332,7 +332,13 @@ Data:
   Imitation of Life (1934), Lilies of the Field, The Blood of Jesus, Native Son (1951) and The
   Joe Louis Story; three essentials. Left out by eye: Hallelujah (Commons' poster is a Soviet
   film's), Body and Soul (a newspaper ad), Edge of the City (a small landscape card). No official
-  trailer for Stormy Weather, Porgy and Bess, The Blood of Jesus or The Joe Louis Story.
+  trailer for Stormy Weather, Porgy and Bess, The Blood of Jesus or The Joe Louis Story. Then six of
+  the hidden classics found real posters on Commons that Wikidata doesn't link: Citizen Kane, The
+  Maltese Falcon, Sunset Boulevard, On the Waterfront, West Side Story and Jaws (shown from
+  2026-10-30; their saved press-kit drafts checked and applied; West Side Story's had Spielberg's
+  2021 trailers). The Graduate's Commons file is a newspaper ad, so it still waits. TMDB's key
+  form asks personal or commercial: Nia is commercial (Ika chose commercial), so the rest wait for
+  TMDB's commercial terms.
 - (2026-10-30) Templates are built in order of how likely producers are to use them (Ika): 1
   Production Budget, 2 the creator templates (GRWM, Day in My Life, Product Review…, which the
   editor already handles), 3 Script Breakdown, Content Production Guideline and Press Junket

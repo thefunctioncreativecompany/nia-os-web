@@ -691,6 +691,74 @@
   ],
   "imdb": "tt6779038"
  },
+ "citizen-kane": {
+  "videos": [
+   {
+    "id": "qg0j--Kxf0I",
+    "kind": "Official trailer",
+    "title": "Citizen Kane - Original Theatrical Trailer",
+    "channel": "Warner Bros. Rewind"
+   },
+   {
+    "id": "SvSI4-F1N6M",
+    "kind": "Cast interview",
+    "title": "CITIZEN KANE Discussion at AFI FEST 2016",
+    "channel": "American Film Institute"
+   },
+   {
+    "id": "a2sWHtBzzrs",
+    "kind": "Filmmaker interview",
+    "title": "Orson Welles Talks Citizen Kane in RARE Interview One Week Before His Death (Flashback)",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "kQpLmVzT_YA",
+    "kind": "Filmmaker interview",
+    "title": "1960: How did Orson Welles make CITIZEN KANE? | Monitor | Classic Movie Interviews | BBC Archive",
+    "channel": "BBC Archive"
+   },
+   {
+    "id": "kLf0qFckh7o",
+    "kind": "Filmmaker interview",
+    "title": "Orson Welles Talks About Making 'Citizen Kane' | The Dick Cavett Show",
+    "channel": "The Dick Cavett Show"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Orson Welles's Controversial 'Citizen Kane' Proves a Sensational Film at Palace",
+    "href": "https://www.proquest.com/docview/106087578",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Observer",
+    "title": "The most exciting film that has come out of Hollywood in twenty-five years",
+    "href": "https://www.theguardian.com/film/1941/oct/12/derekmalcolmscenturyoffilm",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Sur",
+    "title": "El Ciudadano",
+    "href": "http://www.canaltrans.com/lalinternamagica/005.html",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Welles' Citizen Kane Revolutionary Film",
+    "href": "https://www.newspapers.com/article/the-los-angeles-times-welles-citizen-k/184116950/"
+   },
+   {
+    "outlet": "The New Yorker",
+    "title": "Raising Kane",
+    "href": "https://www.newyorker.com/magazine/1971/02/20/raising-kane-i"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0033467"
+ },
  "city-lights": {
   "videos": [
    {
@@ -1919,6 +1987,68 @@
   "cinemaRelease": true,
   "imdb": "tt0038650"
  },
+ "jaws": {
+  "videos": [
+   {
+    "id": "SNvYsTY6jVw",
+    "kind": "Official trailer",
+    "title": "JAWS - TRAILER",
+    "channel": "Universal Pictures South Africa"
+   },
+   {
+    "id": "tD1k9a0XGPA",
+    "kind": "Cast interview",
+    "title": "Steven Spielberg on Casting Jaws | AFI Movie Club",
+    "channel": "American Film Institute"
+   },
+   {
+    "id": "CVLMXao4iro",
+    "kind": "Cast interview",
+    "title": "Extended interview: Richard Dreyfuss on filming \"Jaws\"",
+    "channel": "CBS Sunday Morning"
+   },
+   {
+    "id": "QuapTSIgvJY",
+    "kind": "Featurette",
+    "title": "Steven Spielberg On The Making Of Jaws | The Dick Cavett Show",
+    "channel": "The Dick Cavett Show"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Jaws",
+    "href": "https://www.variety.com/review/VE1117792123/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "New York",
+    "title": "Fish Story On a Grand Scale",
+    "href": "https://books.google.com/books?id=1-gCAAAAMBAJ&pg=PA69",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Entrapped by 'Jaws' of Fear",
+    "href": "https://www.nytimes.com/1975/06/21/archives/screen-entrapped-by-jaws-of-fear.html",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Gallup",
+    "title": "Gallup Vault: Jaws Made Waves in 1975",
+    "href": "https://news.gallup.com/vault/691907/gallup-vault-jaws-made-waves-1975.aspx"
+   },
+   {
+    "outlet": "American Film Institute",
+    "title": "Jaws (AFI Catalog)",
+    "href": "https://catalog.afi.com/Film/55193-JAWS"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0073195"
+ },
  "jerusalema": {
   "videos": [],
   "reviews": [
@@ -2588,6 +2718,56 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt32083311"
+ },
+ "on-the-waterfront": {
+  "videos": [
+   {
+    "id": "1BaUJk3YlEI",
+    "kind": "Cast interview",
+    "title": "Martin Scorsese and Kent Jones Discuss On the Waterfront",
+    "channel": "CRITERION"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "On the Waterfront (Great Movies)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-on-the-waterfront-1954",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "On the Waterfront",
+    "href": "https://variety.com/1954/film/reviews/on-the-waterfront-2-1200417738/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Empire",
+    "title": "On the Waterfront Review",
+    "href": "https://www.empireonline.com/movies/reviews/waterfront-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "On the Waterfront on the Criterion Collection",
+    "href": "https://www.slantmagazine.com/dvd/on-the-waterfront/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The New York Times",
+    "title": "'Waterfront,' Brando, Grace Kelly Win 'Oscars'",
+    "href": "https://archive.nytimes.com/www.nytimes.com/specials/oscars/flashback-1954.html"
+   },
+   {
+    "outlet": "Criterion",
+    "title": "On the Waterfront: Everybody Part of Everybody Else",
+    "href": "https://www.criterion.com/current/posts/2663-on-the-waterfront-everybody-part-of-everybody-else"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0047296"
  },
  "oppenheimer": {
   "videos": [
@@ -3631,6 +3811,51 @@
   "cinemaRelease": true,
   "imdb": "tt0018455"
  },
+ "sunset-boulevard": {
+  "videos": [
+   {
+    "id": "ZQWqIA1-kvA",
+    "kind": "Official trailer",
+    "title": "Sunset Boulevard (1950) Official Trailer | 75th Anniversary | Paramount Movies",
+    "channel": "Paramount Movies"
+   },
+   {
+    "id": "raZONOSPJ7s",
+    "kind": "Cast interview",
+    "title": "Gloria Swanson talks with Ed about the film Sunset Boulevard and her career on The Ed Sullivan Show",
+    "channel": "The Ed Sullivan Show"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Sunset Boulevard",
+    "href": "https://variety.com/1950/film/reviews/sunset-boulevard-2-1200416751/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Sunset Boulevard (Great Movies)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-sunset-boulevard-1950",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Sunset Boulevard (Sunset Blvd.) Review",
+    "href": "https://www.empireonline.com/movies/reviews/sunset-boulevard-sunset-blvd-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Slant Magazine",
+    "title": "The Conversations: Sunset Boulevard and All About Eve",
+    "href": "https://www.slantmagazine.com/film/the-conversations-sunset-boulevard-and-all-about-eve/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0043014"
+ },
  "the-blood-of-jesus": {
   "videos": [],
   "reviews": [],
@@ -3841,6 +4066,39 @@
   ],
   "articles": [],
   "imdb": "tt0045936"
+ },
+ "the-maltese-falcon": {
+  "videos": [
+   {
+    "id": "boZoLR17If8",
+    "kind": "Official trailer",
+    "title": "The Maltese Falcon - Original Theatrical Trailer",
+    "channel": "Warner Bros. Rewind"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "The Maltese Falcon",
+    "href": "https://www.variety.com/review/VE1117792895/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Film Daily",
+    "title": "The Maltese Falcon",
+    "href": "https://archive.org/details/filmdaily80wids",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "'The Maltese Falcon', a Fast Mystery-Thriller With Quality and Charm, at the Strand",
+    "href": "https://movies.nytimes.com/movie/review?res=990DE4D7113FE13BBC4C53DFB667838A659EDE",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0033870"
  },
  "the-mother-of-all-lies": {
   "videos": [
@@ -4495,5 +4753,49 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0052357"
+ },
+ "west-side-story": {
+  "videos": [
+   {
+    "id": "pbPAXXBAk9s",
+    "kind": "Cast interview",
+    "title": "Natalie Wood on Making WEST SIDE STORY | Spotlight Cinema",
+    "channel": "American Film Institute"
+   },
+   {
+    "id": "Z1vuvx8TYtA",
+    "kind": "Cast interview",
+    "title": "‘West Side Story’ Star George Chakiris Reveals Set Secrets Behind The Much-Loved Classic | Studio 10",
+    "channel": "Studio 10"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Best Pictures",
+    "href": "https://archive.nytimes.com/www.nytimes.com/packages/html/movies/bestpictures/west-re.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "West Side Story: THR's 1961 Review",
+    "href": "https://www.hollywoodreporter.com/review/west-side-story-1961-film-939258"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "West Side Story Movie Review & Film Summary (1961)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-west-side-story-1961",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "West Side Story",
+    "href": "https://variety.com/1961/film/reviews/west-side-story-3-1200420009/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0055614"
  }
 }

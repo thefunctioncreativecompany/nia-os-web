@@ -485,5 +485,35 @@
   "source": "Wikimedia Commons",
   "file": "The Joe Louis Story (1953) poster.jpg",
   "image": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Joe%20Louis%20Story%20(1953)%20poster.jpg"
+ },
+ "citizen-kane": {
+  "source": "Wikimedia Commons",
+  "file": "Citizen Kane poster, 1941 (Style A).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Citizen%20Kane%20poster%2C%201941%20(Style%20A).jpg"
+ },
+ "the-maltese-falcon": {
+  "source": "Wikimedia Commons",
+  "file": "The Maltese Falcon (1941 film poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Maltese%20Falcon%20(1941%20film%20poster).jpg"
+ },
+ "sunset-boulevard": {
+  "source": "Wikimedia Commons",
+  "file": "Sunset Boulevard (1950 poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20Boulevard%20(1950%20poster).jpg"
+ },
+ "on-the-waterfront": {
+  "source": "Wikimedia Commons",
+  "file": "On the Waterfront (1954 poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/On%20the%20Waterfront%20(1954%20poster).jpg"
+ },
+ "west-side-story": {
+  "source": "Wikimedia Commons",
+  "file": "West Side Story 1961 film poster.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/West%20Side%20Story%201961%20film%20poster.jpg"
+ },
+ "jaws": {
+  "source": "Wikimedia Commons",
+  "file": "Jaws movie poster.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Jaws%20movie%20poster.jpg"
  }
 }
