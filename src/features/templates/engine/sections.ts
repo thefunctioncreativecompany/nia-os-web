@@ -1,4 +1,4 @@
-import type { BudgetSection, FieldKind, FieldSpec, LetterSection, Section, SectionType, TableSection, TemplateSchema } from '../types';
+import type { BudgetSection, CategoriesSection, ChecklistSection, FieldKind, FieldSpec, LetterSection, Section, SectionType, TableSection, TemplateSchema } from '../types';
 import type { PersonRef } from '@/components/nia/assignees';
 import {
   formatClock,
@@ -32,15 +32,20 @@ export type FieldsValue = Record<string, FieldValue>;
 export type TableRow = { id: string } & Record<string, FieldValue>;
 /** A budget (Production Budget): each group's lines, and the contingency as a percentage. */
 export type BudgetValue = { groups: TableRow[][]; contingency: string };
-export type SectionValue = FieldsValue | TableRow[] | string | BudgetValue;
+/** A checklist: each group's items, as written (people can edit, add and remove them) and ticked. */
+export type ChecklistItem = { id: string; text: string; done: boolean };
+export type ChecklistValue = { checklist: ChecklistItem[][] };
+export type SectionValue = FieldsValue | TableRow[] | string | BudgetValue | ChecklistValue;
 
-export const ENGINE_TYPES: ReadonlySet<SectionType> = new Set(['fields', 'text', 'letter', 'table', 'budget']);
+export const ENGINE_TYPES: ReadonlySet<SectionType> = new Set(['fields', 'text', 'letter', 'table', 'budget', 'checklist', 'categories']);
 
 /** Templates whose controls have been reviewed with Ika join here (build step 7 and T5). */
 const READY = new Set([
   'D07', 'D03', 'D06', 'D08', 'D13', 'D14', 'D10', 'D04', 'D01', 'D02',
   // The creator templates (Ika, 2026-10-30).
   'D15', 'D16', 'D17', 'D18', 'D19', 'D20', 'D21', 'D26', 'D27', 'D28', 'D29', 'D30', 'D31',
+  // Checklists and breakdown categories (Ika, 2026-10-30).
+  'D05', 'D22', 'D23',
 ]);
 
 export const canEdit = (schema: TemplateSchema | null): schema is TemplateSchema =>
@@ -235,10 +240,24 @@ export function budgetTotals(section: BudgetSection, value: SectionValue | undef
   return { groups, subtotal, percent, contingency, total: subtotal + contingency };
 }
 
+// ── Checklists (Content Production Guideline, Press Junket Brief) and categories (Script
+// Breakdown): Figma 932:9008 and 840:28209. A category is a written answer per heading, stored like
+// fields; a checklist keeps each group's items with whether they're done.
+
+export const blankChecklist = (section: ChecklistSection): ChecklistValue => ({
+  checklist: section.groups.map((g, gi) => g.items.map((text, i) => ({ id: `c${gi + 1}-${i + 1}`, text, done: false }))),
+});
+
+const blankCategories = (section: CategoriesSection): FieldsValue => Object.fromEntries(section.items.map((item) => [item, '']));
+
 export function initSection(section: Section): SectionValue {
   switch (section.type) {
     case 'budget':
       return blankBudget(section);
+    case 'checklist':
+      return blankChecklist(section);
+    case 'categories':
+      return blankCategories(section);
     case 'fields':
       return Object.fromEntries(section.fields.map((f) => [fieldLabel(f), blankField(f)]));
     case 'table':
@@ -265,6 +284,11 @@ export function hasContent(section: Section, value: SectionValue | undefined): b
     }
     case 'text':
       return filled(value);
+    // A checklist starts with its usual items, so it counts once one is ticked.
+    case 'checklist':
+      return ((value as ChecklistValue)?.checklist ?? []).some((items) => items.some((i) => i.done));
+    case 'categories':
+      return section.items.some((item) => filled((value as FieldsValue)?.[item]));
     // A budget starts with its usual categories, so it counts once any line has a rate or units.
     case 'budget':
       return asBudget(section, value).groups.some((rows) => rows.some((row) => filled(row.Rate) || filled(row.Units)));
@@ -318,6 +342,20 @@ export function restoreDocument(schema: TemplateSchema, saved: unknown): Section
     if (s.type === 'fields') {
       const old = value && typeof value === 'object' ? (value as Record<string, unknown>) : {};
       return Object.fromEntries(s.fields.map((f) => [fieldLabel(f), restoreField(f, old[fieldLabel(f)])]));
+    }
+    if (s.type === 'checklist') {
+      if (!value || typeof value !== 'object' || !Array.isArray(value.checklist)) return initSection(s);
+      return {
+        checklist: s.groups.map((_, gi) =>
+          (Array.isArray(value.checklist[gi]) ? value.checklist[gi] : [])
+            .filter((i: unknown): i is ChecklistItem => !!i && typeof (i as ChecklistItem).text === 'string')
+            .map((i: ChecklistItem, n: number) => ({ id: typeof i.id === 'string' ? i.id : `c${gi + 1}-${n + 1}`, text: i.text, done: i.done === true })),
+        ),
+      };
+    }
+    if (s.type === 'categories') {
+      const old = value && typeof value === 'object' ? (value as Record<string, unknown>) : {};
+      return Object.fromEntries(s.items.map((item) => [item, typeof old[item] === 'string' ? old[item] : '']));
     }
     if (s.type === 'budget') {
       if (!value || typeof value !== 'object' || !Array.isArray(value.groups)) return initSection(s);

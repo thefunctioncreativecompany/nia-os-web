@@ -1,6 +1,6 @@
 import type { TableSection, TemplateSchema } from '../types';
 import { formatMoney } from './format';
-import { budgetTable, budgetTotals, computeCell, documentCurrency, editableColumns, fieldLabel, formatField, refResolver, resolveDocument, tableTotal, type BudgetValue, type FieldsValue, type SectionValue, type TableRow } from './sections';
+import { budgetTable, budgetTotals, computeCell, documentCurrency, editableColumns, fieldLabel, formatField, refResolver, resolveDocument, tableTotal, type BudgetValue, type ChecklistValue, type FieldsValue, type SectionValue, type TableRow } from './sections';
 
 /*
  * Downloads (Ika, 2026-10-19): PDF, Word, Markdown and plain text, all built from the same
@@ -51,6 +51,20 @@ function blocks(schema: TemplateSchema, data: SectionValue[]): Block[] {
     if (section.type === 'fields') {
       const fields = (value ?? {}) as FieldsValue;
       return [{ title: section.title, kind: 'fields', rows: section.fields.map((f) => [fieldLabel(f), formatField(f, fields[fieldLabel(f)], { currency }) || EMPTY]) }];
+    }
+    // A checklist downloads as a table of its items with whether each is done.
+    if (section.type === 'checklist') {
+      const groups = (value as ChecklistValue)?.checklist ?? [];
+      return [{
+        title: section.title,
+        kind: 'table',
+        header: ['When', 'Item', 'Done'],
+        cells: section.groups.flatMap((g, gi) => (groups[gi] ?? []).filter((i) => i.text.trim()).map((i) => [g.label, i.text.trim(), i.done ? 'Yes' : EMPTY])),
+      }];
+    }
+    if (section.type === 'categories') {
+      const answers = (value ?? {}) as FieldsValue;
+      return [{ title: section.title, kind: 'fields', rows: section.items.map((item) => [item, String(answers[item] ?? '').trim() || EMPTY]) }];
     }
     // A budget downloads as one table per group, then the summary.
     if (section.type === 'budget') {

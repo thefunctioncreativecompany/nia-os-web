@@ -343,7 +343,13 @@ Data:
   format are choices, post date and time pickers, durations with units, numbers for servings, sets,
   reps, calories and rating, a person for who plays each character, Product Review's price in a
   chosen currency. Four repeated the posting fields in a second section (a slip in the design
-  data); the copy was removed. 23 templates work now.
+  data); the copy was removed. Then Script Breakdown, Content Production Guideline and Press
+  Junket Brief, with two new section types: `checklist` (`checklist-view.tsx`, Figma 932:9008:
+  groups of tick boxes whose items can be reworded, added and removed; downloads list each item
+  and whether it's done) and `categories` (Figma 840:28209: a written answer per category in a
+  box with a neutral stripe; Figma's eleven stripe colours aren't theme colours, and its labels
+  are in sentence case per the font rule; the AI Suggest button waits for Copilot). 26
+  templates work now.
 
 ## Working notes
 

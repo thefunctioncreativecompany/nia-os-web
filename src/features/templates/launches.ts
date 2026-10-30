@@ -129,6 +129,21 @@ export const LAUNCHES: Record<string, Launch> = {
     forYou: "Take on a trend with its original link and sound, your twist, the shot sequence and the beat timing.",
     forTeam: "Anyone filming with you hits the same beats, props and timing.",
   },
+  D05: {
+    launched: "2026-10-30",
+    forYou: "Break a scene down into everything it needs: cast, stunts, extras, effects, props, vehicles, wardrobe, hair and make-up, sound and special kit.",
+    forTeam: "Each department reads its own line for the scene, so nothing it needs is missed when the day is scheduled and budgeted.",
+  },
+  D22: {
+    launched: "2026-10-30",
+    forYou: "Set the rules for the BTS, EPK and social content captured on a production: the brief, the interview set-up, special concepts and the technical specs.",
+    forTeam: "The content crew works through the same daily checklist before, on and after set, and delivers in the format the client asked for.",
+  },
+  D23: {
+    launched: "2026-10-30",
+    forYou: "Plan a press day: the rooms and what each is for, which talent sits with which outlets, the capture set-up and the timeline.",
+    forTeam: "Publicists, crews and talent handlers follow one room plan and schedule, and tick off each capture package as it's ready.",
+  },
   D02: {
     launched: "2026-10-30",
     forYou: "Cost above the line, below the line and additional spend line by line, with each group's subtotal, a contingency you set and the grand total worked out in your currency.",

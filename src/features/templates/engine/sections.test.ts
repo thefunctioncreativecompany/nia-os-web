@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import schemas from '../../../data/template-schemas.json';
 import type { BudgetSection, TemplateSchema } from '../types';
-import { budgetTotals, canEdit, filledCount, hasContent, initDocument, resolveDocument, restoreDocument, type BudgetValue } from './sections';
+import { budgetTotals, canEdit, filledCount, hasContent, initDocument, resolveDocument, restoreDocument, type BudgetValue, type ChecklistValue } from './sections';
 import { toMarkdown } from './export';
 import { formatClock, formatDateTimeRange, formatDays } from './format';
 
@@ -253,5 +253,35 @@ describe('creator templates', () => {
     const grwm = initDocument(getSchema('D15')!);
     const look = grwm[2] as Record<string, unknown>[];
     expect(look[0].Duration).toEqual({ amount: '', unit: 'seconds' });
+  });
+});
+
+describe('checklists and breakdown categories', () => {
+  it('ticks, rewords and keeps checklist items, and downloads them', () => {
+    const guide = getSchema('D22')!;
+    expect(canEdit(guide)).toBe(true);
+    const data = initDocument(guide);
+    const i = guide.sections.findIndex((s) => s.type === 'checklist');
+    const list = data[i] as ChecklistValue;
+    expect(list.checklist.map((g) => g.length)).toEqual([1, 1, 1]);
+    expect(hasContent(guide.sections[i], list)).toBe(false);
+    list.checklist[0][0].done = true;
+    list.checklist[2].push({ id: 'x', text: 'Back up cards twice', done: false });
+    expect(hasContent(guide.sections[i], list)).toBe(true);
+    const restored = restoreDocument(guide, JSON.parse(JSON.stringify(data)));
+    expect(restored[i]).toEqual(list);
+    expect(toMarkdown(guide, restored)).toContain('| Before Set | Verify camera/sound package check | Yes |');
+    expect(toMarkdown(guide, restored)).toContain('| After Set | Back up cards twice | — |');
+  });
+
+  it('breaks a scene down by category', () => {
+    const breakdown = getSchema('D05')!;
+    expect(canEdit(breakdown)).toBe(true);
+    expect(canEdit(getSchema('D23'))).toBe(true);
+    const data = initDocument(breakdown);
+    const i = breakdown.sections.findIndex((s) => s.type === 'categories');
+    (data[i] as Record<string, string>).Cast = 'Elena Vasquez, Marcus Chen';
+    expect(filledCount(breakdown, data)).toBe(1);
+    expect(toMarkdown(breakdown, restoreDocument(breakdown, data))).toContain('- **Cast:** Elena Vasquez, Marcus Chen');
   });
 });

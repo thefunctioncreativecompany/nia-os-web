@@ -4,7 +4,8 @@ import { Textarea } from '@/components/ui/textarea';
 import type { Section } from '../types';
 import { FieldControl } from './field-controls';
 import { BudgetView } from './budget-view';
-import { fieldLabel, type BudgetValue, type FieldsValue, type SectionValue, type TableRow } from './sections';
+import { ChecklistView } from './checklist-view';
+import { fieldLabel, type BudgetValue, type ChecklistValue, type FieldsValue, type SectionValue, type TableRow } from './sections';
 import { TableView } from './table-view';
 
 // One editor per section type (TEMPLATE_ENGINE.md §4). Step 1: fields, text and letter, from
@@ -58,6 +59,35 @@ export function SectionView({ section, value, onChange, currency }: Props) {
     }
     case 'table':
       return <TableView section={section} rows={value as TableRow[]} onChange={(rows, key) => onChange(rows, key)} currency={currency} />;
+    case 'checklist':
+      return <ChecklistView section={section} value={value as ChecklistValue} onChange={(next, key) => onChange(next, key)} />;
+    // Script Breakdown's categories (Figma 840:28209): a written answer per heading, each in a box
+    // with a stripe down its side, in sentence case.
+    case 'categories': {
+      const answers = value as FieldsValue;
+      return (
+        <div className="flex flex-col gap-2.5">
+          {section.items.map((item) => {
+            const id = `${section.title}-${item}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            return (
+              <div key={item} className="flex flex-col gap-1 rounded-xl border border-l-4 border-border border-l-foreground/70 bg-nia-panel px-4 py-3 print:break-inside-avoid">
+                <label htmlFor={id} className="text-caption font-bold text-muted-foreground">
+                  {item}
+                </label>
+                <Textarea
+                  id={id}
+                  rows={1}
+                  value={(answers?.[item] as string) ?? ''}
+                  placeholder="—"
+                  onChange={(e) => onChange({ ...answers, [item]: e.target.value }, item)}
+                  className="min-h-0 resize-none border-0 bg-transparent p-0 text-sm leading-normal shadow-none placeholder:text-nia-placeholder focus-visible:ring-0 md:text-sm field-sizing-content"
+                />
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
     case 'budget':
       return <BudgetView section={section} value={value as BudgetValue} onChange={(next, key) => onChange(next, key)} currency={currency} />;
     case 'letter':

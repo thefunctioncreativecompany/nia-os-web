@@ -317,23 +317,46 @@
       "actions": [
         "Print"
       ],
-      "version": "v1.0",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
           "title": "Breakdown Metadata",
           "fields": [
             "Breakdown Sheet #",
-            "Page Count",
-            "Date",
+            {
+              "label": "Page Count",
+              "kind": "pages"
+            },
+            {
+              "label": "Date",
+              "kind": "date"
+            },
             "Production Company",
             "Production Title",
             "Scene #",
             "Scene Name",
             "Script Page",
             "Location",
-            "Int / Ext",
-            "Day / Night"
+            {
+              "label": "Int / Ext",
+              "kind": "choice",
+              "options": [
+                "INT",
+                "EXT",
+                "INT/EXT"
+              ]
+            },
+            {
+              "label": "Day / Night",
+              "kind": "choice",
+              "options": [
+                "Day",
+                "Night",
+                "Dawn",
+                "Dusk"
+              ]
+            }
           ]
         },
         {
@@ -1033,7 +1056,7 @@
         "Add Row",
         "Print"
       ],
-      "version": "v1.0",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
@@ -1041,10 +1064,16 @@
           "fields": [
             "Client",
             "Production Company",
-            "Production Dates",
+            {
+              "label": "Production Dates",
+              "kind": "dateTimeRange"
+            },
             "Content Type (BTS/EPK/PAVs)",
             "Locations",
-            "Crew Members"
+            {
+              "label": "Crew Members",
+              "kind": "people"
+            }
           ]
         },
         {
@@ -1058,8 +1087,14 @@
           "fields": [
             "Production Day",
             "Venue",
-            "Mandatory Cast",
-            "Optional Cast"
+            {
+              "label": "Mandatory Cast",
+              "kind": "people"
+            },
+            {
+              "label": "Optional Cast",
+              "kind": "people"
+            }
           ]
         },
         {
@@ -1443,15 +1478,21 @@
         "Add Row",
         "Print"
       ],
-      "version": "v1.0",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
           "title": "Event Details",
           "fields": [
             "Project Title",
-            "Junket Date",
-            "Setup Date",
+            {
+              "label": "Junket Date",
+              "kind": "date"
+            },
+            {
+              "label": "Setup Date",
+              "kind": "date"
+            },
             "Location / Venue"
           ]
         },
@@ -1470,7 +1511,11 @@
           "type": "table",
           "title": "Talent Pairings",
           "columns": [
-            "Talent",
+            {
+              "label": "Talent",
+              "kind": "people",
+              "single": true
+            },
             "Room",
             "Outlets / Slot"
           ],
@@ -1511,7 +1556,10 @@
           "type": "table",
           "title": "Timeline Schedule",
           "columns": [
-            "Time",
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Activity",
             "Room"
           ],
