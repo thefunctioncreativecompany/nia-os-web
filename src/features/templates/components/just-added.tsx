@@ -1,68 +1,55 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { NewMarker, dayLabel } from "@/components/nia/new-marker";
+import { ScrollRow } from "@/components/nia/scroll-row";
 import { grainFor, type GalleryTemplate } from "@/features/templates/gallery";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
-import { TemplateValue } from "@/features/templates/components/template-value";
 
-// "Just added" at the top of Templates (Ika, 2026-10-28): each template that opened in the last
-// NEW_FOR_DAYS (launches.ts), with the day it arrived and what it does for you and your team.
-// Shown only while something is new.
+// "Just added" at the top of Templates (Ika, 2026-10-28): every template that opened in the last
+// NEW_FOR_DAYS (launches.ts), newest first. One row of compact cards that scrolls (Ika,
+// 2026-10-30: the big two-column cards were hard to read and showed only three of twenty):
+// each card has the name, its stage and what it does for you; the whole card opens the preview,
+// which carries both value lines and Use this template. Shown only while something is new.
 export function JustAdded({
   templates,
   onPreview,
-  onUse,
   className,
 }: {
   templates: GalleryTemplate[];
   onPreview: (template: GalleryTemplate) => void;
-  onUse: (template: GalleryTemplate) => void;
   className?: string;
 }) {
-  const fresh = templates.filter((t) => t.fresh).slice(0, 3);
+  const fresh = templates.filter((t) => t.fresh).toSorted((a, b) => (b.launched ?? "").localeCompare(a.launched ?? ""));
   if (!fresh.length) return null;
   return (
-    <section aria-labelledby="just-added" className={cn("flex flex-col gap-4.5", className)}>
-      <div>
-        <h2 id="just-added" className="text-lg font-extrabold text-foreground">Just added</h2>
-        <p className="text-small text-muted-foreground">
-          {fresh.length === 1 ? "A new template is ready to use." : `${fresh.length} new templates are ready to use.`}
-        </p>
-      </div>
-      <div className={cn("grid gap-5", fresh.length > 1 && "lg:grid-cols-2")}>
+    <section aria-labelledby="just-added" className={cn("flex flex-col gap-3", className)}>
+      <h2 id="just-added" className="text-lg font-extrabold text-foreground">
+        Just added
+      </h2>
+      <ScrollRow label="Just added">
         {fresh.map((t) => (
-          <article key={t.code} className="flex flex-col overflow-hidden rounded-2xl border border-border bg-white sm:flex-row">
+          <li key={t.code} className="w-64 flex-none snap-start sm:w-72">
             <button
               type="button"
               onClick={() => onPreview(t)}
-              aria-label={`Preview the ${t.name} template`}
-              className={cn("grid min-h-40 place-items-center outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:w-56 sm:flex-none", grainFor(t.code))}
+              className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-white text-left outline-none transition-shadow duration-fast hover:shadow-elevation-2 focus-visible:ring-3 focus-visible:ring-ring/50"
             >
-              <span className="grid size-24 place-items-center rounded-2xl bg-white shadow-elevation-2">
-                <FlatIcon name={t.icon} size="md" />
+              <span className={cn("flex h-24 items-end p-3", grainFor(t.code))}>
+                <span className="grid size-11 place-items-center rounded-xl bg-white shadow-elevation-2">
+                  <FlatIcon name={t.icon} size="sm" />
+                </span>
+              </span>
+              <span className="flex flex-1 flex-col gap-1.5 p-4">
+                {t.launched && <NewMarker label={`New · ${dayLabel(t.launched)}`} className="self-start" />}
+                <span className="text-base leading-snug font-bold text-foreground">{t.name}</span>
+                <span className="text-small text-muted-foreground">{t.stage}</span>
+                {t.forYou && <span className="line-clamp-3 text-small leading-normal text-foreground/80">{t.forYou}</span>}
               </span>
             </button>
-            <div className="flex min-w-0 flex-1 flex-col gap-4 p-5 sm:p-6">
-              <div>
-                {t.launched && <NewMarker label={`New · added ${dayLabel(t.launched)}`} />}
-                <h3 className="mt-2.5 text-h3 font-bold tracking-tight text-foreground">{t.name}</h3>
-                <p className="text-small text-muted-foreground">{t.stage}</p>
-              </div>
-              <TemplateValue template={t} />
-              <div className="flex flex-wrap gap-2.5">
-                <Button onClick={() => onUse(t)}>
-                  Use this template <ArrowRight aria-hidden />
-                </Button>
-                <Button variant="outline" onClick={() => onPreview(t)}>Preview</Button>
-              </div>
-            </div>
-          </article>
+          </li>
         ))}
-      </div>
+      </ScrollRow>
     </section>
   );
 }

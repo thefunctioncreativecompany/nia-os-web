@@ -59,10 +59,11 @@ export function NewTemplatesNotice({ templates, announced }: { templates: Galler
           <Button asChild variant="outline">
             <Link href={`/templates?preview=${lead.code}`} onClick={() => void markAnnounced()}>Preview</Link>
           </Button>
+          {/* A few by name, then the rest on Templates' Just added row (Ika, 2026-10-30: 20 at once read as a wall). */}
           {others.length > 0 && (
             <p className="text-small text-muted-foreground">
               Also new:{" "}
-              {others.map((t, i) => (
+              {others.slice(0, 3).map((t, i) => (
                 <span key={t.code}>
                   {i > 0 && ", "}
                   <Link href={`/templates?preview=${t.code}`} onClick={() => void markAnnounced()} className="font-semibold text-foreground underline-offset-4 hover:underline">
@@ -70,6 +71,14 @@ export function NewTemplatesNotice({ templates, announced }: { templates: Galler
                   </Link>
                 </span>
               ))}
+              {others.length > 3 && (
+                <>
+                  {" "}and{" "}
+                  <Link href="/templates" onClick={() => void markAnnounced()} className="font-semibold text-foreground underline-offset-4 hover:underline">
+                    {others.length - 3} more
+                  </Link>
+                </>
+              )}
             </p>
           )}
         </div>

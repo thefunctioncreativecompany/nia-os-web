@@ -360,6 +360,10 @@ Data:
   (a `metrics` section: each number in a card, in large type). 29 templates work now. Waiting:
   Storyboard and Casting Deck (pictures inside a document: where they're stored is Ika's call,
   since a document needn't belong to a project) and the 31 templates with no design yet.
+  Just added redone (Ika: the big two-column cards were hard to read and showed only three of
+  twenty): one scrolling row of compact cards for every new template, newest first, each with
+  its name, stage and for-you line; the whole card opens the preview (both value lines and Use
+  this template). Home's announcement names three others, then "and N more" to Templates.
 
 ## Working notes
 

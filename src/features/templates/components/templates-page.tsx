@@ -163,7 +163,7 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
       ) : (
         <>
           {/* New templates lead while they're new (launches.ts). */}
-          <JustAdded templates={templates} onPreview={(t) => openPreview(t, templates.filter((x) => x.fresh))} onUse={use} className="px-4 pt-7.5 pb-6 md:px-11" />
+          <JustAdded templates={templates} onPreview={(t) => openPreview(t, templates.filter((x) => x.fresh))} className="px-4 pt-7.5 pb-6 md:px-11" />
           {/* Documents you started and haven't put in a project (audit #3). */}
           <MyDrafts icons={icons} />
           {/* Phones: the suggested templates lead (Apple Music style). */}
