@@ -326,6 +326,19 @@ Data:
   a Fugitive or The Ox-Bow Incident; Dr. Strangelove left out (Commons has only a newspaper-style
   ad). That uses up every seed title with a free poster: none of the 100 TV shows or 2026
   festival films has one, so the other ~200 wait for the TMDB key.
+- (2026-10-30) Templates are built in order of how likely producers are to use them (Ika): 1
+  Production Budget, 2 the creator templates (GRWM, Day in My Life, Product Review…, which the
+  editor already handles), 3 Script Breakdown, Content Production Guideline and Press Junket
+  Brief (one new section type each), 4 Storyboard and Casting Deck, 5 the 31 designs not made yet.
+  Call Sheet – Detailed waits: it is the Call Sheet built section by section (needs Add section).
+  Production Budget (D02) done, from Figma 796:9836: a `budget` section type
+  (`src/features/templates/engine/budget-view.tsx`, data rules in `sections.ts`): Above the Line,
+  Below the Line and Additional as tables (Category, Description, Rate, Units, Subtotal worked
+  out, each group's subtotal and its share of the budget), then a summary with a contingency
+  slider (0 to 25%, 10% to start) and the total, in the overview's currency; downloads list each
+  group and the summary. Overview fields have real controls (type, currency, start and wrap
+  dates, producer, line producer). 10 templates work now; D02 is in `launches.ts` (New for 30
+  days).
 
 ## Working notes
 

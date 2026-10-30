@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import schemas from '../../../data/template-schemas.json';
-import type { TemplateSchema } from '../types';
-import { canEdit, filledCount, hasContent, initDocument, resolveDocument, restoreDocument } from './sections';
+import type { BudgetSection, TemplateSchema } from '../types';
+import { budgetTotals, canEdit, filledCount, hasContent, initDocument, resolveDocument, restoreDocument, type BudgetValue } from './sections';
+import { toMarkdown } from './export';
 import { formatClock, formatDateTimeRange, formatDays } from './format';
 
 // The data file directly: tests don't resolve the app's `@/` paths that catalog.ts uses.
@@ -186,5 +187,47 @@ describe('call sheet', () => {
     expect(tableTotal(schedule, rows)).toBe(23);
     expect(formatField(schedule.columns[1], '23')).toBe('2 7/8');
     expect(optionsFromSection(sheet, data, 'Locations')).toEqual(['South Lot', 'Griffith Observatory']);
+  });
+});
+
+describe('Production Budget', () => {
+  const budget = getSchema('D02')!;
+  const section = budget.sections[1] as BudgetSection;
+
+  it('opens in the editor with its usual categories and a 10% contingency', () => {
+    expect(canEdit(budget)).toBe(true);
+    const [, value] = initDocument(budget) as [unknown, BudgetValue];
+    expect(value.groups.map((g) => g.length)).toEqual([7, 13, 2]);
+    expect(value.groups[0][0]).toMatchObject({ Category: 'Director', Description: "Director's Fee", Rate: '', Units: '' });
+    expect(value.contingency).toBe('10');
+    expect(filledCount(budget, initDocument(budget))).toBe(0);
+  });
+
+  it('works out each group, the contingency and the total', () => {
+    const data = initDocument(budget);
+    const value = data[1] as BudgetValue;
+    value.groups[0][0] = { ...value.groups[0][0], Rate: '5000', Units: '2' };
+    value.groups[1][0] = { ...value.groups[1][0], Rate: '1500', Units: '4' };
+    const totals = budgetTotals(section, value);
+    expect(totals.groups).toEqual([10000, 6000, 0]);
+    expect(totals.contingency).toBe(1600);
+    expect(totals.total).toBe(17600);
+    expect(hasContent(section, value)).toBe(true);
+  });
+
+  it('keeps a saved budget and downloads every group with the summary', () => {
+    const data = initDocument(budget);
+    (data[0] as Record<string, unknown>).Currency = 'ZAR';
+    const value = data[1] as BudgetValue;
+    value.groups[2][0] = { ...value.groups[2][0], Rate: '2000', Units: '1' };
+    value.contingency = '5';
+    const restored = restoreDocument(budget, JSON.parse(JSON.stringify(data)));
+    expect(restored[1]).toEqual(value);
+    const md = toMarkdown(budget, restored);
+    expect(md).toContain('## Above the Line (ATL)');
+    expect(md).toContain('**ATL subtotal**');
+    expect(md).toContain('## Budget summary');
+    expect(md).toMatch(/Contingency \(5%\):\*\* ZAR\s?100\.00/);
+    expect(md).toMatch(/Total budget:\*\* ZAR\s?2,100\.00/);
   });
 });

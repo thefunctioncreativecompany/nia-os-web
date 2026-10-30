@@ -63,6 +63,11 @@ export const LAUNCHES: Record<string, Launch> = {
     forYou: "Log every file and take from a card with a description, its length and whether to use it.",
     forTeam: "The editor starts from the takes marked to use instead of watching every clip.",
   },
+  D02: {
+    launched: "2026-10-30",
+    forYou: "Cost above the line, below the line and additional spend line by line, with each group's subtotal, a contingency you set and the grand total worked out in your currency.",
+    forTeam: "Producers and the client see one number and what each department is getting, and the shares show where the money goes before anyone books crew or kit.",
+  },
 };
 
 const DAY = 24 * 60 * 60 * 1000;

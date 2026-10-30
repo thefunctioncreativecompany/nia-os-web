@@ -1,6 +1,6 @@
-import type { TemplateSchema } from '../types';
+import type { TableSection, TemplateSchema } from '../types';
 import { formatMoney } from './format';
-import { computeCell, documentCurrency, editableColumns, fieldLabel, formatField, refResolver, resolveDocument, tableTotal, type FieldsValue, type SectionValue, type TableRow } from './sections';
+import { budgetTable, budgetTotals, computeCell, documentCurrency, editableColumns, fieldLabel, formatField, refResolver, resolveDocument, tableTotal, type BudgetValue, type FieldsValue, type SectionValue, type TableRow } from './sections';
 
 /*
  * Downloads (Ika, 2026-10-19): PDF, Word, Markdown and plain text, all built from the same
@@ -20,39 +20,58 @@ const EMPTY = '—';
 function blocks(schema: TemplateSchema, data: SectionValue[]): Block[] {
   const shown = resolveDocument(schema, data);
   const currency = documentCurrency(schema, data);
-  return schema.sections.map((section, i) => {
+  // A table as rows of words, with its worked-out columns and total.
+  const tableBlock = (section: TableSection, rows: TableRow[]): Block => {
+    const columns = editableColumns(section);
+    const numbered = section.autonumber ? [section.autonumber] : [];
+    const computed = Object.keys(section.computed ?? {});
+    const money = (column: string, amount: number) => {
+      if (section.money?.includes(column)) return formatMoney(amount, currency);
+      const spec = section.columns.find((c) => fieldLabel(c) === column);
+      return spec ? formatField(spec, String(amount)) || '0' : String(amount);
+    };
+    const total = tableTotal(section, rows);
+    return {
+      title: section.title,
+      kind: 'table',
+      header: [...numbered, ...columns.map(fieldLabel), ...computed],
+      cells: rows.map((row, r) => [
+        ...(section.autonumber ? [String(r + 1).padStart(2, '0')] : []),
+        ...columns.map((c) => formatField(c, row[fieldLabel(c)], { currency, ref: refResolver(schema, data, typeof c === 'string' ? undefined : c.source) }) || EMPTY),
+        ...computed.map((column) => {
+          const amount = computeCell(section, row, column);
+          return amount === null ? EMPTY : money(column, amount);
+        }),
+      ]),
+      total: section.total && total !== null ? [section.total.label, money(section.total.column, total)] : undefined,
+    };
+  };
+  return schema.sections.flatMap((section, i): Block[] => {
     const value = shown[i];
     if (section.type === 'fields') {
       const fields = (value ?? {}) as FieldsValue;
-      return { title: section.title, kind: 'fields', rows: section.fields.map((f) => [fieldLabel(f), formatField(f, fields[fieldLabel(f)], { currency }) || EMPTY]) };
+      return [{ title: section.title, kind: 'fields', rows: section.fields.map((f) => [fieldLabel(f), formatField(f, fields[fieldLabel(f)], { currency }) || EMPTY]) }];
     }
-    if (section.type === 'table') {
-      const columns = editableColumns(section);
-      const rows = (Array.isArray(value) ? value : []) as TableRow[];
-      const numbered = section.autonumber ? [section.autonumber] : [];
-      const computed = Object.keys(section.computed ?? {});
-      const money = (column: string, amount: number) => {
-        if (section.money?.includes(column)) return formatMoney(amount, currency);
-        const spec = section.columns.find((c) => fieldLabel(c) === column);
-        return spec ? formatField(spec, String(amount)) || '0' : String(amount);
-      };
-      const total = tableTotal(section, rows);
-      return {
-        title: section.title,
-        kind: 'table',
-        header: [...numbered, ...columns.map(fieldLabel), ...computed],
-        cells: rows.map((row, r) => [
-          ...(section.autonumber ? [String(r + 1).padStart(2, '0')] : []),
-          ...columns.map((c) => formatField(c, row[fieldLabel(c)], { currency, ref: refResolver(schema, data, typeof c === 'string' ? undefined : c.source) }) || EMPTY),
-          ...computed.map((column) => {
-            const amount = computeCell(section, row, column);
-            return amount === null ? EMPTY : money(column, amount);
-          }),
-        ]),
-        total: section.total && total !== null ? [section.total.label, money(section.total.column, total)] : undefined,
-      };
+    // A budget downloads as one table per group, then the summary.
+    if (section.type === 'budget') {
+      const budget = value as BudgetValue;
+      const totals = budgetTotals(section, budget);
+      const money = (amount: number) => formatMoney(amount, currency);
+      return [
+        ...section.groups.map((_, gi) => tableBlock(budgetTable(section, gi), budget?.groups?.[gi] ?? [])),
+        {
+          title: 'Budget summary',
+          kind: 'fields',
+          rows: [
+            ...section.groups.map((g, gi): [string, string] => [g.label, money(totals.groups[gi])]),
+            [`Contingency (${Math.round(totals.percent)}%)`, money(totals.contingency)],
+            ['Total budget', money(totals.total)],
+          ],
+        },
+      ];
     }
-    return { title: section.title, kind: 'text', text: typeof value === 'string' && value.trim() ? value.trim() : EMPTY };
+    if (section.type === 'table') return [tableBlock(section, (Array.isArray(value) ? value : []) as TableRow[])];
+    return [{ title: section.title, kind: 'text', text: typeof value === 'string' && value.trim() ? value.trim() : EMPTY }];
   });
 }
 

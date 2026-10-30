@@ -1,4 +1,4 @@
-import type { FieldKind, FieldSpec, LetterSection, Section, SectionType, TableSection, TemplateSchema } from '../types';
+import type { BudgetSection, FieldKind, FieldSpec, LetterSection, Section, SectionType, TableSection, TemplateSchema } from '../types';
 import type { PersonRef } from '@/components/nia/assignees';
 import {
   formatClock,
@@ -30,12 +30,14 @@ import {
 export type FieldValue = string | boolean | DateTimeRange | Duration | YesNo | TimeRange | Weather | PersonRef[] | string[];
 export type FieldsValue = Record<string, FieldValue>;
 export type TableRow = { id: string } & Record<string, FieldValue>;
-export type SectionValue = FieldsValue | TableRow[] | string;
+/** A budget (Production Budget): each group's lines, and the contingency as a percentage. */
+export type BudgetValue = { groups: TableRow[][]; contingency: string };
+export type SectionValue = FieldsValue | TableRow[] | string | BudgetValue;
 
-export const ENGINE_TYPES: ReadonlySet<SectionType> = new Set(['fields', 'text', 'letter', 'table']);
+export const ENGINE_TYPES: ReadonlySet<SectionType> = new Set(['fields', 'text', 'letter', 'table', 'budget']);
 
 /** Templates whose controls have been reviewed with Ika join here (build step 7 and T5). */
-const READY = new Set(['D07', 'D03', 'D06', 'D08', 'D13', 'D14', 'D10', 'D04', 'D01']);
+const READY = new Set(['D07', 'D03', 'D06', 'D08', 'D13', 'D14', 'D10', 'D04', 'D01', 'D02']);
 
 export const canEdit = (schema: TemplateSchema | null): schema is TemplateSchema =>
   !!schema && READY.has(schema.code) && schema.sections.every((s) => ENGINE_TYPES.has(s.type));
@@ -185,8 +187,54 @@ export function blankRow(section: TableSection, id: string = uid()): TableRow {
   return { id, ...Object.fromEntries(editableColumns(section).map((c) => [fieldLabel(c), blankField(c)])) };
 }
 
+// ── Budgets (Production Budget, Figma 796:9836) ──────────────────────────────────────────────
+// Each group (Above the Line, Below the Line, Additional) is a table of Category, Description,
+// Rate and Units with a worked-out Subtotal; the summary adds the groups, the contingency and the
+// grand total. The groups reuse the table editor and downloads.
+
+/** "Above the Line (ATL)" → "ATL"; a label without a short form stays as it is. */
+export const groupShort = (label: string) => /\(([^)]+)\)/.exec(label)?.[1] ?? label;
+
+/** A budget group as a table, so it edits, totals and downloads like any other table. */
+export function budgetTable(section: BudgetSection, group: number): TableSection {
+  const label = section.groups[group]?.label ?? '';
+  return {
+    type: 'table',
+    title: label,
+    columns: ['Category', 'Description', { label: 'Rate', kind: 'money' }, { label: 'Units', kind: 'number' }, 'Subtotal'],
+    rows: 0,
+    computed: { Subtotal: ['Rate', 'Units'] },
+    money: ['Subtotal'],
+    total: { column: 'Subtotal', label: `${groupShort(label)} subtotal` },
+  };
+}
+
+export function blankBudget(section: BudgetSection): BudgetValue {
+  return {
+    groups: section.groups.map((g, gi) =>
+      g.rows.map(([category, description], r) => ({ ...blankRow(budgetTable(section, gi), `g${gi + 1}-row-${r + 1}`), Category: category, Description: description })),
+    ),
+    contingency: String(Math.round(section.contingency * 100)),
+  };
+}
+
+const asBudget = (section: BudgetSection, value: SectionValue | undefined): BudgetValue =>
+  value && typeof value === 'object' && !Array.isArray(value) && Array.isArray((value as BudgetValue).groups) ? (value as BudgetValue) : blankBudget(section);
+
+/** Each group's subtotal, their sum, the contingency on top and the grand total. */
+export function budgetTotals(section: BudgetSection, value: SectionValue | undefined) {
+  const budget = asBudget(section, value);
+  const groups = section.groups.map((_, gi) => tableTotal(budgetTable(section, gi), budget.groups[gi] ?? []) ?? 0);
+  const subtotal = groups.reduce((a, b) => a + b, 0);
+  const percent = Math.max(0, toAmount(budget.contingency));
+  const contingency = (subtotal * percent) / 100;
+  return { groups, subtotal, percent, contingency, total: subtotal + contingency };
+}
+
 export function initSection(section: Section): SectionValue {
   switch (section.type) {
+    case 'budget':
+      return blankBudget(section);
     case 'fields':
       return Object.fromEntries(section.fields.map((f) => [fieldLabel(f), blankField(f)]));
     case 'table':
@@ -213,6 +261,9 @@ export function hasContent(section: Section, value: SectionValue | undefined): b
     }
     case 'text':
       return filled(value);
+    // A budget starts with its usual categories, so it counts once any line has a rate or units.
+    case 'budget':
+      return asBudget(section, value).groups.some((rows) => rows.some((row) => filled(row.Rate) || filled(row.Units)));
     // A letter starts with the template's body, so it only counts once it differs from it.
     case 'letter':
       return filled(value) && value !== section.default;
@@ -263,6 +314,20 @@ export function restoreDocument(schema: TemplateSchema, saved: unknown): Section
     if (s.type === 'fields') {
       const old = value && typeof value === 'object' ? (value as Record<string, unknown>) : {};
       return Object.fromEntries(s.fields.map((f) => [fieldLabel(f), restoreField(f, old[fieldLabel(f)])]));
+    }
+    if (s.type === 'budget') {
+      if (!value || typeof value !== 'object' || !Array.isArray(value.groups)) return initSection(s);
+      return {
+        groups: s.groups.map((_, gi) => {
+          const rows = Array.isArray(value.groups[gi]) ? value.groups[gi] : [];
+          const table = budgetTable(s, gi);
+          return rows.map((row: Record<string, unknown>, r: number) => ({
+            id: typeof row?.id === 'string' ? row.id : `g${gi + 1}-row-${r + 1}`,
+            ...Object.fromEntries(editableColumns(table).map((c) => [fieldLabel(c), restoreField(c, row?.[fieldLabel(c)])])),
+          }));
+        }),
+        contingency: typeof value.contingency === 'string' ? value.contingency : String(Math.round(s.contingency * 100)),
+      };
     }
     if (s.type === 'table') {
       if (!Array.isArray(value)) return initSection(s);

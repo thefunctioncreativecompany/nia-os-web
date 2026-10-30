@@ -1249,19 +1249,63 @@
       "actions": [
         "Print"
       ],
-      "version": "v1.0",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
           "title": "Budget Overview",
           "fields": [
             "Production Title",
-            "Production Company",
-            "Producer",
-            "Prepared By",
-            "Date",
-            "Shoot Days",
-            "Currency",
+            {
+              "label": "Production Type",
+              "kind": "choice",
+              "options": [
+                "Commercial",
+                "Music Video",
+                "Fashion Film",
+                "Campaign",
+                "Branded Content",
+                "Social Content",
+                "Photo Shoot",
+                "Editorial",
+                "Lookbook",
+                "Short Film",
+                "Feature Film",
+                "Documentary",
+                "TV Series",
+                "Corporate Video",
+                "Live Event"
+              ]
+            },
+            {
+              "label": "Currency",
+              "kind": "choice",
+              "options": [
+                "USD",
+                "EUR",
+                "GBP",
+                "ZAR",
+                "CAD",
+                "AUD"
+              ]
+            },
+            {
+              "label": "Start Date",
+              "kind": "date"
+            },
+            {
+              "label": "Wrap Date",
+              "kind": "date"
+            },
+            {
+              "label": "Producer",
+              "kind": "people"
+            },
+            {
+              "label": "Line Producer",
+              "kind": "people",
+              "single": true
+            },
             "Budget Version"
           ]
         },

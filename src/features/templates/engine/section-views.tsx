@@ -3,7 +3,8 @@
 import { Textarea } from '@/components/ui/textarea';
 import type { Section } from '../types';
 import { FieldControl } from './field-controls';
-import { fieldLabel, type FieldsValue, type SectionValue, type TableRow } from './sections';
+import { BudgetView } from './budget-view';
+import { fieldLabel, type BudgetValue, type FieldsValue, type SectionValue, type TableRow } from './sections';
 import { TableView } from './table-view';
 
 // One editor per section type (TEMPLATE_ENGINE.md §4). Step 1: fields, text and letter, from
@@ -57,6 +58,8 @@ export function SectionView({ section, value, onChange, currency }: Props) {
     }
     case 'table':
       return <TableView section={section} rows={value as TableRow[]} onChange={(rows, key) => onChange(rows, key)} currency={currency} />;
+    case 'budget':
+      return <BudgetView section={section} value={value as BudgetValue} onChange={(next, key) => onChange(next, key)} currency={currency} />;
     case 'letter':
       return (
         <Textarea
