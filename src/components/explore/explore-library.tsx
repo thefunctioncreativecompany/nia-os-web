@@ -7,7 +7,7 @@ import { DriftColumns } from "@/components/nia/drift-columns";
 import { dayLabel } from "@/components/nia/new-marker";
 import { exploreItem, type ExploreItem } from "@/features/explore/items";
 import { LIBRARY_HREF } from "@/features/explore/made-in-africa";
-import { RECENT_DAYS, type Added } from "@/features/explore/recent";
+import type { Added } from "@/features/explore/recent";
 import { features } from "@/lib/features";
 import { getCategory } from "./explore-data";
 import { CategorySections } from "./explore-categories";
@@ -41,14 +41,12 @@ export function ExploreLibrary({ seed, gallery }: { seed: number; gallery: { ite
         </Link>
       </h1>
 
-      {/* The gallery is what's new (Ika, 2026-10-29): this week's additions, or the latest 20. */}
+      {/* The gallery is what's new (Ika, 2026-10-29): this week's additions, or the latest 20.
+          Headings carry no count or explaining line (Ika, 2026-10-30). */}
       <section aria-labelledby="recently-added" className="mt-7">
         <h2 id="recently-added" className="text-subtitle font-semibold text-foreground">
-          Recently added on Explore <span className="text-micro font-normal text-muted-foreground">{items.length}</span>
+          Recently added on Explore
         </h2>
-        <p className="mt-1 max-w-160 text-sm text-muted-foreground">
-          {gallery.thisWeek ? `Titles and films added in the last ${RECENT_DAYS} days.` : "The latest titles and films added to Explore."}
-        </p>
         <RecentGallery items={items} />
       </section>
 

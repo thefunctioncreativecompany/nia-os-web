@@ -236,8 +236,8 @@ Data:
   Figma yet: Production notes, the reason line on cards, the tag chip.
 - (2026-10-28) "Recently added on Explore" (Ika): whatever joined Explore in the last 7 days,
   newest first, each card saying the day it was added. Since 2026-10-29 it is Explore's top
-  gallery (the drifting poster columns under "Explore all ›", `ExploreLibrary`), with a count and
-  a line saying what it is; when nothing is that new it shows the latest 20 additions
+  gallery (the drifting poster columns under "Explore all ›", `ExploreLibrary`), its heading
+  alone (Ika, 2026-10-30: no count or explaining line there or on By category's headings); when nothing is that new it shows the latest 20 additions
   (`galleryForToday` in `recent.ts`). The separate row under By category is gone. A title or creator film joins it when
   given an `added` day (`made-in-africa.json`, `creators.ts`; `src/features/explore/recent.ts`).
   First four: The Heart Is a Muscle and Gangster's Paradise: Jerusalema (Made in Africa, now 52),
