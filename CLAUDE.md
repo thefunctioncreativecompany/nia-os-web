@@ -325,7 +325,14 @@ Data:
   only one found was Netflix's 2020 remake), Out of the Past (Warner's official clip instead), I Am
   a Fugitive or The Ox-Bow Incident; Dr. Strangelove left out (Commons has only a newspaper-style
   ad). That uses up every seed title with a free poster: none of the 100 TV shows or 2026
-  festival films has one, so the other ~200 wait for the TMDB key.
+  festival films has one, so the other ~200 wait for the TMDB key. Batch 3 (Ika: Black American films; the 20
+  modern ones from 2026-10-29 wait for TMDB posters): classic Black-led films with free posters
+  in Black and POC leads, now described as running from The Emperor Jones to Black Panther:
+  Stormy Weather, Cabin in the Sky, The Emperor Jones, Porgy and Bess, A Raisin in the Sun,
+  Imitation of Life (1934), Lilies of the Field, The Blood of Jesus, Native Son (1951) and The
+  Joe Louis Story; three essentials. Left out by eye: Hallelujah (Commons' poster is a Soviet
+  film's), Body and Soul (a newspaper ad), Edge of the City (a small landscape card). No official
+  trailer for Stormy Weather, Porgy and Bess, The Blood of Jesus or The Joe Louis Story.
 - (2026-10-30) Templates are built in order of how likely producers are to use them (Ika): 1
   Production Budget, 2 the creator templates (GRWM, Day in My Life, Product Review…, which the
   editor already handles), 3 Script Breakdown, Content Production Guideline and Press Junket

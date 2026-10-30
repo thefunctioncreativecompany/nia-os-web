@@ -70,7 +70,7 @@
       "slug": "black-and-poc-leads",
       "category": "hollywood-classics",
       "name": "Black and POC leads",
-      "description": "Studio films led by Black, Asian and Latino stars, from Coming to America to Black Panther."
+      "description": "Films led by Black, Asian and Latino stars, from The Emperor Jones to Black Panther."
     }
   ],
   "titles": [
@@ -4216,6 +4216,260 @@
       "study_note": "Pre-Code sophistication: two thieves in love, told through doors, clocks and what the camera leaves out",
       "added": "2026-10-30",
       "imdb_id": "tt0023622",
+      "videos": []
+    },
+    {
+      "slug": "stormy-weather",
+      "collection": "black-and-poc-leads",
+      "title": "Stormy Weather",
+      "type": "film",
+      "genres": [
+        "Musical"
+      ],
+      "year": 1943,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Andrew L. Stone",
+      "recognition": "Added to the National Film Registry in 2001",
+      "pair_with": "",
+      "study_note": "A studio musical with an all-Black cast built around Lena Horne, Bill Robinson and Cab Calloway; the Nicholas Brothers' stair-leaping finale is still studied by choreographers",
+      "added": "2026-10-30",
+      "essential": "The Nicholas Brothers' finale is one of the most referenced dance numbers ever filmed.",
+      "imdb_id": "tt0036391",
+      "videos": []
+    },
+    {
+      "slug": "cabin-in-the-sky",
+      "collection": "black-and-poc-leads",
+      "title": "Cabin in the Sky",
+      "type": "film",
+      "genres": [
+        "Musical",
+        "Fantasy"
+      ],
+      "year": 1943,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Vincente Minnelli",
+      "recognition": "Nominated for the Academy Award for Best Original Song",
+      "pair_with": "",
+      "study_note": "Minnelli's first feature: an all-Black musical fable with Ethel Waters, Lena Horne and Louis Armstrong, made inside MGM's studio system",
+      "added": "2026-10-30",
+      "imdb_id": "tt0035703",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "-F7MTp6Jdo8",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-emperor-jones",
+      "collection": "black-and-poc-leads",
+      "title": "The Emperor Jones",
+      "type": "film",
+      "genres": [
+        "Drama"
+      ],
+      "year": 1933,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Dudley Murphy",
+      "pair_with": "",
+      "study_note": "Paul Robeson in Eugene O'Neill's play, billed above his white co-stars in 1933: the rise and fall of a Pullman porter who makes himself an island's ruler",
+      "added": "2026-10-30",
+      "imdb_id": "tt0023985",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "S8qe6QaImG8",
+          "kind": "trailer",
+          "channel": "Film Masters",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "porgy-and-bess",
+      "collection": "black-and-poc-leads",
+      "title": "Porgy and Bess",
+      "type": "film",
+      "genres": [
+        "Musical",
+        "Drama"
+      ],
+      "year": 1959,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Otto Preminger",
+      "recognition": "Academy Award for Best Scoring of a Musical Picture",
+      "pair_with": "",
+      "study_note": "Goldwyn's widescreen Todd-AO version of the Gershwin opera with Sidney Poitier, Dorothy Dandridge and Sammy Davis Jr., rarely seen since the Gershwin estate withdrew it",
+      "added": "2026-10-30",
+      "imdb_id": "tt0053182",
+      "videos": []
+    },
+    {
+      "slug": "a-raisin-in-the-sun",
+      "collection": "black-and-poc-leads",
+      "title": "A Raisin in the Sun",
+      "type": "film",
+      "genres": [
+        "Drama"
+      ],
+      "year": 1961,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Daniel Petrie",
+      "recognition": "Gary Cooper Award at the Cannes Film Festival",
+      "pair_with": "",
+      "study_note": "Lorraine Hansberry's play with most of its Broadway cast: a Chicago family in one cramped apartment, the drama built from close quarters",
+      "added": "2026-10-30",
+      "essential": "Lorraine Hansberry's story of a Black family's dream of a house is a cornerstone of American drama, and one of Sidney Poitier's defining roles.",
+      "imdb_id": "tt0055353",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "JMsnRzJdhew",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "imitation-of-life-1934",
+      "collection": "black-and-poc-leads",
+      "title": "Imitation of Life (1934)",
+      "type": "film",
+      "genres": [
+        "Drama"
+      ],
+      "year": 1934,
+      "countries": [
+        "United States"
+      ],
+      "credit": "John M. Stahl",
+      "recognition": "Nominated for the Academy Award for Best Picture",
+      "pair_with": "",
+      "study_note": "The first version of Fannie Hurst's story, in which Louise Beavers' and Fredi Washington's storyline about race and passing outweighs the star's",
+      "added": "2026-10-30",
+      "imdb_id": "tt0025301",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "GVMFYDBxZr4",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "lilies-of-the-field",
+      "collection": "black-and-poc-leads",
+      "title": "Lilies of the Field",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "year": 1963,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Ralph Nelson",
+      "recognition": "Sidney Poitier became the first Black man to win the Academy Award for Best Actor",
+      "pair_with": "",
+      "study_note": "A small, warm film shot in about two weeks in Arizona, carried by Poitier and a handful of nuns",
+      "added": "2026-10-30",
+      "essential": "Sidney Poitier's Best Actor Oscar, the first for a Black man, is a landmark every history of the industry comes back to.",
+      "imdb_id": "tt0057251",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "8aL0ml00S9Q",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-blood-of-jesus",
+      "collection": "black-and-poc-leads",
+      "title": "The Blood of Jesus",
+      "type": "film",
+      "genres": [
+        "Drama"
+      ],
+      "year": 1941,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Spencer Williams",
+      "recognition": "Added to the National Film Registry in 1991",
+      "pair_with": "",
+      "study_note": "A race film made for a few thousand dollars with a Texas church congregation in the cast, and one of the most successful of its time",
+      "added": "2026-10-30",
+      "imdb_id": "tt0033406",
+      "videos": []
+    },
+    {
+      "slug": "native-son-1951",
+      "collection": "black-and-poc-leads",
+      "title": "Native Son (1951)",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "year": 1951,
+      "countries": [
+        "Argentina",
+        "United States"
+      ],
+      "credit": "Pierre Chenal",
+      "pair_with": "",
+      "study_note": "Richard Wright plays Bigger Thomas in the film of his own novel, shot in Argentina when no US studio would make it as written",
+      "added": "2026-10-30",
+      "imdb_id": "tt0042781",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "zxqiiJTj-NQ",
+          "kind": "trailer",
+          "channel": "Kino Lorber",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-joe-louis-story",
+      "collection": "black-and-poc-leads",
+      "title": "The Joe Louis Story",
+      "type": "film",
+      "genres": [
+        "Biography",
+        "Sports"
+      ],
+      "year": 1953,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Robert Gordon",
+      "pair_with": "",
+      "study_note": "A boxing biopic that cuts Joe Louis's real fight footage into the drama, with Coley Wallace as Louis",
+      "added": "2026-10-30",
+      "imdb_id": "tt0045936",
       "videos": []
     }
   ],

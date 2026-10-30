@@ -31,6 +31,53 @@
   "cinemaRelease": true,
   "imdb": "tt0050083"
  },
+ "a-raisin-in-the-sun": {
+  "videos": [
+   {
+    "id": "PU8PN_7lpy0",
+    "kind": "Cast interview",
+    "title": "Louis Gossett Jr. salutes his A Raisin In The Sun co-star Sidney Poitier",
+    "channel": "American Film Institute"
+   },
+   {
+    "id": "ubuAJHeJsO8",
+    "kind": "Cast interview",
+    "title": "The Groundbreaking Broadway Casting of Lorraine Hansberry's \"A Raisin in the Sun\"",
+    "channel": "American Masters PBS"
+   },
+   {
+    "id": "4nyagOtsn1U",
+    "kind": "Cast interview",
+    "title": "Actor Louis Gossett Jr. talks A RAISIN IN THE SUN ('61)",
+    "channel": "Turner Classic Movies"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "festival-cannes.com",
+    "title": "Festival de Cannes: A Raisin in the Sun",
+    "href": "https://www.festival-cannes.com/en/f/a-raisin-in-the-sun/"
+   },
+   {
+    "outlet": "American Film Institute",
+    "title": "AFI's 100 YEARS…100 CHEERS",
+    "href": "https://www.afi.com/afis-100-years-100-cheers/"
+   },
+   {
+    "outlet": "Criterion",
+    "title": "A Raisin in the Sun: Resistance and Joy",
+    "href": "https://www.criterion.com/current/posts/5942-a-raisin-in-the-sun-resistance-and-joy"
+   },
+   {
+    "outlet": "Criterion",
+    "title": "Doubly Dynamic: Diana Sands in A Raisin in the Sun",
+    "href": "https://www.criterion.com/current/posts/7705-doubly-dynamic-diana-sands-in-a-raisin-in-the-sun"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0055353"
+ },
  "all-about-eve": {
   "videos": [
    {
@@ -488,6 +535,32 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0061418"
+ },
+ "cabin-in-the-sky": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Cabin in the Sky",
+    "href": "https://variety.com/1942/film/reviews/cabin-in-the-sky-1200414149/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Cabin in the Sky Review",
+    "href": "https://www.empireonline.com/movies/reviews/cabin-sky-review/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "BFI",
+    "title": "Garlands and cobwebs: Vincente Minnelli's ecstatic vision",
+    "href": "https://www.bfi.org.uk/sight-and-sound/features/garlands-cobwebs-vincente-minnellis-ecstatic-vision"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0035703"
  },
  "capernaum": {
   "videos": [
@@ -1628,6 +1701,46 @@
   "cinemaRelease": true,
   "imdb": "tt0052918"
  },
+ "imitation-of-life-1934": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Imitation of Life",
+    "href": "https://variety.com/1933/film/reviews/imitation-of-life-2-1200410883/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "Imitation of Life Blu-ray Review: The Criterion Collection",
+    "href": "https://www.slantmagazine.com/dvd/imitation-of-life-blu-ray-review-john-m-stahl/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "oscars.org",
+    "title": "The 7th Academy Awards (1935) Nominees and Winners",
+    "href": "http://www.oscars.org/oscars/ceremonies/1935"
+   },
+   {
+    "outlet": "Turner Classic Movies",
+    "title": "Imitation of Life (1934)",
+    "href": "https://web.archive.org/web/20120503091544/http://www.tcm.com/tcmdb/title/79028/Imitation-of-Life/#articles-reviews"
+   },
+   {
+    "outlet": "Criterion",
+    "title": "Imitation of Life: On Passing Between",
+    "href": "https://www.criterion.com/current/posts/8038-imitation-of-life-on-passing-between"
+   },
+   {
+    "outlet": "Library of Congress",
+    "title": "Imitation of Life (National Film Registry essay)",
+    "href": "https://www.loc.gov/static/programs/national-film-preservation-board/documents/imitation_life.pdf"
+   }
+  ],
+  "imdb": "tt0025301"
+ },
  "inumber-number": {
   "videos": [],
   "reviews": [
@@ -1952,6 +2065,37 @@
   "cinemaRelease": true,
   "imdb": "tt0056172"
  },
+ "lilies-of-the-field": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Lilies of the Field",
+    "href": "https://variety.com/1962/film/reviews/lilies-of-the-field-1200420370/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Lilies of the Field Review",
+    "href": "https://www.empireonline.com/movies/reviews/lilies-field-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Tucson Citizen",
+    "title": "Tucson, Poitier scored with 'Lilies of the Field'",
+    "href": "http://tucsoncitizen.com/morgue2/2003/09/12/11203-tucson-poitier-scored-with-lilies-of-the-field/"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Dignified Defiance: Sidney Poitier (1927-2022)",
+    "href": "https://www.rogerebert.com/tributes/dignified-defiance-sidney-poitier-1927-2022"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0057251"
+ },
  "lingui-the-sacred-bonds": {
   "videos": [
    {
@@ -2179,6 +2323,36 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0037913"
+ },
+ "native-son-1951": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "The Screen in Review: Richard Wright Plays Hero in Movie Adaptation of His Novel, 'Native Son'",
+    "href": "https://www.nytimes.com/1951/06/18/archives/the-screen-in-review-richard-wright-plays-hero-in-movie-adaptation.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Houston Chronicle",
+    "title": "MFAH's uncensored 'Native Son' a flawed depiction of being Black",
+    "href": "https://review.houstonchronicle.com/movies-tv/uncensored-native-son-at-MFAH-flawed-but-15620716",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Wright's Daughter Approves",
+    "href": "https://www.latimes.com:443/archives/la-xpm-1986-12-24-ca-68-story.html"
+   },
+   {
+    "outlet": "Black Camera",
+    "title": "Bigger at the Movies: Sangre Negra and the Cinematic Projection of Native Son",
+    "href": "https://www.jstor.org/stable/10.2979/blc.2010.2.1.36"
+   }
+  ],
+  "imdb": "tt0042781"
  },
  "neptune-frost": {
   "videos": [
@@ -2604,6 +2778,37 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0050825"
+ },
+ "porgy-and-bess": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Harrison's Reports",
+    "title": "'Porgy and Bess' with Sidney Poitier, Dorothy Dandridge, Sammy Davis, Jr., and Pearl Bailey",
+    "href": "https://archive.org/details/harrisonsreports41harr/page/102/mode/1up",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time",
+    "title": "Cinema: The New Pictures",
+    "href": "http://www.time.com/time/magazine/article/0,9171,825761,00.html"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Screen: Samuel Goldwyn's 'Porgy and Bess' Has Premiere At Warner",
+    "href": "https://www.nytimes.com/1959/06/25/archives/samuel-goldwyns-porgy-and-bess-has-premiere-at-warner-sidney.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Library of America",
+    "title": "James Baldwin: Collected Essays",
+    "href": "https://archive.org/details/collectedessays00bald/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0053182"
  },
  "psycho": {
   "videos": [
@@ -3358,6 +3563,37 @@
   "cinemaRelease": true,
   "imdb": "tt0053291"
  },
+ "stormy-weather": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Stormy Weather",
+    "href": "https://variety.com/1942/film/reviews/stormy-weather-1200414029/"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Stormy Weather Review",
+    "href": "https://www.empireonline.com/movies/reviews/stormy-weather-review/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Don't know why there's no sun up in the sky",
+    "href": "https://www.rogerebert.com/far-flung-correspondents/dont-know-why-theres-no-sun-up-in-the-sky",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Saturday Evening Post",
+    "title": "Stormy Weather Rolled into Theaters 75 Years Ago",
+    "href": "https://www.saturdayeveningpost.com/2018/07/stormy-weather-rolled-theaters-75-years-ago/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0036391"
+ },
  "sunrise": {
   "videos": [],
   "reviews": [
@@ -3394,6 +3630,28 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0018455"
+ },
+ "the-blood-of-jesus": {
+  "videos": [],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Library of Congress",
+    "title": "The Blood of Jesus (National Film Registry essay)",
+    "href": "https://www.loc.gov/static/programs/national-film-preservation-board/documents/blood_of_jesus.pdf"
+   },
+   {
+    "outlet": "BFI",
+    "title": "The Blood of Jesus (1941)",
+    "href": "https://www.bfi.org.uk/film/d6218de9-999b-548c-8d97-4b47c741e3e0/the-blood-of-jesus"
+   },
+   {
+    "outlet": "BFI",
+    "title": "Bloodlines: a history of Black horror",
+    "href": "https://www.bfi.org.uk/sight-and-sound/features/bloodlines-history-black-horror-candyman"
+   }
+  ],
+  "imdb": "tt0033406"
  },
  "the-brave-ones": {
   "videos": [],
@@ -3444,6 +3702,33 @@
   "articles": [],
   "streaming": "Netflix",
   "imdb": "tt7497366"
+ },
+ "the-emperor-jones": {
+  "videos": [],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "The Washington Post",
+    "title": "Worthy or Not, 'The Emperor' Is Restored",
+    "href": "https://www.washingtonpost.com/archive/lifestyle/2002/08/31/worthy-or-not-the-emperor-is-restored/dac09161-ac91-4cfe-a2f3-5c7e0e85c80f/?noredirect=on"
+   },
+   {
+    "outlet": "Criterion",
+    "title": "Master of Disguise: Paul Robeson and The Emperor Jones",
+    "href": "https://www.criterion.com/current/posts/1269-master-of-disguise-paul-robeson-and-the-emperor-jones"
+   },
+   {
+    "outlet": "Library of Congress",
+    "title": "The Emperor Jones (National Film Registry essay)",
+    "href": "https://www.loc.gov/static/programs/national-film-preservation-board/documents/The-Emperor-Jones.pdf"
+   },
+   {
+    "outlet": "BFI",
+    "title": "Paul Robeson: the singer and activist who pioneered a path for black actors",
+    "href": "https://www.bfi.org.uk/features/paul-robeson-singer-actor-activist"
+   }
+  ],
+  "imdb": "tt0023985"
  },
  "the-grapes-of-wrath": {
   "videos": [
@@ -3543,6 +3828,19 @@
    }
   ],
   "imdb": "tt34713196"
+ },
+ "the-joe-louis-story": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "The Joe Louis Story",
+    "href": "https://variety.com/1952/film/reviews/the-joe-louis-story-1200417371/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "imdb": "tt0045936"
  },
  "the-mother-of-all-lies": {
   "videos": [
