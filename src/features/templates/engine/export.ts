@@ -62,7 +62,7 @@ function blocks(schema: TemplateSchema, data: SectionValue[]): Block[] {
         cells: section.groups.flatMap((g, gi) => (groups[gi] ?? []).filter((i) => i.text.trim()).map((i) => [g.label, i.text.trim(), i.done ? 'Yes' : EMPTY])),
       }];
     }
-    if (section.type === 'categories') {
+    if (section.type === 'categories' || section.type === 'metrics') {
       const answers = (value ?? {}) as FieldsValue;
       return [{ title: section.title, kind: 'fields', rows: section.items.map((item) => [item, String(answers[item] ?? '').trim() || EMPTY]) }];
     }

@@ -196,7 +196,7 @@
         "Send to Crew",
         "Print"
       ],
-      "version": "v1.4",
+      "version": "v1.5",
       "sections": [
         {
           "type": "fields",
@@ -204,13 +204,45 @@
           "fields": [
             "Project Title",
             "Production Company",
-            "Director",
-            "Producer",
+            {
+              "label": "Director",
+              "kind": "people"
+            },
+            {
+              "label": "Producer",
+              "kind": "people"
+            },
             "Shoot Day",
-            "Date",
-            "General Call",
-            "Weather",
-            "Sunrise / Sunset"
+            {
+              "label": "Date",
+              "kind": "date"
+            },
+            {
+              "label": "General Call",
+              "kind": "time"
+            },
+            {
+              "label": "Weather",
+              "kind": "weather",
+              "options": [
+                "Clear",
+                "Partly cloudy",
+                "Cloudy",
+                "Rain",
+                "Storm",
+                "Snow",
+                "Fog",
+                "Windy"
+              ]
+            },
+            {
+              "label": "Sunrise / Sunset",
+              "kind": "timeRange",
+              "options": [
+                "Sunrise",
+                "Sunset"
+              ]
+            }
           ],
           "optional": true,
           "hint": "Company, crew and production details"
@@ -239,18 +271,40 @@
             "Catering"
           ],
           "optional": true,
-          "hint": "Set locations, parking and nearby facilities"
+          "hint": "Set locations, parking and nearby facilities",
+          "layout": "cards"
         },
         {
           "type": "table",
           "title": "Cast",
           "columns": [
             "#",
-            "Name",
+            {
+              "label": "Name",
+              "kind": "people",
+              "single": true
+            },
             "Role",
-            "Status",
-            "Pickup",
-            "Call"
+            {
+              "label": "Status",
+              "kind": "choice",
+              "options": [
+                "SW",
+                "W",
+                "WF",
+                "SWF",
+                "H",
+                "T"
+              ]
+            },
+            {
+              "label": "Pickup",
+              "kind": "time"
+            },
+            {
+              "label": "Call",
+              "kind": "time"
+            }
           ],
           "rows": 3,
           "autonumber": "#",
@@ -276,8 +330,15 @@
           "title": "Department Contacts",
           "columns": [
             "Dept",
-            "Name",
-            "Phone"
+            {
+              "label": "Name",
+              "kind": "people",
+              "single": true
+            },
+            {
+              "label": "Phone",
+              "kind": "phone"
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -288,8 +349,15 @@
           "title": "Key Contacts",
           "columns": [
             "Role",
-            "Name",
-            "Phone"
+            {
+              "label": "Name",
+              "kind": "people",
+              "single": true
+            },
+            {
+              "label": "Phone",
+              "kind": "phone"
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -1158,19 +1226,57 @@
         "Add Row",
         "Print"
       ],
-      "version": "v1.0",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
           "title": "The Concept",
           "fields": [
             "Working Title",
-            "Genre",
-            "Format",
+            {
+              "label": "Genre",
+              "kind": "choice",
+              "options": [
+                "Drama",
+                "Comedy",
+                "Thriller",
+                "Crime",
+                "Romance",
+                "Horror",
+                "Sci-Fi",
+                "Fantasy",
+                "Action",
+                "Documentary",
+                "Animation",
+                "Family",
+                "Historical",
+                "Musical",
+                "Coming of Age"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Series",
+                "Limited series",
+                "Mini-series",
+                "Anthology",
+                "Web series",
+                "Docuseries"
+              ]
+            },
             "Language",
             "Production Company",
-            "Created By",
-            "Headwriter"
+            {
+              "label": "Created By",
+              "kind": "people"
+            },
+            {
+              "label": "Headwriter",
+              "kind": "people",
+              "single": true
+            }
           ]
         },
         {
@@ -1588,7 +1694,7 @@
       "actions": [
         "Print"
       ],
-      "version": "v1.0",
+      "version": "v1.1",
       "sections": [
         {
           "type": "fields",
@@ -1596,7 +1702,10 @@
           "fields": [
             "Agency / Company Name",
             "Report Period",
-            "Date of Release"
+            {
+              "label": "Date of Release",
+              "kind": "date"
+            }
           ]
         },
         {

@@ -348,8 +348,11 @@ Data:
   groups of tick boxes whose items can be reworded, added and removed; downloads list each item
   and whether it's done) and `categories` (Figma 840:28209: a written answer per category in a
   box with a neutral stripe; Figma's eleven stripe colours aren't theme colours, and its labels
-  are in sentence case per the font rule; the AI Suggest button waits for Copilot). 26
-  templates work now.
+  are in sentence case per the font rule; the AI Suggest button waits for Copilot). Then Series Bible,
+  Call Sheet – Detailed (every section shown; Add section isn't built) and Talent Roster Report
+  (a `metrics` section: each number in a card, in large type). 29 templates work now. Waiting:
+  Storyboard and Casting Deck (pictures inside a document: where they're stored is Ika's call,
+  since a document needn't belong to a project) and the 31 templates with no design yet.
 
 ## Working notes
 

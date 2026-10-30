@@ -1,11 +1,12 @@
 'use client';
 
+import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import type { Section } from '../types';
 import { FieldControl } from './field-controls';
 import { BudgetView } from './budget-view';
 import { ChecklistView } from './checklist-view';
-import { fieldLabel, type BudgetValue, type ChecklistValue, type FieldsValue, type SectionValue, type TableRow } from './sections';
+import { fieldLabel, metricFields, type BudgetValue, type ChecklistValue, type FieldsValue, type SectionValue, type TableRow } from './sections';
 import { TableView } from './table-view';
 
 // One editor per section type (TEMPLATE_ENGINE.md §4). Step 1: fields, text and letter, from
@@ -81,6 +82,34 @@ export function SectionView({ section, value, onChange, currency }: Props) {
                   placeholder="—"
                   onChange={(e) => onChange({ ...answers, [item]: e.target.value }, item)}
                   className="min-h-0 resize-none border-0 bg-transparent p-0 text-sm leading-normal shadow-none placeholder:text-nia-placeholder focus-visible:ring-0 md:text-sm field-sizing-content"
+                />
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
+    // Key metrics: each number in its own card, side by side on wide screens.
+    case 'metrics': {
+      const answers = value as FieldsValue;
+      return (
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {metricFields(section).map((field) => {
+            const label = fieldLabel(field);
+            const id = `${section.title}-${label}`.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            return (
+              <div key={label} className="flex min-w-0 flex-col gap-1.5 rounded-xl border border-border p-4 print:break-inside-avoid">
+                <label htmlFor={id} className="text-caption font-bold text-muted-foreground">
+                  {label}
+                </label>
+                {/* Big numbers (reach runs to millions), so a wide box in large type, digits only. */}
+                <Input
+                  id={id}
+                  inputMode="numeric"
+                  value={(answers?.[label] as string) ?? ''}
+                  placeholder="—"
+                  onChange={(e) => onChange({ ...answers, [label]: e.target.value.replace(/[^0-9]/g, '') }, label)}
+                  className="h-auto border-0 bg-transparent px-0 py-0 text-h3 font-bold shadow-none tabular-nums placeholder:text-nia-placeholder focus-visible:ring-0 md:text-h3"
                 />
               </div>
             );

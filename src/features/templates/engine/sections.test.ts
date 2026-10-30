@@ -285,3 +285,21 @@ describe('checklists and breakdown categories', () => {
     expect(toMarkdown(breakdown, restoreDocument(breakdown, data))).toContain('- **Cast:** Elena Vasquez, Marcus Chen');
   });
 });
+
+describe('Series Bible, Call Sheet – Detailed and Talent Roster Report', () => {
+  it('open, start blank and download', () => {
+    for (const code of ['D11', 'D24', 'D25']) {
+      const schema = getSchema(code)!;
+      expect(canEdit(schema), code).toBe(true);
+      expect(filledCount(schema, initDocument(schema)), code).toBe(0);
+    }
+  });
+
+  it('keeps key metrics as numbers', () => {
+    const report = getSchema('D25')!;
+    const data = initDocument(report);
+    (data[1] as Record<string, string>)['Total Reach'] = '1200000';
+    expect(filledCount(report, data)).toBe(1);
+    expect(toMarkdown(report, restoreDocument(report, data))).toContain('- **Total Reach:** 1200000');
+  });
+});

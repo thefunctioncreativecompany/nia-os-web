@@ -1,4 +1,4 @@
-import type { BudgetSection, CategoriesSection, ChecklistSection, FieldKind, FieldSpec, LetterSection, Section, SectionType, TableSection, TemplateSchema } from '../types';
+import type { BudgetSection, CategoriesSection, ChecklistSection, FieldKind, MetricsSection, FieldSpec, LetterSection, Section, SectionType, TableSection, TemplateSchema } from '../types';
 import type { PersonRef } from '@/components/nia/assignees';
 import {
   formatClock,
@@ -37,7 +37,7 @@ export type ChecklistItem = { id: string; text: string; done: boolean };
 export type ChecklistValue = { checklist: ChecklistItem[][] };
 export type SectionValue = FieldsValue | TableRow[] | string | BudgetValue | ChecklistValue;
 
-export const ENGINE_TYPES: ReadonlySet<SectionType> = new Set(['fields', 'text', 'letter', 'table', 'budget', 'checklist', 'categories']);
+export const ENGINE_TYPES: ReadonlySet<SectionType> = new Set(['fields', 'text', 'letter', 'table', 'budget', 'checklist', 'categories', 'metrics']);
 
 /** Templates whose controls have been reviewed with Ika join here (build step 7 and T5). */
 const READY = new Set([
@@ -46,6 +46,7 @@ const READY = new Set([
   'D15', 'D16', 'D17', 'D18', 'D19', 'D20', 'D21', 'D26', 'D27', 'D28', 'D29', 'D30', 'D31',
   // Checklists and breakdown categories (Ika, 2026-10-30).
   'D05', 'D22', 'D23',
+  'D11', 'D24', 'D25',
 ]);
 
 export const canEdit = (schema: TemplateSchema | null): schema is TemplateSchema =>
@@ -248,6 +249,9 @@ export const blankChecklist = (section: ChecklistSection): ChecklistValue => ({
   checklist: section.groups.map((g, gi) => g.items.map((text, i) => ({ id: `c${gi + 1}-${i + 1}`, text, done: false }))),
 });
 
+/** Key metrics (Talent Roster Report, Figma 932:11066): each one a number, stored like a field. */
+export const metricFields = (section: MetricsSection): FieldSpec[] => section.items.map((label) => ({ label, kind: 'number' }));
+
 const blankCategories = (section: CategoriesSection): FieldsValue => Object.fromEntries(section.items.map((item) => [item, '']));
 
 export function initSection(section: Section): SectionValue {
@@ -258,6 +262,8 @@ export function initSection(section: Section): SectionValue {
       return blankChecklist(section);
     case 'categories':
       return blankCategories(section);
+    case 'metrics':
+      return Object.fromEntries(section.items.map((item) => [item, '']));
     case 'fields':
       return Object.fromEntries(section.fields.map((f) => [fieldLabel(f), blankField(f)]));
     case 'table':
@@ -288,6 +294,7 @@ export function hasContent(section: Section, value: SectionValue | undefined): b
     case 'checklist':
       return ((value as ChecklistValue)?.checklist ?? []).some((items) => items.some((i) => i.done));
     case 'categories':
+    case 'metrics':
       return section.items.some((item) => filled((value as FieldsValue)?.[item]));
     // A budget starts with its usual categories, so it counts once any line has a rate or units.
     case 'budget':
@@ -353,7 +360,7 @@ export function restoreDocument(schema: TemplateSchema, saved: unknown): Section
         ),
       };
     }
-    if (s.type === 'categories') {
+    if (s.type === 'categories' || s.type === 'metrics') {
       const old = value && typeof value === 'object' ? (value as Record<string, unknown>) : {};
       return Object.fromEntries(s.items.map((item) => [item, typeof old[item] === 'string' ? old[item] : '']));
     }

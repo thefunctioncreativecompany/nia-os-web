@@ -144,6 +144,21 @@ export const LAUNCHES: Record<string, Launch> = {
     forYou: "Plan a press day: the rooms and what each is for, which talent sits with which outlets, the capture set-up and the timeline.",
     forTeam: "Publicists, crews and talent handlers follow one room plan and schedule, and tick off each capture package as it's ready.",
   },
+  D11: {
+    launched: "2026-10-30",
+    forYou: "Set down a series in one place: the concept, logline, dramatic question, the season's synopsis, its themes and every character's arc.",
+    forTeam: "Writers, directors and commissioners work from the same premise and character arcs, episode after episode.",
+  },
+  D24: {
+    launched: "2026-10-30",
+    forYou: "Build a full call sheet for a bigger day: production info with weather and light, the scene schedule, locations with the nearest hospital, cast status and calls, alerts, transport and every department's contact.",
+    forTeam: "Cast, drivers and every department find their call, pickup and who to phone on one sheet.",
+  },
+  D25: {
+    launched: "2026-10-30",
+    forYou: "Report on your roster each quarter: total reach, new signings and active campaigns, then the highlights, client spotlights and what's next.",
+    forTeam: "Agents, talent and brand partners see the same numbers and plans for the quarter ahead.",
+  },
   D02: {
     launched: "2026-10-30",
     forYou: "Cost above the line, below the line and additional spend line by line, with each group's subtotal, a contingency you set and the grand total worked out in your currency.",
