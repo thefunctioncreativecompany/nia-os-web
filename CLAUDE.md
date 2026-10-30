@@ -319,7 +319,13 @@ Data:
   1959. Batch 1 (Gone with the Wind, Double Indemnity, Rear Window, North by Northwest, It
   Happened One Night, The Grapes of Wrath, Mildred Pierce, Sunrise, Ben-Hur, Paths of Glory):
   six essentials; Sunrise has no official trailer; press kits checked by hand (Ben-Hur's and
-  Mildred Pierce's videos were the remakes', removed).
+  Mildred Pierce's videos were the remakes', removed). Batch 2 (12 Angry Men, City Lights, Footlight
+  Parade, Out of the Past, Rebecca, Seven Samurai, I Am a Fugitive from a Chain Gang, The Ox-Bow
+  Incident, The Shop Around the Corner, Trouble in Paradise): no official trailer for Rebecca (the
+  only one found was Netflix's 2020 remake), Out of the Past (Warner's official clip instead), I Am
+  a Fugitive or The Ox-Bow Incident; Dr. Strangelove left out (Commons has only a newspaper-style
+  ad). That uses up every seed title with a free poster: none of the 100 TV shows or 2026
+  festival films has one, so the other ~200 wait for the TMDB key.
 
 ## Working notes
 

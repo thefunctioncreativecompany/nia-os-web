@@ -33,10 +33,11 @@ async function tmdb(title, year) {
   return hit ? { source: "TMDB", tmdb: `movie/${hit.id}`, image: `https://image.tmdb.org/t/p/original${hit.poster_path}` } : null;
 }
 
-async function commons(qid) {
-  if (!qid) return null;
-  const wd = await (await get(`https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&props=claims&ids=${qid}`, UA))?.json().catch(() => null);
-  const file = wd?.entities?.[qid]?.claims?.P3383?.[0]?.mainsnak?.datavalue?.value;
+// A title in the list can name its Commons file ("commons": "City Lights (1931 theatrical poster).jpg")
+// when Wikidata doesn't link one; check it by eye like any other.
+async function commons(qid, named) {
+  const wd = !named && qid ? await (await get(`https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&props=claims&ids=${qid}`, UA))?.json().catch(() => null) : null;
+  const file = named ?? wd?.entities?.[qid]?.claims?.P3383?.[0]?.mainsnak?.datavalue?.value;
   return file ? { source: "Wikimedia Commons", file, image: `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}` } : null;
 }
 
@@ -80,7 +81,7 @@ for (const t of list) {
   // Titles already found keep what they have (re-runs only fill gaps).
   const had = prior[t.slug] ?? {};
   const [video, ids] = await Promise.all([had.video ? had.video : trailer(t.title, t.year), had.qid ? had : imdb(t.title, t.year)]);
-  const found = (await tmdb(t.title, t.year)) ?? (await commons(ids.qid));
+  const found = (await tmdb(t.title, t.year)) ?? (await commons(ids.qid, t.commons));
   let cover = had.cover ?? null;
   if (!cover && found) {
     const r = await get(found.image, UA);

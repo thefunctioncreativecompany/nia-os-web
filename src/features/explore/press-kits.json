@@ -1,4 +1,36 @@
 {
+ "12-angry-men": {
+  "videos": [
+   {
+    "id": "_13J_9B5jEk",
+    "kind": "Official trailer",
+    "title": "12 Angry Men (1957) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Twelve Angry Men (1957) Movie Review",
+    "href": "https://movies.nytimes.com/movie/review?res=9f02e3de1730e23bbc4d52dfb266838c649ede",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Film Review: '12 Angry Men'",
+    "href": "https://variety.com/1956/film/reviews/12-angry-men-review-1200418382/"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The New York Times",
+    "title": "Fonda and Rose to Film TV Play; Actor and Author of 'Twelve Angry Men' Team for First of Star's Productions",
+    "href": "https://www.nytimes.com/1955/07/18/archives/fonda-and-rose-to-film-tv-play-actor-and-author-of-twelve-angry-men.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0050083"
+ },
  "all-about-eve": {
   "videos": [
    {
@@ -586,6 +618,55 @@
   ],
   "imdb": "tt6779038"
  },
+ "city-lights": {
+  "videos": [
+   {
+    "id": "b-EsBS7b6XM",
+    "kind": "Filmmaker interview",
+    "title": "Charlie Chaplin - The Tramp and The Star-Spangled Banner\" (City Lights)",
+    "channel": "Charlie Chaplin"
+   },
+   {
+    "id": "M07CG7i__8A",
+    "kind": "Featurette",
+    "title": "Charlie Chaplin and Winston Churchill on the set of City Lights - Behind the Scenes Archival Footage",
+    "channel": "Charlie Chaplin"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Movie Review - City Lights - Chaplin Hilarious in His 'City Lights'; Tramp's Antics in Non-Dialogue Film Bring Roars of Laughter at Cohan Theatre. Takes Fling at 'Talkies'; Pathos Is Mingled With Mirth in a Production of Admirable Artistry",
+    "href": "https://movies.nytimes.com/movie/review?res=980DE5DD173BE433A25754C0A9649C946094D6CF",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews",
+    "href": "https://variety.com/1931/film/reviews/city-lights-1200410506/"
+   },
+   {
+    "outlet": "The New Yorker",
+    "title": "The Current Cinema",
+    "href": "https://www.newyorker.com/magazine/1931/02/21",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Seattle Post-Intelligencer",
+    "title": "What's the Big Deal: City Lights",
+    "href": "http://www.seattlepi.com/ae/movies/article/What-s-the-Big-Deal-City-Lights-1931-883942.php"
+   },
+   {
+    "outlet": "MoMA",
+    "title": "Charles Chaplin's City Lights",
+    "href": "http://www.moma.org/explore/inside_out/2010/08/31/charles-chaplins-city-lights/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0021749"
+ },
  "dahomey": {
   "videos": [
    {
@@ -954,6 +1035,43 @@
   ],
   "articles": [],
   "imdb": "tt2396489"
+ },
+ "footlight-parade": {
+  "videos": [
+   {
+    "id": "neJQWoCU7og",
+    "kind": "Official trailer",
+    "title": "Trailer | Footlight Parade | Warner Archive",
+    "channel": "Warner Bros. Classics"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Footlight Parade",
+    "href": "https://variety.com/1932/film/reviews/footlight-parade-1200410760/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Library of Congress",
+    "title": "Complete National Film Registry Listing",
+    "href": "https://www.loc.gov/programs/national-film-preservation-board/film-registry/complete-national-film-registry-listing/"
+   },
+   {
+    "outlet": "BFI",
+    "title": "Where to begin with Busby Berkeley",
+    "href": "https://www.bfi.org.uk/features/where-begin-busby-berkeley"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Busby Berkeley: Wowing 'em with excess",
+    "href": "https://www.rogerebert.com/interviews/busby-berkeley-wowing-em-with-excess"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0024028"
  },
  "four-daughters": {
   "videos": [
@@ -1390,6 +1508,40 @@
   ],
   "articles": [],
   "streaming": "Netflix"
+ },
+ "i-am-a-fugitive-from-a-chain-gang": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "I Am a Fugitive",
+    "href": "https://archive.org/details/variety108-1932-11/page/n132/mode/1up?q=%22I+am+a+fugitive%22"
+   },
+   {
+    "outlet": "The New Republic",
+    "title": "Review",
+    "href": "https://archive.org/details/sim_new-republic_1932-12-21_73_942/page/145/mode/2up?q=chain"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "Review: I Am a Fugitive from a Chain Gang",
+    "href": "https://www.slantmagazine.com/film/i-am-a-fugitive-from-a-chain-gang/"
+   },
+   {
+    "outlet": "Empire",
+    "title": "I Am a Fugitive From a Chain Gang Review",
+    "href": "https://www.empireonline.com/movies/reviews/fugitive-chain-gang-review/"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Liberty",
+    "title": "A Success in Chains",
+    "href": "http://archive.org/details/LibertyV09N4819321126"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0023042"
  },
  "i-am-not-a-witch": {
   "videos": [
@@ -2349,6 +2501,60 @@
   "cinemaRelease": true,
   "imdb": "tt15398776"
  },
+ "out-of-the-past": {
+  "videos": [
+   {
+    "id": "39WkezgOqQ8",
+    "kind": "Featurette",
+    "title": "Clip | Out of the Past | Warner Archive",
+    "channel": "Warner Bros. Classics"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Out of the Past (Great Movies)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-out-of-the-past-1947",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Out of the Past",
+    "href": "https://variety.com/1946/film/reviews/out-of-the-past-1200415026/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Out of the Past Review",
+    "href": "https://www.empireonline.com/movies/reviews/past-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "Out of the Past 4K UHD Blu-ray Review",
+    "href": "https://www.slantmagazine.com/dvd/out-of-the-past-4k-uhd-blu-ray-review-jacques-tourneur/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Guardian",
+    "title": "Top 10 film noir",
+    "href": "https://www.theguardian.com/film/filmblog/2013/nov/29/top-10-film-noir"
+   },
+   {
+    "outlet": "New York State Writers Institute",
+    "title": "Out of the Past",
+    "href": "https://www.albany.edu/writers-inst/webpages4/filmnotes/fnf00n4.html"
+   },
+   {
+    "outlet": "BFI",
+    "title": "Home of the weak: Out of the Past and four ways of framing film noir",
+    "href": "https://www.bfi.org.uk/sight-and-sound/features/home-weak-out-past-four-ways-framing-film-noir"
+   }
+  ],
+  "imdb": "tt0039689"
+ },
  "paths-of-glory": {
   "videos": [
    {
@@ -2672,6 +2878,42 @@
   "cinemaRelease": true,
   "imdb": "tt0047396"
  },
+ "rebecca": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Movie Review - Rebecca",
+    "href": "https://www.nytimes.com/movie/review?res=9C06E5D61430E43ABC4151DFB566838B659EDE",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "My Favourite Hitchcock: Rebecca",
+    "href": "https://www.theguardian.com/film/filmblog/2012/aug/07/my-favourite-alfred-hitchcock-rebecca",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Empire",
+    "title": "The 500 Greatest Movies of All Time",
+    "href": "https://www.empireonline.com/movies/features/500-greatest-movies/"
+   },
+   {
+    "outlet": "Empire",
+    "title": "The 100 best British films",
+    "href": "https://www.empireonline.com/movies/features/100britishfilms/"
+   },
+   {
+    "outlet": "Berlin International Film Festival",
+    "title": "1st Berlin International Film Festival",
+    "href": "https://www.berlinale.de/en/archive/jahresarchive/1951/01_jahresblatt_1951/01_jahresblatt_1951.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0032976"
+ },
  "rebel-without-a-cause": {
   "videos": [],
   "reviews": [
@@ -2826,6 +3068,48 @@
   ],
   "streaming": "Netflix",
   "imdb": "tt11010144"
+ },
+ "seven-samurai": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Seven Samurai (Great Movies)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-the-seven-samurai-1954",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Seven Samurai (Shichinin No Samurai): Film Review",
+    "href": "https://variety.com/1953/film/reviews/shichinin-no-samurai-1200417633/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Seven Samurai Review",
+    "href": "https://www.empireonline.com/movies/reviews/seven-samurai-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "Seven Samurai 4K UHD Blu-ray Review",
+    "href": "https://www.slantmagazine.com/dvd/seven-samurai-4k-uhd-blu-ray-review-kurosawa-akira/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "BFI",
+    "title": "Seven Samurai: the rocky road to classic status of Akira Kurosawa's action masterpiece",
+    "href": "https://www.bfi.org.uk/features/seven-samurai-akira-kurosawa-classic-status"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Seven Samurai Continues Its Ride Through Cinema's Past and Future",
+    "href": "https://www.rogerebert.com/features/seven-samurai-continues-its-ride-through-cinemas-past-and-future"
+   }
+  ],
+  "imdb": "tt0047478"
  },
  "sew-the-winter-to-my-skin": {
   "videos": [],
@@ -3401,6 +3685,42 @@
   "cinemaRelease": true,
   "imdb": "tt33764258"
  },
+ "the-ox-bow-incident": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Movie Review – The Ox-Bow Incident",
+    "href": "https://www.nytimes.com/movie/review?res=EE05E7DF1730E46CBC4852DFB3668388659EDE",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Variety",
+    "title": "The Ox-Bow Incident",
+    "href": "https://variety.com/1942/film/reviews/the-ox-bow-incident-1200413979/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "La Furia Umana",
+    "title": "Confidential Report: THE OX-BOW INCIDENT (1943)",
+    "href": "http://www.lafuriaumana.it/index.php?option=com_content&view=article&id=691:the-ox-bow-incident-1943&catid=25:rapporto-confidenziale&Itemid=27"
+   },
+   {
+    "outlet": "TCM movie database",
+    "title": "Ox-Bow Incident archive materials",
+    "href": "https://web.archive.org/web/20111023174043/http://www.tcm.com/tcmdb/title/434290/The-Ox-Bow-Incident/"
+   },
+   {
+    "outlet": "BFI",
+    "title": "The psychological western",
+    "href": "https://www.bfi.org.uk/sight-and-sound/features/psychological-western"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0036244"
+ },
  "the-polygamist": {
   "videos": [],
   "reviews": [
@@ -3475,6 +3795,50 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt0049730"
+ },
+ "the-shop-around-the-corner": {
+  "videos": [
+   {
+    "id": "euyWdsbZQAo",
+    "kind": "Official trailer",
+    "title": "Trailer | The Shop Around The Corner | Warner Archive",
+    "channel": "Warner Bros. Classics"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: The Shop Around the Corner",
+    "href": "https://archive.org/details/variety137-1940-01/page/n177",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "Review: The Shop Around the Corner",
+    "href": "https://www.slantmagazine.com/film/the-shop-around-the-corner/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Empire",
+    "title": "The Shop Around the Corner Review",
+    "href": "https://www.empireonline.com/movies/reviews/shop-around-corner-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "AFI Catalog of Feature Films",
+    "title": "The Shop Around the Corner (1940)",
+    "href": "https://catalog.afi.com/Film/4630-THE-SHOPAROUNDTHECORNER?sid=55d169cc-b25c-4223-a924-b7b17d295616&sr=12.285115&cp=1&pos=0"
+   },
+   {
+    "outlet": "BFI",
+    "title": "The Lubitsch touch in The Shop Around the Corner",
+    "href": "https://www.bfi.org.uk/sight-and-sound/features/lubitsch-touch-shop-around-corner"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0033045"
  },
  "the-wizard-of-oz": {
   "videos": [
@@ -3713,6 +4077,26 @@
    }
   ],
   "imdb": "tt0070820"
+ },
+ "trouble-in-paradise": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Trouble in Paradise",
+    "href": "https://www.rogerebert.com/reviews/great-movie-trouble-in-paradise-1932",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "BFI",
+    "title": "The Greatest Films of All Time",
+    "href": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0023622"
  },
  "umthetho": {
   "videos": [],

@@ -219,6 +219,11 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "12-angry-men": [
+  "vivid-colour",
+  "warm-palette",
+  "bright-airy"
+ ],
  "all-about-eve": [
   "muted-colour",
   "warm-palette",
@@ -264,6 +269,10 @@
   "muted-colour",
   "warm-palette"
  ],
+ "city-lights": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "dahomey": [
   "vivid-colour",
   "warm-palette",
@@ -296,6 +305,11 @@
  "five-fingers-for-marseilles": [
   "muted-colour"
  ],
+ "footlight-parade": [
+  "vivid-colour",
+  "warm-palette",
+  "bright-airy"
+ ],
  "four-daughters": [
   "vivid-colour",
   "cool-palette",
@@ -325,6 +339,10 @@
   "cool-palette"
  ],
  "how-to-ruin-love": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "i-am-a-fugitive-from-a-chain-gang": [
   "vivid-colour",
   "warm-palette"
  ],
@@ -403,6 +421,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "out-of-the-past": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "paths-of-glory": [
   "vivid-colour",
   "warm-palette"
@@ -424,6 +446,9 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "rebecca": [
+  "warm-palette"
+ ],
  "rebel-without-a-cause": [
   "warm-palette"
  ],
@@ -442,6 +467,9 @@
  ],
  "seriously-single": [
   "vivid-colour",
+  "warm-palette"
+ ],
+ "seven-samurai": [
   "warm-palette"
  ],
  "sew-the-winter-to-my-skin": [],
@@ -485,6 +513,9 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "the-ox-bow-incident": [
+  "warm-palette"
+ ],
  "the-polygamist": [
   "warm-palette",
   "low-key"
@@ -492,6 +523,10 @@
  "the-searchers": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "the-shop-around-the-corner": [
+  "warm-palette",
+  "bright-airy"
  ],
  "the-wizard-of-oz": [
   "warm-palette"
@@ -510,6 +545,10 @@
   "warm-palette"
  ],
  "touki-bouki": [
+  "warm-palette"
+ ],
+ "trouble-in-paradise": [
+  "vivid-colour",
   "warm-palette"
  ],
  "umthetho": [

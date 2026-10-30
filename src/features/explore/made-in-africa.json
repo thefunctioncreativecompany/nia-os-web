@@ -3962,6 +3962,261 @@
           "is_primary": true
         }
       ]
+    },
+    {
+      "slug": "12-angry-men",
+      "collection": "studio-era",
+      "title": "12 Angry Men",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
+      "year": 1957,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Sidney Lumet",
+      "recognition": "Three Academy Award nominations, including Best Picture",
+      "pair_with": "",
+      "study_note": "One room, twelve actors, close to real time: the lenses get longer and the camera lower as the pressure rises",
+      "added": "2026-10-30",
+      "essential": "The model for drama in a single room: Lumet shoots it with longer lenses and a lower camera as the tension builds.",
+      "imdb_id": "tt0050083",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "TEN-2uTi2c0",
+          "kind": "trailer",
+          "channel": "Amazon MGM Studios",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "city-lights",
+      "collection": "studio-era",
+      "title": "City Lights",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Romance",
+        "Drama"
+      ],
+      "year": 1931,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Charlie Chaplin",
+      "pair_with": "",
+      "study_note": "Chaplin kept it silent after sound arrived: physical comedy, his own score and a final close-up that does the work of dialogue",
+      "added": "2026-10-30",
+      "essential": "Chaplin's silent comedy made after sound took over; its last close-up is taught as one of the great endings.",
+      "imdb_id": "tt0021749",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "7vl7F8S4cpQ",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "footlight-parade",
+      "collection": "studio-era",
+      "title": "Footlight Parade",
+      "type": "film",
+      "genres": [
+        "Musical",
+        "Comedy"
+      ],
+      "year": 1933,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Lloyd Bacon",
+      "pair_with": "",
+      "study_note": "Busby Berkeley's overhead kaleidoscope numbers: choreography designed for the camera, not the stage",
+      "added": "2026-10-30",
+      "imdb_id": "tt0024028",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "OhyrVAJcLb0",
+          "kind": "trailer",
+          "channel": "Warner Bros. Rewind",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "out-of-the-past",
+      "collection": "studio-era",
+      "title": "Out of the Past",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Thriller"
+      ],
+      "year": 1947,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Jacques Tourneur",
+      "recognition": "Added to the National Film Registry in 1991",
+      "pair_with": "",
+      "study_note": "Nicholas Musuraca's noir lighting and a flashback plot about a man who can't outrun his past",
+      "added": "2026-10-30",
+      "imdb_id": "tt0039689",
+      "videos": []
+    },
+    {
+      "slug": "rebecca",
+      "collection": "studio-era",
+      "title": "Rebecca",
+      "type": "film",
+      "genres": [
+        "Thriller",
+        "Mystery",
+        "Romance"
+      ],
+      "year": 1940,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Alfred Hitchcock",
+      "recognition": "Academy Award for Best Picture, the only Hitchcock film to win it",
+      "pair_with": "",
+      "study_note": "A house as the antagonist: a dead woman who never appears fills every room through the sets, the shadows and the housekeeper",
+      "added": "2026-10-30",
+      "imdb_id": "tt0032976",
+      "videos": []
+    },
+    {
+      "slug": "seven-samurai",
+      "collection": "studio-era",
+      "title": "Seven Samurai",
+      "type": "film",
+      "genres": [
+        "Action",
+        "Drama",
+        "Historical"
+      ],
+      "year": 1954,
+      "countries": [
+        "Japan"
+      ],
+      "credit": "Akira Kurosawa",
+      "recognition": "Silver Lion at the Venice Film Festival",
+      "pair_with": "",
+      "study_note": "Several cameras, long lenses, mud and rain: battle staged in weather, with the team gathered one man at a time",
+      "added": "2026-10-30",
+      "essential": "The source of the gather-the-team story, from The Magnificent Seven to heist films, and the reference for staging battle in weather.",
+      "imdb_id": "tt0047478",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "1XMJY0hYJEw",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "i-am-a-fugitive-from-a-chain-gang",
+      "collection": "studio-era",
+      "title": "I Am a Fugitive from a Chain Gang",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "year": 1932,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Mervyn LeRoy",
+      "recognition": "Three Academy Award nominations, including Best Picture",
+      "pair_with": "",
+      "study_note": "Warner Bros.' social realism before the Production Code: a true story that helped end the chain gangs, with a famously dark last line",
+      "added": "2026-10-30",
+      "imdb_id": "tt0023042",
+      "videos": []
+    },
+    {
+      "slug": "the-ox-bow-incident",
+      "collection": "studio-era",
+      "title": "The Ox-Bow Incident",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
+      "year": 1943,
+      "countries": [
+        "United States"
+      ],
+      "credit": "William A. Wellman",
+      "recognition": "Nominated for the Academy Award for Best Picture",
+      "pair_with": "",
+      "study_note": "A western without heroes: a lynch mob over a single day, shot mostly on soundstages",
+      "added": "2026-10-30",
+      "imdb_id": "tt0036244",
+      "videos": []
+    },
+    {
+      "slug": "the-shop-around-the-corner",
+      "collection": "studio-era",
+      "title": "The Shop Around the Corner",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "year": 1940,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Ernst Lubitsch",
+      "recognition": "Added to the National Film Registry in 1999",
+      "pair_with": "",
+      "study_note": "The Lubitsch touch: two shop clerks who can't stand each other are each other's pen pals, almost all on one shop set",
+      "added": "2026-10-30",
+      "imdb_id": "tt0033045",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "xr3nsHRKZJA",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "trouble-in-paradise",
+      "collection": "studio-era",
+      "title": "Trouble in Paradise",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Romance",
+        "Crime"
+      ],
+      "year": 1932,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Ernst Lubitsch",
+      "recognition": "Added to the National Film Registry in 1991",
+      "pair_with": "",
+      "study_note": "Pre-Code sophistication: two thieves in love, told through doors, clocks and what the camera leaves out",
+      "added": "2026-10-30",
+      "imdb_id": "tt0023622",
+      "videos": []
     }
   ],
   "categories": [
