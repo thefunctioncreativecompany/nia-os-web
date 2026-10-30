@@ -52,7 +52,7 @@
       "slug": "studio-era",
       "category": "hollywood-classics",
       "name": "The studio era",
-      "description": "1939 to 1959: the studios' stars, sets and storytelling at their height."
+      "description": "1927 to 1959: the studios' stars, sets and storytelling at their height."
     },
     {
       "slug": "new-hollywood",
@@ -3669,6 +3669,296 @@
           "video_id": "MBZ-POVsrlI",
           "kind": "trailer",
           "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "gone-with-the-wind",
+      "collection": "studio-era",
+      "title": "Gone with the Wind",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Romance",
+        "Historical"
+      ],
+      "year": 1939,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Victor Fleming",
+      "recognition": "Eight Academy Awards, including Best Picture; Hattie McDaniel became the first Black actor to win an Oscar",
+      "pair_with": "",
+      "study_note": "Technicolor at epic scale: firelit night scenes and burnt-orange skies. Study it with its romanticised view of slavery in mind",
+      "added": "2026-10-30",
+      "essential": "Still the biggest box-office film once prices are adjusted, and the reference point for Technicolor spectacle and for how Hollywood romanticised the Old South.",
+      "imdb_id": "tt0031381",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "0X94oZgJis4",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "double-indemnity",
+      "collection": "studio-era",
+      "title": "Double Indemnity",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Thriller"
+      ],
+      "year": 1944,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Billy Wilder",
+      "recognition": "Seven Academy Award nominations, including Best Picture",
+      "pair_with": "",
+      "study_note": "The film noir template: venetian-blind shadows, a voice-over confession and a scheme that goes wrong",
+      "added": "2026-10-30",
+      "essential": "The noir that crime writers and DPs still borrow from: told backwards from a confession and lit through venetian blinds.",
+      "imdb_id": "tt0036775",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "yKrrAa2o9Eg",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "rear-window",
+      "collection": "studio-era",
+      "title": "Rear Window",
+      "type": "film",
+      "genres": [
+        "Thriller",
+        "Mystery"
+      ],
+      "year": 1954,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Alfred Hitchcock",
+      "recognition": "Four Academy Award nominations, including Best Director",
+      "pair_with": "",
+      "study_note": "One courtyard set and one point of view: suspense built from what the camera, and the audience, can see",
+      "added": "2026-10-30",
+      "essential": "Hitchcock's lesson in point of view and suspense, shot from one apartment on one enormous studio set.",
+      "imdb_id": "tt0047396",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "m01YktiEZCw",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "north-by-northwest",
+      "collection": "studio-era",
+      "title": "North by Northwest",
+      "type": "film",
+      "genres": [
+        "Thriller",
+        "Adventure"
+      ],
+      "year": 1959,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Alfred Hitchcock",
+      "recognition": "Three Academy Award nominations",
+      "pair_with": "",
+      "study_note": "The chase-film blueprint: a crop-duster attack in open daylight, Saul Bass's opening titles and a Mount Rushmore finale",
+      "added": "2026-10-30",
+      "essential": "The template for the spy chase film; the crop-duster scene is the reference for suspense in broad daylight.",
+      "imdb_id": "tt0053125",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "cPNiwc3ogIo",
+          "kind": "trailer",
+          "channel": "Warner Bros. Entertainment",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "it-happened-one-night",
+      "collection": "studio-era",
+      "title": "It Happened One Night",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "year": 1934,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Frank Capra",
+      "recognition": "The first film to win all five top Academy Awards: picture, director, actor, actress and screenplay",
+      "pair_with": "",
+      "study_note": "The screwball road comedy: sparring leads, quick dialogue and a bus trip that turns into a romance",
+      "added": "2026-10-30",
+      "essential": "The first film to sweep the five top Oscars, and the template the romantic comedy still follows.",
+      "imdb_id": "tt0025316",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "Kd509cLN-9U",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-grapes-of-wrath",
+      "collection": "studio-era",
+      "title": "The Grapes of Wrath",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Historical"
+      ],
+      "year": 1940,
+      "countries": [
+        "United States"
+      ],
+      "credit": "John Ford",
+      "recognition": "Academy Awards for Best Director and Best Supporting Actress",
+      "pair_with": "",
+      "study_note": "Gregg Toland's deep-focus black and white turns Dust Bowl migration into images that look like documentary photographs",
+      "added": "2026-10-30",
+      "imdb_id": "tt0032551",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "fOuAZLA_jWQ",
+          "kind": "trailer",
+          "channel": "20th Century Studios",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "mildred-pierce",
+      "collection": "studio-era",
+      "title": "Mildred Pierce",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
+      "year": 1945,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Michael Curtiz",
+      "recognition": "Academy Award for Best Actress (Joan Crawford)",
+      "pair_with": "",
+      "study_note": "Noir lighting around a mother-and-daughter melodrama, told in flashback from a murder",
+      "added": "2026-10-30",
+      "imdb_id": "tt0037913",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "VjK97CqVqWA",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "sunrise",
+      "collection": "studio-era",
+      "title": "Sunrise: A Song of Two Humans",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "year": 1927,
+      "countries": [
+        "United States"
+      ],
+      "credit": "F. W. Murnau",
+      "recognition": "Three Academy Awards at the first ceremony, including Unique and Artistic Production",
+      "pair_with": "",
+      "study_note": "German expressionism inside a Hollywood studio: forced-perspective city sets, superimpositions and a camera that moves, with no dialogue",
+      "added": "2026-10-30",
+      "imdb_id": "tt0018455",
+      "videos": []
+    },
+    {
+      "slug": "ben-hur",
+      "collection": "studio-era",
+      "title": "Ben-Hur",
+      "type": "film",
+      "genres": [
+        "Historical",
+        "Drama",
+        "Adventure"
+      ],
+      "year": 1959,
+      "countries": [
+        "United States"
+      ],
+      "credit": "William Wyler",
+      "recognition": "11 Academy Awards, a record later matched by Titanic and The Return of the King",
+      "pair_with": "",
+      "study_note": "The chariot race: months of second-unit work, a vast arena set and widescreen staging that action films still study",
+      "added": "2026-10-30",
+      "essential": "The chariot race is still the benchmark for practical action at scale, and its 11 Oscars are still the record.",
+      "imdb_id": "tt0052618",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "NR1ZHKw09n8",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "paths-of-glory",
+      "collection": "studio-era",
+      "title": "Paths of Glory",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Historical"
+      ],
+      "year": 1957,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Stanley Kubrick",
+      "recognition": "Not shown in France until 1975",
+      "pair_with": "",
+      "study_note": "Kubrick's long tracking shots through the trenches, set against a château where the generals decide who dies",
+      "added": "2026-10-30",
+      "imdb_id": "tt0050825",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "FESvZ0HG2p4",
+          "kind": "trailer",
+          "channel": "Amazon MGM Studios",
           "is_primary": true
         }
       ]

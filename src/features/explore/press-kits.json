@@ -304,6 +304,37 @@
   "cinemaRelease": true,
   "imdb": "tt26256406"
  },
+ "ben-hur": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "The Screen: 'Ben-Hur,' a Blockbuster",
+    "href": "https://www.nytimes.com/1959/11/19/archives/the-screen-benhur-a-blockbuster-mgm-spectacle-opens-at-the-loews.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: Ben-Hur",
+    "href": "https://variety.com/1959/film/reviews/ben-hur-2-1200419494/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New Yorker",
+    "title": "The Children's Hours",
+    "href": "https://www.newyorker.com/magazine/1959/12/05/the-childrens-hours"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Ben-Hur' Champ for Sixth in Row; 'Psycho,' 'Oceans' Close Behind; Aug. B.O. Great Via Blockbusters",
+    "href": "https://archive.org/details/variety220-1960-09/page/n3/mode/2up"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0052618"
+ },
  "black-girl": {
   "videos": [],
   "reviews": [
@@ -666,6 +697,36 @@
   "streaming": "Showmax",
   "imdb": "tt13635918"
  },
+ "double-indemnity": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Double Indemnity (Great Movies)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-double-indemnity-1944",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Double Indemnity Review",
+    "href": "https://www.empireonline.com/movies/reviews/double-indemnity-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Double Indemnity",
+    "href": "https://variety.com/1944/film/reviews/double-indemnity-2-1200414382/"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "A Woman's Equipment: Barbara Stanwyck's Anklet in Double Indemnity",
+    "href": "https://www.rogerebert.com/features/a-womans-equipment-barbara-stanwycks-anklet-in-double-indemnity"
+   }
+  ],
+  "imdb": "tt0036775"
+ },
  "eyimofe": {
   "videos": [
    {
@@ -984,6 +1045,62 @@
     "href": "https://mg.co.za/friday/2025-03-19-a-sprint-for-opportunities/"
    }
   ]
+ },
+ "gone-with-the-wind": {
+  "videos": [
+   {
+    "id": "h2oX0zQA67U",
+    "kind": "Official trailer",
+    "title": "Gone With The Wind | 75th Anniversary Trailer | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "BUW-J1R4c94",
+    "kind": "Cast interview",
+    "title": "Bette Davis on Not Being Cast as Scarlett O'Hara in 'Gone With The Wind' | The Dick Cavett Show",
+    "channel": "The Dick Cavett Show"
+   },
+   {
+    "id": "tvoA1ke7l4g",
+    "kind": "Cast interview",
+    "title": "The Complicated Legacy of Gone With the Wind: Panel Discussion",
+    "channel": "Turner Classic Movies"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Gone With the Wind",
+    "href": "https://variety.com/1939/film/reviews/gone-with-the-wind-2-1200412649/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Atlantic Monthly",
+    "title": "Time, Alas, Has Treated Gone with the Wind Cruelly",
+    "href": "https://www.theatlantic.com/past/docs/issues/73mar/schles.htm",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Screen in Review; David Selznick's 'Gone With the Wind' Has Its Long-Awaited Premiere at Astor and Capitol, Recalling Civil War and Plantation Days of South—Seen as Treating Book With Great Fidelity",
+    "href": "https://www.nytimes.com/movie/review?res=9807E2DA153EE432A25753C2A9649D946894D6CF",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Manchester Guardian",
+    "title": "From the Archive, 28 May 1940: Gone with the Wind at the Gaiety",
+    "href": "https://www.theguardian.com/theguardian/2010/may/28/archive-gone-with-the-wind-1940"
+   },
+   {
+    "outlet": "BBC",
+    "title": "The 100 Greatest American Films",
+    "href": "http://www.bbc.com/culture/story/20150720-the-100-greatest-american-films"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0031381"
  },
  "goodbye-julia": {
   "videos": [],
@@ -1451,6 +1568,42 @@
   "cinemaRelease": true,
   "imdb": "tt6333070"
  },
+ "it-happened-one-night": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Claudette Colbert and Clark Gable in a Merry Jaunt From Miami to New York",
+    "href": "https://www.nytimes.com/1934/02/23/archives/claudette-colbert-and-clark-gable-in-a-merry-jaunt-from-miami-to.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "It Happened One Night",
+    "href": "https://variety.com/1934/film/reviews/it-happened-one-night-2-1200410931/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Britannica Presents: All About Oscar",
+    "title": "1934: Best Picture",
+    "href": "https://web.archive.org/web/20131002022647/https://www.britannica.com/oscar/article-9397448"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Looking Back at It Happened One Night",
+    "href": "https://www.rogerebert.com/far-flung-correspondents/looking-back-at-it-happened-one-night"
+   },
+   {
+    "outlet": "BFI",
+    "title": "Giddy adventures, gender skirmishes and aural seductions: Frank Capra's It Happened One Night",
+    "href": "https://www.bfi.org.uk/sight-and-sound/giddy-adventures-gender-skirmishes-aural-seductions-frank-capras-it-happened-one-night"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0025316"
+ },
  "its-a-wonderful-life": {
   "videos": [
    {
@@ -1819,6 +1972,62 @@
   "articles": [],
   "streaming": "Netflix"
  },
+ "mildred-pierce": {
+  "videos": [
+   {
+    "id": "ajwQiKORcHg",
+    "kind": "Cast interview",
+    "title": "TCM Classic Film Fest: Mildred Pierce Star Ann Blyth",
+    "channel": "The Hollywood Reporter"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "THE SCREEN; 'Mildred Pierce' Warner Drama Starring Joan Crawford, New Bill of the Strand—Western Thriller Moves Into Gotham",
+    "href": "https://www.nytimes.com/1945/09/29/archives/the-screen-mildred-pierce-warner-drama-starring-joan-crawford-new.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: Mildred Pierce",
+    "href": "https://archive.org/details/variety160-1945-10/page/n19/mode/2up",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Harrison's Reports",
+    "title": "'Mildred Pierce' with Joan Crawford, Jack Carson and Zachary Scott",
+    "href": "https://archive.org/details/harrisonsreports27harr/page/n177/mode/2up",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The New Yorker",
+    "title": "The Current Cinema",
+    "href": "https://www.newyorker.com/magazine/1945/10/06/1945-10-06-095-tny-cards-000020290",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "DVD Review: Michael Curtiz's Mildred Pierce on Warner Home Video",
+    "href": "https://www.slantmagazine.com/dvd/mildred-pierce-dvd/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Turner Classic Movies",
+    "title": "Mildred Pierce (1945) – Notes",
+    "href": "https://web.archive.org/web/20181214202946/http://www.tcm.com/tcmdb/title/321/Mildred-Pierce/notes.html"
+   },
+   {
+    "outlet": "Turner Classic Movies",
+    "title": "Mildred Pierce (1945) – Articles",
+    "href": "https://web.archive.org/web/20181130114935/http://www.tcm.com/tcmdb/title/321/Mildred-Pierce/articles.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0037913"
+ },
  "neptune-frost": {
   "videos": [
    {
@@ -1955,6 +2164,67 @@
   "cinemaRelease": true,
   "imdb": "tt23055660"
  },
+ "north-by-northwest": {
+  "videos": [
+   {
+    "id": "ek7T9Gyl_J4",
+    "kind": "Official trailer",
+    "title": "North by Northwest - Original Theatrical Trailer",
+    "channel": "Warner Bros. Rewind"
+   },
+   {
+    "id": "UwIZoD7r8H8",
+    "kind": "Filmmaker interview",
+    "title": "Eva Marie Saint and Martin Landau Discuss Alfred Hitchcock's North by Northwest",
+    "channel": "Turner Classic Movies"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Time",
+    "title": "Cinema: The New Pictures",
+    "href": "https://content.time.com/time/subscriber/article/0,33009,937893,00.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Hitchcock Takes Suspenseful Cook's Tour: North by Northwest Opens at Music Hall",
+    "href": "https://www.nytimes.com/1959/08/07/archives/hitchcock-takes-suspenseful-cooks-tour-north-by-northwest-opens-at.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "BFI",
+    "title": "North by North-west archive review: pure entertainment that never puts a foot wrong",
+    "href": "https://www2.bfi.org.uk/news-opinion/sight-sound-magazine/reviews-recommendations/north-by-northwest-alfred-hitchcock-pure-entertainment",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time Out",
+    "title": "North by Northwest (1959)",
+    "href": "https://web.archive.org/web/20090113175557/http://www.timeout.com/film/newyork/reviews/63522/North_by_Northwest.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Chicago [Picture Grosses]",
+    "href": "http://www.archive.org/stream/variety215-1959-07#page/n169/mode/1up"
+   },
+   {
+    "outlet": "Time",
+    "title": "Box Office: For the Books",
+    "href": "https://archive.today/20120530114819/http://www.time.com/time/printout/0,8816,864921,00.html"
+   },
+   {
+    "outlet": "Sight & Sound",
+    "title": "Critics' Top 100",
+    "href": "https://web.archive.org/web/20160207035347/http://www.bfi.org.uk/films-tv-people/sightandsoundpoll2012/critics"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0053125"
+ },
  "on-becoming-a-guinea-fowl": {
   "videos": [
    {
@@ -2078,6 +2348,56 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt15398776"
+ },
+ "paths-of-glory": {
+  "videos": [
+   {
+    "id": "AV9XLjDbt5A",
+    "kind": "Official trailer",
+    "title": "Paths of Glory Official Trailer #1 - Kirk Douglas Movie (1957) HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Paths of Glory (Great Movies)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-paths-of-glory-1957",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Paths of Glory",
+    "href": "https://variety.com/1956/film/reviews/paths-of-glory-1200418282/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Paths of Glory Review",
+    "href": "https://www.empireonline.com/movies/reviews/paths-glory-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "Paths of Glory on the Criterion Collection",
+    "href": "https://www.slantmagazine.com/dvd/paths-of-glory/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "AMC Filmsite",
+    "title": "Paths of Glory (1957)",
+    "href": "https://www.filmsite.org/path.html"
+   },
+   {
+    "outlet": "BFI",
+    "title": "Paths of Glory: Stanley Kubrick's first film of 'genius'",
+    "href": "https://www.bfi.org.uk/features/paths-glory-stanley-kubricks-first-film-genius"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0050825"
  },
  "psycho": {
   "videos": [
@@ -2301,6 +2621,56 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt8286894"
+ },
+ "rear-window": {
+  "videos": [
+   {
+    "id": "Ob_Sq__g01E",
+    "kind": "Official trailer",
+    "title": "Rear Window Official Trailer #1 - (1954) HD",
+    "channel": "Movieclips"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: Rear Window",
+    "href": "https://archive.org/details/variety195-1954-07/page/n71/mode/2up",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time",
+    "title": "Cinema: The New Pictures",
+    "href": "https://web.archive.org/web/20231215180419/https://content.time.com/time/magazine/article/0,9171,891018,00.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "New York Times",
+    "title": "'Rear Window' - Still a joy",
+    "href": "https://archive.nytimes.com/www.nytimes.com/library/film/100983hitch-window-reflect.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "My favourite Hitchcock: Rear Window",
+    "href": "https://www.theguardian.com/film/filmblog/2012/jul/25/my-favourite-hitchcock-rear-window",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Harrison's Reports",
+    "title": "'Rear Window' with James Stewart, Grace Kelly, and Thelma Ritter",
+    "href": "https://archive.org/details/harrisonsreports00harr_2/page/n133/mode/2up"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "alumnus.caltech.edu",
+    "title": "Cahiers du Cinema: Top Ten Lists 1951-2009",
+    "href": "https://web.archive.org/web/20120327102838/http://alumnus.caltech.edu/~ejohnson/critics/cahiers.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0047396"
  },
  "rebel-without-a-cause": {
   "videos": [],
@@ -2704,6 +3074,43 @@
   "cinemaRelease": true,
   "imdb": "tt0053291"
  },
+ "sunrise": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Sunrise: A Song of Two Humans",
+    "href": "https://variety.com/1926/film/reviews/sunrise-a-song-of-two-humans-1200409836/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Sunrise (Great Movies)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-sunrise-1928",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Sunrise: A Song of Two Humans Review",
+    "href": "https://www.empireonline.com/movies/reviews/sunrise-song-two-humans-review/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "New York Magazine",
+    "title": "The Best Movies That Lost Best Picture at the Oscars",
+    "href": "https://www.vulture.com/article/best-oscar-best-picture-losers.html"
+   },
+   {
+    "outlet": "BFI",
+    "title": "Where to begin with F.W. Murnau",
+    "href": "https://www.bfi.org.uk/features/where-begin-fw-murnau"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0018455"
+ },
  "the-brave-ones": {
   "videos": [],
   "reviews": [],
@@ -2753,6 +3160,68 @@
   "articles": [],
   "streaming": "Netflix",
   "imdb": "tt7497366"
+ },
+ "the-grapes-of-wrath": {
+  "videos": [
+   {
+    "id": "u6icGNGUMVc",
+    "kind": "Official trailer",
+    "title": "The Grapes of Wrath (1940) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "xYiv2YFrOAc",
+    "kind": "Cast interview",
+    "title": "The Grapes of Wrath (1940) Spotlight: Introduction Interview with Cinematographer Robert Yeoman",
+    "channel": "Turner Classic Movies"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Boxoffice",
+    "title": "Dust From the Bowl Obscures the Scene",
+    "href": "https://archive.org/details/boxofficejanmar136unse/page/n427/mode/2up"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Screen in Review",
+    "href": "https://www.nytimes.com/1940/01/25/archives/the-screen-in-review-twentieth-centuryfox-shows-a-flawless-film.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time",
+    "title": "Cinema: The New Pictures",
+    "href": "https://content.time.com/time/subscriber/article/0,33009,884004-1,00.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Grapes of Wrath",
+    "href": "https://variety.com/1940/film/reviews/the-grapes-of-wrath-1200412937/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "James Agee, Agee on Film",
+    "title": "Agee on Film: Reviews and comments",
+    "href": "https://www.google.com/books/edition/Agee_on_Film_Reviews_and_comments/JKKq8ZYeqCIC?hl=en&gbpv=0&bsq=few%20American%20films%20ever%20manage%20really%20to%20specify%20a%20character%20or%20a%20situation%20so%20that%20either%20can%20achieve%20personal%20life%20or%20general%20applicability;",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Great Movies: The Grapes of Wrath",
+    "href": "http://rogerebert.suntimes.com/apps/pbcs.dll/article?AID=/20020331/REVIEWS08/203310301/1023&AID1=&AID2=/20020331/REVIEWS08/203310301/1023",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Motion Picture Herald",
+    "title": "\"Grapes of Wrath\" An Editorial Viewpoint",
+    "href": "https://archive.org/details/motionpictureher138unse/page/22/mode/2up"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0032551"
  },
  "the-heart-is-a-muscle": {
   "videos": [

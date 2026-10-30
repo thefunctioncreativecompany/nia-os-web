@@ -238,6 +238,11 @@
   "warm-palette",
   "bright-airy"
  ],
+ "ben-hur": [
+  "vivid-colour",
+  "warm-palette",
+  "bright-airy"
+ ],
  "black-girl": [
   "black-and-white",
   "bright-airy"
@@ -267,6 +272,11 @@
  "dam": [
   "cool-palette"
  ],
+ "double-indemnity": [
+  "vivid-colour",
+  "warm-palette",
+  "bright-airy"
+ ],
  "eyimofe": [
   "warm-palette",
   "low-key"
@@ -293,6 +303,9 @@
  ],
  "go": [
   "vivid-colour",
+  "warm-palette"
+ ],
+ "gone-with-the-wind": [
   "warm-palette"
  ],
  "goodbye-julia": [
@@ -334,6 +347,9 @@
  "inxeba": [
   "warm-palette"
  ],
+ "it-happened-one-night": [
+  "warm-palette"
+ ],
  "its-a-wonderful-life": [
   "warm-palette",
   "bright-airy"
@@ -367,6 +383,9 @@
  "marked": [
   "muted-colour"
  ],
+ "mildred-pierce": [
+  "warm-palette"
+ ],
  "neptune-frost": [
   "warm-palette",
   "bright-airy"
@@ -375,7 +394,16 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "north-by-northwest": [
+  "muted-colour",
+  "warm-palette",
+  "bright-airy"
+ ],
  "on-becoming-a-guinea-fowl": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "paths-of-glory": [
   "vivid-colour",
   "warm-palette"
  ],
@@ -389,6 +417,10 @@
   "low-key"
  ],
  "rafiki": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "rear-window": [
   "vivid-colour",
   "warm-palette"
  ],
@@ -429,12 +461,20 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "sunrise": [
+  "warm-palette"
+ ],
  "the-brave-ones": [
   "vivid-colour",
   "warm-palette"
  ],
  "the-burial-of-kojo": [
   "cool-palette"
+ ],
+ "the-grapes-of-wrath": [
+  "vivid-colour",
+  "warm-palette",
+  "bright-airy"
  ],
  "the-heart-is-a-muscle": [
   "vivid-colour",

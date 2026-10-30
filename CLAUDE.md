@@ -309,6 +309,17 @@ Data:
   new films wait for covers (TMDB API), as do 15 earlier classics; their press-kit drafts are
   in `scripts/out/press-kit-drafts-classics-waiting.json` (not in git: rebuild with
   `build-press-kits.mjs` if lost). 15 visible classics have checked press kits.
+- (2026-10-30) Explore seed list (Ika's `nia_explore_seed.csv`: 2026 festival discoveries, Empire's
+  100 best films, Hollywood eras, a colour-and-light canon, Variety's 100 greatest TV shows) is
+  added in batches of 10, each committed and pushed. Ika's rules: no new category without asking;
+  approved new categories Festival discoveries 2026 and Greatest TV (not built until a title in
+  them has a poster); films made outside Hollywood join Hollywood Classics; only titles with a
+  free poster are added until a `TMDB_API_KEY` exists (Wikimedia Commons, by Wikidata or named
+  in the list, `commons` in `find-title-assets.mjs`). The studio era collection now reads 1927 to
+  1959. Batch 1 (Gone with the Wind, Double Indemnity, Rear Window, North by Northwest, It
+  Happened One Night, The Grapes of Wrath, Mildred Pierce, Sunrise, Ben-Hur, Paths of Glory):
+  six essentials; Sunrise has no official trailer; press kits checked by hand (Ben-Hur's and
+  Mildred Pierce's videos were the remakes', removed).
 
 ## Working notes
 
