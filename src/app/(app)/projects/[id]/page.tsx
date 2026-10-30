@@ -11,6 +11,11 @@ import { ProjectLive } from "@/components/projects/project-live";
 import { DocumentPills, ProjectDocuments } from "@/components/projects/project-documents";
 import { ProjectFiles, ProjectFinalAssets } from "@/components/projects/project-files";
 import { ProjectInspiration } from "@/components/projects/project-inspiration-lazy";
+import { ProjectLikeThis, type Compared } from "@/components/projects/project-like-this";
+import { hasExploreAccess } from "@/lib/explore-access";
+import { parseDay } from "@/lib/dates";
+import { comparablesFor, projectGap } from "@/features/explore/gap";
+import { exploreItem } from "@/features/explore/items";
 import { everyTemplate } from "@/features/templates/catalog";
 import type { ProjectSignals } from "@/features/explore/match";
 import type { Project } from "@/lib/projects";
@@ -32,6 +37,25 @@ const inspirationSignals = (p: Project): ProjectSignals => ({
   frames: p.deliverables.map((d) => d.frame),
 });
 
+// Where the project is, for the line under "Projects like this had".
+function phaseLine(p: Project, now: number): string | null {
+  const start = p.shootStart ? parseDay(p.shootStart) : undefined;
+  const days = start ? Math.ceil((start.getTime() - now) / 864e5) : null;
+  if (p.stage === "Post-Production" || p.stage === "Wrapped") return "After the shoot, what's left is handing over.";
+  if (p.stage === "In Production") return "In production, so the day's paperwork comes first.";
+  if (days !== null && days > 1) return `Shooting in ${days} days, so prep comes first.`;
+  if (days !== null && days >= 0) return "Shooting very soon, so the day's paperwork comes first.";
+  return null;
+}
+
+// The Explore work it was compared with, as small pictures at their own shape.
+function comparedCards(slugs: string[]): Compared[] {
+  return slugs.flatMap((slug) => {
+    const item = exploreItem(slug);
+    return item ? [{ slug, title: item.title, image: item.image, aspect: item.aspect ?? 2 / 3, href: item.href() }] : [];
+  });
+}
+
 export const metadata: Metadata = {
   title: "Project · Nia OS",
 };
@@ -47,14 +71,17 @@ export default function Page({ params }: PageProps<"/projects/[id]">) {
 
 async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params">) {
   const { id } = await params;
-  const [{ project, role, now, userId }, activity, people, documents, files] = await Promise.all([
+  const [{ project, role, now, userId }, activity, people, documents, files, explore] = await Promise.all([
     getProject(id),
     listActivity({ projectId: id, limit: 8 }),
     countProjectPeople(id),
     listProjectDocuments(id),
     listProjectFiles(id),
+    hasExploreAccess(),
   ]);
   const canEdit = role !== "viewer";
+  // What finished work like it had that this project doesn't yet (editors only: it's a to-do list).
+  const gap = canEdit ? projectGap(project, documents, comparablesFor(project)) : null;
 
   return (
     <>
@@ -62,6 +89,17 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
       <ProjectEditor
         project={project}
         canEdit={canEdit}
+        likeThis={
+          gap && (
+            <ProjectLikeThis
+              projectId={id}
+              items={gap.items}
+              compared={explore ? comparedCards(gap.comparedWith) : null}
+              comparedCount={gap.comparedWith.length}
+              phase={phaseLine(project, now)}
+            />
+          )
+        }
         behind={<DocumentPills projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} />}
         finals={<ProjectFinalAssets files={files} canEdit={canEdit} now={now} />}
         files={<ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />}

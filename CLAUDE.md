@@ -321,7 +321,17 @@ Data:
   Camera Assistant, Production Company, Music, VFX and Set Designer. When a field is added to
   projects or Explore, add it to the profile for both. No screen change, no migration. Coverage
   today: titles have no frame, length or cast; creator films no genres or length; nothing has
-  deliverables. Next: "Projects like this had…" on the project page (needs a Figma design).
+  deliverables. Step 2 done (Ika approved the design on the canvas "Nia: start from a brief",
+  board 5): "Projects like this had" at the top of a project's Details tab, editors only
+  (`src/features/explore/gap.ts`, `src/components/projects/project-like-this.tsx`). It compares the
+  project with its 6 closest Explore items (`comparablesFor`, matched like Inspiration) and lists
+  what's missing, by phase: shoot dates, deliverables and their frames, about how many crew roles
+  (the median of comparables that credit 3+ people, with the roles most often credited), a call
+  sheet per shoot day, a shot list, a crew list (3+ crew), an invoice after the shoot. Each opens
+  the template for this project or the field; done items show ticked last; "Not for this project"
+  hides one on this device (localStorage). The Explore pictures it compared with show only with
+  Explore access. Marked "Suggested" (gold), not "AI draft": it's worked out, no AI. Not in
+  Figma yet. Next: Start from a brief (designed, waits for AI and Ika's OK on build order).
 
 ## Working notes
 

@@ -114,6 +114,7 @@ export function ProjectEditor({
   finals,
   files,
   inspiration,
+  likeThis,
 }: {
   project: Project;
   canEdit: boolean;
@@ -124,6 +125,8 @@ export function ProjectEditor({
   files: React.ReactNode;
   /** Explore references and suggestions, under the files. */
   inspiration?: React.ReactNode;
+  /** "Projects like this had": what's missing next to finished work like it, atop Details. */
+  likeThis?: React.ReactNode;
 }) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -316,6 +319,7 @@ export function ProjectEditor({
 
           {tab === "details" ? (
             <>
+              {likeThis}
               <section aria-labelledby="details" className="flex flex-col gap-4">
                 <h2 id="details" className="text-xl leading-[1.4] font-bold text-foreground">
                   Details
