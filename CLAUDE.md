@@ -337,8 +337,13 @@ Data:
   out, each group's subtotal and its share of the budget), then a summary with a contingency
   slider (0 to 25%, 10% to start) and the total, in the overview's currency; downloads list each
   group and the summary. Overview fields have real controls (type, currency, start and wrap
-  dates, producer, line producer). 10 templates work now; D02 is in `launches.ts` (New for 30
-  days).
+  dates, producer, line producer). D02 is in `launches.ts` (New for 30 days). The 13 creator
+  templates done the same day (GRWM, Explainer Video, Day in My Life, Tutorial, Storytime, Product
+  Review, Haul / Unboxing, Skit, Recipe, Workout, Room Tour, Q&A, Challenge / Trend): platform and
+  format are choices, post date and time pickers, durations with units, numbers for servings, sets,
+  reps, calories and rating, a person for who plays each character, Product Review's price in a
+  chosen currency. Four repeated the posting fields in a second section (a slip in the design
+  data); the copy was removed. 23 templates work now.
 
 ## Working notes
 

@@ -63,6 +63,72 @@ export const LAUNCHES: Record<string, Launch> = {
     forYou: "Log every file and take from a card with a description, its length and whether to use it.",
     forTeam: "The editor starts from the takes marked to use instead of watching every clip.",
   },
+  // The creator templates (Ika, 2026-10-30): plan a piece of social content from hook to post.
+  D15: {
+    launched: "2026-10-30",
+    forYou: "Plan a get-ready-with-me from the first three seconds to the post: products with prices and links, each step of the look with its timing, and when and where it goes up.",
+    forTeam: "A brand, editor or manager sees every product you'll show and the posting plan before you film.",
+  },
+  D16: {
+    launched: "2026-10-30",
+    forYou: "Turn a topic into an explainer: the hook, numbered key points, the voiceover, the B-roll you need and the pacing beat by beat.",
+    forTeam: "Whoever shoots B-roll or builds the graphics works from the same shot list and script.",
+  },
+  D17: {
+    launched: "2026-10-30",
+    forYou: "Map a day in your life before you film it: the schedule, the places, the shots and what you'll say over them.",
+    forTeam: "Anyone filming with you knows where you'll be and when, and which shots each place needs.",
+  },
+  D18: {
+    launched: "2026-10-30",
+    forYou: "Break a tutorial into timed steps, with the kit, the screen recording notes, the voiceover and the thumbnail.",
+    forTeam: "An editor can cut to the step order and add the on-screen notes without guessing.",
+  },
+  D19: {
+    launched: "2026-10-30",
+    forYou: "Shape a story: the hook, the arc, the key moments, cutaways and pacing, so it holds people to the end.",
+    forTeam: "The editor gets the beats and the cutaways in order, with the music you had in mind.",
+  },
+  D20: {
+    launched: "2026-10-30",
+    forYou: "Review a product honestly: its details and price in your currency, the features, pros and cons, demo shots and your verdict out of 10.",
+    forTeam: "Brands and managers see what you'll cover and the disclosure and links before it goes live.",
+  },
+  D21: {
+    launched: "2026-10-30",
+    forYou: "Plan a haul or unboxing: every product with its brand, price and link, the opening, first impressions and your favourites.",
+    forTeam: "Affiliate links and prices sit in one list a manager or brand can check.",
+  },
+  D26: {
+    launched: "2026-10-30",
+    forYou: "Write a sketch with its premise, characters and who plays them, the script, props and a numbered shot list.",
+    forTeam: "Everyone in the skit knows their character, lines and props before the camera rolls.",
+  },
+  D27: {
+    launched: "2026-10-30",
+    forYou: "Plan a cook-with-me: the dish, servings, prep and cook times, ingredients, timed steps, plating and nutrition.",
+    forTeam: "Whoever shops, preps or films has the ingredient list and step order in front of them.",
+  },
+  D28: {
+    launched: "2026-10-30",
+    forYou: "Plan a workout video: the level and goal, each exercise with form notes, sets, reps and rest, and the cues you'll say.",
+    forTeam: "A trainer, filmer or editor follows the same exercise order and timing.",
+  },
+  D29: {
+    launched: "2026-10-30",
+    forYou: "Plan a room or space tour in order, with the details to show, the styling, the light and the transitions.",
+    forTeam: "Whoever films or styles the space follows the room order and knows which details matter.",
+  },
+  D30: {
+    launched: "2026-10-30",
+    forYou: "Collect your audience's questions, prepare the answers and set the order you'll take them in.",
+    forTeam: "A manager or editor sees which questions you'll answer and the call to action at the end.",
+  },
+  D31: {
+    launched: "2026-10-30",
+    forYou: "Take on a trend with its original link and sound, your twist, the shot sequence and the beat timing.",
+    forTeam: "Anyone filming with you hits the same beats, props and timing.",
+  },
   D02: {
     launched: "2026-10-30",
     forYou: "Cost above the line, below the line and additional spend line by line, with each group's subtotal, a contingency you set and the grand total worked out in your currency.",

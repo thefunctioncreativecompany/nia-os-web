@@ -231,3 +231,27 @@ describe('Production Budget', () => {
     expect(md).toMatch(/Total budget:\*\* ZAR\s?2,100\.00/);
   });
 });
+
+describe('creator templates', () => {
+  const codes = ['D15', 'D16', 'D17', 'D18', 'D19', 'D20', 'D21', 'D26', 'D27', 'D28', 'D29', 'D30', 'D31'];
+
+  it('open in the editor, start blank and download', () => {
+    for (const code of codes) {
+      const schema = getSchema(code)!;
+      expect(canEdit(schema), code).toBe(true);
+      const data = initDocument(schema);
+      expect(filledCount(schema, data), code).toBe(0);
+      expect(toMarkdown(schema, data), code).toContain(`# ${schema.name}`);
+    }
+  });
+
+  it('ask for the posting plan once, with real controls', () => {
+    for (const code of codes) {
+      const fields = getSchema(code)!.sections.filter((s) => s.type === 'fields' && s.fields.some((f) => typeof f !== 'string' && f.label === 'Platform'));
+      expect(fields, code).toHaveLength(1);
+    }
+    const grwm = initDocument(getSchema('D15')!);
+    const look = grwm[2] as Record<string, unknown>[];
+    expect(look[0].Duration).toEqual({ amount: '', unit: 'seconds' });
+  });
+});

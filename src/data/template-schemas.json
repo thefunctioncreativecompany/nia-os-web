@@ -1598,7 +1598,7 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "text",
@@ -1626,7 +1626,14 @@
           "columns": [
             "Step",
             "Action",
-            "Duration"
+            {
+              "label": "Duration",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -1658,27 +1665,46 @@
           "type": "fields",
           "title": "Platform & Hashtags",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
           "hint": "Target audience categorization"
-        },
-        {
-          "type": "fields",
-          "title": "Posting Schedule",
-          "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
-            "Hashtags"
-          ],
-          "optional": true,
-          "hint": "Optimal upload timing guidelines"
         }
       ],
       "figma": {
@@ -1702,7 +1728,7 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "text",
@@ -1744,7 +1770,14 @@
             "#",
             "Shot",
             "Angle / Move",
-            "Duration"
+            {
+              "label": "Duration",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -1773,10 +1806,42 @@
           "type": "fields",
           "title": "Platform & Hashtags",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
@@ -1804,7 +1869,7 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "text",
@@ -1818,7 +1883,11 @@
           "title": "Characters & Roles",
           "columns": [
             "Character",
-            "Played by",
+            {
+              "label": "Played by",
+              "kind": "people",
+              "single": true
+            },
             "Quirk"
           ],
           "rows": 3,
@@ -1846,7 +1915,14 @@
             "#",
             "Shot",
             "Angle / Move",
-            "Duration"
+            {
+              "label": "Duration",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -1864,27 +1940,46 @@
           "type": "fields",
           "title": "Platform & Format",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
           "hint": "Aspect ratio and platform optimization"
-        },
-        {
-          "type": "fields",
-          "title": "Posting Schedule",
-          "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
-            "Hashtags"
-          ],
-          "optional": true,
-          "hint": "Social calendar sync markers"
         }
       ],
       "figma": {
@@ -1908,7 +2003,7 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "fields",
@@ -1916,8 +2011,28 @@
           "fields": [
             "Product",
             "Brand",
-            "Price",
-            "Launch date"
+            {
+              "label": "Currency",
+              "kind": "choice",
+              "options": [
+                "USD",
+                "EUR",
+                "GBP",
+                "ZAR",
+                "CAD",
+                "AUD",
+                "NGN",
+                "KES"
+              ]
+            },
+            {
+              "label": "Price",
+              "kind": "money"
+            },
+            {
+              "label": "Launch date",
+              "kind": "date"
+            }
           ],
           "optional": true,
           "hint": "Price, brand name, and launch specs"
@@ -1959,7 +2074,14 @@
             "#",
             "Shot",
             "Angle / Move",
-            "Duration"
+            {
+              "label": "Duration",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -1970,7 +2092,10 @@
           "type": "fields",
           "title": "Verdict & Rating",
           "fields": [
-            "Rating (out of 10)",
+            {
+              "label": "Rating (out of 10)",
+              "kind": "number"
+            },
             "Verdict"
           ],
           "optional": true,
@@ -1987,10 +2112,42 @@
           "type": "fields",
           "title": "Platform & Hashtags",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
@@ -2018,13 +2175,16 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "table",
           "title": "Daily Schedule",
           "columns": [
-            "Time",
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Activity",
             "Location"
           ],
@@ -2051,7 +2211,14 @@
             "#",
             "Shot",
             "Angle / Move",
-            "Duration"
+            {
+              "label": "Duration",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -2083,27 +2250,46 @@
           "type": "fields",
           "title": "Platform & Format",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
           "hint": "Vertical video output requirements"
-        },
-        {
-          "type": "fields",
-          "title": "Posting Schedule",
-          "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
-            "Hashtags"
-          ],
-          "optional": true,
-          "hint": "Publishing strategy timing blocks"
         }
       ],
       "figma": {
@@ -2127,7 +2313,7 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "text",
@@ -2142,7 +2328,14 @@
           "columns": [
             "Step",
             "Action",
-            "Duration"
+            {
+              "label": "Duration",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -2192,10 +2385,42 @@
           "type": "fields",
           "title": "Platform & Hashtags",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
@@ -2223,7 +2448,7 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "table",
@@ -2289,10 +2514,42 @@
           "type": "fields",
           "title": "Platform & Posting",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
@@ -2320,7 +2577,7 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "text",
@@ -2355,7 +2612,14 @@
             "#",
             "Shot",
             "Angle / Move",
-            "Duration"
+            {
+              "label": "Duration",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -2395,10 +2659,42 @@
           "type": "fields",
           "title": "Platform & Hashtags",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
@@ -2426,16 +2722,33 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "fields",
           "title": "Recipe Overview",
           "fields": [
             "Dish",
-            "Serves",
-            "Prep time",
-            "Cook time"
+            {
+              "label": "Serves",
+              "kind": "number"
+            },
+            {
+              "label": "Prep time",
+              "kind": "duration",
+              "units": [
+                "minutes",
+                "hours"
+              ]
+            },
+            {
+              "label": "Cook time",
+              "kind": "duration",
+              "units": [
+                "minutes",
+                "hours"
+              ]
+            }
           ],
           "optional": true,
           "hint": "Name, serving sizes, and prep timeline"
@@ -2465,7 +2778,14 @@
           "columns": [
             "Step",
             "Action",
-            "Duration"
+            {
+              "label": "Duration",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -2490,7 +2810,10 @@
           "type": "fields",
           "title": "Nutrition Info",
           "fields": [
-            "Calories",
+            {
+              "label": "Calories",
+              "kind": "number"
+            },
             "Protein",
             "Carbs",
             "Fat",
@@ -2503,10 +2826,42 @@
           "type": "fields",
           "title": "Platform & Posting",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
@@ -2534,7 +2889,7 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "fields",
@@ -2543,7 +2898,16 @@
             "Title",
             "Type",
             "Goal",
-            "Level"
+            {
+              "label": "Level",
+              "kind": "choice",
+              "options": [
+                "Beginner",
+                "Intermediate",
+                "Advanced",
+                "All levels"
+              ]
+            }
           ],
           "optional": true,
           "hint": "Define focus (HIIT, Strength, Yoga) and target goals"
@@ -2565,9 +2929,22 @@
           "title": "Sets & Reps",
           "columns": [
             "Exercise",
-            "Sets",
-            "Reps",
-            "Rest"
+            {
+              "label": "Sets",
+              "kind": "number"
+            },
+            {
+              "label": "Reps",
+              "kind": "number"
+            },
+            {
+              "label": "Rest",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -2605,10 +2982,42 @@
           "type": "fields",
           "title": "Platform & Posting",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
@@ -2636,7 +3045,7 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "text",
@@ -2702,10 +3111,42 @@
           "type": "fields",
           "title": "Platform & Hashtags",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
@@ -2733,7 +3174,7 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "table",
@@ -2775,7 +3216,14 @@
           "columns": [
             "Step",
             "Action",
-            "Duration"
+            {
+              "label": "Duration",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -2800,10 +3248,42 @@
           "type": "fields",
           "title": "Platform & Posting",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
@@ -2831,7 +3311,7 @@
         "Add Block",
         "Print"
       ],
-      "version": "v2.0",
+      "version": "v2.1",
       "sections": [
         {
           "type": "fields",
@@ -2865,7 +3345,14 @@
             "#",
             "Shot",
             "Angle / Move",
-            "Duration"
+            {
+              "label": "Duration",
+              "kind": "duration",
+              "units": [
+                "seconds",
+                "minutes"
+              ]
+            }
           ],
           "rows": 4,
           "optional": true,
@@ -2894,27 +3381,46 @@
           "type": "fields",
           "title": "Hashtags & Discovery",
           "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
+            {
+              "label": "Platform",
+              "kind": "choice",
+              "options": [
+                "Instagram",
+                "TikTok",
+                "YouTube",
+                "YouTube Shorts",
+                "Facebook",
+                "X",
+                "LinkedIn",
+                "Pinterest",
+                "Snapchat"
+              ]
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "Reel",
+                "Short",
+                "Story",
+                "Post",
+                "Carousel",
+                "Long-form video",
+                "Live"
+              ]
+            },
+            {
+              "label": "Post date",
+              "kind": "date"
+            },
+            {
+              "label": "Time",
+              "kind": "time"
+            },
             "Hashtags"
           ],
           "optional": true,
           "hint": "High-velocity challenge terms, SEO discovery"
-        },
-        {
-          "type": "fields",
-          "title": "Posting Schedule",
-          "fields": [
-            "Platform",
-            "Format",
-            "Post date",
-            "Time",
-            "Hashtags"
-          ],
-          "optional": true,
-          "hint": "High-engagement upload hour, trending day push"
         }
       ],
       "figma": {

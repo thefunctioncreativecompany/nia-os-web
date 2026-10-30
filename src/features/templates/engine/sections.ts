@@ -37,7 +37,11 @@ export type SectionValue = FieldsValue | TableRow[] | string | BudgetValue;
 export const ENGINE_TYPES: ReadonlySet<SectionType> = new Set(['fields', 'text', 'letter', 'table', 'budget']);
 
 /** Templates whose controls have been reviewed with Ika join here (build step 7 and T5). */
-const READY = new Set(['D07', 'D03', 'D06', 'D08', 'D13', 'D14', 'D10', 'D04', 'D01', 'D02']);
+const READY = new Set([
+  'D07', 'D03', 'D06', 'D08', 'D13', 'D14', 'D10', 'D04', 'D01', 'D02',
+  // The creator templates (Ika, 2026-10-30).
+  'D15', 'D16', 'D17', 'D18', 'D19', 'D20', 'D21', 'D26', 'D27', 'D28', 'D29', 'D30', 'D31',
+]);
 
 export const canEdit = (schema: TemplateSchema | null): schema is TemplateSchema =>
   !!schema && READY.has(schema.code) && schema.sections.every((s) => ENGINE_TYPES.has(s.type));
