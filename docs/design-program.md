@@ -63,6 +63,46 @@ Prevent the error rather than handling it — e.g., scheduling layer prevents do
 
 ---
 
+## Explore models finished projects — the building-block model
+
+*Ika, 2026-10-29. Status: decided. The unwritten rule behind Explore and the core features.*
+
+**The rule:** every Explore title is a picture of a finished project. A user's project is the same picture with parts missing. Home, Templates and Projects are the building blocks that fill those parts in. As each layer is built, Explore should look more like what a team's own projects look like when they're done, so Explore always shows producers what "finished" means for work like theirs.
+
+**Variables:** the parts every project has, finished or not, described with one shared list on both sides:
+
+| Part | On a user's project | On an Explore title |
+|---|---|---|
+| Type, genres, frame shape | Details, deliverables | Type, genres, `aspect` / frame |
+| Scale: shoot days, length, crew size, budget range | Details, Crew & talent, budget | Minutes or episodes, credits |
+| Crew by role | Crew & talent (`CREW_ROLES`) | Credits (creator films), director and cast |
+| Client and agency | Details | Brand, client, agency credits |
+| Documents: call sheet, shot list, crew list, invoice… | Templates | Not yet: industry norms for the type (assumption below) |
+| References | References, Inspiration | Tags, "You may also like" |
+| Release: deliverables, press, where it lives | Deliverables, Files | Press kit, platform, recognition |
+
+**The model:**
+1. **Find its closest matches.** Score the project against Explore titles on the parts it has (`match.ts` already does this with tags, type, genres and frame).
+2. **Picture the finished version.** Blend what its closest matches have, for example "commercials like this credited about 14 crew roles, 2 locations, 9:16 and 16:9 versions".
+3. **Measure the gap.** The finished version minus what the project has now, part by part.
+4. **Pick the next step.** Choose the building block (a template, a field) that closes the most of the gap, weighted by phase and days to the shoot, divided by the effort it takes.
+
+**Constraints:** AI only proposes (Apply / Modify / Dismiss), never fills in a project by itself. Only templates that fully work can be suggested. Explore facts come from licensed or public sources only (Wikidata, TMDB's API, official channels), never scraped. A user's project never shapes anyone else's suggestions without their opt-in.
+
+**Assumptions (test with the pilot):** a finished film's public facts (credits, length, release) are a fair stand-in for its production. We never see its real call sheets, so "the documents it would have had" comes from industry norms per production type. Producers will read "projects like yours had…" as a useful nudge, not as nagging.
+
+**Limiting factors (today):** Explore reads files saved in the app's code, not Supabase. Most titles have no scale figures (crew size, shoot days). Creator films' crew comes from Instagram captions in 221 different role spellings. Only 9 templates work. With few users, taste data is thin, so tags and type carry the matching.
+
+**Build order (core-features branch):**
+1. **One shape for both.** A shared production profile that projects, Explore titles, press-kit films and creator films all read into, with credit roles mapped onto `CREW_ROLES`. From then on every new field is added to both sides. No screen changes, no migration.
+2. **"Projects like this had…" on the project page.** The gap as a proposal card, each item opening the template or field that fills it. Needs a design in Figma first.
+3. **Home shows the next step.** Each project's biggest gap, ordered by phase and shoot date (the phase-aware Home already planned).
+4. **A finished project looks like an Explore page.** At wrap, a release kit shaped like a press kit; later, owners can opt in to show it on Explore under Latest projects.
+
+*Moat: the gap model needs both halves, a library of finished work described in production terms and the tools that build a project, sharing one shape. A competitor with only one half can't copy it.*
+
+---
+
 ## Practicability loop — learn → design in → moat
 
 1. **Learn** — resource distilled (principles + Nia OS application).

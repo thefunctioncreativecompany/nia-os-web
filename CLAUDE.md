@@ -309,6 +309,19 @@ Data:
   new films wait for covers (TMDB API), as do 15 earlier classics; their press-kit drafts are
   in `scripts/out/press-kit-drafts-classics-waiting.json` (not in git: rebuild with
   `build-press-kits.mjs` if lost). 15 visible classics have checked press kits.
+- (2026-10-30) Explore models finished projects (Ika; docs/design-program.md, "Explore models
+  finished projects"): every Explore title is a picture of a finished project, a user's project is
+  the same picture with parts missing, and Home, Templates and Projects are the building blocks.
+  Step 1 of 4 done on branch `feature/core-features`: one production profile
+  (`src/lib/production-profile.ts`: type, genres, frames, year, length, crew by role, client,
+  deliverables, release) that projects and Explore's titles, press-kit films and creator films
+  (`src/features/explore/profiles.ts`) are read into, plus `filledParts` and `crewSize`. Creator
+  credits' 221 role spellings map onto Crew & talent's roles (75%); the rest are listed as kept
+  as typed or not crew, and a new spelling fails the test until it's decided. Crew & talent gains
+  Camera Assistant, Production Company, Music, VFX and Set Designer. When a field is added to
+  projects or Explore, add it to the profile for both. No screen change, no migration. Coverage
+  today: titles have no frame, length or cast; creator films no genres or length; nothing has
+  deliverables. Next: "Projects like this had…" on the project page (needs a Figma design).
 
 ## Working notes
 

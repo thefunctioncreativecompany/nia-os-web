@@ -120,13 +120,16 @@ export function shootDatesText(start: string | null, end: string | null) {
 }
 
 // Roles offered in Crew & talent (any other can be typed). Director, Writer and Talent hold the
-// names that used to be Director, Writers and Stars.
+// names that used to be Director, Writers and Stars. Camera Assistant, Production Company, Music,
+// VFX and Set Designer came from Explore's credits (Ika, 2026-10-30); production-profile.ts maps
+// credits written other ways ("DOP", "1st AC", "Starring") onto this list.
 export const CREW_ROLES = [
-  "Director", "Producer", "Executive Producer", "Writer", "Director of Photography", "Camera Operator",
-  "Gaffer", "Production Designer", "Art Director", "Editor", "Colourist", "Sound", "Composer",
-  "Photographer", "Stylist", "Hair & Make-up", "Casting", "Production Manager", "Assistant Director",
-  "Talent", "Model", "Creative Director", "Client Lead",
+  "Director", "Producer", "Executive Producer", "Production Company", "Writer", "Director of Photography",
+  "Camera Operator", "Camera Assistant", "Gaffer", "Production Designer", "Art Director", "Set Designer",
+  "Editor", "Colourist", "VFX", "Sound", "Composer", "Music", "Photographer", "Stylist", "Hair & Make-up",
+  "Casting", "Production Manager", "Assistant Director", "Talent", "Model", "Creative Director", "Client Lead",
 ] as const;
+export type CrewRole = (typeof CREW_ROLES)[number];
 
 // Details that fit some production types (Ika, 2026-10-23), beside the ones every project has.
 export type TypeDetail = "logline" | "usage" | "looks" | "publication";
