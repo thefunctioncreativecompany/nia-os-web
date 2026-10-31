@@ -1,0 +1,4143 @@
+{
+ "built": "2026-10-31",
+ "source": "Wikidata (CC0): production company, distributor or original network; ranked by Wikipedia language editions",
+ "studios": [
+  {
+   "id": "paramount",
+   "name": "Paramount Pictures",
+   "group": "Paramount Skydance",
+   "qid": "Q159846"
+  },
+  {
+   "id": "universal",
+   "name": "Universal Pictures",
+   "group": "NBCUniversal",
+   "qid": "Q168383"
+  },
+  {
+   "id": "focus",
+   "name": "Focus Features",
+   "group": "NBCUniversal",
+   "qid": "Q649649"
+  },
+  {
+   "id": "columbia",
+   "name": "Columbia Pictures",
+   "group": "Sony Pictures",
+   "qid": "Q186941"
+  },
+  {
+   "id": "warner",
+   "name": "Warner Bros. Pictures",
+   "group": "Warner Bros. Discovery",
+   "qid": "Q8016302"
+  },
+  {
+   "id": "disney",
+   "name": "Walt Disney Pictures",
+   "group": "Disney",
+   "qid": "Q191224"
+  },
+  {
+   "id": "20th-century",
+   "name": "20th Century Studios",
+   "group": "Disney",
+   "qid": "Q434841"
+  },
+  {
+   "id": "mgm",
+   "name": "Metro-Goldwyn-Mayer",
+   "group": "Amazon MGM Studios",
+   "qid": "Q179200"
+  },
+  {
+   "id": "netflix",
+   "name": "Netflix",
+   "group": "Netflix",
+   "qid": "Q907311"
+  },
+  {
+   "id": "lionsgate",
+   "name": "Lionsgate",
+   "group": "Lionsgate",
+   "qid": "Q17076072"
+  },
+  {
+   "id": "a24",
+   "name": "A24",
+   "group": "A24",
+   "qid": "Q16248298"
+  },
+  {
+   "id": "neon",
+   "name": "Neon",
+   "group": "Neon",
+   "qid": "Q30603559"
+  }
+ ],
+ "titles": [
+  {
+   "qid": "Q44578",
+   "title": "Titanic",
+   "year": 1997,
+   "type": "Film",
+   "studios": [
+    "paramount",
+    "20th-century"
+   ],
+   "notability": 138,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Titanic_(1997_film)",
+   "onExplore": "titanic"
+  },
+  {
+   "qid": "Q47703",
+   "title": "The Godfather",
+   "year": 1972,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 133,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Godfather",
+   "onExplore": "the-godfather"
+  },
+  {
+   "qid": "Q24871",
+   "title": "Avatar",
+   "year": 2009,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 122,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Avatar_(2009_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q106582931",
+   "title": "Squid Game",
+   "year": 2021,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 110,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Squid_Game",
+   "onExplore": null
+  },
+  {
+   "qid": "Q128518",
+   "title": "Gladiator",
+   "year": 2000,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 108,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Gladiator_(2000_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q172241",
+   "title": "The Shawshank Redemption",
+   "year": 1994,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 107,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Shawshank_Redemption",
+   "onExplore": "the-shawshank-redemption"
+  },
+  {
+   "qid": "Q91540",
+   "title": "Back to the Future",
+   "year": 1985,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 103,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Back_to_the_Future",
+   "onExplore": "back-to-the-future"
+  },
+  {
+   "qid": "Q190050",
+   "title": "Fight Club",
+   "year": 1999,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 102,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Fight_Club",
+   "onExplore": null
+  },
+  {
+   "qid": "Q13417189",
+   "title": "Interstellar",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 98,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Interstellar_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q25188",
+   "title": "Inception",
+   "year": 2010,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 97,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Inception",
+   "onExplore": null
+  },
+  {
+   "qid": "Q2875",
+   "title": "Gone with the Wind",
+   "year": 1939,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 97,
+   "freePoster": "Poster - Gone With the Wind 01.jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/Gone_with_the_Wind_(film)",
+   "onExplore": "gone-with-the-wind"
+  },
+  {
+   "qid": "Q182218",
+   "title": "The Avengers",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 96,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Avengers_(2012_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q102448",
+   "title": "Harry Potter and the Prisoner of Azkaban",
+   "year": 2004,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 90,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Harry_Potter_and_the_Prisoner_of_Azkaban_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q46717",
+   "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+   "year": 2003,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 90,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl",
+   "onExplore": null
+  },
+  {
+   "qid": "Q103474",
+   "title": "2001: A Space Odyssey",
+   "year": 1968,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 90,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/2001:_A_Space_Odyssey",
+   "onExplore": "2001-a-space-odyssey"
+  },
+  {
+   "qid": "Q80044",
+   "title": "Prison Break",
+   "year": 2005,
+   "type": "TV Series",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 89,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Prison_Break",
+   "onExplore": null
+  },
+  {
+   "qid": "Q165817",
+   "title": "Saving Private Ryan",
+   "year": 1998,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 86,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Saving_Private_Ryan",
+   "onExplore": null
+  },
+  {
+   "qid": "Q184768",
+   "title": "The Godfather Part II",
+   "year": 1974,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 86,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Godfather_Part_II",
+   "onExplore": "the-godfather-part-ii"
+  },
+  {
+   "qid": "Q164103",
+   "title": "A Beautiful Mind",
+   "year": 2001,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 86,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/A_Beautiful_Mind",
+   "onExplore": null
+  },
+  {
+   "qid": "Q160618",
+   "title": "Brokeback Mountain",
+   "year": 2005,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 85,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Brokeback_Mountain",
+   "onExplore": null
+  },
+  {
+   "qid": "Q54274",
+   "title": "Pirates of the Caribbean: At World's End",
+   "year": 2007,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 85,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_At_World%27s_End",
+   "onExplore": null
+  },
+  {
+   "qid": "Q192724",
+   "title": "Iron Man",
+   "year": 2008,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 84,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Iron_Man_(2008_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q484442",
+   "title": "Spider-Man",
+   "year": 2002,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 84,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Spider-Man_(2002_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q161087",
+   "title": "Pirates of the Caribbean: Dead Man's Chest",
+   "year": 2006,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 84,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_Dead_Man%27s_Chest",
+   "onExplore": null
+  },
+  {
+   "qid": "Q103569",
+   "title": "Alien",
+   "year": 1979,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 83,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Alien_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q105031",
+   "title": "Home Alone",
+   "year": 1990,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 82,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Home_Alone",
+   "onExplore": null
+  },
+  {
+   "qid": "Q108839994",
+   "title": "Oppenheimer",
+   "year": 2023,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 81,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Oppenheimer_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q61448040",
+   "title": "Parasite",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 81,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Parasite_(2019_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q153723",
+   "title": "Inglourious Basterds",
+   "year": 2009,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 80,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Inglourious_Basterds",
+   "onExplore": null
+  },
+  {
+   "qid": "Q275120",
+   "title": "Captain America: The First Avenger",
+   "year": 2011,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 79,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Captain_America:_The_First_Avenger",
+   "onExplore": null
+  },
+  {
+   "qid": "Q47221",
+   "title": "Taxi Driver",
+   "year": 1976,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 79,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Taxi_Driver",
+   "onExplore": "taxi-driver"
+  },
+  {
+   "qid": "Q163038",
+   "title": "Psycho",
+   "year": 1960,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 78,
+   "freePoster": "Psycho (1960) theatrical poster (retouched).jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/Psycho_(1960_film)",
+   "onExplore": "psycho"
+  },
+  {
+   "qid": "Q150804",
+   "title": "The Pianist",
+   "year": 2002,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 78,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Pianist_(2002_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q4941",
+   "title": "Skyfall",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "columbia",
+    "mgm"
+   ],
+   "notability": 78,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Skyfall",
+   "onExplore": null
+  },
+  {
+   "qid": "Q180098",
+   "title": "Ben-Hur",
+   "year": 1959,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 78,
+   "freePoster": "Ben hur 1959 poster.jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/Ben-Hur_(1959_film)",
+   "onExplore": "ben-hur"
+  },
+  {
+   "qid": "Q19798734",
+   "title": "Stranger Things",
+   "year": 2016,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 78,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Stranger_Things",
+   "onExplore": null
+  },
+  {
+   "qid": "Q208263",
+   "title": "The Green Mile",
+   "year": 1999,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 77,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Green_Mile_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q202326",
+   "title": "The Godfather Part III",
+   "year": 1990,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 76,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Godfather_Part_III",
+   "onExplore": null
+  },
+  {
+   "qid": "Q1392744",
+   "title": "The Wolf of Wall Street",
+   "year": 2013,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 75,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Wolf_of_Wall_Street_(2013_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q23010088",
+   "title": "Spider-Man: Homecoming",
+   "year": 2017,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 75,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Spider-Man:_Homecoming",
+   "onExplore": null
+  },
+  {
+   "qid": "Q6074",
+   "title": "Star Wars: Episode VII – The Force Awakens",
+   "year": 2015,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 75,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Star_Wars:_The_Force_Awakens",
+   "onExplore": null
+  },
+  {
+   "qid": "Q29647346",
+   "title": "Money Heist",
+   "year": 2017,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 75,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Money_Heist",
+   "onExplore": null
+  },
+  {
+   "qid": "Q185888",
+   "title": "The Social Network",
+   "year": 2010,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 74,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Social_Network",
+   "onExplore": null
+  },
+  {
+   "qid": "Q571032",
+   "title": "Django Unchained",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 74,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Django_Unchained",
+   "onExplore": null
+  },
+  {
+   "qid": "Q183555",
+   "title": "Pirates of the Caribbean: On Stranger Tides",
+   "year": 2011,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 74,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_On_Stranger_Tides",
+   "onExplore": null
+  },
+  {
+   "qid": "Q80379",
+   "title": "The Hobbit: An Unexpected Journey",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 74,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Hobbit:_An_Unexpected_Journey",
+   "onExplore": null
+  },
+  {
+   "qid": "Q214801",
+   "title": "The Truman Show",
+   "year": 1998,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 73,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Truman_Show",
+   "onExplore": null
+  },
+  {
+   "qid": "Q184605",
+   "title": "2012",
+   "year": 2009,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 73,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/2012_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q152780",
+   "title": "Life of Pi",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 73,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Life_of_Pi_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q18002795",
+   "title": "The Revenant",
+   "year": 2015,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 73,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Revenant_(2015_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q212965",
+   "title": "The Hunger Games",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 73,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Hunger_Games_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q189505",
+   "title": "Jaws",
+   "year": 1975,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 72,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Jaws_(film)",
+   "onExplore": "jaws"
+  },
+  {
+   "qid": "Q182944",
+   "title": "Shakespeare in Love",
+   "year": 1998,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 72,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Shakespeare_in_Love",
+   "onExplore": null
+  },
+  {
+   "qid": "Q47075",
+   "title": "Scarface",
+   "year": 1983,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 72,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Scarface_(1983_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q105702",
+   "title": "Dr. Strangelove",
+   "year": 1964,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 72,
+   "freePoster": "Dr. Strangelove poster.png",
+   "wikipedia": "https://en.wikipedia.org/wiki/Dr._Strangelove",
+   "onExplore": null
+  },
+  {
+   "qid": "Q174385",
+   "title": "Alice in Wonderland",
+   "year": 2010,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 72,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Alice_in_Wonderland_(2010_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q18547944",
+   "title": "The Martian",
+   "year": 2015,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 72,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Martian_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q209538",
+   "title": "Iron Man 3",
+   "year": 2013,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 71,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Iron_Man_3",
+   "onExplore": null
+  },
+  {
+   "qid": "Q210364",
+   "title": "Shutter Island",
+   "year": 2010,
+   "type": "Film",
+   "studios": [
+    "paramount",
+    "columbia"
+   ],
+   "notability": 71,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Shutter_Island_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q48673898",
+   "title": "Green Book",
+   "year": 2018,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 71,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Green_Book_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q151904",
+   "title": "Casino Royale",
+   "year": 2006,
+   "type": "Film",
+   "studios": [
+    "columbia",
+    "mgm"
+   ],
+   "notability": 71,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Casino_Royale_(2006_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q105387",
+   "title": "Independence Day",
+   "year": 1996,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 71,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Independence_Day_(1996_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q60072",
+   "title": "The Sound of Music",
+   "year": 1965,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 71,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Sound_of_Music_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q179215",
+   "title": "Indiana Jones and the Temple of Doom",
+   "year": 1984,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 70,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Indiana_Jones_and_the_Temple_of_Doom",
+   "onExplore": null
+  },
+  {
+   "qid": "Q201293",
+   "title": "Roman Holiday",
+   "year": 1953,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 70,
+   "freePoster": "Roman Holiday (1953 poster).jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/Roman_Holiday",
+   "onExplore": "roman-holiday"
+  },
+  {
+   "qid": "Q160560",
+   "title": "The Da Vinci Code",
+   "year": 2006,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 70,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Da_Vinci_Code_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q190145",
+   "title": "Spider-Man 2",
+   "year": 2004,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 70,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Spider-Man_2",
+   "onExplore": null
+  },
+  {
+   "qid": "Q27985819",
+   "title": "Spider-Man: Far From Home",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 70,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Spider-Man:_Far_From_Home",
+   "onExplore": null
+  },
+  {
+   "qid": "Q68934496",
+   "title": "Spider-Man: No Way Home",
+   "year": 2021,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 70,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Spider-Man:_No_Way_Home",
+   "onExplore": null
+  },
+  {
+   "qid": "Q104814",
+   "title": "Aliens",
+   "year": 1986,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 70,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Aliens_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q3604746",
+   "title": "Avatar: The Way of Water",
+   "year": 2022,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 70,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Avatar:_The_Way_of_Water",
+   "onExplore": null
+  },
+  {
+   "qid": "Q719915",
+   "title": "The Hobbit: The Desolation of Smaug",
+   "year": 2013,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 70,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Hobbit:_The_Desolation_of_Smaug",
+   "onExplore": null
+  },
+  {
+   "qid": "Q190588",
+   "title": "Love Actually",
+   "year": 2003,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 69,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Love_Actually",
+   "onExplore": null
+  },
+  {
+   "qid": "Q11621",
+   "title": "E.T. the Extra-Terrestrial",
+   "year": 1982,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 69,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/E.T._the_Extra-Terrestrial",
+   "onExplore": null
+  },
+  {
+   "qid": "Q107270",
+   "title": "Lost in Translation",
+   "year": 2003,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 69,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Lost_in_Translation",
+   "onExplore": null
+  },
+  {
+   "qid": "Q181540",
+   "title": "Quantum of Solace",
+   "year": 2008,
+   "type": "Film",
+   "studios": [
+    "columbia",
+    "mgm"
+   ],
+   "notability": 69,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Quantum_of_Solace",
+   "onExplore": null
+  },
+  {
+   "qid": "Q47300912",
+   "title": "Once Upon a Time in Hollywood",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 69,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Once_Upon_a_Time_in_Hollywood",
+   "onExplore": null
+  },
+  {
+   "qid": "Q213411",
+   "title": "Cast Away",
+   "year": 2000,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 69,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Cast_Away",
+   "onExplore": null
+  },
+  {
+   "qid": "Q171453",
+   "title": "Transformers",
+   "year": 2007,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 68,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Transformers_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q185658",
+   "title": "Indiana Jones and the Last Crusade",
+   "year": 1989,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 68,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Indiana_Jones_and_the_Last_Crusade",
+   "onExplore": null
+  },
+  {
+   "qid": "Q131547207",
+   "title": "The Odyssey",
+   "year": 2026,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 68,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Odyssey_(2026_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q202211",
+   "title": "Gandhi",
+   "year": 1982,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 68,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Gandhi_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q182212",
+   "title": "Spider-Man 3",
+   "year": 2007,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 68,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Spider-Man_3",
+   "onExplore": null
+  },
+  {
+   "qid": "Q200299",
+   "title": "All About Eve",
+   "year": 1950,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 68,
+   "freePoster": "All About Eve (1950 poster - retouch).jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/All_About_Eve",
+   "onExplore": "all-about-eve"
+  },
+  {
+   "qid": "Q152178",
+   "title": "Glee",
+   "year": 2009,
+   "type": "TV Series",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 68,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Glee_(TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q155476",
+   "title": "The Fast and the Furious",
+   "year": 2001,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 67,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Fast_and_the_Furious_(2001_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q208269",
+   "title": "Eternal Sunshine of the Spotless Mind",
+   "year": 2004,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 67,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Eternal_Sunshine_of_the_Spotless_Mind",
+   "onExplore": null
+  },
+  {
+   "qid": "Q229808",
+   "title": "The Amazing Spider-Man",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 67,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Amazing_Spider-Man_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q186323",
+   "title": "Borat",
+   "year": 2006,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 67,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Borat",
+   "onExplore": null
+  },
+  {
+   "qid": "Q221202",
+   "title": "Home Alone 2: Lost in New York",
+   "year": 1992,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 67,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Home_Alone_2:_Lost_in_New_York",
+   "onExplore": null
+  },
+  {
+   "qid": "Q207698",
+   "title": "Kingdom of Heaven",
+   "year": 2005,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 67,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Kingdom_of_Heaven_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q919649",
+   "title": "The Hobbit: The Battle of the Five Armies",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 67,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Hobbit:_The_Battle_of_the_Five_Armies",
+   "onExplore": null
+  },
+  {
+   "qid": "Q193695",
+   "title": "The Wizard of Oz",
+   "year": 1939,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 67,
+   "freePoster": "WIZARD OF OZ ORIGINAL POSTER 1939.jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Wizard_of_Oz",
+   "onExplore": "the-wizard-of-oz"
+  },
+  {
+   "qid": "Q486239",
+   "title": "Saw",
+   "year": 2003,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 67,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Saw_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q202548",
+   "title": "Vertigo",
+   "year": 1958,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 66,
+   "freePoster": "Vertigomovie.jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/Vertigo_(film)",
+   "onExplore": "vertigo"
+  },
+  {
+   "qid": "Q20382729",
+   "title": "Arrival",
+   "year": 2016,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 66,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Arrival_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q200804",
+   "title": "Predator",
+   "year": 1987,
+   "type": "Film",
+   "studios": [
+    "universal",
+    "20th-century"
+   ],
+   "notability": 66,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Predator_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q273978",
+   "title": "Crouching Tiger, Hidden Dragon",
+   "year": 2000,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 66,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Crouching_Tiger,_Hidden_Dragon",
+   "onExplore": "crouching-tiger-hidden-dragon"
+  },
+  {
+   "qid": "Q4254026",
+   "title": "The Amazing Spider-Man 2",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 66,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Amazing_Spider-Man_2",
+   "onExplore": null
+  },
+  {
+   "qid": "Q29054009",
+   "title": "Terminator 3: Rise of the Machines",
+   "year": 2003,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 66,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Terminator_3:_Rise_of_the_Machines",
+   "onExplore": null
+  },
+  {
+   "qid": "Q14320",
+   "title": "The Day After Tomorrow",
+   "year": 2004,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 66,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Day_After_Tomorrow",
+   "onExplore": null
+  },
+  {
+   "qid": "Q200873",
+   "title": "The Lost World: Jurassic Park",
+   "year": 1997,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 65,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Lost_World:_Jurassic_Park",
+   "onExplore": null
+  },
+  {
+   "qid": "Q116852",
+   "title": "Batman",
+   "year": 1989,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 65,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Batman_(1989_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q175038",
+   "title": "12 Monkeys",
+   "year": 1995,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 65,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/12_Monkeys",
+   "onExplore": null
+  },
+  {
+   "qid": "Q15079318",
+   "title": "The Theory of Everything",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "universal",
+    "focus"
+   ],
+   "notability": 65,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Theory_of_Everything_(2014_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q51416",
+   "title": "Men in Black",
+   "year": 1997,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 65,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Men_in_Black_(1997_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q192686",
+   "title": "Prometheus",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 65,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Prometheus_(2012_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q558112",
+   "title": "Black Mirror",
+   "year": 2011,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 65,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Black_Mirror",
+   "onExplore": null
+  },
+  {
+   "qid": "Q106428",
+   "title": "Apollo 13",
+   "year": 1995,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 64,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Apollo_13_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q106506",
+   "title": "The Fifth Element",
+   "year": 1997,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 64,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Fifth_Element",
+   "onExplore": null
+  },
+  {
+   "qid": "Q23006268",
+   "title": "Venom",
+   "year": 2018,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 64,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Venom_(2018_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q61117344",
+   "title": "The Batman",
+   "year": 2022,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 64,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Batman_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q209170",
+   "title": "Mary Poppins",
+   "year": 1964,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 64,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Mary_Poppins_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q10350033",
+   "title": "Pirates of the Caribbean: Dead Men Tell no Tales",
+   "year": 2017,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 64,
+   "freePoster": "6274acde19333a4f9ec2d7335a0451d5",
+   "wikipedia": "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_Dead_Men_Tell_No_Tales",
+   "onExplore": null
+  },
+  {
+   "qid": "Q106182",
+   "title": "X-Men",
+   "year": 2000,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 64,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/X-Men_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q183239",
+   "title": "The Curious Case of Benjamin Button",
+   "year": 2008,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 63,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Curious_Case_of_Benjamin_Button_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q168154",
+   "title": "Once Upon a Time in the West",
+   "year": 1968,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 63,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Once_Upon_a_Time_in_the_West",
+   "onExplore": null
+  },
+  {
+   "qid": "Q34414",
+   "title": "Rear Window",
+   "year": 1954,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 63,
+   "freePoster": "Rear Window film poster.jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/Rear_Window",
+   "onExplore": "rear-window"
+  },
+  {
+   "qid": "Q201674",
+   "title": "The Deer Hunter",
+   "year": 1978,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 63,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Deer_Hunter",
+   "onExplore": null
+  },
+  {
+   "qid": "Q172271",
+   "title": "Maleficent",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 63,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Maleficent_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q16857406",
+   "title": "The Jungle Book",
+   "year": 2016,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 63,
+   "freePoster": "466c47aa469ec7a7ce8a90e80fc2f22a",
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Jungle_Book_(2016_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q27188178",
+   "title": "Aladdin",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 63,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Aladdin_(2019_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q16756",
+   "title": "Modern Family",
+   "year": 2009,
+   "type": "TV Series",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 63,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Modern_Family",
+   "onExplore": null
+  },
+  {
+   "qid": "Q110138",
+   "title": "Top Gun",
+   "year": 1986,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 62,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Top_Gun",
+   "onExplore": null
+  },
+  {
+   "qid": "Q193066",
+   "title": "Breakfast at Tiffany's",
+   "year": 1961,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 62,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Breakfast_at_Tiffany%27s_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q193570",
+   "title": "Sunset Boulevard",
+   "year": 1950,
+   "type": "Film",
+   "studios": [
+    "paramount"
+   ],
+   "notability": 62,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Sunset_Boulevard_(film)",
+   "onExplore": "sunset-boulevard"
+  },
+  {
+   "qid": "Q107226",
+   "title": "The Bourne Ultimatum",
+   "year": 2007,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 62,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Bourne_Ultimatum_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q208266",
+   "title": "Out of Africa",
+   "year": 1985,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 62,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Out_of_Africa_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q213208",
+   "title": "The Fast and the Furious: Tokyo Drift",
+   "year": 2006,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 62,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Fast_and_the_Furious:_Tokyo_Drift",
+   "onExplore": null
+  },
+  {
+   "qid": "Q105624",
+   "title": "The Bourne Identity",
+   "year": 2002,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 62,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Bourne_Identity_(2002_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q272599",
+   "title": "All Quiet on the Western Front",
+   "year": 1930,
+   "type": "Film",
+   "studios": [
+    "universal"
+   ],
+   "notability": 62,
+   "freePoster": "All Quiet on the Western Front (1930 film) poster.jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/All_Quiet_on_the_Western_Front_(1930_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q488655",
+   "title": "Groundhog Day",
+   "year": 1993,
+   "type": "Film",
+   "studios": [
+    "columbia"
+   ],
+   "notability": 62,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Groundhog_Day_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q201687",
+   "title": "Milk",
+   "year": 2008,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 61,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Milk_(2008_American_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q27044293",
+   "title": "The Lion King",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 61,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Lion_King_(2019_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q219776",
+   "title": "X2",
+   "year": 2003,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 61,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/X2_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q4985891",
+   "title": "X-Men: Days of Future Past",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 61,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/X-Men:_Days_of_Future_Past",
+   "onExplore": null
+  },
+  {
+   "qid": "Q24053263",
+   "title": "Logan",
+   "year": 2017,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 61,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Logan_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q323827",
+   "title": "Doctor Zhivago",
+   "year": 1965,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 61,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Doctor_Zhivago_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q105553568",
+   "title": "Wednesday",
+   "year": 2022,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 61,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Wednesday_(TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q19946102",
+   "title": "Beauty and the Beast",
+   "year": 2017,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 60,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Beauty_and_the_Beast_(2017_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q221168",
+   "title": "X-Men: The Last Stand",
+   "year": 2006,
+   "type": "Film",
+   "studios": [
+    "20th-century"
+   ],
+   "notability": 60,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/X-Men:_The_Last_Stand",
+   "onExplore": null
+  },
+  {
+   "qid": "Q223139",
+   "title": "North by Northwest",
+   "year": 1959,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 60,
+   "freePoster": "Northbynorthwest1.jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/North_by_Northwest",
+   "onExplore": "north-by-northwest"
+  },
+  {
+   "qid": "Q83808444",
+   "title": "Everything Everywhere All at Once",
+   "year": 2022,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 60,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Everything_Everywhere_All_at_Once",
+   "onExplore": null
+  },
+  {
+   "qid": "Q485803",
+   "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+   "year": 2005,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 59,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Chronicles_of_Narnia:_The_Lion,_the_Witch_and_the_Wardrobe",
+   "onExplore": null
+  },
+  {
+   "qid": "Q747570",
+   "title": "An American in Paris",
+   "year": 1951,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 59,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/An_American_in_Paris_(film)",
+   "onExplore": "an-american-in-paris"
+  },
+  {
+   "qid": "Q1405126",
+   "title": "American Psycho",
+   "year": 2000,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 59,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/American_Psycho_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q206374",
+   "title": "The Expendables",
+   "year": 2010,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 59,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Expendables_(2010_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q21527875",
+   "title": "Moonlight",
+   "year": 2016,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 59,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Moonlight_(2016_film)",
+   "onExplore": "moonlight"
+  },
+  {
+   "qid": "Q204398",
+   "title": "Octopussy",
+   "year": 1983,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 57,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Octopussy",
+   "onExplore": null
+  },
+  {
+   "qid": "Q3330940",
+   "title": "House of Cards",
+   "year": 2013,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 57,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/House_of_Cards_(American_TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q20707362",
+   "title": "The Crown",
+   "year": 2016,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 57,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Crown_(TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q55632932",
+   "title": "Sex Education",
+   "year": 2019,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 57,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Sex_Education_(TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q105801",
+   "title": "Stargate",
+   "year": 1994,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 56,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Stargate_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q309153",
+   "title": "Singin' in the Rain",
+   "year": 1952,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 56,
+   "freePoster": "Singin' in the Rain (1952 poster).jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/Singin%27_in_the_Rain",
+   "onExplore": "singin-in-the-rain"
+  },
+  {
+   "qid": "Q332368",
+   "title": "A View to a Kill",
+   "year": 1985,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 56,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/A_View_to_a_Kill",
+   "onExplore": null
+  },
+  {
+   "qid": "Q244931",
+   "title": "In Bruges",
+   "year": 2008,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 55,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/In_Bruges",
+   "onExplore": null
+  },
+  {
+   "qid": "Q3520498",
+   "title": "Dallas Buyers Club",
+   "year": 2013,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 55,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Dallas_Buyers_Club",
+   "onExplore": null
+  },
+  {
+   "qid": "Q14566553",
+   "title": "Fifty Shades of Grey",
+   "year": 2015,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 55,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Fifty_Shades_of_Grey_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q15046091",
+   "title": "Cinderella",
+   "year": 2015,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 55,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Cinderella_(2015_American_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q309086",
+   "title": "Licence to Kill",
+   "year": 1989,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 55,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Licence_to_Kill",
+   "onExplore": null
+  },
+  {
+   "qid": "Q329709",
+   "title": "Mutiny on the Bounty",
+   "year": 1935,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 55,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Mutiny_on_the_Bounty_(1935_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q270410",
+   "title": "Saw II",
+   "year": 2005,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 55,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Saw_II",
+   "onExplore": null
+  },
+  {
+   "qid": "Q746029",
+   "title": "3:10 to Yuma",
+   "year": 2007,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 55,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/3:10_to_Yuma_(2007_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q19347583",
+   "title": "The Danish Girl",
+   "year": 2015,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 54,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Danish_Girl_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q59690895",
+   "title": "Onward",
+   "year": 2020,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 54,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Onward_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q246656",
+   "title": "Grand Hotel",
+   "year": 1932,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 54,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Grand_Hotel_(1932_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q463620",
+   "title": "The Broadway Melody",
+   "year": 1929,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 54,
+   "freePoster": "Broadway Melody poster.jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Broadway_Melody",
+   "onExplore": null
+  },
+  {
+   "qid": "Q308681",
+   "title": "Lord of War",
+   "year": 2005,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 54,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Lord_of_War",
+   "onExplore": null
+  },
+  {
+   "qid": "Q574583",
+   "title": "The Hunger Games: Catching Fire",
+   "year": 2013,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 54,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Hunger_Games:_Catching_Fire",
+   "onExplore": null
+  },
+  {
+   "qid": "Q117085614",
+   "title": "One Battle After Another",
+   "year": 2025,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 53,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/One_Battle_After_Another",
+   "onExplore": null
+  },
+  {
+   "qid": "Q17485699",
+   "title": "Alice Through the Looking Glass",
+   "year": 2016,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 53,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Alice_Through_the_Looking_Glass_(2016_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q658041",
+   "title": "Thelma & Louise",
+   "year": 1991,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 53,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Thelma_%26_Louise",
+   "onExplore": null
+  },
+  {
+   "qid": "Q27959455",
+   "title": "Roma",
+   "year": 2018,
+   "type": "Film",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 53,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Roma_(2018_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q8561227",
+   "title": "Divergent",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 53,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Divergent_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q210812",
+   "title": "The Expendables 2",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 53,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Expendables_2",
+   "onExplore": null
+  },
+  {
+   "qid": "Q123185887",
+   "title": "Anora",
+   "year": 2024,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 53,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Anora",
+   "onExplore": null
+  },
+  {
+   "qid": "Q136163067",
+   "title": "Obsession",
+   "year": 2025,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 52,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Obsession_(2025_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q730888",
+   "title": "Contagion",
+   "year": 2011,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 52,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Contagion_(2011_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q222023",
+   "title": "The Chronicles of Narnia: Prince Caspian",
+   "year": 2008,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 52,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Chronicles_of_Narnia:_Prince_Caspian",
+   "onExplore": null
+  },
+  {
+   "qid": "Q20642206",
+   "title": "Narcos",
+   "year": 2015,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 52,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Narcos",
+   "onExplore": null
+  },
+  {
+   "qid": "Q100361490",
+   "title": "Don't Look Up",
+   "year": 2021,
+   "type": "Film",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 52,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Don%27t_Look_Up",
+   "onExplore": null
+  },
+  {
+   "qid": "Q17337292",
+   "title": "Sicario",
+   "year": 2015,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 52,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Sicario_(2015_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q214013",
+   "title": "21 Grams",
+   "year": 2003,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 51,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/21_Grams",
+   "onExplore": null
+  },
+  {
+   "qid": "Q696042",
+   "title": "Hulk",
+   "year": 2003,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 51,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Hulk_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q27958298",
+   "title": "Darkest Hour",
+   "year": 2017,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 51,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Darkest_Hour_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q33408623",
+   "title": "Wonder Woman 1984",
+   "year": 2020,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 51,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Wonder_Woman_1984",
+   "onExplore": null
+  },
+  {
+   "qid": "Q24284363",
+   "title": "Cruella",
+   "year": 2021,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 51,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Cruella_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q478371",
+   "title": "Mrs. Miniver",
+   "year": 1942,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 51,
+   "freePoster": "Mrs. Miniver (1942 poster - Style C).jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/Mrs._Miniver",
+   "onExplore": null
+  },
+  {
+   "qid": "Q722682",
+   "title": "Hannibal",
+   "year": 2001,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 51,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Hannibal_(2001_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q245172",
+   "title": "Prince of Persia: The Sands of Time",
+   "year": 2010,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Prince_of_Persia:_The_Sands_of_Time_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q490464",
+   "title": "Enchanted",
+   "year": 2007,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Enchanted_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q18954",
+   "title": "Tron: Legacy",
+   "year": 2010,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Tron:_Legacy",
+   "onExplore": null
+  },
+  {
+   "qid": "Q474093",
+   "title": "The Girl with the Dragon Tattoo",
+   "year": 2011,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Girl_with_the_Dragon_Tattoo_(2011_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q713979",
+   "title": "Cat on a Hot Tin Roof",
+   "year": 1958,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 50,
+   "freePoster": "Cat roof.jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/Cat_on_a_Hot_Tin_Roof_(1958_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q470218",
+   "title": "The Great Ziegfeld",
+   "year": 1936,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 50,
+   "freePoster": "Great-Ziegfeld-1936-Poster.jpg",
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Great_Ziegfeld",
+   "onExplore": null
+  },
+  {
+   "qid": "Q16977365",
+   "title": "Daredevil",
+   "year": 2015,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Daredevil_(TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q47500433",
+   "title": "The Witcher",
+   "year": 2019,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Witcher_(TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q85808226",
+   "title": "The Queen's Gambit",
+   "year": 2020,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Queen%27s_Gambit_(miniseries)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q80322358",
+   "title": "John Wick: Chapter 4",
+   "year": 2023,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/John_Wick:_Chapter_4",
+   "onExplore": null
+  },
+  {
+   "qid": "Q4142083",
+   "title": "The Hunger Games: Mockingjay – Part 1",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Hunger_Games:_Mockingjay_%E2%80%93_Part_1",
+   "onExplore": null
+  },
+  {
+   "qid": "Q60487",
+   "title": "The Twilight Saga: Breaking Dawn – Part 2",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Twilight_Saga:_Breaking_Dawn_%E2%80%93_Part_2",
+   "onExplore": null
+  },
+  {
+   "qid": "Q57982486",
+   "title": "Knives Out",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Knives_Out",
+   "onExplore": null
+  },
+  {
+   "qid": "Q27480769",
+   "title": "Lady Bird",
+   "year": 2017,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 50,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Lady_Bird_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q23562553",
+   "title": "The Flash",
+   "year": 2023,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 49,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Flash_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q235347",
+   "title": "John Carter",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 49,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/John_Carter_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q279274",
+   "title": "Bridge to Terabithia",
+   "year": 2007,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 49,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Bridge_to_Terabithia_(2007_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q24272881",
+   "title": "Mary Poppins Returns",
+   "year": 2018,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 49,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Mary_Poppins_Returns",
+   "onExplore": null
+  },
+  {
+   "qid": "Q18464203",
+   "title": "13 Reasons Why",
+   "year": 2017,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 49,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/13_Reasons_Why",
+   "onExplore": null
+  },
+  {
+   "qid": "Q221852",
+   "title": "Fahrenheit 9/11",
+   "year": 2004,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 49,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Fahrenheit_9/11",
+   "onExplore": null
+  },
+  {
+   "qid": "Q276392",
+   "title": "Saw III",
+   "year": 2006,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 49,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Saw_III",
+   "onExplore": null
+  },
+  {
+   "qid": "Q142292",
+   "title": "Traffic",
+   "year": 2000,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 48,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Traffic_(2000_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q28840386",
+   "title": "Phantom Thread",
+   "year": 2017,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 48,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Phantom_Thread",
+   "onExplore": null
+  },
+  {
+   "qid": "Q400332",
+   "title": "300: Rise of an Empire",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 48,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/300:_Rise_of_an_Empire",
+   "onExplore": null
+  },
+  {
+   "qid": "Q53115",
+   "title": "High School Musical 3: Senior Year",
+   "year": 2008,
+   "type": "Film",
+   "studios": [
+    "disney"
+   ],
+   "notability": 48,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/High_School_Musical_3:_Senior_Year",
+   "onExplore": null
+  },
+  {
+   "qid": "Q572165",
+   "title": "Network",
+   "year": 1976,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 48,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Network_(1976_film)",
+   "onExplore": "network"
+  },
+  {
+   "qid": "Q466186",
+   "title": "A Fish Called Wanda",
+   "year": 1988,
+   "type": "Film",
+   "studios": [
+    "mgm"
+   ],
+   "notability": 48,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/A_Fish_Called_Wanda",
+   "onExplore": null
+  },
+  {
+   "qid": "Q45394",
+   "title": "The Cabin in the Woods",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 48,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Cabin_in_the_Woods",
+   "onExplore": null
+  },
+  {
+   "qid": "Q16635326",
+   "title": "Ex Machina",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 48,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Ex_Machina_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q381731",
+   "title": "Burn After Reading",
+   "year": 2008,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 47,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Burn_After_Reading",
+   "onExplore": null
+  },
+  {
+   "qid": "Q108628759",
+   "title": "Joker: Folie à Deux",
+   "year": 2024,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 47,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Joker:_Folie_%C3%A0_Deux",
+   "onExplore": null
+  },
+  {
+   "qid": "Q7099650",
+   "title": "Orange Is the New Black",
+   "year": 2013,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 47,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Orange_Is_the_New_Black",
+   "onExplore": null
+  },
+  {
+   "qid": "Q56275505",
+   "title": "Euphoria",
+   "year": 2019,
+   "type": "TV Series",
+   "studios": [
+    "a24"
+   ],
+   "notability": 47,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Euphoria_(American_TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q217112",
+   "title": "Moonrise Kingdom",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 46,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Moonrise_Kingdom",
+   "onExplore": null
+  },
+  {
+   "qid": "Q80204",
+   "title": "Anna Karenina",
+   "year": 2012,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 46,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Anna_Karenina_(2012_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q28443710",
+   "title": "Dark",
+   "year": 2017,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 46,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Dark_(TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q116677364",
+   "title": "Michael",
+   "year": 2026,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 46,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Michael_(2026_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q309246",
+   "title": "The Motorcycle Diaries",
+   "year": 2004,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 45,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Motorcycle_Diaries_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q43370948",
+   "title": "BlacKkKlansman",
+   "year": 2018,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 45,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/BlacKkKlansman",
+   "onExplore": null
+  },
+  {
+   "qid": "Q12127045",
+   "title": "Ratchet & Clank",
+   "year": 2016,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 45,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Ratchet_%26_Clank_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q39082126",
+   "title": "You",
+   "year": 2018,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 45,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/You_(TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q14370516",
+   "title": "The Expendables 3",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 45,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Expendables_3",
+   "onExplore": null
+  },
+  {
+   "qid": "Q326177",
+   "title": "Saw V",
+   "year": 2008,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 45,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Saw_V",
+   "onExplore": null
+  },
+  {
+   "qid": "Q16242543",
+   "title": "The Age of Adaline",
+   "year": 2015,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 45,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Age_of_Adaline",
+   "onExplore": null
+  },
+  {
+   "qid": "Q395411",
+   "title": "Agora",
+   "year": 2009,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 44,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Agora_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q645168",
+   "title": "The Constant Gardener",
+   "year": 2005,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 44,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Constant_Gardener_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q751767",
+   "title": "Lethal Weapon 2",
+   "year": 1989,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 44,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Lethal_Weapon_2",
+   "onExplore": null
+  },
+  {
+   "qid": "Q48671199",
+   "title": "Marriage Story",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 44,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Marriage_Story",
+   "onExplore": null
+  },
+  {
+   "qid": "Q676284",
+   "title": "Saw 3D",
+   "year": 2010,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 44,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Saw_3D",
+   "onExplore": null
+  },
+  {
+   "qid": "Q1781285",
+   "title": "Spring Breakers",
+   "year": 2013,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 44,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Spring_Breakers",
+   "onExplore": null
+  },
+  {
+   "qid": "Q115993222",
+   "title": "The Zone of Interest",
+   "year": 2023,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 44,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Zone_of_Interest_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q681962",
+   "title": "Tinker Tailor Soldier Spy",
+   "year": 2011,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 43,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Tinker_Tailor_Soldier_Spy_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q91226161",
+   "title": "Aquaman and the Lost Kingdom",
+   "year": 2023,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 43,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Aquaman_and_the_Lost_Kingdom",
+   "onExplore": null
+  },
+  {
+   "qid": "Q58894738",
+   "title": "The Two Popes",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 43,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Two_Popes",
+   "onExplore": null
+  },
+  {
+   "qid": "Q19520525",
+   "title": "Lucifer",
+   "year": 2016,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 43,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Lucifer_(TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q96414952",
+   "title": "All of Us Are Dead",
+   "year": 2022,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 43,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/All_of_Us_Are_Dead",
+   "onExplore": null
+  },
+  {
+   "qid": "Q125131076",
+   "title": "Backrooms",
+   "year": 2026,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 43,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Backrooms_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q101112656",
+   "title": "The Brutalist",
+   "year": 2024,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 43,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Brutalist",
+   "onExplore": null
+  },
+  {
+   "qid": "Q97304180",
+   "title": "Triangle of Sadness",
+   "year": 2022,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 43,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Triangle_of_Sadness",
+   "onExplore": null
+  },
+  {
+   "qid": "Q470073",
+   "title": "The Other Boleyn Girl",
+   "year": 2008,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 42,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Other_Boleyn_Girl_(2008_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q18350210",
+   "title": "London Has Fallen",
+   "year": 2016,
+   "type": "Film",
+   "studios": [
+    "focus"
+   ],
+   "notability": 42,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/London_Has_Fallen",
+   "onExplore": null
+  },
+  {
+   "qid": "Q340127",
+   "title": "Ace Ventura: When Nature Calls",
+   "year": 1995,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 42,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Ace_Ventura:_When_Nature_Calls",
+   "onExplore": null
+  },
+  {
+   "qid": "Q43370937",
+   "title": "Bird Box",
+   "year": 2018,
+   "type": "Film",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 42,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Bird_Box_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q105883400",
+   "title": "The Whale",
+   "year": 2022,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 42,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Whale_(2022_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q64584978",
+   "title": "Emily in Paris",
+   "year": 2020,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 41,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Emily_in_Paris",
+   "onExplore": null
+  },
+  {
+   "qid": "Q834327",
+   "title": "Saw VI",
+   "year": 2009,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 41,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Saw_VI",
+   "onExplore": null
+  },
+  {
+   "qid": "Q55907451",
+   "title": "Midsommar",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 41,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Midsommar",
+   "onExplore": null
+  },
+  {
+   "qid": "Q18605540",
+   "title": "Jessica Jones",
+   "year": 2015,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 40,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Jessica_Jones_(TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q25205293",
+   "title": "Ozark",
+   "year": 2017,
+   "type": "TV Series",
+   "studios": [
+    "netflix"
+   ],
+   "notability": 40,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Ozark_(TV_series)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q84713105",
+   "title": "Ballerina",
+   "year": 2025,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 40,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Ballerina_(2025_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q330468",
+   "title": "Om Shanti Om",
+   "year": 2007,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 39,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Om_Shanti_Om",
+   "onExplore": null
+  },
+  {
+   "qid": "Q903930",
+   "title": "RED 2",
+   "year": 2013,
+   "type": "Film",
+   "studios": [
+    "lionsgate"
+   ],
+   "notability": 39,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Red_2_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q15713892",
+   "title": "Pan",
+   "year": 2015,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 38,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Pan_(2015_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q29514872",
+   "title": "The Florida Project",
+   "year": 2017,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 38,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Florida_Project",
+   "onExplore": null
+  },
+  {
+   "qid": "Q47524071",
+   "title": "Hereditary",
+   "year": 2018,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 38,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Hereditary_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q19057481",
+   "title": "The Witch",
+   "year": 2015,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 37,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Witch_(2015_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q116025865",
+   "title": "Past Lives",
+   "year": 2023,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 37,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Past_Lives_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q3077738",
+   "title": "The Bling Ring",
+   "year": 2013,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 36,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Bling_Ring",
+   "onExplore": null
+  },
+  {
+   "qid": "Q65679599",
+   "title": "Minari",
+   "year": 2020,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 36,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Minari",
+   "onExplore": null
+  },
+  {
+   "qid": "Q473628",
+   "title": "Free Willy",
+   "year": 1993,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 35,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Free_Willy",
+   "onExplore": null
+  },
+  {
+   "qid": "Q55402791",
+   "title": "The Lighthouse",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 35,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Lighthouse_(2019_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q133866932",
+   "title": "It Was Just an Accident",
+   "year": 2025,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 35,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/It_Was_Just_an_Accident",
+   "onExplore": null
+  },
+  {
+   "qid": "Q130118681",
+   "title": "Marty Supreme",
+   "year": 2025,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 34,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Marty_Supreme",
+   "onExplore": null
+  },
+  {
+   "qid": "Q111538862",
+   "title": "Civil War",
+   "year": 2024,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 34,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Civil_War_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q185490",
+   "title": "Hereafter",
+   "year": 2010,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 33,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Hereafter_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q56312570",
+   "title": "Uncut Gems",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 33,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Uncut_Gems",
+   "onExplore": null
+  },
+  {
+   "qid": "Q122933268",
+   "title": "Heretic",
+   "year": 2024,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 32,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Heretic_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q111668106",
+   "title": "Aftersun",
+   "year": 2022,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 32,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Aftersun",
+   "onExplore": null
+  },
+  {
+   "qid": "Q65084655",
+   "title": "Palm Springs",
+   "year": 2020,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 31,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Palm_Springs_(2020_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q21528092",
+   "title": "Swiss Army Man",
+   "year": 2016,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 30,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Swiss_Army_Man",
+   "onExplore": null
+  },
+  {
+   "qid": "Q115115152",
+   "title": "Priscilla",
+   "year": 2023,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 30,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Priscilla_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q130590402",
+   "title": "The Drama",
+   "year": 2026,
+   "type": "Film",
+   "studios": [
+    "a24"
+   ],
+   "notability": 30,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Drama_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q116470610",
+   "title": "Longlegs",
+   "year": 2024,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 30,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Longlegs",
+   "onExplore": null
+  },
+  {
+   "qid": "Q106392679",
+   "title": "Coyote vs. Acme",
+   "year": 2026,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 28,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Coyote_vs._Acme",
+   "onExplore": null
+  },
+  {
+   "qid": "Q116980365",
+   "title": "Immaculate",
+   "year": 2024,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 28,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Immaculate_(2024_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q124841936",
+   "title": "The Monkey",
+   "year": 2025,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 28,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Monkey_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q137652478",
+   "title": "Fjord",
+   "year": 2026,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 28,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Fjord_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q1971748",
+   "title": "Murder at 1600",
+   "year": 1997,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 27,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Murder_at_1600",
+   "onExplore": null
+  },
+  {
+   "qid": "Q61456310",
+   "title": "Honeyland",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 26,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Honeyland",
+   "onExplore": null
+  },
+  {
+   "qid": "Q123169098",
+   "title": "The Life of Chuck",
+   "year": 2024,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 25,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Life_of_Chuck",
+   "onExplore": null
+  },
+  {
+   "qid": "Q111270010",
+   "title": "The Color Purple",
+   "year": 2023,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 24,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Color_Purple_(2023_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q99796333",
+   "title": "No Sudden Move",
+   "year": 2021,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 22,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/No_Sudden_Move",
+   "onExplore": null
+  },
+  {
+   "qid": "Q123690382",
+   "title": "Presence",
+   "year": 2024,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 22,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Presence_(2024_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q131870558",
+   "title": "Together",
+   "year": 2025,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 22,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Together_(2025_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q26720603",
+   "title": "Ingrid Goes West",
+   "year": 2017,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 22,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Ingrid_Goes_West",
+   "onExplore": null
+  },
+  {
+   "qid": "Q113445202",
+   "title": "All the Beauty and the Bloodshed",
+   "year": 2022,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 21,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/All_the_Beauty_and_the_Bloodshed",
+   "onExplore": null
+  },
+  {
+   "qid": "Q86675328",
+   "title": "Pig",
+   "year": 2021,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 21,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Pig_(2021_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q42049340",
+   "title": "Assassination Nation",
+   "year": 2018,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 20,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Assassination_Nation",
+   "onExplore": null
+  },
+  {
+   "qid": "Q48674680",
+   "title": "The Lodge",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 20,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Lodge_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q113012026",
+   "title": "Cuckoo",
+   "year": 2024,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 20,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Cuckoo_(2024_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q134708172",
+   "title": "Paper Tiger",
+   "year": 2026,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 20,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Paper_Tiger_(2026_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q42947827",
+   "title": "The Beach Bum",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 19,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Beach_Bum",
+   "onExplore": null
+  },
+  {
+   "qid": "Q48313895",
+   "title": "Vox Lux",
+   "year": 2018,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 19,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Vox_Lux",
+   "onExplore": null
+  },
+  {
+   "qid": "Q112182515",
+   "title": "Mothers’ Instinct",
+   "year": 2024,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 19,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Mothers%27_Instinct_(2024_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q28466244",
+   "title": "Beach Rats",
+   "year": 2017,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 18,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Beach_Rats",
+   "onExplore": null
+  },
+  {
+   "qid": "Q60602393",
+   "title": "Luce",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 18,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Luce_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q63386137",
+   "title": "Monos",
+   "year": 2019,
+   "type": "Film",
+   "studios": [
+    "neon"
+   ],
+   "notability": 18,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Monos_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q3438002",
+   "title": "Rockstar",
+   "year": 2011,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 14,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Rockstar_(2011_film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q104815183",
+   "title": "Red Dot",
+   "year": 2021,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 8,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Red_Dot_(film)",
+   "onExplore": null
+  },
+  {
+   "qid": "Q1585332",
+   "title": "Hari Puttar: A Comedy of Terrors",
+   "year": 2008,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 6,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Hari_Puttar:_A_Comedy_of_Terrors",
+   "onExplore": null
+  },
+  {
+   "qid": "Q19473396",
+   "title": "The Crimean",
+   "year": 2014,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 6,
+   "freePoster": null,
+   "wikipedia": null,
+   "onExplore": null
+  },
+  {
+   "qid": "Q99528797",
+   "title": "My Missing Valentine",
+   "year": 2020,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 6,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/My_Missing_Valentine",
+   "onExplore": null
+  },
+  {
+   "qid": "Q111991013",
+   "title": "Dobaaraa",
+   "year": 2022,
+   "type": "Film",
+   "studios": [
+    "warner"
+   ],
+   "notability": 6,
+   "freePoster": null,
+   "wikipedia": "https://en.wikipedia.org/wiki/Dobaaraa",
+   "onExplore": null
+  }
+ ]
+}

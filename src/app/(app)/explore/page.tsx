@@ -6,6 +6,7 @@ import { ExploreLibrary } from "@/components/explore/explore-library";
 import { newSeed } from "@/lib/shuffle";
 import { galleryForToday } from "@/features/explore/recent";
 import { loadTopTen } from "@/features/explore/top-server";
+import { studioRows } from "@/features/explore/studios";
 
 export const metadata: Metadata = {
   title: "Explore · Nia OS",
@@ -26,5 +27,5 @@ async function Shuffled() {
   await connection();
   // The top gallery's recent additions (seven days, or the latest 20) are worked out per request
   // too. The Top 10 is read without waiting: only its own section waits for it.
-  return <ExploreLibrary seed={newSeed()} gallery={galleryForToday()} top={loadTopTen()} />;
+  return <ExploreLibrary seed={newSeed()} gallery={galleryForToday()} top={loadTopTen()} studios={studioRows()} />;
 }

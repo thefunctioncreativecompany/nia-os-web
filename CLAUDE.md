@@ -434,6 +434,16 @@ Data:
   Explore's essentials fill the rest). Totals come from `explore_top()` (returns counts per title
   only, never who; Explore access needed). Needs `20261108000000_explore_top.sql`; until it's run
   the essentials show. The page doesn't wait for it: only the section has a placeholder.
+- (2026-10-31) By studio on Explore (Ika approved the category): a chip per studio with its
+  titles on Explore (`StudioStrip`, `src/features/explore/studios.ts`, worked out on the
+  server). The studio catalogue (`studio-catalogue.json`, 312 titles: each studio's most notable
+  films and series from Wikidata, by Wikipedia language editions; Paramount, Universal and Focus
+  (NBCUniversal), Columbia, Warner Bros., Disney, 20th Century, MGM, Netflix (originals only),
+  Lionsgate, A24, Neon) is rebuilt by `node scripts/build-studio-catalogue.mjs`. The update run,
+  `node scripts/explore-update.mjs`, marks what's on Explore and writes the next batch of 10
+  that can be shown now (free Commons poster, checked by eye; rejected posters listed in the
+  script) to `scripts/out/next-batch.json` for find-title-assets, measure-explore-covers and
+  build-press-kits. 23 on Explore, ~280 wait for posters (TMDB licence). Not in Figma yet.
 - (2026-10-31) Explore Feed (Ika), hidden for now (`features.exploreFeedShown` off: no tabs on
   Explore, `/explore/feed` goes to Explore; the code stays): `/explore/feed`, beside Library in Explore's tabs
   (`ExploreTabs`, gold underline), built from the approved prototype (the dev prototype is

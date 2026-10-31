@@ -14,7 +14,9 @@ import { EpkLanes } from "./epk-lanes";
 import { getCategory } from "./explore-data";
 import { HollywoodClassicsStrip } from "./hollywood-classics-strip";
 import { MadeInAfricaStrip } from "./made-in-africa-strip";
+import { StudioStrip } from "./studio-strip";
 import { TopTen } from "./top-ten";
+import type { StudioRow } from "@/features/explore/studios";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type Section = { id: string; name: string; href?: string; row: React.ReactNode };
@@ -23,12 +25,14 @@ type Section = { id: string; name: string; href?: string; row: React.ReactNode }
 // category under a heading that shows or hides it, with Show all / Hide all. All start open.
 // Headings are the name alone, no count or explaining line (Ika, 2026-10-30).
 // Top 10 on Explore replaced Top 10 director's notes (Ika, 2026-10-31): those notes don't exist yet.
-export function CategorySections({ seed, top }: { seed: number; top: Promise<string[]> }) {
+export function CategorySections({ seed, top, studios }: { seed: number; top: Promise<string[]>; studios: StudioRow[] }) {
   const epk = getCategory("epk");
   const sections: Section[] = [
     { id: "made-in-africa", name: MADE_IN_AFRICA.name, href: MADE_IN_AFRICA_HREF, row: <MadeInAfricaStrip seed={seed} bare /> },
     { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, href: HOLLYWOOD_CLASSICS_HREF, row: <HollywoodClassicsStrip bare /> },
     { id: "creators", name: CREATORS.name, href: CREATORS_HREF, row: <CreatorsStrip seed={seed} bare /> },
+    // By studio (Ika, 2026-10-31).
+    ...(studios.length ? [{ id: "studios", name: "By studio", row: <StudioStrip rows={studios} /> }] : []),
     { id: "epk", name: epk.title, row: <EpkLanes category={epk} bare /> },
     {
       id: "top",

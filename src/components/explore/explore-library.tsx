@@ -12,6 +12,7 @@ import type { Added } from "@/features/explore/recent";
 import { features } from "@/lib/features";
 import { getCategory } from "./explore-data";
 import { CategorySections } from "./explore-categories";
+import type { StudioRow } from "@/features/explore/studios";
 import { LatestStrips } from "./latest-strips";
 import { ExploreCard } from "./title-card";
 
@@ -23,7 +24,7 @@ const ODD_OFFSET = -60;
 // Explore, the library: Ika's Claude Design "ExploreLibrary" as designed (layout, motion, images),
 // in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts. The
 // rows under By category come in a new order on each visit (`seed`, Ika 2026-10-22).
-export function ExploreLibrary({ seed, gallery, top }: { seed: number; gallery: { items: Added[]; thisWeek: boolean }; top: Promise<string[]> }) {
+export function ExploreLibrary({ seed, gallery, top, studios }: { seed: number; gallery: { items: Added[]; thisWeek: boolean }; top: Promise<string[]>; studios: StudioRow[] }) {
   const items = gallery.items.flatMap(({ slug, added }) => {
     const item = exploreItem(slug);
     return item ? [{ item, added }] : [];
@@ -53,7 +54,7 @@ export function ExploreLibrary({ seed, gallery, top }: { seed: number; gallery: 
       </section>
 
       {/* Every category under a heading that shows or hides it (Ika, 2026-10-29). */}
-      <CategorySections seed={seed} top={top} />
+      <CategorySections seed={seed} top={top} studios={studios} />
       {features.exploreLatestShown && <LatestStrips category={getCategory("latest")} />}
     </div>
   );
