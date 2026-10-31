@@ -33,10 +33,10 @@ export function JustAdded({
             <button
               type="button"
               onClick={() => onPreview(t)}
-              className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-card text-left outline-none transition-shadow duration-fast hover:shadow-elevation-2 focus-visible:ring-3 focus-visible:ring-ring/50"
+              className="hover-sweep group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-card text-left outline-none hover:shadow-elevation-2 focus-visible:ring-3 focus-visible:ring-ring/50"
             >
               <span className={cn("flex h-24 items-end p-3", grainFor(t.code))}>
-                <span className="grid size-11 place-items-center rounded-xl bg-card shadow-elevation-2">
+                <span className="group-sweep grid size-11 place-items-center rounded-xl bg-card shadow-elevation-2">
                   <FlatIcon name={t.icon} size="sm" />
                 </span>
               </span>

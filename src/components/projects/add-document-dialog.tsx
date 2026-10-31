@@ -61,7 +61,7 @@ export function AddDocumentDialog({ projectId, existing, open, onOpenChange }: {
   };
   const list = templates && learning.ready ? workingSuggestions(templates, learning.profile, templates.length) : null;
   const option =
-    "flex flex-col items-center justify-center gap-3 rounded-xl border border-border bg-nia-surface p-5 text-center outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50";
+    "hover-sweep flex flex-col items-center justify-center gap-3 rounded-xl border border-border bg-nia-surface p-5 text-center outline-none hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50";
 
   return (
     <Dialog open={open} onOpenChange={close}>
@@ -80,14 +80,14 @@ export function AddDocumentDialog({ projectId, existing, open, onOpenChange }: {
         {step === "choose" && (
           <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2">
             <button type="button" onClick={() => setStep("upload")} className={option}>
-              <span className="flex size-12 items-center justify-center rounded-full border border-border bg-card">
+              <span className="group-sweep flex size-12 items-center justify-center rounded-full border border-border bg-card">
                 <FileUp aria-hidden className="size-6" />
               </span>
               <span className="text-base font-bold">Upload from your computer</span>
               <span className="text-micro text-muted-foreground">Scripts, briefs, contracts, decks</span>
             </button>
             <button type="button" onClick={() => (full ? upgrade("documents") : setStep("template"))} className={cn(option, full && "opacity-80")}>
-              <span className="flex size-12 items-center justify-center rounded-full border border-border bg-card">
+              <span className="group-sweep flex size-12 items-center justify-center rounded-full border border-border bg-card">
                 <LayoutTemplate aria-hidden className="size-6" />
               </span>
               <span className="text-base font-bold">Start from a template</span>
@@ -158,7 +158,7 @@ export function AddDocumentDialog({ projectId, existing, open, onOpenChange }: {
                     close(false);
                     router.push(`/templates/${t.code}?project=${projectId}`);
                   }}
-                  className="flex w-full items-center gap-3 rounded-xl border border-border bg-card p-3 text-left outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50"
+                  className="hover-sweep flex w-full items-center gap-3 rounded-xl border border-border bg-card p-3 text-left outline-none hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50"
                 >
                   <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-nia-panel">
                     <FlatIcon name={t.icon} size="sm" className="size-5" />

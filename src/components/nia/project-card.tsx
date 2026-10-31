@@ -34,7 +34,7 @@ export function ProjectCard({
     >
       <div
         className={cn(
-          "relative aspect-[19/10] w-full overflow-hidden bg-muted",
+          "group-sweep relative aspect-[19/10] w-full overflow-hidden bg-muted",
           compact ? "rounded-lg" : "rounded-xl",
         )}
       >

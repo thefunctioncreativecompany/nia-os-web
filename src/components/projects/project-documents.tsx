@@ -115,7 +115,7 @@ export function ProjectDocuments({ projectId, documents, icons, canEdit, isOwner
       ) : (
         <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           {list.map((doc) => (
-            <li key={doc.id} className="group flex flex-col gap-2 rounded-xl border border-border bg-card p-3 transition-colors duration-fast hover:border-ring">
+            <li key={doc.id} className="hover-sweep group flex flex-col gap-2 rounded-xl border border-border bg-card p-3">
               <div className="flex items-center gap-3">
               <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-nia-panel">
                 <FlatIcon name={icons[doc.templateCode] ?? "file"} size="sm" className="size-5" />

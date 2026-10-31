@@ -20,7 +20,7 @@ import { workingSuggestions } from "@/features/templates/recommend";
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
 
 const optionClassName =
-  "flex h-[180px] flex-col items-center justify-center gap-3 rounded-xl border border-border bg-nia-surface p-5 text-center outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50";
+  "hover-sweep flex h-[180px] flex-col items-center justify-center gap-3 rounded-xl border border-border bg-nia-surface p-5 text-center outline-none hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50";
 
 // "Create New Project" (Figma 798:136): Blank Project, or From Template, which lists the
 // templates that work in the editor (most recently used first) and opens the chosen one.
@@ -51,14 +51,14 @@ export function NewProjectDialog({ children }: { children: React.ReactNode }) {
         {step === "choose" ? (
           <div className="grid w-full grid-cols-1 gap-4 min-[440px]:grid-cols-2">
             <Link href="/projects/new" onClick={() => setOpen(false)} className={optionClassName}>
-              <span className="flex size-12 items-center justify-center rounded-full border border-border bg-card">
+              <span className="group-sweep flex size-12 items-center justify-center rounded-full border border-border bg-card">
                 <FileText aria-hidden className="size-6" />
               </span>
               <span className="text-base leading-normal font-bold">Blank project</span>
               <span className="text-micro text-muted-foreground">Start from scratch with an empty project</span>
             </Link>
             <button type="button" onClick={() => setStep("templates")} className={optionClassName}>
-              <span className="flex size-12 items-center justify-center rounded-full border border-border bg-card">
+              <span className="group-sweep flex size-12 items-center justify-center rounded-full border border-border bg-card">
                 <FilePlus2 aria-hidden className="size-6" />
               </span>
               <span className="text-base leading-normal font-bold">From template</span>
@@ -114,7 +114,7 @@ function TemplateChoices({ onChosen }: { onChosen: () => void }) {
               onChosen();
               router.push(`/templates/${t.code}`);
             }}
-            className="flex w-full items-center gap-3 rounded-xl border border-border bg-card p-3 text-left outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50"
+            className="hover-sweep flex w-full items-center gap-3 rounded-xl border border-border bg-card p-3 text-left outline-none hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50"
           >
             <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-nia-panel">
               <FlatIcon name={t.icon} size="sm" className="size-5" />

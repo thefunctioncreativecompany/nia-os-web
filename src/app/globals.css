@@ -1101,3 +1101,64 @@
   50% {
     transform: translateY(var(--lift, 4px)) rotate(var(--sway, 1deg));
   }}
+
+/* Nia (Ika, 2026-10-31): card hover. On hover or keyboard focus the accent draws itself once
+   round the card's edge (from the top, clockwise) and stays as its border; an icon tile or cover
+   marked `group-sweep` does the same when its card (`group` or `hover-sweep`) is hovered. One
+   pass, never a loop; with reduced motion the edge simply turns blue. */
+@property --sweep {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes sweep-round {
+  from { --sweep: 0deg; }
+  to { --sweep: 360deg; }
+}
+@layer components {
+  .hover-sweep,
+  .group-sweep {
+    position: relative;
+  }
+  .hover-sweep::after,
+  .group-sweep::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(var(--gold) var(--sweep), transparent var(--sweep));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-fast) ease-out;
+  }
+  .hover-sweep {
+    transition-property: border-color, background-color, box-shadow, translate, scale;
+    transition-duration: var(--duration-base);
+    transition-timing-function: ease-out;
+  }
+  .hover-sweep:hover,
+  .hover-sweep:focus-visible {
+    border-color: color-mix(in oklab, var(--gold) 35%, var(--border));
+  }
+  .hover-sweep:hover::after,
+  .hover-sweep:focus-visible::after,
+  .group:hover .group-sweep::after,
+  .group:focus-visible .group-sweep::after,
+  .hover-sweep:hover .group-sweep::after,
+  .hover-sweep:focus-visible .group-sweep::after {
+    opacity: 1;
+    animation: sweep-round var(--duration-settle) ease-out forwards;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hover-sweep::after,
+    .group-sweep::after {
+      --sweep: 360deg;
+      animation: none !important;
+    }
+  }
+}

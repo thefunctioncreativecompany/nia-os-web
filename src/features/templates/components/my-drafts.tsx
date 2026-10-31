@@ -62,7 +62,7 @@ export function MyDrafts({ icons }: { icons: Record<string, string> }) {
       </div>
       <ul className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,16rem),1fr))] gap-3">
         {drafts.map((d) => (
-          <li key={d.id} className="flex flex-col gap-2 rounded-xl border border-border bg-card p-3 transition-colors duration-fast hover:border-ring">
+          <li key={d.id} className="hover-sweep flex flex-col gap-2 rounded-xl border border-border bg-card p-3">
             <div className="flex items-center gap-3">
               <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-nia-panel">
                 <FlatIcon name={icons[d.template_code] ?? "file"} size="sm" className="size-5" />

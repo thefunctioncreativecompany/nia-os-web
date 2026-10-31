@@ -20,7 +20,7 @@ export function CompactTile({ template, onPreview }: { template: GalleryTemplate
       onPointerEnter={hover.onPointerEnter}
       onPointerLeave={hover.onPointerLeave}
       aria-label={`Preview the ${template.name} template, ${open ? template.stage : COMING_SOON.toLowerCase()}`}
-      className="group relative flex h-24 cursor-pointer items-center justify-between gap-3 overflow-hidden rounded-xl border border-border bg-card pr-5.5 pl-4 text-left outline-none transition-colors duration-fast hover:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+      className="group relative flex h-24 cursor-pointer items-center justify-between gap-3 hover-sweep overflow-hidden rounded-xl border border-border bg-card pr-5.5 pl-4 text-left outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
     >
       <span className="flex min-w-0 flex-col gap-1.25">
         <span className="text-sm leading-tight font-semibold text-foreground">{template.name}</span>

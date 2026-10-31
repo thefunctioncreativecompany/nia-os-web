@@ -76,7 +76,7 @@ export function ExploreFeed({ now }: { now: number }) {
                 aria-pressed={story.id === s.id}
                 onClick={() => setOpenId(s.id)}
                 className={cn(
-                  "flex w-full gap-4 rounded-2xl border p-4 text-left outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
+                  "hover-sweep flex w-full gap-4 rounded-2xl border p-4 text-left outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
                   story.id === s.id ? "border-foreground bg-secondary" : "border-border bg-card hover:bg-muted",
                 )}
               >

@@ -51,7 +51,8 @@ Design:
   `src/components/nia/filter-bar.tsx`: `SearchField` (56px pill), `FilterChip` (40px pill; on = dark
   border, grey fill; optional count), `ChipMenu` ("Category: All ▾"), `ResultCount`.
 - Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
-  motion. Only modals/panels, the saved tick, cards settling, Copilot highlights and onboarding slides animate.
+  motion. Only modals/panels, the saved tick, cards settling, the card hover sweep, Copilot highlights
+  and onboarding slides animate.
 - Theme tokens (`src/app/globals.css`): colors `foreground`/`primary` (near-black), `gold`
   (the blue accent, + `gold-foreground`), neutral greys (`muted`, `muted-foreground`, `border`, `secondary`, `accent`);
   fonts `font-sans` (Geist, everything), `font-wordmark` (the "NIA" mark); `font-serif` and `font-mono`
@@ -399,6 +400,12 @@ Data:
   that turn light is `text-background`; the black wordmark and fixed-black icons use `dark:invert`.
   The PDF preview stays white paper, carousel captions stay dark over pictures. New work: theme
   colours only, never `bg-white`. Not in Figma yet: reconcile the dark tokens and Appearance.
+- (2026-10-31) Card hover (Ika): on hover or keyboard focus the blue accent draws itself once
+  round a card's edge, clockwise from the top, and stays as its border (`hover-sweep`); an icon
+  tile or cover marked `group-sweep` does the same when its card is hovered (`globals.css`, one
+  pass, plain blue edge under reduced motion). On project cards, template cards and tiles, Home's
+  template row, Just added, My drafts, project documents, What's next, the New project and Add
+  document choices, and Feed stories. Use it on new clickable cards. Not in Figma yet.
 - (2026-10-31) Explore Feed (Ika): `/explore/feed`, beside Library in Explore's tabs
   (`ExploreTabs`, gold underline), built from the approved prototype (the dev prototype is
   retired): top stories on the Carousel, a chip per topic that has stories, the ranked list and
