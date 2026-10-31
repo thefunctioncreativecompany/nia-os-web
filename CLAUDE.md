@@ -449,9 +449,9 @@ Data:
   yet; `DirectorsNotes` stays unused): the titles and films people open, save and add to
   projects most in the last 30 days, ranked again on every visit (`src/features/explore/top.ts`,
   tested: each opener once, opens in the last week twice, a save 3, an addition to a project 5;
-  Explore's essentials fill the rest). Totals come from `explore_top()` (returns counts per title
-  only, never who; Explore access needed). Needs `20261108000000_explore_top.sql`; until it's run
-  the essentials show. The page doesn't wait for it: only the section has a placeholder.
+  Explore's essentials fill the rest). Rows are rank, title, and type and year; the cover shows
+  beside the pointer on hover, as the director's notes did. Totals come from `explore_top()` (returns counts per title
+  only, never who; Explore access needed; `20261108000000_explore_top.sql`, run 2026-10-31). The page doesn't wait for it: only the section has a placeholder.
 - (2026-10-31) By studio on Explore (Ika approved the category): a chip per studio with its
   titles on Explore (`StudioStrip`, `src/features/explore/studios.ts`, worked out on the
   server). The studio catalogue (`studio-catalogue.json`, 312 titles: each studio's most notable
