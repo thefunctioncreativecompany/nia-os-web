@@ -128,8 +128,8 @@
   --shadow-menu: 0 8px 24px 0 rgb(0 0 0 / 0.08), 0 1px 2px 0 rgb(0 0 0 / 0.04);
   --shadow-elevation-2: 0 1px 2px 0 rgb(0 0 0 / 0.3), 0 2px 6px 2px rgb(0 0 0 / 0.15);
   /* Template cards (TEMPLATE_THUMBNAILS.md Section 8). */
-  --shadow-card: 0 8px 24px rgb(15 14 12 / 0.1);
-  --shadow-card-hover: 0 24px 54px rgb(15 14 12 / 0.22);
+  --shadow-card: 0 8px 24px rgb(0 0 0 / 0.1);
+  --shadow-card-hover: 0 24px 54px rgb(0 0 0 / 0.22);
   --text-title: 1.3125rem;
   --text-title--line-height: 1.2;
   --color-family-production-light: var(--family-production-light);
@@ -205,31 +205,32 @@
 }
 
 :root {
-  /* Light theme: brand colors from BUILD_PLAN.md (Obsidian, Aged Gold); greys from Figma. */
+  /* Light theme (Ika, 2026-10-31): neutral greys and VS Code's light-theme blue, to match dark
+     mode. Was Obsidian #0A0908 with warm greys and Aged Gold #8A7A52. */
   --background: #ffffff;
-  --foreground: #0a0908;
+  --foreground: #1f1f1f;
   --card: #ffffff;
-  --card-foreground: #0a0908;
+  --card-foreground: #1f1f1f;
   --popover: #ffffff;
-  --popover-foreground: #0a0908;
-  --primary: #0a0908;
+  --popover-foreground: #1f1f1f;
+  --primary: #1f1f1f;
   --primary-foreground: #ffffff;
-  --secondary: #eeedec;
-  --secondary-foreground: #0a0908;
-  --muted: #f9f9f9;
-  --muted-foreground: #73726c;
-  --accent: #f0efec;
-  --accent-foreground: #0a0908;
+  --secondary: #eeeeee;
+  --secondary-foreground: #1f1f1f;
+  --muted: #f8f8f8;
+  --muted-foreground: #6b6b6b;
+  --accent: #f0f0f0;
+  --accent-foreground: #1f1f1f;
   --destructive: #ef4444;
   --border: #e2e2e2;
   --input: #e2e2e2;
-  --ring: #9c9b96;
+  --ring: #9e9e9e;
   /* nOS Design System Section 20: ink, teal accent, rust, track grey, muted. */
   --chart-1: #1a1a1a;
   --chart-2: #0b7a75;
   --chart-3: #92400e;
   --chart-4: #e2e2e2;
-  --chart-5: #73726c;
+  --chart-5: #6b6b6b;
   /* 12px: cards and auth inputs. The scale below hits Figma's 6/8/12/16/22px. */
   --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
@@ -247,13 +248,12 @@
   --nia-pill: var(--secondary);
   --nia-chip: var(--accent);
   --nia-field-muted: var(--muted);
-  /* NIA brand colors outside the shadcn theme. Gold is the single accent: active states
-     only. It's under 4.5:1 on white, so use it for indicators, borders, icons and large
-     text, not small body text. */
-  --gold: #8a7a52;
+  /* NIA colours outside the shadcn theme. The accent keeps the name "gold" but is VS Code's
+     blue (6.4:1 on white): active states, indicators, borders and tints only. */
+  --gold: #005fb8;
   --gold-foreground: #ffffff;
-  --nia-footer: #0a0908;
-  --nia-placeholder: #938f99;
+  --nia-footer: #1f1f1f;
+  --nia-placeholder: #8a8a8a;
   --nia-success: #166534;
   --nia-success-bg: #dcfce7;
   --nia-positive: #10b981;
@@ -284,10 +284,10 @@
   --family-performance-core: #7FA36A;
   --family-performance-deep: #121C0F;
   /* Figma card surface, side panel, destructive action and dashed-placeholder line. */
-  --nia-surface: #fbfbfa;
+  --nia-surface: #fafafa;
   /* Marketplace's field behind the product tiles (Ika's Claude Design "MarketplaceSoon"). */
-  --nia-canvas: #f6f5f3;
-  --nia-panel: #f9f9fa;
+  --nia-canvas: #f5f5f5;
+  --nia-panel: #f8f8f8;
   --nia-danger: #991b1b;
   --nia-line-strong: #d9d9d9;
   /* Status badges (Figma: Script Breakdown, Cast & Crew). Pending and Wrapped text is
@@ -299,7 +299,7 @@
   --status-on-hold: #dbeafe;
   --status-on-hold-foreground: #1d4ed8;
   --status-wrapped: #e2e2e2;
-  --status-wrapped-foreground: #5f5e59;
+  --status-wrapped-foreground: #5e5e5e;
   --status-cancelled: #fee2e2;
   --status-cancelled-foreground: #b91c1c;
   /* Template phase pills (Ika's Claude Design "Templates", 2026-10-20). */
@@ -470,9 +470,9 @@
   --font-ui: var(--font-sans);
   --pane-edge: var(--border);
   /* -rgb tokens are bare numbers because the CSS builds rgba() from them:
-     Obsidian #0A0908, and the warm black Nia's card shadows already use. */
-  --ink-rgb: 10, 9, 8;
-  --shadow-rgb: 15, 14, 12;
+     the light theme's text colour #1F1F1F, and black for shadows. */
+  --ink-rgb: 31, 31, 31;
+  --shadow-rgb: 0, 0, 0;
   /* Glass. Bencho's frost is 2px over its own quiet wall; Nia's pages scroll
      photos and text under the dock, so the pane is whiter and the blur deeper
      to keep the icons readable. */
@@ -700,7 +700,7 @@
   background:
     linear-gradient(color-mix(in oklab, var(--background) 94%, transparent), color-mix(in oklab, var(--background) 94%, transparent)) padding-box,
     linear-gradient(145deg, var(--background) 0%, var(--ring) 30%, var(--border) 50%, var(--background) 62%, var(--ring) 100%) border-box;
-  box-shadow: 0 1px 3px rgb(15 14 12 / 0.06);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
   -webkit-backdrop-filter: blur(12px) saturate(140%);
   backdrop-filter: blur(12px) saturate(140%);
 }
@@ -711,7 +711,7 @@
   background:
     linear-gradient(color-mix(in oklab, var(--background) 94%, transparent), color-mix(in oklab, var(--background) 94%, transparent)) padding-box,
     linear-gradient(145deg, var(--background) 0%, var(--ring) 30%, var(--border) 50%, var(--background) 62%, var(--ring) 100%) border-box;
-  box-shadow: 0 1px 3px rgb(15 14 12 / 0.06);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
   -webkit-backdrop-filter: blur(12px) saturate(140%);
   backdrop-filter: blur(12px) saturate(140%);
 }
@@ -780,13 +780,13 @@
 /* ══ Generate (Bencho, MIT licence: bencho.dev/licence) ═══════════════════
    src/components/nia/generate.tsx, kept for the parked "generate a cover" feature.
    Bencho's design names are mapped to Nia's on the component's own root, so nothing
-   leaks out: ink = foreground (Obsidian), the blank page = background, UI font = Geist,
-   the frame's edge = border. --fill-on-rgb is Obsidian #0A0908 as three bare numbers,
+   leaks out: ink = foreground, the blank page = background, UI font = Geist,
+   the frame's edge = border. --fill-on-rgb is the text colour #1F1F1F as three bare numbers,
    because the focus ring builds rgba() from it. Bencho's comments are kept below.
    (Bencho's .otp and .lbi rules belong to other components and were left out.) */
 .gen {
   --fill-on: var(--foreground);
-  --fill-on-rgb: 10, 9, 8;
+  --fill-on-rgb: 31, 31, 31;
   --fill-slab: var(--background);
   --font-ui: var(--font-sans);
   --pane-edge: var(--border);
@@ -984,15 +984,15 @@
 
    Nia: Bencho's design tokens, mapped onto ours and set on the component's own root so nothing
    leaks out: --bg is the page background, --font-ui Geist, and --ink-rgb / --shadow-rgb are
-   Obsidian as three bare numbers (the CSS builds rgba() from them). --lift and --sway are set
+   the text colour and black as three bare numbers (the CSS builds rgba() from them). --lift and --sway are set
    per card by the component. The drift loops: allowed because the carousel lives in Explore
    (Ika, 2026-10-20: Explore's motion overrides the no-loops rule), and it stops under reduced
    motion. */
 .car {
   --bg: var(--background);
   --font-ui: var(--font-sans);
-  --ink-rgb: 10, 9, 8;
-  --shadow-rgb: 10, 9, 8;
+  --ink-rgb: 31, 31, 31;
+  --shadow-rgb: 0, 0, 0;
   position: relative;
   font-family: var(--font-ui);}
 .dark .car {
@@ -1078,7 +1078,7 @@
   flex-direction: column;
   gap: 0.25rem;
   padding: 2.5rem 0.875rem 0.875rem;
-  background: linear-gradient(to top, rgba(10, 9, 8, 0.82), rgba(10, 9, 8, 0));
+  background: linear-gradient(to top, rgba(31, 31, 31, 0.82), rgba(31, 31, 31, 0));
   color: #ffffff;
   font-size: var(--text-sm, 0.875rem);
   font-weight: 700;

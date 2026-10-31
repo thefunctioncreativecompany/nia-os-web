@@ -40,7 +40,9 @@ Product:
 
 Design:
 - Colors, fonts, radii, spacing and motion only from theme variables; no hex or pixel values in pages.
-- Brand: Obsidian `#0A0908`, Aged Gold `#8A7A52` (single accent, active states only), Geist for all text,
+- Brand (Ika, 2026-10-31): neutral greys with text `#1F1F1F` (light) / `#E6E6E6` (dark) and VS Code's
+  blue as the single accent, active states only (`#005FB8` light, `#3794FF` dark; the token is still
+  named `gold`). Was Obsidian `#0A0908` and Aged Gold `#8A7A52`. Geist for all text,
   sentence case. No serif and no all-caps monospace labels (Ika, 2026-10-19); the screenplay preview's
   Courier capitals are content formatting, kept until Ika decides.
 - Build from `src/components/ui` (shadcn) and `src/components/nia`; new looks are variants. Keep shadcn
@@ -50,14 +52,14 @@ Design:
   border, grey fill; optional count), `ChipMenu` ("Category: All ▾"), `ResultCount`.
 - Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
   motion. Only modals/panels, the saved tick, cards settling, Copilot highlights and onboarding slides animate.
-- Theme tokens (`src/app/globals.css`): colors `foreground`/`primary` (Obsidian), `gold`
-  (+ `gold-foreground`), Figma greys (`muted`, `muted-foreground`, `border`, `secondary`, `accent`);
+- Theme tokens (`src/app/globals.css`): colors `foreground`/`primary` (near-black), `gold`
+  (the blue accent, + `gold-foreground`), neutral greys (`muted`, `muted-foreground`, `border`, `secondary`, `accent`);
   fonts `font-sans` (Geist, everything), `font-wordmark` (the "NIA" mark); `font-serif` and `font-mono`
   exist but aren't used in the interface; text sizes `text-h1` 32, `text-h2` 28, `text-h3` 24, `text-lead` 15, `text-sm` 14,
   `text-small` 13, `text-caption` 12, `text-micro` 11, `text-meta` 10, `text-tiny` 9, `text-wordmark` 22;
   shadow `shadow-elevation-2`; motion `duration-fast/base/slow`
-  with `ease-out` (code animations use `src/lib/motion.ts`). Gold is under 4.5:1 on white: indicators,
-  borders, tints and large text only.
+  with `ease-out` (code animations use `src/lib/motion.ts`). The accent (`gold`) is for indicators,
+  borders and tints.
 
 Data:
 - RLS on every table: users see only rows in workspaces they belong to. Soft deletes (`deleted_at`).
@@ -385,7 +387,8 @@ Data:
   the side buttons; it goes round from the last title to the first and fetches the next pictures
   ahead. A Canvas · Quick view switch (`ExploreAllViews`) sits on both views; the canvas header
   lost its title count. Not in Figma yet.
-- (2026-10-31) Dark mode (Ika): neutral greys like VS Code's dark theme (ground `#1F1F1F`,
+- (2026-10-31) Dark mode (Ika; light mode then matched it: neutral greys, `#1F1F1F` text, blue
+  `#005FB8` accent): neutral greys like VS Code's dark theme (ground `#1F1F1F`,
   cards `#262626`, panels `#2F2F2F`, lines `#3A3A3A`, text `#E6E6E6`, muted `#A0A0A0`) and VS
   Code's blue `#3794FF` in place of gold for the accent (the `gold` token turns blue in dark:
   active tabs, unread dots, New markers, announcement and deadline borders), as the `.dark`
