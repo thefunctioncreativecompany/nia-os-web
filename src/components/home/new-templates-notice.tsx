@@ -7,7 +7,6 @@ import { ArrowRight, X } from "lucide-react";
 
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
-import { NewMarker, dayLabel } from "@/components/nia/new-marker";
 import { grainFor, type GalleryTemplate } from "@/features/templates/gallery";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { TemplateValue } from "@/features/templates/components/template-value";
@@ -47,8 +46,7 @@ export function NewTemplatesNotice({ templates, announced }: { templates: Galler
       </span>
       <div className="flex min-w-0 flex-1 flex-col gap-4 p-5 pr-14 sm:p-6 sm:pr-14">
         <div>
-          {lead.launched && <NewMarker label={`New template · added ${dayLabel(lead.launched)}`} />}
-          <h2 id="new-templates" className="mt-2.5 text-h3 font-bold tracking-tight text-foreground">{lead.name}</h2>
+          <h2 id="new-templates" className="text-h3 font-bold tracking-tight text-foreground">{lead.name}</h2>
           <p className="text-small text-muted-foreground">{lead.stage}</p>
         </div>
         <TemplateValue template={lead} />

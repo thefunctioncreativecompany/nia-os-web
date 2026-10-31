@@ -18,4 +18,8 @@ export const features = {
   // /explore/feed goes to Explore (next.config.ts). The code stays
   // (src/components/explore/explore-feed.tsx, src/features/explore/feed.ts); flip to true to bring it back.
   exploreFeedShown: false,
+  // Explore all's quick view is hidden (Ika, 2026-10-31): no Canvas / Quick view switch on the
+  // canvas, and /explore/all/quick goes to the canvas (next.config.ts). The code stays
+  // (src/components/explore/library-quick-view.tsx); flip to true to bring it back.
+  exploreQuickViewShown: false,
 } as const;

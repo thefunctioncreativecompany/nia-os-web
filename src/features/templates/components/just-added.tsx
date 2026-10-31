@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { NewMarker, dayLabel } from "@/components/nia/new-marker";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { grainFor, type GalleryTemplate } from "@/features/templates/gallery";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
@@ -41,7 +40,6 @@ export function JustAdded({
                 </span>
               </span>
               <span className="flex flex-1 flex-col gap-1.5 p-4">
-                {t.launched && <NewMarker label={`New · ${dayLabel(t.launched)}`} className="self-start" />}
                 <span className="text-base leading-snug font-bold text-foreground">{t.name}</span>
                 <span className="text-small text-muted-foreground">{t.stage}</span>
                 {t.forYou && <span className="line-clamp-3 text-small leading-normal text-foreground/80">{t.forYou}</span>}

@@ -14,7 +14,6 @@ import { COMING_SOON, works, type GalleryTemplate } from "@/features/templates/g
 import { DocMiniature } from "@/features/templates/components/doc-miniature";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { TemplateValue } from "@/features/templates/components/template-value";
-import { NewMarker, dayLabel } from "@/components/nia/new-marker";
 
 // The template preview pop-up (TEMPLATES_BUILD.md §5, prototype PreviewModal): group and
 // code, title, "Use this template", a miniature of the document (or the workflow map),
@@ -94,7 +93,6 @@ export function PreviewModal({
         <div ref={scroller} className="flex-1 overflow-y-auto">
           <div className="mx-auto max-w-270 px-4 pt-8.5 pb-14 sm:px-9.5">
             <p className="flex flex-wrap items-center gap-2.5 text-micro font-semibold text-muted-foreground">
-              {t.fresh && t.launched && <NewMarker label={`New · added ${dayLabel(t.launched)}`} />}
               {t.group ?? COMING_SOON} · {t.sku}
             </p>
             <DialogTitle className="mt-2.5 mb-4 text-display leading-tight font-semibold tracking-tight text-foreground">{t.name}</DialogTitle>

@@ -220,7 +220,7 @@ Data:
   working ones only, so Templates, Home, search, From Template and "What's next" follow; the
   other 54 stay in the manifest and are built one per session. When one is built, add it to
   `src/features/templates/launches.ts` with the day it goes live and what it does "for you" and
-  "for your team". For 30 days it gets the gold "New" marker (`NewMarker`), leads Templates in
+  "for your team". For 30 days it gets the "New" marker (`NewMarker`; no date beside it since Ika, 2026-10-31), leads Templates in
   "Just added", and is announced once on Home (closing or using it records the code in
   `templates_announced` in the sign-in metadata; no migration). The first nine (2026-10-19) are
   the starting set and never marked new. Every preview shows the for-you and for-your-team lines.
@@ -382,7 +382,9 @@ Data:
   twenty): one scrolling row of compact cards for every new template, newest first, each with
   its name, stage and for-you line; the whole card opens the preview (both value lines and Use
   this template). Home's announcement names three others, then "and N more" to Templates.
-- (2026-10-31) Explore all has a second view (Ika): a quick view at `/explore/all/quick`
+- (2026-10-31) Explore all has a second view (Ika), hidden for now (`features.exploreQuickViewShown`
+  off: no switch on the canvas, `/explore/all/quick` goes to `/explore/all`; the code stays): a
+  quick view at `/explore/all/quick`
   (`LibraryQuickView`): the same library one title at a time at its true shape, with what it is,
   a line about it (study note or summary) and four tags beside it (under it on phones and
   tablets), and Open (its page, or the film pop-up). Swipe or drag left and right, arrow keys or

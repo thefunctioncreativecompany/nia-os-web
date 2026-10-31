@@ -12,6 +12,7 @@ import { useMediaQuery } from "@/hooks/use-pointer";
 import { exploreHome } from "@/features/explore/made-in-africa";
 import { LIBRARY, type LibraryItem } from "@/features/explore/library";
 import type { CategoryItem } from "./explore-data";
+import { features } from "@/lib/features";
 import { ExploreAllViews } from "./explore-all-views";
 import { PressKitPreview } from "./press-kit-preview";
 
@@ -236,7 +237,7 @@ export function LibraryCanvas() {
         <div className="flex items-center gap-2">
           <Ambience />
           <h1 className="sr-only">Explore all</h1>
-          <ExploreAllViews current="canvas" />
+          {features.exploreQuickViewShown && <ExploreAllViews current="canvas" />}
         </div>
       </div>
       <p id="library-help" className="pointer-events-none absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-card/90 px-4 py-2 text-caption text-muted-foreground shadow-card backdrop-blur-sm max-lg:bottom-28">
