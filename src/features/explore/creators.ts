@@ -32,6 +32,9 @@ export type CreatorFilm = {
    * turned embedding off): the page shows its cover and links to Instagram instead of a broken
    * player. `node scripts/check-instagram-embeds.mjs` finds them. */
   embeds?: false;
+  /** Marked sensitive (nudity or similar; Instagram blurs it too): the page covers it with a
+   * sensitive-content screen (Ika, 2026-10-31). */
+  sensitive?: true;
   /** The day it joined Explore (YYYY-MM-DD), for "Recently added on Explore" (recent.ts). */
   added?: string;
   country: string | null;
@@ -792,6 +795,7 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
   {
     code: "DanlAPOSE7g",
     embeds: false,
+    sensitive: true,
     aspect: 4 / 3,
     title: "No Scene Girls: the strap bodysuit",
     type: "Fashion Film",

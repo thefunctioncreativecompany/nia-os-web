@@ -414,6 +414,11 @@ Data:
   invitation and auth emails have a Nia Blue button and neutral greys. For Ika: paste the
   updated `supabase/email-templates/confirm-signup.html` and `reset-password.html` into
   Supabase → Authentication → Emails (Source view).
+- (2026-10-31) Creator films Instagram won't play (Ika): `embeds: false` in `creators.ts` shows the
+  cover with Watch on Instagram instead of Instagram's "may be broken" player (No Scene Girls'
+  strap bodysuit, `Deub31ivOv-`); `sensitive: true` adds a sensitive-content screen (blurred
+  cover, "Sensitive content", why). `node scripts/check-instagram-embeds.mjs` tests every
+  film's player; run it when adding creator films.
 - (2026-10-31) Explore Feed (Ika), hidden for now (`features.exploreFeedShown` off: no tabs on
   Explore, `/explore/feed` goes to Explore; the code stays): `/explore/feed`, beside Library in Explore's tabs
   (`ExploreTabs`, gold underline), built from the approved prototype (the dev prototype is

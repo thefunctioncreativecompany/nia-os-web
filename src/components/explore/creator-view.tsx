@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { ArrowUpRight, Play } from "lucide-react";
+import { ArrowUpRight, EyeOff, Play } from "lucide-react";
+
+import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
 import { ScrollRow } from "@/components/nia/scroll-row";
@@ -103,7 +105,15 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
                 aria-label={`Watch ${film.title} on Instagram`}
                 className="group absolute inset-0 flex items-end justify-center pb-6 outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset"
               >
-                <Image src={creatorImage(film)} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" quality={90} className="object-cover" />
+                <Image src={creatorImage(film)} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" quality={90} className={cn("object-cover", film.sensitive && "scale-110 blur-2xl")} />
+                {film.sensitive && (
+                  // A sensitive-content screen (Ika, 2026-10-31): the picture stays blurred here.
+                  <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-black/55 px-6 text-center text-white">
+                    <EyeOff aria-hidden className="size-7" />
+                    <span className="text-lead font-bold">Sensitive content</span>
+                    <span className="max-w-xs text-small text-white/80">This film may show nudity or other sensitive material. Instagram plays it on its own site only.</span>
+                  </span>
+                )}
                 <span className="relative flex items-center gap-2 rounded-full bg-card/90 px-5 py-3 text-sm font-bold text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
                   Watch on Instagram <ArrowUpRight aria-hidden className="size-4" />
                 </span>
