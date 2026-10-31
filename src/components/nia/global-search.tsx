@@ -3,9 +3,10 @@
 import { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Clapperboard, Compass, FileAudio, FileImage, FileText, FileVideo, LayoutTemplate, type LucideIcon } from "lucide-react";
+import { Clapperboard, Compass, FileAudio, FileImage, FileText, FileVideo, Hash, History, LayoutTemplate, Search, X, type LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { completions, correctQuery, matchesAll, norm, recentSearches, rememberSearch, vocabularyOf, wordsOf } from "@/lib/search";
 import { timeAgo } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ import { DocMiniature } from "@/features/templates/components/doc-miniature";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { loadTemplateIndex, loadTemplatePreview, type TemplatePreview } from "@/features/templates/actions";
 import { LIBRARY } from "@/features/explore/library";
+import { ALL_TAGS, tagLabel, tagsFor } from "@/features/explore/tags";
 import { exploreAccess } from "@/features/explore/saves";
 
 type Kind = "project" | "document" | "file" | "template" | "explore";
@@ -35,6 +37,8 @@ type Result = {
   file?: { kind: "image" | "document" | "audio" | "video"; path: string; thumb: string | null; tag: string | null; size: number };
   template?: { code: string; icon: string; ready: boolean };
   explore?: { image: string | null; aspect?: number };
+  /** Explore's tags (tags.ts), for searching by tag. */
+  tags?: string[];
 };
 
 const GROUPS: { kind: Kind; label: string; Icon: LucideIcon }[] = [
@@ -53,15 +57,13 @@ const MAX = 60;
 // The lists are kept for a couple of minutes, so reopening search is instant.
 const FRESH_MS = 2 * 60 * 1000;
 
-const norm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 const size = (bytes: number) => (bytes >= 1e6 ? `${(bytes / 1e6).toFixed(1)} MB` : `${Math.max(1, Math.round(bytes / 1e3))} KB`);
 
-// Every word typed must appear; a title that starts with the words, or has a word starting with
-// one, ranks first.
+// Every word typed must appear (in the title, details, keywords or tags); a title that starts
+// with the words, or has a word starting with one, ranks first.
 function score(r: Result, words: string[]) {
   const title = norm(r.title);
-  const all = `${title} ${norm(r.meta)} ${norm(r.words)}`;
-  if (!words.every((w) => all.includes(w))) return 0;
+  if (!matchesAll(`${r.title} ${r.meta} ${r.words}`, words)) return 0;
   const phrase = words.join(" ");
   if (title.startsWith(phrase)) return 4;
   if (title.split(/\s+/).some((t) => t.startsWith(words[0]))) return 3;
@@ -134,13 +136,23 @@ async function load(): Promise<Result[]> {
     // Explore's titles with a page of their own, for people with early access.
     ...(explore
       ? LIBRARY.flatMap((i): Result[] =>
-          i.open.kind === "page" ? [{ key: `e:${i.key}`, kind: "explore", title: i.title, meta: i.credit, words: "", href: i.open.href, explore: { image: i.image, aspect: i.aspect } }] : [],
+          i.open.kind === "page" ? [exploreResult(i.key, i.title, i.credit, i.open.href, { image: i.image, aspect: i.aspect })] : [],
         )
       : []),
   ];
   cache = { at: Date.now(), results };
   return results;
 }
+
+// An Explore title's tags are words that find it, and can be searched on their own.
+function exploreResult(key: string, title: string, meta: string, href: string, explore: Result["explore"]): Result {
+  const slug = key.startsWith("t:") ? key.slice(2) : key.startsWith("c:") ? `creator-${key.slice(2)}` : key;
+  const tags = tagsFor(slug);
+  return { key: `e:${key}`, kind: "explore", title, meta, words: tags.map(tagLabel).join(" "), href, explore, tags };
+}
+
+// Searches people in production make often: offered while nothing is typed.
+const POPULAR = ["Call sheet", "Production budget", "Shotlist", "Invoice", "Natural light", "Music video"];
 
 /** Forgets the lists, so the next search reads them again (after a project is made or renamed). */
 export function refreshSearch() {
@@ -149,6 +161,9 @@ export function refreshSearch() {
 
 // Global search on desktop (Ika, 2026-10-23): one field for everything in Nia, results grouped by
 // what they are, a filter per group with its count, and a live preview of the result in focus.
+// Since 2026-10-31 (Ika): Explore's tags find titles and can be searched on their own, misspelt
+// words are corrected to ones that exist (src/lib/search.ts), and suggested searches show while
+// nothing is typed (recent on this device, then popular) and as completions while typing.
 // Opened from the navbar's search or ⌘K / Ctrl K. Loads on first open (this file is its own
 // download), keeps the lists for two minutes, and filters in memory as you type; previews fetch
 // only what they show (a file's picture, a template's miniature), once.
@@ -159,6 +174,12 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("all");
   const [activeKey, setActiveKey] = useState<string | null>(null);
+  // Searching by one of Explore's tags; and "search for what I typed" after a correction.
+  const [tag, setTag] = useState<string | null>(null);
+  const [exact, setExact] = useState(false);
+  // Read when the window opens (this file only loads in the browser, on first open).
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const recent = useMemo(() => (open ? recentSearches() : []), [open]);
   const deferred = useDeferredValue(query);
   const list = useRef<HTMLDivElement>(null);
   const [now, setNow] = useState(0);
@@ -176,36 +197,65 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
     };
   }, [open]);
 
-  const words = norm(deferred.trim()).split(/\s+/).filter(Boolean);
-  const { groups, counts } = useMemo(() => {
-    const counts: Record<Kind, number> = { project: 0, document: 0, file: 0, template: 0, explore: 0 };
-    const byKind = new Map<Kind, { r: Result; s: number }[]>();
-    for (const r of results ?? []) {
-      // With nothing typed, every result counts; All lists the recent projects, documents and
-      // files, and a group's own filter lists everything in it.
-      const s = words.length ? score(r, words) : 1;
-      if (!s) continue;
-      counts[r.kind] += 1;
-      if (!words.length && filter === "all" && !r.at) continue;
-      byKind.set(r.kind, [...(byKind.get(r.kind) ?? []), { r, s }]);
+  // Every word in what can be found, to correct typing against.
+  const vocab = useMemo(() => vocabularyOf((results ?? []).flatMap((r) => [r.title, r.meta, r.words])), [results]);
+  const typed = wordsOf(deferred);
+  const { groups, counts, words, corrected } = useMemo(() => {
+    const find = (words: string[]) => {
+      const counts: Record<Kind, number> = { project: 0, document: 0, file: 0, template: 0, explore: 0 };
+      const byKind = new Map<Kind, { r: Result; s: number }[]>();
+      for (const r of results ?? []) {
+        if (tag && !r.tags?.includes(tag)) continue;
+        // With nothing typed, every result counts; All lists the recent projects, documents and
+        // files (or everything with the tag), and a group's own filter lists everything in it.
+        const s = words.length ? score(r, words) : 1;
+        if (!s) continue;
+        counts[r.kind] += 1;
+        if (!words.length && filter === "all" && !r.at && !tag) continue;
+        byKind.set(r.kind, [...(byKind.get(r.kind) ?? []), { r, s }]);
+      }
+      const groups = GROUPS.filter((g) => filter === "all" || g.kind === filter).flatMap((g) => {
+        const items = (byKind.get(g.kind) ?? [])
+          .toSorted((a, b) => b.s - a.s)
+          .slice(0, filter === "all" ? PER_GROUP : MAX)
+          .map((x) => x.r);
+        return items.length ? [{ ...g, items }] : [];
+      });
+      return { groups, counts, total: Object.values(counts).reduce((a, b) => a + b, 0) };
+    };
+    const first = find(typed);
+    // Nothing found: try the words corrected to ones that exist, unless they asked for theirs.
+    if (typed.length && !first.total && !exact) {
+      const fixed = correctQuery(deferred, vocab);
+      const second = fixed ? find(wordsOf(fixed)) : null;
+      if (fixed && second?.total) return { ...second, words: wordsOf(fixed), corrected: fixed };
     }
-    const groups = GROUPS.filter((g) => filter === "all" || g.kind === filter).flatMap((g) => {
-      const items = (byKind.get(g.kind) ?? [])
-        .toSorted((a, b) => b.s - a.s)
-        .slice(0, filter === "all" ? PER_GROUP : MAX)
-        .map((x) => x.r);
-      return items.length ? [{ ...g, items }] : [];
-    });
-    return { groups, counts };
-    // `words` comes from `deferred`.
+    return { ...first, words: typed, corrected: null };
+    // `typed` comes from `deferred`.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [results, deferred, filter]);
+  }, [results, deferred, filter, tag, exact, vocab]);
   const hasExplore = (results ?? []).some((r) => r.kind === "explore");
+
+  // Suggested searches: recent and popular ones while nothing is typed; then completions of what's
+  // typed, and Explore's tags that match it.
+  const suggestions = useMemo(() => {
+    if (!typed.length) {
+      const popular = POPULAR.filter((p) => !recent.some((r) => norm(r) === norm(p)));
+      return [...recent.map((text) => ({ text, kind: "recent" as const })), ...popular.map((text) => ({ text, kind: "popular" as const }))].slice(0, 8);
+    }
+    const titles = completions(deferred, (results ?? []).map((r) => r.title), 3).map((text) => ({ text, kind: "complete" as const }));
+    const tags = hasExplore ? completions(deferred, ALL_TAGS.map(tagLabel), 4).map((text) => ({ text, kind: "tag" as const })) : [];
+    return [...tags, ...titles];
+    // `typed` comes from `deferred`.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deferred, results, recent, hasExplore]);
+  const tagIdOf = (label: string) => ALL_TAGS.find((id) => tagLabel(id) === label) ?? null;
 
   const flat = groups.flatMap((g) => g.items);
   const active = flat.find((r) => r.key === activeKey) ?? flat[0] ?? null;
 
   const go = (r: Result) => {
+    if (query.trim()) rememberSearch(corrected ?? query);
     onOpenChange(false);
     router.push(r.href);
   };
@@ -226,6 +276,8 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
           setQuery("");
           setFilter("all");
           setActiveKey(null);
+          setTag(null);
+          setExact(false);
         }
       }}
     >
@@ -241,6 +293,7 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
             onChange={(e) => {
               setQuery(e.target.value);
               setActiveKey(null);
+              setExact(false);
             }}
             onKeyDown={(e) => {
               const step = e.key === "ArrowDown" ? 1 : e.key === "ArrowUp" ? -1 : 0;
@@ -268,11 +321,53 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
                 {g.label}
               </FilterChip>
             ))}
+            {tag && (
+              <FilterChip on onClick={() => (setTag(null), setActiveKey(null))} aria-label={`Stop searching by the ${tagLabel(tag)} tag`}>
+                <Hash aria-hidden className="size-3.5" />
+                {tagLabel(tag)}
+                <X aria-hidden className="size-3.5" />
+              </FilterChip>
+            )}
           </div>
+          {suggestions.length > 0 && (
+            <div role="group" aria-label={typed.length ? "Suggestions" : "Suggested searches"} className="-mt-1 flex flex-wrap items-center gap-x-4 gap-y-1.5">
+              {suggestions.map((x) => {
+                const Icon = x.kind === "recent" ? History : x.kind === "tag" ? Hash : Search;
+                return (
+                  <button
+                    key={`${x.kind}:${x.text}`}
+                    type="button"
+                    onClick={() => {
+                      const id = x.kind === "tag" ? tagIdOf(x.text) : null;
+                      if (id) {
+                        setTag(id);
+                        setQuery("");
+                        setFilter("all");
+                      } else setQuery(x.text);
+                      setActiveKey(null);
+                      setExact(false);
+                    }}
+                    className="flex items-center gap-1.5 rounded-sm text-small text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+                  >
+                    <Icon aria-hidden className="size-3.5" />
+                    {x.kind === "tag" ? `Tag: ${x.text}` : x.text}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         <div className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
           <div ref={list} id={listId} role="listbox" aria-label="Results" className="min-h-0 overflow-y-auto p-3">
+            {corrected && (
+              <p className="px-3 pt-1 pb-2 text-small text-muted-foreground">
+                Showing results for <span className="font-semibold text-foreground">{corrected}</span>.{" "}
+                <button type="button" onClick={() => setExact(true)} className="rounded-sm font-semibold underline underline-offset-2 outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
+                  Search for &ldquo;{deferred.trim()}&rdquo; instead
+                </button>
+              </p>
+            )}
             {!results ? (
               <div className="flex flex-col gap-2 p-2">
                 {Array.from({ length: 6 }, (_, i) => (
@@ -286,7 +381,7 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
             ) : (
               groups.map((g) => (
                 <div key={g.kind} role="group" aria-label={g.label} className="mb-3 flex flex-col">
-                  <p className="px-3 pt-2 pb-1.5 text-caption text-muted-foreground">{words.length || filter !== "all" ? g.label : `Recent ${g.label.toLowerCase()}`}</p>
+                  <p className="px-3 pt-2 pb-1.5 text-caption text-muted-foreground">{words.length || filter !== "all" || tag ? g.label : `Recent ${g.label.toLowerCase()}`}</p>
                   {g.items.map((r) => {
                     const on = r.key === active?.key;
                     const Icon = r.file ? FILE_ICONS[r.file.kind] : g.Icon;

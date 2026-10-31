@@ -211,6 +211,13 @@ Data:
   (cover, document or template miniature, file picture). Its own download, fetched on hover or
   focus; lists kept two minutes; previews fetch once each. Phones and tablets keep the field.
   Not in Figma yet.
+- (2026-10-31) Search (Ika): tag search, autocorrect and suggested searches in global search
+  (`src/lib/search.ts`, tested): Explore titles are found by their tags and a tag can be
+  searched on its own (a `#` chip); when nothing matches, misspelt words are corrected to words
+  that exist in the person's projects, documents, files, templates and Explore ("Showing results
+  for … · Search for … instead"); with nothing typed, recent searches on this device
+  (localStorage) then popular ones; while typing, matching tags and title completions. Not in
+  Figma yet.
 - (2026-10-23) New project form: the heading shows the name as it's typed; Instagram links can be
   added there and become references when the project is created. More genres (free text) and
   production types (database rule: needs `20261105010000_more_production_types.sql` before the
