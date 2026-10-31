@@ -942,3 +942,126 @@
     50% { box-shadow: 0 0 0 6px color-mix(in oklab, var(--status-pending-foreground) 0%, transparent); }
   }
 }
+
+/* ══ Carousel ═══════════════════════════════════════════════
+   Bencho's Carousel (src/components/nia/carousel.tsx), MIT. A row of cards that drift at rest,
+   give under the pointer, and can be thrown. Three motions on three nested elements, one
+   transform each — see the note in Carousel.tsx for why they cannot share a node.
+
+   Nia: Bencho's design tokens, mapped onto ours and set on the component's own root so nothing
+   leaks out: --bg is the page background, --font-ui Geist, and --ink-rgb / --shadow-rgb are
+   Obsidian as three bare numbers (the CSS builds rgba() from them). --lift and --sway are set
+   per card by the component. The drift loops: allowed because the carousel lives in Explore
+   (Ika, 2026-10-20: Explore's motion overrides the no-loops rule), and it stops under reduced
+   motion. */
+.car {
+  --bg: var(--background);
+  --font-ui: var(--font-sans);
+  --ink-rgb: 10, 9, 8;
+  --shadow-rgb: 10, 9, 8;
+  position: relative;
+  font-family: var(--font-ui);}
+
+/* ── the frame is only a frame ─────────────────────────────
+   No background, no clip, no mask. This was a box that cut
+   the cards at its edges, and before that a mask that faded
+   them out there, and both were answers to the question of
+   what happens to a card when it runs out of block. The cards
+   are on a ring now and never reach an edge, so the question
+   is gone and so is everything that was answering it.
+
+   Which also means nothing here forces `transform-style:
+   flat` any more — overflow and mask both did, and both were
+   safe only because the perspective sits two levels down on
+   `.car-float`. It no longer has to be. */
+.car-track {
+  position: absolute;
+  inset: 0;
+  touch-action: pan-y;
+  cursor: grab;}
+
+.car-track[data-held="true"] {
+  cursor: grabbing;}
+
+.car-track:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px rgba(var(--ink-rgb), 0.4);}
+
+/* the slot holds WHERE on the ring and the card's own resting
+   ANGLE, written per frame by the component — so it carries no
+   transition of its own, or the easing and the drag would
+   re-interpolate against each other and what you would see is
+   the transition rather than the finger */
+.car-slot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;}
+
+/* ── the drift ──────────────────────────────────────────────
+   Keyframes rather than a loop: a rAF per card would be a
+   permanent loop for motion nobody is watching, and a wall
+   holding several of these blocks would run a dozen. This
+   runs on the compositor and pauses itself when the tab
+   hides. The period is set per card and deliberately does not
+   divide into its neighbours' — that is what stops the row
+   breathing in unison.
+
+   The perspective lives HERE, not on the track: on the track
+   a card at the edge of the row would tilt toward the middle
+   of the stage rather than toward the finger on it. Each card
+   is its own object being touched and wants its own vanishing
+   point. */
+.car-float {
+  width: 100%;
+  height: 100%;
+  perspective: 760px;
+  animation: car-bob 5s ease-in-out infinite;}
+
+.car-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  /* no transition: the tilt is sprung in the component, and a
+     transition on top would be a second opinion about how this
+     card settles */}
+
+.car-sheen {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;}
+
+/* Nia: a card's words over the bottom of its picture, on a dark fade so they read on any image. */
+.car-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 2.5rem 0.875rem 0.875rem;
+  background: linear-gradient(to top, rgba(var(--ink-rgb), 0.82), rgba(var(--ink-rgb), 0));
+  color: var(--background);
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 700;
+  line-height: 1.3;
+  pointer-events: none;}
+
+.car-caption-detail {
+  font-size: var(--text-micro);
+  font-weight: 500;
+  opacity: 0.85;}
+
+@media (prefers-reduced-motion: reduce) {
+  .car-float { animation: none; }
+}
+
+@keyframes car-bob {
+  0%, 100% {
+    transform: translateY(calc(var(--lift, 4px) * -1)) rotate(calc(var(--sway, 1deg) * -1));
+  }
+  50% {
+    transform: translateY(var(--lift, 4px)) rotate(var(--sway, 1deg));
+  }}
