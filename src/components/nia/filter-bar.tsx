@@ -44,6 +44,18 @@ export function SearchField({
   );
 }
 
+/** A row of chips or menus: one line to swipe sideways on phones and tablets (Ika, 2026-10-31:
+ * wrapped, they took three to six lines before anything to look at), wrapping on wide screens.
+ * The padding keeps focus rings inside the scroll area. */
+export function ChipRow({ className, ...div }: ComponentProps<"div">) {
+  return (
+    <div
+      {...div}
+      className={cn("-my-1 flex min-w-0 items-center gap-2 overflow-x-auto py-1 [scrollbar-width:none] lg:flex-wrap lg:overflow-visible", className)}
+    />
+  );
+}
+
 /** A chip's look: `on` when it narrows what's shown. */
 export const chipClass = (on: boolean) =>
   cn(
@@ -177,7 +189,7 @@ export function RangeChip({
 /** How many match, at the end of a filter bar; read out when it changes. */
 export function ResultCount({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <span aria-live="polite" className={cn("text-small text-muted-foreground", className)}>
+    <span aria-live="polite" className={cn("shrink-0 text-small whitespace-nowrap text-muted-foreground", className)}>
       {children}
     </span>
   );

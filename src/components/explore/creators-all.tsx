@@ -6,7 +6,7 @@ import { Clapperboard, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/nia/empty-state";
-import { ChipMenu, FilterChip, RangeChip, ResultCount, SearchField, type YearRange } from "@/components/nia/filter-bar";
+import { ChipMenu, FilterChip, RangeChip, ResultCount, SearchField, type YearRange, ChipRow } from "@/components/nia/filter-bar";
 import { CREATORS, creatorFilms, creatorYear, type CreatorFilm } from "@/features/explore/creators";
 import { exploreItem } from "@/features/explore/items";
 import { exploreHome } from "@/features/explore/made-in-africa";
@@ -116,7 +116,7 @@ export function CreatorsAll({ seed, tag: initialTag }: { seed: number; tag?: str
           onChange={(e) => setQuery(e.target.value)}
           className="max-w-150"
         />
-        <div role="group" aria-label="Types" className="flex flex-wrap gap-2">
+        <ChipRow role="group" aria-label="Types">
           <FilterChip on={type === ALL} count={narrowed.length} onClick={() => setType(ALL)}>
             All
           </FilterChip>
@@ -125,8 +125,8 @@ export function CreatorsAll({ seed, tag: initialTag }: { seed: number; tag?: str
               {t}
             </FilterChip>
           ))}
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
+        </ChipRow>
+        <ChipRow>
           {tag && (
             <FilterChip on onClick={() => setTag(null)} aria-label={`Remove the ${tagLabel(tag)} tag`}>
               {tagLabel(tag)} <X aria-hidden className="size-3.5" />
@@ -144,7 +144,7 @@ export function CreatorsAll({ seed, tag: initialTag }: { seed: number; tag?: str
             {found.length} {found.length === 1 ? "film" : "films"}
           </ResultCount>
           <ChipMenu label="Sort" value={sort} align="end" options={(Object.keys(SORTS) as Sort[]).map((key) => ({ value: key, label: SORTS[key] }))} onChange={chooseSort} />
-        </div>
+        </ChipRow>
         {sort === "recent" && recent?.length === 0 && <p className="text-sm text-muted-foreground">Nothing viewed yet. Films you open will show here first.</p>}
         {sort === "forYou" && forYou.taste?.size === 0 && <p className="text-sm text-muted-foreground">Open, save or add films to a project and they&rsquo;ll shape this order.</p>}
       </div>

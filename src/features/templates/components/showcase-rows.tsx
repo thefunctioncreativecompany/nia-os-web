@@ -9,7 +9,8 @@ import { TemplateCard } from "@/features/templates/components/template-card";
 type Preview = (template: GalleryTemplate, list: GalleryTemplate[], viaHover?: boolean) => void;
 
 // Phones (Ika, after Apple Music): the templates suggested for this person as a row of large
-// cards, slightly smaller than desktop's, with the next one peeking in.
+// cards, about two thirds of the screen wide, with the next one peeking in (Ika, 2026-10-31: they
+// were tall empty boxes at 78%).
 export function SuggestedRow({
   templates,
   profile,
@@ -31,9 +32,9 @@ export function SuggestedRow({
       <div className="flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 [scrollbar-width:none]">
         {ready
           ? suggested.map((t) => (
-              <TemplateCard key={t.code} template={t} size="small" onPreview={(x) => onPreview(x, suggested)} onUse={onUse} className="w-[78%] max-w-none" />
+              <TemplateCard key={t.code} template={t} size="small" onPreview={(x) => onPreview(x, suggested)} onUse={onUse} className="w-[64%] max-w-none sm:w-[46%]" />
             ))
-          : Array.from({ length: 2 }, (_, i) => <Skeleton key={i} className="aspect-[16/11] w-[78%] shrink-0 rounded-xl" />)}
+          : Array.from({ length: 2 }, (_, i) => <Skeleton key={i} className="aspect-[16/11] w-[64%] shrink-0 rounded-xl sm:w-[46%]" />)}
       </div>
     </section>
   );

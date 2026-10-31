@@ -6,7 +6,7 @@ import { FolderSearch } from "lucide-react";
 import { GENRES, PRODUCTION_TYPES, STAGES, type Project } from "@/lib/projects";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/nia/empty-state";
-import { ChipMenu, FilterChip, ResultCount, SearchField } from "@/components/nia/filter-bar";
+import { ChipMenu, FilterChip, ResultCount, SearchField, ChipRow } from "@/components/nia/filter-bar";
 import { ProjectGrid } from "@/components/projects/project-grid";
 import { SharedProjects, type LinkShared } from "@/components/projects/shared-projects";
 
@@ -87,7 +87,7 @@ export function ProjectsBrowser({
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-4">
         <SearchField label="Search projects" placeholder="Search titles, clients, crew, genres..." value={query} onChange={(e) => setQuery(e.target.value)} className="max-w-150" />
-        <div role="group" aria-label="Stage" className="flex flex-wrap gap-2">
+        <ChipRow role="group" aria-label="Stage">
           <FilterChip on={stage === ALL} onClick={() => setStage(ALL)}>
             All stages
           </FilterChip>
@@ -96,8 +96,8 @@ export function ProjectsBrowser({
               {s}
             </FilterChip>
           ))}
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
+        </ChipRow>
+        <ChipRow>
           {types.length > 0 && <ChipMenu label="Type" value={type} defaultValue={ALL} options={[all("All"), ...types.map((t) => ({ value: t, label: t }))]} onChange={setType} />}
           {genres.length > 0 && <ChipMenu label="Genre" value={genre} defaultValue={ALL} options={[all("All"), ...genres.map((g) => ({ value: g, label: g }))]} onChange={setGenre} />}
           {narrowed && (
@@ -110,7 +110,7 @@ export function ProjectsBrowser({
             {shown} {shown === 1 ? "project" : "projects"}
           </ResultCount>
           <ChipMenu label="Sort" value={sort} align="end" options={(Object.keys(SORTS) as Sort[]).map((key) => ({ value: key, label: SORTS[key] }))} onChange={setSort} />
-        </div>
+        </ChipRow>
       </div>
 
       {narrowed && shown === 0 ? (

@@ -18,7 +18,7 @@ import { CategorySections } from "@/features/templates/components/category-secti
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
 import { MyDrafts } from "@/features/templates/components/my-drafts";
 import { JustAdded } from "@/features/templates/components/just-added";
-import { FilterChip } from "@/components/nia/filter-bar";
+import { FilterChip, ChipRow } from "@/components/nia/filter-bar";
 
 const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1fr))] gap-3.5";
 
@@ -114,10 +114,11 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
           onPick={(t) => openPreview(t, rankTemplates(query, templates, familyLabels).map((r) => r.template))}
         />
 
-        <div className="flex flex-wrap items-center justify-between gap-3.5">
+        {/* The arrows stay beside the chips: the chips scroll on phones and tablets, wrap on wide screens. */}
+        <div className="flex items-center justify-between gap-3.5 lg:flex-wrap">
           <FilterChips templates={templates} filter={filter} onChange={setFilter} />
           {!results && (
-            <div className="flex items-center gap-2 max-md:hidden">
+            <div className="flex shrink-0 items-center gap-2 max-md:hidden">
               <Button variant="outline" size="icon-sm" aria-label="Previous templates" onClick={() => nudge(-1)}><ChevronLeft /></Button>
               <Button variant="outline" size="icon-sm" aria-label="Next templates" onClick={() => nudge(1)}><ChevronRight /></Button>
             </div>
@@ -254,12 +255,12 @@ function PreviewFromAddress({
 
 function FilterChips({ templates, filter, onChange }: { templates: GalleryTemplate[]; filter: Filter; onChange: (next: Filter) => void }) {
   return (
-    <div role="group" aria-label="Filter templates" className="flex flex-wrap gap-2">
+    <ChipRow role="group" aria-label="Filter templates">
       {FILTERS.map((f) => (
         <FilterChip key={f} on={filter === f} onClick={() => onChange(f)} count={templates.filter((t) => inFilter(t, f)).length}>
           {f}
         </FilterChip>
       ))}
-    </div>
+    </ChipRow>
   );
 }

@@ -13,7 +13,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/nia/empty-state";
-import { FilterChip, ResultCount } from "@/components/nia/filter-bar";
+import { FilterChip, ResultCount, ChipRow } from "@/components/nia/filter-bar";
 
 type Kind = "projects" | "documents" | "files" | "sharing";
 
@@ -192,7 +192,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
       ) : (
         <>
           <div className="mt-7 flex flex-wrap items-center justify-between gap-3">
-            <div role="group" aria-label="Filter by kind" className="flex flex-wrap items-center gap-2">
+            <ChipRow role="group" aria-label="Filter by kind">
               {KINDS.map((kind) => {
                 const on = filters.includes(kind.id);
                 return (
@@ -209,7 +209,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
                   Show all
                 </button>
               )}
-            </div>
+            </ChipRow>
             <ResultCount>{filters.length ? `${visible.length} of ${entries.length} updates` : `${entries.length} updates`}</ResultCount>
           </div>
 

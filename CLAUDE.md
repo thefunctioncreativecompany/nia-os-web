@@ -50,7 +50,8 @@ Design:
   focus rings and keyboard behaviour.
 - Search and filters everywhere use Marketplace's look (Ika, 2026-10-20), from
   `src/components/nia/filter-bar.tsx`: `SearchField` (56px pill), `FilterChip` (40px pill; on = dark
-  border, grey fill; optional count), `ChipMenu` ("Category: All ▾"), `ResultCount`.
+  border, grey fill; optional count), `ChipMenu` ("Category: All ▾"), `ResultCount`; chip and menu rows go in `ChipRow` (one line to swipe on phones and tablets, wrapping on
+  wide screens; Ika, 2026-10-31).
 - Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
   motion. Only modals/panels, the saved tick, cards settling, the card hover sweep, Copilot highlights
   and onboarding slides animate.

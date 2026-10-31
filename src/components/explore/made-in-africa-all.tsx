@@ -6,7 +6,7 @@ import { Clapperboard, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/nia/empty-state";
-import { ChipMenu, FilterChip, RangeChip, ResultCount, SearchField, type YearRange } from "@/components/nia/filter-bar";
+import { ChipMenu, FilterChip, RangeChip, ResultCount, SearchField, type YearRange, ChipRow } from "@/components/nia/filter-bar";
 import { categoryViews, essentialWhy, exploreHome, titleHref, typeName, type CategoryKey, type Entry } from "@/features/explore/made-in-africa";
 import { recentFirst, recentViews } from "@/features/explore/views";
 import { tasteScore } from "@/features/explore/match";
@@ -133,7 +133,7 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
           onChange={(e) => setQuery(e.target.value)}
           className="max-w-150"
         />
-        <div role="group" aria-label="Collections" className="flex flex-wrap gap-2">
+        <ChipRow role="group" aria-label="Collections">
           <FilterChip on={collection === ALL} count={narrowed.length} onClick={() => setCollection(ALL)}>
             All
           </FilterChip>
@@ -142,8 +142,8 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
               {c.name}
             </FilterChip>
           ))}
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
+        </ChipRow>
+        <ChipRow>
           {hasEssentials && (
             <FilterChip on={essentials} onClick={() => setEssentials((on) => !on)} count={view.entries.filter((e) => essentialWhy.has(e.title.slug)).length}>
               Essentials
@@ -168,7 +168,7 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
             {found.length} {found.length === 1 ? "title" : "titles"}
           </ResultCount>
           <ChipMenu label="Sort" value={sort} align="end" options={(Object.keys(SORTS) as Sort[]).map((key) => ({ value: key, label: SORTS[key] }))} onChange={chooseSort} />
-        </div>
+        </ChipRow>
         {sort === "recent" && recent?.length === 0 && <p className="text-sm text-muted-foreground">Nothing viewed yet. Titles you open will show here first.</p>}
         {sort === "forYou" && forYou.taste?.size === 0 && <p className="text-sm text-muted-foreground">Open, save or add titles to a project and they&rsquo;ll shape this order.</p>}
       </div>
