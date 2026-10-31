@@ -94,6 +94,20 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
                 className="absolute inset-x-0 -top-13.5 h-[calc(100%+--spacing(13.5)+--spacing(60))] w-full bg-foreground"
                 style={letterbox(film)}
               />
+            ) : film.embeds === false ? (
+              // Instagram won't play this post on other sites, so the cover links to it there.
+              <a
+                href={instagramUrl(film)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Watch ${film.title} on Instagram`}
+                className="group absolute inset-0 flex items-end justify-center pb-6 outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset"
+              >
+                <Image src={creatorImage(film)} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" quality={90} className="object-cover" />
+                <span className="relative flex items-center gap-2 rounded-full bg-card/90 px-5 py-3 text-sm font-bold text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
+                  Watch on Instagram <ArrowUpRight aria-hidden className="size-4" />
+                </span>
+              </a>
             ) : (
               <button
                 type="button"
@@ -109,7 +123,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
             )}
           </div>
           <p className="-mt-3 text-caption text-muted-foreground">
-            Plays from Instagram, posted by{" "}
+            {film.embeds === false ? "On Instagram" : "Plays from Instagram"}, posted by{" "}
             <a href={profileUrl(film.account)} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
               @{film.account}
             </a>

@@ -28,6 +28,10 @@ export type CreatorFilm = {
   frame?: number;
   /** When it was posted. */
   date: string;
+  /** False when Instagram's player won't show the post on other sites (removed, or the owner
+   * turned embedding off): the page shows its cover and links to Instagram instead of a broken
+   * player. `node scripts/check-instagram-embeds.mjs` finds them. */
+  embeds?: false;
   /** The day it joined Explore (YYYY-MM-DD), for "Recently added on Explore" (recent.ts). */
   added?: string;
   country: string | null;
@@ -787,6 +791,7 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
   },
   {
     code: "DanlAPOSE7g",
+    embeds: false,
     aspect: 4 / 3,
     title: "No Scene Girls: the strap bodysuit",
     type: "Fashion Film",
@@ -1233,6 +1238,7 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
   },
   {
     code: "Deub31ivOv-",
+    embeds: false,
     aspect: 9 / 16,
     title: "Whop: “What did you do last summer?”",
     type: "Branded Content",
