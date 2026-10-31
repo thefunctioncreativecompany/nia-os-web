@@ -25,7 +25,7 @@ export function SegmentedControl({
 }) {
   return (
     <Tabs value={value} onValueChange={onChange} className={className}>
-      <TabsList aria-label={label} className="h-10 w-full rounded-lg border border-border bg-white p-1">
+      <TabsList aria-label={label} className="h-10 w-full rounded-lg border border-border bg-card p-1">
         {segments.map((segment) => (
           <TabsTrigger
             key={segment.value}
@@ -38,7 +38,7 @@ export function SegmentedControl({
                 className={cn(
                   "min-w-5 rounded-full px-1.5 text-tiny leading-4 font-bold",
                   segment.alert
-                    ? "bg-chart-3 text-white"
+                    ? "bg-chart-3 text-primary-foreground"
                     : "bg-muted text-foreground group-data-active/segment:bg-white/25 group-data-active/segment:text-primary-foreground",
                 )}
               >

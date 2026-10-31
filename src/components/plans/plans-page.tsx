@@ -107,7 +107,7 @@ function PlanCard({ plan, billing, current, wanted, onChoose }: { plan: Plan; bi
           : "Billed monthly";
 
   return (
-    <article aria-labelledby={`plan-${plan.id}`} className={cn("flex flex-col gap-5 rounded-2xl border bg-white p-6", current ? "border-foreground" : "border-border")}>
+    <article aria-labelledby={`plan-${plan.id}`} className={cn("flex flex-col gap-5 rounded-2xl border bg-card p-6", current ? "border-foreground" : "border-border")}>
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 id={`plan-${plan.id}`} className="text-lg font-bold text-foreground">{plan.name}</h2>
         {current && <span className="inline-flex h-6 items-center rounded-full border border-foreground px-2.5 text-micro font-semibold text-foreground">Your plan</span>}
@@ -220,7 +220,7 @@ function Comparison({ billing }: { billing: Billing }) {
           <tbody>
             {rows.map((row, i) => (
               <tr key={i} className="border-b border-border last:border-0">
-                <th scope="row" className="sticky left-0 bg-white px-4 py-3 font-medium whitespace-nowrap text-foreground">{row.label}</th>
+                <th scope="row" className="sticky left-0 bg-card px-4 py-3 font-medium whitespace-nowrap text-foreground">{row.label}</th>
                 {PLANS.map((p) => (
                   <td key={p.id} className="px-4 py-3 align-top text-muted-foreground">{row.values(p)}</td>
                 ))}

@@ -385,6 +385,16 @@ Data:
   the side buttons; it goes round from the last title to the first and fetches the next pictures
   ahead. A Canvas · Quick view switch (`ExploreAllViews`) sits on both views; the canvas header
   lost its title count. Not in Figma yet.
+- (2026-10-31) Dark mode (Ika): option A "Obsidian" from the dark-mode canvas in Claude Design
+  (ground `#0A0908`, surfaces `#151311`/`#1F1C19`, lines `#2B2825`, text `#F3F0E9`, muted
+  `#A19C91`, gold lifted to `#B5A272`), as the `.dark` tokens in `globals.css`, status and phase
+  colours included. Matches the device by default for everyone; Settings → General →
+  Appearance (Light, Dark, Match my device) overrides it on that device (localStorage
+  `nia-theme`, no migration). `src/lib/theme.ts`; the root layout's script sets it before the
+  page draws. Fixed whites are now `bg-card` (the same white in light); white text on fills that
+  turn light is `text-background`; the black wordmark and fixed-black icons use `dark:invert`.
+  The PDF preview stays white paper, carousel captions stay dark over pictures. New work: theme
+  colours only, never `bg-white`. Not in Figma yet: reconcile the dark tokens and Appearance.
 
 ## Working notes
 

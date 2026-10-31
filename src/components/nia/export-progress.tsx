@@ -17,7 +17,7 @@ export function ExportProgress({
 }) {
   const done = percent >= 100;
   return (
-    <div className={cn("flex flex-col gap-2.5 rounded-xl border border-border bg-white p-4", className)}>
+    <div className={cn("flex flex-col gap-2.5 rounded-xl border border-border bg-card p-4", className)}>
       <div className="flex items-center justify-between gap-3">
         <span className="min-w-0 truncate text-sm font-bold text-foreground">{name}</span>
         <span aria-live="polite" className="shrink-0 text-small font-bold text-chart-2">

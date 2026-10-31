@@ -12,6 +12,8 @@ import {
 } from "@/lib/settings";
 import { createClient } from "@/lib/supabase/client";
 import { playSound, setSoundsOn, soundsOn, subscribeSounds } from "@/lib/sounds";
+import { setTheme, subscribeTheme, THEME_CHOICES, themeChoice } from "@/lib/theme";
+import { ChoicePills } from "@/components/nia/choice-pills";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -41,6 +43,7 @@ export function GeneralSettingsForm({
   const [isSaving, setIsSaving] = useState(false);
   // Sounds are a choice for this device, so the switch acts at once rather than on Save.
   const sounds = useSyncExternalStore(subscribeSounds, soundsOn, () => true);
+  const theme = useSyncExternalStore(subscribeTheme, themeChoice, () => "system" as const);
   const set = <K extends keyof GeneralSettings>(key: K, value: GeneralSettings[K]) =>
     setSettings((s) => ({ ...s, [key]: value }));
 
@@ -200,6 +203,11 @@ export function GeneralSettingsForm({
               onCheckedChange={(checked) => set("weeklyDigest", checked)}
             />
           </div>
+        </SettingsCard>
+
+        <SettingsCard title="Appearance" className="gap-3">
+          <p className="text-small text-muted-foreground">Light or dark, on this device.</p>
+          <ChoicePills label="Appearance" options={THEME_CHOICES} value={theme} onChange={setTheme} />
         </SettingsCard>
 
         <SettingsCard title="Sound" className="gap-4">

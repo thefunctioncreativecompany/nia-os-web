@@ -30,7 +30,7 @@ export function DocumentPreview({
       <div className="h-96 overflow-auto rounded-xl border border-border bg-nia-panel p-6">
         <div
           aria-live="polite"
-          className="mx-auto aspect-[1/1.29] w-full max-w-sm origin-top bg-white p-6 shadow-elevation-2 transition-transform duration-base"
+          className="mx-auto aspect-[1/1.29] w-full max-w-sm origin-top bg-card p-6 shadow-elevation-2 transition-transform duration-base"
           style={{ transform: `scale(${zoom / 100})` }}
         >
           <span className="sr-only">Page {page} of {pages}.</span>

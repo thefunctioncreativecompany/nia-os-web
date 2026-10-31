@@ -33,7 +33,7 @@ import { WhatsNext } from './whats-next';
 // Toolbar shows only actions that work (Ika, 2026-10-19); Save into a project comes in step 8.
 // The filter-bar pill (FilterChip's look), for the editor's tools.
 const toolPill =
-  'inline-flex h-10 items-center gap-1.5 rounded-full border border-border bg-white px-4 text-sm font-semibold text-foreground outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-45';
+  'inline-flex h-10 items-center gap-1.5 rounded-full border border-border bg-card px-4 text-sm font-semibold text-foreground outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-45';
 
 export function TemplateEditor({
   schema,
@@ -182,7 +182,7 @@ export function TemplateEditor({
             </p>
           )}
           {doc.project ? (
-            <div className="flex flex-col gap-3 rounded-xl border border-border bg-white p-4">
+            <div className="flex flex-col gap-3 rounded-xl border border-border bg-card p-4">
               <div className="flex items-center gap-3">
                 <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-nia-panel">
                   <FolderCheck aria-hidden className="size-4.5" />

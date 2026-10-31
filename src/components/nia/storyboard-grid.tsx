@@ -11,7 +11,7 @@ export function StoryboardGrid({ frames, className }: { frames: StoryboardFrame[
     <ol className={cn("grid grid-cols-2 gap-3 sm:grid-cols-3", className)}>
       {frames.map((frame) => (
         <li key={frame.id} className="flex flex-col gap-1.5">
-          <span className="relative block aspect-video overflow-hidden rounded-md border border-border bg-white">
+          <span className="relative block aspect-video overflow-hidden rounded-md border border-border bg-card">
             <Image src={frame.src} alt={frame.caption} fill sizes="(min-width: 640px) 160px, 45vw" className="object-cover grayscale" />
           </span>
           <span className="text-micro font-bold text-foreground">{frame.code}</span>

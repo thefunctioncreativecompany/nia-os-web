@@ -86,7 +86,7 @@ export function ListGear() {
                   type="button"
                   aria-label={`Remove ${p.name}`}
                   onClick={() => setPhotos((all) => all.filter((x) => x.id !== p.id))}
-                  className="absolute top-2 right-2 grid size-7 place-items-center rounded-full bg-white/90 text-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+                  className="absolute top-2 right-2 grid size-7 place-items-center rounded-full bg-card/90 text-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
                 >
                   <X aria-hidden className="size-3.5" />
                 </button>
@@ -170,7 +170,7 @@ export function ListGear() {
                 onClick={() => toggle(key)}
                 className={cn(
                   "inline-flex h-10 items-center rounded-full border px-4 text-small font-semibold outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
-                  offers[key] ? "border-foreground bg-foreground text-primary-foreground" : "border-border bg-white text-foreground hover:border-ring",
+                  offers[key] ? "border-foreground bg-foreground text-primary-foreground" : "border-border bg-card text-foreground hover:border-ring",
                 )}
               >
                 {label}
@@ -234,7 +234,7 @@ function Field({ id, label, children }: { id: string; label: string; children: R
 // A dollar amount: whole dollars, typed or pasted with commas.
 function Money({ id, value, onChange, placeholder, disabled }: { id: string; value: string; onChange: (v: string) => void; placeholder: string; disabled?: boolean }) {
   return (
-    <div className={cn("flex h-10 items-center gap-1 rounded-md border border-input bg-white px-3 focus-within:ring-3 focus-within:ring-ring/50", disabled && "opacity-50")}>
+    <div className={cn("flex h-10 items-center gap-1 rounded-md border border-input bg-card px-3 focus-within:ring-3 focus-within:ring-ring/50", disabled && "opacity-50")}>
       <span aria-hidden className="text-sm text-muted-foreground">$</span>
       <input
         id={id}

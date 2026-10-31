@@ -16,7 +16,7 @@ export function TemplateValue({ template: t, className }: { template: Pick<Galle
 
 function Value({ icon: Icon, title, children }: { icon: typeof User; title: string; children: string }) {
   return (
-    <div className="rounded-xl border border-border bg-white p-4">
+    <div className="rounded-xl border border-border bg-card p-4">
       <dt className="flex items-center gap-1.5 text-small font-semibold text-muted-foreground">
         <Icon aria-hidden className="size-3.5" />
         {title}

@@ -102,7 +102,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
                 className="group absolute inset-0 flex items-center justify-center outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset"
               >
                 <Image src={creatorImage(film)} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" quality={90} className="object-cover" />
-                <span className="relative flex size-16 items-center justify-center rounded-full bg-white/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
+                <span className="relative flex size-16 items-center justify-center rounded-full bg-card/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
                   <Play aria-hidden className="ml-1 size-6 fill-current" />
                 </span>
               </button>

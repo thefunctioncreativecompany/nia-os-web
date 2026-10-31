@@ -31,7 +31,7 @@ export function WhatsNext({ items, projectId }: { items: NextTemplate[]; project
               {t.ready && <ArrowRight aria-hidden className="size-4 shrink-0 text-muted-foreground transition-transform duration-fast group-hover:translate-x-0.5" />}
             </>
           );
-          const look = 'group flex items-center gap-3 rounded-xl border border-border bg-white p-3 text-left text-foreground outline-none';
+          const look = 'group flex items-center gap-3 rounded-xl border border-border bg-card p-3 text-left text-foreground outline-none';
           return (
             <li key={t.code}>
               {t.ready ? (

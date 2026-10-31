@@ -33,7 +33,7 @@ export function ComingSoonCard({
   return (
     <div
       className={cn(
-        "absolute inset-0 z-[200] m-auto flex h-fit w-[calc(100%-5rem)] max-w-118 animate-explore-rise flex-col items-center gap-2.5 rounded-2xl border border-border bg-white/85 px-4 pt-4 pb-4 text-center shadow-card-hover backdrop-blur-lg sm:w-[calc(100%-2.5rem)] sm:gap-4 sm:px-9 sm:pt-9 sm:pb-8",
+        "absolute inset-0 z-[200] m-auto flex h-fit w-[calc(100%-5rem)] max-w-118 animate-explore-rise flex-col items-center gap-2.5 rounded-2xl border border-border bg-card/85 px-4 pt-4 pb-4 text-center shadow-card-hover backdrop-blur-lg sm:w-[calc(100%-2.5rem)] sm:gap-4 sm:px-9 sm:pt-9 sm:pb-8",
         className,
       )}
     >

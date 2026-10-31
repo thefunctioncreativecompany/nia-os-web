@@ -86,7 +86,7 @@ export function FleetBooking({ listing: l }: { listing: Listing & { fleet: NonNu
           <RentalDates range={range} onChange={setRange} today={today} earliest={tomorrow} labels={["Start", "End"]} />
           <div className="flex flex-col gap-1.5">
             <Label htmlFor={whereId} className="text-small font-semibold">Deliver to</Label>
-            <div className="flex h-10 items-center gap-2 rounded-md border border-input bg-white px-3 focus-within:ring-3 focus-within:ring-ring/50">
+            <div className="flex h-10 items-center gap-2 rounded-md border border-input bg-card px-3 focus-within:ring-3 focus-within:ring-ring/50">
               <MapPin aria-hidden className="size-4 text-muted-foreground" />
               <input
                 id={whereId}

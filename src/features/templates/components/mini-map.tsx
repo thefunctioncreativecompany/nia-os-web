@@ -5,7 +5,7 @@ import { edgePath, layoutMap, type Workflow } from "@/lib/template-workflows";
 export function MiniMap({ workflow }: { workflow: Workflow }) {
   const { pos, bands, W, H, node, margin } = layoutMap(workflow);
   return (
-    <span aria-hidden className="block h-21 w-33 rounded-lg border border-border bg-white p-2">
+    <span aria-hidden className="block h-21 w-33 rounded-lg border border-border bg-card p-2">
       <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" className="block size-full">
         {bands.map((b) => (
           <rect key={b.name} x={b.x} y={margin} width={b.w} height={H - margin * 2} rx={24} className="fill-foreground/3" />

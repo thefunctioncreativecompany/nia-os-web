@@ -73,7 +73,7 @@ export function LibraryQuickView() {
       <div className="flex flex-wrap items-center justify-between gap-3 p-4 md:p-6">
         <Link
           href={exploreHome()}
-          className="rounded-full bg-white/90 px-4 py-2 text-sm leading-[1.4] font-bold text-muted-foreground shadow-card outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+          className="rounded-full bg-card/90 px-4 py-2 text-sm leading-[1.4] font-bold text-muted-foreground shadow-card outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
         >
           ← Back to Explore
         </Link>
@@ -118,7 +118,7 @@ export function LibraryQuickView() {
               )}
             </div>
 
-            <div className="flex w-full max-w-md flex-col gap-3 rounded-2xl bg-white/90 p-5 shadow-card lg:p-6">
+            <div className="flex w-full max-w-md flex-col gap-3 rounded-2xl bg-card/90 p-5 shadow-card lg:p-6">
               {facts.meta && <span className="text-small text-muted-foreground">{facts.meta}</span>}
               <h2 className="text-h3 leading-tight font-bold text-foreground">{item.title}</h2>
               <span className="text-sm font-medium text-foreground/80">{item.credit}</span>
@@ -148,7 +148,7 @@ export function LibraryQuickView() {
         })}
       </div>
 
-      <p className="pointer-events-none absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-white/90 px-4 py-2 text-caption text-muted-foreground shadow-card max-lg:bottom-28">
+      <p className="pointer-events-none absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-card/90 px-4 py-2 text-caption text-muted-foreground shadow-card max-lg:bottom-28">
         {touch ? "Swipe left or right" : "Drag, or use the arrow keys"}
       </p>
 
@@ -172,7 +172,7 @@ function NavButton({ side, onClick }: { side: "left" | "right"; onClick: () => v
       type="button"
       onClick={onClick}
       aria-label={side === "left" ? "Previous title" : "Next title"}
-      className="hidden size-12 shrink-0 items-center justify-center rounded-full border border-border bg-white/95 text-foreground shadow-elevation-2 outline-none transition-colors duration-fast hover:bg-secondary focus-visible:ring-3 focus-visible:ring-ring/50 md:flex"
+      className="hidden size-12 shrink-0 items-center justify-center rounded-full border border-border bg-card/95 text-foreground shadow-elevation-2 outline-none transition-colors duration-fast hover:bg-secondary focus-visible:ring-3 focus-visible:ring-ring/50 md:flex"
     >
       <Icon aria-hidden className="size-5" />
     </button>

@@ -131,7 +131,7 @@ export function TemplateSearch({
               onClick={() => choose(i)}
               className={cn("flex cursor-pointer items-center gap-3 rounded-xl px-2.5 py-2.25", i === active && "bg-secondary")}
             >
-              <span className={cn("flex size-10 shrink-0 items-center justify-center rounded-lg border border-border bg-white", r.template.status === "gap" && "opacity-45")}>
+              <span className={cn("flex size-10 shrink-0 items-center justify-center rounded-lg border border-border bg-card", r.template.status === "gap" && "opacity-45")}>
                 <FlatIcon name={r.template.icon} size="sm" />
               </span>
               <span className="min-w-0 flex-1">

@@ -229,7 +229,7 @@ export function LibraryCanvas() {
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex flex-wrap items-center justify-between gap-3 p-4 md:p-6">
         <Link
           href={exploreHome()}
-          className="pointer-events-auto rounded-full bg-white/90 px-4 py-2 text-sm leading-[1.4] font-bold text-muted-foreground shadow-card outline-none backdrop-blur-sm hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+          className="pointer-events-auto rounded-full bg-card/90 px-4 py-2 text-sm leading-[1.4] font-bold text-muted-foreground shadow-card outline-none backdrop-blur-sm hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
         >
           ← Back to Explore
         </Link>
@@ -239,7 +239,7 @@ export function LibraryCanvas() {
           <ExploreAllViews current="canvas" />
         </div>
       </div>
-      <p id="library-help" className="pointer-events-none absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-white/90 px-4 py-2 text-caption text-muted-foreground shadow-card backdrop-blur-sm max-lg:bottom-28">
+      <p id="library-help" className="pointer-events-none absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-card/90 px-4 py-2 text-caption text-muted-foreground shadow-card backdrop-blur-sm max-lg:bottom-28">
         {touch ? "Drag to explore" : "Drag, scroll or use the arrow keys to explore"}
       </p>
 
@@ -289,7 +289,7 @@ function Ambience() {
       aria-pressed={on}
       aria-label="Background sound"
       onClick={() => setAmbienceOn(!on)}
-      className="pointer-events-auto flex size-9 items-center justify-center rounded-full bg-white/90 text-muted-foreground shadow-card backdrop-blur-sm outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+      className="pointer-events-auto flex size-9 items-center justify-center rounded-full bg-card/90 text-muted-foreground shadow-card backdrop-blur-sm outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
     >
       <Icon aria-hidden className="size-4" />
     </button>
@@ -313,7 +313,7 @@ function Tile({ item, x, y, w, h, onFilm }: { item: LibraryItem; x: number; y: n
       )}
       <span
         aria-hidden
-        className="absolute inset-x-2 bottom-2 flex translate-y-1.5 flex-col rounded-md bg-white/95 px-2.5 py-1.75 opacity-0 transition-[opacity,translate] duration-base ease-glide group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+        className="absolute inset-x-2 bottom-2 flex translate-y-1.5 flex-col rounded-md bg-card/95 px-2.5 py-1.75 opacity-0 transition-[opacity,translate] duration-base ease-glide group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
       >
         <span className="truncate text-caption font-semibold">{item.title}</span>
         <span className="truncate text-micro text-muted-foreground">{item.credit}</span>

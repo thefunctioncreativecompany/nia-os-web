@@ -99,7 +99,7 @@ function TemplateTile({ template: t, onOpen }: { template: GalleryTemplate; onOp
       }}
       onPointerEnter={hover.onPointerEnter}
       onPointerLeave={hover.onPointerLeave}
-      className="flex w-[78%] shrink-0 snap-start items-center gap-3.5 rounded-xl border border-border bg-white p-4 text-left outline-none transition-[box-shadow,border-color,translate] duration-base ease-out hover:-translate-y-0.5 hover:border-ring hover:shadow-card focus-visible:ring-3 focus-visible:ring-ring/50 sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)] motion-reduce:hover:translate-y-0"
+      className="flex w-[78%] shrink-0 snap-start items-center gap-3.5 rounded-xl border border-border bg-card p-4 text-left outline-none transition-[box-shadow,border-color,translate] duration-base ease-out hover:-translate-y-0.5 hover:border-ring hover:shadow-card focus-visible:ring-3 focus-visible:ring-ring/50 sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4.5rem)/4)] motion-reduce:hover:translate-y-0"
     >
       <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-nia-panel">
         <FlatIcon name={t.icon} size="sm" className="size-6" />

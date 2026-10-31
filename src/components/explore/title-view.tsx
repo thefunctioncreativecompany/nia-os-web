@@ -119,7 +119,7 @@ export function TitleView({ entry }: { entry: Entry }) {
                     aria-label={`Play ${videoName(video).toLowerCase()}: ${title.title}${season ? `, season ${season.number}` : ""}`}
                     className="group absolute inset-0 flex flex-col items-center justify-center gap-3 text-white outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset"
                   >
-                    <span className="flex size-16 items-center justify-center rounded-full bg-white/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
+                    <span className="flex size-16 items-center justify-center rounded-full bg-card/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
                       <Play aria-hidden className="ml-1 size-6 fill-current" />
                     </span>
                     <span className="text-sm font-semibold drop-shadow-md">{videoName(video)}</span>
@@ -222,17 +222,17 @@ export function TitleView({ entry }: { entry: Entry }) {
                     aria-pressed={on}
                     className={cn(
                       "group flex w-full flex-col overflow-hidden rounded-2xl border text-left outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
-                      on ? "border-foreground bg-secondary" : "border-border bg-white hover:border-ring",
+                      on ? "border-foreground bg-secondary" : "border-border bg-card hover:border-ring",
                     )}
                   >
                     <span className={cn("relative block aspect-video", v.provider === "youtube" ? "bg-foreground" : entry.grain)}>
                       <VideoThumbnail key={v.video_id} video={v} sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw" />
                       <span className="absolute inset-0 flex items-center justify-center">
-                        <span className="flex size-10 items-center justify-center rounded-full bg-white/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 motion-reduce:scale-100!">
+                        <span className="flex size-10 items-center justify-center rounded-full bg-card/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 motion-reduce:scale-100!">
                           <Play aria-hidden className="ml-0.5 size-4 fill-current" />
                         </span>
                       </span>
-                      {on && <span className="absolute top-2.5 left-2.5 rounded-full bg-white/90 px-2.5 py-1 text-micro font-semibold text-foreground">Playing</span>}
+                      {on && <span className="absolute top-2.5 left-2.5 rounded-full bg-card/90 px-2.5 py-1 text-micro font-semibold text-foreground">Playing</span>}
                     </span>
                     <span className="flex min-w-0 flex-col px-4 py-3">
                       <span className="truncate text-sm font-bold text-foreground">{videoName(v)}</span>

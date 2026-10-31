@@ -309,7 +309,7 @@ export function ListerDashboard() {
                           onClick={() => setPaused((all) => ({ ...all, [row.listingId]: active }))}
                           className={cn(
                             "inline-flex h-7 items-center rounded-full border px-3 text-caption font-semibold outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50",
-                            active ? "border-foreground bg-foreground text-primary-foreground" : "border-nia-line-strong bg-white text-muted-foreground",
+                            active ? "border-foreground bg-foreground text-primary-foreground" : "border-nia-line-strong bg-card text-muted-foreground",
                           )}
                         >
                           {active ? "Active" : "Paused"}

@@ -42,7 +42,7 @@ export function ScrollTabs({
               onClick={() => onChange(item.value)}
               className={cn(
                 "h-8 shrink-0 rounded-full border px-3.5 text-small whitespace-nowrap outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50 disabled:opacity-40",
-                active ? "border-foreground bg-foreground font-bold text-primary-foreground" : "border-border bg-white text-foreground hover:border-ring",
+                active ? "border-foreground bg-foreground font-bold text-primary-foreground" : "border-border bg-card text-foreground hover:border-ring",
               )}
             >
               {item.label}

@@ -9,7 +9,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { TimeWheel, formatTime, type TimeValue } from "@/components/nia/time-wheel";
 
 const triggerClassName =
-  "flex h-11 w-full items-center justify-between gap-3 rounded-lg border border-border bg-white px-3.5 text-left text-sm text-foreground outline-none transition-colors hover:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 data-[state=open]:border-foreground";
+  "flex h-11 w-full items-center justify-between gap-3 rounded-lg border border-border bg-card px-3.5 text-left text-sm text-foreground outline-none transition-colors hover:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 data-[state=open]:border-foreground";
 
 // A date input that opens a calendar (design system Section 10.4).
 export function DateField({

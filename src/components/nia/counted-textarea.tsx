@@ -17,7 +17,7 @@ export function CountedTextarea({
 }) {
   const countId = props.id ? `${props.id}-count` : undefined;
   return (
-    <div className={cn("flex flex-col rounded-lg border border-border bg-white focus-within:border-foreground", className)}>
+    <div className={cn("flex flex-col rounded-lg border border-border bg-card focus-within:border-foreground", className)}>
       <Textarea
         value={value}
         maxLength={maxLength}

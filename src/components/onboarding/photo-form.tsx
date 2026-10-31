@@ -131,7 +131,7 @@ export function PhotoForm({
             pick(e.dataTransfer.files[0]);
           }}
           className={cn(
-            "flex size-[140px] items-center justify-center rounded-full border-2 border-dashed bg-white p-2 outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50",
+            "flex size-[140px] items-center justify-center rounded-full border-2 border-dashed bg-card p-2 outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50",
             isDragging ? "border-primary bg-muted" : "border-border hover:border-ring",
           )}
         >

@@ -47,7 +47,7 @@ function CheckEmail({ email, type }: { email: string | null; type: EmailLinkType
   return (
     <div className="flex w-full max-w-[380px] flex-col items-center gap-7 text-center">
       <div className="flex h-15 w-16 items-center justify-center rounded-full bg-nia-line">
-        <Image src="/auth/mail.svg" alt="" width={28} height={28} />
+        <Image src="/auth/mail.svg" alt="" width={28} height={28} className="dark:invert" />
       </div>
 
       <div className="flex flex-col gap-3">

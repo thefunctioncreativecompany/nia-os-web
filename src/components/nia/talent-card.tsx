@@ -34,7 +34,7 @@ export function TalentCard({
   className?: string;
 }) {
   return (
-    <article className={cn("flex flex-col gap-6 rounded-2xl border border-border bg-white p-6 shadow-menu md:p-8", className)}>
+    <article className={cn("flex flex-col gap-6 rounded-2xl border border-border bg-card p-6 shadow-menu md:p-8", className)}>
       <header className="flex items-center gap-4">
         <span className="relative size-20 shrink-0 overflow-hidden rounded-full bg-muted md:size-24">
           {photo && <Image src={photo} alt="" fill sizes="96px" className="object-cover" />}

@@ -27,7 +27,7 @@ export function ScriptPreview({
   className?: string;
 }) {
   return (
-    <article className={cn("flex flex-col gap-4 rounded-2xl border border-border bg-white p-5 shadow-menu", className)}>
+    <article className={cn("flex flex-col gap-4 rounded-2xl border border-border bg-card p-5 shadow-menu", className)}>
       <header className="border-b border-border pb-3">
         <span className="text-micro text-muted-foreground">Script preview</span>
         <h3 className="text-base font-bold text-foreground">{project}</h3>

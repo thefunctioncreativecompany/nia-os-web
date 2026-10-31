@@ -135,7 +135,7 @@ export function FilmVideoPlayer({
               aria-label={`Play ${video.label.toLowerCase()}: ${title}`}
               className="group absolute inset-0 flex flex-col items-center justify-center gap-3 text-white outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset"
             >
-              <span className="flex size-16 items-center justify-center rounded-full bg-white/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
+              <span className="flex size-16 items-center justify-center rounded-full bg-card/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
                 <Play aria-hidden className="ml-1 size-6 fill-current" />
               </span>
               <span className="text-sm font-semibold drop-shadow-md">{video.label}</span>
@@ -188,7 +188,7 @@ export function PressSections({ press, playing, onChoose }: { press: PressCovera
                   <span className="relative block aspect-video overflow-hidden rounded-lg border border-border bg-muted group-aria-[current=true]:ring-2 group-aria-[current=true]:ring-gold">
                     <Image src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt="" fill sizes="(min-width: 40rem) 18rem, 45vw" className="object-cover" />
                     <span aria-hidden className="absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 transition-opacity duration-fast group-hover:opacity-100">
-                      <span className="flex size-10 items-center justify-center rounded-full bg-white/90 text-foreground">
+                      <span className="flex size-10 items-center justify-center rounded-full bg-card/90 text-foreground">
                         <Play className="ml-0.5 size-4 fill-current" />
                       </span>
                     </span>

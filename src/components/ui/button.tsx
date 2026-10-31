@@ -19,7 +19,7 @@ const buttonVariants = cva(
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
         // Solid red for actions that remove things (design system "Destructive Buttons").
-        danger: "bg-nia-danger text-white hover:bg-nia-danger/90 active:bg-nia-danger focus-visible:ring-destructive/30 disabled:bg-status-cancelled disabled:text-nia-danger/50 disabled:opacity-100",
+        danger: "bg-nia-danger text-background hover:bg-nia-danger/90 active:bg-nia-danger focus-visible:ring-destructive/30 disabled:bg-status-cancelled disabled:text-nia-danger/50 disabled:opacity-100",
       },
       size: {
         // Nia's main button (Figma "Continue Pill Button"): 44px, fully rounded, bold.

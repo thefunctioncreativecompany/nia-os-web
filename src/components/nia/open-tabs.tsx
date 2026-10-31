@@ -59,7 +59,7 @@ export function TabStrip() {
             }}
             className={cn(
               "group relative -mb-px flex h-8.5 max-w-60 min-w-0 shrink-0 items-center rounded-t-lg border border-b-0 text-small transition-colors duration-fast",
-              active ? "border-nia-line bg-white text-foreground" : "border-transparent text-muted-foreground hover:bg-white/60 hover:text-foreground",
+              active ? "border-nia-line bg-card text-foreground" : "border-transparent text-muted-foreground hover:bg-card/60 hover:text-foreground",
             )}
           >
             <Link

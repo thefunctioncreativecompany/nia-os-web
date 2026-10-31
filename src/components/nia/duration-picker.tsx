@@ -20,7 +20,7 @@ function Unit({
   return (
     <div role="group" aria-label={label} className="flex min-w-0 flex-1 flex-col gap-1">
       <span className="text-micro font-bold text-muted-foreground">{label}</span>
-      <div className="flex h-10 items-center justify-between rounded-lg border border-border bg-white pr-1 pl-3">
+      <div className="flex h-10 items-center justify-between rounded-lg border border-border bg-card pr-1 pl-3">
         <output aria-live="polite" className="text-base font-bold text-foreground">{value}</output>
         <div className="flex">
           <button type="button" aria-label={`Fewer ${label.toLowerCase()}`} disabled={value <= 0} onClick={() => onChange(Math.max(0, value - step))} className={buttonClassName}>

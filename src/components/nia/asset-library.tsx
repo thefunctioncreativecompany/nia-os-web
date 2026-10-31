@@ -35,13 +35,13 @@ export function AssetLibrary({ assets, className }: { assets: Asset[]; className
           {tab("list", "List")}
         </div>
       </div>
-      <ul className={view === "grid" ? "grid gap-2.5 sm:grid-cols-2" : "flex flex-col divide-y divide-border rounded-xl border border-border bg-white"}>
+      <ul className={view === "grid" ? "grid gap-2.5 sm:grid-cols-2" : "flex flex-col divide-y divide-border rounded-xl border border-border bg-card"}>
         {assets.map((asset) => {
           const Icon = ICONS[asset.kind];
           return (
             <li
               key={asset.id}
-              className={cn("flex min-w-0 items-center gap-3", view === "grid" ? "rounded-xl border border-border bg-white p-3.5" : "px-3.5 py-2.5")}
+              className={cn("flex min-w-0 items-center gap-3", view === "grid" ? "rounded-xl border border-border bg-card p-3.5" : "px-3.5 py-2.5")}
             >
               <Icon aria-hidden className="size-5 shrink-0 text-muted-foreground" />
               <span className="flex min-w-0 flex-col">

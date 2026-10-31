@@ -57,7 +57,7 @@ export function SuggestedForYou({
         </div>
         <div className="flex flex-wrap items-center gap-2.5">
           <Select value={profile.role ?? NONE} onValueChange={(v) => onRoleChange(v === NONE ? null : v)}>
-            <SelectTrigger aria-label="Your role" className="h-9 rounded-full bg-white">
+            <SelectTrigger aria-label="Your role" className="h-9 rounded-full bg-card">
               <span className="text-muted-foreground">I work as</span>
               <SelectValue />
             </SelectTrigger>
@@ -93,7 +93,7 @@ function Suggestion({ template: t, why, onPreview }: { template: GalleryTemplate
       <Card
         title={t.name}
         media={
-          <div className="flex aspect-[16/10] w-full items-center justify-center bg-white">
+          <div className="flex aspect-[16/10] w-full items-center justify-center bg-card">
             <FlatIcon name={t.icon} size="md" className="size-11" />
           </div>
         }

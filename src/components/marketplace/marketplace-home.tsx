@@ -95,7 +95,7 @@ export function MarketplaceHome() {
               onClick={() => setMode(m)}
               className={cn(
                 "h-9 rounded-full px-4.5 text-small font-semibold text-foreground outline-none transition-[background-color,box-shadow] duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
-                mode === m ? "bg-white shadow-card" : "hover:bg-white/60",
+                mode === m ? "bg-card shadow-card" : "hover:bg-card/60",
               )}
             >
               {m === "rent" ? "Rent" : "Buy"}
@@ -238,7 +238,7 @@ function GearCard({ listing: l, mode }: { listing: Listing; mode: Mode }) {
           </span>
         )}
         {l.condition && (
-          <span className="absolute top-2.5 left-2.5 inline-flex h-5.5 items-center rounded-full bg-white/90 px-2 text-micro font-semibold">{l.condition}</span>
+          <span className="absolute top-2.5 left-2.5 inline-flex h-5.5 items-center rounded-full bg-card/90 px-2 text-micro font-semibold">{l.condition}</span>
         )}
       </span>
       <span className="mt-2.5 flex justify-between gap-2.5 text-lead font-bold">
@@ -260,7 +260,7 @@ function FleetCard({ listing: l }: { listing: Listing }) {
   const price = dayRate(l) ?? "";
   const href = l.tag ? `/marketplace/fleet/${l.id}` : `/marketplace/listing/${l.id}`;
   return (
-    <TiltCard href={href} label={`${l.title}, ${price}`} className="overflow-hidden rounded-2xl border border-border bg-white">
+    <TiltCard href={href} label={`${l.title}, ${price}`} className="overflow-hidden rounded-2xl border border-border bg-card">
       {(sheen) => (
         <>
           <span className="relative block aspect-[4/3] bg-nia-canvas">
@@ -299,7 +299,7 @@ function DigitalCard({ listing: l }: { listing: Listing }) {
             <DigitalIcon listing={l} className="size-10" strokeWidth={1.5} />
             {sheen}
             {l.productType && (
-              <span className="absolute bottom-2.5 left-2.5 inline-flex h-5.5 items-center rounded-full bg-white/90 px-2 text-micro font-semibold text-foreground">{l.productType}</span>
+              <span className="absolute bottom-2.5 left-2.5 inline-flex h-5.5 items-center rounded-full bg-card/90 px-2 text-micro font-semibold text-foreground">{l.productType}</span>
             )}
           </span>
           <span className="flex justify-between gap-2 text-sm leading-snug font-bold">

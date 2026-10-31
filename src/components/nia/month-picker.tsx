@@ -19,10 +19,10 @@ export function MonthPicker({
   className?: string;
 }) {
   const navClassName =
-    "flex size-8 items-center justify-center rounded-md border border-border bg-white outline-none hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50";
+    "flex size-8 items-center justify-center rounded-md border border-border bg-card outline-none hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50";
 
   return (
-    <div className={cn("flex flex-col gap-4 rounded-xl border border-border bg-white p-4", className)}>
+    <div className={cn("flex flex-col gap-4 rounded-xl border border-border bg-card p-4", className)}>
       <div className="flex items-center justify-between">
         <span className="text-base font-bold text-foreground" aria-live="polite">{year}</span>
         <div className="flex gap-2">

@@ -478,7 +478,7 @@ function LinkedAccounts({ identities }: { identities: UserIdentity[] }) {
           >
             <div className="flex min-w-0 items-center gap-3">
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-accent">
-                <Image src={provider.logo} alt="" width={provider.width} height={provider.height} />
+                <Image src={provider.logo} alt="" width={provider.width} height={provider.height} className={provider.id === "apple" ? "dark:invert" : undefined} />
               </span>
               <div className="flex min-w-0 flex-col gap-0.5">
                 <span className="text-sm leading-[1.4] font-bold text-foreground">

@@ -29,7 +29,7 @@ export function PeoplePicker({
 
   return (
     <div className={cn("flex flex-col gap-3", className)}>
-      <div className="flex h-10 items-center gap-2 rounded-lg border border-border bg-white px-3 focus-within:border-foreground">
+      <div className="flex h-10 items-center gap-2 rounded-lg border border-border bg-card px-3 focus-within:border-foreground">
         <Search aria-hidden className="size-4 shrink-0 text-muted-foreground" />
         <input
           type="search"

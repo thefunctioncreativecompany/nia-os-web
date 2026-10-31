@@ -26,7 +26,7 @@ export function SearchInput({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="h-11 w-full rounded-full border border-border bg-white pr-10 pl-10 text-sm text-foreground outline-none transition-colors placeholder:text-nia-placeholder hover:border-ring focus-visible:border-foreground focus-visible:ring-3 focus-visible:ring-ring/30 [&::-webkit-search-cancel-button]:hidden"
+        className="h-11 w-full rounded-full border border-border bg-card pr-10 pl-10 text-sm text-foreground outline-none transition-colors placeholder:text-nia-placeholder hover:border-ring focus-visible:border-foreground focus-visible:ring-3 focus-visible:ring-ring/30 [&::-webkit-search-cancel-button]:hidden"
         {...props}
       />
       {value && (

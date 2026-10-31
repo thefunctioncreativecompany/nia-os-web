@@ -7,7 +7,7 @@ import { hasExploreAccess } from "@/lib/explore-access";
 // code; Ika, 2026-10-21). Everyone else gets the coming-soon screen, where they can enter a code.
 export default function Layout({ children }: LayoutProps<"/explore">) {
   return (
-    <Suspense fallback={<div className="h-[calc(100svh-5rem)] min-h-140 bg-white" />}>
+    <Suspense fallback={<div className="h-[calc(100svh-5rem)] min-h-140 bg-background" />}>
       <Gate>{children}</Gate>
     </Suspense>
   );

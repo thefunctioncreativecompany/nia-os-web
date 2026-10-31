@@ -35,7 +35,7 @@ export function ExpandableAlert({
       <AlertTitle>{title}</AlertTitle>
       <AlertDescription className="flex flex-col gap-3">
         <span>{summary}</span>
-        {open && <div className="rounded-lg bg-white/60 p-3 text-caption">{children}</div>}
+        {open && <div className="rounded-lg bg-card/60 p-3 text-caption">{children}</div>}
       </AlertDescription>
       <AlertAction>
         <button

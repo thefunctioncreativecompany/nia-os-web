@@ -37,7 +37,7 @@ export function SectionOutline({ schema, data, filled }: { schema: TemplateSchem
   };
 
   return (
-    <nav aria-label="Sections" className="sticky top-3 z-20 -mx-2 flex items-center gap-3 rounded-xl border border-border bg-white/90 px-2 py-2 shadow-card backdrop-blur-md print:hidden">
+    <nav aria-label="Sections" className="sticky top-3 z-20 -mx-2 flex items-center gap-3 rounded-xl border border-border bg-card/90 px-2 py-2 shadow-card backdrop-blur-md print:hidden">
       <ol className="flex min-w-0 flex-1 gap-1.5 overflow-x-auto [scrollbar-width:none]">
         {schema.sections.map((section, i) => {
           const done = hasContent(section, data[i]);
@@ -57,7 +57,7 @@ export function SectionOutline({ schema, data, filled }: { schema: TemplateSchem
                   aria-hidden
                   className={cn(
                     'flex size-4 items-center justify-center rounded-full border',
-                    done ? 'border-status-confirmed-foreground bg-status-confirmed-foreground text-white' : 'border-muted-foreground/40',
+                    done ? 'border-status-confirmed-foreground bg-status-confirmed-foreground text-background' : 'border-muted-foreground/40',
                   )}
                 >
                   {done && <Check className="size-2.5" strokeWidth={3} />}

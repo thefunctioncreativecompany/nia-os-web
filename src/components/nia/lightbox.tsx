@@ -37,7 +37,7 @@ export function Lightbox({
           if (e.key === "ArrowLeft") step(-1);
           if (e.key === "ArrowRight") step(1);
         }}
-        className="flex h-[min(720px,90svh)] w-[min(1100px,calc(100vw-2rem))] max-w-none flex-col gap-4 border-0 bg-primary p-4 text-white sm:max-w-none md:p-6"
+        className="flex h-[min(720px,90svh)] w-[min(1100px,calc(100vw-2rem))] max-w-none flex-col gap-4 border-0 bg-nia-footer p-4 text-white sm:max-w-none md:p-6"
       >
         <div className="flex items-center justify-between gap-4">
           <DialogTitle className="truncate text-base text-white">

@@ -59,7 +59,7 @@ function RowArrow({ side, hidden, onClick }: { side: "left" | "right"; hidden: b
       disabled={hidden}
       aria-label={side === "left" ? "Scroll left" : "Scroll right"}
       className={cn(
-        "absolute top-[40%] z-10 hidden size-12 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white/95 text-foreground shadow-elevation-2 outline-none transition-[opacity,background-color] duration-fast hover:bg-secondary focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-0 md:flex",
+        "absolute top-[40%] z-10 hidden size-12 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card/95 text-foreground shadow-elevation-2 outline-none transition-[opacity,background-color] duration-fast hover:bg-secondary focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-0 md:flex",
         side === "left" ? "left-2" : "right-2",
       )}
     >

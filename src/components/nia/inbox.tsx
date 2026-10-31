@@ -23,7 +23,7 @@ export function InboxItem({
   return (
     <Root
       href={href}
-      className="flex items-center gap-3 rounded-xl border border-border bg-white py-3 pr-3.5 pl-3 outline-none transition-colors duration-fast hover:bg-nia-panel focus-visible:ring-3 focus-visible:ring-ring/50"
+      className="flex items-center gap-3 rounded-xl border border-border bg-card py-3 pr-3.5 pl-3 outline-none transition-colors duration-fast hover:bg-nia-panel focus-visible:ring-3 focus-visible:ring-ring/50"
     >
       <span aria-hidden className={cn("size-1.5 shrink-0 rounded-full", unread ? "bg-foreground" : "bg-transparent")} />
       <Avatar className="size-8">
@@ -97,7 +97,7 @@ export function NotificationItem({
   tone?: "danger" | "info" | "default";
 }) {
   return (
-    <li className="flex items-start gap-3 rounded-xl border border-border bg-white px-3.5 py-3">
+    <li className="flex items-start gap-3 rounded-xl border border-border bg-card px-3.5 py-3">
       <Icon
         aria-hidden
         className={cn(
@@ -130,7 +130,7 @@ export function ChatThread({
   className?: string;
 }) {
   return (
-    <section aria-label={channel} className={cn("flex flex-col gap-4 rounded-xl border border-border bg-white p-4", className)}>
+    <section aria-label={channel} className={cn("flex flex-col gap-4 rounded-xl border border-border bg-card p-4", className)}>
       <h4 className="flex items-center gap-2 text-sm font-bold text-foreground">
         <span aria-hidden className={cn("size-2 rounded-full", online ? "bg-nia-success" : "bg-border")} />
         {channel}
@@ -169,7 +169,7 @@ export function MentionCard({
   action?: React.ReactNode;
 }) {
   return (
-    <article className="flex flex-col gap-2 rounded-xl border border-border bg-white p-4">
+    <article className="flex flex-col gap-2 rounded-xl border border-border bg-card p-4">
       <header className="flex items-center gap-2">
         <AtSign aria-hidden className="size-4 shrink-0 text-foreground" />
         <h4 className="min-w-0 flex-1 truncate text-sm font-bold text-foreground">{title}</h4>

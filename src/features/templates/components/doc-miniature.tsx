@@ -15,7 +15,7 @@ export function DocMiniature({ icon, schema, workflow, name }: { icon: string; s
   const sections = schema.sections.slice(0, schema.builder ? 4 : 5);
   return (
     <div aria-hidden className="flex size-[86%] gap-4.5">
-      <div className="min-w-0 flex-1 overflow-hidden rounded-lg border border-border bg-white px-5.5 py-4.5">
+      <div className="min-w-0 flex-1 overflow-hidden rounded-lg border border-border bg-card px-5.5 py-4.5">
         <p className="truncate text-tiny text-muted-foreground">{schema.group}</p>
         <p className="mt-1 truncate text-h3 leading-tight font-semibold text-foreground">{schema.name}</p>
         <div className="mt-2 mb-1 flex flex-wrap gap-1.25 border-b-[1.5px] border-foreground pb-2">
@@ -25,7 +25,7 @@ export function DocMiniature({ icon, schema, workflow, name }: { icon: string; s
         </div>
         {sections.map((s, i) => <MiniSection key={i} section={s} />)}
       </div>
-      <div className="hidden w-[27%] flex-col gap-2 rounded-lg border border-border bg-white p-3.5 sm:flex">
+      <div className="hidden w-[27%] flex-col gap-2 rounded-lg border border-border bg-card p-3.5 sm:flex">
         <div className="flex justify-between">
           <span className="text-tiny text-muted-foreground">Preview</span>
           <span className="rounded-full border border-foreground px-1.25 text-tiny">Draft</span>

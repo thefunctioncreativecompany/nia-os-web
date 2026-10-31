@@ -29,7 +29,7 @@ export function Steps({
                 "flex size-6 shrink-0 items-center justify-center rounded-full border text-micro font-bold",
                 state === "done" && "border-nia-success bg-nia-success-bg text-nia-success",
                 state === "current" && "border-primary bg-primary text-primary-foreground",
-                state === "upcoming" && "border-border bg-white text-muted-foreground",
+                state === "upcoming" && "border-border bg-card text-muted-foreground",
               )}
             >
               {state === "done" ? <Check aria-hidden className="size-3.5" strokeWidth={3} /> : index + 1}

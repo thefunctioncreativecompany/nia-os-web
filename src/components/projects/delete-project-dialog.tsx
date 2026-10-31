@@ -73,7 +73,7 @@ export function DeleteProjectDialog({
             type="button"
             disabled={isDeleting}
             onClick={remove}
-            className="h-auto rounded-lg bg-nia-danger p-3 text-small font-bold text-white hover:bg-nia-danger/85"
+            className="h-auto rounded-lg bg-nia-danger p-3 text-small font-bold text-background hover:bg-nia-danger/85"
           >
             {isDeleting ? "Deleting…" : "Delete project"}
           </Button>

@@ -52,7 +52,7 @@ export function Feedback() {
         variant="outline"
         size="compact"
         onClick={() => setOpen(true)}
-        className="fixed right-6 bottom-6 z-40 rounded-full bg-white shadow-elevation-2 max-lg:hidden print:hidden"
+        className="fixed right-6 bottom-6 z-40 rounded-full bg-card shadow-elevation-2 max-lg:hidden print:hidden"
       >
         <MessageSquare aria-hidden /> Feedback
       </Button>
@@ -190,7 +190,7 @@ function PulsePrompt() {
     <section
       aria-label="A quick question"
       className={cn(
-        "fixed right-4 bottom-28 z-40 flex w-[min(22rem,calc(100%-2rem))] flex-col gap-3 rounded-2xl border border-border bg-white p-4 shadow-elevation-2 lg:right-6 lg:bottom-20 print:hidden",
+        "fixed right-4 bottom-28 z-40 flex w-[min(22rem,calc(100%-2rem))] flex-col gap-3 rounded-2xl border border-border bg-card p-4 shadow-elevation-2 lg:right-6 lg:bottom-20 print:hidden",
         "animate-in fade-in-0 slide-in-from-bottom-2 duration-base ease-out motion-reduce:animate-none",
       )}
     >

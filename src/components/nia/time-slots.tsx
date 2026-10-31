@@ -32,7 +32,7 @@ export function TimeSlots({
               "h-9 rounded-lg border px-2.5 text-sm outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
               selected
                 ? "border-foreground bg-foreground font-bold text-primary-foreground"
-                : "border-border bg-white text-foreground hover:border-ring",
+                : "border-border bg-card text-foreground hover:border-ring",
               slot.booked && "cursor-not-allowed bg-muted text-nia-placeholder line-through hover:border-border",
             )}
           >

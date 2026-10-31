@@ -38,7 +38,7 @@ export function LocationMap({
       role="group"
       aria-label={label}
       className={cn(
-        "relative min-h-60 overflow-hidden rounded-xl border border-border bg-white",
+        "relative min-h-60 overflow-hidden rounded-xl border border-border bg-card",
         "bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:33.33%_33.33%]",
         className,
       )}
@@ -57,7 +57,7 @@ export function LocationMap({
               // Pins on the right half label to the left so names aren't cut off.
               pin.x > 55 ? "-translate-x-full flex-row-reverse pr-0.5 pl-2" : "pr-2 pl-0.5",
               active ? "text-chart-2" : "text-foreground",
-              isSelected && "bg-white shadow-menu",
+              isSelected && "bg-card shadow-menu",
             )}
             style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
           >
@@ -85,7 +85,7 @@ export function LocationMap({
 // A two-leg route between waypoints with the travel time (design system Section 21.3).
 export function RouteMap({ from, to, eta, className }: { from: string; to: string; eta: string; className?: string }) {
   return (
-    <figure className={cn("relative h-48 rounded-xl border border-border bg-white", className)}>
+    <figure className={cn("relative h-48 rounded-xl border border-border bg-card", className)}>
       <svg viewBox="0 0 400 180" preserveAspectRatio="none" aria-hidden className="absolute inset-0 size-full">
         <path d="M 30 110 H 370 M 110 20 V 170" fill="none" strokeWidth={8} className="stroke-chart-4" />
         <path d="M 30 110 H 240 M 110 110 V 26" fill="none" strokeWidth={4} className="stroke-chart-2" />

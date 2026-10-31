@@ -197,7 +197,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
                 const on = filters.includes(kind.id);
                 return (
                   <FilterChip key={kind.id} on={on} onClick={() => toggleFilter(kind.id)} count={counts[kind.id]}>
-                    <span aria-hidden className={cn("grid place-items-center rounded-full text-white transition-[width,height] duration-fast", kind.dot, on ? "size-4" : "size-1.75")}>
+                    <span aria-hidden className={cn("grid place-items-center rounded-full text-background transition-[width,height] duration-fast", kind.dot, on ? "size-4" : "size-1.75")}>
                       {on && <Check className="size-2.75" strokeWidth={3} />}
                     </span>
                     {kind.label}
@@ -214,7 +214,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
           </div>
 
           {/* The month bar: where you are, and a way to jump. Sticks to the top while scrolling. */}
-          <div className="sticky top-0 z-10 -mx-4 mt-5 flex items-center justify-between gap-4 border-b border-border bg-white/90 px-4 py-3 backdrop-blur md:-mx-11 md:px-11">
+          <div className="sticky top-0 z-10 -mx-4 mt-5 flex items-center justify-between gap-4 border-b border-border bg-card/90 px-4 py-3 backdrop-blur md:-mx-11 md:px-11">
             <span aria-hidden className="truncate text-lead font-semibold text-foreground">
               {current?.label ?? "No updates"}
               {current && <span className="ml-2 text-small font-normal text-muted-foreground">{current.entries.length} {current.entries.length === 1 ? "update" : "updates"}</span>}

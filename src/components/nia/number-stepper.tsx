@@ -31,14 +31,14 @@ export function NumberStepper({
   const clamp = (n: number) => Math.min(max, Math.max(min, Number(n.toFixed(decimals))));
   const format = (n: number) => `${prefix ?? ""}${n.toFixed(decimals)}`;
   const buttonClassName =
-    "flex size-10 items-center justify-center rounded-md border border-border bg-white text-foreground outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-40";
+    "flex size-10 items-center justify-center rounded-md border border-border bg-card text-foreground outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-40";
 
   return (
     <div className={cn("flex flex-col gap-3", className)}>
       <div
         role="group"
         aria-label={label}
-        className="flex items-center justify-between gap-4 rounded-xl border border-border bg-white p-3"
+        className="flex items-center justify-between gap-4 rounded-xl border border-border bg-card p-3"
       >
         <button
           type="button"

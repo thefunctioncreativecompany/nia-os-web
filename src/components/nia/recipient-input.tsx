@@ -28,7 +28,7 @@ export function RecipientInput({
   };
 
   return (
-    <div className={cn("flex min-h-11 flex-wrap items-center gap-1.5 rounded-lg border border-border bg-white px-2 py-1.5 focus-within:border-foreground", className)}>
+    <div className={cn("flex min-h-11 flex-wrap items-center gap-1.5 rounded-lg border border-border bg-card px-2 py-1.5 focus-within:border-foreground", className)}>
       {value.map((person) => (
         <span key={person} className="inline-flex items-center gap-1.5 rounded-full bg-muted py-0.5 pr-1 pl-0.5 text-small">
           <span aria-hidden className="flex size-5 items-center justify-center rounded-full bg-foreground text-tiny font-bold text-primary-foreground">

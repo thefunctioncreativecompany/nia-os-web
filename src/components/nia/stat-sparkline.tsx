@@ -20,7 +20,7 @@ export function StatSparkline({
   const last = { teal: "bg-chart-2", rust: "bg-chart-3", ink: "bg-chart-1" }[tone];
 
   return (
-    <div className={cn("flex flex-col gap-2 rounded-xl border border-border bg-white p-3.5", className)}>
+    <div className={cn("flex flex-col gap-2 rounded-xl border border-border bg-card p-3.5", className)}>
       <span className="text-small font-bold text-muted-foreground">{label}</span>
       <div className="flex items-end justify-between gap-3">
         <span className="text-h2 leading-none font-bold text-foreground">{value}</span>

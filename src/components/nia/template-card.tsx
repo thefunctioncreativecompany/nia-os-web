@@ -30,7 +30,7 @@ export function TemplateCard({
     <>
       <span
         className={cn(
-          "flex shrink-0 items-center justify-center rounded-full bg-white",
+          "flex shrink-0 items-center justify-center rounded-full bg-card",
           compact ? "size-8" : "size-[72px]",
         )}
       >

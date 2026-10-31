@@ -7,7 +7,7 @@ import { Switch } from "@/components/ui/switch";
 // Restyled shadcn pieces shared by the settings tabs (Figma "Settings / Account & Preferences").
 
 export const settingsInputClassName =
-  "h-auto rounded-md border-border bg-white px-4 py-3 text-sm leading-normal text-foreground placeholder:text-nia-placeholder md:text-sm";
+  "h-auto rounded-md border-border bg-card px-4 py-3 text-sm leading-normal text-foreground placeholder:text-nia-placeholder md:text-sm";
 
 // For a shadcn SelectTrigger, so dropdowns look like the text fields.
 export const settingsSelectClassName = cn(
@@ -78,7 +78,7 @@ export function SettingsCard({
   return (
     <Card
       className={cn(
-        "gap-6 rounded-lg border border-border bg-white p-6 text-foreground ring-0",
+        "gap-6 rounded-lg border border-border bg-card p-6 text-foreground ring-0",
         className,
       )}
     >

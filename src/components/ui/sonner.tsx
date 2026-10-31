@@ -14,7 +14,7 @@ function ToastIcon({ className, children }: { className?: string; children: Reac
 }
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  // Nia is light only, so no theme switcher is loaded.
+  // Sonner's own theme stays light: its colours come from Nia's tokens below, which follow dark mode.
   return (
     <Sonner
       theme="light"

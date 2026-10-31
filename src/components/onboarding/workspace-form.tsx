@@ -14,7 +14,7 @@ import { useStepSubmit } from "@/components/onboarding/use-step-submit";
 const MAX_INVITES = 10;
 
 const fieldClassName =
-  "h-[46px] rounded-lg border-border bg-white px-4 text-sm leading-normal text-foreground placeholder:text-muted-foreground md:text-sm";
+  "h-[46px] rounded-lg border-border bg-card px-4 text-sm leading-normal text-foreground placeholder:text-muted-foreground md:text-sm";
 
 export function WorkspaceForm({ initial }: { initial: OnboardingWorkspace }) {
   const [name, setName] = useState(initial.name);

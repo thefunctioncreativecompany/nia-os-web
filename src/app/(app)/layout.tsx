@@ -14,7 +14,7 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
   return (
     <MotionProvider>
       <TooltipProvider>
-        <div className="flex min-h-svh w-full flex-col bg-white text-nia-ink">
+        <div className="flex min-h-svh w-full flex-col bg-background text-nia-ink">
           <Navbar
             user={
               <Suspense fallback={<UserMenuSkeleton />}>

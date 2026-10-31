@@ -41,7 +41,7 @@ export function SwipeRow({
     <div
       ref={ref}
       className={cn(
-        "flex snap-x snap-mandatory overflow-x-auto rounded-xl border border-border bg-white [scrollbar-width:none]",
+        "flex snap-x snap-mandatory overflow-x-auto rounded-xl border border-border bg-card [scrollbar-width:none]",
         className,
       )}
     >

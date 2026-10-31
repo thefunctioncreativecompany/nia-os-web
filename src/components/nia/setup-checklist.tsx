@@ -19,7 +19,7 @@ export function SetupChecklist({
   const done = steps.filter((s) => s.done).length;
 
   return (
-    <section aria-labelledby="setup-title" className={cn("overflow-hidden rounded-2xl border border-border bg-white", className)}>
+    <section aria-labelledby="setup-title" className={cn("overflow-hidden rounded-2xl border border-border bg-card", className)}>
       <header className="flex flex-col gap-4 bg-nia-panel p-6 md:p-7">
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -58,7 +58,7 @@ export function SetupChecklist({
                 aria-hidden
                 className={cn(
                   "flex size-6 shrink-0 items-center justify-center rounded-full border-2",
-                  step.done ? "border-nia-success bg-nia-success text-white" : "border-border",
+                  step.done ? "border-nia-success bg-nia-success text-background" : "border-border",
                 )}
               >
                 {step.done && <Check className="size-3.5" strokeWidth={3} />}

@@ -48,7 +48,7 @@ export function InstagramReferenceCard({ projectId, reference, actions }: { proj
             </span>
           )}
           {reference.productionType && (
-            <span className="absolute top-2.5 left-2.5 rounded-full bg-white/90 px-2.5 py-1 text-micro font-semibold text-foreground">{reference.productionType}</span>
+            <span className="absolute top-2.5 left-2.5 rounded-full bg-card/90 px-2.5 py-1 text-micro font-semibold text-foreground">{reference.productionType}</span>
           )}
         </span>
         <span className="truncate text-lead font-semibold">{reference.title}</span>

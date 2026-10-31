@@ -47,7 +47,7 @@ export function WorkspaceSwitcher({
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex h-11 items-center gap-2.5 rounded-full border border-border bg-white py-1 pr-3 pl-1 outline-none hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 data-[state=open]:bg-muted">
+      <DropdownMenuTrigger className="flex h-11 items-center gap-2.5 rounded-full border border-border bg-card py-1 pr-3 pl-1 outline-none hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 data-[state=open]:bg-muted">
         <Avatar className="size-9">
           <AvatarImage src={user.avatarUrl} alt="" />
           <AvatarFallback className="bg-accent text-small font-bold">{initials}</AvatarFallback>

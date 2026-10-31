@@ -11,7 +11,7 @@ const VIEWS = [
 
 export function ExploreAllViews({ current, className }: { current: (typeof VIEWS)[number]["id"]; className?: string }) {
   return (
-    <nav aria-label="Explore all views" className={cn("pointer-events-auto flex items-center gap-1 rounded-full bg-white/90 p-1 shadow-card backdrop-blur-sm", className)}>
+    <nav aria-label="Explore all views" className={cn("pointer-events-auto flex items-center gap-1 rounded-full bg-card/90 p-1 shadow-card backdrop-blur-sm", className)}>
       {VIEWS.map((v) => (
         <Link
           key={v.id}

@@ -40,7 +40,7 @@ export function ImportStep() {
         {PLATFORMS.map((platform) => (
           <li
             key={platform.name}
-            className="flex min-h-16 items-center justify-between gap-3 rounded-lg border border-border bg-white p-4"
+            className="flex min-h-16 items-center justify-between gap-3 rounded-lg border border-border bg-card p-4"
           >
             <div className="flex min-w-0 items-center gap-3">
               <Image

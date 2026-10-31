@@ -140,7 +140,7 @@ function PosterCard({
             {title}
           </span>
         )}
-        {badge && <span className="absolute top-2.5 left-2.5 rounded-full bg-white/90 px-2.5 py-1 text-micro font-semibold text-foreground">{badge}</span>}
+        {badge && <span className="absolute top-2.5 left-2.5 rounded-full bg-card/90 px-2.5 py-1 text-micro font-semibold text-foreground">{badge}</span>}
       </span>
       <span className="truncate text-lead font-semibold">{title}</span>
       <span className="-mt-1.5 truncate text-small text-muted-foreground">{credit}</span>

@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Not found · Nia OS" };
 // Everywhere else (an unknown address, a turned-off share link).
 export default function NotFound() {
   return (
-    <main className="flex min-h-svh flex-col bg-white">
+    <main className="flex min-h-svh flex-col bg-background">
       <NotFoundView signedIn={false} />
     </main>
   );

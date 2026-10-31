@@ -84,7 +84,7 @@ export function ExploreComingSoon() {
     <div
       onPointerMove={onMove}
       onPointerLeave={onLeave}
-      className="relative isolate h-[calc(100svh-5rem)] min-h-140 touch-pan-y overflow-hidden bg-white"
+      className="relative isolate h-[calc(100svh-5rem)] min-h-140 touch-pan-y overflow-hidden bg-background"
     >
       {cards.map(({ film, style }) => (
         <div

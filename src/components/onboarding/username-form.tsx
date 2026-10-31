@@ -119,7 +119,7 @@ export function UsernameForm({
               onChange={(e) => setUsername(e.target.value.toLowerCase().replace(/\s/g, ""))}
               aria-describedby="username-status"
               aria-invalid={status === "invalid" || status === "taken"}
-              className="h-auto rounded-lg border-border bg-white py-3 pr-4 pl-9 text-sm leading-normal text-foreground md:text-sm"
+              className="h-auto rounded-lg border-border bg-card py-3 pr-4 pl-9 text-sm leading-normal text-foreground md:text-sm"
             />
           </div>
           <UsernameStatus status={status} />

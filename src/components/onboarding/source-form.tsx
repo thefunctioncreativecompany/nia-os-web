@@ -60,7 +60,7 @@ export function SourceForm({
                   "rounded-full border px-[18px] py-2.5 text-sm outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50",
                   selected
                     ? "border-primary bg-primary leading-[1.4] font-bold text-primary-foreground"
-                    : "border-border bg-white leading-normal font-medium text-foreground hover:bg-muted",
+                    : "border-border bg-card leading-normal font-medium text-foreground hover:bg-muted",
                 )}
               >
                 {option}

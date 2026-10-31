@@ -35,7 +35,7 @@ export function SearchSuggest({
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
     >
-      <div className="flex h-11 items-center gap-2 rounded-full border border-border bg-white px-3.5 focus-within:border-foreground">
+      <div className="flex h-11 items-center gap-2 rounded-full border border-border bg-card px-3.5 focus-within:border-foreground">
         <Search aria-hidden className="size-4 shrink-0" />
         {/* The bare cmdk input: shadcn's CommandInput brings its own boxed frame. */}
         <CommandPrimitive.Input

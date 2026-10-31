@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 const inputClassName =
-  "h-auto rounded-lg border-nia-line bg-white px-4 py-3.5 text-sm leading-normal text-nia-ink placeholder:text-nia-ink-muted md:text-sm";
+  "h-auto rounded-lg border-nia-line bg-card px-4 py-3.5 text-sm leading-normal text-nia-ink placeholder:text-nia-ink-muted md:text-sm";
 
 // Placeholder-only field from the design; the label stays for screen readers.
 export function AuthInput({

@@ -128,7 +128,7 @@ export function Checkout({ listing: l, mode, from, to }: { listing: Listing; mod
                 aria-pressed={protection}
                 onClick={() => setProtection((p) => !p)}
                 className={cn(
-                  "flex w-full items-start gap-3 rounded-xl bg-white p-4 text-left outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
+                  "flex w-full items-start gap-3 rounded-xl bg-card p-4 text-left outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
                   protection ? "border-2 border-foreground" : "border border-border hover:border-ring",
                 )}
               >
@@ -269,7 +269,7 @@ function Option({ on, disabled, onClick, title, sub }: { on: boolean; disabled?:
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "flex flex-col items-start gap-0.5 rounded-xl bg-white p-3.5 text-left outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-60",
+        "flex flex-col items-start gap-0.5 rounded-xl bg-card p-3.5 text-left outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-60",
         on ? "border-2 border-foreground" : "border border-border hover:border-ring",
       )}
     >

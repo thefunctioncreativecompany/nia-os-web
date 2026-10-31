@@ -188,7 +188,7 @@ function Collage() {
   );
 }
 
-const panel = "w-full max-w-md rounded-2xl bg-white p-4 shadow-elevation-2";
+const panel = "w-full max-w-md rounded-2xl bg-card p-4 shadow-elevation-2";
 
 function ProjectsPreview() {
   return (

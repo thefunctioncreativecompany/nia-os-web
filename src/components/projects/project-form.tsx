@@ -181,7 +181,7 @@ export function ProjectForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-full max-w-[600px] flex-col gap-7 rounded-2xl bg-white p-6 shadow-elevation-2 sm:p-10"
+      className="flex w-full max-w-[600px] flex-col gap-7 rounded-2xl bg-card p-6 shadow-elevation-2 sm:p-10"
     >
       {/* The heading follows the name as it's typed (Ika, 2026-10-23). */}
       <h1 className="text-h2 font-bold break-words text-foreground">{title.trim() || "New blank project"}</h1>
@@ -242,7 +242,7 @@ export function ProjectForm() {
           {cover ? (
             <>
               <Image src={cover.url} alt="" fill unoptimized className="object-cover" />
-              <span className="relative rounded-full bg-white/90 px-3 py-1 text-small text-foreground">
+              <span className="relative rounded-full bg-card/90 px-3 py-1 text-small text-foreground">
                 Change cover image
               </span>
             </>

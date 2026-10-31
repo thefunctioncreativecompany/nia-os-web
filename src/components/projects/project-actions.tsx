@@ -7,7 +7,7 @@ import { EditDetailsDialog } from "@/components/projects/edit-details-dialog";
 import { ShareProjectDialog } from "@/components/projects/share-project-dialog";
 
 const rowClassName =
-  "flex h-12 w-full items-center rounded-md border border-border bg-white px-4 text-left text-small leading-[1.4] font-semibold text-foreground outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-white";
+  "flex h-12 w-full items-center rounded-md border border-border bg-card px-4 text-left text-small leading-[1.4] font-semibold text-foreground outline-none transition-colors duration-fast hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-card";
 
 // "Project Actions" card (Figma 798:720).
 export function ProjectActions({ project, role }: { project: Project; role: ProjectRole }) {

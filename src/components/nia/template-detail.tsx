@@ -61,7 +61,7 @@ export function TemplateDetail({
               aria-current={active ? "page" : undefined}
               className={cn(
                 "flex h-9 items-center rounded-full border px-4 text-small outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
-                active ? "border-foreground bg-foreground font-bold text-primary-foreground" : "border-border bg-white text-muted-foreground hover:border-ring hover:text-foreground",
+                active ? "border-foreground bg-foreground font-bold text-primary-foreground" : "border-border bg-card text-muted-foreground hover:border-ring hover:text-foreground",
               )}
             >
               {doc.label}

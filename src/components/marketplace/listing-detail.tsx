@@ -164,7 +164,7 @@ function OptionCard({ on, disabled, onClick, label, children }: { on: boolean; d
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "flex flex-col items-start gap-0.5 rounded-xl bg-white p-3.5 text-left outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-60",
+        "flex flex-col items-start gap-0.5 rounded-xl bg-card p-3.5 text-left outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-60",
         on ? "border-2 border-foreground" : "border border-border hover:border-ring",
       )}
     >
@@ -252,7 +252,7 @@ function FocusViewer({ listing: l }: { listing: Listing }) {
           ))}
         </div>
         {many && (
-          <span className="absolute bottom-3.5 left-4 inline-flex h-6.5 items-center rounded-full bg-white/90 px-2.5 text-caption font-semibold">
+          <span className="absolute bottom-3.5 left-4 inline-flex h-6.5 items-center rounded-full bg-card/90 px-2.5 text-caption font-semibold">
             {shown + 1} / {images.length}
           </span>
         )}

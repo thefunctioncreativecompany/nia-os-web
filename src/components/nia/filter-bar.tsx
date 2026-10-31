@@ -22,7 +22,7 @@ import {
 
 /** The outer pill of a search field, for searches that build their own input (suggestions). */
 export const searchFieldShell =
-  "flex h-14 items-center gap-3 rounded-full border border-border bg-white px-5 text-lead text-muted-foreground transition-[border-color,box-shadow] duration-fast focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50";
+  "flex h-14 items-center gap-3 rounded-full border border-border bg-card px-5 text-lead text-muted-foreground transition-[border-color,box-shadow] duration-fast focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50";
 
 /** The input inside it. */
 export const searchFieldInput =
@@ -48,7 +48,7 @@ export function SearchField({
 export const chipClass = (on: boolean) =>
   cn(
     "inline-flex h-10 shrink-0 items-center gap-2 rounded-full border px-4 text-small font-semibold text-foreground outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
-    on ? "border-foreground bg-secondary" : "border-border bg-white hover:border-ring",
+    on ? "border-foreground bg-secondary" : "border-border bg-card hover:border-ring",
   );
 
 /** A chip that switches a filter on and off. `count` shows how many it would show. */

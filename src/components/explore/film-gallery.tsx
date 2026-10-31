@@ -58,7 +58,7 @@ function GalleryCard({ item, href, aspect, first, actions }: { item: ExploreItem
           )}
           {(item.badge || frame) && (
             <span className="absolute top-2.5 left-2.5 flex flex-wrap gap-1.5">
-              {item.badge && <span className="rounded-full bg-white/90 px-2.5 py-1 text-micro font-semibold text-foreground">{item.badge}</span>}
+              {item.badge && <span className="rounded-full bg-card/90 px-2.5 py-1 text-micro font-semibold text-foreground">{item.badge}</span>}
               {frame && (
                 <span className="rounded-full bg-foreground/70 px-2.5 py-1 text-micro font-semibold text-background tabular-nums">
                   <span className="sr-only">Frame </span>

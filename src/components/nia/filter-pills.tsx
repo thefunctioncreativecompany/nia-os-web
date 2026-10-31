@@ -36,7 +36,7 @@ export function FilterPills({
             onClick={() => toggle(option)}
             className={cn(
               "inline-flex h-8 items-center gap-1 rounded-full border px-3 text-small outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
-              on ? "border-foreground bg-foreground text-primary-foreground" : "border-border bg-white text-foreground hover:border-ring",
+              on ? "border-foreground bg-foreground text-primary-foreground" : "border-border bg-card text-foreground hover:border-ring",
             )}
           >
             {on ? <Check aria-hidden className="size-3.5" /> : <Plus aria-hidden className="size-3.5" />}

@@ -119,7 +119,7 @@ export function NavSearch() {
         onFocus={preload}
         onClick={() => (setGlobalWanted(true), setGlobalOpen(true))}
         aria-haspopup="dialog"
-        className="flex h-10 w-70 shrink-0 items-center gap-2.5 rounded-full border border-border bg-white px-4 text-left text-sm text-nia-placeholder outline-none transition-colors duration-fast hover:border-foreground/40 focus-visible:ring-3 focus-visible:ring-ring/50 max-lg:hidden"
+        className="flex h-10 w-70 shrink-0 items-center gap-2.5 rounded-full border border-border bg-card px-4 text-left text-sm text-nia-placeholder outline-none transition-colors duration-fast hover:border-foreground/40 focus-visible:ring-3 focus-visible:ring-ring/50 max-lg:hidden"
       >
         <Search aria-hidden className="size-4 shrink-0 text-muted-foreground" />
         <span className="min-w-0 flex-1 truncate">Search Nia</span>

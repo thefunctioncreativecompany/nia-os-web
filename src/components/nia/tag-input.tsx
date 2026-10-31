@@ -29,7 +29,7 @@ export function TagInput({
 
   return (
     <div className={cn("flex flex-col gap-2.5", className)}>
-      <div className="flex h-11 items-center gap-2 rounded-full border border-border bg-white px-3.5 focus-within:border-foreground">
+      <div className="flex h-11 items-center gap-2 rounded-full border border-border bg-card px-3.5 focus-within:border-foreground">
         <Search aria-hidden className="size-4 shrink-0 text-muted-foreground" />
         <input
           aria-label={label}
@@ -49,7 +49,7 @@ export function TagInput({
       {tags.length > 0 && (
         <ul aria-label={`${label} filters`} className="flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <li key={tag} className="inline-flex items-center gap-1 rounded-full border border-border bg-white py-1 pr-1.5 pl-3 text-small font-medium">
+            <li key={tag} className="inline-flex items-center gap-1 rounded-full border border-border bg-card py-1 pr-1.5 pl-3 text-small font-medium">
               {tag}
               <button
                 type="button"

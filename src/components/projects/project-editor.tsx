@@ -183,7 +183,7 @@ export function ProjectEditor({
   const cropper = useCoverCropper((file) => changeCover(file));
   const genres = toList(project.genres);
   const coverButton =
-    "flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-small font-semibold text-foreground shadow-sm outline-none transition-opacity duration-fast focus-visible:ring-3 focus-visible:ring-ring/50 md:opacity-0 md:group-hover:opacity-100 md:focus-visible:opacity-100";
+    "flex items-center gap-2 rounded-full bg-card/90 px-4 py-2 text-small font-semibold text-foreground shadow-sm outline-none transition-opacity duration-fast focus-visible:ring-3 focus-visible:ring-ring/50 md:opacity-0 md:group-hover:opacity-100 md:focus-visible:opacity-100";
   const readValues = (values: string[]) => (
     <span className="flex flex-wrap gap-x-6 gap-y-1 pt-1.5 text-sm font-medium text-muted-foreground">
       {values.length ? values.map((v) => <span key={v}>{v}</span>) : "—"}

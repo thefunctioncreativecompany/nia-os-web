@@ -64,14 +64,14 @@ export function MarketplaceComingSoon() {
           <div
             key={t.key}
             style={{ left: t.x, top: t.y, width: t.w, height: t.h, rotate: `${t.rotate.toFixed(1)}deg` }}
-            className="group absolute overflow-hidden rounded-xl bg-white text-foreground shadow-card transition-[scale,box-shadow] duration-lift ease-glide hover:z-[3] hover:scale-106 hover:shadow-card-hover motion-reduce:hover:scale-100"
+            className="group absolute overflow-hidden rounded-xl bg-card text-foreground shadow-card transition-[scale,box-shadow] duration-lift ease-glide hover:z-[3] hover:scale-106 hover:shadow-card-hover motion-reduce:hover:scale-100"
           >
             <span className="absolute inset-0" style={{ padding: t.image.fit === "contain" ? `${t.image.pad ?? 10}%` : undefined }}>
               <span className="relative block size-full">
                 <Image src={t.image.src} alt="" fill sizes="260px" className={t.image.fit === "contain" ? "object-contain" : "object-cover"} />
               </span>
             </span>
-            <span className="absolute inset-x-2 bottom-2 translate-y-1.5 truncate rounded-lg bg-white/95 px-2.5 py-1.75 text-caption font-semibold opacity-0 transition-[opacity,translate] duration-base ease-glide group-hover:translate-y-0 group-hover:opacity-100">
+            <span className="absolute inset-x-2 bottom-2 translate-y-1.5 truncate rounded-lg bg-card/95 px-2.5 py-1.75 text-caption font-semibold opacity-0 transition-[opacity,translate] duration-base ease-glide group-hover:translate-y-0 group-hover:opacity-100">
               {t.name}
             </span>
           </div>
@@ -84,7 +84,7 @@ export function MarketplaceComingSoon() {
         title="Marketplace"
         titleClassName="font-extrabold tracking-tight sm:text-banner"
         bodyClassName="max-w-95"
-        className="max-w-120 bg-white/90 sm:pb-9"
+        className="max-w-120 bg-card/90 sm:pb-9"
         note={waitlist.email && <>We&rsquo;ll email {waitlist.email} when Marketplace opens.</>}
         actions={
           <>
@@ -106,7 +106,7 @@ export function MarketplaceComingSoon() {
 
       {/* Some tiles are Wikimedia Commons photos whose licences need a credit. */}
       <Popover>
-        <PopoverTrigger className="absolute right-4 bottom-4 z-[150] rounded-full bg-white/90 px-3 py-1.5 text-caption text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 max-lg:bottom-28">
+        <PopoverTrigger className="absolute right-4 bottom-4 z-[150] rounded-full bg-card/90 px-3 py-1.5 text-caption text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 max-lg:bottom-28">
           Photo credits
         </PopoverTrigger>
         <PopoverContent align="end" className="w-80 text-caption leading-relaxed text-muted-foreground">

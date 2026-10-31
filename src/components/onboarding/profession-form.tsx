@@ -60,7 +60,7 @@ export function ProfessionForm({ userId, initial }: { userId: string; initial: s
                   onClick={() => setProfession(option)}
                   className={cn(
                     "flex min-h-14 min-w-0 items-center gap-2 rounded-lg border p-2.5 text-left outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50 sm:gap-3 sm:p-3",
-                    selected ? "border-primary bg-muted ring-1 ring-primary" : "border-border bg-white hover:bg-muted",
+                    selected ? "border-primary bg-muted ring-1 ring-primary" : "border-border bg-card hover:bg-muted",
                   )}
                 >
                   <span
@@ -88,7 +88,7 @@ export function ProfessionForm({ userId, initial }: { userId: string; initial: s
             <label htmlFor="role-filter" className="text-small font-medium text-foreground">
               Or find your role
             </label>
-            <div className="flex h-11 items-center gap-2 rounded-lg border border-border bg-white px-3 focus-within:border-foreground focus-within:ring-3 focus-within:ring-ring/50">
+            <div className="flex h-11 items-center gap-2 rounded-lg border border-border bg-card px-3 focus-within:border-foreground focus-within:ring-3 focus-within:ring-ring/50">
               <Search aria-hidden className="size-4 shrink-0 text-muted-foreground" />
               <input
                 id="role-filter"
@@ -100,7 +100,7 @@ export function ProfessionForm({ userId, initial }: { userId: string; initial: s
                 className="min-w-0 flex-1 bg-transparent text-small text-foreground outline-none placeholder:text-muted-foreground [&::-webkit-search-cancel-button]:hidden"
               />
             </div>
-            <div className="max-h-72 overflow-y-auto rounded-lg border border-border bg-white">
+            <div className="max-h-72 overflow-y-auto rounded-lg border border-border bg-card">
               {sectors.map(({ sector, roles }) => (
                 <div key={sector} role="group" aria-label={sector}>
                   <p className="sticky top-0 border-b border-border bg-muted px-3 py-1.5 text-caption font-semibold text-muted-foreground">{sector}</p>

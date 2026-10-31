@@ -224,7 +224,7 @@ export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT,
           refuse && "bg-destructive/8",
         )}
       >
-        <span className={cn("flex size-9 items-center justify-center rounded-full bg-white text-foreground shadow-sm transition-transform duration-base ease-out", over && "-translate-y-1")}>
+        <span className={cn("flex size-9 items-center justify-center rounded-full bg-card text-foreground shadow-sm transition-transform duration-base ease-out", over && "-translate-y-1")}>
           <UpIcon aria-hidden className="size-4.5" />
         </span>
         <span aria-live="polite" className={cn("text-sm font-bold", refuse ? "text-destructive" : "text-foreground")}>
@@ -238,7 +238,7 @@ export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT,
       {uploads.length > 0 && (
         <ul className="flex flex-col gap-2" aria-label="Uploading">
           {uploads.map((u) => (
-            <li key={u.key} className="flex items-center gap-3 rounded-xl border border-border bg-white p-3">
+            <li key={u.key} className="flex items-center gap-3 rounded-xl border border-border bg-card p-3">
               <PageIcon name={u.name} kind={u.kind} />
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-sm font-semibold text-foreground">{u.name}</span>
@@ -370,7 +370,7 @@ function FileGroups({ files, canEdit, now, remove, retag }: { files: ProjectFile
   );
 
   const row = (file: ProjectFile, extra?: React.ReactNode) => (
-    <li key={file.id} className="flex flex-col gap-2 rounded-xl border border-border bg-white p-3">
+    <li key={file.id} className="flex flex-col gap-2 rounded-xl border border-border bg-card p-3">
       <div className="flex items-center gap-3">
         <PageIcon name={file.name} kind={file.kind} />
         <span className="flex min-w-0 flex-1 flex-col gap-1">
@@ -413,11 +413,11 @@ function FileGroups({ files, canEdit, now, remove, retag }: { files: ProjectFile
                 {file.url && <img src={file.url} alt={file.name} loading="lazy" className="h-auto w-full transition-transform duration-base ease-out group-hover:scale-[1.02]" />}
               </button>
               <span className="pointer-events-none absolute inset-x-1.5 top-1.5 flex items-start justify-between gap-1">
-                <span className="pointer-events-auto rounded-full bg-white/90 shadow-sm">
+                <span className="pointer-events-auto rounded-full bg-card/90 shadow-sm">
                   <TagMenu file={file} canEdit={canEdit} onChange={(t) => retag(file, t)} />
                 </span>
                 {/* Pointing devices only: phones can't hover, so the viewer carries these there. */}
-                <span className="pointer-events-auto rounded-lg bg-white/90 opacity-0 shadow-sm transition-opacity duration-fast group-hover:opacity-100 group-focus-within:opacity-100 [@media(hover:none)]:hidden">{actions(file)}</span>
+                <span className="pointer-events-auto rounded-lg bg-card/90 opacity-0 shadow-sm transition-opacity duration-fast group-hover:opacity-100 group-focus-within:opacity-100 [@media(hover:none)]:hidden">{actions(file)}</span>
               </span>
             </li>
           ))}

@@ -72,7 +72,7 @@ export function FollowForm({ userId, initial }: { userId: string; initial: strin
                     "shrink-0 rounded-full border px-4 py-1.5 text-xs leading-normal font-bold outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50",
                     isFollowing
                       ? "border-primary bg-primary text-primary-foreground hover:bg-primary/85"
-                      : "border-border bg-white text-foreground hover:bg-muted",
+                      : "border-border bg-card text-foreground hover:bg-muted",
                   )}
                 >
                   {isFollowing ? "Following" : "Follow"}

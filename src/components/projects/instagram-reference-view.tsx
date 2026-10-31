@@ -98,7 +98,7 @@ export function InstagramReferenceView({
                   // eslint-disable-next-line @next/next/no-img-element -- private covers use short-lived links, which the image optimiser would keep
                   <img src={ref.coverUrl} alt="" className="absolute inset-0 size-full object-cover" />
                 )}
-                <span className="relative flex size-16 items-center justify-center rounded-full bg-white/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
+                <span className="relative flex size-16 items-center justify-center rounded-full bg-card/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
                   <Play aria-hidden className="ml-1 size-6 fill-current" />
                 </span>
               </button>

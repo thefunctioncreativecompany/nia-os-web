@@ -45,7 +45,7 @@ export function ReorderableList<T extends { id: string; label: string }>({
           }}
           onDragEnd={() => setDragging(null)}
           className={cn(
-            "flex items-center gap-2 rounded-xl border bg-white py-2.5 pr-2 pl-3 text-sm transition-[border-color,box-shadow] duration-base ease-out",
+            "flex items-center gap-2 rounded-xl border bg-card py-2.5 pr-2 pl-3 text-sm transition-[border-color,box-shadow] duration-base ease-out",
             dragging === item.id ? "border-foreground font-bold shadow-menu" : "border-border",
           )}
         >

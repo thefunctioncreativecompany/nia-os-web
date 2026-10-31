@@ -35,7 +35,7 @@ export function ChoicePills<T extends string>({
               "rounded-full border px-4 py-2 text-sm outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
               selected
                 ? "border-primary bg-primary font-bold text-primary-foreground"
-                : "border-border bg-white font-medium text-muted-foreground hover:bg-muted hover:text-foreground",
+                : "border-border bg-card font-medium text-muted-foreground hover:bg-muted hover:text-foreground",
             )}
           >
             {option.label}

@@ -23,7 +23,7 @@ export function UploadProgress({
 }) {
   const percent = total > 0 ? (loaded / total) * 100 : 0;
   return (
-    <div className={cn("flex flex-col gap-2.5 rounded-xl border border-border bg-white p-4", className)}>
+    <div className={cn("flex flex-col gap-2.5 rounded-xl border border-border bg-card p-4", className)}>
       <div className="flex items-center gap-2.5">
         <FileText aria-hidden className="size-4 shrink-0 text-muted-foreground" />
         <span className="min-w-0 flex-1 truncate text-sm font-bold text-foreground">{name}</span>

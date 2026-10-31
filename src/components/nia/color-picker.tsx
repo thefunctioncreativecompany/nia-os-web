@@ -76,7 +76,7 @@ export function ColorPicker({
   };
 
   return (
-    <div className={cn("flex flex-col gap-3 rounded-xl border border-border bg-white p-3", className)}>
+    <div className={cn("flex flex-col gap-3 rounded-xl border border-border bg-card p-3", className)}>
       <div
         ref={area}
         role="slider"
@@ -118,7 +118,7 @@ export function ColorPicker({
           }}
           onBlur={() => setDraft(null)}
           spellCheck={false}
-          className="h-7 min-w-0 flex-1 rounded-md border border-border bg-white px-2.5 text-small font-normal tracking-normal text-foreground tabular-nums normal-case outline-none focus-visible:border-foreground"
+          className="h-7 min-w-0 flex-1 rounded-md border border-border bg-card px-2.5 text-small font-normal tracking-normal text-foreground tabular-nums normal-case outline-none focus-visible:border-foreground"
         />
       </label>
     </div>

@@ -388,7 +388,7 @@ function Preview({ result: r, now, onOpen }: { result: Result; now: number; onOp
           {r.explore.image && <Image src={r.explore.image} alt="" fill sizes="16rem" className="object-cover" />}
         </div>
       ) : r.file ? (
-        <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl bg-white">
+        <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl bg-card">
           {picture === undefined ? (
             <Skeleton className="size-full" />
           ) : picture ? (

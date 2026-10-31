@@ -26,7 +26,7 @@ export function PropertyInspector({
   className?: string;
 }) {
   return (
-    <section aria-label={`${name} properties`} className={cn("flex flex-col gap-3.5 rounded-xl border border-border bg-white p-4", className)}>
+    <section aria-label={`${name} properties`} className={cn("flex flex-col gap-3.5 rounded-xl border border-border bg-card p-4", className)}>
       <header className="flex items-baseline justify-between gap-2">
         <h4 className="truncate text-small font-bold text-foreground">{name}</h4>
         <span className="text-micro text-muted-foreground">Layer</span>
