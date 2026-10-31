@@ -2,122 +2,48 @@
 
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/navigation";
-import { Clapperboard, FileText, LayoutTemplate, Search } from "lucide-react";
+import { Search } from "lucide-react";
 
-import { loadTemplateIndex } from "@/features/templates/actions";
-
-import { createClient } from "@/lib/supabase/client";
-import { ExpandingSearch, type ExpandingSearchItem } from "@/components/arc/expanding-search/expanding-search";
-
-// Desktop's global search is its own download, fetched when someone points at or focuses the
-// search (or presses ⌘K), so pages don't carry it.
+// Global search is its own download, fetched when someone points at, taps or focuses the search
+// (or presses ⌘K), so pages don't carry it.
 const loadGlobalSearch = () => import("@/components/nia/global-search").then((m) => m.GlobalSearch);
 const GlobalSearch = dynamic(loadGlobalSearch, { ssr: false });
 
-type ProjectRow = { id: string; title: string; production_type: string | null; stage: string; director: string; genres: string };
-type DocumentRow = { id: string; template_code: string; title: string; project: { title: string } | null };
-
-const icon = <Clapperboard className="size-4" />;
-const docIcon = <FileText className="size-4" />;
-const templateIcon = <LayoutTemplate className="size-4" />;
-
-// Navbar search (uiarc expanding-search): a search button that grows into a field and lists
-// matches as you type, recent projects before. Finds projects, documents (yours and those in
-// projects you can open) and templates (audit #14). Access rules apply as usual. People come
-// with Cast & Crew (BUILD_PLAN 6.4).
-// On phones and tablets it is always a field, filling the top bar. Desktop opens global search
-// instead (global-search.tsx), from the field or ⌘K / Ctrl K.
+// Navbar search: a field that opens global search (global-search.tsx: projects, documents, files,
+// templates and Explore, with tags, autocorrect and suggested searches). On desktop it's the
+// field with ⌘K / Ctrl K; on phones and tablets it fills the top bar in silver glass and opens the
+// same search full screen (Ika, 2026-10-31: phones get the same search as desktop).
 export function NavSearch() {
-  const router = useRouter();
-  const [globalOpen, setGlobalOpen] = useState(false);
-  const [globalWanted, setGlobalWanted] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [wanted, setWanted] = useState(false);
   const preload = () => {
-    setGlobalWanted(true);
+    setWanted(true);
     void loadGlobalSearch();
+  };
+  const show = () => {
+    setWanted(true);
+    setOpen(true);
   };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key.toLowerCase() !== "k" || !(e.metaKey || e.ctrlKey) || !window.matchMedia("(min-width: 64rem)").matches) return;
+      if (e.key.toLowerCase() !== "k" || !(e.metaKey || e.ctrlKey)) return;
       e.preventDefault();
-      setGlobalWanted(true);
-      setGlobalOpen(true);
+      setWanted(true);
+      setOpen(true);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
-  const [projects, setProjects] = useState<ExpandingSearchItem[] | null>(null);
-  const [more, setMore] = useState<ExpandingSearchItem[]>([]);
-  // The lists load the first time someone points at, taps or tabs to the search, not on every page
-  // load (audit 2026-10-21). Pointing comes a moment before the click, so the list is usually
-  // there before the field has grown; if it arrived mid-growth, the growth would stall.
-  const [wanted, setWanted] = useState(false);
-  const want = () => setWanted(true);
-
-  useEffect(() => {
-    if (!wanted) return;
-    let live = true;
-    void (async () => {
-      const supabase = createClient();
-      // Documents and templates arrive after the projects; they only add results.
-      void Promise.all([
-        supabase.from("documents").select("id, template_code, title, project:projects(title)").is("deleted_at", null).order("updated_at", { ascending: false }).limit(200).returns<DocumentRow[]>(),
-        loadTemplateIndex(),
-      ]).then(([{ data: docs }, templates]) => {
-        if (!live) return;
-        setMore([
-          ...(docs ?? []).map((d) => ({ id: `d:${d.template_code}:${d.id}`, title: d.title, meta: d.project?.title ? `In ${d.project.title}` : "Draft", group: "Documents", icon: docIcon })),
-          ...templates.map((t) => ({ id: `t:${t.ready ? "open" : "preview"}:${t.code}`, title: t.name, meta: t.ready ? t.stage : `${t.stage} · coming soon`, group: "Templates", icon: templateIcon, keywords: t.keywords })),
-        ]);
-      });
-      const { data } = await supabase
-        .from("projects")
-        .select("id, title, production_type, stage, director, genres")
-        .is("deleted_at", null)
-        .order("updated_at", { ascending: false })
-        .limit(200)
-        .returns<ProjectRow[]>();
-      if (!live) return;
-      setProjects(
-        (data ?? []).map((p) => ({
-          id: `p:${p.id}`,
-          title: p.title || "Untitled project",
-          meta: [p.production_type, p.stage].filter(Boolean).join(" · "),
-          group: "Projects",
-          icon,
-          keywords: [p.director, p.genres].filter(Boolean),
-        })),
-      );
-    })();
-    return () => {
-      live = false;
-    };
-  }, [wanted]);
-
-  const props = {
-    label: "Search projects, documents and templates",
-    placeholder: "Search projects, documents, templates...",
-    items: [...(projects ?? []), ...more],
-    suggestions: (projects ?? []).slice(0, 4),
-    suggestionsLabel: "Recent projects",
-    emptyHint: "Try a shorter word, a director's name, or a document like \"call sheet\".",
-    onSelect: (item: ExpandingSearchItem) => {
-      const [kind, a, b] = item.id.split(":");
-      if (kind === "p") return router.push(`/projects/${a}`);
-      if (kind === "d") return router.push(`/templates/${a}?doc=${b}`);
-      router.push(a === "open" ? `/templates/${b}` : `/templates?preview=${b}`);
-    },
-  };
 
   return (
     <>
-      {/* Desktop: a field that opens global search. */}
+      {/* Desktop. */}
       <button
         type="button"
         onPointerEnter={preload}
         onFocus={preload}
-        onClick={() => (setGlobalWanted(true), setGlobalOpen(true))}
+        onClick={show}
         aria-haspopup="dialog"
         className="flex h-10 w-70 shrink-0 items-center gap-2.5 rounded-full border border-border bg-card px-4 text-left text-sm text-nia-placeholder outline-none transition-colors duration-fast hover:border-foreground/40 focus-visible:ring-3 focus-visible:ring-ring/50 max-lg:hidden"
       >
@@ -125,11 +51,22 @@ export function NavSearch() {
         <span className="min-w-0 flex-1 truncate">Search Nia</span>
         <kbd className="rounded-md bg-muted px-1.5 py-0.5 font-sans text-caption text-muted-foreground">⌘K</kbd>
       </button>
-      {globalWanted && <GlobalSearch open={globalOpen} onOpenChange={setGlobalOpen} />}
       {/* Phones and tablets: a field that fills the top bar, in silver glass. */}
-      <div onPointerDown={want} onFocusCapture={want} className="nav-search-glass relative min-w-0 flex-1 lg:hidden">
-        <ExpandingSearch {...props} alwaysOpen anchor="start" expandedWidth={1200} />
+      <div className="nav-search-glass relative min-w-0 flex-1 lg:hidden">
+        <button
+          type="button"
+          data-expanded
+          onPointerDown={preload}
+          onFocus={preload}
+          onClick={show}
+          aria-haspopup="dialog"
+          className="flex h-11 w-full items-center gap-2.5 rounded-full border border-border px-4 text-left text-sm text-nia-placeholder outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+        >
+          <Search aria-hidden className="size-4.5 shrink-0 text-foreground" />
+          <span className="min-w-0 flex-1 truncate">Search projects, documents, templates...</span>
+        </button>
       </div>
+      {wanted && <GlobalSearch open={open} onOpenChange={setOpen} />}
     </>
   );
 }

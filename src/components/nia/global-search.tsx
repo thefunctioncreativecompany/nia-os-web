@@ -12,7 +12,7 @@ import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
-import { FilterChip, SearchField } from "@/components/nia/filter-bar";
+import { ChipRow, FilterChip, SearchField } from "@/components/nia/filter-bar";
 import { DocMiniature } from "@/features/templates/components/doc-miniature";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { loadTemplateIndex, loadTemplatePreview, type TemplatePreview } from "@/features/templates/actions";
@@ -159,7 +159,7 @@ export function refreshSearch() {
   cache = null;
 }
 
-// Global search on desktop (Ika, 2026-10-23): one field for everything in Nia, results grouped by
+// Global search (Ika, 2026-10-23; full screen on phones and tablets since 2026-10-31): one field for everything in Nia, results grouped by
 // what they are, a filter per group with its count, and a live preview of the result in focus.
 // Since 2026-10-31 (Ika): Explore's tags find titles and can be searched on their own, misspelt
 // words are corrected to ones that exist (src/lib/search.ts), and suggested searches show while
@@ -281,11 +281,11 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
         }
       }}
     >
-      <DialogContent showCloseButton={false} className="top-[12svh] flex h-[min(44rem,76svh)] w-[min(72rem,calc(100%-4rem))] translate-y-0 flex-col gap-0 overflow-hidden p-0 sm:max-w-none">
+      <DialogContent showCloseButton={false} className="top-[12svh] flex h-[min(44rem,76svh)] w-[min(72rem,calc(100%-4rem))] translate-y-0 flex-col gap-0 overflow-hidden p-0 sm:max-w-none max-lg:top-0 max-lg:left-0 max-lg:h-svh max-lg:w-screen max-lg:max-w-none max-lg:translate-x-0 max-lg:rounded-none max-lg:border-0">
         <DialogTitle className="sr-only">Search Nia</DialogTitle>
         <DialogDescription className="sr-only">Projects, documents, files, templates and Explore. Use the arrow keys to move through results and Enter to open one.</DialogDescription>
 
-        <div className="flex flex-col gap-4 border-b border-border p-5">
+        <div className="flex flex-col gap-4 border-b border-border p-4 lg:p-5">
           <SearchField
             label="Search Nia"
             autoFocus
@@ -310,9 +310,17 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
             aria-controls={listId}
             aria-activedescendant={active ? `${listId}-${active.key}` : undefined}
             placeholder="Search projects, documents, files, templates and Explore"
-            suffix={<kbd className="rounded-md bg-muted px-2 py-0.5 font-sans text-caption text-muted-foreground">esc</kbd>}
+            suffix={
+              <>
+                <kbd className="rounded-md bg-muted px-2 py-0.5 font-sans text-caption text-muted-foreground max-lg:hidden">esc</kbd>
+                {/* Phones and tablets have no Escape key. */}
+                <button type="button" onClick={() => onOpenChange(false)} className="rounded-sm text-sm font-semibold text-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50 lg:hidden">
+                  Cancel
+                </button>
+              </>
+            }
           />
-          <div role="group" aria-label="Show" className="flex flex-wrap gap-2">
+          <ChipRow role="group" aria-label="Show">
             <FilterChip on={filter === "all"} onClick={() => (setFilter("all"), setActiveKey(null))}>
               All
             </FilterChip>
@@ -328,7 +336,7 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
                 <X aria-hidden className="size-3.5" />
               </FilterChip>
             )}
-          </div>
+          </ChipRow>
           {suggestions.length > 0 && (
             <div role="group" aria-label={typed.length ? "Suggestions" : "Suggested searches"} className="-mt-1 flex flex-wrap items-center gap-x-4 gap-y-1.5">
               {suggestions.map((x) => {
@@ -358,7 +366,7 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
           )}
         </div>
 
-        <div className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
+        <div className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
           <div ref={list} id={listId} role="listbox" aria-label="Results" className="min-h-0 overflow-y-auto p-3">
             {corrected && (
               <p className="px-3 pt-1 pb-2 text-small text-muted-foreground">
@@ -415,7 +423,7 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
             )}
           </div>
 
-          <aside aria-label="Preview" className="min-h-0 overflow-y-auto border-l border-border bg-nia-panel p-6">
+          <aside aria-label="Preview" className="min-h-0 overflow-y-auto border-l border-border bg-nia-panel p-6 max-lg:hidden">
             {active ? <Preview key={active.key} result={active} now={now} onOpen={() => go(active)} /> : <p className="text-sm text-muted-foreground">Pick a result to see it here.</p>}
           </aside>
         </div>

@@ -224,8 +224,9 @@ Data:
   searched on its own (a `#` chip); when nothing matches, misspelt words are corrected to words
   that exist in the person's projects, documents, files, templates and Explore ("Showing results
   for … · Search for … instead"); with nothing typed, recent searches on this device
-  (localStorage) then popular ones; while typing, matching tags and title completions. Not in
-  Figma yet.
+  (localStorage) then popular ones; while typing, matching tags and title completions. Phones
+  and tablets open the same search full screen from the top bar's field (one column, Cancel to
+  close). Not in Figma yet.
 - (2026-10-23) New project form: the heading shows the name as it's typed; Instagram links can be
   added there and become references when the project is created. More genres (free text) and
   production types (database rule: needs `20261105010000_more_production_types.sql` before the
@@ -785,7 +786,7 @@ Next week (from 2026-10-26, in order; agree each with Ika first)
    Details and Crew & talent, New project's Instagram field.
 6. Vercel tidy-up (above): the CLI on the nia-technologies account, disconnect the two extra
    projects, set deployment retention.
-7. Small: phones' search (global search is desktop only), the genre pills on Details are long
+7. Small: the genre pills on Details are long
    now (24): consider a "More genres" fold.
 
 Milestone 4 — Shoot day: not started.
