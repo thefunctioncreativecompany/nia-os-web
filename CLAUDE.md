@@ -395,6 +395,18 @@ Data:
   turn light is `text-background`; the black wordmark and fixed-black icons use `dark:invert`.
   The PDF preview stays white paper, carousel captions stay dark over pictures. New work: theme
   colours only, never `bg-white`. Not in Figma yet: reconcile the dark tokens and Appearance.
+- (2026-10-31) Explore Feed (Ika): `/explore/feed`, beside Library in Explore's tabs
+  (`ExploreTabs`, gold underline), built from the approved prototype (the dev prototype is
+  retired): top stories on the Carousel, a chip per topic that has stories, the ranked list and
+  the open story (what it means for you, numbers, a date to act on, points, a table, Read on
+  the source). Stories in `src/features/explore/feed.ts`, written in Nia's words, linked and
+  never copied; Ika approves each one before it's added (Copilot drafts them later). Ranking:
+  0.45 relevance + 0.35 impact + 0.2 source reliability, softened 30-day half-life; relevance is
+  the story's reach, lifted halfway to 1 when it's about a production type in the reader's
+  projects (read once in the browser). Four stories (Greenslate ×2, Deadline from its headline
+  only, Breakthrough Ventures); Business Insider Africa's Laditan story waits until its facts
+  can be read by hand (no placeholders: the test fails on them). No migration yet; a stories
+  table comes when stories arrive weekly. Behind Explore's early access. Not in Figma yet.
 
 ## Working notes
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ExploreTabs } from "@/components/explore/explore-tabs";
 import { ChevronRight } from "lucide-react";
 
 import { DriftColumns } from "@/components/nia/drift-columns";
@@ -30,6 +31,7 @@ export function ExploreLibrary({ seed, gallery }: { seed: number; gallery: { ite
 
   return (
     <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-7.5 lg:pt-12.5">
+      <ExploreTabs current="library" className="mb-10" />
       {/* Opens the whole library as one canvas (Ika, 2026-10-21). */}
       <h1 id="explore-all" className="text-h2 font-semibold tracking-tight text-foreground">
         <Link
