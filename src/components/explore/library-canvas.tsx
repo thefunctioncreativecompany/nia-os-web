@@ -12,6 +12,7 @@ import { useMediaQuery } from "@/hooks/use-pointer";
 import { exploreHome } from "@/features/explore/made-in-africa";
 import { LIBRARY, type LibraryItem } from "@/features/explore/library";
 import type { CategoryItem } from "./explore-data";
+import { ExploreAllViews } from "./explore-all-views";
 import { PressKitPreview } from "./press-kit-preview";
 
 // The gap between posters, as on Explore all's grid (0.8125rem).
@@ -234,10 +235,8 @@ export function LibraryCanvas() {
         </Link>
         <div className="flex items-center gap-2">
           <Ambience />
-          <div className="pointer-events-auto flex items-baseline gap-2.5 rounded-full bg-white/90 px-4 py-2 shadow-card backdrop-blur-sm">
-            <h1 className="text-sm font-bold text-foreground">Explore all</h1>
-            <span className="text-small text-muted-foreground">{N} titles</span>
-          </div>
+          <h1 className="sr-only">Explore all</h1>
+          <ExploreAllViews current="canvas" />
         </div>
       </div>
       <p id="library-help" className="pointer-events-none absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-white/90 px-4 py-2 text-caption text-muted-foreground shadow-card backdrop-blur-sm max-lg:bottom-28">

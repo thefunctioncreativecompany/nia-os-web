@@ -370,6 +370,13 @@ Data:
   twenty): one scrolling row of compact cards for every new template, newest first, each with
   its name, stage and for-you line; the whole card opens the preview (both value lines and Use
   this template). Home's announcement names three others, then "and N more" to Templates.
+- (2026-10-31) Explore all has a second view (Ika): a quick view at `/explore/all/quick`
+  (`LibraryQuickView`): the same library one title at a time at its true shape, with what it is,
+  a line about it (study note or summary) and four tags beside it (under it on phones and
+  tablets), and Open (its page, or the film pop-up). Swipe or drag left and right, arrow keys or
+  the side buttons; it goes round from the last title to the first and fetches the next pictures
+  ahead. A Canvas · Quick view switch (`ExploreAllViews`) sits on both views; the canvas header
+  lost its title count. Not in Figma yet.
 
 ## Working notes
 
