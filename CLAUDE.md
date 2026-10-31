@@ -450,6 +450,14 @@ Data:
   invitation and auth emails have a Nia Blue button and neutral greys. For Ika: paste the
   updated `supabase/email-templates/confirm-signup.html` and `reset-password.html` into
   Supabase → Authentication → Emails (Source view).
+- (2026-10-31) Sourcing creator films (Ika: strictly creator content): `node --env-file=.env.local
+  scripts/find-creator-films.mjs` writes proposals to `scripts/out/creator-candidates.json` from
+  Vimeo Staff Picks (public feed + Vimeo oEmbed, no key) and, once `YOUTUBE_API_KEY` is in
+  `.env.local`, YouTube search (Data API v3, embeddable videos only). It drops trailers, clips,
+  episodes, reviews and interviews, studio/streamer/network channels, and anything under 30 s or
+  over 25 min, and guesses each type. Instagram can't be searched without Meta's approved app.
+  Ika approves each before it's written up (credits, summary, 15–20 tags). Before Vimeo or
+  YouTube creator films can join Explore, creator pages need to play them (today: Instagram).
 - (2026-10-31) Creator films Instagram won't play (Ika): `embeds: false` in `creators.ts` shows the
   cover with Watch on Instagram instead of Instagram's "may be broken" player (No Scene Girls'
   strap bodysuit, `Deub31ivOv-`); `sensitive: true` adds a sensitive-content screen (blurred
