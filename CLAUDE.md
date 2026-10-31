@@ -342,7 +342,11 @@ Data:
   Modern Times, King Kong, Frankenstein, His Girl Friday, Stagecoach, Notorious, Touch of Evil,
   High Noon and The Night of the Hunter; five essentials. Press kits needed heavy cleaning
   (Frankenstein's videos were Netflix's 2025 film and Young Frankenstein; High Noon's "reviews"
-  were book pages; polls and lists moved from reviews to articles).
+  were book pages; polls and lists moved from reviews to articles). Batch 5: Bride of Frankenstein, Laura, Gilda,
+  The African Queen, The Adventures of Robin Hood, Bringing Up Baby, Mr. Smith Goes to Washington,
+  The Best Years of Our Lives, An American in Paris and Top Hat; two essentials; no official
+  trailer for Gilda or Top Hat (Laura's videos about other Lauras and An American in Paris's
+  Broadway clips removed).
 - (2026-10-30) Templates are built in order of how likely producers are to use them (Ika): 1
   Production Budget, 2 the creator templates (GRWM, Day in My Life, Product Review…, which the
   editor already handles), 3 Script Breakdown, Content Production Guideline and Press Junket

@@ -4764,6 +4764,280 @@
           "is_primary": true
         }
       ]
+    },
+    {
+      "slug": "bride-of-frankenstein",
+      "collection": "studio-era",
+      "title": "Bride of Frankenstein",
+      "type": "film",
+      "genres": [
+        "Horror"
+      ],
+      "year": 1935,
+      "countries": [
+        "United States"
+      ],
+      "credit": "James Whale",
+      "recognition": "Added to the National Film Registry in 1998",
+      "pair_with": "",
+      "study_note": "Whale's sequel goes further than the original: camp, pathos and the Bride's hair and make-up, on screen for a few minutes and an icon ever since",
+      "added": "2026-10-31",
+      "imdb_id": "tt0026138",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "VR2uBTMBKVg",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "laura",
+      "collection": "studio-era",
+      "title": "Laura",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Mystery"
+      ],
+      "year": 1944,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Otto Preminger",
+      "recognition": "Academy Award for Best Cinematography (Joseph LaShelle)",
+      "pair_with": "",
+      "study_note": "A detective falls for a murdered woman's portrait: Preminger's gliding camera and David Raksin's theme carry the obsession",
+      "added": "2026-10-31",
+      "imdb_id": "tt0037008",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "mYYLquxN2zQ",
+          "kind": "trailer",
+          "channel": "BFITrailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "gilda",
+      "collection": "studio-era",
+      "title": "Gilda",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Romance"
+      ],
+      "year": 1946,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Charles Vidor",
+      "recognition": "Added to the National Film Registry in 2013",
+      "pair_with": "",
+      "study_note": "Rita Hayworth's entrance and \"Put the Blame on Mame\": how a star is lit and framed to own every scene she's in",
+      "added": "2026-10-31",
+      "imdb_id": "tt0038559",
+      "videos": []
+    },
+    {
+      "slug": "the-african-queen",
+      "collection": "studio-era",
+      "title": "The African Queen",
+      "type": "film",
+      "genres": [
+        "Adventure",
+        "Romance"
+      ],
+      "year": 1951,
+      "countries": [
+        "United States",
+        "United Kingdom"
+      ],
+      "credit": "John Huston",
+      "recognition": "Academy Award for Best Actor (Humphrey Bogart)",
+      "pair_with": "",
+      "study_note": "Shot largely on location in Uganda and the Belgian Congo in Technicolor, with Bogart and Hepburn mostly on one small boat",
+      "added": "2026-10-31",
+      "imdb_id": "tt0043265",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "gYBDRAp4Or8",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-adventures-of-robin-hood",
+      "collection": "studio-era",
+      "title": "The Adventures of Robin Hood",
+      "type": "film",
+      "genres": [
+        "Adventure",
+        "Action"
+      ],
+      "year": 1938,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Michael Curtiz & William Keighley",
+      "recognition": "Three Academy Awards, including Best Original Score",
+      "pair_with": "",
+      "study_note": "Three-strip Technicolor at its boldest, Erich Wolfgang Korngold's score and the swordfight fought in shadow on the castle wall",
+      "added": "2026-10-31",
+      "imdb_id": "tt0029843",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "BpqR6Ca-LL8",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "bringing-up-baby",
+      "collection": "studio-era",
+      "title": "Bringing Up Baby",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "year": 1938,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Howard Hawks",
+      "recognition": "Added to the National Film Registry in 1990",
+      "pair_with": "",
+      "study_note": "Screwball comedy at full speed: Hepburn, Grant, a leopard and timing built on interruption",
+      "added": "2026-10-31",
+      "essential": "The screwball comedy whose pace romantic comedies still borrow.",
+      "imdb_id": "tt0029947",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "F25nzu6hh0Q",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "mr-smith-goes-to-washington",
+      "collection": "studio-era",
+      "title": "Mr. Smith Goes to Washington",
+      "type": "film",
+      "genres": [
+        "Drama"
+      ],
+      "year": 1939,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Frank Capra",
+      "recognition": "Academy Award for Best Original Story",
+      "pair_with": "",
+      "study_note": "Capra's idealist against the Senate: a filibuster built from close-ups and reaction shots",
+      "added": "2026-10-31",
+      "imdb_id": "tt0031679",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "mpJSB4Gbljc",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-best-years-of-our-lives",
+      "collection": "studio-era",
+      "title": "The Best Years of Our Lives",
+      "type": "film",
+      "genres": [
+        "Drama"
+      ],
+      "year": 1946,
+      "countries": [
+        "United States"
+      ],
+      "credit": "William Wyler",
+      "recognition": "Seven Academy Awards, including Best Picture",
+      "pair_with": "",
+      "study_note": "Three veterans come home; Gregg Toland's deep focus keeps whole families sharp in one shot, and Harold Russell, who lost his hands in the war, plays a sailor who has too",
+      "added": "2026-10-31",
+      "imdb_id": "tt0036868",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "1yc5PugV4mk",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "an-american-in-paris",
+      "collection": "studio-era",
+      "title": "An American in Paris",
+      "type": "film",
+      "genres": [
+        "Musical",
+        "Romance"
+      ],
+      "year": 1951,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Vincente Minnelli",
+      "recognition": "Six Academy Awards, including Best Picture",
+      "pair_with": "",
+      "study_note": "A 17-minute ballet finale staged in the styles of French painters, in MGM Technicolor",
+      "added": "2026-10-31",
+      "essential": "Its ballet finale is the reference for musical numbers built from painting.",
+      "imdb_id": "tt0043278",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "o2WAMZRCbpU",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "top-hat",
+      "collection": "studio-era",
+      "title": "Top Hat",
+      "type": "film",
+      "genres": [
+        "Musical",
+        "Comedy"
+      ],
+      "year": 1935,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Mark Sandrich",
+      "recognition": "Nominated for the Academy Award for Best Picture",
+      "pair_with": "",
+      "study_note": "Astaire and Rogers dance \"Cheek to Cheek\" in long, full-figure takes, on Art Deco sets RKO built white on white",
+      "added": "2026-10-31",
+      "imdb_id": "tt0027125",
+      "videos": []
     }
   ],
   "categories": [

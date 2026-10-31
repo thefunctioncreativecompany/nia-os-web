@@ -128,6 +128,47 @@
   "cinemaRelease": true,
   "imdb": "tt0042192"
  },
+ "an-american-in-paris": {
+  "videos": [
+   {
+    "id": "Z08DPwBE3FE",
+    "kind": "Cast interview",
+    "title": "Gene Kelly & Leslie Caron on Making An American In Paris | AFI Movie Club",
+    "channel": "American Film Institute"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: An American in Paris",
+    "href": "https://archive.org/details/variety183-1951-08-29/page/n5/mode/1up"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "An American in Paris",
+    "href": "https://www.rogerebert.com/reviews/an-american-in-paris-1951"
+   },
+   {
+    "outlet": "Chicago Tribune",
+    "title": "Restored 'American in Paris' A Feast For Eyes and Ears",
+    "href": "https://www.chicagotribune.com/1992/10/02/restored-american-in-paris-a-feast-for-eyes-and-ears/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Screen: Four New Movies Open",
+    "href": "https://www.nytimes.com/1951/10/05/archives/the-screen-four-new-movies-open-an-american-in-paris-arrival-of.html"
+   },
+   {
+    "outlet": "Harrison's Reports",
+    "title": "'An American in Paris' with Gene Kelly, Leslie Caron and Oscar Levant",
+    "href": "https://archive.org/details/harrisonsreports00harr/page/n161/mode/1up"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0043278"
+ },
  "anikulapo": {
   "videos": [
    {
@@ -535,6 +576,82 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0061418"
+ },
+ "bride-of-frankenstein": {
+  "videos": [
+   {
+    "id": "rYD3-pIF9jQ",
+    "kind": "Official trailer",
+    "title": "Bride of Frankenstein Official Trailer #1 - (1935) HD",
+    "channel": "Movieclips"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Bride of Frankenstein At the Roxy",
+    "href": "https://movies.nytimes.com/movie/review?res=9807EEDA1139E33ABC4952DFB366838E629EDE"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Bride of Frankenstein movie review",
+    "href": "https://www.rogerebert.com/reviews/great-movie-bride-of-frankenstein",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Rowman & Littlefield",
+    "title": "The Laughing Dead: The Horror-Comedy Film from \"Bride of Frankenstein\" to \"Zombieland\"",
+    "href": "https://books.google.com/books?id=GconDAAAQBAJ"
+   },
+   {
+    "outlet": "Time",
+    "title": "All-Time 100 Movies",
+    "href": "https://web.archive.org/web/20071226182127/http://www.time.com/time/2005/100movies/0,23220,bride_of_frankenstein,00.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0026138"
+ },
+ "bringing-up-baby": {
+  "videos": [
+   {
+    "id": "Qlf6gHD-YEM",
+    "kind": "Official trailer",
+    "title": "Bringing Up Baby - Original Theatrical Trailer",
+    "channel": "Warner Bros. Rewind"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Bringing Up Baby",
+    "href": "https://variety.com/1938/film/reviews/bringing-up-baby-1200411825/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Bringing Up Baby Review",
+    "href": "https://www.empireonline.com/movies/reviews/bringing-baby-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "Review: Bringing Up Baby",
+    "href": "https://www.slantmagazine.com/film/bringing-up-baby/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "BFI",
+    "title": "The final scene of Bringing Up Baby",
+    "href": "https://www.bfi.org.uk/sight-and-sound/features/final-scene-bringing-up-baby"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0029947"
  },
  "cabin-in-the-sky": {
   "videos": [],
@@ -1346,6 +1463,36 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0021884"
+ },
+ "gilda": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: Gilda",
+    "href": "https://variety.com/1945/film/reviews/gilda-1200414757/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Screen; Rita Hayworth and Glenn Ford Stars of 'Gilda' at Music Hall",
+    "href": "https://www.nytimes.com/1946/03/15/archives/the-screen-rita-hayworth-and-glenn-ford-stars-of-gilda-at-music.html"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Cannes Film Festival",
+    "title": "Official Selection 1946",
+    "href": "https://web.archive.org/web/20150416110904/http://www.festival-cannes.fr/en/archives/1946/allSelections.html"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "There's more to Gilda than just an iconic hair flip by Rita Hayworth",
+    "href": "https://www.avclub.com/there-s-more-to-gilda-than-just-an-iconic-hair-flip-by-1798186243"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0038559"
  },
  "go": {
   "videos": [],
@@ -2314,6 +2461,38 @@
   "streaming": "Netflix",
   "imdb": "tt13453828"
  },
+ "laura": {
+  "videos": [
+   {
+    "id": "nzrm_vgoDX0",
+    "kind": "Official trailer",
+    "title": "Laura | #TBT Trailer | 20th Century FOX",
+    "channel": "20th Century Studios"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Laura movie review & film summary (1944)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-laura-1944",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "At the Roxy",
+    "href": "https://www.nytimes.com/1944/10/12/archives/at-the-roxy.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Laura",
+    "href": "https://variety.com/1943/film/reviews/laura-2-1200414280/"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0037008"
+ },
  "lawrence-of-arabia": {
   "videos": [
    {
@@ -2671,6 +2850,37 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0027977"
+ },
+ "mr-smith-goes-to-washington": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Film Review: 'Mr. Smith Goes to Washington'",
+    "href": "https://variety.com/1939/film/reviews/mr-smith-goes-to-washington-frank-capra-1200412404/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Mr. Smith Goes to Washington Review",
+    "href": "https://www.empireonline.com/movies/reviews/mr-smith-goes-washington-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "BFI",
+    "title": "Mr. Smith Goes to Washington (1939)",
+    "href": "https://www.bfi.org.uk/film/fe268374-21a7-5258-90fd-40ab5546be90/mr-smith-goes-to-washington"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Mr. Capra went to Hollywood",
+    "href": "https://www.rogerebert.com/interviews/mr-capra-went-to-hollywood"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0031679"
  },
  "native-son-1951": {
   "videos": [],
@@ -4132,6 +4342,132 @@
   "cinemaRelease": true,
   "imdb": "tt0043014"
  },
+ "the-adventures-of-robin-hood": {
+  "videos": [
+   {
+    "id": "bU6rh7nRDgY",
+    "kind": "Official trailer",
+    "title": "The Adventures of Robin Hood - Original Theatrical Trailer",
+    "channel": "Warner Bros. Rewind"
+   },
+   {
+    "id": "Gb36A-STnl8",
+    "kind": "Featurette",
+    "title": "The Making of the Adventures of Robin Hood (Clip) | Secrets of the Hollywood Archive | TCM",
+    "channel": "Turner Classic Movies"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Movie Review – The Adventures of Robin Hood",
+    "href": "https://web.archive.org/web/20151002200521/http://www.nytimes.com/movie/review?res=EE05E7DF173FB72CA0494CC5B67994886896"
+   },
+   {
+    "outlet": "Film Daily",
+    "title": "Reviews: The Adventures of Robin Hood",
+    "href": "https://archive.org/stream/filmdail73wids#page/n241/mode/2up/search/robin+hood",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Harrison's Reports",
+    "title": "The Adventures of Robin Hood with Errol Flynn, Olivia de Havilland, Basil Rathbone and Claude Rains",
+    "href": "https://archive.org/stream/harrisonsreports20harr#page/n89/mode/2up/search/robin+hood"
+   },
+   {
+    "outlet": "Variety",
+    "title": "The Adventures of Robin Hood",
+    "href": "https://variety.com/1937/film/reviews/the-adventures-of-robin-hood-1200411570/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Adventures of Robin Hood (Great Movies)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-the-adventures-of-robin-hood-1938",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0029843"
+ },
+ "the-african-queen": {
+  "videos": [
+   {
+    "id": "HUKpm2bcIz8",
+    "kind": "Official trailer",
+    "title": "The African Queen - Trailer",
+    "channel": "Paramount Movies"
+   },
+   {
+    "id": "lrBpUj3Nv4E",
+    "kind": "Cast interview",
+    "title": "Lauren Bacall Talks About Being on the Set of The African Queen, - Sept. 1987",
+    "channel": "Johnny Carson"
+   },
+   {
+    "id": "_TMUDSVDfC4",
+    "kind": "Cast interview",
+    "title": "John Huston on 'The African Queen' and Casting a Young Marilyn Monroe | The Dick Cavett Show",
+    "channel": "The Dick Cavett Show"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "The African Queen",
+    "href": "https://variety.com/1951/film/reviews/the-african-queen-1200417092/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "The African Queen Review",
+    "href": "https://www.empireonline.com/movies/reviews/african-queen-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "Review: The African Queen",
+    "href": "https://www.slantmagazine.com/film/the-african-queen/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "African Queen Still Reigns",
+    "href": "https://www.rogerebert.com/roger-ebert/african-queen-still-reigns"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0043265"
+ },
+ "the-best-years-of-our-lives": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "The Best Years of our Lives",
+    "href": "https://archive.nytimes.com/www.nytimes.com/packages/html/movies/bestpictures/years-re.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Best Years of Our Lives (1946)",
+    "href": "https://www.rogerebert.com/reviews/the-best-years-of-our-lives-1946",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Goldwyn Points to Wow 'Best Years' Biz To Refute Selznick Nix of 'Problem' Pix",
+    "href": "https://archive.org/details/variety165-1947-01/page/n347/mode/2up?view=theater"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0036868"
+ },
  "the-blood-of-jesus": {
   "videos": [],
   "reviews": [],
@@ -4952,6 +5288,37 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt0056592"
+ },
+ "top-hat": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Those charms about you...",
+    "href": "https://www.rogerebert.com/reviews/great-movie-top-hat-1935",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Spectator",
+    "title": "Joan of Arc/Turn of the Tide/Top Hat/She",
+    "href": "https://archive.org/details/pleasuredomegrah00gree/page/30",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Hat' Quits M.H. with $345,000, 3d. Week $95,000",
+    "href": "http://www.archive.org/stream/variety119-1935-09#page/n136/mode/1up"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Holiday Ram Helps Set B'way Records",
+    "href": "http://www.archive.org/stream/variety119-1935-09#page/n8/mode/1up"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0027125"
  },
  "touch-of-evil": {
   "videos": [

@@ -232,6 +232,10 @@
   "warm-palette",
   "bright-airy"
  ],
+ "an-american-in-paris": [
+  "warm-palette",
+  "bright-airy"
+ ],
  "anikulapo": [
   "vivid-colour",
   "warm-palette",
@@ -261,6 +265,14 @@
   "low-key"
  ],
  "bonnie-and-clyde": [
+  "warm-palette",
+  "bright-airy"
+ ],
+ "bride-of-frankenstein": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "bringing-up-baby": [
   "warm-palette",
   "bright-airy"
  ],
@@ -329,6 +341,7 @@
  "frankenstein": [
   "warm-palette"
  ],
+ "gilda": [],
  "go": [
   "vivid-colour",
   "warm-palette"
@@ -412,6 +425,10 @@
   "warm-palette"
  ],
  "kings-of-joburg": [],
+ "laura": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "lawrence-of-arabia": [
   "muted-colour",
   "warm-palette",
@@ -439,6 +456,10 @@
   "warm-palette"
  ],
  "modern-times": [
+  "warm-palette"
+ ],
+ "mr-smith-goes-to-washington": [
+  "vivid-colour",
   "warm-palette"
  ],
  "native-son-1951": [
@@ -557,6 +578,19 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "the-adventures-of-robin-hood": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "the-african-queen": [
+  "vivid-colour",
+  "warm-palette",
+  "bright-airy"
+ ],
+ "the-best-years-of-our-lives": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "the-blood-of-jesus": [
   "vivid-colour",
   "warm-palette"
@@ -630,6 +664,10 @@
   "warm-palette"
  ],
  "to-kill-a-mockingbird": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "top-hat": [
   "vivid-colour",
   "warm-palette"
  ],
