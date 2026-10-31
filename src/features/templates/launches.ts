@@ -1,7 +1,7 @@
 // When each working template opened, and what it does for the person using it and for their
 // team (Ika, 2026-10-28: make a big deal of new templates and the value they bring). Only
 // templates that work in the editor are shown anywhere (catalog.ts); when another one is built,
-// add it here with the day it goes live. For NEW_FOR_DAYS after that day it carries the gold
+// add it here with the day it goes live. For NEW_FOR_DAYS after that day it carries the blue
 // "New" marker, leads the Templates page in "Just added" and is announced once on Home.
 // The first set (FIRST_RELEASE) is what Nia opened with, so it's never marked new.
 

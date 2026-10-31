@@ -147,7 +147,7 @@ export function DialogsSection() {
 const SCENES = [
   { title: "Scene 1 - Beach Sunrise", time: "05:00 AM", tint: "from-[#3b2f2a] to-[#1c2230]" },
   { title: "Scene 2 - Pier Setup", time: "10:30 AM", tint: "from-[#4a5568] to-[#1a202c]" },
-  { title: "Scene 3 - Restaurant INT", time: "02:00 PM", tint: "from-[#2d2a26] to-[#0a0908]" },
+  { title: "Scene 3 - Restaurant INT", time: "02:00 PM", tint: "from-[#2d2d2d] to-[#1f1f1f]" },
 ];
 
 const CREW = [

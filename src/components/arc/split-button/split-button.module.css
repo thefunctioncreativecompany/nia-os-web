@@ -1,5 +1,5 @@
 /* uiarc split button in Nia's tokens (the uiarc names are mapped to Nia in globals.css):
-   a pill like Nia's buttons, Obsidian when primary, white with a hairline when secondary. */
+   a pill like Nia's buttons, the primary colour when primary, white with a hairline when secondary. */
 .group { position: relative; display: inline-flex; height: var(--control-height-md); align-items: stretch; border-radius: var(--radius-control); background: var(--foreground); color: var(--background); font-family: var(--font-body); isolation: isolate; }
 .secondary { background: var(--surface); color: var(--foreground); box-shadow: inset 0 0 0 1px var(--border); }
 

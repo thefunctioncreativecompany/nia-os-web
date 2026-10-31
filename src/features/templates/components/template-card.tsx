@@ -54,7 +54,7 @@ export function TemplateCard({
             onPreview(template);
           }}
           aria-label={`Preview the ${template.name} template${open ? "" : `, ${COMING_SOON.toLowerCase()}`}`}
-          className="relative flex aspect-[16/11] w-full cursor-pointer items-center justify-center group-sweep overflow-hidden rounded-xl border border-border bg-card text-left outline-none transition-colors duration-fast group-hover:border-gold/35 focus-visible:ring-3 focus-visible:ring-ring/50"
+          className="relative flex aspect-[16/11] w-full cursor-pointer items-center justify-center group-sweep overflow-hidden rounded-xl border border-border bg-card text-left outline-none transition-colors duration-fast group-hover:border-nia-blue/35 focus-visible:ring-3 focus-visible:ring-ring/50"
         >
           <FlatIcon
             name={template.icon}

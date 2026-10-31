@@ -29,7 +29,7 @@ const LIMIT = 12;
 
 // Activity on Home (H3): what's for you (shared with you, collaborators' changes, from
 // `notifications`) merged with everything else from your projects, newest first, each change
-// once. Notifications keep the gold dot and swipe to mark read or archive (U1); other rows open
+// once. Notifications keep the blue dot and swipe to mark read or archive (U1); other rows open
 // their project. New ones arrive live.
 export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[]; now: number }) {
   const router = useRouter();
@@ -95,7 +95,7 @@ export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[];
         <h2 id="activity" className="text-xl leading-[1.4] font-bold text-foreground">
           Activity
         </h2>
-        {unread > 0 && <span className="rounded-full bg-gold/15 px-2 py-0.5 text-micro font-bold text-foreground">{unread} new</span>}
+        {unread > 0 && <span className="rounded-full bg-nia-blue/15 px-2 py-0.5 text-micro font-bold text-foreground">{unread} new</span>}
         <Link href="/home/activity" className="ml-auto rounded-sm text-small font-semibold text-muted-foreground underline-offset-4 outline-none hover:text-foreground hover:underline focus-visible:ring-3 focus-visible:ring-ring/50">
           View all
         </Link>
@@ -121,7 +121,7 @@ export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[];
                   className="flex w-full min-w-0 items-center gap-3 text-left outline-none"
                 >
                   <span aria-hidden className="flex size-8 shrink-0 items-center justify-center">
-                    <span className={cn("size-2 rounded-full", row.note.read_at ? "bg-border" : "bg-gold")} />
+                    <span className={cn("size-2 rounded-full", row.note.read_at ? "bg-border" : "bg-nia-blue")} />
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className={cn("block truncate text-sm text-foreground", !row.note.read_at && "font-semibold")}>{row.note.title}</span>

@@ -11,7 +11,7 @@ const TABS = [
 ] as const;
 
 // Projects and Collections (Ika, 2026-10-21: titles saved from Explore live under Projects), in
-// the Settings tabs' look: the name over a 3px underline, gold on the open one.
+// the Settings tabs' look: the name over a 3px underline, Nia Blue on the open one.
 export function ProjectsTabs() {
   const path = usePathname();
   return (
@@ -29,7 +29,7 @@ export function ProjectsTabs() {
             )}
           >
             {tab.label}
-            <span aria-hidden className={cn("h-0.75 w-full rounded-full", active ? "bg-gold" : "bg-transparent")} />
+            <span aria-hidden className={cn("h-0.75 w-full rounded-full", active ? "bg-nia-blue" : "bg-transparent")} />
           </Link>
         );
       })}

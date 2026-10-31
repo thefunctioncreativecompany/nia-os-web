@@ -52,8 +52,8 @@ const size = (bytes: number) => (bytes >= 1e6 ? `${(bytes / 1e6).toFixed(1)} MB`
 const extension = (name: string) => (name.includes(".") ? name.split(".").pop()!.slice(0, 4).toUpperCase() : "FILE");
 
 // The label colour carries the kind before the word is read (Bencho, after Untitled UI); Nia's
-// own colours: ink for documents, teal stills, gold audio, rust video.
-const TINT: Record<FileKind, string> = { document: "var(--foreground)", image: "var(--chart-2)", audio: "var(--gold)", video: "var(--chart-3)" };
+// own colours: ink for documents, teal stills, blue audio, rust video.
+const TINT: Record<FileKind, string> = { document: "var(--foreground)", image: "var(--chart-2)", audio: "var(--nia-blue)", video: "var(--chart-3)" };
 
 /** A rounded page with a folded corner and the extension on a coloured label (Bencho). */
 function PageIcon({ name, kind, size: px = 36 }: { name: string; kind: FileKind; size?: number }) {

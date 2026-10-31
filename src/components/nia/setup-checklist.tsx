@@ -38,7 +38,7 @@ export function SetupChecklist({
         <div className="flex items-center gap-3">
           <div aria-hidden className="flex flex-1 gap-1.5">
             {steps.map((s, i) => (
-              <span key={s.id} className={cn("h-1.5 flex-1 rounded-full", i < done ? "bg-gold" : "bg-border")} />
+              <span key={s.id} className={cn("h-1.5 flex-1 rounded-full", i < done ? "bg-nia-blue" : "bg-border")} />
             ))}
           </div>
           <span className="text-micro font-bold text-muted-foreground">

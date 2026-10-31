@@ -116,11 +116,11 @@ function Dock({ segment }: { segment: string | null }) {
   );
 }
 
-// Where the gold highlight last sat, kept between screens so it can glide from there to the new tab.
+// Where the blue highlight last sat, kept between screens so it can glide from there to the new tab.
 let lastHighlight: { left: number; width: number } | null = null;
 
 // Desktop tabs: icon and name side by side on every tab, so people learn where things are (Ika,
-// 2026-10-20; icons alone can come back once everyone knows them). One gold highlight sits behind
+// 2026-10-20; icons alone can come back once everyone knows them). One blue highlight sits behind
 // the active tab and glides to the new one when the screen changes.
 function NavTabs({ segment }: { segment: string | null }) {
   const reduce = useReducedMotion();
@@ -163,7 +163,7 @@ function NavTabs({ segment }: { segment: string | null }) {
       <span
         ref={highlight}
         aria-hidden
-        className="absolute inset-y-0 left-0 -z-10 rounded-full bg-gold/15 opacity-0 transition-[transform,width] duration-base ease-out"
+        className="absolute inset-y-0 left-0 -z-10 rounded-full bg-nia-blue/15 opacity-0 transition-[transform,width] duration-base ease-out"
       />
       {tabs.map((tab) => {
         const icon = <Image src={tab.icon} alt="" width={18} height={18} className="shrink-0" />;

@@ -14,4 +14,8 @@ export const features = {
   // Explore's Latest projects row is hidden until it works (Ika, 2026-10-28). The code stays in
   // src/components/explore/latest-strips.tsx; flip to true to bring it back.
   exploreLatestShown: false,
+  // Explore's Feed is hidden for now (Ika, 2026-10-31): no Library / Feed tabs on Explore, and
+  // /explore/feed goes to Explore (next.config.ts). The code stays
+  // (src/components/explore/explore-feed.tsx, src/features/explore/feed.ts); flip to true to bring it back.
+  exploreFeedShown: false,
 } as const;

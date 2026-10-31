@@ -154,7 +154,7 @@ export function TitleView({ entry }: { entry: Entry }) {
             </div>
             {title.synopsis && <p className="text-sm leading-relaxed text-foreground/80">{title.synopsis}</p>}
             {essentialWhy.has(title.slug) && (
-              <div className="flex flex-col gap-1 rounded-xl border border-gold/50 bg-gold/10 px-4 py-3">
+              <div className="flex flex-col gap-1 rounded-xl border border-nia-blue/50 bg-nia-blue/10 px-4 py-3">
                 <h2 className="text-sm font-bold text-foreground">Why you should know it</h2>
                 <p className="text-sm leading-relaxed text-foreground/80">{essentialWhy.get(title.slug)}</p>
               </div>

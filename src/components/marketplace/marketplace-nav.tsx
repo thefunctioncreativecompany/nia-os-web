@@ -6,7 +6,7 @@ import { MARKETPLACE_HOME } from "@/features/marketplace/data";
 type Page = "browse" | "rentals" | "dashboard";
 
 // Under the top bar on every Marketplace page (MARKETPLACE_SPEC.md §2): Browse | My rentals |
-// Lister dashboard. Same shape as the Settings tabs: each name over a 3px underline, gold on the
+// Lister dashboard. Same shape as the Settings tabs: each name over a 3px underline, Nia Blue on the
 // page you're on. Pages not built yet show but can't be chosen.
 export function MarketplaceNav({ current }: { current: Page }) {
   const tabs: { page: Page; label: string; href: string | null }[] = [
@@ -23,7 +23,7 @@ export function MarketplaceNav({ current }: { current: Page }) {
         const inner = (
           <>
             {tab.label}
-            <span aria-hidden className={cn("h-0.75 w-full rounded-full", active ? "bg-gold" : "bg-transparent")} />
+            <span aria-hidden className={cn("h-0.75 w-full rounded-full", active ? "bg-nia-blue" : "bg-transparent")} />
           </>
         );
         if (!tab.href) {

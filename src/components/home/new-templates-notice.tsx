@@ -39,7 +39,7 @@ export function NewTemplatesNotice({ templates, announced }: { templates: Galler
 
   if (!open || !lead) return null;
   return (
-    <section aria-labelledby="new-templates" className="relative flex flex-col overflow-hidden rounded-2xl border border-gold/50 bg-card sm:flex-row">
+    <section aria-labelledby="new-templates" className="relative flex flex-col overflow-hidden rounded-2xl border border-nia-blue/50 bg-card sm:flex-row">
       <span className={`grid min-h-24 place-items-center sm:min-h-32 sm:w-48 sm:flex-none ${grainFor(lead.code)}`}>
         <span className="grid size-16 place-items-center rounded-2xl bg-card shadow-elevation-2 sm:size-20">
           <FlatIcon name={lead.icon} size="md" className="size-9 sm:size-11" />

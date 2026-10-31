@@ -12,8 +12,8 @@
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-geist);
   --font-wordmark: ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
-  --color-gold: var(--gold);
-  --color-gold-foreground: var(--gold-foreground);
+  --color-nia-blue: var(--nia-blue);
+  --color-nia-blue-foreground: var(--nia-blue-foreground);
   --color-nia-surface: var(--nia-surface);
   --color-nia-canvas: var(--nia-canvas);
   --color-nia-panel: var(--nia-panel);
@@ -206,7 +206,7 @@
 
 :root {
   /* Light theme (Ika, 2026-10-31): neutral greys and VS Code's light-theme blue, to match dark
-     mode. Was Obsidian #0A0908 with warm greys and Aged Gold #8A7A52. */
+     mode. Was Obsidian #0A0908 with warm greys and Aged Gold #8A7A52; no Obsidian anywhere now. */
   --background: #ffffff;
   --foreground: #1f1f1f;
   --card: #ffffff;
@@ -248,10 +248,10 @@
   --nia-pill: var(--secondary);
   --nia-chip: var(--accent);
   --nia-field-muted: var(--muted);
-  /* NIA colours outside the shadcn theme. The accent keeps the name "gold" but is VS Code's
-     blue (6.4:1 on white): active states, indicators, borders and tints only. */
-  --gold: #005fb8;
-  --gold-foreground: #ffffff;
+  /* NIA colours outside the shadcn theme. Nia Blue (VS Code's blue, 6.4:1 on white) is the single
+     accent: active states, indicators, borders and tints only. */
+  --nia-blue: #005fb8;
+  --nia-blue-foreground: #ffffff;
   --nia-footer: #1f1f1f;
   --nia-placeholder: #8a8a8a;
   --nia-success: #166534;
@@ -364,7 +364,7 @@
 }
 
 /* Dark theme (Ika, 2026-10-31): neutral greys like VS Code's dark theme, and VS Code's blue in
-   place of gold for the accent (active tabs, unread dots, New markers, announcement and deadline
+   place of the light theme's Nia Blue for the accent (active tabs, unread dots, New markers, announcement and deadline
    borders). Text 13.2:1, muted 6.3:1, blue 5.4:1 on the ground. On <html>, set before the page
    draws (src/lib/theme.ts). */
 .dark {
@@ -400,8 +400,8 @@
   --sidebar-accent-foreground: #e6e6e6;
   --sidebar-border: #3a3a3a;
   --sidebar-ring: #6e6e6e;
-  --gold: #3794ff;
-  --gold-foreground: #1f1f1f;
+  --nia-blue: #3794ff;
+  --nia-blue-foreground: #1f1f1f;
   --nia-footer: #181818;
   --nia-placeholder: #969696;
   --nia-success: #6ee7a0;
@@ -1128,7 +1128,7 @@
     z-index: 1;
     border-radius: inherit;
     padding: 1.5px;
-    background: conic-gradient(var(--gold) var(--sweep), transparent var(--sweep));
+    background: conic-gradient(var(--nia-blue) var(--sweep), transparent var(--sweep));
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
     mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
@@ -1143,7 +1143,7 @@
   }
   .hover-sweep:hover,
   .hover-sweep:focus-visible {
-    border-color: color-mix(in oklab, var(--gold) 35%, var(--border));
+    border-color: color-mix(in oklab, var(--nia-blue) 35%, var(--border));
   }
   .hover-sweep:hover::after,
   .hover-sweep:focus-visible::after,

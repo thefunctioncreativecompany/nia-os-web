@@ -1,5 +1,4 @@
-// Light and dark (Ika, 2026-10-31: option A "Obsidian" from the dark-mode canvas in Claude
-// Design). A choice for this device, like Sound: Settings → General sets it, localStorage keeps
+// Light and dark (Ika, 2026-10-31): neutral greys with Nia Blue as the accent in both. A choice for this device, like Sound: Settings → General sets it, localStorage keeps
 // it, and the root layout's script applies it before the page draws, so dark never flashes white.
 // Matches the device unless someone chooses Light or Dark (Ika, 2026-10-31).
 

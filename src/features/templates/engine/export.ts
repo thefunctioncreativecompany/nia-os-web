@@ -140,12 +140,13 @@ export async function toWord(schema: TemplateSchema, data: SectionValue[], brand
   return Packer.toBlob(new Document({ creator: 'Nia', title: schema.name, sections: [{ children }] }));
 }
 
-// The brand in PDF terms (jsPDF takes colours as numbers, so these mirror the theme tokens):
-// foreground, muted-foreground, border and nia-panel from globals.css.
-const INK: [number, number, number] = [10, 9, 8];
-const MUTED: [number, number, number] = [115, 114, 108];
+// The brand in PDF terms (jsPDF takes colours as numbers, so these mirror the light theme's
+// tokens): foreground, muted-foreground, border, nia-panel and Nia Blue from globals.css.
+const INK: [number, number, number] = [31, 31, 31];
+const MUTED: [number, number, number] = [107, 107, 107];
 const RULE: [number, number, number] = [226, 226, 226];
-const PANEL: [number, number, number] = [249, 249, 250];
+const PANEL: [number, number, number] = [248, 248, 248];
+const BLUE: [number, number, number] = [0, 95, 184];
 
 // Fetched once per visit: the live preview builds the PDF every time the document changes.
 const fonts = new Map<string, Promise<string>>();
@@ -200,7 +201,7 @@ export async function toPdf(schema: TemplateSchema, data: SectionValue[], brande
     pdf.setFont('Geist', 'bold').setFontSize(12).setTextColor(...INK);
     pdf.text(b.title, margin, y);
     y += 6;
-    pdf.setDrawColor(...INK).setLineWidth(1).line(margin, y, margin + width, y);
+    pdf.setDrawColor(...BLUE).setLineWidth(1).line(margin, y, margin + width, y);
     y += 4;
     if (b.kind === 'fields') {
       autoTable(pdf, {

@@ -113,7 +113,7 @@ export function ExploreFeed({ now }: { now: number }) {
             ))}
           </dl>
           {story.deadline && (
-            <p className="flex items-start gap-2 rounded-xl border border-gold/50 bg-gold/10 p-3 text-small text-foreground">
+            <p className="flex items-start gap-2 rounded-xl border border-nia-blue/50 bg-nia-blue/10 p-3 text-small text-foreground">
               <CalendarClock aria-hidden className="mt-0.5 size-4 shrink-0" />
               {story.deadline}
             </p>

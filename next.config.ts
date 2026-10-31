@@ -46,6 +46,8 @@ const nextConfig: NextConfig = {
       { source: "/explore/categories", destination: "/explore#by-category", permanent: false },
       // Marketplace is hidden for now (Ika, 2026-10-23).
       ...(features.marketplaceShown ? [] : [{ source: "/marketplace/:path*", destination: "/home", permanent: false }]),
+      // Explore's Feed is hidden for now (Ika, 2026-10-31).
+      ...(features.exploreFeedShown ? [] : [{ source: "/explore/feed", destination: "/explore", permanent: false }]),
     ];
   },
   turbopack: {

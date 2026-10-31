@@ -8,7 +8,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
    - the pictures come in as `cards` (Bencho's own were not licensed to travel), so the ring has
      as many positions as it is given cards, and each may carry a caption and open on a click;
    - Bencho's design tokens map onto Nia's in globals.css (`.car`): --bg is the page background,
-     --font-ui is Geist, and --ink-rgb / --shadow-rgb are Obsidian as bare numbers, set on the
+     --font-ui is Geist, and --ink-rgb / --shadow-rgb are the text colour and black as bare numbers, set on the
      component's own root so nothing leaks out. */
 
 /* ── inlined from lab/spring ──────────────────────── */

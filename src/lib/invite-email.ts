@@ -32,22 +32,22 @@ export function inviteEmail({ actor, projectTitle, role, hasAccount, email, link
 <body style="margin:0;padding:0;background:#F9F9F9;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F9F9F9;padding:40px 16px;">
     <tr><td align="center">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background:#FFFFFF;border:1px solid #E2E2E2;border-radius:16px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#0A0908;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background:#FFFFFF;border:1px solid #E2E2E2;border-radius:16px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#1F1F1F;">
         <tr><td style="padding:32px 32px 0;">
           <div style="font-family:ui-rounded,'SF Pro Rounded',system-ui,sans-serif;font-size:22px;font-weight:700;letter-spacing:0.02em;">NIA</div>
         </td></tr>
         <tr><td style="padding:24px 32px 0;">
           <h1 style="margin:0 0 12px;font-size:24px;line-height:1.3;font-weight:700;">${escape(subject)}</h1>
-          <p style="margin:0;font-size:15px;line-height:1.6;color:#73726C;">${escape(lead)}</p>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#6B6B6B;">${escape(lead)}</p>
         </td></tr>
         <tr><td style="padding:28px 32px 0;">
-          <a href="${escape(link)}" style="display:inline-block;background:#0A0908;color:#FFFFFF;text-decoration:none;font-size:15px;font-weight:700;padding:14px 28px;border-radius:999px;">${button}</a>
+          <a href="${escape(link)}" style="display:inline-block;background:#005FB8;color:#FFFFFF;text-decoration:none;font-size:15px;font-weight:700;padding:14px 28px;border-radius:999px;">${button}</a>
         </td></tr>
         <tr><td style="padding:28px 32px 32px;">
-          <p style="margin:0;font-size:13px;line-height:1.6;color:#73726C;">Reply to this email to reach ${escape(who)}. If you weren't expecting it, you can ignore it.</p>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#6B6B6B;">Reply to this email to reach ${escape(who)}. If you weren't expecting it, you can ignore it.</p>
         </td></tr>
       </table>
-      <p style="margin:20px 0 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;color:#73726C;">NIA is an AI-enabled content production operating system.</p>
+      <p style="margin:20px 0 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;color:#6B6B6B;">NIA is an AI-enabled content production operating system.</p>
     </td></tr>
   </table>
 </body>

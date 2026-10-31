@@ -41,8 +41,9 @@ Product:
 Design:
 - Colors, fonts, radii, spacing and motion only from theme variables; no hex or pixel values in pages.
 - Brand (Ika, 2026-10-31): neutral greys with text `#1F1F1F` (light) / `#E6E6E6` (dark) and VS Code's
-  blue as the single accent, active states only (`#005FB8` light, `#3794FF` dark; the token is still
-  named `gold`). Was Obsidian `#0A0908` and Aged Gold `#8A7A52`. Geist for all text,
+  Nia Blue as the single accent, active states only (`#005FB8` light, `#3794FF` dark; token
+  `nia-blue`, e.g. `bg-nia-blue`, `border-nia-blue/50`). No Obsidian `#0A0908` or Aged Gold
+  anywhere: interface, PDFs and emails (Ika, 2026-10-31). Geist for all text,
   sentence case. No serif and no all-caps monospace labels (Ika, 2026-10-19); the screenplay preview's
   Courier capitals are content formatting, kept until Ika decides.
 - Build from `src/components/ui` (shadcn) and `src/components/nia`; new looks are variants. Keep shadcn
@@ -53,13 +54,13 @@ Design:
 - Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
   motion. Only modals/panels, the saved tick, cards settling, the card hover sweep, Copilot highlights
   and onboarding slides animate.
-- Theme tokens (`src/app/globals.css`): colors `foreground`/`primary` (near-black), `gold`
-  (the blue accent, + `gold-foreground`), neutral greys (`muted`, `muted-foreground`, `border`, `secondary`, `accent`);
+- Theme tokens (`src/app/globals.css`): colors `foreground`/`primary` (near-black), `nia-blue`
+  (the accent, + `nia-blue-foreground`), neutral greys (`muted`, `muted-foreground`, `border`, `secondary`, `accent`);
   fonts `font-sans` (Geist, everything), `font-wordmark` (the "NIA" mark); `font-serif` and `font-mono`
   exist but aren't used in the interface; text sizes `text-h1` 32, `text-h2` 28, `text-h3` 24, `text-lead` 15, `text-sm` 14,
   `text-small` 13, `text-caption` 12, `text-micro` 11, `text-meta` 10, `text-tiny` 9, `text-wordmark` 22;
   shadow `shadow-elevation-2`; motion `duration-fast/base/slow`
-  with `ease-out` (code animations use `src/lib/motion.ts`). The accent (`gold`) is for indicators,
+  with `ease-out` (code animations use `src/lib/motion.ts`). Nia Blue is for indicators,
   borders and tints.
 
 Data:
@@ -79,7 +80,7 @@ Data:
 - Auth and onboarding heroes are a fixed still per screen (`src/components/auth/hero-images.ts`), not a
   slideshow (no looping animation). Figma's image where Ika's set has it in high resolution; the
   rest are picks from her set, to be confirmed.
-- Gold marks the active navbar tab (light tint) and the active Settings tab (underline).
+- Nia Blue (was gold) marks the active navbar tab (light tint) and the active Settings tab (underline).
 - The bare domain sends signed-out visitors to `/login` and signed-in ones into the app.
 - (2026-10-19) Fonts: Geist only. No serif (Instrument Serif) and no all-caps monospace labels in new
   work; sentence case. Older screens swept (F1).
@@ -391,7 +392,7 @@ Data:
 - (2026-10-31) Dark mode (Ika; light mode then matched it: neutral greys, `#1F1F1F` text, blue
   `#005FB8` accent): neutral greys like VS Code's dark theme (ground `#1F1F1F`,
   cards `#262626`, panels `#2F2F2F`, lines `#3A3A3A`, text `#E6E6E6`, muted `#A0A0A0`) and VS
-  Code's blue `#3794FF` in place of gold for the accent (the `gold` token turns blue in dark:
+  Code's blue `#3794FF` as Nia Blue in dark (the `nia-blue` token:
   active tabs, unread dots, New markers, announcement and deadline borders), as the `.dark`
   tokens in `globals.css`, status and phase colours included. Matches the device by default for everyone; Settings → General →
   Appearance (Light, Dark, Match my device) overrides it on that device (localStorage
@@ -406,7 +407,13 @@ Data:
   pass, plain blue edge under reduced motion). On project cards, template cards and tiles, Home's
   template row, Just added, My drafts, project documents, What's next, the New project and Add
   document choices, and Feed stories. Use it on new clickable cards. Not in Figma yet.
-- (2026-10-31) Explore Feed (Ika): `/explore/feed`, beside Library in Explore's tabs
+- (2026-10-31) No more Obsidian (Ika): the accent token is renamed `gold` → `nia-blue`;
+  downloaded PDFs use `#1F1F1F` text with Nia Blue rules under each heading (`export.ts`);
+  invitation and auth emails have a Nia Blue button and neutral greys. For Ika: paste the
+  updated `supabase/email-templates/confirm-signup.html` and `reset-password.html` into
+  Supabase → Authentication → Emails (Source view).
+- (2026-10-31) Explore Feed (Ika), hidden for now (`features.exploreFeedShown` off: no tabs on
+  Explore, `/explore/feed` goes to Explore; the code stays): `/explore/feed`, beside Library in Explore's tabs
   (`ExploreTabs`, gold underline), built from the approved prototype (the dev prototype is
   retired): top stories on the Carousel, a chip per topic that has stories, the ranked list and
   the open story (what it means for you, numbers, a date to act on, points, a table, Read on

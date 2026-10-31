@@ -293,7 +293,7 @@ function Row({ entry, open, onToggle, ease }: { entry: Entry; open: boolean; onT
           <Avatar className="size-8">
             <AvatarFallback className="bg-accent text-micro font-bold text-foreground">{getInitials(entry.person, entry.person)}</AvatarFallback>
           </Avatar>
-          {entry.unread && <span aria-label="New" className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full border-2 border-background bg-gold" />}
+          {entry.unread && <span aria-label="New" className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full border-2 border-background bg-nia-blue" />}
         </span>
         <span className="min-w-0 flex-1">
           <span className="mb-1 flex items-center gap-1.5 text-caption font-medium text-muted-foreground">

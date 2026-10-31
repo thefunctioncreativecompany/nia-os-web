@@ -62,12 +62,12 @@ export function SettingsTabs() {
     >
       {tabs.map((tab) => {
         const active = tab.built && tab.segment === segment;
-        // Every tab has the same shape (its name over a 3px underline, gold on the active one),
+        // Every tab has the same shape (its name over a 3px underline, Nia Blue on the active one),
         // so the names line up whichever tab is open.
         const inner = (
           <>
             {tab.label}
-            <span aria-hidden className={cn("h-0.75 w-full rounded-full", active ? "bg-gold" : "bg-transparent")} />
+            <span aria-hidden className={cn("h-0.75 w-full rounded-full", active ? "bg-nia-blue" : "bg-transparent")} />
           </>
         );
         const shape = "flex h-full flex-col justify-end gap-3 text-sm leading-[1.4] outline-none focus-visible:ring-3 focus-visible:ring-ring/50";
