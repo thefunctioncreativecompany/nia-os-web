@@ -338,7 +338,11 @@ Data:
   2026-10-30; their saved press-kit drafts checked and applied; West Side Story's had Spielberg's
   2021 trailers). The Graduate's Commons file is a newspaper ad, so it still waits. TMDB's key
   form asks personal or commercial: Nia is commercial (Ika chose commercial), so the rest wait for
-  TMDB's commercial terms.
+  TMDB's commercial terms. Batch 4 (2026-10-31, studio-era classics with free posters): The General,
+  Modern Times, King Kong, Frankenstein, His Girl Friday, Stagecoach, Notorious, Touch of Evil,
+  High Noon and The Night of the Hunter; five essentials. Press kits needed heavy cleaning
+  (Frankenstein's videos were Netflix's 2025 film and Young Frankenstein; High Noon's "reviews"
+  were book pages; polls and lists moved from reviews to articles).
 - (2026-10-30) Templates are built in order of how likely producers are to use them (Ika): 1
   Production Budget, 2 the creator templates (GRWM, Day in My Life, Product Review…, which the
   editor already handles), 3 Script Breakdown, Content Production Guideline and Press Junket

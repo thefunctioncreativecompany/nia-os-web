@@ -515,5 +515,55 @@
   "source": "Wikimedia Commons",
   "file": "Jaws movie poster.jpg",
   "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Jaws%20movie%20poster.jpg"
+ },
+ "the-general": {
+  "source": "Wikimedia Commons",
+  "file": "The General (1926) - Movie Poster 2.png",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20General%20(1926)%20-%20Movie%20Poster%202.png"
+ },
+ "modern-times": {
+  "source": "Wikimedia Commons",
+  "file": "Modern Times poster.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Modern%20Times%20poster.jpg"
+ },
+ "king-kong": {
+  "source": "Wikimedia Commons",
+  "file": "Kingkongposter.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Kingkongposter.jpg"
+ },
+ "frankenstein": {
+  "source": "Wikimedia Commons",
+  "file": "Frankenstein poster 1931.jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Frankenstein%20poster%201931.jpg"
+ },
+ "his-girl-friday": {
+  "source": "Wikimedia Commons",
+  "file": "His Girl Friday (1940 poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/His%20Girl%20Friday%20(1940%20poster).jpg"
+ },
+ "stagecoach": {
+  "source": "Wikimedia Commons",
+  "file": "Stagecoach (1939 poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Stagecoach%20(1939%20poster).jpg"
+ },
+ "notorious": {
+  "source": "Wikimedia Commons",
+  "file": "Notorious (1946 film poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Notorious%20(1946%20film%20poster).jpg"
+ },
+ "touch-of-evil": {
+  "source": "Wikimedia Commons",
+  "file": "Touch of Evil (1958 poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Touch%20of%20Evil%20(1958%20poster).jpg"
+ },
+ "high-noon": {
+  "source": "Wikimedia Commons",
+  "file": "High Noon (1952 poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/High%20Noon%20(1952%20poster).jpg"
+ },
+ "the-night-of-the-hunter": {
+  "source": "Wikimedia Commons",
+  "file": "The Night of the Hunter (1955 poster).jpg",
+  "image": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Night%20of%20the%20Hunter%20(1955%20poster).jpg"
  }
 }

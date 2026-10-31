@@ -1294,6 +1294,59 @@
   "cinemaRelease": true,
   "imdb": "tt27502426"
  },
+ "frankenstein": {
+  "videos": [
+   {
+    "id": "BN8K-4osNb0",
+    "kind": "Official trailer",
+    "title": "Frankenstein Official Trailer #1 - (1931) HD",
+    "channel": "Movieclips"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Frankenstein",
+    "href": "https://variety.com/1931/film/reviews/frankenstein-2-1200410509/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Empire Essay: Frankenstein",
+    "href": "https://www.empireonline.com/movies/reviews/empire-essay-frankenstein-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Library of Congress",
+    "title": "Films Selected to the National Film Registry, Library of Congress 1989 to 2009",
+    "href": "https://www.loc.gov/film/titles.html"
+   },
+   {
+    "outlet": "AMC",
+    "title": "The Greatest Films of 1931",
+    "href": "http://www.filmsite.org/1931.html"
+   },
+   {
+    "outlet": "American Film Institute",
+    "title": "AFI's 100 Years... 100 Movies",
+    "href": "https://web.archive.org/web/20100214191259/http://connect.afi.com/site/DocServer/movies100.pdf?docID=264"
+   },
+   {
+    "outlet": "AltFilmGuide.com",
+    "title": "Chicago Critics' Scariest Films",
+    "href": "http://www.altfg.com/blog/hollywood/chicago-critics-scariest-films/"
+   },
+   {
+    "outlet": "BFI",
+    "title": "Where to begin with the Universal horror cycle",
+    "href": "https://www.bfi.org.uk/features/where-begin-universal-horror-cycle"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0021884"
+ },
  "go": {
   "videos": [],
   "reviews": [],
@@ -1516,6 +1569,73 @@
   "streaming": "Netflix",
   "cinemaRelease": true,
   "imdb": "tt28943278"
+ },
+ "high-noon": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Film Review: 'High Noon'",
+    "href": "https://variety.com/1952/film/reviews/high-noon-1200417314/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "High Noon on Olive Films Blu-ray",
+    "href": "https://www.slantmagazine.com/dvd/high-noon/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Empire",
+    "title": "High Noon Review",
+    "href": "https://www.empireonline.com/movies/reviews/high-noon-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Criterion",
+    "title": "High Noon",
+    "href": "https://www.criterion.com/current/posts/830-high-noon"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0044706"
+ },
+ "his-girl-friday": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "THE SCREEN IN REVIEW; Frenzied's the Word for 'His Girl Friday,' a Distaff Edition of 'The Front Page,' at the Music Hall--'The Man Who Wouldn't Talk' Opens at the Palace",
+    "href": "https://www.nytimes.com/1940/01/12/archives/the-screen-in-review-frenzieds-the-word-for-his-girl-friday-a.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "His Girl Friday (review)",
+    "href": "https://archive.org/details/variety137-1940-01/page/n177/mode/1up",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "BFI",
+    "title": "His Girl Friday (1939)",
+    "href": "https://www.bfi.org.uk/film/0d4c9eca-4d30-5ce0-b5ba-975b099f1dec/his-girl-friday"
+   },
+   {
+    "outlet": "BFI",
+    "title": "The Greatest Films of All Time",
+    "href": "https://www.bfi.org.uk/sight-and-sound/greatest-films-all-time"
+   },
+   {
+    "outlet": "Sight & Sound",
+    "title": "David Thomson",
+    "href": "https://web.archive.org/web/20160818140915/http://www.bfi.org.uk/films-tv-people/sightandsoundpoll2012/voter/667"
+   }
+  ],
+  "imdb": "tt0032599"
  },
  "hounds": {
   "videos": [],
@@ -2118,6 +2238,56 @@
   "streaming": "Netflix",
   "imdb": "tt27048691"
  },
+ "king-kong": {
+  "videos": [
+   {
+    "id": "I8P7RzqOU_M",
+    "kind": "Official trailer",
+    "title": "King Kong (1933) Trailer",
+    "channel": "Warner Bros. Rewind"
+   },
+   {
+    "id": "_dYxMNy7vgk",
+    "kind": "Cast interview",
+    "title": "King Kong | The Hilarious Secret Film Shot By King Kong's Cast",
+    "channel": "Universal Pictures At Home"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'King Kong' a Winner: Radio Production Should Be Answer to Exhibitor Prayers – Exploitation Value Limitless",
+    "href": "https://archive.org/details/hollywoodreporte1215wilk/page/n273",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Motion Picture Herald",
+    "title": "King Kong",
+    "href": "https://archive.org/details/motionpictureher110unse/page/n705",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Film Daily",
+    "title": "King Kong",
+    "href": "https://archive.org/details/filmdailyvolume66162newy/page/304",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Motion Picture Herald",
+    "title": "King Kong",
+    "href": "https://archive.org/details/motionpictureher110unse/page/n627"
+   },
+   {
+    "outlet": "Variety",
+    "title": "King Kong",
+    "href": "https://www.variety.com/review/VE1117792322"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0024216"
+ },
  "kings-of-joburg": {
   "videos": [],
   "reviews": [
@@ -2454,6 +2624,54 @@
   "cinemaRelease": true,
   "imdb": "tt0037913"
  },
+ "modern-times": {
+  "videos": [
+   {
+    "id": "6n9ESFJTnHs",
+    "kind": "Featurette",
+    "title": "Charlie Chaplin - Factory Scene - Modern Times (1936)",
+    "channel": "Charlie Chaplin"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Movie Review – Modern Times",
+    "href": "https://www.nytimes.com/movie/review?res=9403E3DE153FEE3BBC4E53DFB466838D629EDE",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Modern Times",
+    "href": "https://variety.com/1936/film/reviews/modern-times-2-1200411268/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Spectator",
+    "title": "Modern Times",
+    "href": "https://archive.org/details/pleasuredomegrah00gree/page/51"
+   },
+   {
+    "outlet": "filmsite.org",
+    "title": "100 Essential Films by The National Society of Film Critics",
+    "href": "https://www.filmsite.org/alist.html"
+   },
+   {
+    "outlet": "Sight & Sound",
+    "title": "The Top 50 Greatest Films of All Time",
+    "href": "https://web.archive.org/web/20170301135739/http://www.bfi.org.uk/news/50-greatest-films-all-time"
+   },
+   {
+    "outlet": "BBC",
+    "title": "100 Greatest American Films",
+    "href": "http://www.bbc.com/culture/story/20150720-the-100-greatest-american-films"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0027977"
+ },
  "native-son-1951": {
   "videos": [],
   "reviews": [
@@ -2680,6 +2898,32 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0053125"
+ },
+ "notorious": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "The Screen in Review: 'Notorious,' Hitchcock Thriller Starring Ingrid Bergman and Cary Grant, Opens at Radio City—Claude Rains Featured",
+    "href": "https://www.nytimes.com/1946/08/16/archives/the-screen-in-review-notorious-hitchcock-thriller-starring-ingrid.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Great Movies: Notorious (1946)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-notorious-1946",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Festival de Cannes",
+    "title": "Notorious",
+    "href": "http://www.festival-cannes.com/en/archives/ficheFilm/id/4274/year/1946.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0038787"
  },
  "on-becoming-a-guinea-fowl": {
   "videos": [
@@ -3743,6 +3987,38 @@
   "cinemaRelease": true,
   "imdb": "tt0053291"
  },
+ "stagecoach": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Stagecoach",
+    "href": "https://variety.com/1939/film/reviews/stagecoach-1200412191/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Stagecoach (Great Movies)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-stagecoach-1939",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Stagecoach Review",
+    "href": "https://www.empireonline.com/movies/reviews/stagecoach-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Criterion",
+    "title": "Stagecoach: Taking the Stage",
+    "href": "https://www.criterion.com/current/posts/1472-stagecoach-taking-the-stage"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0031971"
+ },
  "stormy-weather": {
   "videos": [],
   "reviews": [
@@ -3955,6 +4231,37 @@
   ],
   "imdb": "tt0023985"
  },
+ "the-general": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "The General",
+    "href": "https://archive.org/details/sim_variety_1927-02-09_86_4/page/16",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The General (1927)",
+    "href": "https://movies.nytimes.com/movie/review?_r=2&res=9D04E7DF1239E632A2575BC0A9649C946695D6CF&partner=Rotten%20Tomatoes"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "Review: The General",
+    "href": "https://www.slantmagazine.com/film/the-general/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "BFI",
+    "title": "The General: the greatest comedy of all time?",
+    "href": "https://www.bfi.org.uk/features/general-greatest-comedy-all-time"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0017925"
+ },
  "the-grapes-of-wrath": {
   "videos": [
    {
@@ -4154,6 +4461,54 @@
    }
   ],
   "imdb": "tt15307068"
+ },
+ "the-night-of-the-hunter": {
+  "videos": [
+   {
+    "id": "Nv2EI-E9mdg",
+    "kind": "Official trailer",
+    "title": "The Night of the Hunter Official Trailer #1 - Robert Mitchum Movie (1955) HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Night of the Hunter (Great Movies)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-the-night-of-the-hunter-1955",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "Review: Charles Laughton's The Night of the Hunter",
+    "href": "https://www.slantmagazine.com/film/the-night-of-the-hunter/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Night of the Hunter Review",
+    "href": "https://www.empireonline.com/movies/reviews/night-hunter-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "A Second Look: 'The Night of the Hunter'",
+    "href": "https://www.latimes.com/archives/la-xpm-2010-nov-14-la-ca-second-look-20101114-story.html"
+   },
+   {
+    "outlet": "British Film Institute",
+    "title": "The single flaw that stops The Night of the Hunter short of perfection",
+    "href": "https://www.bfi.org.uk/features/close-perfection-night-hunter"
+   },
+   {
+    "outlet": "Criterion",
+    "title": "The Night of the Hunter: Holy Terror",
+    "href": "https://www.criterion.com/current/posts/1657-the-night-of-the-hunter-holy-terror"
+   }
+  ],
+  "imdb": "tt0048424"
  },
  "the-odyssey": {
   "videos": [
@@ -4597,6 +4952,66 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt0056592"
+ },
+ "touch-of-evil": {
+  "videos": [
+   {
+    "id": "gFCaDFAKNlk",
+    "kind": "Official trailer",
+    "title": "Touch of Evil (New Trailer) - In cinemas 10 July | BFI release",
+    "channel": "BFI"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: Touch of Evil",
+    "href": "https://archive.org/details/variety210-1958-03/page/n173/mode/2up",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Touch of Evil Movie Review",
+    "href": "http://www.rogerebert.com/reviews/great-movie-touch-of-evil-1958",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Chicago Tribune",
+    "title": "Welles' touch is evident in restored 'Touch of Evil'",
+    "href": "https://www.chicagotribune.com/news/ct-xpm-2005-12-30-0512300207-story.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Touch of Evil review – brilliant noir drama restored to Welles's vision",
+    "href": "https://www.theguardian.com/film/2015/jul/09/touch-of-evil-review-orson-welles",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Screen: 'Touch of Evil'",
+    "href": "https://www.nytimes.com/1958/05/22/archives/screen-touch-of-evil-orson-welles-is-triple-threat-in-thriller.html"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Harrison's Reports",
+    "title": "'Touch of Evil' with Orson Welles, Charlton Heston and Janet Leigh",
+    "href": "https://archive.org/details/harrisonsreports40harr/page/n53/mode/2up"
+   },
+   {
+    "outlet": "British Film Institute",
+    "title": "Votes for Touch of Evil (1958)",
+    "href": "https://web.archive.org/web/20170302002726/http://www.bfi.org.uk/films-tv-people/4ce2b6b8bc241/sightandsoundpoll2012"
+   },
+   {
+    "outlet": "BBC",
+    "title": "100 Greatest American Films",
+    "href": "http://www.bbc.com/culture/story/20150720-the-100-greatest-american-films"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0052311"
  },
  "touki-bouki": {
   "videos": [],

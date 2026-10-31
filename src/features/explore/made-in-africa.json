@@ -4471,6 +4471,299 @@
       "added": "2026-10-30",
       "imdb_id": "tt0045936",
       "videos": []
+    },
+    {
+      "slug": "the-general",
+      "collection": "studio-era",
+      "title": "The General",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Action"
+      ],
+      "year": 1926,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Buster Keaton & Clyde Bruckman",
+      "recognition": "Added to the National Film Registry in 1989",
+      "pair_with": "",
+      "study_note": "Keaton's locomotive chase done for real: full-size trains, a real bridge collapse and stunts with no doubles",
+      "added": "2026-10-31",
+      "essential": "The benchmark for physical comedy and practical stunt work; Keaton did it all for real.",
+      "imdb_id": "tt0017925",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "7EcZPcFfjqY",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "modern-times",
+      "collection": "studio-era",
+      "title": "Modern Times",
+      "type": "film",
+      "genres": [
+        "Comedy"
+      ],
+      "year": 1936,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Charlie Chaplin",
+      "recognition": "Added to the National Film Registry in 1989",
+      "pair_with": "",
+      "study_note": "Chaplin's farewell to the Tramp: the factory and the machine played as comedy, almost without dialogue a decade into sound",
+      "added": "2026-10-31",
+      "imdb_id": "tt0027977",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "GLeDdzGUTq0",
+          "kind": "trailer",
+          "channel": "Charlie Chaplin",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "king-kong",
+      "collection": "studio-era",
+      "title": "King Kong",
+      "type": "film",
+      "genres": [
+        "Adventure",
+        "Fantasy"
+      ],
+      "year": 1933,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Merian C. Cooper & Ernest B. Schoedsack",
+      "recognition": "Added to the National Film Registry in 1991",
+      "pair_with": "",
+      "study_note": "Willis O'Brien's stop-motion ape and miniatures: the effects film that set the template for the monster blockbuster",
+      "added": "2026-10-31",
+      "essential": "The ancestor of the effects blockbuster; Willis O'Brien's stop-motion is where the history of screen effects starts.",
+      "imdb_id": "tt0024216",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "PbrikL8IjXM",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "frankenstein",
+      "collection": "studio-era",
+      "title": "Frankenstein",
+      "type": "film",
+      "genres": [
+        "Horror"
+      ],
+      "year": 1931,
+      "countries": [
+        "United States"
+      ],
+      "credit": "James Whale",
+      "recognition": "Added to the National Film Registry in 1991",
+      "pair_with": "",
+      "study_note": "Jack Pierce's make-up and Boris Karloff's performance defined the screen monster, on expressionist sets built on Universal's lot",
+      "added": "2026-10-31",
+      "imdb_id": "tt0021884",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "AkSbwiKP3mo",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "his-girl-friday",
+      "collection": "studio-era",
+      "title": "His Girl Friday",
+      "type": "film",
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "year": 1940,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Howard Hawks",
+      "recognition": "Added to the National Film Registry in 1993",
+      "pair_with": "",
+      "study_note": "Dialogue at record speed: Hawks had the cast talk over each other and shot it in long, crowded takes",
+      "added": "2026-10-31",
+      "essential": "The reference for fast, overlapping dialogue in comedy.",
+      "imdb_id": "tt0032599",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "-IS-KvD2_Zo",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "stagecoach",
+      "collection": "studio-era",
+      "title": "Stagecoach",
+      "type": "film",
+      "genres": [
+        "Adventure",
+        "Drama"
+      ],
+      "year": 1939,
+      "countries": [
+        "United States"
+      ],
+      "credit": "John Ford",
+      "recognition": "Two Academy Awards, including Best Supporting Actor (Thomas Mitchell)",
+      "pair_with": "",
+      "study_note": "Ford's first Monument Valley western: nine strangers in one coach, and the shot that made John Wayne a star",
+      "added": "2026-10-31",
+      "essential": "The western Orson Welles said he watched some forty times while preparing Citizen Kane.",
+      "imdb_id": "tt0031971",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "OE-VWDsdkwM",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "notorious",
+      "collection": "studio-era",
+      "title": "Notorious",
+      "type": "film",
+      "genres": [
+        "Thriller",
+        "Romance"
+      ],
+      "year": 1946,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Alfred Hitchcock",
+      "recognition": "Two Academy Award nominations",
+      "pair_with": "",
+      "study_note": "A crane shot from a whole party down to the key in Ingrid Bergman's hand, and a kiss broken up to get round the censors' time limit",
+      "added": "2026-10-31",
+      "imdb_id": "tt0038787",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "EhMyp8ZvjWs",
+          "kind": "trailer",
+          "channel": "BFI",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "touch-of-evil",
+      "collection": "studio-era",
+      "title": "Touch of Evil",
+      "type": "film",
+      "genres": [
+        "Crime",
+        "Thriller"
+      ],
+      "year": 1958,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Orson Welles",
+      "recognition": "Added to the National Film Registry in 1993",
+      "pair_with": "",
+      "study_note": "The opening crane shot, more than three minutes without a cut, and border-town noir shot at night in Venice, California",
+      "added": "2026-10-31",
+      "essential": "Its opening long take is the one cinematography classes still show first.",
+      "imdb_id": "tt0052311",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "V-Oqn2hMp1M",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "high-noon",
+      "collection": "studio-era",
+      "title": "High Noon",
+      "type": "film",
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
+      "year": 1952,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Fred Zinnemann",
+      "recognition": "Four Academy Awards, including Best Actor (Gary Cooper)",
+      "pair_with": "",
+      "study_note": "A western told in close to real time, clocks in shot, in a flat, harsh light that suits its blacklist-era story",
+      "added": "2026-10-31",
+      "imdb_id": "tt0044706",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "g9CR_tib0CA",
+          "kind": "trailer",
+          "channel": "Rotten Tomatoes Classic Trailers",
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "slug": "the-night-of-the-hunter",
+      "collection": "studio-era",
+      "title": "The Night of the Hunter",
+      "type": "film",
+      "genres": [
+        "Thriller",
+        "Crime"
+      ],
+      "year": 1955,
+      "countries": [
+        "United States"
+      ],
+      "credit": "Charles Laughton",
+      "recognition": "Added to the National Film Registry in 1992",
+      "pair_with": "",
+      "study_note": "Laughton's only film as director: silent-era expressionism, a river journey shot like a fairy tale and Robert Mitchum's tattooed hands",
+      "added": "2026-10-31",
+      "imdb_id": "tt0048424",
+      "videos": [
+        {
+          "provider": "youtube",
+          "video_id": "Y8dX6ZKJe2o",
+          "kind": "trailer",
+          "channel": "CRITERION",
+          "is_primary": true
+        }
+      ]
     }
   ],
   "categories": [

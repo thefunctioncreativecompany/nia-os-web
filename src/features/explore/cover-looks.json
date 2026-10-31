@@ -326,6 +326,9 @@
   "cool-palette",
   "low-key"
  ],
+ "frankenstein": [
+  "warm-palette"
+ ],
  "go": [
   "vivid-colour",
   "warm-palette"
@@ -339,6 +342,14 @@
   "low-key"
  ],
  "heart-of-the-hunter": [
+  "warm-palette"
+ ],
+ "high-noon": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "his-girl-friday": [
+  "vivid-colour",
   "warm-palette"
  ],
  "hounds": [
@@ -397,6 +408,9 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "king-kong": [
+  "warm-palette"
+ ],
  "kings-of-joburg": [],
  "lawrence-of-arabia": [
   "muted-colour",
@@ -424,6 +438,9 @@
  "mildred-pierce": [
   "warm-palette"
  ],
+ "modern-times": [
+  "warm-palette"
+ ],
  "native-son-1951": [
   "vivid-colour",
   "warm-palette",
@@ -441,6 +458,9 @@
   "muted-colour",
   "warm-palette",
   "bright-airy"
+ ],
+ "notorious": [
+  "warm-palette"
  ],
  "on-becoming-a-guinea-fowl": [
   "vivid-colour",
@@ -523,6 +543,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "stagecoach": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "stormy-weather": [
   "warm-palette"
  ],
@@ -548,6 +572,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "the-general": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "the-grapes-of-wrath": [
   "vivid-colour",
   "warm-palette",
@@ -567,6 +595,10 @@
   "warm-palette"
  ],
  "the-mother-of-all-lies": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "the-night-of-the-hunter": [
   "vivid-colour",
   "warm-palette"
  ],
@@ -598,6 +630,10 @@
   "warm-palette"
  ],
  "to-kill-a-mockingbird": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "touch-of-evil": [
   "vivid-colour",
   "warm-palette"
  ],
