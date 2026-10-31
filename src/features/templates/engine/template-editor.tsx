@@ -25,6 +25,8 @@ import { DocumentContext } from './document-context';
 import { LivePreview } from './live-preview';
 import { SaveToProjectDialog } from './save-to-project';
 import { SectionOutline } from './section-outline';
+import { FirstUseTutorial } from '@/features/templates/tutorial/first-use-tutorial';
+import type { TutorialProps } from '@/features/templates/tutorial/template-tutorial';
 import { useDocument, type DocumentProject } from './use-document';
 import { WhatsNext } from './whats-next';
 
@@ -44,6 +46,7 @@ export function TemplateEditor({
   readOnly = false,
   canDelete = false,
   next = [],
+  tutorial = null,
 }: {
   schema: TemplateSchema;
   documentId: string | null;
@@ -57,6 +60,8 @@ export function TemplateEditor({
   canDelete?: boolean;
   /** "What's next": the documents this one leads to. */
   next?: NextTemplate[];
+  /** The template's mini tutorial, played the first time it's opened on this device. */
+  tutorial?: TutorialProps | null;
 }) {
   const router = useRouter();
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -112,6 +117,8 @@ export function TemplateEditor({
           description={schema.description}
           status={doc.savedAt ? <SavedIndicator savedAt={doc.savedAt} className="print:hidden" /> : undefined}
         />
+
+        {tutorial && !readOnly && !documentId && <FirstUseTutorial code={schema.code} tutorial={tutorial} />}
 
         {readOnly && (
           <p role="status" className="flex items-center gap-2 rounded-lg bg-nia-panel px-4 py-3 text-small text-muted-foreground print:hidden">

@@ -241,6 +241,16 @@ Data:
   `templates_announced` in the sign-in metadata; no migration). The first nine (2026-10-19) are
   the starting set and never marked new. Every preview shows the for-you and for-your-team lines.
   Not in Figma yet: reconcile Just added, the Home card and the marker.
+- (2026-10-31) Template mini tutorials (Ika): a 14-second Remotion animation per template, drawn
+  in the browser by `@remotion/player` from the template's own content (context: stage and the
+  for-your-team line; purpose: the for-you line; how to: its How to use steps beside its real
+  sections filling in, then Download PDF / Save to project). Plays once, silent and muted (so
+  browsers start it without a click), rests on the last frame with Watch again
+  (`src/features/templates/tutorial/`). In the template preview's picture box for templates
+  that work (the still miniature under reduced motion or for workflows), and above a new
+  document the first time a template is opened on this device (`nia-tutorials-seen`, Got it).
+  The player is its own download. Remotion is free for individuals and companies of up to 3
+  people; confirm before the team grows (`acknowledgeRemotionLicense` is set). Not in Figma yet.
 - (2026-10-28) Explore tags (Ika): every title and creator film has 15 to 20 tags from one fixed
   list (`src/features/explore/tags.ts`: look, camera, setting, subject, mood, how it was made,
   made for, frame and origin). Hand-written ones are in `tag-data.ts`; the cover's look is measured

@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import { useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Maximize2, Minimize2, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -14,6 +16,9 @@ import { COMING_SOON, works, type GalleryTemplate } from "@/features/templates/g
 import { DocMiniature } from "@/features/templates/components/doc-miniature";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { TemplateValue } from "@/features/templates/components/template-value";
+
+// The mini tutorial (Ika, 2026-10-31) is its own download: Remotion's player loads with it.
+const TutorialPlayer = dynamic(() => import("@/features/templates/tutorial/tutorial-player").then((m) => m.TutorialPlayer), { ssr: false });
 
 // The template preview pop-up (TEMPLATES_BUILD.md §5, prototype PreviewModal): group and
 // code, title, "Use this template", a miniature of the document (or the workflow map),
@@ -42,6 +47,20 @@ export function PreviewModal({
   const open = works(t);
   const preview = loaded?.code === t.code ? loaded.data : undefined;
   const workflow = t.kind === "workflow" ? WORKFLOWS[t.slug] : undefined;
+  // A template that works plays its mini tutorial in the picture box (not under reduced motion).
+  const reduce = useReducedMotion();
+  const tutorial =
+    open && preview && !workflow && !reduce
+      ? {
+          name: t.name,
+          icon: t.icon,
+          stage: t.stage,
+          forYou: t.forYou ?? null,
+          forTeam: t.forTeam ?? null,
+          steps: preview.details.howTo,
+          sections: (preview.schema?.sections ?? []).map((x) => x.title),
+        }
+      : null;
 
   // Each template's copy comes from the server when it's shown; back to the top on every change.
   useEffect(() => {
@@ -113,6 +132,8 @@ export function PreviewModal({
             <div className="mt-6.5 flex h-[48svh] max-h-118 items-center justify-center overflow-hidden rounded-2xl border border-border bg-secondary/60">
               {preview === undefined ? (
                 <Skeleton className="size-[86%] rounded-lg" />
+              ) : tutorial ? (
+                <TutorialPlayer key={t.code} tutorial={tutorial} className="w-full max-w-[calc(min(48svh,29.5rem)*16/9)] p-2" />
               ) : (
                 <DocMiniature icon={t.icon} name={t.name} schema={preview?.schema ?? null} workflow={workflow} />
               )}

@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { getSchema, nextTemplates } from "@/features/templates/catalog";
 import { canEdit, restoreDocument } from "@/features/templates/engine/sections";
 import { TemplateEditor } from "@/features/templates/engine/template-editor";
+import { tutorialFor } from "@/features/templates/tutorial/tutorial-data";
 
 export async function generateMetadata({ params }: PageProps<"/templates/[code]">): Promise<Metadata> {
   const { code } = await params;
@@ -80,7 +81,7 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
     if (project && canEditIt) startIn = { id: project.id, title: project.title || "Untitled project" };
   }
 
-  return <TemplateEditor key={saved?.id ?? "new"} schema={schema} documentId={saved?.id ?? null} initialData={restoreDocument(schema, saved?.data)} initialPaid={saved?.status === "paid"} initialProject={saved?.project ?? startIn} readOnly={readOnly} canDelete={canDelete} next={nextTemplates(schema.code)} />;
+  return <TemplateEditor key={saved?.id ?? "new"} schema={schema} documentId={saved?.id ?? null} initialData={restoreDocument(schema, saved?.data)} initialPaid={saved?.status === "paid"} initialProject={saved?.project ?? startIn} readOnly={readOnly} canDelete={canDelete} next={nextTemplates(schema.code)} tutorial={saved ? null : await tutorialFor(code)} />;
 }
 
 function EditorSkeleton() {
