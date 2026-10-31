@@ -427,6 +427,13 @@ Data:
   strap bodysuit, `Deub31ivOv-`); `sensitive: true` adds a sensitive-content screen (blurred
   cover, "Sensitive content", why). `node scripts/check-instagram-embeds.mjs` tests every
   film's player; run it when adding creator films.
+- (2026-10-31) Top 10 on Explore (Ika) replaces Top 10 director's notes (the notes don't exist
+  yet; `DirectorsNotes` stays unused): the titles and films people open, save and add to
+  projects most in the last 30 days, ranked again on every visit (`src/features/explore/top.ts`,
+  tested: each opener once, opens in the last week twice, a save 3, an addition to a project 5;
+  Explore's essentials fill the rest). Totals come from `explore_top()` (returns counts per title
+  only, never who; Explore access needed). Needs `20261108000000_explore_top.sql`; until it's run
+  the essentials show. The page doesn't wait for it: only the section has a placeholder.
 - (2026-10-31) Explore Feed (Ika), hidden for now (`features.exploreFeedShown` off: no tabs on
   Explore, `/explore/feed` goes to Explore; the code stays): `/explore/feed`, beside Library in Explore's tabs
   (`ExploreTabs`, gold underline), built from the approved prototype (the dev prototype is

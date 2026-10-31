@@ -23,7 +23,7 @@ const ODD_OFFSET = -60;
 // Explore, the library: Ika's Claude Design "ExploreLibrary" as designed (layout, motion, images),
 // in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts. The
 // rows under By category come in a new order on each visit (`seed`, Ika 2026-10-22).
-export function ExploreLibrary({ seed, gallery }: { seed: number; gallery: { items: Added[]; thisWeek: boolean } }) {
+export function ExploreLibrary({ seed, gallery, top }: { seed: number; gallery: { items: Added[]; thisWeek: boolean }; top: Promise<string[]> }) {
   const items = gallery.items.flatMap(({ slug, added }) => {
     const item = exploreItem(slug);
     return item ? [{ item, added }] : [];
@@ -53,7 +53,7 @@ export function ExploreLibrary({ seed, gallery }: { seed: number; gallery: { ite
       </section>
 
       {/* Every category under a heading that shows or hides it (Ika, 2026-10-29). */}
-      <CategorySections seed={seed} />
+      <CategorySections seed={seed} top={top} />
       {features.exploreLatestShown && <LatestStrips category={getCategory("latest")} />}
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
@@ -10,26 +10,35 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { CREATORS, CREATORS_HREF } from "@/features/explore/creators";
 import { HOLLYWOOD_CLASSICS, HOLLYWOOD_CLASSICS_HREF, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF } from "@/features/explore/made-in-africa";
 import { CreatorsStrip } from "./creators-strip";
-import { DirectorsNotes } from "./directors-notes";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory } from "./explore-data";
 import { HollywoodClassicsStrip } from "./hollywood-classics-strip";
 import { MadeInAfricaStrip } from "./made-in-africa-strip";
+import { TopTen } from "./top-ten";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type Section = { id: string; name: string; href?: string; row: React.ReactNode };
 
 // By category on Explore (Ika, 2026-10-21; on the Explore page itself since 2026-10-29): every
 // category under a heading that shows or hides it, with Show all / Hide all. All start open.
 // Headings are the name alone, no count or explaining line (Ika, 2026-10-30).
-export function CategorySections({ seed }: { seed: number }) {
+// Top 10 on Explore replaced Top 10 director's notes (Ika, 2026-10-31): those notes don't exist yet.
+export function CategorySections({ seed, top }: { seed: number; top: Promise<string[]> }) {
   const epk = getCategory("epk");
-  const notes = getCategory("notes");
   const sections: Section[] = [
     { id: "made-in-africa", name: MADE_IN_AFRICA.name, href: MADE_IN_AFRICA_HREF, row: <MadeInAfricaStrip seed={seed} bare /> },
     { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, href: HOLLYWOOD_CLASSICS_HREF, row: <HollywoodClassicsStrip bare /> },
     { id: "creators", name: CREATORS.name, href: CREATORS_HREF, row: <CreatorsStrip seed={seed} bare /> },
     { id: "epk", name: epk.title, row: <EpkLanes category={epk} bare /> },
-    { id: "notes", name: notes.title, row: <DirectorsNotes category={notes} bare /> },
+    {
+      id: "top",
+      name: "Top 10 on Explore",
+      row: (
+        <Suspense fallback={<Skeleton className="h-96 rounded-xl" />}>
+          <TopTen top={top} />
+        </Suspense>
+      ),
+    },
   ];
   const [open, setOpen] = useState(() => new Set(sections.map((s) => s.id)));
   const toggle = (id: string, on: boolean) =>
