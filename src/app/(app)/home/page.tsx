@@ -36,11 +36,32 @@ export default function Page() {
         <p className="text-lead text-muted-foreground">What would you like to create today?</p>
       </header>
 
-      <Suspense fallback={null}>
-        <TemplateNews />
+      {/* The announcement and everything under it arrive together, so nothing below jumps down
+          when the announcement appears (it moved Recent projects by its full height). */}
+      <Suspense fallback={<BodySkeleton />}>
+        <HomeBody />
       </Suspense>
+    </div>
+  );
+}
 
-      <Templates />
+// The welcome tour opens by itself once, for a new account just out of onboarding.
+async function Tour() {
+  const [{ user }, current] = await Promise.all([getSession(), getCurrentUser()]);
+  return <WelcomeTourLoader firstName={current.name.split(" ")[0]} firstVisit={user?.metadata.tour_pending === true} />;
+}
+
+// New templates, announced once (launches.ts): until the person uses one or closes the card, or
+// it stops being new. Not while the welcome tour is about to open. Then "Start from a template"
+// (H4): the working templates, ordered in the browser by what the person viewed last.
+async function HomeBody() {
+  const [{ user }, templates] = await Promise.all([getSession(), workingGallery()]);
+  const announced = user?.metadata.templates_announced ?? [];
+  const fresh = user && !user.metadata.tour_pending ? templates.filter((t) => t.fresh && !announced.includes(t.code)) : [];
+  return (
+    <>
+      {fresh.length > 0 && <NewTemplatesNotice templates={fresh} announced={announced} />}
+      <HomeTemplates templates={templates} />
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         <h2 id="recent-projects" className="text-xl leading-[1.4] font-bold text-foreground">
@@ -86,30 +107,17 @@ export default function Page() {
           </section>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
-// The welcome tour opens by itself once, for a new account just out of onboarding.
-async function Tour() {
-  const [{ user }, current] = await Promise.all([getSession(), getCurrentUser()]);
-  return <WelcomeTourLoader firstName={current.name.split(" ")[0]} firstVisit={user?.metadata.tour_pending === true} />;
-}
-
-// New templates, announced once (launches.ts): until the person uses one or closes the card, or
-// it stops being new. Not while the welcome tour is about to open.
-async function TemplateNews() {
-  const [{ user }, templates] = await Promise.all([getSession(), workingGallery()]);
-  if (!user || user.metadata.tour_pending) return null;
-  const announced = user.metadata.templates_announced ?? [];
-  const fresh = templates.filter((t) => t.fresh && !announced.includes(t.code));
-  return fresh.length ? <NewTemplatesNotice templates={fresh} announced={announced} /> : null;
-}
-
-// "Start from a template" (H4): the working templates, ordered in the browser by what the person
-// viewed last.
-async function Templates() {
-  return <HomeTemplates templates={await workingGallery()} />;
+function BodySkeleton() {
+  return (
+    <>
+      <Skeleton className="h-24 rounded-xl" />
+      <Skeleton className="h-60 rounded-xl" />
+    </>
+  );
 }
 
 async function Welcome() {

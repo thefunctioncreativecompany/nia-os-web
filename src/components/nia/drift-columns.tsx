@@ -24,7 +24,8 @@ export function DriftColumns<T>({
 }: {
   items: T[];
   getKey: (item: T) => string;
-  renderItem: (item: T) => ReactNode;
+  /** `index` is the item's place in `items`, e.g. to load the first pictures first. */
+  renderItem: (item: T, index: number) => ReactNode;
   /** One entry per column: how far it drifts, in pixels. */
   drift: number[];
   oddOffset?: number;
@@ -61,13 +62,13 @@ export function DriftColumns<T>({
               style={{ transform: `translate3d(0, ${y.toFixed(1)}px, 0)` }}
               className={cn("contents lg:flex lg:min-w-0 lg:flex-1 lg:flex-col lg:transition-transform lg:duration-drift lg:ease-glide", columnClassName)}
             >
-              {items
-                .filter((_, i) => i % drift.length === c)
-                .map((item) => (
+              {items.map((item, i) =>
+                i % drift.length === c ? (
                   <div key={getKey(item)} className="contents">
-                    {renderItem(item)}
+                    {renderItem(item, i)}
                   </div>
-                ))}
+                ) : null,
+              )}
             </div>
           );
         })}

@@ -61,14 +61,18 @@ export function ExploreLibrary({ seed, gallery }: { seed: number; gallery: { ite
 
 // Five columns of posters that drift apart as the pointer moves down them (wide screens only);
 // phones and tablets get a plain two- or three-column grid. Each card says when it was added.
+// Five posters fill the first row on wide screens (two to three on phones and tablets).
+const FIRST_ROW = 5;
+
 function RecentGallery({ items }: { items: { item: ExploreItem; added: string }[] }) {
   return (
     <DriftColumns
       label="Recently added on Explore"
       items={items}
       getKey={({ item }) => item.slug}
-      renderItem={({ item, added }) => (
-        <ExploreCard item={item} href={item.href()} sizes="(min-width: 64rem) 20vw, (min-width: 40rem) 33vw, 50vw" note={`Added ${dayLabel(added)}`} />
+      // The first row is the page's main picture: fetched at once, not when scrolled to.
+      renderItem={({ item, added }, i) => (
+        <ExploreCard item={item} href={item.href()} sizes="(min-width: 64rem) 20vw, (min-width: 40rem) 33vw, 50vw" note={`Added ${dayLabel(added)}`} first={i < FIRST_ROW} />
       )}
       drift={DRIFT}
       oddOffset={ODD_OFFSET}

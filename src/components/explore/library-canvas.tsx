@@ -303,10 +303,11 @@ function Tile({ item, x, y, w, h, onFilm }: { item: LibraryItem; x: number; y: n
     "group absolute overflow-hidden rounded-lg text-left text-foreground shadow-card outline-none transition-[scale,box-shadow] duration-lift ease-glide hover:z-[3] hover:scale-104 hover:shadow-card-hover focus-visible:z-[3] focus-visible:scale-104 focus-visible:shadow-card-hover focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:hover:scale-100 motion-reduce:focus-visible:scale-100",
     item.image ? "bg-muted" : item.grain,
   );
+  // Only tiles in view are drawn, so each picture is wanted now: never wait to be scrolled to.
   const body = (
     <>
       {item.image ? (
-        <Image src={item.image} alt="" fill sizes={`${w}px`} quality={90} draggable={false} className="pointer-events-none object-cover" />
+        <Image src={item.image} alt="" fill sizes={`${w}px`} quality={90} loading="eager" draggable={false} className="pointer-events-none object-cover" />
       ) : (
         <span aria-hidden className="absolute inset-x-0 bottom-0 p-3 text-lead leading-tight font-bold">
           {item.title}
