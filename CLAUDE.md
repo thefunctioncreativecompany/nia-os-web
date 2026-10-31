@@ -317,6 +317,15 @@ Data:
   the Explore page itself: each category under a heading that shows or hides it, Show all /
   Hide all; `/explore/categories` redirects there. Title pages' "You may also like" draws from
   the title's own category.
+- (2026-10-31) Stand-in covers (Ika): until TMDB's licence allows posters, a title waiting for a
+  cover shows a still from its official trailer (the studio's or streamer's own YouTube upload).
+  Not the channel's thumbnail (often has words on it): one of the frames YouTube takes from
+  inside the video, chosen by eye with where the subject is (`CHOSEN` in
+  `scripts/trailer-stills.mjs`, which measures the black bars into `trailer-stills.json`).
+  `/api/explore-still/<video>-<frame>/<slug>.jpg` cuts the bars and crops to the poster shape
+  around the subject (only listed frames; cached a year). Title pages say "Cover: a still from
+  the official trailer." 36 titles appeared this way; Carmen Jones (no trailer), Network, Do the
+  Right Thing and Jurassic Park (no frames) still wait. A real poster replaces the still.
 - (2026-10-29) "Pair with" is no longer shown anywhere (Ika): it comes back as a proper
   side-by-side compare feature. The `pair_with` data stays in `made-in-africa.json` for it.
 - (2026-10-29) Explore shows only titles with a cover (Ika). Waiting (data, tags and press kits

@@ -6,6 +6,7 @@
 import { GENRES, PRODUCTION_TYPES, type ProductionType } from "@/lib/projects";
 import type { Season, Title, Video } from "@/lib/explore";
 import sources from "./cover-sources.json";
+import stills from "./trailer-stills.json";
 import raw from "./made-in-africa.json";
 
 type RawVideo = Partial<Video> & Pick<Video, "provider" | "video_id">;
@@ -43,8 +44,20 @@ export type Entry = { title: Title; collection: Collection; pinnedSeason: number
 // from TMDB (sources in cover-sources.json, for the TMDB licence Explore needs before launch).
 // A title without one shows a typographic poster.
 const COVERS = new Set(Object.keys(sources));
+// Until TMDB's licence allows posters (Ika, 2026-10-31), a title without one shows a still from
+// its official trailer, the studio's own YouTube upload (scripts/trailer-stills.mjs).
+const STILLS = stills as Record<string, { id: string; size: string; top: number; bottom: number; x: number }>;
+const hasCover = (slug: string) => COVERS.has(slug) || slug in STILLS;
 
-export const coverFor = (slug: string): string | null => (COVERS.has(slug) ? `/explore/made-in-africa/${slug}.jpg` : null);
+export const coverFor = (slug: string): string | null =>
+  COVERS.has(slug)
+    ? `/explore/made-in-africa/${slug}.jpg`
+    : STILLS[slug]
+      ? // Cropped of its black bars on our side; the frame in the address keeps caches right.
+        `/api/explore-still/${STILLS[slug].id}-${STILLS[slug].size}/${slug}.jpg`
+      : null;
+/** The cover is a still from the official trailer, standing in for the poster. */
+export const isTrailerStill = (slug: string) => !COVERS.has(slug) && slug in STILLS;
 
 // Written out in full so Tailwind finds each class name in the code.
 const GRAINS = [
@@ -97,14 +110,14 @@ const EVERY: Entry[] = (raw.titles as RawTitle[]).map((t, i) => {
 // kits kept, and appear by themselves once their cover is added (cover-sources.json and the
 // image; scripts/find-title-assets.mjs fetches posters through the TMDB API when TMDB_API_KEY is
 // set). Their pages answer "not found" until then.
-const ENTRIES: Entry[] = EVERY.filter((e) => COVERS.has(e.title.slug));
+const ENTRIES: Entry[] = EVERY.filter((e) => hasCover(e.title.slug));
 /** Titles waiting for a cover before they appear on Explore. */
-export const waitingForCover: string[] = EVERY.filter((e) => !COVERS.has(e.title.slug)).map((e) => e.title.slug);
+export const waitingForCover: string[] = EVERY.filter((e) => !hasCover(e.title.slug)).map((e) => e.title.slug);
 /** Every title's slug, listed or waiting (for the tag checks). */
 export const everyTitleSlug: string[] = EVERY.map((e) => e.title.slug);
 
 /** When each title joined Explore, for the ones that say (recent.ts). */
-export const titleAddedOn = new Map((raw.titles as RawTitle[]).flatMap((t) => (t.added && COVERS.has(t.slug) ? [[t.slug, t.added] as const] : [])));
+export const titleAddedOn = new Map((raw.titles as RawTitle[]).flatMap((t) => (t.added && hasCover(t.slug) ? [[t.slug, t.added] as const] : [])));
 
 export const MADE_IN_AFRICA = raw.categories.find((c) => c.slug === "made-in-africa")!;
 

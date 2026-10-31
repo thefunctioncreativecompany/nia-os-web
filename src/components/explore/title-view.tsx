@@ -11,7 +11,7 @@ import { attribution, embedUrl, imdbUrl, pickSeason, primaryVideo, videoName, wa
 import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { ScrollRow } from "@/components/nia/scroll-row";
-import { LIBRARY_HREF, categoryViews, coverFor, essentialWhy, type CategoryKey, creditTerm, exploreHome, metaLine, findEntry, sameCategory, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
+import { LIBRARY_HREF, categoryViews, coverFor, essentialWhy, isTrailerStill, type CategoryKey, creditTerm, exploreHome, metaLine, findEntry, sameCategory, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
 import { similarItems } from "@/features/explore/match";
 import { ProductionNotes } from "./production-notes";
 import { PressKitSection } from "./press-kit-body";
@@ -147,6 +147,7 @@ export function TitleView({ entry }: { entry: Entry }) {
               <TmdbCredit />
             </div>
             <h1 className="text-h3 font-bold text-foreground md:text-h2">{title.title}</h1>
+            {isTrailerStill(title.slug) && <p className="-mt-2 text-caption text-muted-foreground">Cover: a still from the official trailer.</p>}
             {/* Keep it, or put it to work in a project (Ika, 2026-10-21). */}
             <div className="flex flex-wrap gap-2">
               <SaveToCollection slug={title.slug} title={title.title} />
