@@ -21,6 +21,8 @@ const getShared = cache(async (token: string) => {
 // Link previews (WhatsApp, iMessage, Slack, email): the project's title, summary and
 // cover (or the NIA card). The page itself stays out of search engines.
 export async function generateMetadata({ params }: PageProps<"/share/[token]">): Promise<Metadata> {
+  // Supabase reads the clock, so this runs per request (CLAUDE.md working notes).
+  await connection();
   const { token } = await params;
   const data = await getShared(token);
   if (!data) return { title: "Link off · Nia OS", robots: { index: false, follow: false } };
