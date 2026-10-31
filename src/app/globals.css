@@ -363,71 +363,71 @@
   --ease-spring: cubic-bezier(0, 0, 0.2, 1);
 }
 
-/* Dark theme, option A "Obsidian" (Ika's Claude Design dark-mode canvas, 2026-10-31): the
-   brand black as the ground, warm near-blacks for surfaces, warm off-white text, gold lifted
-   so it keeps its contrast. Text 17.5:1, muted 7.3:1, gold 7.9:1 on the ground. On <html>,
-   set before the page draws (src/lib/theme.ts). */
+/* Dark theme (Ika, 2026-10-31): neutral greys like VS Code's dark theme, and VS Code's blue in
+   place of gold for the accent (active tabs, unread dots, New markers, announcement and deadline
+   borders). Text 13.2:1, muted 6.3:1, blue 5.4:1 on the ground. On <html>, set before the page
+   draws (src/lib/theme.ts). */
 .dark {
   color-scheme: dark;
-  --background: #0a0908;
-  --foreground: #f3f0e9;
-  --card: #151311;
-  --card-foreground: #f3f0e9;
-  --popover: #151311;
-  --popover-foreground: #f3f0e9;
-  --primary: #f3f0e9;
-  --primary-foreground: #0a0908;
-  --secondary: #1f1c19;
-  --secondary-foreground: #f3f0e9;
-  --muted: #151311;
-  --muted-foreground: #a19c91;
-  --accent: #1f1c19;
-  --accent-foreground: #f3f0e9;
+  --background: #1f1f1f;
+  --foreground: #e6e6e6;
+  --card: #262626;
+  --card-foreground: #e6e6e6;
+  --popover: #262626;
+  --popover-foreground: #e6e6e6;
+  --primary: #e6e6e6;
+  --primary-foreground: #1f1f1f;
+  --secondary: #2f2f2f;
+  --secondary-foreground: #e6e6e6;
+  --muted: #262626;
+  --muted-foreground: #a0a0a0;
+  --accent: #2f2f2f;
+  --accent-foreground: #e6e6e6;
   --destructive: #f87171;
-  --border: #2b2825;
-  --input: #2b2825;
-  --ring: #6b665d;
-  --chart-1: #f3f0e9;
+  --border: #3a3a3a;
+  --input: #3a3a3a;
+  --ring: #6e6e6e;
+  --chart-1: #e6e6e6;
   --chart-2: #3fb8b0;
   --chart-3: #e08a4f;
-  --chart-4: #2b2825;
-  --chart-5: #a19c91;
-  --sidebar: #151311;
-  --sidebar-foreground: #f3f0e9;
-  --sidebar-primary: #f3f0e9;
-  --sidebar-primary-foreground: #0a0908;
-  --sidebar-accent: #1f1c19;
-  --sidebar-accent-foreground: #f3f0e9;
-  --sidebar-border: #2b2825;
-  --sidebar-ring: #6b665d;
-  --gold: #b5a272;
-  --gold-foreground: #0a0908;
-  --nia-footer: #151311;
-  --nia-placeholder: #7d786f;
+  --chart-4: #3a3a3a;
+  --chart-5: #a0a0a0;
+  --sidebar: #262626;
+  --sidebar-foreground: #e6e6e6;
+  --sidebar-primary: #e6e6e6;
+  --sidebar-primary-foreground: #1f1f1f;
+  --sidebar-accent: #2f2f2f;
+  --sidebar-accent-foreground: #e6e6e6;
+  --sidebar-border: #3a3a3a;
+  --sidebar-ring: #6e6e6e;
+  --gold: #3794ff;
+  --gold-foreground: #1f1f1f;
+  --nia-footer: #181818;
+  --nia-placeholder: #969696;
   --nia-success: #6ee7a0;
-  --nia-success-bg: #11291b;
-  --nia-surface: #151311;
-  --nia-canvas: #100e0d;
-  --nia-panel: #151311;
+  --nia-success-bg: #13291c;
+  --nia-surface: #262626;
+  --nia-canvas: #1a1a1a;
+  --nia-panel: #262626;
   --nia-danger: #f87171;
-  --nia-line-strong: #3a3632;
-  --status-confirmed: #11291b;
+  --nia-line-strong: #474747;
+  --status-confirmed: #13291c;
   --status-confirmed-foreground: #6ee7a0;
-  --status-pending: #2d220b;
+  --status-pending: #2e2410;
   --status-pending-foreground: #f5c25b;
-  --status-on-hold: #0f1f3a;
+  --status-on-hold: #10243f;
   --status-on-hold-foreground: #8db4f7;
-  --status-wrapped: #2b2825;
-  --status-wrapped-foreground: #c3beb3;
-  --status-cancelled: #321313;
+  --status-wrapped: #3a3a3a;
+  --status-wrapped-foreground: #c8c8c8;
+  --status-cancelled: #351616;
   --status-cancelled-foreground: #f8a5a5;
-  --phase-pre: #151b2c;
+  --phase-pre: #182033;
   --phase-pre-foreground: #a9b8ec;
-  --phase-production: #12221a;
+  --phase-production: #14261c;
   --phase-production-foreground: #8fd3a2;
-  --phase-post: #2a1b12;
+  --phase-post: #2e1f16;
   --phase-post-foreground: #eeb08c;
-  --phase-soon: #1d1930;
+  --phase-soon: #211d34;
   --phase-soon-foreground: #bcaef0;
 }
 
@@ -996,7 +996,7 @@
   position: relative;
   font-family: var(--font-ui);}
 .dark .car {
-  --ink-rgb: 243, 240, 233;}
+  --ink-rgb: 230, 230, 230;}
 
 /* ── the frame is only a frame ─────────────────────────────
    No background, no clip, no mask. This was a box that cut
