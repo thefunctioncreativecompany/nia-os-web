@@ -307,7 +307,7 @@ function Tile({ item, x, y, w, h, onFilm }: { item: LibraryItem; x: number; y: n
   const body = (
     <>
       {item.image ? (
-        <Image src={item.image} alt="" fill sizes={`${w}px`} quality={90} loading="eager" draggable={false} className="pointer-events-none object-cover" />
+        <Image src={item.image} alt="" fill sizes={`${w}px`} loading="eager" draggable={false} className="pointer-events-none object-cover" />
       ) : (
         <span aria-hidden className="absolute inset-x-0 bottom-0 p-3 text-lead leading-tight font-bold">
           {item.title}

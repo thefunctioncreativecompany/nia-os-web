@@ -46,7 +46,6 @@ function GalleryCard({ item, href, aspect, first, actions }: { item: ExploreItem
               alt=""
               fill
               sizes="(min-width: 96rem) 20vw, (min-width: 64rem) 25vw, (min-width: 48rem) 33vw, 50vw"
-              quality={90}
               loading={first ? "eager" : undefined}
               fetchPriority={first ? "high" : undefined}
               className="object-cover"

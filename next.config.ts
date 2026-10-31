@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   images: {
     // 90 for the full-bleed auth/onboarding hero images; 75 is the default elsewhere.
     qualities: [75, 90],
+    // AVIF first (Explore's posters are the heaviest part of any page; speed audit 2026-10-31),
+    // WebP for browsers without it.
+    formats: ["image/avif", "image/webp"],
     // Project covers and profile photos in Supabase Storage.
     // YouTube's own trailer thumbnails (Explore), fetched by our server so the browser doesn't
     // contact YouTube until Play is pressed.
