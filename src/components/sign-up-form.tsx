@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
+import { friendlyAuthError } from '@/lib/auth-errors'
 import { createClient } from '@/lib/supabase/client'
 import { AuthForm } from '@/components/auth/auth-form'
 import { AuthInput, AuthPasswordInput } from '@/components/auth/auth-input'
@@ -33,6 +34,13 @@ export function SignUpForm() {
         },
       })
       if (error) throw error
+      // An address that already has an account gets no email (Supabase keeps accounts private),
+      // so say so here instead of sending them to wait for one.
+      if (data.user && data.user.identities?.length === 0) {
+        setError(friendlyAuthError('User already registered'))
+        setIsLoading(false)
+        return
+      }
       // No session means Supabase wants the email confirmed first.
       router.push(
         data.session
@@ -40,7 +48,7 @@ export function SignUpForm() {
           : `/check-email?type=signup&email=${encodeURIComponent(email)}`
       )
     } catch (error: unknown) {
-      setError(error instanceof Error ? error.message : 'An error occurred')
+      setError(error instanceof Error ? friendlyAuthError(error.message) : 'Something went wrong. Try again.')
       setIsLoading(false)
     }
   }

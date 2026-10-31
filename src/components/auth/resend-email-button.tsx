@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 
+import { friendlyAuthError } from "@/lib/auth-errors";
 import { createClient } from "@/lib/supabase/client";
 
 export type EmailLinkType = "signup" | "recovery";
@@ -35,7 +36,7 @@ export function ResendEmailButton({
           });
 
     setIsSending(false);
-    if (error) toast.error(error.message);
+    if (error) toast.error(friendlyAuthError(error.message));
     else toast.success("Email sent. Check your inbox.");
   };
 

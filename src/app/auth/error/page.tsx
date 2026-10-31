@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { friendlyAuthError } from '@/lib/auth-errors'
 import { Button } from '@/components/ui/button'
 import { AuthLayout } from '@/components/auth/auth-layout'
 
@@ -24,8 +25,9 @@ export default function Page({ searchParams }: PageProps<'/auth/error'>) {
             </Suspense>
           </p>
         </div>
+        {/* Logging in works if the email was confirmed after all, and sends a new link if not. */}
         <Button asChild className="w-full">
-          <Link href="/login">Back to login</Link>
+          <Link href="/login">Log in</Link>
         </Button>
       </div>
     </AuthLayout>
@@ -34,5 +36,5 @@ export default function Page({ searchParams }: PageProps<'/auth/error'>) {
 
 async function ErrorMessage({ searchParams }: Pick<PageProps<'/auth/error'>, 'searchParams'>) {
   const { error } = await searchParams
-  return typeof error === 'string' && error ? error : "The link didn't work."
+  return typeof error === 'string' && error ? friendlyAuthError(error) : "The link didn't work."
 }

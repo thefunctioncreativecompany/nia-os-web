@@ -77,6 +77,8 @@ function CheckEmail({ email, type }: { email: string | null; type: EmailLinkType
       {email && <VerifyCodeForm email={email} type={type} />}
 
       <div className="flex w-full flex-col items-center gap-4 text-small text-nia-ink-muted">
+        {/* School and work email (Ika's Babson address, 2026-10-31) can hold or pre-open links. */}
+        <p>School or work email can take a few minutes, or put it in spam or quarantine.</p>
         <p>
           Didn&apos;t receive it? <ResendEmailButton email={email} type={type} />
         </p>

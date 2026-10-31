@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
+import { authProblem, friendlyAuthError } from '@/lib/auth-errors'
 import { safeNextPath } from '@/lib/safe-next-path'
 import { createClient } from '@/lib/supabase/client'
 import { AuthForm } from '@/components/auth/auth-form'
@@ -27,12 +28,25 @@ export function LoginForm() {
         email,
         password,
       })
-      if (error) throw error
+      if (error) {
+        // Not confirmed yet: send a fresh confirmation and show the page with the code box,
+        // instead of a dead end (Ika, 2026-10-31).
+        if (authProblem(error.message) === 'unconfirmed') {
+          await supabase.auth.resend({
+            type: 'signup',
+            email,
+            options: { emailRedirectTo: `${window.location.origin}/auth/confirm?next=/home` },
+          })
+          router.push(`/check-email?type=signup&email=${encodeURIComponent(email)}`)
+          return
+        }
+        throw error
+      }
       // Send them back where they were going, if a protected page sent them here.
       const next = new URLSearchParams(window.location.search).get('next')
       router.push(safeNextPath(next, '/home'))
     } catch (error: unknown) {
-      setError(error instanceof Error ? error.message : 'An error occurred')
+      setError(error instanceof Error ? friendlyAuthError(error.message) : 'Something went wrong. Try again.')
       setIsLoading(false)
     }
   }

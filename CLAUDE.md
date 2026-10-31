@@ -181,6 +181,14 @@ Data:
 - (2026-10-23) Marketplace is hidden for now (`features.marketplaceShown` off): no navbar or dock
   tab, every `/marketplace` address goes to Home (next.config.ts), and Plans drops the
   marketplace line and gear rental fees. The code stays; flip the switch to bring it back.
+- (2026-10-31) Email sign-up friction (Ika): Supabase's sign-in errors are plain guidance
+  (`src/lib/auth-errors.ts`, tested) on Log in, Create account, resend, the code box and
+  `/auth/error`. Logging in before confirming sends a fresh confirmation and opens Check your
+  email (with the code box), instead of "Email not confirmed". Signing up with an address that
+  already has an account says so (Supabase sends nothing for those). A used or expired link
+  explains that school and work email can open links to scan them, and offers Log in. Check
+  your email notes that school and work email can hold it. To check delivery, see Resend's
+  logs (a babson.edu confirmation sent 2026-10-31 20:57 UTC was never opened).
 - (2026-10-23) Welcome tour on Home (`src/components/home/welcome-tour.tsx`), after Gabriel's
   "Onboarding Experience made with Figma Motion" (Collect UI): a card over Home, the step on the
   left, a preview built from our components on the right (above on phones). Seven steps: welcome,
