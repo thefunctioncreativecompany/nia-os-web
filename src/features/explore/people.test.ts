@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 
 import { creatorFilms } from "./creators";
-import { castAndCrew, companies, findPerson, initials, isCompanyRole, workedWith } from "./people";
+import { castAndCrew, companies, initials, isCompanyRole } from "./people";
+import { findPerson, workedWith } from "./people-index";
+import { filmCastAndCrew } from "./film-people";
 
 describe("people on Explore", () => {
   it("makes initials from names and handles", () => {
@@ -29,5 +31,17 @@ describe("people on Explore", () => {
     const austin = findPerson("austincbanks")!;
     expect(austin.films.length).toBeGreaterThan(1);
     expect(workedWith(austin).some((p) => p.key === austin.key)).toBe(false);
+  });
+
+  it("gives films their cast first, with who they play, and finds film people", () => {
+    const row = filmCastAndCrew("film-sinners");
+    expect(row[0].name).toBe("Michael B. Jordan");
+    expect(row[0].role).toMatch(/Smoke/);
+    expect(new Set(row.map((m) => m.key)).size).toBe(row.length);
+    const coogler = row.find((m) => m.name === "Ryan Coogler")!;
+    const person = findPerson(coogler.key)!;
+    expect(person.roles).toContain("Director");
+    expect(person.films.some((f) => f.slug === "film-sinners")).toBe(true);
+    expect(workedWith(person).some((p) => p.name === "Michael B. Jordan")).toBe(true);
   });
 });

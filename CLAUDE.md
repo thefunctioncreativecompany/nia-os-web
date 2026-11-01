@@ -472,7 +472,15 @@ Data:
   `/explore/person/[key]` (`src/features/explore/people.ts`): name, roles, Instagram link, Films,
   Worked with. Pictures only with consent: initials until the person claims their credit ("This is
   me", coming) and chooses Nia photo, Instagram picture or initials; film people get free Commons
-  photos, credited (agreed). Figma: frame 18 Cast & Crew directory (967:30543) is the project
+  photos, credited (agreed). Films and series now have it too (2026-11-01): cast first with who
+  they play, then director or creator, writers, producers, DP, editor, music, production and
+  costume design, from Wikidata (`node scripts/build-explore-credits.mjs`, only new titles; `--all`
+  rebuilds; run it when adding titles) into `film-credits.json` and `film-people.json`
+  (`src/features/explore/film-people.ts`; person pages merge both in `people-index.ts`). 166 of
+  183 titles have credits (some South African series have none on Wikidata); 2,162 people,
+  1,543 with a Commons photo, which loads from upload.wikimedia.org directly (Wikimedia refuses
+  our image server) and is credited (author, licence) on the person's page. Searched matches
+  must share the title's name or year (`CHECKED` pins ones confirmed by hand). Figma: frame 18 Cast & Crew directory (967:30543) is the project
   screen for step 1; 921:2510 is the scene breakdowns (4.6). Not in Figma yet: the row, person page.
 - (2026-10-31) Sourcing creator films (Ika: strictly creator content): `node --env-file=.env.local
   scripts/find-creator-films.mjs` writes proposals to `scripts/out/creator-candidates.json` from

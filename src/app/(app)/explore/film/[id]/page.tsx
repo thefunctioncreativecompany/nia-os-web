@@ -1,9 +1,13 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { Skeleton } from "@/components/ui/skeleton";
 import { FilmView } from "@/components/explore/film-view";
 import { FILMS, getFilm } from "@/components/explore/explore-data";
 import { getFilmDetails } from "@/components/explore/film-details";
+import { filmCastAndCrew } from "@/features/explore/film-people";
+import { filmSlug } from "@/features/explore/items";
 
 // The films are known ahead of time, so each page is drawn once at build.
 export function generateStaticParams() {
@@ -17,8 +21,17 @@ export async function generateMetadata({ params }: PageProps<"/explore/film/[id]
 
 // A film's press kit as its own page (Ika, 2026-10-28), opened from the pop-up's "Open press kit"
 // or "Open film page".
-export default async function Page({ params }: PageProps<"/explore/film/[id]">) {
+export default function Page({ params }: PageProps<"/explore/film/[id]">) {
+  return (
+    <Suspense fallback={<Skeleton className="mx-4 mt-10 h-96 rounded-2xl md:mx-15" />}>
+      <Film params={params} />
+    </Suspense>
+  );
+}
+
+async function Film({ params }: Pick<PageProps<"/explore/film/[id]">, "params">) {
   const { id } = await params;
   if (!getFilmDetails(id)) notFound();
-  return <FilmView key={id} filmId={id} />;
+  const castCrew = filmCastAndCrew(filmSlug(id)).map(({ key, name, role, href, photo }) => ({ key, name, role, href, photo }));
+  return <FilmView key={id} filmId={id} castCrew={castCrew} />;
 }

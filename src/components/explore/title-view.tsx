@@ -11,6 +11,7 @@ import { attribution, embedUrl, imdbUrl, pickSeason, primaryVideo, videoName, wa
 import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { ScrollRow } from "@/components/nia/scroll-row";
+import { CastCrewRow, WIKIDATA_NOTE, type RowPerson } from "@/components/nia/cast-crew-row";
 import { LIBRARY_HREF, categoryViews, coverFor, essentialWhy, isTrailerStill, type CategoryKey, creditTerm, exploreHome, metaLine, findEntry, sameCategory, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
 import { similarItems } from "@/features/explore/match";
 import { ProductionNotes } from "./production-notes";
@@ -31,7 +32,7 @@ import { VideoThumbnail } from "./video-thumbnail";
 // Files & references, each with YouTube's thumbnail (through our image server). The player itself
 // loads only when Play is pressed, and stops when the page is left. "You may also like" closes the
 // page: titles that share its genres, collection, country, type or era.
-export function TitleView({ entry }: { entry: Entry }) {
+export function TitleView({ entry, castCrew = [] }: { entry: Entry; castCrew?: RowPerson[] }) {
   const params = useSearchParams();
   const { title, collection, pinnedSeason } = entry;
   const from = params.get("from") === "all" ? "all" : params.get("from") === "library" ? "library" : undefined;
@@ -205,6 +206,8 @@ export function TitleView({ entry }: { entry: Entry }) {
           <ProductionNotes slug={title.slug} listHref={view.href} />
         </div>
       </div>
+
+      <CastCrewRow people={castCrew} note={WIKIDATA_NOTE} />
 
       {videos.length > 0 && (
         <section aria-labelledby="videos" className="flex flex-col gap-4">

@@ -2,17 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { initials } from "@/features/explore/people";
+import { initials } from "@/lib/initials";
 import { ScrollRow } from "@/components/nia/scroll-row";
 
 // Cast & Crew (Ika, 2026-11-01, after Apple TV's row): a round picture per person, their name, and
 // their character or role under it, in one row that scrolls sideways. Initials stand in where
 // there's no picture (pictures only with the person's say-so, see people.ts). Each opens the
-// person's page. Used on Explore's creator films; projects and Explore's films next.
+// person's page. On Explore's creator films, films and series, and (smaller) on projects.
+
+/** Under the row on Explore's films and series. */
+export const WIKIDATA_NOTE = "Credits from Wikidata. Photos from Wikimedia Commons, credited on each person\u2019s page.";
 
 export type RowPerson = { key: string; name: string; role: string; href: string; photo?: string | null };
 
-export function CastCrewRow({ label = "Cast & Crew", people, className }: { label?: string; people: RowPerson[]; className?: string }) {
+export function CastCrewRow({ label = "Cast & Crew", people, note, className }: { label?: string; people: RowPerson[]; note?: React.ReactNode; className?: string }) {
   if (!people.length) return null;
   return (
     <section aria-labelledby="cast-crew" className={cn("flex flex-col gap-4", className)}>
@@ -26,6 +29,7 @@ export function CastCrewRow({ label = "Cast & Crew", people, className }: { labe
           </li>
         ))}
       </ScrollRow>
+      {note && <p className="text-caption text-muted-foreground">{note}</p>}
     </section>
   );
 }
@@ -47,7 +51,8 @@ export function PersonPicture({ name, photo, className, large = false }: { name:
   return (
     <span className={cn("relative flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-secondary", className)}>
       {photo ? (
-        <Image src={photo} alt="" fill sizes={large ? "224px" : "128px"} className="object-cover" />
+        // Commons photos load from Wikimedia itself: it turns away other servers' image requests.
+        <Image src={photo} alt="" fill sizes={large ? "224px" : "128px"} unoptimized={photo.startsWith("https://upload.wikimedia.org/")} className="object-cover" />
       ) : (
         <span aria-hidden className={cn("font-semibold tracking-tight text-muted-foreground", large ? "text-h1 md:text-display" : "text-h3 lg:text-h2")}>
           {initials(name)}

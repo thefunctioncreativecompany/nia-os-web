@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { CastCrewRow, WIKIDATA_NOTE, type RowPerson } from "@/components/nia/cast-crew-row";
 import { exploreHome } from "@/features/explore/made-in-africa";
 import { filmSlug } from "@/features/explore/items";
 import { recordView } from "@/features/explore/views";
@@ -17,8 +18,9 @@ import { AddToProject, SaveToCollection } from "./save-controls";
 // A film's own page (Ika, 2026-10-28), laid out like a project page and Explore's title pages:
 // the video where the cover sits, then the title, Save / Add to project and the summary on the
 // left; Details and Behind the production on the right; the press kit (press tour, what critics
-// said, context) full width below. Choosing a press-tour video plays it in the main player.
-export function FilmView({ filmId }: { filmId: string }) {
+// said, context) full width below. Choosing a press-tour video plays it in the main player. Cast &
+// Crew sits between the two (Ika, 2026-11-01).
+export function FilmView({ filmId, castCrew = [] }: { filmId: string; castCrew?: RowPerson[] }) {
   const film = getFilm(filmId);
   const details = getFilmDetails(filmId)!;
   const press = getPress(filmId);
@@ -110,6 +112,8 @@ export function FilmView({ filmId }: { filmId: string }) {
           </section>
         </div>
       </div>
+
+      <CastCrewRow people={castCrew} note={WIKIDATA_NOTE} />
 
       {press && <PressKitSection title={film.title} imdb={details.imdb} press={press} playing={video?.id ?? null} onChoose={choose} />}
     </div>

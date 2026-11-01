@@ -10,14 +10,14 @@ import { CastCrewRow, PersonPicture } from "@/components/nia/cast-crew-row";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { ExploreCard, cardSpan } from "@/components/explore/title-card";
 import { exploreHome } from "@/features/explore/made-in-africa";
-import { creatorFilms, profileUrl } from "@/features/explore/creators";
+import { profileUrl } from "@/features/explore/creators";
 import { exploreItem } from "@/features/explore/items";
-import { castAndCrew, findPerson, workedWith } from "@/features/explore/people";
+import { creatorPeopleKeys, findPerson, workedWith } from "@/features/explore/people-index";
 
-// Everyone credited on Explore is known ahead of time, so each page is drawn once at build.
+// Creator films' people are drawn once at build; the two thousand or so film people on their
+// first visit.
 export function generateStaticParams() {
-  const keys = new Set(creatorFilms.flatMap((f) => castAndCrew(f).map((m) => m.key)));
-  return [...keys].map((key) => ({ key }));
+  return creatorPeopleKeys().map((key) => ({ key }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/explore/person/[key]">): Promise<Metadata> {
@@ -26,9 +26,10 @@ export async function generateMetadata({ params }: PageProps<"/explore/person/[k
   return { title: person ? `${person.name} · Explore · Nia OS` : "Explore · Nia OS" };
 }
 
-// A person on Explore (Ika, 2026-11-01, after Apple TV's person page): their picture (initials
-// until they choose one), name and roles, where to find them, then the films they're credited on
-// and the people they made them with. Nothing about them is written that the credits don't say.
+// A person on Explore (Ika, 2026-11-01, after Apple TV's person page): their picture (a credited
+// Commons photo for film people, else initials until they choose one), name and roles, where to
+// find them, then the films they're credited on and the people they made them with. Nothing about
+// them is written that the credits don't say.
 export default function Page({ params }: PageProps<"/explore/person/[key]">) {
   return (
     <Suspense fallback={<Skeleton className="mx-4 mt-10 h-96 rounded-2xl md:mx-15" />}>
@@ -54,7 +55,14 @@ async function PersonPage({ params }: Pick<PageProps<"/explore/person/[key]">, "
       </Link>
 
       <header className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:gap-10 sm:text-left">
-        <PersonPicture name={person.name} large className="size-40 md:size-56" />
+        <div className="flex flex-col items-center gap-2">
+          <PersonPicture name={person.name} photo={person.photo?.src} large className="size-40 md:size-56" />
+          {person.photo && (
+            <a href={person.photo.page} target="_blank" rel="noopener noreferrer" className="max-w-56 text-center text-meta text-muted-foreground underline-offset-2 hover:text-foreground hover:underline">
+              Photo: {person.photo.author}, {person.photo.licence}, Wikimedia Commons
+            </a>
+          )}
+        </div>
         <div className="flex max-w-2xl flex-col gap-3">
           <h1 className="text-h2 font-bold text-foreground md:text-h1">{person.name}</h1>
           <p className="text-lead text-muted-foreground">
@@ -69,7 +77,9 @@ async function PersonPage({ params }: Pick<PageProps<"/explore/person/[key]">, "
               </a>
             </Button>
           )}
-          <p className="text-caption text-muted-foreground">From the credits in each film&rsquo;s caption. Is this you? Claiming your credit opens soon.</p>
+          <p className="text-caption text-muted-foreground">
+            {person.source === "wikidata" ? "Credits from Wikidata." : "From the credits in each film\u2019s caption. Is this you? Claiming your credit opens soon."}
+          </p>
         </div>
       </header>
 

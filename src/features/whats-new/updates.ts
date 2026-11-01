@@ -104,7 +104,7 @@ export const UPDATES: Update[] = [
     id: "cast-crew",
     date: "2026-11-01",
     title: "Cast and crew on Explore",
-    body: "Creators' films now show who made them. Open anyone to see their roles, their films and who they've worked with.",
+    body: "Every film, series and creator film now shows who made it and who's in it. Open anyone to see their roles, their films and who they've worked with.",
     href: "/explore/creators",
     cta: "Browse creators' films",
     icon: "Users",

@@ -17,6 +17,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "*.supabase.co", pathname: "/storage/v1/object/public/**" },
       { protocol: "https", hostname: "i.ytimg.com", pathname: "/vi/**" },
+      // Film people's free photos on Wikimedia Commons (Explore's Cast & Crew), loaded unoptimized.
+      { protocol: "https", hostname: "upload.wikimedia.org", pathname: "/wikipedia/commons/**" },
     ],
   },
   partialPrefetching: true,
