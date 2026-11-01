@@ -204,6 +204,13 @@ Data:
   visit after onboarding, once (`tour_pending` in the sign-in metadata, set when onboarding
   finishes and cleared when the tour opens; older accounts never get it by itself, no migration);
   "Take the tour" in the profile menu opens `/home?tour=1`. Not in Figma yet: reconcile it.
+- (2026-11-01) What's new in the tour (Ika): someone who has taken the tour gets, from "Take the
+  tour", what's new since their last one (`tour_seen_at` in the sign-in metadata, saved whenever the
+  tour closes; no migration), the updates most relevant to their group first (production, fashion
+  or creators, from their profession's onboarding sector; `src/features/whats-new/updates.ts`,
+  tested), each with a button to try it; Explore's updates only with Explore access; the welcome
+  tour when nothing is new. Add an entry to `UPDATES` (date, plain words, link, a weight per group)
+  whenever something people can use goes live. Not in Figma yet.
 - (2026-10-23) MVP pilot feedback (`src/components/nia/feedback.tsx`, `src/lib/product-events.ts`):
   "Send feedback" (profile menu, and a Feedback button bottom-right on wide screens) saves a note,
   its kind, the page and an optional screenshot to `feedback`; the key jobs (project created,

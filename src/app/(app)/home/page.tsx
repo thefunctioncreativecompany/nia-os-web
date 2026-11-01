@@ -16,6 +16,8 @@ import { HomeTemplates } from "@/components/home/home-templates";
 import { NewTemplatesNotice } from "@/components/home/new-templates-notice";
 import { ImportFilesDialog } from "@/components/home/import-files-dialog";
 import { WelcomeTourLoader } from "@/components/home/welcome-tour-loader";
+import { GROUP_LABEL, groupFor, whatsNew } from "@/features/whats-new/updates";
+import { hasExploreAccess } from "@/lib/explore-access";
 import { ProjectGrid } from "@/components/projects/project-grid";
 
 export const metadata: Metadata = {
@@ -46,9 +48,13 @@ export default function Page() {
 }
 
 // The welcome tour opens by itself once, for a new account just out of onboarding.
+// Taken before: "Take the tour" shows what's new since then, most relevant to their work first.
 async function Tour() {
-  const [{ user }, current] = await Promise.all([getSession(), getCurrentUser()]);
-  return <WelcomeTourLoader firstName={current.name.split(" ")[0]} firstVisit={user?.metadata.tour_pending === true} />;
+  const [{ user }, current, explore] = await Promise.all([getSession(), getCurrentUser(), hasExploreAccess()]);
+  const seenAt = user?.metadata.tour_seen_at;
+  const group = groupFor(current.profession);
+  const news = seenAt ? { since: seenAt, forWhom: GROUP_LABEL[group], updates: whatsNew(seenAt, group, { explore }) } : null;
+  return <WelcomeTourLoader firstName={current.name.split(" ")[0]} firstVisit={user?.metadata.tour_pending === true} news={news} />;
 }
 
 // New templates, announced once (launches.ts): until the person uses one or closes the card, or

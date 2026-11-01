@@ -8,6 +8,8 @@ export type CurrentUser = {
   email: string;
   name: string;
   avatarUrl: string | null;
+  /** From onboarding, e.g. "Line Producer" (what's new is weighted by it). */
+  profession: string | null;
 };
 
 // Returns the signed-in user, or sends them to the sign-in page.
@@ -25,7 +27,7 @@ export const getCurrentUser = cache(async (): Promise<CurrentUser> => {
   // what the sign-in provider gave us if the row can't be read.
   const { data: profile } = await supabase
     .from("profiles")
-    .select("full_name, avatar_url")
+    .select("full_name, avatar_url, profession")
     .eq("id", user.id)
     .maybeSingle();
 
@@ -34,6 +36,7 @@ export const getCurrentUser = cache(async (): Promise<CurrentUser> => {
     email: user.email,
     name: profile?.full_name || user.metadata.full_name || "",
     avatarUrl: profile?.avatar_url ?? user.metadata.avatar_url ?? null,
+    profession: profile?.profession ?? null,
   };
 });
 

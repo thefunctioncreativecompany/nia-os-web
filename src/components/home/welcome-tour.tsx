@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
-import { FileText, Mic, X } from "lucide-react";
+import { Calculator, CirclePlay, FileText, Film, Mic, Moon, Search, Sparkles, Trophy, Users, X, type LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { DURATION, EASE_OUT } from "@/lib/motion";
@@ -19,8 +19,28 @@ import { TmdbCredit } from "@/components/explore/tmdb-credit";
 import { HERO_SET } from "@/components/auth/hero-images";
 import { DocMiniature } from "@/features/templates/components/doc-miniature";
 import { loadTemplatePreview, type TemplatePreview } from "@/features/templates/actions";
+import type { Update } from "@/features/whats-new/updates";
 
-type Step = { id: string; title: string; body: string };
+type Step = { id: string; title: string; body: string; href?: string; cta?: string; icon?: string };
+
+/** What's new since their last tour (whats-new/updates.ts), worked out on the server. */
+export type News = { since: string; forWhom: string; updates: Update[] };
+
+// The updates' icons by name (icons can't be sent from the server).
+const UPDATE_ICONS: Record<string, LucideIcon> = { Calculator, CirclePlay, Film, Moon, Search, Sparkles, Trophy, Users };
+
+const dayLabel = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long" });
+
+// The tour for someone who has taken it before (Ika, 2026-11-01): what's new since then, the
+// updates most relevant to their kind of work first, each with a way to try it.
+function newsSteps(news: News): Step[] {
+  const n = news.updates.length;
+  return [
+    { id: "news", title: `What's new since ${dayLabel(news.since)}`, body: `${n} ${n === 1 ? "update" : "updates"} since your last tour, the ones for ${news.forWhom} first.` },
+    ...news.updates.map((u) => ({ id: `update-${u.id}`, title: u.title, body: u.body, href: u.href, cta: u.cta, icon: u.icon })),
+    { id: "news-done", title: "You're up to date", body: "Take the tour again from your profile menu whenever you like: it shows what's new since this one." },
+  ];
+}
 
 // What Nia does, one production job a step (Ika, 2026-10-23). No Copilot until it's built.
 const STEPS: Step[] = [
@@ -42,7 +62,7 @@ const [, , CAMERA, , , , FITTING, SHOWROOM, TEAM] = HERO_SET.map((h) => h.src);
 // account's first visit to Home after onboarding (`tour_pending`, set when onboarding finishes and
 // cleared when the tour first opens), and again from "Take the tour" in the profile menu
 // (`/home?tour=1`). Accounts from before the tour never get it by itself.
-export function WelcomeTour({ firstName, firstVisit }: { firstName: string; firstVisit: boolean }) {
+export function WelcomeTour({ firstName, firstVisit, news = null }: { firstName: string; firstVisit: boolean; news?: News | null }) {
   const router = useRouter();
   const pathname = usePathname();
   const asked = useSearchParams().get("tour") === "1";
@@ -51,6 +71,9 @@ export function WelcomeTour({ firstName, firstVisit }: { firstName: string; firs
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(1);
   const primary = useRef<HTMLButtonElement>(null);
+  // Asked for again after taking it: what's new, if anything is; otherwise the welcome tour.
+  const newsMode = !firstVisit && !!news && news.updates.length > 0;
+  const steps = newsMode ? newsSteps(news) : STEPS;
 
   // "Take the tour" while already on Home: start again from the first step.
   const [lastAsked, setLastAsked] = useState(asked);
@@ -75,20 +98,26 @@ export function WelcomeTour({ firstName, firstVisit }: { firstName: string; firs
   }, [firstVisit]);
 
   const go = (next: number) => {
-    if (next < 0 || next >= STEPS.length) return;
+    if (next < 0 || next >= steps.length) return;
     setDirection(next > step ? 1 : -1);
     setStep(next);
   };
 
   const close = (then?: string) => {
     setOpen(false);
+    // The next "Take the tour" shows what's new since now.
+    void (async () => {
+      const supabase = createClient();
+      const { error } = await supabase.auth.updateUser({ data: { tour_seen_at: new Date().toISOString() } });
+      if (!error) await supabase.auth.refreshSession();
+    })();
     if (asked) router.replace(pathname, { scroll: false });
     if (then) router.push(then);
   };
 
-  const current = STEPS[step];
-  const last = step === STEPS.length - 1;
-  const title = step === 0 && firstName ? `Welcome to Nia, ${firstName}` : current.title;
+  const current = steps[step];
+  const last = step === steps.length - 1;
+  const title = step === 0 && firstName && !newsMode ? `Welcome to Nia, ${firstName}` : current.title;
   const shift = reduce ? 0 : 16 * direction;
   const enter = { duration: reduce ? 0 : DURATION.base, ease: EASE_OUT };
 
@@ -120,7 +149,7 @@ export function WelcomeTour({ firstName, firstVisit }: { firstName: string; firs
             >
               {/* Drawn at one size and scaled down on phones, so every preview fits whole. */}
               <div className="flex w-md shrink-0 items-center justify-center max-md:scale-55">
-                <Preview id={current.id} />
+                <Preview id={current.id} icon={current.icon} />
               </div>
             </m.div>
           </AnimatePresence>
@@ -135,21 +164,26 @@ export function WelcomeTour({ firstName, firstVisit }: { firstName: string; firs
 
         <div className="flex min-h-0 flex-col gap-6 overflow-y-auto p-6 md:p-10">
           <p className="text-caption text-muted-foreground">
-            {step + 1} of {STEPS.length}
+            {step + 1} of {steps.length}
           </p>
           <AnimatePresence mode="wait" initial={false}>
             <m.div key={current.id} initial={{ opacity: 0, y: reduce ? 0 : 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={enter} className="flex flex-col gap-3">
               <DialogTitle className="text-h2 leading-tight font-bold text-foreground">{title}</DialogTitle>
               <DialogDescription className="text-sm leading-normal text-muted-foreground">{current.body}</DialogDescription>
+              {current.href && current.cta && (
+                <Button variant="outline" size="compact" className="w-fit" onClick={() => close(current.href)}>
+                  {current.cta}
+                </Button>
+              )}
             </m.div>
           </AnimatePresence>
 
           <div className="mt-auto flex flex-col gap-6 pt-2">
-            <Dots count={STEPS.length} current={step} onSelect={go} label="Step" />
+            <Dots count={steps.length} current={step} onSelect={go} label="Step" />
             {/* One main button that changes its words, so focus stays on it from step to step. */}
             <div className="flex flex-wrap items-center gap-2">
-              <Button ref={primary} onClick={() => (last ? close("/projects/new") : go(step + 1))}>
-                {step === 0 ? "Get started" : last ? "Start a project" : "Next"}
+              <Button ref={primary} onClick={() => (last ? close(newsMode ? undefined : "/projects/new") : go(step + 1))}>
+                {step === 0 ? (newsMode ? "Show me" : "Get started") : last ? (newsMode ? "Done" : "Start a project") : "Next"}
               </Button>
               <Button variant="ghost" onClick={() => (step === 0 ? close() : go(step - 1))}>
                 {step === 0 ? "Skip for now" : "Back"}
@@ -162,13 +196,24 @@ export function WelcomeTour({ firstName, firstVisit }: { firstName: string; firs
   );
 }
 
-function Preview({ id }: { id: string }) {
+function Preview({ id, icon }: { id: string; icon?: string }) {
+  if (icon) return <UpdatePreview icon={icon} />;
   if (id === "projects") return <ProjectsPreview />;
   if (id === "documents") return <DocumentsPreview />;
   if (id === "files") return <FilesPreview />;
   if (id === "crew") return <CrewPreview />;
   if (id === "explore") return <ExplorePreview />;
   return <Collage />;
+}
+
+// An update's picture: its icon on a raised tile, edged in Nia Blue.
+function UpdatePreview({ icon }: { icon: string }) {
+  const Icon = UPDATE_ICONS[icon] ?? Sparkles;
+  return (
+    <div className="flex size-48 items-center justify-center rounded-3xl border-2 border-nia-blue/50 bg-card shadow-elevation-2">
+      <Icon aria-hidden className="size-20 text-foreground" strokeWidth={1.4} />
+    </div>
+  );
 }
 
 // The opening and closing picture: stills from productions, loosely stacked.

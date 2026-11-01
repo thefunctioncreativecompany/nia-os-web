@@ -12,6 +12,8 @@ export type SessionUser = {
     avatar_url?: string;
     onboarded?: boolean;
     tour_pending?: boolean;
+    /** When they last closed the tour (ISO), for what's new since then (whats-new/updates.ts). */
+    tour_seen_at?: string;
     /** New templates already announced on Home (launches.ts). */
     templates_announced?: string[];
   };
