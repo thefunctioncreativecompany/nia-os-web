@@ -457,6 +457,16 @@ Data:
   invitation and auth emails have a Nia Blue button and neutral greys. For Ika: paste the
   updated `supabase/email-templates/confirm-signup.html` and `reset-password.html` into
   Supabase → Authentication → Emails (Source view).
+- (2026-11-01) Cast & Crew and person pages (Ika, after Apple TV's row and person page; Milestone 4
+  plan agreed: one directory per workspace, call sheets live until issued, crew without accounts
+  for now, start with People). `CastCrewRow` (`src/components/nia/cast-crew-row.tsx`): round
+  pictures, name, role, initials until there's a picture; on creator films now (people from the
+  captions' credits, cast first; companies listed apart), projects and Explore's films next.
+  `/explore/person/[key]` (`src/features/explore/people.ts`): name, roles, Instagram link, Films,
+  Worked with. Pictures only with consent: initials until the person claims their credit ("This is
+  me", coming) and chooses Nia photo, Instagram picture or initials; film people get free Commons
+  photos, credited (agreed). Figma: frame 18 Cast & Crew directory (967:30543) is the project
+  screen for step 1; 921:2510 is the scene breakdowns (4.6). Not in Figma yet: the row, person page.
 - (2026-10-31) Sourcing creator films (Ika: strictly creator content): `node --env-file=.env.local
   scripts/find-creator-films.mjs` writes proposals to `scripts/out/creator-candidates.json` from
   Vimeo Staff Picks (public feed + Vimeo oEmbed, no key) and, once `YOUTUBE_API_KEY` is in

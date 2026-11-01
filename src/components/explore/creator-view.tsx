@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
 import { ScrollRow } from "@/components/nia/scroll-row";
+import { CastCrewRow } from "@/components/nia/cast-crew-row";
+import { castAndCrew, companies } from "@/features/explore/people";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { recognizeAspect } from "@/lib/aspect-ratios";
 import {
@@ -180,12 +182,14 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
 
           <ProductionNotes slug={film.slug} listHref={CREATORS_HREF} />
 
+          {/* People are in Cast & Crew below; the companies credited stay here. */}
+          {companies(film).length > 0 && (
           <section aria-labelledby="credits" className="flex flex-col gap-4">
             <h2 id="credits" className="text-xl leading-[1.4] font-bold text-foreground">
-              Credits <span className="text-micro font-normal text-muted-foreground">{film.credits.length}</span>
+              Companies <span className="text-micro font-normal text-muted-foreground">{companies(film).length}</span>
             </h2>
             <dl className="flex flex-col gap-3">
-              {film.credits.map((x) =>
+              {companies(film).map((x) =>
                 row(
                   x.role,
                   x.handle ? (
@@ -200,8 +204,11 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
               )}
             </dl>
           </section>
+          )}
         </div>
       </div>
+
+      <CastCrewRow people={castAndCrew(film)} />
 
       <section aria-labelledby="more-creators" className="flex flex-col gap-4">
         <h2 id="more-creators" className="text-xl leading-[1.4] font-bold text-foreground">
