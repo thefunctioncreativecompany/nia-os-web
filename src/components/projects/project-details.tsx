@@ -8,15 +8,16 @@ import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { ASPECT_RATIOS } from "@/lib/aspect-ratios";
 import { parseDay, toDay } from "@/lib/dates";
-import { CREW_ROLES, deliverableText, shootDatesText, type CrewMember, type Deliverable } from "@/lib/projects";
+import { deliverableText, shootDatesText, type CrewMember, type Deliverable } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { formatMoney } from "@/features/templates/engine/format";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Assignees, type PersonMatch, type PersonRef } from "@/components/nia/assignees";
 import { Calendar } from "@/components/nia/lazy-calendar";
+import { PersonTile, type RowPerson } from "@/components/nia/cast-crew-row";
+import { ScrollRow } from "@/components/nia/scroll-row";
 
 // The parts of a project's Details that need more than a line of text (Ika, 2026-10-23): shoot
 // dates, deliverables, the budget, a number, and Crew & talent. Each saves on its own.
@@ -267,90 +268,32 @@ export function BudgetField({ projectId, onSaved }: { projectId: string; onSaved
   );
 }
 
-// Crew & talent: people grouped by role, each role a row of names (pick someone on Nia or type
-// a name). Roles are added from the list or typed.
-export function CrewSection({
-  crew,
-  readOnly,
-  onSave,
-  search,
-  directoryHref,
-}: {
-  crew: CrewMember[];
-  readOnly: boolean;
-  onSave: (next: CrewMember[]) => Promise<void>;
-  search: (q: string) => Promise<PersonMatch[]>;
-  /** The project's Cast & crew directory (Milestone 4, step 1). */
-  directoryHref?: string;
-}) {
-  const [extraRoles, setExtraRoles] = useState<string[]>([]);
-  const [adding, setAdding] = useState("");
-  const roles = [...new Set([...crew.map((c) => c.role), ...extraRoles])];
-  const people = (role: string): PersonRef[] => crew.filter((c) => c.role === role).map((c) => ({ name: c.name, userId: c.userId }));
-
-  const setRole = (role: string, next: PersonRef[]) => {
-    const others = crew.filter((c) => c.role !== role);
-    const mine = next.map((p) => ({ role, name: p.name.trim().slice(0, 120), ...(p.userId ? { userId: p.userId } : {}) })).filter((c) => c.name);
-    if (!mine.length) setExtraRoles((list) => list.filter((r) => r !== role));
-    void onSave([...others, ...mine]).catch(() => {});
-  };
-  const addRole = (role: string) => {
-    const r = role.trim().slice(0, 40);
-    if (r && !roles.includes(r)) setExtraRoles((list) => [...list, r]);
-    setAdding("");
-  };
-
+// Crew & talent: the people on the production as a round row (CastCrewRow); they're added and
+// changed in the project's Cast & crew directory, which keeps this list in step.
+export function CrewSection({ crew, canEdit, directoryHref }: { crew: CrewMember[]; canEdit: boolean; directoryHref: string }) {
+  const people: RowPerson[] = crew.map((c, i) => ({ key: `${i}-${c.name}`, name: c.name, role: c.role, href: directoryHref }));
   return (
     <section aria-labelledby="crew" className="flex flex-col gap-4">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h2 id="crew" className="text-xl leading-[1.4] font-bold text-foreground">
-          Crew &amp; talent
+          Crew &amp; talent {people.length > 0 && <span className="text-micro font-normal text-muted-foreground">{people.length}</span>}
         </h2>
-        {directoryHref && crew.length > 0 && (
+        {(people.length > 0 || canEdit) && (
           <Link href={directoryHref} className="rounded-sm text-small font-semibold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
-            Open cast &amp; crew →
+            {canEdit ? "Manage cast & crew →" : "Open cast & crew →"}
           </Link>
         )}
       </div>
-      {roles.length === 0 && <p className="text-sm text-muted-foreground">{readOnly ? "No one added yet." : "Add the people on this production, by role."}</p>}
-      <dl className="flex flex-col gap-3">
-        {roles.map((role) => (
-          <div key={role} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-6">
-            <dt className="w-24 shrink-0 pt-1.5 text-sm leading-[1.4] font-bold text-foreground">{role}</dt>
-            <dd className="min-w-0 flex-1">
-              {readOnly ? (
-                <span className={cn("flex flex-wrap gap-x-6 gap-y-1 pt-1.5", quiet)}>{people(role).map((p) => <span key={p.name}>{p.name}</span>)}</span>
-              ) : (
-                <Assignees label={role} value={people(role)} onChange={(next) => setRole(role, next)} search={search} />
-              )}
-            </dd>
-          </div>
-        ))}
-      </dl>
-      {!readOnly && (
-        <div className="flex flex-wrap items-center gap-2">
-          <Select value="" onValueChange={addRole}>
-            <SelectTrigger aria-label="Add a role" className="h-9 w-auto rounded-full text-small">
-              <SelectValue placeholder="Add a role" />
-            </SelectTrigger>
-            <SelectContent>
-              {CREW_ROLES.filter((r) => !roles.includes(r)).map((r) => (
-                <SelectItem key={r} value={r}>
-                  {r}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Input
-            aria-label="Another role"
-            value={adding}
-            maxLength={40}
-            placeholder="Or type a role"
-            onChange={(e) => setAdding(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addRole(adding))}
-            className="h-9 w-40 rounded-full text-small"
-          />
-        </div>
+      {people.length === 0 ? (
+        <p className="text-sm text-muted-foreground">{canEdit ? "Add the people on this production in Cast & crew." : "No one added yet."}</p>
+      ) : (
+        <ScrollRow label="Crew & talent">
+          {people.map((p) => (
+            <li key={p.key} className="w-24 flex-none snap-start sm:w-28">
+              <PersonTile person={p} small />
+            </li>
+          ))}
+        </ScrollRow>
       )}
     </section>
   );

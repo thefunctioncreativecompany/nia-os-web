@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { SAMPLE, byDepartment, departmentFor, fromCrewList, isCastRole } from "./directory";
+import { SAMPLE, byDepartment, departmentFor, isCastRole } from "./directory";
 
 describe("cast and crew directory", () => {
   it("puts roles in departments", () => {
@@ -16,20 +16,6 @@ describe("cast and crew directory", () => {
     expect(isCastRole("Talent")).toBe(true);
     expect(isCastRole("Model")).toBe(true);
     expect(isCastRole("Director")).toBe(false);
-  });
-
-  it("reads a project's Crew & talent list, with Nia photos where people have accounts", () => {
-    const entries = fromCrewList(
-      [
-        { role: "Director", name: "Ama Bello", userId: "u1" },
-        { role: "Talent", name: "Kofi Mensah" },
-      ],
-      new Map([["u1", "https://example.com/ama.jpg"]]),
-    );
-    expect(entries.map((e) => [e.name, e.kind, e.department, e.photo])).toEqual([
-      ["Ama Bello", "crew", "Direction", "https://example.com/ama.jpg"],
-      ["Kofi Mensah", "cast", "Other", null],
-    ]);
   });
 
   it("groups crew by department in call-sheet order", () => {

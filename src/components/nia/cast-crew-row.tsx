@@ -30,10 +30,10 @@ export function CastCrewRow({ label = "Cast & Crew", people, className }: { labe
   );
 }
 
-export function PersonTile({ person: p }: { person: RowPerson }) {
+export function PersonTile({ person: p, small = false }: { person: RowPerson; small?: boolean }) {
   return (
     <Link href={p.href} className="group flex flex-col items-center gap-2.5 rounded-xl text-center outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-      <PersonPicture name={p.name} photo={p.photo} className="group-sweep size-24 sm:size-28 lg:size-32" />
+      <PersonPicture name={p.name} photo={p.photo} className={cn("group-sweep", small ? "size-20 sm:size-24" : "size-24 sm:size-28 lg:size-32")} />
       <span className="flex flex-col gap-0.5">
         <span className="line-clamp-2 text-sm leading-snug font-semibold text-foreground">{p.name}</span>
         <span className="line-clamp-2 text-small leading-snug text-muted-foreground">{p.role}</span>

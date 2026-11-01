@@ -2,23 +2,28 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { ChevronDown, LayoutGrid, List, Mail, MessageCircle, Pencil, Phone, Plus, Send, Users } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ChipMenu, ChipRow, FilterChip, ResultCount } from "@/components/nia/filter-bar";
 import { EmptyState } from "@/components/nia/empty-state";
 import { NotYet } from "@/components/nia/not-yet";
 import { PersonPicture } from "@/components/nia/cast-crew-row";
 import { StatusBadge, type ProductionStatus } from "@/components/nia/status-badge";
 import { byDepartment, type DirectoryEntry } from "@/features/crew/directory";
+import { setStatus as saveStatus } from "@/features/crew/mutations";
+import { PersonEditor } from "@/components/projects/person-form";
 
 // A project's cast and crew (Milestone 4, step 1; Figma frame 18, 967:30543), in Nia's look: the
 // cast as a table, the crew by department, and the person in focus beside them (below on phones
 // and tablets) with how to reach them, their week and production notes. List or grid; filter by
-// department and status. Adding and editing people opens with the people tables
-// (20261109000000_people.sql); until then the directory shows the project's Crew & talent.
+// department and status. People with edit access add people, edit profiles and change a status
+// in one tap (people and cast_crew tables, 20261109000000_people.sql).
 
 type Filter<T extends string> = T | "all";
 const STATUS_OPTIONS: { value: Filter<ProductionStatus>; label: string }[] = [
@@ -32,25 +37,48 @@ const STATUS_OPTIONS: { value: Filter<ProductionStatus>; label: string }[] = [
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export function CastCrewDirectory({
+  projectId,
   projectTitle,
   projectHref,
-  entries,
+  entries: loaded,
   editable,
 }: {
+  projectId: string;
   projectTitle: string;
   projectHref: string;
   entries: DirectoryEntry[];
-  /** Adding and editing people works (the people tables exist and they may edit the project). */
+  /** They may add and change people (edit access to the project). */
   editable: boolean;
 }) {
+  const router = useRouter();
+  // Status changes show at once; the server's copy follows on refresh.
+  const [statusOf, setStatusOf] = useState<Record<string, ProductionStatus>>({});
+  const entries = loaded.map((e) => (statusOf[e.id] ? { ...e, status: statusOf[e.id] } : e));
+  const [editor, setEditor] = useState<{ open: boolean; entry: DirectoryEntry | null }>({ open: false, entry: null });
+  const changeStatus = async (e: DirectoryEntry, next: ProductionStatus) => {
+    setStatusOf((was) => ({ ...was, [e.id]: next }));
+    try {
+      await saveStatus(e.id, next);
+      router.refresh();
+    } catch {
+      setStatusOf((was) => ({ ...was, [e.id]: e.status ?? "pending" }));
+      toast.error("Couldn't change the status. Try again.");
+    }
+  };
+  const done = () => {
+    setEditor({ open: false, entry: null });
+    router.refresh();
+  };
+  const status = (e: DirectoryEntry) =>
+    editable && e.status ? <StatusMenu entry={e} onChange={(next) => changeStatus(e, next)} /> : e.status ? <StatusBadge status={e.status} /> : <span className="text-muted-foreground">—</span>;
   const [view, setView] = useState<"list" | "grid">("list");
   const [department, setDepartment] = useState<string>("all");
-  const [status, setStatus] = useState<Filter<ProductionStatus>>("all");
+  const [statusFilter, setStatusFilter] = useState<Filter<ProductionStatus>>("all");
   const [selectedId, setSelectedId] = useState(entries[0]?.id ?? null);
 
   const shown = useMemo(
-    () => entries.filter((e) => (department === "all" || (e.kind === "crew" && e.department === department)) && (status === "all" || e.status === status)),
-    [entries, department, status],
+    () => entries.filter((e) => (department === "all" || (e.kind === "crew" && e.department === department)) && (statusFilter === "all" || e.status === statusFilter)),
+    [entries, department, statusFilter],
   );
   const cast = shown.filter((e) => e.kind === "cast");
   const crew = byDepartment(shown);
@@ -88,11 +116,13 @@ export function CastCrewDirectory({
         {entries.length === 0 ? (
           <EmptyState
             icon={Users}
-            message="No cast or crew added yet. Add people under Crew & talent in the project's Details."
+            message="No cast or crew added yet. Add the people on this production, with how to reach them."
             action={
-              <Button asChild variant="outline" className="mt-2">
-                <Link href={projectHref}>Open the project</Link>
-              </Button>
+              editable ? (
+                <Button className="mt-2" onClick={() => setEditor({ open: true, entry: null })}>
+                  <Plus aria-hidden /> Add first person
+                </Button>
+              ) : undefined
             }
           />
         ) : (
@@ -107,13 +137,15 @@ export function CastCrewDirectory({
                 </FilterChip>
                 <span aria-hidden className="mx-1 h-5 w-px shrink-0 bg-border" />
                 <ChipMenu label="Department" value={department} defaultValue="all" options={[{ value: "all", label: "All" }, ...departments.map((d) => ({ value: d, label: d }))]} onChange={setDepartment} />
-                <ChipMenu label="Status" value={status} defaultValue="all" options={STATUS_OPTIONS} onChange={setStatus} />
+                <ChipMenu label="Status" value={statusFilter} defaultValue="all" options={STATUS_OPTIONS} onChange={setStatusFilter} />
                 <ResultCount className="ml-auto">{shown.length} of {entries.length}</ResultCount>
-                <Button size="compact" disabled={!editable} className="shrink-0">
-                  <Plus aria-hidden /> Add person
-                </Button>
+                {editable && (
+                  <Button size="compact" onClick={() => setEditor({ open: true, entry: null })} className="shrink-0">
+                    <Plus aria-hidden /> Add person
+                  </Button>
+                )}
               </ChipRow>
-              {!editable && <NotYet className="self-end">Adding and editing people opens with the people directory (step 1 of shoot day planning).</NotYet>}
+              {!editable && <NotYet className="self-end">Only people who can edit this project add or change its cast and crew.</NotYet>}
             </div>
 
             {view === "grid" ? (
@@ -167,7 +199,7 @@ export function CastCrewDirectory({
                               <td className="p-3 text-foreground">{e.character ?? e.role}</td>
                               <td className="p-3 text-muted-foreground">{e.episodes.join(", ") || "—"}</td>
                               <td className="p-3"><Contact entry={e} /></td>
-                              <td className="p-3">{e.status ? <StatusBadge status={e.status} /> : <span className="text-muted-foreground">—</span>}</td>
+                              <td className="p-3">{status(e)}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -224,7 +256,8 @@ export function CastCrewDirectory({
         )}
       </div>
 
-      {selected && <ProfilePanel entry={selected} editable={editable} />}
+      {selected && <ProfilePanel entry={selected} editable={editable} status={status(selected)} onEdit={() => setEditor({ open: true, entry: selected })} />}
+      {editable && <PersonEditor projectId={projectId} entry={editor.entry} open={editor.open} onOpenChange={(open) => setEditor((was) => ({ ...was, open }))} onDone={done} />}
     </div>
   );
 }
@@ -254,13 +287,34 @@ function Contact({ entry: e, withMessage = false, className }: { entry: Director
   );
 }
 
-function ProfilePanel({ entry: e, editable }: { entry: DirectoryEntry; editable: boolean }) {
+// A status that changes in one tap (Figma 967:31997).
+function StatusMenu({ entry: e, onChange }: { entry: DirectoryEntry; onChange: (next: ProductionStatus) => void }) {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger aria-label={`${e.name}: ${e.status}. Change status`} className="rounded-full outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+        <StatusBadge status={e.status!} />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="start" className="w-48">
+        <DropdownMenuLabel className="text-micro text-muted-foreground">Update status</DropdownMenuLabel>
+        <DropdownMenuRadioGroup value={e.status!} onValueChange={(v) => onChange(v as ProductionStatus)}>
+          {STATUS_OPTIONS.filter((o) => o.value !== "all").map((o) => (
+            <DropdownMenuRadioItem key={o.value} value={o.value}>
+              <StatusBadge status={o.value as ProductionStatus} />
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+
+function ProfilePanel({ entry: e, editable, status, onEdit }: { entry: DirectoryEntry; editable: boolean; status: React.ReactNode; onEdit: () => void }) {
   const label = "text-micro font-bold text-nia-placeholder";
   return (
     <aside aria-label={`${e.name}'s profile`} className="flex flex-col gap-6 border-border bg-nia-panel px-4 pt-8 pb-15 md:px-15 lg:border-l lg:px-10 lg:pt-10">
       <div className="flex items-center justify-between">
         <p className="text-micro font-bold text-muted-foreground">Selected profile</p>
-        {e.status && <StatusBadge status={e.status} />}
+        {e.status && status}
       </div>
       <div className="flex flex-col gap-5 rounded-xl border border-border bg-card p-6 shadow-card">
         <div className="flex items-center gap-4">
@@ -316,9 +370,11 @@ function ProfilePanel({ entry: e, editable }: { entry: DirectoryEntry; editable:
         )}
       </div>
       <div className="flex gap-3">
-        <Button variant="outline" disabled={!editable} className="flex-1">
-          <Pencil aria-hidden /> Edit profile
-        </Button>
+        {editable && (
+          <Button variant="outline" onClick={onEdit} className="flex-1">
+            <Pencil aria-hidden /> Edit profile
+          </Button>
+        )}
         {e.email ? (
           <Button asChild className="flex-1">
             <a href={`mailto:${e.email}`}>

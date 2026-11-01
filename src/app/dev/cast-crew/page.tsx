@@ -9,7 +9,7 @@ export default function Page() {
   if (process.env.VERCEL_ENV === "production") notFound();
   return (
     <div className="flex min-h-svh flex-col bg-background">
-      <CastCrewDirectory projectTitle="Streamer University S2" projectHref="/projects" entries={SAMPLE} editable />
+      <CastCrewDirectory projectId="sample" projectTitle="Streamer University S2" projectHref="/projects" entries={SAMPLE} editable={false} />
     </div>
   );
 }

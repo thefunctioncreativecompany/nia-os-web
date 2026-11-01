@@ -1,14 +1,16 @@
 // A project's cast and crew directory (Milestone 4, step 1; Figma frame 18 "Cast & Crew / Directory
-// Overview", 967:30543). Shapes and grouping only: the page reads people from the project (today's
-// Crew & talent list; the `people` tables once 20261109000000_people.sql is run).
+// Overview", 967:30543). Shapes and grouping only: people come from the people and cast_crew tables
+// (data.ts) and are changed in mutations.ts.
 
 import type { ProductionStatus } from "@/components/nia/status-badge";
-import type { CrewMember } from "@/lib/projects";
 
 export type Kind = "cast" | "crew";
 
 export type DirectoryEntry = {
+  /** The project role's id (cast_crew), or a stand-in for the samples. */
   id: string;
+  /** The person's id in the workspace directory (people). */
+  personId?: string;
   name: string;
   /** A Nia account's photo, or one they chose. */
   photo: string | null;
@@ -57,28 +59,6 @@ const DEPARTMENT_OF: [RegExp, (typeof DEPARTMENTS)[number]][] = [
 
 export const departmentFor = (role: string) => DEPARTMENT_OF.find(([re]) => re.test(role))?.[1] ?? "Other";
 export const isCastRole = (role: string) => CAST_ROLES.test(role.trim());
-
-/** Today's Crew & talent list (project details) as directory entries: name, role, department. */
-export function fromCrewList(crew: CrewMember[], photos: Map<string, string | null> = new Map()): DirectoryEntry[] {
-  return crew.map((m, i) => ({
-    id: `${i}-${m.name}`,
-    name: m.name,
-    photo: (m.userId && photos.get(m.userId)) || null,
-    kind: isCastRole(m.role) ? "cast" : "crew",
-    department: departmentFor(m.role),
-    role: m.role,
-    character: null,
-    episodes: [],
-    status: null,
-    email: null,
-    phone: null,
-    agent: null,
-    union: null,
-    bio: null,
-    availability: null,
-    notes: null,
-  }));
-}
 
 /** Crew grouped by department, in DEPARTMENTS order, empty ones left out. */
 export function byDepartment(entries: DirectoryEntry[]) {

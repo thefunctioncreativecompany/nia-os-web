@@ -110,6 +110,16 @@ export const UPDATES: Update[] = [
     icon: "Users",
     weight: { production: 0.6, fashion: 0.9, creator: 0.9 },
   },
+  {
+    id: "project-cast-crew",
+    date: "2026-11-01",
+    title: "Cast & crew for each project",
+    body: "Keep everyone on a production in one place: their role or character, how to reach them, their agent and union, their usual week, and whether they're confirmed.",
+    href: "/projects",
+    cta: "Open a project's Cast & crew",
+    icon: "Users",
+    weight: { production: 1, fashion: 0.7, creator: 0.5 },
+  },
 ];
 
 /** The group someone's profession belongs to (onboarding's sectors); production when unknown. */

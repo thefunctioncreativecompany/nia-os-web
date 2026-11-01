@@ -832,10 +832,15 @@ sheets live until issued; crew without accounts for now)
   (collapsible), List/Grid, Department and Status filters, the profile panel (contact, agent,
   union, bio, this week's availability, notes; Email). Reads the project's Crew & talent list
   (with Nia photos) until the tables exist; sample production at `/dev/cast-crew` for the design
-  check. Crew & talent links to it ("Open cast & crew"). To do: Ika runs
-  `20261109000000_people.sql` (tables `people`, `cast_crew`; copies every Crew & talent list in),
-  then read from them, and Add person / Edit profile / status changes (Figma 967:31635,
-  967:31816, 967:31997).
+  check. Reads `people` and `cast_crew` (`20261109000000_people.sql`, run 2026-11-01; every
+  Crew & talent list copied in; `src/features/crew/data.ts`). Editors add people (pop-up, Figma
+  967:31635), edit profiles (drawer, 967:31816; Remove from project is a soft delete) and change
+  a status in one tap (967:31997) (`person-form.tsx`, `mutations.ts`); someone with the same
+  email in the workspace is reused, not duplicated. Viewers read only (database rules too). The
+  project page's Crew & talent is now a round row with "Manage cast & crew"; each change rewrites
+  `projects.crew` so the share link stays in step. Tested on localhost (add, edit, status,
+  remove; a viewer can't write). To do: link a person to their Nia account (the old "pick
+  someone on Nia" is gone from the form), Nia photos in the project row, people's own pages.
 
 Milestone 5 — Copilot: not started.
 

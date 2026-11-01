@@ -13,7 +13,6 @@ import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import type { PersonMatch } from "@/components/nia/assignees";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { SavedIndicator } from "@/components/nia/saved-indicator";
 import { SegmentedControl } from "@/components/nia/segmented-control";
@@ -30,11 +29,6 @@ function coverPath(url: string | null, projectId: string) {
 }
 
 const toList = (value: string) => value.split(",").map((v) => v.trim()).filter(Boolean);
-
-async function findPeople(q: string): Promise<PersonMatch[]> {
-  const { data, error } = await createClient().rpc("find_people", { q });
-  return error ? [] : (data as PersonMatch[]);
-}
 
 // "3 minutes" ↔ an amount and a unit (Ika, 2026-10-19: minutes, hours, days).
 const UNITS = ["minutes", "hours", "days"] as const;
@@ -369,7 +363,7 @@ export function ProjectEditor({
                 </dl>
               </section>
 
-              <CrewSection crew={project.crew} readOnly={!canEdit} onSave={(next) => save("crew", "crew", next)} search={findPeople} directoryHref={`/projects/${project.id}/crew`} />
+              <CrewSection crew={project.crew} canEdit={canEdit} directoryHref={`/projects/${project.id}/crew`} />
 
               <section aria-labelledby="behind" className="flex flex-col gap-4">
                 <h2 id="behind" className="text-xl leading-[1.4] font-bold text-foreground">
