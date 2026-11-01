@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, cache } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Inbox } from "lucide-react";
@@ -120,16 +120,24 @@ function BodySkeleton() {
   );
 }
 
+// The four most recent projects, read once per visit by the greeting and Recent projects.
+const recentProjects = cache(() => listProjects(undefined, 4));
+
+// "Welcome back" once someone has a project; before that they're new (beta walkthrough,
+// 2026-10-31: a brand-new account was greeted "Welcome back").
 async function Welcome() {
-  const user = await getCurrentUser();
+  const [user, { projects }] = await Promise.all([getCurrentUser(), recentProjects()]);
   const first = user.name.split(" ")[0];
   return (
-    <h1 className="text-h2 font-bold text-foreground">Welcome back{first ? `, ${first}` : ""}</h1>
+    <h1 className="text-h2 font-bold text-foreground">
+      {projects.length ? "Welcome back" : "Welcome"}
+      {first ? `, ${first}` : ""}
+    </h1>
   );
 }
 
 async function RecentProjects() {
-  const { projects, now } = await listProjects(undefined, 4);
+  const { projects, now } = await recentProjects();
   if (projects.length === 0) {
     return (
       <EmptyState

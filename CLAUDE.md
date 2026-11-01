@@ -189,6 +189,13 @@ Data:
   explains that school and work email can open links to scan them, and offers Log in. Check
   your email notes that school and work email can hold it. To check delivery, see Resend's
   logs (a babson.edu confirmation sent 2026-10-31 20:57 UTC was never opened).
+- (2026-10-31) Beta walkthrough (a new account, sign-up to sharing, on localhost): sign-up, the
+  confirmation link, onboarding, the welcome tour, a first project, a call sheet saved into it and
+  an invite all work without errors. Fixed: onboarding trimmed to 7 screens; a new account was
+  greeted "Welcome back" (now "Welcome" until the first project); the New project form defaulted
+  the genre to Drama (now none, optional); title-case labels (Project name, Production type, Edit
+  project details, Delete project, Other suggestions). Test account: a `+beta…` alias of the test
+  email with the project "Night Market lookbook" (shared with test user 2).
 - (2026-10-23) Welcome tour on Home (`src/components/home/welcome-tour.tsx`), after Gabriel's
   "Onboarding Experience made with Figma Motion" (Collect UI): a card over Home, the step on the
   left, a preview built from our components on the right (above on phones). Seven steps: welcome,
@@ -572,7 +579,10 @@ Milestone 1 — Accounts
   the bare domain routes by sign-in state. Each account gets "My workspace" on its first project
   (`my_workspace_id()`), not at sign-up. Projects soft-delete (`deleted_at`).
 - [ ] 1.4 Onboarding. Built as all 9 Figma screens under `/onboarding/*`, saving each step, tested end
-  to end locally and live. To do: trim per Decisions above.
+  to end locally and live. Trimmed 2026-10-31 (beta walkthrough): Import your profile and Follow
+  creators are out of the flow (`features.onboardingExtrasShown`, pages redirect), so 7 screens to
+  Home ("Step N of 6"). Still to do: How did you hear as an optional tap on the last screen, and
+  What you can do as slides (wait for Figma).
 
 Milestone 2 — Projects (built from Figma sections 778-2218, 872-42448, 840-26959; Ika chose to do
 these before 0.5)

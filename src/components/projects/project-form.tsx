@@ -64,7 +64,9 @@ export function ProjectForm() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [genre, setGenre] = useState<string>("Drama");
+  // No genre until one is chosen (beta walkthrough, 2026-10-31: Drama by default mislabelled
+  // photo shoots and commercials).
+  const [genre, setGenre] = useState<string>("");
   const [productionType, setProductionType] = useState<string>("Film");
   const [cover, setCover] = useState<{ file: File; url: string } | null>(null);
   const [isSaving, setIsSaving] = useState(false);
@@ -188,7 +190,7 @@ export function ProjectForm() {
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="project-name" className={fieldLabelClassName}>
-          Project Name
+          Project name
         </Label>
         <Input
           id="project-name"
@@ -261,9 +263,9 @@ export function ProjectForm() {
           <Label htmlFor="project-genre" className={fieldLabelClassName}>
             Genre
           </Label>
-          <Select value={genre} onValueChange={setGenre}>
+          <Select value={genre || undefined} onValueChange={setGenre}>
             <SelectTrigger id="project-genre" className={selectTriggerClassName}>
-              <SelectValue />
+              <SelectValue placeholder="Choose (optional)" />
             </SelectTrigger>
             <SelectContent position="popper">
               {GENRES.map((option) => (
@@ -276,7 +278,7 @@ export function ProjectForm() {
         </div>
         <div className="flex flex-col gap-2">
           <Label htmlFor="project-type" className={fieldLabelClassName}>
-            Production Type
+            Production type
           </Label>
           <Select value={productionType} onValueChange={setProductionType}>
             <SelectTrigger id="project-type" className={selectTriggerClassName}>

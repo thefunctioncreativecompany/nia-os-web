@@ -128,7 +128,7 @@ export function UsernameForm({
         {otherSuggestions.length > 0 && (
           <div className="flex flex-col gap-3">
             <p className="text-micro leading-[1.4] font-bold text-muted-foreground">
-              OTHER SUGGESTIONS
+              Other suggestions
             </p>
             <ul className="flex flex-col gap-2">
               {otherSuggestions.map((suggestion) => (

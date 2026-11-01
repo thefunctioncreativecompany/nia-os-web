@@ -22,4 +22,8 @@ export const features = {
   // canvas, and /explore/all/quick goes to the canvas (next.config.ts). The code stays
   // (src/components/explore/library-quick-view.tsx); flip to true to bring it back.
   exploreQuickViewShown: false,
+  // Onboarding's Import your profile and Follow creators screens are hidden (Ika, 2026-10-17;
+  // done 2026-10-31): out of the flow (src/lib/onboarding.ts) and their pages send people on.
+  // Flip to true, and put them back in ONBOARDING_STEPS, to bring them back after beta.
+  onboardingExtrasShown: false,
 } as const;

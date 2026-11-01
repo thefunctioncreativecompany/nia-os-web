@@ -20,7 +20,7 @@ export function ProjectActions({ project, role }: { project: Project; role: Proj
         {canEdit && (
           <EditDetailsDialog project={project}>
             <button type="button" className={rowClassName}>
-              Edit Project Details
+              Edit project details
             </button>
           </EditDetailsDialog>
         )}
@@ -36,7 +36,7 @@ export function ProjectActions({ project, role }: { project: Project; role: Proj
         {role === "owner" && (
           <DeleteProjectDialog projectId={project.id} title={project.title}>
             <button type="button" className={cn(rowClassName, "text-nia-danger")}>
-              Delete Project
+              Delete project
             </button>
           </DeleteProjectDialog>
         )}
