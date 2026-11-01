@@ -369,7 +369,7 @@ export function ProjectEditor({
                 </dl>
               </section>
 
-              <CrewSection crew={project.crew} readOnly={!canEdit} onSave={(next) => save("crew", "crew", next)} search={findPeople} />
+              <CrewSection crew={project.crew} readOnly={!canEdit} onSave={(next) => save("crew", "crew", next)} search={findPeople} directoryHref={`/projects/${project.id}/crew`} />
 
               <section aria-labelledby="behind" className="flex flex-col gap-4">
                 <h2 id="behind" className="text-xl leading-[1.4] font-bold text-foreground">

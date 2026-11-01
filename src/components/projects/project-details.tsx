@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { CalendarDays, Plus, X } from "lucide-react";
 import { toast } from "sonner";
 
@@ -273,11 +274,14 @@ export function CrewSection({
   readOnly,
   onSave,
   search,
+  directoryHref,
 }: {
   crew: CrewMember[];
   readOnly: boolean;
   onSave: (next: CrewMember[]) => Promise<void>;
   search: (q: string) => Promise<PersonMatch[]>;
+  /** The project's Cast & crew directory (Milestone 4, step 1). */
+  directoryHref?: string;
 }) {
   const [extraRoles, setExtraRoles] = useState<string[]>([]);
   const [adding, setAdding] = useState("");
@@ -298,9 +302,16 @@ export function CrewSection({
 
   return (
     <section aria-labelledby="crew" className="flex flex-col gap-4">
-      <h2 id="crew" className="text-xl leading-[1.4] font-bold text-foreground">
-        Crew &amp; talent
-      </h2>
+      <div className="flex flex-wrap items-baseline justify-between gap-3">
+        <h2 id="crew" className="text-xl leading-[1.4] font-bold text-foreground">
+          Crew &amp; talent
+        </h2>
+        {directoryHref && crew.length > 0 && (
+          <Link href={directoryHref} className="rounded-sm text-small font-semibold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
+            Open cast &amp; crew →
+          </Link>
+        )}
+      </div>
       {roles.length === 0 && <p className="text-sm text-muted-foreground">{readOnly ? "No one added yet." : "Add the people on this production, by role."}</p>}
       <dl className="flex flex-col gap-3">
         {roles.map((role) => (

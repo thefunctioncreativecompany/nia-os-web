@@ -824,7 +824,18 @@ Next week (from 2026-10-26, in order; agree each with Ika first)
 7. Small: the genre pills on Details are long
    now (24): consider a "More genres" fold.
 
-Milestone 4 — Shoot day: not started.
+Milestone 4 — Shoot day (plan agreed 2026-11-01: People → Locations → Shoot days & schedule →
+documents fill themselves → Shoot Day screen → Home goes live; one directory per workspace; call
+sheets live until issued; crew without accounts for now)
+- [ ] 4.1 People. Built: `/projects/[id]/crew` from Figma frame 18 (967:30543) in Nia's look
+  (`CastCrewDirectory`, `src/features/crew/directory.ts`, tested): cast table, crew by department
+  (collapsible), List/Grid, Department and Status filters, the profile panel (contact, agent,
+  union, bio, this week's availability, notes; Email). Reads the project's Crew & talent list
+  (with Nia photos) until the tables exist; sample production at `/dev/cast-crew` for the design
+  check. Crew & talent links to it ("Open cast & crew"). To do: Ika runs
+  `20261109000000_people.sql` (tables `people`, `cast_crew`; copies every Crew & talent list in),
+  then read from them, and Add person / Edit profile / status changes (Figma 967:31635,
+  967:31816, 967:31997).
 
 Milestone 5 — Copilot: not started.
 
