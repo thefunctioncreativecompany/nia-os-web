@@ -7,6 +7,9 @@
 //        node scripts/find-title-assets.mjs <slug…>      trailer and poster
 //        node scripts/measure-explore-covers.mjs          the cover's look (tags)
 //        node scripts/build-press-kits.mjs <slug…>        press-kit draft, checked by hand
+//        node scripts/build-explore-credits.mjs           cast & crew and Commons photos (new titles;
+//                                                         --all now and then re-reads every title, as
+//                                                         Wikidata gains credits and photos)
 //      then the title is added to made-in-africa.json (category, collection, tags in tag-data.ts,
 //      an `added` day so it shows in Recently added), checked, committed and pushed.
 //
