@@ -5,7 +5,7 @@ import { connection } from "next/server";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TimelineView } from "@/components/explore/timeline/timeline-view";
 import { PRESETS, boundsFor, centredOn, clampView } from "@/features/explore/timeline/scale";
-import { mockItems, timelineItems, undatedCount } from "@/features/explore/timeline/data";
+import { mockItems, timelineItems } from "@/features/explore/timeline/data";
 
 export const metadata: Metadata = {
   title: "Explore all · Timeline · Nia OS",
@@ -47,7 +47,6 @@ async function Timeline({ searchParams }: Pick<PageProps<"/explore/all/timeline"
       bounds={bounds}
       initial={initial}
       now={now}
-      undated={mock ? 0 : undatedCount()}
       initialFocus={one(q.focus) ?? null}
     />
   );

@@ -178,7 +178,6 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
   const [tag, setTag] = useState<string | null>(null);
   const [exact, setExact] = useState(false);
   // Read when the window opens (this file only loads in the browser, on first open).
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const recent = useMemo(() => (open ? recentSearches() : []), [open]);
   const deferred = useDeferredValue(query);
   const list = useRef<HTMLDivElement>(null);

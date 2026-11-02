@@ -15,6 +15,12 @@ const eslintConfig = defineConfig([
     // Remotion films: their own project, packages and type check.
     "video/**",
   ]),
+  // Leaving a field out by naming it with _ (const { id: _id, ...rest } = row) is intended.
+  {
+    rules: {
+      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_", ignoreRestSiblings: true }],
+    },
+  },
 ]);
 
 export default eslintConfig;

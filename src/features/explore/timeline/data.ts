@@ -1,7 +1,7 @@
 // Explore's library as Timeline items (EXPLORE_TIMELINE_SPEC.md §5): each title once, at the day
 // it came out (release-dates.json, from scripts/build-explore-timeline-data.mjs). A title known
 // only by its year sits mid-year, so it doesn't pile up on 1 January. Titles with no date are
-// left out and counted ("undated").
+// left out.
 
 import { LIBRARY } from "../library";
 import { creatorFilms } from "../creators";
@@ -69,9 +69,6 @@ export function timelineItems(): TimelineItem[] {
   }).toSorted((a, b) => a.at - b.at);
   return items;
 }
-
-/** Library titles with no date, for the "undated" count. */
-export const undatedCount = () => LIBRARY.length - timelineItems().length;
 
 /** Made-up titles for the 5,000-title speed check (development only): real pictures, random days
  * from 1925 to today, seeded so every run is the same. */

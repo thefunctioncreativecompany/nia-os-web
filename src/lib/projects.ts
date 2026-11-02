@@ -78,10 +78,7 @@ export type Project = {
   stage: Stage;
   productionDate: string;
   duration: string;
-  director: string;
-  writers: string;
   genres: string;
-  stars: string;
   shootStart: string | null;
   shootEnd: string | null;
   client: string;
@@ -141,16 +138,6 @@ export function typeDetails(type: ProductionType | null): TypeDetail[] {
   return [];
 }
 
-// Production Info rows, in Figma order. `field` is the Project key; `column` the database one.
-export const PRODUCTION_INFO = [
-  { field: "productionDate", column: "production_date", label: "Date", placeholder: "e.g. July 2026", max: 80 },
-  { field: "duration", column: "duration", label: "Duration", placeholder: "e.g. 3 minutes", max: 80 },
-  { field: "director", column: "director", label: "Director", placeholder: "Who's directing", max: 200 },
-  { field: "writers", column: "writers", label: "Writers", placeholder: "Names, separated by commas", max: 200 },
-  { field: "genres", column: "genres", label: "Genres", placeholder: "e.g. Drama, Streaming", max: 200 },
-  { field: "stars", column: "stars", label: "Stars", placeholder: "Lead cast", max: 300 },
-] as const;
-
 export type ProjectRole = "owner" | "editor" | "viewer";
 
 export type ActivityItem = {
@@ -165,7 +152,7 @@ export type ActivityItem = {
 };
 
 export const PROJECT_COLUMNS =
-  "id, title, description, cover_url, production_type, stage, production_date, duration, director, writers, genres, stars, shoot_start, shoot_end, client, agency, due_date, deliverables, notes, logline, usage, looks, publication, crew, owner_id, share_token, updated_by_name, created_at, updated_at";
+  "id, title, description, cover_url, production_type, stage, production_date, duration, genres, shoot_start, shoot_end, client, agency, due_date, deliverables, notes, logline, usage, looks, publication, crew, owner_id, share_token, updated_by_name, created_at, updated_at";
 
 type ProjectRow = {
   id: string;
@@ -176,10 +163,7 @@ type ProjectRow = {
   stage: Stage;
   production_date: string;
   duration: string;
-  director: string;
-  writers: string;
   genres: string;
-  stars: string;
   shoot_start: string | null;
   shoot_end: string | null;
   client: string;
@@ -209,10 +193,7 @@ export function toProject(row: ProjectRow): Project {
     stage: row.stage,
     productionDate: row.production_date,
     duration: row.duration,
-    director: row.director,
-    writers: row.writers,
     genres: row.genres,
-    stars: row.stars,
     shootStart: row.shoot_start,
     shootEnd: row.shoot_end,
     client: row.client ?? "",

@@ -72,10 +72,7 @@ type SharedRow = {
   stage: string;
   production_date: string;
   duration: string;
-  director: string;
-  writers: string;
   genres: string;
-  stars: string;
   owner_name: string;
   shoot_start: string | null;
   shoot_end: string | null;

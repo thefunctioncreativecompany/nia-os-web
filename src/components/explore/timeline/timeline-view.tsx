@@ -46,15 +46,12 @@ export function TimelineView({
   bounds,
   initial,
   now,
-  undated,
   initialFocus = null,
 }: {
   items: TimelineFrame[];
   bounds: View;
   initial: View;
   now: number;
-  /** Library titles with no date, shown as a count that opens the canvas. */
-  undated: number;
   /** A title to put the playhead on first (the address's `focus`). */
   initialFocus?: string | null;
 }) {
@@ -298,11 +295,6 @@ export function TimelineView({
         <Button variant="outline" size="compact" onClick={() => glideTo(fitView(allDates, bounds))}>
           Fit
         </Button>
-        {undated > 0 && (
-          <Link href="/explore/all" className="rounded-full border border-dashed border-border px-3 py-1.5 text-small font-semibold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
-            {undated} undated
-          </Link>
-        )}
         <TmdbCredit className="ml-auto" />
       </div>
 
