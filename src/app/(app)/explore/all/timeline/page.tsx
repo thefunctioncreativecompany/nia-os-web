@@ -6,13 +6,17 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { TimelineView } from "@/components/explore/timeline/timeline-view";
 import { PRESETS, boundsFor, centredOn, clampView } from "@/features/explore/timeline/scale";
 import { mockItems, timelineItems } from "@/features/explore/timeline/data";
+import { hasPaidAccess } from "@/lib/plan-server";
+import { TimelineLocked } from "@/components/explore/timeline/timeline-locked";
 
 export const metadata: Metadata = {
   title: "Explore all · Timeline · Nia OS",
 };
 
-// Explore all as a timeline (Ika, 2026-11-02; design-ref EXPLORE_TIMELINE_SPEC.md). The address
-// holds the view (`?from=1972-01-01&to=1980-01-01&focus=t:the-godfather`), so it can be shared.
+// Explore all as a timeline (Ika, 2026-11-02; design-ref EXPLORE_TIMELINE_SPEC.md): a desktop
+// view on paid plans (Ika, 2026-11-02); phones and tablets, and Free, get a short note instead.
+// The address holds the view (`?from=1972-01-01&to=1980-01-01&focus=t:the-godfather`), so it can
+// be shared.
 export default function Page({ searchParams }: PageProps<"/explore/all/timeline">) {
   return (
     <Suspense fallback={<Skeleton className="mx-4 mt-4 h-[calc(100svh-7rem)] rounded-2xl md:mx-6" />}>
@@ -31,6 +35,7 @@ const parse = (v?: string) => {
 
 async function Timeline({ searchParams }: Pick<PageProps<"/explore/all/timeline">, "searchParams">) {
   await connection();
+  if (!(await hasPaidAccess())) return <TimelineLocked reason="plan" />;
   const now = clock();
   const q = await searchParams;
   // `?mock=5000` (development only): made-up titles, to check the timeline stays smooth.
@@ -42,12 +47,17 @@ async function Timeline({ searchParams }: Pick<PageProps<"/explore/all/timeline"
   // Opens on the year around today unless the address says otherwise; Fit shows everything.
   const initial = from !== null && to !== null && to > from ? clampView({ start: from, end: to }, bounds) : centredOn(now - year / 3, year, bounds);
   return (
-    <TimelineView
-      items={items.map(({ precision: _p, ...it }) => it)}
-      bounds={bounds}
-      initial={initial}
-      now={now}
-      initialFocus={one(q.focus) ?? null}
-    />
+    <>
+      <TimelineLocked reason="screen" className="lg:hidden" />
+      <div className="max-lg:hidden">
+        <TimelineView
+          items={items.map(({ precision: _p, ...it }) => it)}
+          bounds={bounds}
+          initial={initial}
+          now={now}
+          initialFocus={one(q.focus) ?? null}
+        />
+      </div>
+    </>
   );
 }

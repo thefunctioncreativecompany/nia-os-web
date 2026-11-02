@@ -91,7 +91,9 @@ changing it. Weekly summaries and side-project notes: [docs/progress-log.md](doc
   release date and a palette (the scripts in `scripts/`), committed without asking. Never invent
   an Explore category.
 - Explore all: Canvas or Timeline (`/explore/all/timeline`, built step by step from
-  `EXPLORE_TIMELINE_SPEC.md`); a round button bottom left opens it from anywhere on desktop.
+  `EXPLORE_TIMELINE_SPEC.md`); the timeline is desktop only and on paid plans (phones,
+  tablets and Free get a note; `hasPaidAccess()` in `src/lib/plan-server.ts`). A round button
+  bottom left opens Explore all from anywhere on desktop.
 - Cast & crew: one directory per workspace (`people`, `cast_crew`); Explore rows use one standard
   format (`credit-format.ts`), top 10 free, the full list on paid plans.
 - Pictures of people only with consent: initials by default; Commons photos for film people,

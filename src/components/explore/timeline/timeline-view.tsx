@@ -67,6 +67,8 @@ export function TimelineView({
     const el = lane.current;
     if (!el) return;
     const ro = new ResizeObserver(([e]) => {
+      // Hidden (phones and tablets show a note instead): keep the last real size.
+      if (!e.contentRect.width) return;
       setWidth(e.contentRect.width);
       setLaneHeight(e.contentRect.height);
       setMeasured(true);

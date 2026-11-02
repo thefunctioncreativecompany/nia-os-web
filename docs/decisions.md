@@ -524,3 +524,8 @@ onboarding's Import profile and Follow creators describe features removed in the
   Next's starter pictures and the timeline's "undated" chip. Old addresses redirect. Git tag
   `parked-2026-11-02` holds everything removed. Kept on purpose: interface sounds and the canvas
   ambience. The Marketplace and Feed database tables stay until a migration drops them.
+- (2026-11-02) The Explore all timeline is a desktop view on paid plans (Ika): phones and tablets
+  show "The timeline is on desktop" and no Canvas · Timeline switch; Free sees "The timeline
+  comes with paid plans" with See plans (`TimelineLocked`). Paid checks share `hasPaidAccess()`
+  (`src/lib/plan-server.ts`; a paid plan on any workspace they belong to; open to all off the
+  live site), also used by Cast & Crew's View all.

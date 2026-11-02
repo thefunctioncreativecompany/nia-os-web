@@ -5,7 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 // Explore all's views (Ika): the canvas that goes on in every direction, and the timeline
-// (2026-11-02, being built in steps).
+// (2026-11-02, being built in steps; desktop only, so the switch shows on desktop only).
 const VIEWS = [
   { id: "canvas", label: "Canvas", href: "/explore/all" },
   { id: "timeline", label: "Timeline", href: "/explore/all/timeline" },
@@ -23,7 +23,7 @@ export function rememberedView(): string {
 
 export function ExploreAllViews({ current, className }: { current: "canvas" | "timeline"; className?: string }) {
   return (
-    <nav aria-label="Explore all views" className={cn("pointer-events-auto flex items-center gap-1 rounded-full bg-card/90 p-1 shadow-card backdrop-blur-sm", className)}>
+    <nav aria-label="Explore all views" className={cn("pointer-events-auto flex items-center max-lg:hidden gap-1 rounded-full bg-card/90 p-1 shadow-card backdrop-blur-sm", className)}>
       {VIEWS.map((v) => (
         <Link
           key={v.id}
