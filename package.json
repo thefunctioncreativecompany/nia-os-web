@@ -19,6 +19,7 @@
     "class-variance-authority": "^0.7.1",
     "cmdk": "^1.1.1",
     "cn": "^0.5.0",
+    "d3-time": "^3.1.0",
     "date-fns": "^4.4.0",
     "docx": "^9.11.0",
     "framer-motion": "^14.3.0",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@elevenlabs/elevenlabs-js": "^2.74.0",
     "@tailwindcss/turbopack": "^4",
+    "@types/d3-time": "^3.0.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

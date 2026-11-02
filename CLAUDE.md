@@ -432,6 +432,20 @@ Data:
   twenty): one scrolling row of compact cards for every new template, newest first, each with
   its name, stage and for-you line; the whole card opens the preview (both value lines and Use
   this template). Home's announcement names three others, then "and N more" to Templates.
+- (2026-11-02) Explore all Timeline + Colour (Ika's `EXPLORE_TIMELINE_SPEC.md`; plan agreed, built
+  in steps, each checked and pushed): A done: release dates (Wikidata, earliest release; 254 of
+  255, 172 to the day) and colour palettes (5 colours in CIELAB from trailer frames, else the
+  cover; dominant colour, hue, warm/cool/neutral, black and white) by
+  `node scripts/build-explore-timeline-data.mjs` into `release-dates.json` and `palettes.json`
+  (rerun when titles are added). B done: `/explore/all/timeline` (not linked yet): one time
+  scale from a century to an hour (`src/features/explore/timeline/scale.ts`, tested), zoom
+  around the pointer (⌘/Ctrl + scroll, pinch), drag with momentum, level buttons that light up
+  as you zoom, Today, Fit, paging, the playhead with its date, and the axis with the next unit
+  pinned below; titles are dots until step C. Project rules over the spec: theme colours,
+  Geist, sentence case (the format above the title reads "Music video", not capitals). Next: C
+  posters, stacking, clusters, readout; D overview strip, keyboard, address, the Canvas ·
+  Timeline · Colour switch; E colour band and filter; F Colour view; G production bars (after
+  Milestone 4 shoot days); H TMDB (after the licence). Not in Figma yet.
 - (2026-10-31) Explore all has a second view (Ika), hidden for now (`features.exploreQuickViewShown`
   off: no switch on the canvas, `/explore/all/quick` goes to `/explore/all`; the code stays): a
   quick view at `/explore/all/quick`
