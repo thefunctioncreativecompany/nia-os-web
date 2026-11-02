@@ -446,9 +446,15 @@ Data:
   scale from a century to an hour (`src/features/explore/timeline/scale.ts`, tested), zoom
   around the pointer (⌘/Ctrl + scroll, pinch), drag with momentum, level buttons that light up
   as you zoom, Today, Fit, paging, the playhead with its date, and the axis with the next unit
-  pinned below; titles are dots until step C. Project rules over the spec: theme colours,
-  Geist, sentence case (the format above the title reads "Music video", not capitals). Next: C
-  posters, stacking, clusters, readout; D overview strip, keyboard, address, the Canvas ·
+  pinned below; C done: posters at their release day (2:3, creator films at their shape),
+  sized by level, stacked in up to three rows and gathered into clusters (leading title in
+  front, two behind, a count; click zooms to fit them; `layout.ts`, tested); the nearest
+  poster to the playhead lifts, neighbours fall off and far ones dim (an outline instead with
+  reduced motion); the readout shows its format and title (click opens it); at Century, a
+  chart of titles per year with each decade's leading title above. A plain click on a poster
+  opens it; a drag never does. Project rules over the spec: theme colours,
+  Geist, sentence case (the format above the title reads "Music video", not capitals). Next: D
+  overview strip, keyboard, address, the Canvas ·
   Timeline · Colour switch; E colour band and filter; F Colour view; G production bars (after
   Milestone 4 shoot days); H TMDB (after the licence). Not in Figma yet.
 - (2026-10-31) Explore all has a second view (Ika), hidden for now (`features.exploreQuickViewShown`

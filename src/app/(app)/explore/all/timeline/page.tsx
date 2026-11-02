@@ -30,5 +30,5 @@ async function Timeline() {
   const items = timelineItems();
   const bounds = boundsFor(items.map((i) => i.at), now);
   const year = PRESETS.find((p) => p.id === "year")!.span;
-  return <TimelineView dots={items.map(({ id, at }) => ({ id, at }))} bounds={bounds} initial={centredOn(now - year / 3, year, bounds)} now={now} />;
+  return <TimelineView items={items.map(({ precision: _p, ...it }) => it)} bounds={bounds} initial={centredOn(now - year / 3, year, bounds)} now={now} />;
 }

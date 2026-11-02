@@ -3,10 +3,10 @@
 // only by its year sits mid-year, so it doesn't pile up on 1 January. Titles with no date are
 // left out and counted ("undated").
 
-import { LIBRARY, type LibraryItem } from "../library";
+import { LIBRARY } from "../library";
 import { creatorFilms } from "../creators";
-import { findEntry, typeName } from "../made-in-africa";
-import { getFilmDetails } from "@/components/explore/film-details";
+import { essentialWhy, findEntry, typeName } from "../made-in-africa";
+import { filmHref, getFilmDetails } from "@/components/explore/film-details";
 import releaseDates from "../release-dates.json";
 
 type Precision = "day" | "month" | "year";
@@ -24,7 +24,9 @@ export type TimelineItem = {
   grain: string;
   /** A creator film's shape (width ÷ height); posters have none. */
   aspect?: number;
-  open: LibraryItem["open"];
+  /** Which title leads a cluster: essentials first, then titles with a picture. */
+  weight: number;
+  href: string;
 };
 
 const sentence = (s: string) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
@@ -56,7 +58,9 @@ export function timelineItems(): TimelineItem[] {
   items ??= LIBRARY.flatMap((it) => {
     const d = DATES[dateKey(it.key)];
     if (!d) return [];
-    return [{ id: it.key, title: it.title, format: sentence(formatOf(it.key)), at: at(d), precision: d.precision, image: it.image, grain: it.grain, aspect: it.aspect, open: it.open }];
+    const weight = (essentialWhy.has(it.key.slice(2)) ? 2 : 0) + (it.image ? 1 : 0);
+    const href = it.open.kind === "page" ? it.open.href : filmHref(it.open.filmId);
+    return [{ id: it.key, title: it.title, format: sentence(formatOf(it.key)), at: at(d), precision: d.precision, image: it.image, grain: it.grain, aspect: it.aspect, weight, href }];
   }).toSorted((a, b) => a.at - b.at);
   return items;
 }
