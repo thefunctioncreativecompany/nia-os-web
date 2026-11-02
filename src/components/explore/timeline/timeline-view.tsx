@@ -2,12 +2,15 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { ChipMenu } from "@/components/nia/filter-bar";
 import {
   PRESETS,
+  type PresetId,
   centredOn,
   fitView,
   nearestPreset,
@@ -23,6 +26,8 @@ import { useTimelineScale } from "@/features/explore/timeline/use-timeline-scale
 import type { TimelineItem } from "@/features/explore/timeline/data";
 import { TimeAxis } from "./time-axis";
 import { FramesLane, CenturyChart } from "./frames-lane";
+import { OverviewBrush } from "./overview-brush";
+import { TmdbCredit } from "../tmdb-credit";
 import { ExploreAllViews } from "../explore-all-views";
 
 // Explore all's Timeline (Ika, 2026-11-02; design-ref EXPLORE_TIMELINE_SPEC.md): every title on
@@ -35,16 +40,37 @@ export type TimelineFrame = Omit<TimelineItem, "precision">;
 
 const DEFAULT_TITLE = "Your year in frames";
 
-export function TimelineView({ items, bounds, initial, now }: { items: TimelineFrame[]; bounds: View; initial: View; now: number }) {
-  const { view, viewRef, zoomAt, panPx, fling, animateTo, stop } = useTimelineScale(initial, bounds);
+export function TimelineView({
+  items,
+  bounds,
+  initial,
+  now,
+  undated,
+  initialFocus = null,
+}: {
+  items: TimelineFrame[];
+  bounds: View;
+  initial: View;
+  now: number;
+  /** Library titles with no date, shown as a count that opens the canvas. */
+  undated: number;
+  /** A title to put the playhead on first (the address's `focus`). */
+  initialFocus?: string | null;
+}) {
+  const router = useRouter();
+  const { view, viewRef, zoomAt, panPx, fling, animateTo, jumpTo, stop } = useTimelineScale(initial, bounds);
   const lane = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(1200);
   const [cursor, setCursor] = useState<number | null>(null);
+  const [measured, setMeasured] = useState(false);
 
   useEffect(() => {
     const el = lane.current;
     if (!el) return;
-    const ro = new ResizeObserver(([e]) => setWidth(e.contentRect.width));
+    const ro = new ResizeObserver(([e]) => {
+      setWidth(e.contentRect.width);
+      setMeasured(true);
+    });
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
@@ -73,6 +99,29 @@ export function TimelineView({ items, bounds, initial, now }: { items: TimelineF
   const focus = nearestSlot(slots, playX, Math.max(48, height * 0.8));
   const byId = useMemo(() => new Map(items.map((i) => [i.id, i])), [items]);
   const focused = focus ? byId.get(focus.id) : undefined;
+  const inView = useMemo(() => items.filter((i) => i.at >= view.start && i.at <= view.end).length, [items, view]);
+
+  // The address's `focus`: put the playhead on that title once the lane knows its width.
+  const [pendingFocus, setPendingFocus] = useState(initialFocus);
+  if (pendingFocus && measured) {
+    setPendingFocus(null);
+    const s = slots.find((x) => x.members.includes(pendingFocus));
+    if (s) setCursor(s.x);
+  }
+
+  // When the view settles: tell screen readers what's showing, and keep the address in step so
+  // the view can be shared (`?from=…&to=…&focus=…`; replaced, not added, so Back leaves Explore all).
+  const [announce, setAnnounce] = useState("");
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setAnnounce(`Showing ${rangeLabel(view)}, ${inView} ${inView === 1 ? "title" : "titles"}.`);
+      const stamp = (ms: number) => new Date(ms).toISOString().slice(0, 16);
+      const q = new URLSearchParams({ from: stamp(view.start), to: stamp(view.end) });
+      if (focused) q.set("focus", focused.id);
+      window.history.replaceState(window.history.state, "", `?${q}`);
+    }, 600);
+    return () => clearTimeout(t);
+  }, [view, inView, focused]);
 
   // Wheel: ⌘ / Ctrl (and trackpad pinch, which arrives as Ctrl + wheel) zooms around the
   // pointer; otherwise it pans, vertical scrolling too. Listened to directly so the page doesn't
@@ -148,9 +197,31 @@ export function TimelineView({ items, bounds, initial, now }: { items: TimelineF
 
   const glideTo = (v: View | null) => v && animateTo(v);
   const allDates = useMemo(() => items.map((d) => d.at), [items]);
+  const preset = (id: PresetId) => animateTo(centredOn(playT, PRESETS.find((p) => p.id === id)!.span, bounds));
+
+  // Keyboard (§3), with the lane focused: arrows move (Shift: a whole screen), + and − zoom,
+  // 1–7 the levels, T today, F fit, Enter opens the title at the playhead. Tab walks the
+  // posters in time order and the playhead follows.
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    const k = e.key;
+    let handled = true;
+    if (k === "ArrowLeft" || k === "ArrowRight") {
+      const dir = k === "ArrowLeft" ? -1 : 1;
+      if (e.shiftKey) glideTo(panBy(view, dir * span, bounds));
+      else panPx(dir * width * 0.1, width);
+    } else if (k === "+" || k === "=") glideTo(zoomAround(view, playT, 0.5, bounds));
+    else if (k === "-" || k === "_") glideTo(zoomAround(view, playT, 2, bounds));
+    else if (/^[1-7]$/.test(k)) preset(PRESETS[Number(k) - 1].id);
+    else if (k === "t" || k === "T") glideTo(centredOn(now, span, bounds));
+    else if (k === "f" || k === "F") glideTo(fitView(allDates, bounds));
+    else if (k === "Enter" && e.target === e.currentTarget && focused) router.push(focused.href);
+    else handled = false;
+    if (handled) e.preventDefault();
+  };
 
   return (
-    <div className="flex h-[calc(100svh-5rem)] min-h-140 flex-col gap-4 px-4 pt-4 pb-4 md:px-6">
+    // Below the navbar; on phones and tablets above the dock, on desktop clear of Send feedback.
+    <div className="flex h-[calc(100svh-12rem)] min-h-140 flex-col gap-4 px-4 pt-4 pb-4 md:px-6 lg:h-[calc(100svh-5rem)] lg:pb-20">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link
           href="/explore"
@@ -181,7 +252,7 @@ export function TimelineView({ items, bounds, initial, now }: { items: TimelineF
           <Button variant="ghost" size="icon" aria-label="Earlier" onClick={() => glideTo(panBy(view, -span, bounds))}>
             <ChevronLeft aria-hidden />
           </Button>
-          <p aria-live="polite" className="min-w-36 text-center text-sm font-semibold text-foreground tabular-nums">
+          <p className="min-w-36 text-center text-sm font-semibold text-foreground tabular-nums">
             {rangeLabel(view)}
           </p>
           <Button variant="ghost" size="icon" aria-label="Later" onClick={() => glideTo(panBy(view, span, bounds))}>
@@ -190,15 +261,21 @@ export function TimelineView({ items, bounds, initial, now }: { items: TimelineF
         </div>
       </header>
       {focused && <h1 className="sr-only">Explore all, timeline</h1>}
+      <p aria-live="polite" className="sr-only">
+        {announce}
+      </p>
 
       <div className="flex flex-wrap items-center gap-2">
-        <div role="group" aria-label="Zoom level" className="flex flex-wrap gap-1 rounded-full bg-secondary p-1">
+        <div className="md:hidden">
+          <ChipMenu label="Zoom" value={level} options={PRESETS.map((p) => ({ value: p.id, label: p.label }))} onChange={preset} />
+        </div>
+        <div role="group" aria-label="Zoom level" className="flex flex-wrap gap-1 rounded-full bg-secondary p-1 max-md:hidden">
           {PRESETS.map((p) => (
             <button
               key={p.id}
               type="button"
               aria-pressed={level === p.id}
-              onClick={() => animateTo(centredOn(playT, p.span, bounds))}
+              onClick={() => preset(p.id)}
               className={cn(
                 "rounded-full px-3 py-1.5 text-small font-semibold outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
                 level === p.id ? "bg-card text-foreground shadow-card" : "text-muted-foreground hover:text-foreground",
@@ -214,13 +291,22 @@ export function TimelineView({ items, bounds, initial, now }: { items: TimelineF
         <Button variant="outline" size="compact" onClick={() => glideTo(fitView(allDates, bounds))}>
           Fit
         </Button>
+        {undated > 0 && (
+          <Link href="/explore/all" className="rounded-full border border-dashed border-border px-3 py-1.5 text-small font-semibold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
+            {undated} undated
+          </Link>
+        )}
+        <TmdbCredit className="ml-auto" />
       </div>
 
       {/* The lane: drag, scroll or pinch. The playhead follows the pointer. */}
       <div
         ref={lane}
         tabIndex={0}
-        aria-label={`Timeline, ${rangeLabel(view)}. Scroll or drag to move through time; pinch or ⌘ + scroll to zoom.`}
+        role="group"
+        aria-roledescription="timeline"
+        aria-label={`Timeline, ${rangeLabel(view)}. Scroll or drag to move through time; pinch or ⌘ + scroll to zoom. Arrow keys move, plus and minus zoom, 1 to 7 pick a level, T today, F fit.`}
+        onKeyDown={onKeyDown}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
@@ -246,9 +332,18 @@ export function TimelineView({ items, bounds, initial, now }: { items: TimelineF
           hovering={cursor !== null}
           focusId={focus?.id ?? null}
           onCluster={(from, to) => glideTo(fitView([from, to], bounds))}
+          onFocusSlot={setCursor}
         >
           {century && <CenturyChart items={items} view={view} width={width} />}
         </FramesLane>
+        {!century && inView === 0 && slots.every((s) => s.x < 0 || s.x > width) && (
+          <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-3 pb-14">
+            <p className="text-sm text-muted-foreground">Nothing here between {rangeLabel(view).replace(" – ", " and ")}.</p>
+            <Button variant="outline" size="compact" className="pointer-events-auto" onClick={() => glideTo(fitView(allDates, bounds))}>
+              Fit
+            </Button>
+          </div>
+        )}
         <TimeAxis ticks={ticks} width={width} />
 
         {/* The playhead: a line, a dot on the axis and the date. */}
@@ -260,6 +355,8 @@ export function TimelineView({ items, bounds, initial, now }: { items: TimelineF
           </span>
         </div>
       </div>
+
+      <OverviewBrush dates={allDates} bounds={bounds} view={view} now={now} onDrag={jumpTo} onJump={(t) => glideTo(centredOn(t, span, bounds))} />
     </div>
   );
 }

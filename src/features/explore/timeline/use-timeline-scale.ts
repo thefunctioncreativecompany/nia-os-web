@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { centredOn, panBy, zoomAround, type View } from "./scale";
+import { centredOn, clampView, panBy, zoomAround, type View } from "./scale";
 
 // The Timeline's view and its motion (EXPLORE_TIMELINE_SPEC.md §2–3): zoom around a point
 // (wheel and pinch steps gathered into one change per frame), pan by pixels, momentum after a
@@ -85,6 +85,15 @@ export function useTimelineScale(initial: View, bounds: View) {
     [panPx, stop],
   );
 
+  /** Go straight to a view (the overview window while it's dragged). */
+  const jumpTo = useCallback(
+    (v: View) => {
+      stop();
+      commit(clampView(v, bounds));
+    },
+    [bounds, commit, stop],
+  );
+
   /** Glide to a view (presets, Today, Fit, paging). */
   const animateTo = useCallback(
     (target: View) => {
@@ -114,5 +123,5 @@ export function useTimelineScale(initial: View, bounds: View) {
     [stop],
   );
 
-  return { view, viewRef, zoomAt, panPx, fling, animateTo, stop };
+  return { view, viewRef, zoomAt, panPx, fling, animateTo, jumpTo, stop };
 }

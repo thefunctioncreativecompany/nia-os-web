@@ -452,10 +452,17 @@ Data:
   poster to the playhead lifts, neighbours fall off and far ones dim (an outline instead with
   reduced motion); the readout shows its format and title (click opens it); at Century, a
   chart of titles per year with each decade's leading title above. A plain click on a poster
-  opens it; a drag never does. Project rules over the spec: theme colours,
-  Geist, sentence case (the format above the title reads "Music video", not capitals). Next: D
-  overview strip, keyboard, address, the Canvas ·
-  Timeline · Colour switch; E colour band and filter; F Colour view; G production bars (after
+  opens it; a drag never does. D done: the overview strip (the whole library per year on a
+  canvas; drag the window, drag its edges, click to go there), keyboard (arrows, Shift+arrows,
+  + and −, 1–7, T, F, Enter, Tab walks the posters and the playhead follows), a screen-reader
+  summary once the view settles ("Showing 2013 – 2028, 141 titles."), the address holds the
+  view (`?from=…&to=…&focus=…`, replaced not added; a shared link opens the same view), a Zoom
+  menu on phones, "Nothing here between …" with Fit, the "1 undated" count (opens the canvas),
+  the TMDB credit, and the Explore all button opens the view last chosen (localStorage
+  `nia-explore-all-view`). Speed: `?mock=5000` (development only) gives 5,000 made-up titles;
+  measured 56 frames a second on average while zooming and dragging in headless Chrome on
+  this Mac (some frames take 33 ms); posters move by transform and don't redraw. Project rules over the spec: theme colours,
+  Geist, sentence case (the format above the title reads "Music video", not capitals). Next: E colour band and filter; F Colour view; G production bars (after
   Milestone 4 shoot days); H TMDB (after the licence). Not in Figma yet.
 - (2026-10-31) Explore all has a second view (Ika), hidden for now (`features.exploreQuickViewShown`
   off: no switch on the canvas, `/explore/all/quick` goes to `/explore/all`; the code stays): a

@@ -29,7 +29,12 @@ export type TimelineItem = {
   href: string;
 };
 
-const sentence = (s: string) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+// "Feature Film" → "Feature film"; abbreviations stay ("TV series", "UGC").
+const sentence = (s: string) =>
+  s
+    .split(" ")
+    .map((w, i) => (i > 0 && w !== w.toUpperCase() ? w.toLowerCase() : w))
+    .join(" ");
 
 function dateKey(key: string) {
   const [kind, id] = [key.slice(0, 1), key.slice(2)];
@@ -67,3 +72,19 @@ export function timelineItems(): TimelineItem[] {
 
 /** Library titles with no date, for the "undated" count. */
 export const undatedCount = () => LIBRARY.length - timelineItems().length;
+
+/** Made-up titles for the 5,000-title speed check (development only): real pictures, random days
+ * from 1925 to today, seeded so every run is the same. */
+export function mockItems(n: number): TimelineItem[] {
+  const real = timelineItems();
+  let seed = 11;
+  const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  const [lo, hi] = [Date.UTC(1925, 0, 1), Date.UTC(2026, 9, 1)];
+  return Array.from({ length: n }, (_, i) => {
+    const r = real[i % real.length];
+    // Weighted towards recent years, like a real library.
+    const at = lo + (hi - lo) * Math.sqrt(rand());
+    return { ...r, id: `mock-${i}`, title: `${r.title} (${i})`, at, precision: "day" as const, weight: Math.floor(rand() * 3) };
+  }).toSorted((a, b) => a.at - b.at);
+}
+
