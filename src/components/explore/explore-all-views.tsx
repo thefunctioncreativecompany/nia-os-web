@@ -1,15 +1,17 @@
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { features } from "@/lib/features";
 
-// Explore all's two views (Ika, 2026-10-30): the canvas that goes on in every direction, and the
-// quick view, one title at a time.
+// Explore all's views (Ika): the canvas that goes on in every direction, the timeline
+// (2026-11-02, being built in steps) and the quick view, one title at a time (hidden for now).
 const VIEWS = [
   { id: "canvas", label: "Canvas", href: "/explore/all" },
-  { id: "quick", label: "Quick view", href: "/explore/all/quick" },
+  { id: "timeline", label: "Timeline", href: "/explore/all/timeline" },
+  ...(features.exploreQuickViewShown ? [{ id: "quick", label: "Quick view", href: "/explore/all/quick" }] : []),
 ] as const;
 
-export function ExploreAllViews({ current, className }: { current: (typeof VIEWS)[number]["id"]; className?: string }) {
+export function ExploreAllViews({ current, className }: { current: "canvas" | "timeline" | "quick"; className?: string }) {
   return (
     <nav aria-label="Explore all views" className={cn("pointer-events-auto flex items-center gap-1 rounded-full bg-card/90 p-1 shadow-card backdrop-blur-sm", className)}>
       {VIEWS.map((v) => (

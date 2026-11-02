@@ -4,7 +4,7 @@ import { Suspense, useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSelectedLayoutSegment } from "next/navigation";
-import { Compass, FileText, Folder, House, Inbox, Plus, ShoppingBag, type LucideIcon } from "lucide-react";
+import { FileText, Folder, House, Inbox, LoaderPinwheel, Plus, ShoppingBag, type LucideIcon } from "lucide-react";
 import { useReducedMotion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
@@ -35,7 +35,7 @@ const tabs: Tab[] = [
   { label: "Home", icon: "/app/home.svg", glyph: House, href: "/home", match: ["home", "settings", "plans"] },
   { label: "Projects", icon: "/app/folder.svg", glyph: Folder, href: "/projects", match: ["projects"] },
   { label: "Templates", icon: "/app/file-text.svg", glyph: FileText, href: "/templates", match: ["templates"] },
-  { label: "Explore", icon: "/app/explore.svg", glyph: Compass, href: "/explore", match: ["explore"] },
+  { label: "Explore", icon: "/app/explore.svg", glyph: LoaderPinwheel, href: "/explore", match: ["explore"] },
   ...(features.marketplaceShown
     ? [{ label: "Marketplace", icon: "/app/shopping-bag.svg", glyph: ShoppingBag, href: "/marketplace", match: ["marketplace"] }]
     : []),

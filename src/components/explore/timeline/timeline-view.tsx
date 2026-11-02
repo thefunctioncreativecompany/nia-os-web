@@ -20,6 +20,7 @@ import {
 } from "@/features/explore/timeline/scale";
 import { useTimelineScale } from "@/features/explore/timeline/use-timeline-scale";
 import { TimeAxis } from "./time-axis";
+import { ExploreAllViews } from "../explore-all-views";
 
 // Explore all's Timeline (Ika, 2026-11-02; design-ref EXPLORE_TIMELINE_SPEC.md): every title on
 // one line through time that zooms from a century to an hour. Step B: the scale, the axis, the
@@ -120,11 +121,12 @@ export function TimelineView({ dots, bounds, initial, now }: { dots: TimelineDot
     <div className="flex h-[calc(100svh-5rem)] min-h-140 flex-col gap-4 px-4 pt-4 pb-4 md:px-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Link
-          href="/explore/all"
+          href="/explore"
           className="rounded-full bg-card/90 px-4 py-2 text-sm leading-[1.4] font-bold text-muted-foreground shadow-card outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
         >
-          ← Explore all
+          ← Explore
         </Link>
+        <ExploreAllViews current="timeline" />
       </div>
 
       {/* The readout (§1): what's under the playhead, and the visible range. */}

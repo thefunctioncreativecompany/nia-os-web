@@ -432,6 +432,11 @@ Data:
   twenty): one scrolling row of compact cards for every new template, newest first, each with
   its name, stage and for-you line; the whole card opens the preview (both value lines and Use
   this template). Home's announcement names three others, then "and N more" to Templates.
+- (2026-11-02) Explore's icon is Lucide's pinwheel (`LoaderPinwheel`; `public/app/explore.svg` on
+  desktop), the closest Lucide match to the mark Ika shared, replacing the compass. A round
+  button bottom left opens Explore all from any page (`ExploreAllButton`, desktop only, hidden
+  on Explore all), opposite Send feedback. Explore all's switch now reads Canvas · Timeline.
+  Not in Figma yet.
 - (2026-11-02) Explore all Timeline + Colour (Ika's `EXPLORE_TIMELINE_SPEC.md`; plan agreed, built
   in steps, each checked and pushed): A done: release dates (Wikidata, earliest release; 254 of
   255, 172 to the day) and colour palettes (5 colours in CIELAB from trailer frames, else the
