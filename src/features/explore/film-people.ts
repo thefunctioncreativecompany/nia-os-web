@@ -15,7 +15,7 @@ type CreditRow = { id: string; role: string; character?: string };
 const PEOPLE = filmPeople as Record<string, FilmPerson>;
 const CREDITS = credits as Record<string, { qid: string; people: CreditRow[] }>;
 
-const slugify = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const slugify = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 80).replace(/-$/, "");
 
 // One address per person: their name, or name and Wikidata id when two people share a name (or a
 // creator on Explore already has it).

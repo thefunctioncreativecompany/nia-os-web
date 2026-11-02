@@ -2,7 +2,7 @@
 // and films' and series' cast and crew (film-people.ts, from Wikidata). Server only.
 
 import { creatorFilms } from "./creators";
-import { castAndCrew, personKey, type CastCrewMember } from "./people";
+import { castAndCrew, personCredits, personKey, type CastCrewMember } from "./people";
 import { filmCastAndCrew, filmCreditSlugs, filmPerson, type CommonsPhoto } from "./film-people";
 import { exploreItem } from "./items";
 
@@ -37,8 +37,8 @@ function allPeople() {
   people = new Map();
   for (const film of creatorFilms) {
     for (const m of castAndCrew(film)) {
-      const credit = film.credits.find((c) => personKey(c) === m.key)!;
-      const p = people.get(m.key) ?? { key: m.key, name: m.name, handle: credit.handle ?? null, photo: null, source: "caption" as const, roles: [], films: [] };
+      const credit = personCredits(film).find((c) => personKey(c) === m.key);
+      const p = people.get(m.key) ?? { key: m.key, name: m.name, handle: credit?.handle ?? null, photo: null, source: "caption" as const, roles: [], films: [] };
       p.films.push({ slug: film.slug, title: film.title, role: m.role });
       people.set(m.key, p);
     }

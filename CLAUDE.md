@@ -820,27 +820,45 @@ Week of 2026-10-19 (done, live; summary for Ika)
 - Fixes: a Vercel build failure (feedback outside Suspense) and Explore's shuffled pages in local
   dev; the Mac's disk filled up (caches cleared; keep an eye on free space).
 
-Next week (from 2026-10-26, in order; agree each with Ika first)
-1. Beta pilot setup: invite 3 ICP groups (producers and production managers; photographers and
-   fashion or editorial creatives; creators and brand content), 5–8 people each, with a real
-   shoot in the next 2–4 weeks. Move testers to Pro by hand, give them the Explore code, read
-   `feedback_review` and the `product_events` funnel weekly, close the loop with testers.
-2. Security before more testers: a migration revoking `anon` execute on internal helper and
-   trigger functions (`can_edit_project`, `can_view_project`, `is_project_owner`,
-   `is_workspace_*`, `handle_new_user`, `projects_before_write`/`after_write`,
-   `accept_project_invites`; keep `shared_project`), and turn on leaked password protection
-   (Supabase → Authentication → Passwords).
-3. Milestone 4, "enter it once": shoot days, crew and locations on the project feed the call
-   sheet, shot list, crew list and invoice (Details and Crew & talent are the start). Plan it
-   for Ika's OK first; designs in Figma.
-4. Then Home that knows the phase (prep: what's missing; shoot day: the call sheet; after wrap:
-   final assets, invoices) and double-booking warnings for crew and locations.
-5. Figma reconcile: welcome tour, Send feedback and the one-tap question, global search, project
-   Details and Crew & talent, New project's Instagram field.
-6. Vercel tidy-up (above): the CLI on the nia-technologies account, disconnect the two extra
-   projects, set deployment retention.
-7. Small: the genre pills on Details are long
-   now (24): consider a "More genres" fold.
+Week of 2026-10-26 (done; summary for Ika)
+- Look: dark mode and a matching light mode (neutral greys, Nia Blue accent, follows the device),
+  the card hover sweep, phones and tablets cleaned up (chips on one swipeable line).
+- Sign-up: plain-language sign-in errors, a fresh confirmation when logging in unconfirmed, the
+  beta walkthrough fixes (7 onboarding screens, "Welcome" for new accounts, no default genre).
+- Search: tags, autocorrect and suggested searches; full screen on phones.
+- Templates: 29 working (Production Budget, 13 creator templates, Script Breakdown and more),
+  Just added, and a 14-second tutorial per template.
+- Explore: Hollywood Classics (5 seed batches), stand-in covers from official trailers, By
+  studio (312-title catalogue and the update run), Top 10 from what people open, save and add,
+  sensitive-content screen, creator-film sourcing from Vimeo and YouTube for review, Cast &
+  Crew on every title (Wikidata, Commons photos, one standard format, top 10 free, View all
+  on paid plans) and a page per person.
+- Projects: Cast & crew directory (Milestone 4, step 1): add, edit, confirm, remove.
+- Tour: what's new since your last tour, most relevant to your kind of work first.
+- Speed: Home 65 → 86 in Lighthouse (layout shift fixed), AVIF posters.
+- Audit (2026-11-02): every deploy since 2026-11-01 09:44 (fab0372) failed on Vercel: one
+  caption credit listed ~45 names on one line, so its "person" page address was too long to
+  build. Fixed (each name its own person, addresses capped at 80 characters, tested); the
+  production build now passes locally. Lesson: check the deploy after every push
+  (`gh api repos/thefunctioncreativecompany/nia-os-web/commits/main/status`). Database: no
+  errors; still open from last week: `20261107000000_security_function_access.sql` isn't run
+  (anon can still call internal functions) and leaked password protection is off. 12 accounts
+  (4 new this week), 2 feedback notes, 13 tracked jobs in 7 days. No known vulnerabilities in
+  dependencies.
+
+Next week (from 2026-11-02, in order; agree each with Ika first)
+1. Ika: run `20261107000000_security_function_access.sql`, turn on leaked password protection
+   (Supabase → Authentication → Passwords), paste the two email templates into Supabase.
+2. Beta pilot: invite the three ICP groups (5–8 each, a real shoot in 2–4 weeks), move them to
+   Pro by hand (Cast & Crew View all, no limits), Explore code, read `feedback_review` weekly.
+3. Milestone 4: link people to Nia accounts in the Cast & crew form, then step 2 Locations,
+   then shoot days and the schedule.
+4. Figma reconcile (growing): welcome tour and What's new, Send feedback, global search,
+   project Details, Cast & crew directory, Explore Cast & Crew row and View all, person pages,
+   dark mode tokens, card hover.
+5. Explore: rerun cast & crew and press kits as titles are added; the 17 titles with no
+   credits; TMDB commercial licence for the ~280 titles waiting on posters.
+6. Small: genre pills "More genres" fold; Nia photos in the project page's crew row.
 
 Milestone 4 — Shoot day (plan agreed 2026-11-01: People → Locations → Shoot days & schedule →
 documents fill themselves → Shoot Day screen → Home goes live; one directory per workspace; call

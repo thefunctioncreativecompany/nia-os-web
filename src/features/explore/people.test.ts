@@ -47,4 +47,10 @@ describe("people on Explore", () => {
     expect(person.films.some((f) => f.slug === "film-sinners")).toBe(true);
     expect(workedWith(person).some((p) => p.name === "Michael B. Jordan")).toBe(true);
   });
+
+  it("gives each person on a long credit line their own short page", () => {
+    const keys = creatorFilms.flatMap((f) => castAndCrew(f).map((m) => m.key));
+    expect(Math.max(...keys.map((k) => k.length))).toBeLessThanOrEqual(80);
+    expect(keys).toContain("taylor-russell");
+  });
 });

@@ -20,8 +20,18 @@ const COMPANY_ROLES = new Set(
 );
 export const isCompanyRole = (role: string) => COMPANY_ROLES.has(role.toLowerCase());
 
-const slugify = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+// Kept short: a person's key is their page's address (and a folder name when pages are built).
+const slugify = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 80).replace(/-$/, "");
 export const personKey = (c: CaptionCredit) => (c.handle ? c.handle.toLowerCase() : slugify(c.name));
+
+/** A film's credits with one person each: captions sometimes list a whole cast on one line
+ * ("Starring: Greta Lee, Taylor Russell, Jennifer Lawrence"); three or more names are split. */
+export function personCredits(film: CreatorFilm): CaptionCredit[] {
+  return film.credits.flatMap((c) => {
+    const names = c.name.split(/,\s*/).map((n) => n.trim()).filter(Boolean);
+    return !c.handle && names.length >= 3 ? names.map((name) => ({ role: c.role, name })) : [c];
+  });
+}
 export const personHref = (key: string) => `/explore/person/${encodeURIComponent(key)}`;
 
 export { initials } from "@/lib/initials";
@@ -32,7 +42,7 @@ export type CastCrewMember = Credit;
  * top credits first; someone credited twice shows once with both roles. */
 export function castAndCrew(film: CreatorFilm): CastCrewMember[] {
   const byKey = new Map<string, RawCredit>();
-  for (const c of film.credits) {
+  for (const c of personCredits(film)) {
     if (isCompanyRole(c.role)) continue;
     const key = personKey(c);
     const hit = byKey.get(key);
