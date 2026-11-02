@@ -15,13 +15,32 @@ export const WIKIDATA_NOTE = "Credits from Wikidata. Photos from Wikimedia Commo
 
 export type RowPerson = { key: string; name: string; role: string; href: string; photo?: string | null };
 
-export function CastCrewRow({ label = "Cast & Crew", people, note, className }: { label?: string; people: RowPerson[]; note?: React.ReactNode; className?: string }) {
+export function CastCrewRow({
+  label = "Cast & Crew",
+  people,
+  total = people.length,
+  viewAll,
+  note,
+  className,
+}: {
+  label?: string;
+  people: RowPerson[];
+  /** Everyone credited, when the row shows only the top ones. */
+  total?: number;
+  /** "View all", shown when there are more than the row shows. */
+  viewAll?: React.ReactNode;
+  note?: React.ReactNode;
+  className?: string;
+}) {
   if (!people.length) return null;
   return (
     <section aria-labelledby="cast-crew" className={cn("flex flex-col gap-4", className)}>
-      <h2 id="cast-crew" className="text-xl leading-[1.4] font-bold text-foreground">
-        {label} <span className="text-micro font-normal text-muted-foreground">{people.length}</span>
-      </h2>
+      <div className="flex flex-wrap items-baseline justify-between gap-3">
+        <h2 id="cast-crew" className="text-xl leading-[1.4] font-bold text-foreground">
+          {label} <span className="text-micro font-normal text-muted-foreground">{total}</span>
+        </h2>
+        {total > people.length && viewAll}
+      </div>
       <ScrollRow label={label}>
         {people.map((p) => (
           <li key={p.key} className="w-28 flex-none snap-start sm:w-32 lg:w-36">

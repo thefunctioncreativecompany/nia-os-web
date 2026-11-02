@@ -14,13 +14,14 @@ import { getFilmDetails, lengthOf, linksFor } from "./film-details";
 import { FilmVideoPlayer, PressKitSection, type PlayerVideo } from "./press-kit-body";
 import { getPress, type PressVideo } from "./press-coverage";
 import { AddToProject, SaveToCollection } from "./save-controls";
+import { CreditsViewAll } from "./credits-view-all";
 
 // A film's own page (Ika, 2026-10-28), laid out like a project page and Explore's title pages:
 // the video where the cover sits, then the title, Save / Add to project and the summary on the
 // left; Details and Behind the production on the right; the press kit (press tour, what critics
 // said, context) full width below. Choosing a press-tour video plays it in the main player. Cast &
 // Crew sits between the two (Ika, 2026-11-01).
-export function FilmView({ filmId, castCrew = [] }: { filmId: string; castCrew?: RowPerson[] }) {
+export function FilmView({ filmId, castCrew = [], castTotal = 0 }: { filmId: string; castCrew?: RowPerson[]; castTotal?: number }) {
   const film = getFilm(filmId);
   const details = getFilmDetails(filmId)!;
   const press = getPress(filmId);
@@ -113,7 +114,7 @@ export function FilmView({ filmId, castCrew = [] }: { filmId: string; castCrew?:
         </div>
       </div>
 
-      <CastCrewRow people={castCrew} note={WIKIDATA_NOTE} />
+      <CastCrewRow people={castCrew} total={castTotal} viewAll={<CreditsViewAll slug={slug} title={film.title} total={castTotal} />} note={WIKIDATA_NOTE} />
 
       {press && <PressKitSection title={film.title} imdb={details.imdb} press={press} playing={video?.id ?? null} onChoose={choose} />}
     </div>

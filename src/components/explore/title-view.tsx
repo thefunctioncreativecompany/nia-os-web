@@ -20,6 +20,7 @@ import { getPress } from "./press-coverage";
 import { recordView } from "@/features/explore/views";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { AddToProject, SaveToCollection } from "./save-controls";
+import { CreditsViewAll } from "./credits-view-all";
 import { TitleCard } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
 import { VideoThumbnail } from "./video-thumbnail";
@@ -32,7 +33,7 @@ import { VideoThumbnail } from "./video-thumbnail";
 // Files & references, each with YouTube's thumbnail (through our image server). The player itself
 // loads only when Play is pressed, and stops when the page is left. "You may also like" closes the
 // page: titles that share its genres, collection, country, type or era.
-export function TitleView({ entry, castCrew = [] }: { entry: Entry; castCrew?: RowPerson[] }) {
+export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entry; castCrew?: RowPerson[]; castTotal?: number }) {
   const params = useSearchParams();
   const { title, collection, pinnedSeason } = entry;
   const from = params.get("from") === "all" ? "all" : params.get("from") === "library" ? "library" : undefined;
@@ -207,7 +208,7 @@ export function TitleView({ entry, castCrew = [] }: { entry: Entry; castCrew?: R
         </div>
       </div>
 
-      <CastCrewRow people={castCrew} note={WIKIDATA_NOTE} />
+      <CastCrewRow people={castCrew} total={castTotal} viewAll={<CreditsViewAll slug={title.slug} title={title.title} total={castTotal} />} note={WIKIDATA_NOTE} />
 
       {videos.length > 0 && (
         <section aria-labelledby="videos" className="flex flex-col gap-4">

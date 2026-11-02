@@ -22,9 +22,11 @@ describe("people on Explore", () => {
     }
   });
 
-  it("puts the cast first", () => {
-    const film = creatorFilms.find((f) => f.credits.some((c) => /^(starring|talent)$/i.test(c.role)) && !/^(starring|talent)$/i.test(f.credits[0].role))!;
-    expect(/starring|talent/i.test(castAndCrew(film)[0].role)).toBe(true);
+  it("leads creator films with the director, then the cast", () => {
+    const film = creatorFilms.find((f) => f.credits.some((c) => /^director$/i.test(c.role)) && f.credits.some((c) => /^(starring|talent)$/i.test(c.role)))!;
+    const row = castAndCrew(film);
+    expect(row[0].roles).toContain("Director");
+    expect(row[1].roles).toContain("Cast");
   });
 
   it("finds a person across their films and who they worked with", () => {
@@ -35,8 +37,9 @@ describe("people on Explore", () => {
 
   it("gives films their cast first, with who they play, and finds film people", () => {
     const row = filmCastAndCrew("film-sinners");
-    expect(row[0].name).toBe("Michael B. Jordan");
-    expect(row[0].role).toMatch(/Smoke/);
+    expect(row[0].name).toBe("Ryan Coogler");
+    expect(row[1].name).toBe("Michael B. Jordan");
+    expect(row[1].role).toMatch(/Smoke/);
     expect(new Set(row.map((m) => m.key)).size).toBe(row.length);
     const coogler = row.find((m) => m.name === "Ryan Coogler")!;
     const person = findPerson(coogler.key)!;

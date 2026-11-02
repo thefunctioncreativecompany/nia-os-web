@@ -19,7 +19,7 @@ export type Person = {
   films: { slug: string; title: string; role: string }[];
 };
 
-type RowMember = CastCrewMember & { photo?: string | null };
+type RowMember = CastCrewMember;
 
 // Each Explore item's row, by slug: creator films and titles alike.
 let rows: Map<string, RowMember[]> | null = null;
@@ -54,19 +54,14 @@ function allPeople() {
   }
   for (const p of people.values()) {
     const count = new Map<string, number>();
-    const roles = p.films.flatMap((f) => (p.source === "wikidata" ? filmRoles(f.slug, p.key) : f.role.split(/, | and /)));
-    for (const r of roles) count.set(r.toLowerCase(), (count.get(r.toLowerCase()) ?? 0) + 1);
-    // Each role on its own and capitalised (captions write "Director, producer and photographer").
-    p.roles = [...count.entries()].toSorted((a, b) => b[1] - a[1]).map(([r]) => r.charAt(0).toUpperCase() + r.slice(1));
+    for (const f of p.films) for (const r of rolesOn(f.slug, p.key)) count.set(r, (count.get(r) ?? 0) + 1);
+    p.roles = [...count.entries()].toSorted((a, b) => b[1] - a[1]).map(([r]) => r);
   }
   return people;
 }
 
-// A film person's roles on a title, without the character they play ("Cast" reads "Actor").
-function filmRoles(slug: string, key: string) {
-  const m = filmCastAndCrew(slug).find((x) => x.key === key);
-  return m ? m.roleRaw.split(", ").map((r) => (r === "Cast" ? "Actor" : r)) : [];
-}
+// Their standard roles on one film or title ("Cast" reads "Actor" on a person's page).
+const rolesOn = (slug: string, key: string) => (allRows().get(slug)?.find((x) => x.key === key)?.roles ?? []).map((r) => (r === "Cast" ? "Actor" : r));
 
 export const findPerson = (key: string): Person | null => allPeople().get(key.toLowerCase()) ?? null;
 
@@ -84,5 +79,5 @@ export function workedWith(person: Person, limit = 16): RowMember[] {
       else shared.set(m.key, { ...m, n: 1 });
     }
   }
-  return [...shared.values()].toSorted((a, b) => b.n - a.n).slice(0, limit).map(({ key, name, role, href, photo }) => ({ key, name, role, href, photo }));
+  return [...shared.values()].toSorted((a, b) => b.n - a.n || a.rank - b.rank).slice(0, limit).map(({ n: _n, ...m }) => m);
 }

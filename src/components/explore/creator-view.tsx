@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { CastCrewRow } from "@/components/nia/cast-crew-row";
 import { castAndCrew, companies } from "@/features/explore/people";
+import { TOP_CREDITS } from "@/features/explore/credit-format";
+import { CreditsViewAll } from "./credits-view-all";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { recognizeAspect } from "@/lib/aspect-ratios";
 import {
@@ -56,6 +58,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
   useStopVideosWhenHidden(hero, () => setPlaying(false));
   // Remembered for Explore's Recently viewed (Ika, 2026-10-22).
   useEffect(() => void recordView(film.slug), [film.slug]);
+  const credits = castAndCrew(film);
   // The films most like this one by their tags (match.ts).
   const more = similarItems(film.slug, creatorFilms.map((f) => f.slug), 16).map((slug) => exploreItem(slug)!);
   // Cameras named in the caption or seen in the film, from its tags.
@@ -208,7 +211,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
         </div>
       </div>
 
-      <CastCrewRow people={castAndCrew(film)} />
+      <CastCrewRow people={credits.slice(0, TOP_CREDITS)} total={credits.length} viewAll={<CreditsViewAll slug={film.slug} title={film.title} total={credits.length} />} />
 
       <section aria-labelledby="more-creators" className="flex flex-col gap-4">
         <h2 id="more-creators" className="text-xl leading-[1.4] font-bold text-foreground">

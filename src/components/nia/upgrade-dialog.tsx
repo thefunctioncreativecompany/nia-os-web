@@ -8,12 +8,16 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FREE_LIMITS, PAID_UPLOAD_MB, PLANS, money } from "@/lib/plans";
 
-export type UpgradeReason = "explore" | "projects" | "documents" | "duplicate" | "collaborators" | "branding" | "upload";
+export type UpgradeReason = "explore" | "credits" | "projects" | "documents" | "duplicate" | "collaborators" | "branding" | "upload";
 
 const COPY: Record<UpgradeReason, { title: string; body: string }> = {
   explore: {
     title: "Start from a film on a paid plan",
     body: "Opening a film's press kit and documents, and starting a project from it, comes with every paid plan.",
+  },
+  credits: {
+    title: "See the full cast and crew on a paid plan",
+    body: "Every title's top 10 credits are open to all. The full cast and crew, by department, comes with every paid plan.",
   },
   projects: {
     title: `You have ${FREE_LIMITS.projects} projects`,
