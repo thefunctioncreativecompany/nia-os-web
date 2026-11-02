@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Camera, Crop } from "lucide-react";
 import { toast } from "sonner";
@@ -21,6 +20,7 @@ import { EditableText } from "@/components/projects/editable-text";
 import { BudgetField, CrewSection, DeliverablesField, NumberField, ShootDatesField } from "@/components/projects/project-details";
 import { uploadCover } from "@/components/projects/project-form";
 import { useCoverCropper } from "@/components/projects/use-cover-cropper";
+import { BackLink } from "@/components/nia/back-link";
 
 // Storage path of a cover URL, if it's in this project's folder (so it can be removed).
 function coverPath(url: string | null, projectId: string) {
@@ -213,12 +213,12 @@ export function ProjectEditor({
   return (
     <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
       <div className="flex items-center justify-between gap-4">
-        <Link
+        <BackLink
           href="/projects"
           className="rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
         >
           ← Back to Projects
-        </Link>
+        </BackLink>
         {savedAt && <SavedIndicator savedAt={savedAt} />}
       </div>
 

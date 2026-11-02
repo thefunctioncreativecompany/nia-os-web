@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { getCurrentUser } from "@/lib/auth";
 import { Feedback } from "@/components/nia/feedback";
 import { ExploreAllButton } from "@/components/nia/explore-all-button";
+import { NavTrail } from "@/components/nia/back-link";
 import { MotionProvider } from "@/components/nia/motion-provider";
 import { NavDock, Navbar } from "@/components/nia/navbar";
 import { UserMenu, UserMenuSkeleton } from "@/components/nia/user-menu";
@@ -32,6 +33,10 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
               the address, known only at request time, so it streams in after the page. */}
           <Suspense fallback={null}>
             <Feedback />
+          </Suspense>
+          {/* The pages visited in this tab, so "← Back to …" links can step back (BackLink). */}
+          <Suspense fallback={null}>
+            <NavTrail />
           </Suspense>
           {/* Explore all from anywhere (desktop), bottom left. It reads the address too. */}
           <Suspense fallback={null}>

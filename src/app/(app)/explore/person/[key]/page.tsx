@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 
@@ -13,6 +12,7 @@ import { exploreHome } from "@/features/explore/made-in-africa";
 import { profileUrl } from "@/features/explore/creators";
 import { exploreItem } from "@/features/explore/items";
 import { creatorPeopleKeys, findPerson, workedWith } from "@/features/explore/people-index";
+import { BackLink } from "@/components/nia/back-link";
 
 // Creator films' people are drawn once at build; the two thousand or so film people on their
 // first visit.
@@ -50,9 +50,9 @@ async function PersonPage({ params }: Pick<PageProps<"/explore/person/[key]">, "
 
   return (
     <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
-      <Link href={exploreHome()} className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
+      <BackLink href={exploreHome()} className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
         ← Back to Explore
-      </Link>
+      </BackLink>
 
       <header className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:gap-10 sm:text-left">
         <div className="flex flex-col items-center gap-2">

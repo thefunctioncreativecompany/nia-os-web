@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -15,6 +14,7 @@ import { FilmVideoPlayer, PressKitSection, type PlayerVideo } from "./press-kit-
 import { getPress, type PressVideo } from "./press-coverage";
 import { AddToProject, SaveToCollection } from "./save-controls";
 import { CreditsViewAll } from "./credits-view-all";
+import { BackLink } from "@/components/nia/back-link";
 
 // A film's own page (Ika, 2026-10-28), laid out like a project page and Explore's title pages:
 // the video where the cover sits, then the title, Save / Add to project and the summary on the
@@ -39,20 +39,20 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0 }: { filmId: str
 
   const meta = [details.kind, details.year, lengthOf(details), details.country].filter(Boolean).join(" · ");
   const row = (label: string, value: React.ReactNode) => (
-    <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-6">
-      <dt className="w-28 shrink-0 pt-1.5 text-sm leading-[1.4] font-bold text-foreground">{label}</dt>
+    <div className="flex items-start gap-4 sm:gap-6">
+      <dt className="w-24 shrink-0 pt-1.5 text-sm leading-[1.4] font-bold text-foreground sm:w-28">{label}</dt>
       <dd className="min-w-0 flex-1 pt-1.5 text-sm font-medium text-muted-foreground">{value}</dd>
     </div>
   );
 
   return (
     <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
-      <Link
+      <BackLink
         href={exploreHome()}
         className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
       >
         ← Back to Explore
-      </Link>
+      </BackLink>
 
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
         {/* Left: the video, the title and the summary. */}

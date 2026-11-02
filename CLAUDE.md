@@ -432,6 +432,15 @@ Data:
   twenty): one scrolling row of compact cards for every new template, newest first, each with
   its name, stage and for-you line; the whole card opens the preview (both value lines and Use
   this template). Home's announcement names three others, then "and N more" to Templates.
+- (2026-11-02) Back where you left off (Ika): every "← Back to …" link is a `BackLink`
+  (`src/components/nia/back-link.tsx`): when the page before is the link's page it steps back
+  through history, so Next's preserved page returns as it was (scroll, rows, filters,
+  Explore's shuffled order); otherwise it opens the page. The trail is the last few addresses
+  in this tab, in sessionStorage (on the device only, never sent, gone when the tab closes; no
+  cookie, so no consent banner is needed for it, but the privacy policy should mention it).
+  The browser's own Back already restored the page (tested). Phones: Explore's Details rows
+  keep the label beside the value; template cards carry the New marker on the card so names
+  line up along a row.
 - (2026-11-02) Explore's icon is Lucide's pinwheel (`LoaderPinwheel`; `public/app/explore.svg` on
   desktop), the closest Lucide match to the mark Ika shared, replacing the compass. A round
   button bottom left opens Explore all from any page (`ExploreAllButton`, desktop only, hidden
@@ -452,7 +461,11 @@ Data:
   poster to the playhead lifts, neighbours fall off and far ones dim (an outline instead with
   reduced motion); the readout shows its format and title (click opens it); at Century, a
   chart of titles per year with each decade's leading title above. A plain click on a poster
-  opens it; a drag never does. D done: the overview strip (the whole library per year on a
+  opens it; a drag never does. Readout is empty when no title is near the playhead (Ika: no
+  "Your year in frames"). Film-history eras behind the lane (`eras.ts`: Silent 1895–1927, Studio
+  1927–1960, New Hollywood 1967–1980, Blockbuster 1980–2000, Digital 2000–2013, Streaming
+  2013–today): a tinted band each, the one under the playhead in Nia Blue, names with years
+  above the dates. Posters shrink to fit three rows on short screens. D done: the overview strip (the whole library per year on a
   canvas; drag the window, drag its edges, click to go there), keyboard (arrows, Shift+arrows,
   + and −, 1–7, T, F, Enter, Tab walks the posters and the playhead follows), a screen-reader
   summary once the view settles ("Showing 2013 – 2028, 141 titles."), the address holds the

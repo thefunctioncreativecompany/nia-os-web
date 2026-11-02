@@ -37,12 +37,8 @@ export function TemplateCard({
 
   return (
     <div className={cn("w-140 max-w-[calc(100vw-2rem)] shrink-0 snap-start", className)}>
+      {/* The New marker or badge sits on the card, so names line up along the row (Ika, 2026-11-02). */}
       <div className="mb-3">
-        {badge ? (
-          <span className="mb-1.5 inline-block rounded-full border border-foreground px-2 py-0.5 text-micro font-semibold">
-            {badge}
-          </span>
-        ) : template.fresh && <NewMarker className="mb-1.5" />}
         <h3 className="text-title font-semibold text-foreground">{template.name}</h3>
         <p className="mt-0.5 text-lead text-muted-foreground">{template.stage}</p>
       </div>
@@ -65,6 +61,11 @@ export function TemplateCard({
             <span className="absolute top-4 left-4 rounded-full border border-foreground px-3 py-1.5 text-micro font-semibold text-foreground">
               {COMING_SOON}
             </span>
+          )}
+          {badge ? (
+            <span className={cn("absolute top-4 rounded-full border border-foreground bg-card px-2 py-0.5 text-micro font-semibold", open ? "left-4" : "right-4")}>{badge}</span>
+          ) : (
+            template.fresh && <NewMarker className={cn("absolute top-4", open ? "left-4" : "right-4")} />
           )}
           {template.preview && (
             <p className={cn("absolute line-clamp-2 leading-normal text-foreground/80", small ? "right-4 bottom-3.5 left-4 text-small" : "bottom-5 left-5.5 text-lead", workflow ? "right-43" : !small && "right-5.5")}>

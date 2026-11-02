@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { ChevronDown, LayoutGrid, List, Mail, MessageCircle, Pencil, Phone, Plus, Send, Users } from "lucide-react";
@@ -18,6 +17,7 @@ import { StatusBadge, type ProductionStatus } from "@/components/nia/status-badg
 import { byDepartment, type DirectoryEntry } from "@/features/crew/directory";
 import { setStatus as saveStatus } from "@/features/crew/mutations";
 import { PersonEditor } from "@/components/projects/person-form";
+import { BackLink } from "@/components/nia/back-link";
 
 // A project's cast and crew (Milestone 4, step 1; Figma frame 18, 967:30543), in Nia's look: the
 // cast as a table, the crew by department, and the person in focus beside them (below on phones
@@ -90,9 +90,9 @@ export function CastCrewDirectory({
     <div className="grid flex-1 grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.62fr)]">
       <div className="flex min-w-0 flex-col gap-7 px-4 pt-10 pb-15 md:px-15 lg:pr-10">
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm leading-[1.4]">
-          <Link href={projectHref} className="rounded-sm font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
+          <BackLink href={projectHref} className="rounded-sm font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
             ← Back to project
-          </Link>
+          </BackLink>
           <span aria-hidden className="text-nia-placeholder">/</span>
           <span className="truncate font-bold text-foreground">{projectTitle}</span>
         </nav>

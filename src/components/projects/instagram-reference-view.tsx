@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowUpRight, Play, X } from "lucide-react";
 import { toast } from "sonner";
@@ -15,6 +14,7 @@ import { creditName, profileUrl } from "@/features/explore/creators";
 import { removeReference } from "@/features/explore/saves";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { Button } from "@/components/ui/button";
+import { BackLink } from "@/components/nia/back-link";
 
 // An Instagram post in a project's references (Ika, 2026-10-22), laid out like a creator's film on
 // Explore (creator-view.tsx): the post where the cover sits (Instagram's own player, loaded only on
@@ -63,9 +63,9 @@ export function InstagramReferenceView({
 
   return (
     <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
-      <Link href={back} className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
+      <BackLink href={back} className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
         ← Back to {projectTitle || "the project"}
-      </Link>
+      </BackLink>
 
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
         <div className="flex min-w-0 flex-col gap-6">

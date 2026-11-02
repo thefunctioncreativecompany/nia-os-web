@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ArrowUpRight, Play } from "lucide-react";
 
@@ -24,6 +23,7 @@ import { CreditsViewAll } from "./credits-view-all";
 import { TitleCard } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
 import { VideoThumbnail } from "./video-thumbnail";
+import { BackLink } from "@/components/nia/back-link";
 
 // A Made in Africa title, full screen (Ika, 2026-10-21), laid out like a project page (Figma
 // 824:23124) so the two read the same: the trailer where the cover sits, then the title and what to
@@ -72,20 +72,20 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
   const imdb = imdbUrl(title);
   const press = getPress(title.slug);
   const row = (label: string, value: React.ReactNode) => (
-    <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-6">
-      <dt className="w-28 shrink-0 pt-1.5 text-sm leading-[1.4] font-bold text-foreground">{label}</dt>
+    <div className="flex items-start gap-4 sm:gap-6">
+      <dt className="w-24 shrink-0 pt-1.5 text-sm leading-[1.4] font-bold text-foreground sm:w-28">{label}</dt>
       <dd className="min-w-0 flex-1 pt-1.5 text-sm font-medium text-muted-foreground">{value}</dd>
     </div>
   );
 
   return (
     <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
-      <Link
+      <BackLink
         href={back.href}
         className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
       >
         {back.label}
-      </Link>
+      </BackLink>
 
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
         {/* Left: the trailer, the seasons, the title and what to study. */}

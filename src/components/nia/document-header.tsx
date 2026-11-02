@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { Download } from "lucide-react";
 
 import { cn, getInitials } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { BackLink } from "@/components/nia/back-link";
 
 export type DocumentViewer = { name: string; avatarUrl?: string | null };
 
@@ -30,12 +30,12 @@ export function DocumentHeader({
 }) {
   return (
     <header className={cn("flex flex-col gap-9", className)}>
-      <Link
+      <BackLink
         href={backHref}
         className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground print:hidden outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
       >
         ← {backLabel}
-      </Link>
+      </BackLink>
       <div className="flex flex-col-reverse gap-4 md:flex-row md:items-start md:justify-between">
         <div className="flex max-w-[500px] flex-col gap-2">
           <h1 className="text-h1 font-bold text-foreground">{title}</h1>

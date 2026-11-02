@@ -27,8 +27,11 @@ import type { TimelineItem } from "@/features/explore/timeline/data";
 import { TimeAxis } from "./time-axis";
 import { FramesLane, CenturyChart } from "./frames-lane";
 import { OverviewBrush } from "./overview-brush";
+import { EraBackground, EraNames } from "./era-bands";
+import { eraAt } from "@/features/explore/timeline/eras";
 import { TmdbCredit } from "../tmdb-credit";
 import { ExploreAllViews } from "../explore-all-views";
+import { BackLink } from "@/components/nia/back-link";
 
 // Explore all's Timeline (Ika, 2026-11-02; design-ref EXPLORE_TIMELINE_SPEC.md): every title on
 // one line through time that zooms from a century to an hour. The playhead follows the pointer;
@@ -37,8 +40,6 @@ import { ExploreAllViews } from "../explore-all-views";
 // chart of titles per year with each decade's leading title above it.
 
 export type TimelineFrame = Omit<TimelineItem, "precision">;
-
-const DEFAULT_TITLE = "Your year in frames";
 
 export function TimelineView({
   items,
@@ -61,6 +62,7 @@ export function TimelineView({
   const { view, viewRef, zoomAt, panPx, fling, animateTo, jumpTo, stop } = useTimelineScale(initial, bounds);
   const lane = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(1200);
+  const [laneHeight, setLaneHeight] = useState(560);
   const [cursor, setCursor] = useState<number | null>(null);
   const [measured, setMeasured] = useState(false);
 
@@ -69,6 +71,7 @@ export function TimelineView({
     if (!el) return;
     const ro = new ResizeObserver(([e]) => {
       setWidth(e.contentRect.width);
+      setLaneHeight(e.contentRect.height);
       setMeasured(true);
     });
     ro.observe(el);
@@ -80,7 +83,9 @@ export function TimelineView({
   const ticks = useMemo(() => ticksFor(view, width), [view, width]);
   const level = nearestPreset(span);
   const century = level === "century";
-  const height = FRAME_HEIGHT[level];
+  // Posters as tall as the level asks, but three rows must fit under the date at the top (phones).
+  const room = laneHeight - 56 - 24 - 48 - (century ? 92 : 20) - 24;
+  const height = Math.max(36, Math.min(FRAME_HEIGHT[level], Math.floor(room / 3) - 12));
   const playX = cursor ?? width / 2;
   const playT = timeAt(playX);
 
@@ -99,6 +104,7 @@ export function TimelineView({
   const focus = nearestSlot(slots, playX, Math.max(48, height * 0.8));
   const byId = useMemo(() => new Map(items.map((i) => [i.id, i])), [items]);
   const focused = focus ? byId.get(focus.id) : undefined;
+  const era = eraAt(playT, now);
   const inView = useMemo(() => items.filter((i) => i.at >= view.start && i.at <= view.end).length, [items, view]);
 
   // The address's `focus`: put the playhead on that title once the lane knows its width.
@@ -223,19 +229,20 @@ export function TimelineView({
     // Below the navbar; on phones and tablets above the dock, on desktop clear of Send feedback.
     <div className="flex h-[calc(100svh-12rem)] min-h-140 flex-col gap-4 px-4 pt-4 pb-4 md:px-6 lg:h-[calc(100svh-5rem)] lg:pb-20">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <Link
+        <BackLink
           href="/explore"
           className="rounded-full bg-card/90 px-4 py-2 text-sm leading-[1.4] font-bold text-muted-foreground shadow-card outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
         >
           ← Explore
-        </Link>
+        </BackLink>
         <ExploreAllViews current="timeline" />
       </div>
 
       {/* The readout (§1): the title under the playhead (click to open it), and the visible range. */}
       <header className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
-        <div key={focused?.id ?? "none"} className="flex min-w-0 animate-in flex-col gap-1 duration-200 fade-in slide-in-from-bottom-1.5 motion-reduce:animate-none">
-          <p className="text-small font-bold text-muted-foreground">{focused?.format ?? "All formats"}</p>
+        {/* Empty (but holding its space) when no title is near the playhead. */}
+        <div key={focused?.id ?? "none"} className={cn("flex min-w-0 animate-in flex-col gap-1 duration-200 fade-in slide-in-from-bottom-1.5 motion-reduce:animate-none", !focused && "invisible")}>
+          <p className="text-small font-bold text-muted-foreground">{focused?.format ?? "\u00a0"}</p>
           {focused ? (
             <Link
               href={focused.href}
@@ -245,7 +252,7 @@ export function TimelineView({
               {focused.title}
             </Link>
           ) : (
-            <h1 className="text-h2 leading-tight font-semibold text-foreground md:text-h1">{DEFAULT_TITLE}</h1>
+            <p aria-hidden className="text-h2 leading-tight font-semibold md:text-h1">&nbsp;</p>
           )}
         </div>
         <div className="flex items-center gap-1">
@@ -260,7 +267,7 @@ export function TimelineView({
           </Button>
         </div>
       </header>
-      {focused && <h1 className="sr-only">Explore all, timeline</h1>}
+      <h1 className="sr-only">Explore all, timeline</h1>
       <p aria-live="polite" className="sr-only">
         {announce}
       </p>
@@ -324,6 +331,7 @@ export function TimelineView({
         }}
         className="relative flex min-h-60 flex-1 cursor-grab touch-none flex-col justify-end overflow-hidden rounded-2xl border border-border bg-card outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 active:cursor-grabbing"
       >
+        <EraBackground view={view} width={width} now={now} active={era?.id ?? null} />
         <FramesLane
           slots={slots}
           items={byId}
@@ -344,6 +352,7 @@ export function TimelineView({
             </Button>
           </div>
         )}
+        <EraNames view={view} width={width} now={now} active={era?.id ?? null} />
         <TimeAxis ticks={ticks} width={width} />
 
         {/* The playhead: a line, a dot on the axis and the date. */}

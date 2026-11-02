@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ArrowUpRight, EyeOff, Play } from "lucide-react";
 
@@ -37,6 +36,7 @@ import { LIBRARY_HREF, exploreHome } from "@/features/explore/made-in-africa";
 import { CreatorCredit } from "./creators-strip";
 import { AddToProject, SaveToCollection } from "./save-controls";
 import { ExploreCard, cardSpan } from "./title-card";
+import { BackLink } from "@/components/nia/back-link";
 
 const CAMERA_TAGS = new Set(["shot-on-iphone", "shot-on-film", "red-komodo", "sony-fx", "ai-shots"]);
 
@@ -66,17 +66,17 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
   const date = new Date(`${film.date}T12:00:00`).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" });
 
   const row = (label: string, value: React.ReactNode) => (
-    <div key={label} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-6">
-      <dt className="w-36 shrink-0 pt-1.5 text-sm leading-[1.4] font-bold text-foreground">{label}</dt>
+    <div key={label} className="flex items-start gap-4 sm:gap-6">
+      <dt className="w-24 shrink-0 pt-1.5 text-sm leading-[1.4] font-bold text-foreground sm:w-36">{label}</dt>
       <dd className="min-w-0 flex-1 pt-1.5 text-sm font-medium text-muted-foreground">{value}</dd>
     </div>
   );
 
   return (
     <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
-      <Link href={back.href} className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
+      <BackLink href={back.href} className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
         {back.label}
-      </Link>
+      </BackLink>
 
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
         <div className="flex min-w-0 flex-col gap-6">

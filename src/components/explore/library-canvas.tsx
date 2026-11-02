@@ -14,6 +14,7 @@ import { LIBRARY, type LibraryItem } from "@/features/explore/library";
 import type { CategoryItem } from "./explore-data";
 import { ExploreAllViews } from "./explore-all-views";
 import { PressKitPreview } from "./press-kit-preview";
+import { BackLink } from "@/components/nia/back-link";
 
 // The gap between posters, as on Explore all's grid (0.8125rem).
 const GAP = 13;
@@ -227,12 +228,12 @@ export function LibraryCanvas() {
 
       {/* Where you are, and the way back. */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex flex-wrap items-center justify-between gap-3 p-4 md:p-6">
-        <Link
+        <BackLink
           href={exploreHome()}
           className="pointer-events-auto rounded-full bg-card/90 px-4 py-2 text-sm leading-[1.4] font-bold text-muted-foreground shadow-card outline-none backdrop-blur-sm hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
         >
           ← Back to Explore
-        </Link>
+        </BackLink>
         <div className="flex items-center gap-2">
           <Ambience />
           <h1 className="sr-only">Explore all</h1>

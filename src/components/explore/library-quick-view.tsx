@@ -16,6 +16,7 @@ import { quickFacts } from "@/features/explore/quick-view";
 import type { CategoryItem } from "./explore-data";
 import { ExploreAllViews } from "./explore-all-views";
 import { PressKitPreview } from "./press-kit-preview";
+import { BackLink } from "@/components/nia/back-link";
 
 // Poster shape (width ÷ height), as on the canvas.
 const POSTER = 268 / 373;
@@ -71,12 +72,12 @@ export function LibraryQuickView() {
   return (
     <section aria-roledescription="carousel" aria-label="Explore all, one title at a time" className="relative flex min-h-[calc(100svh-5rem)] flex-col bg-nia-canvas">
       <div className="flex flex-wrap items-center justify-between gap-3 p-4 md:p-6">
-        <Link
+        <BackLink
           href={exploreHome()}
           className="rounded-full bg-card/90 px-4 py-2 text-sm leading-[1.4] font-bold text-muted-foreground shadow-card outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
         >
           ← Back to Explore
-        </Link>
+        </BackLink>
         <div className="flex items-center gap-2">
           <h1 className="sr-only">Explore all</h1>
           <ExploreAllViews current="quick" />

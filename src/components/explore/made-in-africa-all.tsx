@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Clapperboard, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -15,6 +14,7 @@ import { useTaste } from "./use-taste";
 import { shuffled } from "@/lib/shuffle";
 import { TitleCard } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
+import { BackLink } from "@/components/nia/back-link";
 
 const ALL = "all";
 const SORTS = { relevance: "Relevance", forYou: "For you", recent: "Recently viewed", title: "Title A–Z", newest: "Newest first", oldest: "Oldest first", country: "Country A–Z" } as const;
@@ -112,12 +112,12 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
 
   return (
     <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-7.5 lg:pt-12.5">
-      <Link
+      <BackLink
         href={exploreHome()}
         className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
       >
         ← Back to Explore
-      </Link>
+      </BackLink>
 
       <div className="mt-8 flex items-center gap-1">
         <h1 className="text-h2 font-semibold tracking-tight text-foreground">{view.name}</h1>
