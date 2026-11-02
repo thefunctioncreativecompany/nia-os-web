@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { ExploreTabs } from "@/components/explore/explore-tabs";
 import { ChevronRight } from "lucide-react";
 
 import { DriftColumns } from "@/components/nia/drift-columns";
@@ -9,11 +8,8 @@ import { dayLabel } from "@/components/nia/new-marker";
 import { exploreItem, type ExploreItem } from "@/features/explore/items";
 import { LIBRARY_HREF } from "@/features/explore/made-in-africa";
 import type { Added } from "@/features/explore/recent";
-import { features } from "@/lib/features";
-import { getCategory } from "./explore-data";
 import { CategorySections } from "./explore-categories";
 import type { StudioRow } from "@/features/explore/studios";
-import { LatestStrips } from "./latest-strips";
 import { ExploreCard } from "./title-card";
 
 // How far each of the five columns slides as the pointer moves down the grid (EXPLORE_SPEC.md),
@@ -32,7 +28,6 @@ export function ExploreLibrary({ seed, gallery, top, studios }: { seed: number; 
 
   return (
     <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-7.5 lg:pt-12.5">
-      {features.exploreFeedShown && <ExploreTabs current="library" className="mb-10" />}
       {/* Opens the whole library as one canvas (Ika, 2026-10-21). */}
       <h1 id="explore-all" className="text-h2 font-semibold tracking-tight text-foreground">
         <Link
@@ -55,7 +50,6 @@ export function ExploreLibrary({ seed, gallery, top, studios }: { seed: number; 
 
       {/* Every category under a heading that shows or hides it (Ika, 2026-10-29). */}
       <CategorySections seed={seed} top={top} studios={studios} />
-      {features.exploreLatestShown && <LatestStrips category={getCategory("latest")} />}
     </div>
   );
 }

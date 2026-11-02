@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
 
-import { features } from "./src/lib/features";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -49,12 +48,10 @@ const nextConfig: NextConfig = {
       { source: "/explore/preview", destination: "/explore", permanent: false },
       // By category now lives on Explore itself (Ika, 2026-10-29).
       { source: "/explore/categories", destination: "/explore#by-category", permanent: false },
-      // Marketplace is hidden for now (Ika, 2026-10-23).
-      ...(features.marketplaceShown ? [] : [{ source: "/marketplace/:path*", destination: "/home", permanent: false }]),
-      // Explore's Feed is hidden for now (Ika, 2026-10-31).
-      ...(features.exploreFeedShown ? [] : [{ source: "/explore/feed", destination: "/explore", permanent: false }]),
-      // Explore all's quick view is hidden (Ika, 2026-10-31).
-      ...(features.exploreQuickViewShown ? [] : [{ source: "/explore/all/quick", destination: "/explore/all", permanent: false }]),
+      // Parked and removed (2026-11-02 audit; git tag parked-2026-11-02): old links land nearby.
+      { source: "/marketplace/:path*", destination: "/home", permanent: false },
+      { source: "/explore/feed", destination: "/explore", permanent: false },
+      { source: "/explore/all/quick", destination: "/explore/all", permanent: false },
     ];
   },
   turbopack: {

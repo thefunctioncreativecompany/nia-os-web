@@ -5,7 +5,7 @@ import { createClient } from "@/lib/supabase/client";
 import { currentUser } from "@/lib/supabase/current-user";
 
 /** What `feature_waitlist.feature` accepts (its check constraint). */
-export type WaitlistFeature = "explore" | "marketplace";
+export type WaitlistFeature = "explore";
 
 // "Notify me" on coming-soon screens: whether this person is on a feature's waitlist, and a
 // toggle that saves it (feature_waitlist, own rows only). `waiting` is null while it loads.

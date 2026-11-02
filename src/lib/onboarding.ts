@@ -1,7 +1,5 @@
-// Onboarding steps in order. Each one is a page at /onboarding/<step>.
-// Import your profile and Follow creators are hidden for now (Ika, 2026-10-17; done 2026-10-31
-// after the beta walkthrough showed nine screens before Home): their pages stay for after beta
-// and send anyone who reaches them on to the next step.
+// Onboarding steps in order. Each one is a page at /onboarding/<step>. (Import your profile and
+// Follow creators were removed on 2026-11-02; git tag parked-2026-11-02.)
 export const ONBOARDING_STEPS = [
   "source",
   "username",
@@ -11,32 +9,18 @@ export const ONBOARDING_STEPS = [
   "features",
   "done",
 ] as const;
-export const HIDDEN_ONBOARDING_STEPS = ["import", "follow"] as const;
 
-export type OnboardingStepId = (typeof ONBOARDING_STEPS)[number] | (typeof HIDDEN_ONBOARDING_STEPS)[number];
+export type OnboardingStepId = (typeof ONBOARDING_STEPS)[number];
 
 // "Step N of 6" starts after the first question, which isn't counted.
 export const ONBOARDING_TOTAL_STEPS = ONBOARDING_STEPS.length - 1;
 
-// Where a hidden step would have been: the step it now hands on to.
-const AFTER_HIDDEN: Record<(typeof HIDDEN_ONBOARDING_STEPS)[number], (typeof ONBOARDING_STEPS)[number]> = {
-  import: "username",
-  follow: "features",
-};
-const inFlow = (step: OnboardingStepId) => step as (typeof ONBOARDING_STEPS)[number];
-
-export function stepNumber(step: OnboardingStepId) {
-  return step in AFTER_HIDDEN ? 0 : ONBOARDING_STEPS.indexOf(inFlow(step));
-}
+export const stepNumber = (step: OnboardingStepId) => ONBOARDING_STEPS.indexOf(step);
 
 export function nextStepHref(step: OnboardingStepId) {
-  if (step in AFTER_HIDDEN) return `/onboarding/${AFTER_HIDDEN[step as keyof typeof AFTER_HIDDEN]}`;
-  const next = ONBOARDING_STEPS[ONBOARDING_STEPS.indexOf(inFlow(step)) + 1] ?? "done";
+  const next = ONBOARDING_STEPS[ONBOARDING_STEPS.indexOf(step) + 1] ?? "done";
   return `/onboarding/${next}`;
 }
-
-/** For a hidden step's page: where to send someone who reaches it. */
-export const hiddenStepRedirect = (step: (typeof HIDDEN_ONBOARDING_STEPS)[number]) => `/onboarding/${AFTER_HIDDEN[step]}`;
 
 export const HEARD_ABOUT_OPTIONS = [
   "Website",

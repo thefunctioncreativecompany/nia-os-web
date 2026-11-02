@@ -34,7 +34,7 @@ const images = {
 export const HERO_SET: HeroImage[] = Object.values(images);
 
 // One still per screen. Onboarding uses the Figma frame's image where Ika's set has
-// it (import, username, follow, features); the rest replace Figma's low-res stills.
+// it (username, features); the rest replace Figma's low-res stills.
 export const HERO_IMAGES = {
   login: images.sinnersPortrait,
   signup: images.sinnersDance,
@@ -43,12 +43,10 @@ export const HERO_IMAGES = {
   "reset-password": images.sinnersCrane,
   "auth-error": images.studioTeam,
   source: images.studioTeam,
-  import: images.sinnersCamera,
   username: images.backrooms,
   photo: images.sinnersCrane,
   profession: images.sinnersPortrait,
   workspace: images.showroom,
-  follow: images.sinnersChurch,
   features: images.sinnersCamera,
   done: images.sinnersDance,
 } satisfies Record<string, HeroImage>;

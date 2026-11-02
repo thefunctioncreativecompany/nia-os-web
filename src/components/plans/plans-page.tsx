@@ -6,7 +6,6 @@ import { animate, useReducedMotion } from "framer-motion";
 import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
-import { features } from "@/lib/features";
 import { Button } from "@/components/ui/button";
 import SegmentedControl from "@/components/arc/segmented-control/segmented-control";
 import { createClient } from "@/lib/supabase/client";
@@ -198,8 +197,6 @@ function Comparison({ billing }: { billing: Billing }) {
     { label: "Uploads", values: (p) => (p.id === "free" ? `Up to ${FREE_LIMITS.uploadMb} MB` : `Up to ${PAID_UPLOAD_MB} MB`) },
     { label: "Nia footer on exports", values: (p) => (p.id === "free" ? "Always" : "Your choice") },
     { label: <>AI credits{soon}</>, values: (p) => p.credits },
-    // Hidden with Marketplace (Ika, 2026-10-23).
-    ...(features.marketplaceShown ? [{ label: <>Gear rental fee{soon}</>, values: (p: Plan) => p.gearFee }] : []),
     { label: <>Studio &amp; co-working{soon}</>, values: (p) => p.studio },
     { label: "Best for", values: (p) => p.bestFor },
   ];

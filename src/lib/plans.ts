@@ -2,11 +2,6 @@
 // There are no payments yet: every workspace is on Free unless Ika moves it by hand (see
 // supabase/migrations/20261028000000_plans.sql), and "Get …" buttons save interest.
 
-import { features as switches } from "@/lib/features";
-
-// While Marketplace is hidden (Ika, 2026-10-23), plans don't mention it or its gear rental fees.
-const marketplace = switches.marketplaceShown;
-
 export type PlanId = "free" | "starter" | "creator" | "pro" | "enterprise";
 export type Billing = "monthly" | "annual";
 
@@ -22,7 +17,6 @@ export type Plan = {
   /** "/mo" or "/seat a month". */
   unit: string;
   credits: string;
-  gearFee: string;
   studio: string;
   bestFor: string;
   /** What the plan gives, shown as the card's checklist. */
@@ -42,14 +36,13 @@ export const PLANS: Plan[] = [
   {
     id: "free",
     name: "Free",
-    tagline: marketplace ? "Try Nia and browse the marketplace." : "Try Nia on your first productions.",
+    tagline: "Try Nia on your first productions.",
     monthly: 0,
     annual: null,
     unit: "/mo",
     credits: "100, one-time",
-    gearFee: "5%",
     studio: "Rate card",
-    bestFor: marketplace ? "Trying Nia and browsing the marketplace" : "Trying Nia",
+    bestFor: "Trying Nia",
     features: [
       { title: "Up to 5 projects", detail: "Each with up to 5 documents, one of each kind." },
       { title: "One collaborator per project", detail: "Share a project with one other person." },
@@ -65,7 +58,6 @@ export const PLANS: Plan[] = [
     annual: 7.99,
     unit: "/mo",
     credits: "300 a month",
-    gearFee: "5%",
     studio: "15% member discount",
     bestFor: "Students and emerging creators",
     features: [...PAID, { title: "300 AI credits a month", detail: "Renewed every billing period." }],
@@ -78,10 +70,9 @@ export const PLANS: Plan[] = [
     annual: 15.2,
     unit: "/mo",
     credits: "750 a month",
-    gearFee: "4%",
     studio: "15% member discount",
     bestFor: "Working creatives and freelancers",
-    features: [...PAID, { title: "750 AI credits a month", detail: "Renewed every billing period." }, ...(marketplace ? [{ title: "Lower gear rental fee", detail: "4% instead of 5%." }] : [])],
+    features: [...PAID, { title: "750 AI credits a month", detail: "Renewed every billing period." }],
   },
   {
     id: "pro",
@@ -91,10 +82,9 @@ export const PLANS: Plan[] = [
     annual: 40,
     unit: "/mo",
     credits: "3,000 a month",
-    gearFee: "3%",
     studio: "15% member discount",
     bestFor: "Producers and small studios",
-    features: [...PAID, { title: "3,000 AI credits a month", detail: "Renewed every billing period." }, ...(marketplace ? [{ title: "Lowest gear rental fee", detail: "3% on every rental." }] : [])],
+    features: [...PAID, { title: "3,000 AI credits a month", detail: "Renewed every billing period." }],
   },
   {
     id: "enterprise",
@@ -104,7 +94,6 @@ export const PLANS: Plan[] = [
     annual: null,
     unit: "/seat a month",
     credits: "750 a seat, pooled",
-    gearFee: "3%",
     studio: "15% member discount",
     bestFor: "Production companies, agencies and schools (3+ seats)",
     features: [...PAID, { title: "750 AI credits a seat, pooled", detail: "Shared across the whole team." }, { title: "Annual contract", detail: "Three seats or more, invoiced yearly." }],
