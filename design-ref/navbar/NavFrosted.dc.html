@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Explore navbar: frosted bar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F1F1F}a:hover{color:#005FB8}
+@keyframes tryIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.try{animation:tryIn 250ms cubic-bezier(.16,1,.3,1)}
+@media (prefers-reduced-motion: reduce){.try{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 460px; position: relative; overflow: hidden; background: #F4F4F4; font-family: Geist, system-ui, sans-serif; color: #1F1F1F">
+  <div aria-hidden="true" style="position: absolute; inset: 0; padding: 40px 32px 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px">
+    <sc-for list="{{posters}}" as="p" hint-placeholder-count="12">
+      <div style="height: 300px; border-radius: 12px; background: {{p}}"></div>
+    </sc-for>
+  </div>
+  <header style="position: absolute; top: 0; left: 0; right: 0; height: 64px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 16px; padding: 0 24px; background: rgba(255,255,255,0.62); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); border-bottom: 1px solid rgba(0,0,0,0.06)">
+    <nav aria-label="Main" style="display: flex; align-items: center; gap: 2px">
+      <a href="#" style="font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 999px; text-decoration: none; color: #4D4D4D">Home</a>
+      <a href="#" style="font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 999px; text-decoration: none; color: #4D4D4D">Projects</a>
+      <a href="#" style="font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 999px; text-decoration: none; color: #4D4D4D">Templates</a>
+      <a href="#" aria-current="page" style="font-size: 13px; font-weight: 600; padding: 6px 10px; border-radius: 999px; text-decoration: none; color: #005FB8; background: rgba(0,95,184,0.10)">Explore</a>
+      <a href="#" style="font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 999px; text-decoration: none; color: #8A8A8A">Inbox</a>
+    </nav>
+    <div style="display: flex; align-items: center; gap: 10px">
+      <label style="width: 560px; height: 44px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 0 6px 0 16px; border-radius: 999px; background: rgba(255,255,255,0.85); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 1px 2px rgba(0,0,0,0.04)">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <span class="try" key="{{tryKey}}" style="flex: 1; font-size: 14px; color: #6B6B6B; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Try '{{tryText}}'</span>
+        <button type="button" aria-label="Search by colour" style="width: 32px; height: 32px; border-radius: 999px; border: none; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F1F1F" stroke-width="1.8" stroke-linecap="round"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.8 1.8-1.8 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4c0-4.4-4-8-9-8z"></path><circle cx="7.5" cy="11" r="1.2"></circle><circle cx="10" cy="7" r="1.2"></circle><circle cx="15" cy="7.5" r="1.2"></circle></svg>
+        </button>
+        <button type="button" aria-label="Search with a picture" style="width: 32px; height: 32px; border-radius: 999px; border: none; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F1F1F" stroke-width="1.8" stroke-linecap="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        </button>
+        <button type="button" aria-label="Search by voice" style="width: 32px; height: 32px; border-radius: 999px; border: none; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F1F1F" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg>
+        </button>
+      </label>
+      <button type="button" aria-label="New project" style="width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.10); background: rgba(255,255,255,0.85); display: flex; align-items: center; justify-content: center; cursor: pointer">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F1F1F" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+      </button>
+    </div>
+    <div style="display: flex; justify-content: flex-end">
+      <button type="button" aria-label="Your profile" style="display: flex; align-items: center; gap: 6px; border: none; background: transparent; cursor: pointer; padding: 4px">
+        <span style="width: 32px; height: 32px; border-radius: 999px; background: #CFCFCF; display: block"></span>
+        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4D4D4D" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"></path></svg>
+      </button>
+    </div>
+  </header>
+  <div aria-hidden="true" style="position: absolute; top: 64px; left: 0; right: 0; height: 36px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); -webkit-mask-image: linear-gradient(to bottom, #000, transparent); mask-image: linear-gradient(to bottom, #000, transparent)"></div>
+  <p style="position: absolute; left: 32px; bottom: 16px; margin: 0; font-size: 12px; color: #4D4D4D; background: rgba(255,255,255,0.8); padding: 6px 10px; border-radius: 999px">Scrolled: posters blur softly under the bar's lower edge. The "Try" idea changes every 3 seconds (not with reduced motion).</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":460}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { i: 0 }; }
+  componentDidMount() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this.timer = setInterval(() => this.setState({ i: this.state.i + 1 }), 3000);
+  }
+  componentWillUnmount() { clearInterval(this.timer); }
+  renderVals() {
+    const tries = ['night streets, like Night Market lookbook', 'warm-palette commercials', 'music videos shot on iPhone', 'Made in Africa documentaries', 'films like Sinners'];
+    return {
+      tryText: tries[this.state.i % tries.length],
+      tryKey: String(this.state.i),
+      posters: ['#B9A99A', '#8E9AA6', '#C8B6A6', '#6E6A65', '#A4ADA0', '#D2C3B3', '#7F8B95', '#B5A28F', '#9B9188', '#C9C2B8', '#837A72', '#A9B3BC']
+    };
+  }
+}
+</script>
+</body>
+</html>
