@@ -532,3 +532,6 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-08) Explore's order (Ika): Explore all, then Top 10 on Explore, then Recently added
   (15 titles, the rest on View all at `/explore/recent`, newest first with the day each was
   added; `GALLERY_SIZE` in `recent.ts`), then By category. Top 10 left By category.
+- (2026-11-08) Top 10 on Explore is laid out like the Top 10 press kits (Ika): one still row, 1 to
+  10 left to right, arrows at the edges; each card at its film's shape with the rank top right
+  (the cover on hover is gone).
