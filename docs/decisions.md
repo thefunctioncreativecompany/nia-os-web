@@ -543,3 +543,11 @@ onboarding's Import profile and Follow creators describe features removed in the
   skips them. Bugonia (Focus Features' trailer) is a studio feature, so it joins Explore as a title
   instead. 24 Instagram creator films added the same day; Strong Black Lead's A Different World
   clip held back (a streamer's clip, not creator content).
+- (2026-11-08) Navbar decisions (NAVBAR_BUILD.md §3, Ika: "as recommended"): 1. N1, the frosted
+  bar (the component keeps `variant: "bar" | "floating"`, only the bar ships). 2. Tab icons stay.
+  3. One "Try" idea per page visit, no timer. 4. Colour, picture and voice search buttons left
+  out until a step builds them. 5. ⌘K stays, its label goes, the field's tooltip says it.
+  6. No name beside the avatar on desktop. 7. The existing search window, opening under the
+  bar, its empty state led by "Try, for your work"; no second search. 8. The adjusted glass and
+  text values in NAVBAR_SPEC §6 (80% glass, `foreground/80` tabs, dark text on the blue tint).
+  9. Ika puts N1 (light, dark, search open) into Figma; node IDs go in NAVBAR_BUILD.md N0.

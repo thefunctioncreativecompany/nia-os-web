@@ -119,6 +119,7 @@ Each one has a recommendation. Log the answers in `docs/decisions.md` (dated) be
 
 - [ ] **N0 — Decisions and Figma.** Ika answers §3, the answers go into `docs/decisions.md`, and the Figma
   node IDs go here: light `____`, dark `____`, search open `____`. No code.
+  *Decisions logged 2026-11-08 (all as recommended). Waiting for the Figma frames.*
 
 - [ ] **N1 — Make pages ready for a sticky bar (nothing visible changes).**
   - Add `--nav-h: 5rem` and `--nav-offset: 0rem` to `:root` in globals.css (NAVBAR_SPEC §2). Don't add the
