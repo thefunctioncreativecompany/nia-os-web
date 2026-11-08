@@ -6,9 +6,12 @@ import { recognizeAspect } from "@/lib/aspect-ratios";
 import type { ExploreItem } from "@/features/explore/items";
 
 /** A poster's shape, width ÷ height (Made in Africa titles have posters, not frames). */
-const POSTER = 268 / 373;
+export const POSTER = 268 / 373;
 
-export type GalleryEntry = { item: ExploreItem; href: string; actions?: React.ReactNode };
+/** What a card shows: an Explore item without its link-making function (so it can go to the browser). */
+export type CardItem = Omit<ExploreItem, "href">;
+
+export type GalleryEntry = { item: ExploreItem; href: string; actions?: React.ReactNode; /** A short line under who made it ("Added 8 November"). */ note?: string };
 
 // A masonry gallery of films at their true shape (Ika's Claude Design "Creators · Explore: masonry
 // gallery (no gaps)", 2026-10-22): columns of equal width, each film as tall as its shape needs,
@@ -18,16 +21,16 @@ export type GalleryEntry = { item: ExploreItem; href: string; actions?: React.Re
 export function FilmGallery({ entries, label, className }: { entries: GalleryEntry[]; label: string; className?: string }) {
   return (
     <ul aria-label={label} className={cn("columns-2 gap-x-5 md:columns-3 lg:columns-4 2xl:columns-5", className)}>
-      {entries.map(({ item, href, actions }, i) => (
+      {entries.map(({ item, href, actions, note }, i) => (
         <li key={item.slug} className="mb-6 break-inside-avoid">
-          <GalleryCard item={item} href={href} aspect={item.aspect ?? POSTER} first={i === 0} actions={actions} />
+          <GalleryCard item={item} href={href} aspect={item.aspect ?? POSTER} first={i === 0} actions={actions} note={note} />
         </li>
       ))}
     </ul>
   );
 }
 
-function GalleryCard({ item, href, aspect, first, actions }: { item: ExploreItem; href: string; aspect: number; first: boolean; actions?: React.ReactNode }) {
+export function GalleryCard({ item, href, aspect, first, actions, note }: { item: CardItem; href: string; aspect: number; first: boolean; actions?: React.ReactNode; note?: string }) {
   // Films are tagged with their frame; posters are artwork, not a frame, so they aren't.
   const frame = item.kind === "creator" ? recognizeAspect(aspect).label : null;
   return (
@@ -70,6 +73,7 @@ function GalleryCard({ item, href, aspect, first, actions }: { item: ExploreItem
         <span className="flex flex-col gap-0.5">
           <span className="text-lead leading-snug font-semibold">{item.title}</span>
           <span className="truncate text-small text-muted-foreground">{item.credit}</span>
+          {note && <span className="text-caption text-muted-foreground">{note}</span>}
         </span>
       </Link>
       {actions && <div className="flex flex-wrap gap-1.5">{actions}</div>}

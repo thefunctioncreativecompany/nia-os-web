@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { BackLink } from "@/components/nia/back-link";
 import { dayLabel } from "@/components/nia/new-marker";
-import { ExploreCard } from "@/components/explore/title-card";
+import { FilmMosaic } from "@/components/explore/film-mosaic";
 import { exploreItem } from "@/features/explore/items";
 import { exploreHome } from "@/features/explore/made-in-africa";
 import { everyAddition } from "@/features/explore/recent";
@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 };
 
 // View all from Recently added on Explore (Ika, 2026-11-08): everything that has joined Explore,
-// newest first, each card with the day it was added.
+// newest first, each with the day it was added, as a mosaic of true shapes with no gaps, filled
+// across so the newest sit along the top (FilmMosaic).
 export default function Page() {
   const items = everyAddition().flatMap(({ slug, added }) => {
     const item = exploreItem(slug);
@@ -24,13 +25,7 @@ export default function Page() {
         ← Back to Explore
       </BackLink>
       <h1 className="text-h2 font-semibold text-foreground">Recently added on Explore</h1>
-      <ul className="grid grid-cols-2 gap-3.25 sm:grid-cols-3 lg:grid-cols-5">
-        {items.map(({ item, added }, i) => (
-          <li key={item.slug}>
-            <ExploreCard item={item} href={item.href()} sizes="(min-width: 64rem) 20vw, (min-width: 40rem) 33vw, 50vw" note={`Added ${dayLabel(added)}`} first={i < 5} />
-          </li>
-        ))}
-      </ul>
+      <FilmMosaic label="Recently added on Explore" entries={items.map(({ item: { href, ...item }, added }) => ({ item, href: href(), note: `Added ${dayLabel(added)}` }))} />
     </div>
   );
 }
