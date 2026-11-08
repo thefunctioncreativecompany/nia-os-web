@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
@@ -15,17 +15,15 @@ import { getCategory } from "./explore-data";
 import { HollywoodClassicsStrip } from "./hollywood-classics-strip";
 import { MadeInAfricaStrip } from "./made-in-africa-strip";
 import { StudioStrip } from "./studio-strip";
-import { TopTen } from "./top-ten";
 import type { StudioRow } from "@/features/explore/studios";
-import { Skeleton } from "@/components/ui/skeleton";
 
 type Section = { id: string; name: string; href?: string; row: React.ReactNode };
 
 // By category on Explore (Ika, 2026-10-21; on the Explore page itself since 2026-10-29): every
 // category under a heading that shows or hides it, with Show all / Hide all. All start open.
 // Headings are the name alone, no count or explaining line (Ika, 2026-10-30).
-// Top 10 on Explore replaced Top 10 director's notes (Ika, 2026-10-31): those notes don't exist yet.
-export function CategorySections({ seed, top, studios }: { seed: number; top: Promise<string[]>; studios: StudioRow[] }) {
+// Top 10 on Explore sits above Recently added since 2026-11-08 (explore-library.tsx).
+export function CategorySections({ seed, studios }: { seed: number; studios: StudioRow[] }) {
   const epk = getCategory("epk");
   const sections: Section[] = [
     { id: "made-in-africa", name: MADE_IN_AFRICA.name, href: MADE_IN_AFRICA_HREF, row: <MadeInAfricaStrip seed={seed} bare /> },
@@ -34,15 +32,6 @@ export function CategorySections({ seed, top, studios }: { seed: number; top: Pr
     // By studio (Ika, 2026-10-31).
     ...(studios.length ? [{ id: "studios", name: "By studio", row: <StudioStrip rows={studios} /> }] : []),
     { id: "epk", name: epk.title, row: <EpkLanes category={epk} bare /> },
-    {
-      id: "top",
-      name: "Top 10 on Explore",
-      row: (
-        <Suspense fallback={<Skeleton className="h-96 rounded-xl" />}>
-          <TopTen top={top} />
-        </Suspense>
-      ),
-    },
   ];
   const [open, setOpen] = useState(() => new Set(sections.map((s) => s.id)));
   const toggle = (id: string, on: boolean) =>

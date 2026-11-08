@@ -529,3 +529,6 @@ onboarding's Import profile and Follow creators describe features removed in the
   comes with paid plans" with See plans (`TimelineLocked`). Paid checks share `hasPaidAccess()`
   (`src/lib/plan-server.ts`; a paid plan on any workspace they belong to; open to all off the
   live site), also used by Cast & Crew's View all.
+- (2026-11-08) Explore's order (Ika): Explore all, then Top 10 on Explore, then Recently added
+  (15 titles, the rest on View all at `/explore/recent`, newest first with the day each was
+  added; `GALLERY_SIZE` in `recent.ts`), then By category. Top 10 left By category.

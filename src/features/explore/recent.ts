@@ -20,11 +20,19 @@ export const recentlyAddedToday = (): Added[] => recentlyAdded(Date.now());
 /** The most recent additions whatever their age, newest first: the gallery's fallback. */
 export const latestAdded = (count = 20): Added[] => allAdded().toSorted((a, b) => b.added.localeCompare(a.added)).slice(0, count);
 
-/** What the top of Explore shows (Ika, 2026-10-29): this week's additions, or the latest 20. */
-export function galleryForToday(): { items: Added[]; thisWeek: boolean } {
+/** How many the top of Explore shows (Ika, 2026-11-08); the rest are on View all. */
+export const GALLERY_SIZE = 15;
+
+/** What the top of Explore shows (Ika, 2026-10-29): this week's additions, or the latest ones,
+ * at most GALLERY_SIZE; `more` when View all (/explore/recent) has others. */
+export function galleryForToday(): { items: Added[]; thisWeek: boolean; more: boolean } {
   const week = recentlyAddedToday();
-  return week.length ? { items: week, thisWeek: true } : { items: latestAdded(), thisWeek: false };
+  const list = week.length ? week : latestAdded(GALLERY_SIZE);
+  return { items: list.slice(0, GALLERY_SIZE), thisWeek: week.length > 0, more: allAdded().length > GALLERY_SIZE };
 }
+
+/** Everything given an `added` day, newest first: Recently added's View all. */
+export const everyAddition = (): Added[] => latestAdded(Infinity);
 
 /** What joined Explore in the week before `now`, newest first, with the day each joined. */
 export function recentlyAdded(now: number): Added[] {

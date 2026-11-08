@@ -1,7 +1,11 @@
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 import { DriftColumns } from "@/components/nia/drift-columns";
 import { dayLabel } from "@/components/nia/new-marker";
@@ -11,6 +15,7 @@ import type { Added } from "@/features/explore/recent";
 import { CategorySections } from "./explore-categories";
 import type { StudioRow } from "@/features/explore/studios";
 import { ExploreCard } from "./title-card";
+import { TopTen } from "./top-ten";
 
 // How far each of the five columns slides as the pointer moves down the grid (EXPLORE_SPEC.md),
 // in pixels between the top and bottom of the grid. Odd columns also sit higher.
@@ -20,7 +25,7 @@ const ODD_OFFSET = -60;
 // Explore, the library: Ika's Claude Design "ExploreLibrary" as designed (layout, motion, images),
 // in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts. The
 // rows under By category come in a new order on each visit (`seed`, Ika 2026-10-22).
-export function ExploreLibrary({ seed, gallery, top, studios }: { seed: number; gallery: { items: Added[]; thisWeek: boolean }; top: Promise<string[]>; studios: StudioRow[] }) {
+export function ExploreLibrary({ seed, gallery, top, studios }: { seed: number; gallery: { items: Added[]; thisWeek: boolean; more: boolean }; top: Promise<string[]>; studios: StudioRow[] }) {
   const items = gallery.items.flatMap(({ slug, added }) => {
     const item = exploreItem(slug);
     return item ? [{ item, added }] : [];
@@ -39,17 +44,39 @@ export function ExploreLibrary({ seed, gallery, top, studios }: { seed: number; 
         </Link>
       </h1>
 
-      {/* The gallery is what's new (Ika, 2026-10-29): this week's additions, or the latest 20.
-          Headings carry no count or explaining line (Ika, 2026-10-30). */}
-      <section aria-labelledby="recently-added" className="mt-7">
-        <h2 id="recently-added" className="text-subtitle font-semibold text-foreground">
-          Recently added on Explore
+      {/* Top 10 first, then what's new (Ika, 2026-11-08). Headings carry no count or explaining
+          line (Ika, 2026-10-30). */}
+      <section aria-labelledby="top-ten" className="mt-7">
+        <h2 id="top-ten" className="text-subtitle font-semibold text-foreground">
+          Top 10 on Explore
         </h2>
+        <div className="mt-6">
+          <Suspense fallback={<Skeleton className="h-96 rounded-xl" />}>
+            <TopTen top={top} />
+          </Suspense>
+        </div>
+      </section>
+
+      {/* This week's additions, or the latest ones: 15 here, the rest on View all. */}
+      <section aria-labelledby="recently-added" className="mt-14">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="recently-added" className="text-subtitle font-semibold text-foreground">
+            Recently added on Explore
+          </h2>
+          {gallery.more && (
+            <Button variant="outline" asChild>
+              <Link href="/explore/recent">
+                View all
+                <ArrowRight aria-hidden data-icon="inline-end" />
+              </Link>
+            </Button>
+          )}
+        </div>
         <RecentGallery items={items} />
       </section>
 
       {/* Every category under a heading that shows or hides it (Ika, 2026-10-29). */}
-      <CategorySections seed={seed} top={top} studios={studios} />
+      <CategorySections seed={seed} studios={studios} />
     </div>
   );
 }
