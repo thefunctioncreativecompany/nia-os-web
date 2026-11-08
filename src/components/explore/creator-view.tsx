@@ -16,16 +16,20 @@ import { CreditsViewAll } from "./credits-view-all";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { recognizeAspect } from "@/lib/aspect-ratios";
 import {
-  CREATORS_HREF,
+  accountName,
+  accountUrl,
   creatorFilms,
   creatorImage,
+  CREATORS_HREF,
   creatorYear,
   creditName,
-  instagramEmbed,
-  instagramUrl,
+  onYouTube,
+  platformName,
   playerAspect,
+  playerUrl,
   profileUrl,
   type CreatorFilm,
+  watchUrl,
 } from "@/features/explore/creators";
 import { exploreItem } from "@/features/explore/items";
 import { similarItems } from "@/features/explore/match";
@@ -92,22 +96,23 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
               // 54 px higher and runs on below, clipped. (Measured 2026-10-22.) A film on black bars
               // inside a taller post also moves up by its top bar, so only the picture shows.
               <iframe
-                src={instagramEmbed(film)}
-                title={`${film.title}, on Instagram`}
+                src={playerUrl(film)}
+                title={`${film.title}, on ${platformName(film)}`}
                 allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 scrolling="no"
-                className="absolute inset-x-0 -top-13.5 h-[calc(100%+--spacing(13.5)+--spacing(60))] w-full bg-foreground"
-                style={letterbox(film)}
+                // YouTube's player is the film alone; Instagram's needs its bars cropped (above).
+                className={cn("absolute inset-x-0 w-full bg-foreground", onYouTube(film) ? "inset-y-0 h-full" : "-top-13.5 h-[calc(100%+--spacing(13.5)+--spacing(60))]")}
+                style={onYouTube(film) ? undefined : letterbox(film)}
               />
             ) : film.embeds === false ? (
               // Instagram won't play this post on other sites, so the cover links to it there.
               <a
-                href={instagramUrl(film)}
+                href={watchUrl(film)}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Watch ${film.title} on Instagram`}
+                aria-label={`Watch ${film.title} on ${platformName(film)}`}
                 className="group absolute inset-0 flex items-end justify-center pb-6 outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset"
               >
                 <Image src={creatorImage(film)} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" quality={90} className={cn("object-cover", film.sensitive && "scale-110 blur-2xl")} />
@@ -120,14 +125,14 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
                   </span>
                 )}
                 <span className="relative flex items-center gap-2 rounded-full bg-card/90 px-5 py-3 text-sm font-bold text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:scale-100!">
-                  Watch on Instagram <ArrowUpRight aria-hidden className="size-4" />
+                  Watch on {platformName(film)} <ArrowUpRight aria-hidden className="size-4" />
                 </span>
               </a>
             ) : (
               <button
                 type="button"
                 onClick={() => setPlaying(true)}
-                aria-label={`Play ${film.title}, from Instagram`}
+                aria-label={`Play ${film.title}, from ${platformName(film)}`}
                 className="group absolute inset-0 flex items-center justify-center outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset"
               >
                 <Image src={creatorImage(film)} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" quality={90} className="object-cover" />
@@ -138,11 +143,11 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
             )}
           </div>
           <p className="-mt-3 text-caption text-muted-foreground">
-            {film.embeds === false ? "On Instagram" : "Plays from Instagram"}, posted by{" "}
-            <a href={profileUrl(film.account)} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
-              @{film.account}
+            {film.embeds === false ? `On ${platformName(film)}` : `Plays from ${platformName(film)}`}, posted by{" "}
+            <a href={accountUrl(film)} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-foreground">
+              {accountName(film)}
             </a>
-            . Credits from the post&rsquo;s caption. <CreatorCredit className="-my-1.5 align-middle" />
+            . Credits from the {onYouTube(film) ? "video\u2019s description" : "post\u2019s caption"}. <CreatorCredit className="-my-1.5 align-middle" />
           </p>
 
           <div className="flex flex-col gap-3">
@@ -165,7 +170,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
               {row("Type", film.type)}
               {row("Frame", aspectLabel(film.aspect))}
               {film.brand && row("Brand", film.brand)}
-              {row("Posted by", <Handle handle={film.account} />)}
+              {row("Posted by", <a href={accountUrl(film)} target="_blank" rel="noopener noreferrer" className="underline-offset-2 hover:text-foreground hover:underline">{accountName(film)}<span className="sr-only"> on {platformName(film)} (opens in a new tab)</span></a>)}
               {row("Posted", date)}
               {film.country && row("Country", film.country)}
               {film.credits.length >= 3 && row("Crew credited", `${film.credits.length} people`)}
@@ -174,8 +179,8 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
             </dl>
             <div className="flex flex-wrap gap-2.5 pt-2">
               <Button variant="outline" size="md" asChild>
-                <a href={instagramUrl(film)} target="_blank" rel="noopener noreferrer">
-                  View on Instagram
+                <a href={watchUrl(film)} target="_blank" rel="noopener noreferrer">
+                  View on {platformName(film)}
                   <ArrowUpRight aria-hidden data-icon="inline-end" />
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
@@ -245,13 +250,4 @@ function letterbox(film: CreatorFilm): React.CSSProperties | undefined {
 function aspectLabel(aspect: number) {
   const r = recognizeAspect(aspect);
   return r.standard ? `${r.label} · ${r.standard.name}` : r.label;
-}
-
-function Handle({ handle }: { handle: string }) {
-  return (
-    <a href={profileUrl(handle)} target="_blank" rel="noopener noreferrer" className="underline-offset-2 hover:text-foreground hover:underline">
-      @{handle}
-      <span className="sr-only"> on Instagram (opens in a new tab)</span>
-    </a>
-  );
 }

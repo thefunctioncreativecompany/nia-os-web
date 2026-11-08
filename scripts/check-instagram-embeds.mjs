@@ -13,7 +13,10 @@ const { default: puppeteer } = await import("puppeteer-core").catch(() => {
 });
 
 const source = fs.readFileSync("src/features/explore/creators.ts", "utf8");
-const all = [...source.matchAll(/^ {4}code: "([\w-]+)",\n(\s+embeds: false,)?/gm)].map((m) => ({ code: m[1], marked: Boolean(m[2]) }));
+// YouTube films (`platform: "youtube"` right after the code) play in YouTube's player: skipped.
+const all = [...source.matchAll(/^ {4}code: "([\w-]+)",\n(\s+platform: "youtube",)?(\s+embeds: false,)?/gm)]
+  .filter((m) => !m[2])
+  .map((m) => ({ code: m[1], marked: Boolean(m[3]) }));
 const wanted = process.argv.slice(2);
 const films = wanted.length ? all.filter((f) => wanted.includes(f.code)) : all;
 

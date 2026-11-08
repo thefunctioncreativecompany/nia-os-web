@@ -271,4 +271,11 @@ export const HAND_TAGS: Record<string, string[]> = {
   "creator-DfIn6wKoL5S": ["food-drink", "home", "night", "ai-shots", "spec-ad", "product-shots", "low-key", "tense", "darkly-comic", "playful", "genre-blend", "one-person", "social-first"],
   "creator-DfYfBSOyq8m": ["music", "ai-shots", "vfx", "women", "close-ups", "low-key", "tense", "dreamlike", "tutorial", "teaser", "online-culture", "one-person", "social-first"],
   "creator-Dc87fcDxZi5": ["fashion", "women", "crime", "close-ups", "costume", "set-design", "colour-grade", "bold", "darkly-comic", "playful", "brand-story", "portfolio", "social-first"],
+  "creator-TD941Yvolfk": ["music", "crime", "money", "love", "youth", "ensemble", "celebrity", "city-streets", "colour-grade", "tense", "bold", "genre-blend", "music-release"],
+  "creator-o7FR_DznP-M": ["music", "identity", "youth", "community", "family", "close-ups", "intimate", "bold", "raw", "nostalgic", "celebrity", "collab", "music-release"],
+  "creator-j_1siQpXGxI": ["music", "identity", "water", "wide-vistas", "golden-hour", "costume", "colour-grade", "calm", "dreamlike", "bold", "celebrity", "collab", "music-release"],
+  "creator-x3VO99wZp8g": ["music", "youth", "community", "ensemble", "interiors", "handheld", "close-ups", "raw", "energetic", "bold", "music-release", "series-promo", "social-first"],
+  "creator-0o6_b9dPyEI": ["music", "fashion", "eyewear", "youth", "ensemble", "interiors", "set-design", "low-key", "bold", "energetic", "music-release", "series-promo", "social-first"],
+  "creator-5gUJH8W0lSk": ["music", "community", "youth", "family", "city-streets", "handheld", "raw", "joyful", "street-casting", "non-actors", "music-release", "series-promo", "social-first"],
+  "creator-exVA-qeZQ0w": ["music", "youth", "community", "city-streets", "ensemble", "handheld", "close-ups", "energetic", "joyful", "raw", "street-casting", "music-release", "series-promo", "social-first"],
 };

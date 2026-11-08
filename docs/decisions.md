@@ -535,3 +535,11 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-08) Top 10 on Explore is laid out like the Top 10 press kits (Ika): one still row, 1 to
   10 left to right, arrows at the edges; each card at its film's shape with the rank top right
   (the cover on hover is gone).
+- (2026-11-08) Creator films from YouTube (Ika's list): `platform: "youtube"` in `creators.ts`
+  (code = the video id, `account` = the channel id, `channel` = its name). They play in YouTube's
+  privacy-enhanced player (youtube-nocookie, on Play only), the page says "Plays from YouTube" and
+  credits come from the video's description. Seven added (Maglera Doe Boy's Mzansi: The Movie,
+  God Is Power and POVO; Leaders of the Wav's Drop Mic episodes 1, 2, 3 and 5). The embed checker
+  skips them. Bugonia (Focus Features' trailer) is a studio feature, so it joins Explore as a title
+  instead. 24 Instagram creator films added the same day; Strong Black Lead's A Different World
+  clip held back (a streamer's clip, not creator content).

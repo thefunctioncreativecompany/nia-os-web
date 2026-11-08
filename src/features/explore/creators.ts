@@ -10,8 +10,12 @@ import type { ProductionType } from "@/lib/projects";
 export type Credit = { role: string; name: string; handle?: string };
 
 export type CreatorFilm = {
-  /** Its Instagram reel code, which is also its address on Nia. */
+  /** Its Instagram reel code (or YouTube video id), which is also its address on Nia. */
   code: string;
+  /** Where it's posted: Instagram unless "youtube" (Ika, 2026-11-08). A YouTube film plays in
+   * YouTube's privacy-enhanced player; `account` is then its channel id and `channel` its name. */
+  platform?: "youtube";
+  channel?: string;
   slug: string;
   title: string;
   type: ProductionType;
@@ -1963,6 +1967,145 @@ const FILMS: Omit<CreatorFilm, "slug">[] = [
       c("Production assistant", "jackorenza", "jackorenza"),
     ],
   },
+  // From YouTube (Ika's list, 2026-11-08): they play in YouTube's privacy-enhanced player.
+  {
+    code: "TD941Yvolfk",
+    platform: "youtube",
+    channel: "Maglera Doe Boy",
+    aspect: 2.11,
+    frame: 16 / 9,
+    title: "Mzansi: The Movie, part 1",
+    type: "Short Film",
+    account: "UCHm6rIKnCfrTBTnMzQNkOrQ",
+    brand: null,
+    date: "2026-11-03",
+    added: "2026-11-08",
+    country: "South Africa",
+    summary: "Maglera Doe Boy's music film: Doe, a young hustler from Klerksdorp whose crew moves goods across Southern Africa, until a romance with the wrong woman puts it all at risk. With the songs Izinja 2.0 and BPM.",
+    credits: [
+      c("Director", "Brian Chaze"),
+      c("Director", "Maglera Doe Boy", "magleradoeboy"),
+      c("Starring", "Maglera Doe Boy", "magleradoeboy"),
+      c("Starring", "25K"),
+      c("Starring", "Ason"),
+      c("Starring", "Material Don Dada"),
+      c("Starring", "Young Stunna"),
+      c("Starring", "Sir Trill"),
+      c("Starring", "Money Mike"),
+    ],
+  },
+  {
+    code: "o7FR_DznP-M",
+    platform: "youtube",
+    channel: "Maglera Doe Boy",
+    aspect: 16 / 9,
+    title: "Maglera Doe Boy & ONDELIVE: God Is Power",
+    type: "Music Video",
+    account: "UCHm6rIKnCfrTBTnMzQNkOrQ",
+    brand: null,
+    date: "2025-08-03",
+    added: "2026-11-08",
+    country: "South Africa",
+    summary: "Maglera Doe Boy and ONDELIVE's official video for God Is Power, featuring Burningforestboy, from Maglera Tapes.",
+    credits: [
+      c("Artist", "Maglera Doe Boy", "magleradoeboy"),
+      c("Artist", "ONDELIVE", "ondelive__"),
+      c("Featuring", "Burningforestboy"),
+      c("Label", "Epic Records"),
+    ],
+  },
+  {
+    code: "j_1siQpXGxI",
+    platform: "youtube",
+    channel: "MagleraDoeBoyVEVO",
+    aspect: 1.68,
+    title: "Maglera Doe Boy: POVO",
+    type: "Music Video",
+    account: "UC9OTWiRf-5es3nqFtPLHSZg",
+    brand: null,
+    date: "2024-01-31",
+    added: "2026-11-08",
+    country: "South Africa",
+    summary: "Maglera Doe Boy's official video for POVO, featuring 25K and Ason.",
+    credits: [
+      c("Artist", "Maglera Doe Boy", "magleradoeboy"),
+      c("Featuring", "25K"),
+      c("Featuring", "Ason"),
+      c("Label", "Universal Music South Africa"),
+    ],
+  },
+  {
+    code: "x3VO99wZp8g",
+    platform: "youtube",
+    channel: "Leaders of the Wav",
+    aspect: 1.54,
+    title: "GXTHESTALLION: Da Truth (Drop Mic, episode 5)",
+    type: "Music Video",
+    account: "UCYod0zONv-LPqkAH6oZpBtg",
+    brand: null,
+    date: "2026-11-08",
+    added: "2026-11-08",
+    country: null,
+    summary: "Episode 5 of Leaders of the Wav's Drop Mic sessions: GXTHESTALLION performs Da Truth, from GXTHEPAVILLION, in one room with his crew.",
+    credits: [
+      c("Artist", "GXTHESTALLION"),
+      c("Production", "Leaders of the Wav"),
+    ],
+  },
+  {
+    code: "0o6_b9dPyEI",
+    platform: "youtube",
+    channel: "Leaders of the Wav",
+    aspect: 16 / 9,
+    title: "JAYKATANA: Wicked (Drop Mic, episode 3)",
+    type: "Music Video",
+    account: "UCYod0zONv-LPqkAH6oZpBtg",
+    brand: null,
+    date: "2026-04-11",
+    added: "2026-11-08",
+    country: null,
+    summary: "Episode 3 of Leaders of the Wav's Drop Mic sessions: JAYKATANA performs Wicked, from Heaven Made, in a store stamped wall to wall with the album's name.",
+    credits: [
+      c("Artist", "JAYKATANA"),
+      c("Production", "Leaders of the Wav"),
+    ],
+  },
+  {
+    code: "5gUJH8W0lSk",
+    platform: "youtube",
+    channel: "Leaders of the Wav",
+    aspect: 1.54,
+    title: "BROTHERKUPA: Pop My Shit (Drop Mic, episode 2)",
+    type: "Music Video",
+    account: "UCYod0zONv-LPqkAH6oZpBtg",
+    brand: null,
+    date: "2026-03-13",
+    added: "2026-11-08",
+    country: null,
+    summary: "Episode 2 of Leaders of the Wav's Drop Mic sessions: BROTHERKUPA performs Pop My Shit on his own street, with the neighbourhood's kids and neighbours around him.",
+    credits: [
+      c("Artist", "BROTHERKUPA"),
+      c("Production", "Leaders of the Wav"),
+    ],
+  },
+  {
+    code: "exVA-qeZQ0w",
+    platform: "youtube",
+    channel: "Leaders of the Wav",
+    aspect: 16 / 9,
+    title: "JUSTIN99: Hola Mamacita (Drop Mic, episode 1)",
+    type: "Music Video",
+    account: "UCYod0zONv-LPqkAH6oZpBtg",
+    brand: null,
+    date: "2026-03-06",
+    added: "2026-11-08",
+    country: null,
+    summary: "Episode 1 of Leaders of the Wav's Drop Mic sessions: JUSTIN99 performs Hola Mamacita in the street, a crowd around the mic.",
+    credits: [
+      c("Artist", "JUSTIN99"),
+      c("Production", "Leaders of the Wav"),
+    ],
+  },
 ];
 
 export const CREATORS = {
@@ -1982,10 +2125,23 @@ export const CREATORS_HREF = "/explore/creators";
 export const creatorHref = (f: CreatorFilm, from?: "all" | "library") => `/explore/creator/${f.code}${from ? `?from=${from}` : ""}`;
 export const creatorImage = (f: CreatorFilm) => `/explore/creators/${f.code}.jpg`;
 export const instagramUrl = (f: CreatorFilm) => `https://www.instagram.com/reel/${f.code}/`;
+export const onYouTube = (f: CreatorFilm) => f.platform === "youtube";
+/** "Instagram" or "YouTube". */
+export const platformName = (f: CreatorFilm) => (onYouTube(f) ? "YouTube" : "Instagram");
+/** The film on its own site. */
+export const watchUrl = (f: CreatorFilm) => (onYouTube(f) ? `https://www.youtube.com/watch?v=${f.code}` : instagramUrl(f));
+/** Who posted it, on their own site. */
+export const accountUrl = (f: CreatorFilm) => (onYouTube(f) ? `https://www.youtube.com/channel/${f.account}` : profileUrl(f.account));
+/** Who posted it, as shown: "@handle", or a YouTube channel's name. */
+export const accountName = (f: CreatorFilm) => (onYouTube(f) ? (f.channel ?? f.account) : `@${f.account}`);
+/** The player, loaded only when Play is pressed: Instagram's, or YouTube's privacy-enhanced one. */
+export const playerUrl = (f: CreatorFilm) =>
+  onYouTube(f) ? `https://www.youtube-nocookie.com/embed/${f.code}?autoplay=1&rel=0&playsinline=1` : instagramEmbed(f);
 export const profileUrl = (handle: string) => `https://www.instagram.com/${handle}/`;
 /** Instagram's player shows a vertical reel cropped to 4:5 (measured 2026-10-22), so a vertical
- * film's play window is 4:5 while its cards keep its true 9:16. */
-export const playerAspect = (f: CreatorFilm) => (f.frame ? f.aspect : Math.max(f.aspect, 4 / 5));
+ * film's play window is 4:5 while its cards keep its true 9:16. YouTube plays the whole upload,
+ * so its window is the upload's shape (`frame` when the film is letterboxed inside it). */
+export const playerAspect = (f: CreatorFilm) => (onYouTube(f) ? (f.frame ?? f.aspect) : f.frame ? f.aspect : Math.max(f.aspect, 4 / 5));
 /** Instagram's own player, loaded only when Play is pressed. */
 export const instagramEmbed = (f: CreatorFilm) => `https://www.instagram.com/reel/${f.code}/embed/`;
 /** A credit's name as shown: an @handle when the caption gave only the handle. */
