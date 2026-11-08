@@ -29,6 +29,8 @@ type RawTitle = {
   /** Why someone starting out in the industry should know it (Hollywood Classics' essentials). */
   essential?: string;
   imdb_id?: string;
+  /** Who suggested it for Explore (Ika, 2026-11-08: Mbali and Paballo's lists), for a credit to come. */
+  suggested_by?: string;
   pinned_season?: number;
   videos?: RawVideo[];
   seasons?: { number: number; label?: string; year?: number; episode_count?: number; videos?: RawVideo[] }[];
@@ -58,6 +60,8 @@ export const coverFor = (slug: string): string | null =>
       : null;
 /** The cover is a still from the official trailer, standing in for the poster. */
 export const isTrailerStill = (slug: string) => !COVERS.has(slug) && slug in STILLS;
+/** What the stand-in still is from: "trailer", or the studio's own "clip" or "promo". */
+export const stillKind = (slug: string) => (STILLS[slug] as { kind?: string } | undefined)?.kind ?? "trailer";
 
 // Written out in full so Tailwind finds each class name in the code.
 const GRAINS = [
@@ -124,6 +128,11 @@ export const MADE_IN_AFRICA = raw.categories.find((c) => c.slug === "made-in-afr
 /** Hollywood Classics (Ika, 2026-10-29): 30 defining films, 1939 to 1979, in release order. */
 export const HOLLYWOOD_CLASSICS = raw.categories.find((c) => c.slug === "hollywood-classics")!;
 export const hollywoodClassics: Entry[] = ENTRIES.filter((e) => e.category === "hollywood-classics").toSorted((a, b) => (a.title.year ?? 0) - (b.title.year ?? 0));
+/** Greatest TV (Ika approved the category, 2026-10-30; first titles 2026-11-08): series worth
+ * studying, in release order. */
+export const GREATEST_TV = raw.categories.find((c) => c.slug === "greatest-tv")!;
+export const greatestTv: Entry[] = ENTRIES.filter((e) => e.category === "greatest-tv").toSorted((a, b) => (a.title.year ?? 0) - (b.title.year ?? 0));
+export const GREATEST_TV_HREF = "/explore/greatest-tv";
 /** The titles in the same category as this one, for "You may also like". */
 export const sameCategory = (entry: Entry): Entry[] => ENTRIES.filter((e) => e.category === entry.category);
 
@@ -170,7 +179,7 @@ export const YEAR_RANGE = { min: Math.min(...years), max: Math.max(...years) };
 export const essentialWhy = new Map((raw.titles as RawTitle[]).flatMap((t) => (t.essential ? [[t.slug, t.essential] as const] : [])));
 
 // Each category's View all: its titles, collections and the filter choices they have.
-export type CategoryKey = "made-in-africa" | "hollywood-classics";
+export type CategoryKey = "made-in-africa" | "hollywood-classics" | "greatest-tv";
 export type CategoryView = {
   slug: CategoryKey;
   name: string;
@@ -185,7 +194,7 @@ export type CategoryView = {
 };
 function viewOf(slug: CategoryKey, href: string): CategoryView {
   const meta = raw.categories.find((c) => c.slug === slug)!;
-  const entries = slug === "hollywood-classics" ? hollywoodClassics : madeInAfrica;
+  const entries = slug === "hollywood-classics" ? hollywoodClassics : slug === "greatest-tv" ? greatestTv : madeInAfrica;
   const yrs = entries.map((e) => e.title.year).filter((y): y is number => y !== null);
   return {
     slug,
@@ -204,6 +213,7 @@ export const HOLLYWOOD_CLASSICS_HREF = "/explore/hollywood-classics";
 export const categoryViews: Record<CategoryKey, CategoryView> = {
   "made-in-africa": viewOf("made-in-africa", "/explore/made-in-africa"),
   "hollywood-classics": viewOf("hollywood-classics", HOLLYWOOD_CLASSICS_HREF),
+  "greatest-tv": viewOf("greatest-tv", GREATEST_TV_HREF),
 };
 
 /** "Directed by" for films, "Created by" for series. */

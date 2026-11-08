@@ -28,6 +28,8 @@ const CHOSEN = {
   "rocky": [1, 0.4], "the-godfather-part-ii": [2, 0.72], "back-to-the-future": [3, 0.5],
   "die-hard": [3, 0.42], "pulp-fiction": [2, 0.55], "the-shawshank-redemption": [2, 0.5],
   "toy-story": [1, 0.45], "titanic": [2, 0.4], "the-blair-witch-project": [3, 0.5],
+  // 2026-11-08 (Mbali, Paballo and Ika's titles)
+  "harry-potter-and-the-philosophers-stone": [3, 0.5], "harry-potter-and-the-chamber-of-secrets": [3, 0.38], "harry-potter-and-the-prisoner-of-azkaban": [3, 0.42], "harry-potter-and-the-goblet-of-fire": [2, 0.4], "harry-potter-and-the-order-of-the-phoenix": [2, 0.5], "harry-potter-and-the-half-blood-prince": [1, 0.35], "harry-potter-and-the-deathly-hallows-part-1": [1, 0.45], "harry-potter-and-the-deathly-hallows-part-2": [2, 0.55], "27-dresses": [1, 0.32], "13-going-on-30": [3, 0.5], "baps": [2, 0.5], "charlies-angels": [1, 0.45], "matilda": [1, 0.52], "chicago": [2, 0.5], "nanny-mcphee": [2, 0.52], "bugonia": [2, 0.5], "tenzing": [3, 0.5], "modern-family": [1, 0.36], "love-thy-neighbor": [1, 0.45], "the-last-days-of-ptolemy-grey": [1, 0.45], "ancestral-visions-of-the-future": [1, 0.55],
 };
 
 // The black bars above and below the picture, in pixels, so the cover can be cropped to the
@@ -54,9 +56,11 @@ async function bars(url) {
 const out = {};
 for (const t of data.titles) {
   if (posters.has(t.slug)) continue;
-  const trailer = (t.videos ?? []).find((v) => v.provider === "youtube" && v.kind === "trailer" && v.is_primary) ?? (t.videos ?? []).find((v) => v.provider === "youtube" && v.kind === "trailer");
+  // The official trailer, else the studio's or network's own clip or promo (2026-11-08).
+  const yt = (t.videos ?? []).filter((v) => v.provider === "youtube");
+  const trailer = yt.find((v) => v.kind === "trailer" && v.is_primary) ?? yt.find((v) => v.kind === "trailer") ?? yt.find((v) => v.is_primary);
   if (!trailer) {
-    console.log(`${t.slug}: no official trailer`);
+    console.log(`${t.slug}: no official video`);
     continue;
   }
   const [frame, x] = CHOSEN[t.slug] ?? [];
@@ -66,7 +70,7 @@ for (const t of data.titles) {
   }
   const size = `maxres${frame}`;
   const cut = await bars(`https://i.ytimg.com/vi/${trailer.video_id}/${size}.jpg`);
-  if (cut) out[t.slug] = { id: trailer.video_id, size, top: cut.top, bottom: cut.bottom, x };
+  if (cut) out[t.slug] = { id: trailer.video_id, size, top: cut.top, bottom: cut.bottom, x, ...(trailer.kind === "trailer" ? {} : { kind: trailer.kind }) };
   if (!out[t.slug]) console.log(`${t.slug}: no frames for ${trailer.video_id}, keeps waiting`);
 }
 fs.writeFileSync("src/features/explore/trailer-stills.json", JSON.stringify(out, null, 1) + "\n");

@@ -84,6 +84,93 @@
    }
   ]
  },
+ "13-going-on-30": {
+  "qid": "Q224187",
+  "people": [
+   {
+    "id": "Q172044",
+    "role": "Cast",
+    "character": "Jenna Rink"
+   },
+   {
+    "id": "Q236189",
+    "role": "Cast",
+    "character": "Lucy \"Tom-Tom\" Wyman"
+   },
+   {
+    "id": "Q41422",
+    "role": "Cast",
+    "character": "Matty Flamhaff"
+   },
+   {
+    "id": "Q206922",
+    "role": "Cast",
+    "character": "Richard Kneeland"
+   },
+   {
+    "id": "Q236250",
+    "role": "Cast",
+    "character": "Beverly Rink"
+   },
+   {
+    "id": "Q259064",
+    "role": "Cast",
+    "character": "young Jenna"
+   },
+   {
+    "id": "Q267522",
+    "role": "Cast",
+    "character": "Becky"
+   },
+   {
+    "id": "Q290103",
+    "role": "Cast",
+    "character": "Gina"
+   },
+   {
+    "id": "Q233237",
+    "role": "Cast",
+    "character": "Wendy"
+   },
+   {
+    "id": "Q3978226",
+    "role": "Cast",
+    "character": "Tracy Hansen"
+   },
+   {
+    "id": "Q439979",
+    "role": "Cast"
+   },
+   {
+    "id": "Q922952",
+    "role": "Cast"
+   },
+   {
+    "id": "Q924621",
+    "role": "Director"
+   },
+   {
+    "id": "Q3185966",
+    "role": "Writer"
+   },
+   {
+    "id": "Q131462278",
+    "role": "Producer"
+   },
+   {
+    "id": "Q484980",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q7648118",
+    "role": "Editor"
+   },
+   {
+    "id": "Q1513322",
+    "role": "Music"
+   }
+  ]
+ },
  "2001-a-space-odyssey": {
   "qid": "Q103474",
   "people": [
@@ -175,6 +262,79 @@
    }
   ]
  },
+ "27-dresses": {
+  "qid": "Q220154",
+  "people": [
+   {
+    "id": "Q189554",
+    "role": "Cast"
+   },
+   {
+    "id": "Q485901",
+    "role": "Cast"
+   },
+   {
+    "id": "Q229669",
+    "role": "Cast"
+   },
+   {
+    "id": "Q314485",
+    "role": "Cast"
+   },
+   {
+    "id": "Q236189",
+    "role": "Cast"
+   },
+   {
+    "id": "Q662186",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3703139",
+    "role": "Cast"
+   },
+   {
+    "id": "Q258793",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1338610",
+    "role": "Cast"
+   },
+   {
+    "id": "Q269901",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1928662",
+    "role": "Cast"
+   },
+   {
+    "id": "Q242557",
+    "role": "Director"
+   },
+   {
+    "id": "Q511934",
+    "role": "Writer"
+   },
+   {
+    "id": "Q3758467",
+    "role": "Producer"
+   },
+   {
+    "id": "Q2076005",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q2110901",
+    "role": "Editor"
+   },
+   {
+    "id": "Q954231",
+    "role": "Music"
+   }
+  ]
+ },
  "a-raisin-in-the-sun": {
   "qid": "Q1304498",
   "people": [
@@ -240,6 +400,51 @@
    },
    {
     "id": "Q732252",
+    "role": "Music"
+   }
+  ]
+ },
+ "abouna": {
+  "qid": "Q3192690",
+  "people": [
+   {
+    "id": "Q1154316",
+    "role": "Cast"
+   },
+   {
+    "id": "Q109637052",
+    "role": "Cast"
+   },
+   {
+    "id": "Q109497158",
+    "role": "Cast"
+   },
+   {
+    "id": "Q109637253",
+    "role": "Cast"
+   },
+   {
+    "id": "Q109637338",
+    "role": "Cast"
+   },
+   {
+    "id": "Q109637362",
+    "role": "Cast"
+   },
+   {
+    "id": "Q109636947",
+    "role": "Cast"
+   },
+   {
+    "id": "Q109637392",
+    "role": "Cast"
+   },
+   {
+    "id": "Q725722",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q334947",
     "role": "Music"
    }
   ]
@@ -322,6 +527,23 @@
    {
     "id": "Q586320",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "american-housewife": {
+  "qid": "Q24192303",
+  "people": [
+   {
+    "id": "Q465571",
+    "role": "Cast"
+   },
+   {
+    "id": "Q449947",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16832136",
+    "role": "Cast"
    }
   ]
  },
@@ -411,6 +633,15 @@
    {
     "id": "Q922527",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "ancestral-visions-of-the-future": {
+  "qid": "Q131986177",
+  "people": [
+   {
+    "id": "Q74760199",
+    "role": "Director"
    }
   ]
  },
@@ -804,6 +1035,67 @@
    {
     "id": "Q113655302",
     "role": "Director"
+   }
+  ]
+ },
+ "baps": {
+  "qid": "Q690167",
+  "people": [
+   {
+    "id": "Q1033016",
+    "role": "Cast"
+   },
+   {
+    "id": "Q294641",
+    "role": "Cast"
+   },
+   {
+    "id": "Q363691",
+    "role": "Cast"
+   },
+   {
+    "id": "Q176323",
+    "role": "Cast"
+   },
+   {
+    "id": "Q52440",
+    "role": "Cast"
+   },
+   {
+    "id": "Q155449",
+    "role": "Cast"
+   },
+   {
+    "id": "Q201608",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1818918",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1306231",
+    "role": "Cast, Writer"
+   },
+   {
+    "id": "Q194032",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2159005",
+    "role": "Director"
+   },
+   {
+    "id": "Q3294017",
+    "role": "Producer"
+   },
+   {
+    "id": "Q124618256",
+    "role": "Editor"
+   },
+   {
+    "id": "Q453406",
+    "role": "Music"
    }
   ]
  },
@@ -1364,6 +1656,59 @@
    }
   ]
  },
+ "bugonia": {
+  "qid": "Q125971387",
+  "people": [
+   {
+    "id": "Q1138674",
+    "role": "Cast"
+   },
+   {
+    "id": "Q199945",
+    "role": "Cast"
+   },
+   {
+    "id": "Q135456821",
+    "role": "Cast"
+   },
+   {
+    "id": "Q111366943",
+    "role": "Cast"
+   },
+   {
+    "id": "Q975410",
+    "role": "Director"
+   },
+   {
+    "id": "Q115493607",
+    "role": "Writer"
+   },
+   {
+    "id": "Q54864392",
+    "role": "Producer"
+   },
+   {
+    "id": "Q22075469",
+    "role": "Producer"
+   },
+   {
+    "id": "Q16747326",
+    "role": "Producer"
+   },
+   {
+    "id": "Q27057753",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q60922953",
+    "role": "Editor"
+   },
+   {
+    "id": "Q120896583",
+    "role": "Music"
+   }
+  ]
+ },
  "cabin-in-the-sky": {
   "qid": "Q1024839",
   "people": [
@@ -1691,6 +2036,195 @@
    },
    {
     "id": "Q922527",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "charlies-angels": {
+  "qid": "Q229599",
+  "people": [
+   {
+    "id": "Q44380",
+    "role": "Cast",
+    "character": "Natalie Cook"
+   },
+   {
+    "id": "Q676094",
+    "role": "Cast, Producer",
+    "character": "Dylan Sanders"
+   },
+   {
+    "id": "Q188375",
+    "role": "Cast",
+    "character": "Alex Munday"
+   },
+   {
+    "id": "Q29250",
+    "role": "Cast",
+    "character": "John Bosley"
+   },
+   {
+    "id": "Q316446",
+    "role": "Cast"
+   },
+   {
+    "id": "Q242523",
+    "role": "Cast"
+   },
+   {
+    "id": "Q310060",
+    "role": "Cast"
+   },
+   {
+    "id": "Q52392",
+    "role": "Cast"
+   },
+   {
+    "id": "Q107769",
+    "role": "Cast"
+   },
+   {
+    "id": "Q186896",
+    "role": "Cast"
+   },
+   {
+    "id": "Q52440",
+    "role": "Cast"
+   },
+   {
+    "id": "Q315826",
+    "role": "Cast"
+   },
+   {
+    "id": "Q385058",
+    "role": "Director"
+   },
+   {
+    "id": "Q513402",
+    "role": "Writer"
+   },
+   {
+    "id": "Q543697",
+    "role": "Writer"
+   },
+   {
+    "id": "Q722519",
+    "role": "Producer"
+   },
+   {
+    "id": "Q3335584",
+    "role": "Producer"
+   },
+   {
+    "id": "Q497075",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q7976751",
+    "role": "Editor"
+   },
+   {
+    "id": "Q496207",
+    "role": "Music"
+   }
+  ]
+ },
+ "chicago": {
+  "qid": "Q189889",
+  "people": [
+   {
+    "id": "Q122614",
+    "role": "Cast",
+    "character": "Roxie Hart"
+   },
+   {
+    "id": "Q47664",
+    "role": "Cast",
+    "character": "Velma Kelly"
+   },
+   {
+    "id": "Q48410",
+    "role": "Cast",
+    "character": "Billy Flynn"
+   },
+   {
+    "id": "Q1112005",
+    "role": "Cast"
+   },
+   {
+    "id": "Q223110",
+    "role": "Cast"
+   },
+   {
+    "id": "Q188375",
+    "role": "Cast"
+   },
+   {
+    "id": "Q449679",
+    "role": "Cast"
+   },
+   {
+    "id": "Q229134",
+    "role": "Cast"
+   },
+   {
+    "id": "Q534006",
+    "role": "Cast"
+   },
+   {
+    "id": "Q462955",
+    "role": "Cast"
+   },
+   {
+    "id": "Q313020",
+    "role": "Cast"
+   },
+   {
+    "id": "Q233736",
+    "role": "Cast"
+   },
+   {
+    "id": "Q353501",
+    "role": "Director"
+   },
+   {
+    "id": "Q361336",
+    "role": "Writer"
+   },
+   {
+    "id": "Q2261833",
+    "role": "Producer"
+   },
+   {
+    "id": "Q888311",
+    "role": "Producer"
+   },
+   {
+    "id": "Q531599",
+    "role": "Producer"
+   },
+   {
+    "id": "Q5119320",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1226913",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q974615",
+    "role": "Editor"
+   },
+   {
+    "id": "Q193338",
+    "role": "Music"
+   },
+   {
+    "id": "Q1685876",
+    "role": "Music"
+   },
+   {
+    "id": "Q258156",
     "role": "Costume Designer"
    }
   ]
@@ -4352,6 +4886,23 @@
    }
   ]
  },
+ "girlfriends": {
+  "qid": "Q1526781",
+  "people": [
+   {
+    "id": "Q534371",
+    "role": "Cast"
+   },
+   {
+    "id": "Q15459938",
+    "role": "Creator"
+   },
+   {
+    "id": "Q241660",
+    "role": "Music"
+   }
+  ]
+ },
  "gone-with-the-wind": {
   "qid": "Q2875",
   "people": [
@@ -4491,6 +5042,811 @@
    {
     "id": "Q79351454",
     "role": "Producer"
+   }
+  ]
+ },
+ "half-and-half": {
+  "qid": "Q2758375",
+  "people": [
+   {
+    "id": "Q433154",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1990727",
+    "role": "Cast"
+   },
+   {
+    "id": "Q5096407",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3553484",
+    "role": "Cast"
+   },
+   {
+    "id": "Q510713",
+    "role": "Cast"
+   },
+   {
+    "id": "Q272896",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6176102",
+    "role": "Creator"
+   }
+  ]
+ },
+ "harry-potter-and-the-chamber-of-secrets": {
+  "qid": "Q102244",
+  "people": [
+   {
+    "id": "Q38119",
+    "role": "Cast",
+    "character": "Harry Potter"
+   },
+   {
+    "id": "Q108270",
+    "role": "Cast",
+    "character": "Filius Flitwick"
+   },
+   {
+    "id": "Q19190",
+    "role": "Cast",
+    "character": "Ron Weasley"
+   },
+   {
+    "id": "Q39476",
+    "role": "Cast",
+    "character": "Hermione Granger"
+   },
+   {
+    "id": "Q55294",
+    "role": "Cast",
+    "character": "Gilderoy Lockhart"
+   },
+   {
+    "id": "Q106481",
+    "role": "Cast",
+    "character": "Severus Snape"
+   },
+   {
+    "id": "Q73612",
+    "role": "Cast",
+    "character": "Petunia Dursley"
+   },
+   {
+    "id": "Q228747",
+    "role": "Cast",
+    "character": "Molly Weasley"
+   },
+   {
+    "id": "Q296008",
+    "role": "Cast",
+    "character": "Rubeus Hagrid"
+   },
+   {
+    "id": "Q314831",
+    "role": "Cast",
+    "character": "Vernon Dursley"
+   },
+   {
+    "id": "Q214223",
+    "role": "Cast",
+    "character": "Lucius Malfoy"
+   },
+   {
+    "id": "Q75079",
+    "role": "Director"
+   },
+   {
+    "id": "Q362061",
+    "role": "Writer"
+   },
+   {
+    "id": "Q34660",
+    "role": "Writer"
+   },
+   {
+    "id": "Q319986",
+    "role": "Producer"
+   },
+   {
+    "id": "Q132112",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q977704",
+    "role": "Editor"
+   },
+   {
+    "id": "Q131285",
+    "role": "Music"
+   },
+   {
+    "id": "Q979511",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q291686",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "harry-potter-and-the-deathly-hallows-part-1": {
+  "qid": "Q161678",
+  "people": [
+   {
+    "id": "Q38119",
+    "role": "Cast",
+    "character": "Harry Potter"
+   },
+   {
+    "id": "Q28493",
+    "role": "Cast",
+    "character": "Lord Voldemort"
+   },
+   {
+    "id": "Q170428",
+    "role": "Cast",
+    "character": "Bellatrix Lestrange"
+   },
+   {
+    "id": "Q105682",
+    "role": "Cast",
+    "character": "Draco Malfoy"
+   },
+   {
+    "id": "Q214223",
+    "role": "Cast",
+    "character": "Lucius Malfoy"
+   },
+   {
+    "id": "Q231310",
+    "role": "Cast",
+    "character": "Narcissa Malfoy"
+   },
+   {
+    "id": "Q215017",
+    "role": "Cast",
+    "character": "Xenophilius Lovegood"
+   },
+   {
+    "id": "Q211730",
+    "role": "Cast",
+    "character": "Luna Lovegood"
+   },
+   {
+    "id": "Q343463",
+    "role": "Cast",
+    "character": "Arthur Weasley"
+   },
+   {
+    "id": "Q228747",
+    "role": "Cast",
+    "character": "Molly Weasley"
+   },
+   {
+    "id": "Q105466",
+    "role": "Cast",
+    "character": "Ginny Weasley"
+   },
+   {
+    "id": "Q312988",
+    "role": "Director"
+   },
+   {
+    "id": "Q362061",
+    "role": "Writer"
+   },
+   {
+    "id": "Q975579",
+    "role": "Producer"
+   },
+   {
+    "id": "Q319986",
+    "role": "Producer"
+   },
+   {
+    "id": "Q34660",
+    "role": "Producer"
+   },
+   {
+    "id": "Q707484",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q368197",
+    "role": "Editor"
+   },
+   {
+    "id": "Q313362",
+    "role": "Music"
+   },
+   {
+    "id": "Q979511",
+    "role": "Production Designer"
+   }
+  ]
+ },
+ "harry-potter-and-the-deathly-hallows-part-2": {
+  "qid": "Q232009",
+  "people": [
+   {
+    "id": "Q38119",
+    "role": "Cast",
+    "character": "Harry Potter"
+   },
+   {
+    "id": "Q19190",
+    "role": "Cast",
+    "character": "Ron Weasley"
+   },
+   {
+    "id": "Q39476",
+    "role": "Cast",
+    "character": "Hermione Granger"
+   },
+   {
+    "id": "Q28493",
+    "role": "Cast",
+    "character": "Lord Voldemort"
+   },
+   {
+    "id": "Q203545",
+    "role": "Cast",
+    "character": "Albus Dumbledore"
+   },
+   {
+    "id": "Q106481",
+    "role": "Cast",
+    "character": "Severus Snape"
+   },
+   {
+    "id": "Q170428",
+    "role": "Cast",
+    "character": "Bellatrix Lestrange"
+   },
+   {
+    "id": "Q105682",
+    "role": "Cast",
+    "character": "Draco Malfoy"
+   },
+   {
+    "id": "Q214223",
+    "role": "Cast",
+    "character": "Lucius Malfoy"
+   },
+   {
+    "id": "Q231310",
+    "role": "Cast",
+    "character": "Narcissa Malfoy"
+   },
+   {
+    "id": "Q111230",
+    "role": "Cast",
+    "character": "Neville Longbottom"
+   },
+   {
+    "id": "Q312988",
+    "role": "Director"
+   },
+   {
+    "id": "Q362061",
+    "role": "Writer"
+   },
+   {
+    "id": "Q319986",
+    "role": "Producer"
+   },
+   {
+    "id": "Q975579",
+    "role": "Producer"
+   },
+   {
+    "id": "Q34660",
+    "role": "Producer"
+   },
+   {
+    "id": "Q707484",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q368197",
+    "role": "Editor"
+   },
+   {
+    "id": "Q313362",
+    "role": "Music"
+   },
+   {
+    "id": "Q979511",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q18655504",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "harry-potter-and-the-goblet-of-fire": {
+  "qid": "Q102225",
+  "people": [
+   {
+    "id": "Q38119",
+    "role": "Cast",
+    "character": "Harry Potter"
+   },
+   {
+    "id": "Q19190",
+    "role": "Cast",
+    "character": "Ron Weasley"
+   },
+   {
+    "id": "Q39476",
+    "role": "Cast",
+    "character": "Hermione Granger"
+   },
+   {
+    "id": "Q296008",
+    "role": "Cast",
+    "character": "Rubeus Hagrid"
+   },
+   {
+    "id": "Q28493",
+    "role": "Cast",
+    "character": "Lord Voldemort"
+   },
+   {
+    "id": "Q203545",
+    "role": "Cast",
+    "character": "Albus Dumbledore"
+   },
+   {
+    "id": "Q206659",
+    "role": "Cast",
+    "character": "Alastor Moody"
+   },
+   {
+    "id": "Q214223",
+    "role": "Cast",
+    "character": "Lucius Malfoy"
+   },
+   {
+    "id": "Q83492",
+    "role": "Cast",
+    "character": "Sirius Black"
+   },
+   {
+    "id": "Q106481",
+    "role": "Cast",
+    "character": "Severus Snape"
+   },
+   {
+    "id": "Q287824",
+    "role": "Cast",
+    "character": "Peter Pettigrew"
+   },
+   {
+    "id": "Q312088",
+    "role": "Director"
+   },
+   {
+    "id": "Q362061",
+    "role": "Writer"
+   },
+   {
+    "id": "Q319986",
+    "role": "Producer"
+   },
+   {
+    "id": "Q132112",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q975418",
+    "role": "Editor"
+   },
+   {
+    "id": "Q363241",
+    "role": "Music"
+   },
+   {
+    "id": "Q979511",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q18655504",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "harry-potter-and-the-half-blood-prince": {
+  "qid": "Q161687",
+  "people": [
+   {
+    "id": "Q19190",
+    "role": "Cast",
+    "character": "Ron Weasley"
+   },
+   {
+    "id": "Q39476",
+    "role": "Cast",
+    "character": "Hermione Granger"
+   },
+   {
+    "id": "Q203545",
+    "role": "Cast",
+    "character": "Albus Dumbledore"
+   },
+   {
+    "id": "Q185079",
+    "role": "Cast",
+    "character": "Horace Slughorn"
+   },
+   {
+    "id": "Q105682",
+    "role": "Cast",
+    "character": "Draco Malfoy"
+   },
+   {
+    "id": "Q106481",
+    "role": "Cast",
+    "character": "Severus Snape"
+   },
+   {
+    "id": "Q105466",
+    "role": "Cast",
+    "character": "Ginny Weasley"
+   },
+   {
+    "id": "Q211730",
+    "role": "Cast",
+    "character": "Luna Lovegood"
+   },
+   {
+    "id": "Q233439",
+    "role": "Cast",
+    "character": "Lavender Brown"
+   },
+   {
+    "id": "Q170428",
+    "role": "Cast",
+    "character": "Bellatrix Lestrange"
+   },
+   {
+    "id": "Q111230",
+    "role": "Cast",
+    "character": "Neville Longbottom"
+   },
+   {
+    "id": "Q312988",
+    "role": "Director"
+   },
+   {
+    "id": "Q362061",
+    "role": "Writer"
+   },
+   {
+    "id": "Q319986",
+    "role": "Producer"
+   },
+   {
+    "id": "Q975579",
+    "role": "Producer"
+   },
+   {
+    "id": "Q993210",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q368197",
+    "role": "Editor"
+   },
+   {
+    "id": "Q521288",
+    "role": "Music"
+   },
+   {
+    "id": "Q979511",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q18655504",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "harry-potter-and-the-order-of-the-phoenix": {
+  "qid": "Q102235",
+  "people": [
+   {
+    "id": "Q38119",
+    "role": "Cast",
+    "character": "Harry Potter"
+   },
+   {
+    "id": "Q19190",
+    "role": "Cast",
+    "character": "Ron Weasley"
+   },
+   {
+    "id": "Q39476",
+    "role": "Cast",
+    "character": "Hermione Granger"
+   },
+   {
+    "id": "Q170428",
+    "role": "Cast",
+    "character": "Bellatrix Lestrange"
+   },
+   {
+    "id": "Q296008",
+    "role": "Cast",
+    "character": "Rubeus Hagrid"
+   },
+   {
+    "id": "Q108270",
+    "role": "Cast",
+    "character": "Filius Flitwick"
+   },
+   {
+    "id": "Q28493",
+    "role": "Cast",
+    "character": "Lord Voldemort"
+   },
+   {
+    "id": "Q203545",
+    "role": "Cast",
+    "character": "Albus Dumbledore"
+   },
+   {
+    "id": "Q206659",
+    "role": "Cast",
+    "character": "Alastor Moody"
+   },
+   {
+    "id": "Q314831",
+    "role": "Cast",
+    "character": "Vernon Dursley"
+   },
+   {
+    "id": "Q214223",
+    "role": "Cast",
+    "character": "Lucius Malfoy"
+   },
+   {
+    "id": "Q83492",
+    "role": "Cast",
+    "character": "Sirius Black"
+   },
+   {
+    "id": "Q312988",
+    "role": "Creator, Director"
+   },
+   {
+    "id": "Q643461",
+    "role": "Writer"
+   },
+   {
+    "id": "Q319986",
+    "role": "Producer"
+   },
+   {
+    "id": "Q975579",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1347598",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q368197",
+    "role": "Editor"
+   },
+   {
+    "id": "Q521288",
+    "role": "Music"
+   },
+   {
+    "id": "Q979511",
+    "role": "Production Designer"
+   }
+  ]
+ },
+ "harry-potter-and-the-philosophers-stone": {
+  "qid": "Q102438",
+  "people": [
+   {
+    "id": "Q38119",
+    "role": "Cast",
+    "character": "Harry Potter"
+   },
+   {
+    "id": "Q19190",
+    "role": "Cast",
+    "character": "Ron Weasley"
+   },
+   {
+    "id": "Q39476",
+    "role": "Cast",
+    "character": "Hermione Granger"
+   },
+   {
+    "id": "Q25014",
+    "role": "Cast",
+    "character": "Nearly Headless Nick"
+   },
+   {
+    "id": "Q296008",
+    "role": "Cast",
+    "character": "Rubeus Hagrid"
+   },
+   {
+    "id": "Q108270",
+    "role": "Cast",
+    "character": "Filius Flitwick"
+   },
+   {
+    "id": "Q314831",
+    "role": "Cast",
+    "character": "Vernon Dursley"
+   },
+   {
+    "id": "Q200405",
+    "role": "Cast",
+    "character": "Garrick Ollivander"
+   },
+   {
+    "id": "Q106481",
+    "role": "Cast",
+    "character": "Severus Snape"
+   },
+   {
+    "id": "Q73612",
+    "role": "Cast",
+    "character": "Petunia Dursley"
+   },
+   {
+    "id": "Q75079",
+    "role": "Director"
+   },
+   {
+    "id": "Q362061",
+    "role": "Writer"
+   },
+   {
+    "id": "Q34660",
+    "role": "Writer"
+   },
+   {
+    "id": "Q319986",
+    "role": "Producer"
+   },
+   {
+    "id": "Q918558",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1969707",
+    "role": "Editor"
+   },
+   {
+    "id": "Q131285",
+    "role": "Music"
+   },
+   {
+    "id": "Q979511",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q3187958",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "harry-potter-and-the-prisoner-of-azkaban": {
+  "qid": "Q102448",
+  "people": [
+   {
+    "id": "Q38119",
+    "role": "Cast",
+    "character": "Harry Potter"
+   },
+   {
+    "id": "Q19190",
+    "role": "Cast",
+    "character": "Ron Weasley"
+   },
+   {
+    "id": "Q39476",
+    "role": "Cast",
+    "character": "Hermione Granger"
+   },
+   {
+    "id": "Q296008",
+    "role": "Cast",
+    "character": "Rubeus Hagrid"
+   },
+   {
+    "id": "Q203545",
+    "role": "Cast",
+    "character": "Albus Dumbledore"
+   },
+   {
+    "id": "Q314831",
+    "role": "Cast",
+    "character": "Vernon Dursley"
+   },
+   {
+    "id": "Q83492",
+    "role": "Cast",
+    "character": "Sirius Black"
+   },
+   {
+    "id": "Q106481",
+    "role": "Cast",
+    "character": "Severus Snape"
+   },
+   {
+    "id": "Q73612",
+    "role": "Cast",
+    "character": "Petunia Dursley"
+   },
+   {
+    "id": "Q287824",
+    "role": "Cast",
+    "character": "Peter Pettigrew"
+   },
+   {
+    "id": "Q212790",
+    "role": "Cast",
+    "character": "Remus Lupin"
+   },
+   {
+    "id": "Q28028",
+    "role": "Director"
+   },
+   {
+    "id": "Q362061",
+    "role": "Writer"
+   },
+   {
+    "id": "Q34660",
+    "role": "Writer"
+   },
+   {
+    "id": "Q319986",
+    "role": "Producer"
+   },
+   {
+    "id": "Q75079",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1900360",
+    "role": "Producer"
+   },
+   {
+    "id": "Q487382",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q49023",
+    "role": "Editor"
+   },
+   {
+    "id": "Q131285",
+    "role": "Music"
+   },
+   {
+    "id": "Q979511",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q18655504",
+    "role": "Costume Designer"
    }
   ]
  },
@@ -5916,6 +7272,73 @@
    }
   ]
  },
+ "lie-to-me": {
+  "qid": "Q25182",
+  "people": [
+   {
+    "id": "Q203804",
+    "role": "Cast"
+   },
+   {
+    "id": "Q234661",
+    "role": "Cast"
+   },
+   {
+    "id": "Q716142",
+    "role": "Cast",
+    "character": "Eli Loker"
+   },
+   {
+    "id": "Q271772",
+    "role": "Cast",
+    "character": "Ria Torres"
+   },
+   {
+    "id": "Q259129",
+    "role": "Cast"
+   },
+   {
+    "id": "Q119676",
+    "role": "Cast"
+   },
+   {
+    "id": "Q788586",
+    "role": "Cast"
+   },
+   {
+    "id": "Q320973",
+    "role": "Cast"
+   },
+   {
+    "id": "Q380180",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2597",
+    "role": "Cast"
+   },
+   {
+    "id": "Q4761430",
+    "role": "Cast"
+   },
+   {
+    "id": "Q763546",
+    "role": "Cast"
+   },
+   {
+    "id": "Q106548544",
+    "role": "Creator"
+   },
+   {
+    "id": "Q320025",
+    "role": "Producer"
+   },
+   {
+    "id": "Q2156920",
+    "role": "Music"
+   }
+  ]
+ },
  "lilies-of-the-field": {
   "qid": "Q334735",
   "people": [
@@ -5992,6 +7415,15 @@
    {
     "id": "Q101566803",
     "role": "Writer, Producer"
+   }
+  ]
+ },
+ "love-thy-neighbor": {
+  "qid": "Q6691429",
+  "people": [
+   {
+    "id": "Q686301",
+    "role": "Creator"
    }
   ]
  },
@@ -6101,6 +7533,155 @@
    }
   ]
  },
+ "martin": {
+  "qid": "Q3295320",
+  "people": [
+   {
+    "id": "Q264960",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3696444",
+    "role": "Cast"
+   },
+   {
+    "id": "Q7792446",
+    "role": "Cast"
+   },
+   {
+    "id": "Q456894",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1319770",
+    "role": "Cast"
+   },
+   {
+    "id": "Q110621068",
+    "role": "Creator"
+   },
+   {
+    "id": "Q183542",
+    "role": "Creator"
+   },
+   {
+    "id": "Q52198937",
+    "role": "Creator"
+   },
+   {
+    "id": "Q19661752",
+    "role": "Music"
+   },
+   {
+    "id": "Q600816",
+    "role": "Music"
+   }
+  ]
+ },
+ "matilda": {
+  "qid": "Q280400",
+  "people": [
+   {
+    "id": "Q234058",
+    "role": "Cast"
+   },
+   {
+    "id": "Q260622",
+    "role": "Cast",
+    "character": "Jenny  Honey"
+   },
+   {
+    "id": "Q234071",
+    "role": "Cast",
+    "character": "Madame Legourdin"
+   },
+   {
+    "id": "Q237270",
+    "role": "Cast",
+    "character": "Tilda Wormwood"
+   },
+   {
+    "id": "Q26806",
+    "role": "Cast, Director, Producer"
+   },
+   {
+    "id": "Q2393710",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3808429",
+    "role": "Cast"
+   },
+   {
+    "id": "Q720581",
+    "role": "Cast"
+   },
+   {
+    "id": "Q296524",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1366460",
+    "role": "Cast"
+   },
+   {
+    "id": "Q7273573",
+    "role": "Cast"
+   },
+   {
+    "id": "Q325070",
+    "role": "Cast"
+   },
+   {
+    "id": "Q187720",
+    "role": "Writer"
+   },
+   {
+    "id": "Q299563",
+    "role": "Writer"
+   },
+   {
+    "id": "Q2325642",
+    "role": "Producer"
+   },
+   {
+    "id": "Q25161",
+    "role": "Producer"
+   },
+   {
+    "id": "Q13409484",
+    "role": "Producer"
+   },
+   {
+    "id": "Q64009025",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1796276",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1878909",
+    "role": "Editor"
+   },
+   {
+    "id": "Q4961590",
+    "role": "Editor"
+   },
+   {
+    "id": "Q952428",
+    "role": "Music"
+   },
+   {
+    "id": "Q130217128",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q130217068",
+    "role": "Costume Designer"
+   }
+  ]
+ },
  "mildred-pierce": {
   "qid": "Q979726",
   "people": [
@@ -6199,6 +7780,74 @@
    }
   ]
  },
+ "modern-family": {
+  "qid": "Q16756",
+  "people": [
+   {
+    "id": "Q248179",
+    "role": "Cast",
+    "character": "Phil Dunphy"
+   },
+   {
+    "id": "Q233085",
+    "role": "Cast",
+    "character": "Haley Dunphy"
+   },
+   {
+    "id": "Q455781",
+    "role": "Cast",
+    "character": "Mitchell Pritchett"
+   },
+   {
+    "id": "Q16758",
+    "role": "Cast",
+    "character": "Jay Pritchett"
+   },
+   {
+    "id": "Q40248",
+    "role": "Cast",
+    "character": "Claire Dunphy"
+   },
+   {
+    "id": "Q26378",
+    "role": "Cast",
+    "character": "Alex Dunphy"
+   },
+   {
+    "id": "Q552085",
+    "role": "Cast",
+    "character": "Luke Dunphy"
+   },
+   {
+    "id": "Q552090",
+    "role": "Cast",
+    "character": "Manny Delgado"
+   },
+   {
+    "id": "Q13409858",
+    "role": "Cast",
+    "character": "Lily Tucker-Pritchett"
+   },
+   {
+    "id": "Q27656430",
+    "role": "Cast",
+    "character": "Joe Pritchett"
+   },
+   {
+    "id": "Q508043",
+    "role": "Cast",
+    "character": "Cameron Tucker"
+   },
+   {
+    "id": "Q983238",
+    "role": "Creator, Producer"
+   },
+   {
+    "id": "Q542414",
+    "role": "Creator"
+   }
+  ]
+ },
  "modern-times": {
   "qid": "Q45602",
   "people": [
@@ -6261,6 +7910,67 @@
    {
     "id": "Q598772",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "monk": {
+  "qid": "Q189068",
+  "people": [
+   {
+    "id": "Q107249",
+    "role": "Cast, Producer",
+    "character": "Adrian Monk"
+   },
+   {
+    "id": "Q93530",
+    "role": "Cast",
+    "character": "Sharona Fleming"
+   },
+   {
+    "id": "Q235534",
+    "role": "Cast",
+    "character": "Natalie Teeger"
+   },
+   {
+    "id": "Q918321",
+    "role": "Cast",
+    "character": "Randy Disher"
+   },
+   {
+    "id": "Q433520",
+    "role": "Cast",
+    "character": "Leland Stottlemeyer"
+   },
+   {
+    "id": "Q1390865",
+    "role": "Cast",
+    "character": "Charles Kroger"
+   },
+   {
+    "id": "Q268929",
+    "role": "Cast",
+    "character": "Julie Teeger"
+   },
+   {
+    "id": "Q269901",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3162786",
+    "role": "Cast"
+   },
+   {
+    "id": "Q365721",
+    "role": "Cast",
+    "character": "Harold Krenshaw"
+   },
+   {
+    "id": "Q525458",
+    "role": "Creator"
+   },
+   {
+    "id": "Q454188",
+    "role": "Music"
    }
   ]
  },
@@ -6414,6 +8124,83 @@
    },
    {
     "id": "Q317033",
+    "role": "Music"
+   }
+  ]
+ },
+ "nanny-mcphee": {
+  "qid": "Q523249",
+  "people": [
+   {
+    "id": "Q162492",
+    "role": "Cast"
+   },
+   {
+    "id": "Q230383",
+    "role": "Cast"
+   },
+   {
+    "id": "Q256164",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3897723",
+    "role": "Cast"
+   },
+   {
+    "id": "Q467502",
+    "role": "Cast"
+   },
+   {
+    "id": "Q234798",
+    "role": "Cast"
+   },
+   {
+    "id": "Q312531",
+    "role": "Cast"
+   },
+   {
+    "id": "Q206856",
+    "role": "Cast"
+   },
+   {
+    "id": "Q168724",
+    "role": "Cast, Writer"
+   },
+   {
+    "id": "Q240955",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3930208",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3786306",
+    "role": "Cast"
+   },
+   {
+    "id": "Q636003",
+    "role": "Director"
+   },
+   {
+    "id": "Q3301306",
+    "role": "Writer"
+   },
+   {
+    "id": "Q1473065",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1351291",
+    "role": "Producer"
+   },
+   {
+    "id": "Q24075284",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q363241",
     "role": "Music"
    }
   ]
@@ -6897,6 +8684,19 @@
    {
     "id": "Q560865",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "one-on-one": {
+  "qid": "Q3352691",
+  "people": [
+   {
+    "id": "Q82488",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3183501",
+    "role": "Music"
    }
   ]
  },
@@ -9001,6 +10801,62 @@
    }
   ]
  },
+ "tenzing": {
+  "qid": "Q134386482",
+  "people": [
+   {
+    "id": "Q295803",
+    "role": "Cast",
+    "character": "Edmund Hillary"
+   },
+   {
+    "id": "Q188772",
+    "role": "Cast",
+    "character": "John Hunt, Baron Hunt"
+   },
+   {
+    "id": "Q2933352",
+    "role": "Cast"
+   },
+   {
+    "id": "Q140985920",
+    "role": "Cast",
+    "character": "Tenzing Norgay"
+   },
+   {
+    "id": "Q22279616",
+    "role": "Director"
+   },
+   {
+    "id": "Q3267059",
+    "role": "Writer"
+   },
+   {
+    "id": "Q6660328",
+    "role": "Producer"
+   },
+   {
+    "id": "Q15808023",
+    "role": "Producer"
+   },
+   {
+    "id": "Q2514268",
+    "role": "Producer"
+   },
+   {
+    "id": "Q65548792",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q111168283",
+    "role": "Editor"
+   },
+   {
+    "id": "Q1781068",
+    "role": "Music"
+   }
+  ]
+ },
  "the-adventures-of-robin-hood": {
   "qid": "Q201234",
   "people": [
@@ -9909,6 +11765,19 @@
   "qid": "Q132888532",
   "people": []
  },
+ "the-house-is-black": {
+  "qid": "Q1168890",
+  "people": [
+   {
+    "id": "Q2746271",
+    "role": "Cast"
+   },
+   {
+    "id": "Q464394",
+    "role": "Cast, Director, Writer"
+   }
+  ]
+ },
  "the-joe-louis-story": {
   "qid": "Q7743335",
   "people": [
@@ -10009,6 +11878,10 @@
     "role": "Music"
    }
   ]
+ },
+ "the-last-days-of-ptolemy-grey": {
+  "qid": "Q106652253",
+  "people": []
  },
  "the-maltese-falcon": {
   "qid": "Q221462",
@@ -10715,6 +12588,85 @@
    {
     "id": "Q462905",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "the-sound-of-music": {
+  "qid": "Q60072",
+  "people": [
+   {
+    "id": "Q161819",
+    "role": "Cast",
+    "character": "Maria von Trapp"
+   },
+   {
+    "id": "Q190523",
+    "role": "Cast",
+    "character": "Georg von Trapp"
+   },
+   {
+    "id": "Q862263",
+    "role": "Cast"
+   },
+   {
+    "id": "Q237399",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1355379",
+    "role": "Cast"
+   },
+   {
+    "id": "Q266520",
+    "role": "Cast"
+   },
+   {
+    "id": "Q266445",
+    "role": "Cast"
+   },
+   {
+    "id": "Q441899",
+    "role": "Cast"
+   },
+   {
+    "id": "Q460474",
+    "role": "Cast"
+   },
+   {
+    "id": "Q524325",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3037066",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2895601",
+    "role": "Cast"
+   },
+   {
+    "id": "Q59821",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q1356427",
+    "role": "Writer"
+   },
+   {
+    "id": "Q2399809",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q920439",
+    "role": "Editor"
+   },
+   {
+    "id": "Q269094",
+    "role": "Music"
+   },
+   {
+    "id": "Q436530",
+    "role": "Costume Designer"
    }
   ]
  },

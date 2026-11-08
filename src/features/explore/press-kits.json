@@ -31,6 +31,125 @@
   "cinemaRelease": true,
   "imdb": "tt0050083"
  },
+ "13-going-on-30": {
+  "videos": [
+   {
+    "id": "5UrCaXLBN30",
+    "kind": "Official trailer",
+    "title": "13 Going on 30 (2004) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "JOdROZiXcy4",
+    "kind": "Cast interview",
+    "title": "Jennifer Garner & Mark Ruffalo Recast 13 Going on 30 | Screen Test | Netflix",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "wzKYuAPRKgM",
+    "kind": "Cast interview",
+    "title": "'13 Going on 30' cast shares advice for today’s teens",
+    "channel": "TODAY"
+   },
+   {
+    "id": "1KRwsjEOpag",
+    "kind": "Cast interview",
+    "title": "13 Going on 30: FLASKBACK to Jennifer Garner and Mark Ruffalo’s Interviews From 2004! | E! News",
+    "channel": "E! News"
+   },
+   {
+    "id": "fSa-9m0sZJ8",
+    "kind": "Cast interview",
+    "title": "‘13 Going on 30,’ ‘Mean Girls,’ and ‘Game of Thrones’?! This Cast’s Résumé Is ICONIC!",
+    "channel": "Jennifer Hudson Show"
+   },
+   {
+    "id": "am44stZqONE",
+    "kind": "Cast interview",
+    "title": "A Blast From Interviews Past: “13 Going on 30”: Rewind | E! News",
+    "channel": "E! News"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "13 Going on 30 – Movie Review",
+    "href": "https://ew.com/article/2004/04/22/13-going-30-2/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "13 Going On 30",
+    "href": "https://variety.com/2004/film/reviews/13-going-on-30-1200534072/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Boston Globe",
+    "title": "'13 Going on 30' has growing pains",
+    "href": "https://web.archive.org/web/20090221115248/http://www.boston.com/movies/display?display=movie&id=3323",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "LA Weekly",
+    "title": "Thirteen Things I Learned Watching 13 Going on 30",
+    "href": "https://www.laweekly.com/thirteen-things-i-learned-watching-13-going-on-30/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "13 Going On 30 (2004) FILM REVIEW; Freaky Future: An Awkward Teenager Finds Herself Fast-Forwarded to Adulthood",
+    "href": "https://movies.nytimes.com/movie/review?res=950CE1DE143AF930A15757C0A9629C8B63",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "MovieWeb",
+    "title": "Studio Briefing: May 11th, 2004",
+    "href": "https://movieweb.com/studio-briefing-may-11th-2004/"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "Getting what you wish for can be dangerous -- especially if you adore Rick Springfield",
+    "href": "https://www.sfgate.com/movies/article/Getting-what-you-wish-for-can-be-dangerous-2765213.php"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0337563"
+ },
+ "27-dresses": {
+  "videos": [
+   {
+    "id": "N2iL3wgEwn8",
+    "kind": "Cast interview",
+    "title": "The Cast Of '27 Dresses' On The 'Benny And The Jets' Karaoke Scene | PeopleTV | Entertainment Weekly",
+    "channel": "Entertainment Weekly"
+   },
+   {
+    "id": "LlMMVSrUEGQ",
+    "kind": "Cast interview",
+    "title": "’27 Dresses’ Star Katherine Heigl’s Best Moments On TODAY | TODAY Originals",
+    "channel": "TODAY"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Toronto Star",
+    "title": "'27 Dresses': Comedy left at the altar",
+    "href": "https://www.thestar.com/entertainment/movies/2008/01/18/27_dresses_comedy_left_at_the_altar.html",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Guardian",
+    "title": "27 Dresses",
+    "href": "https://www.theguardian.com/film/2008/mar/28/comedy.romance"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0988595"
+ },
  "a-raisin-in-the-sun": {
   "videos": [
    {
@@ -168,6 +287,30 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt0043278"
+ },
+ "ancestral-visions-of-the-future": {
+  "videos": [
+   {
+    "id": "MyDvpWTtAyg",
+    "kind": "Filmmaker interview",
+    "title": "Lemohang Jeremiah Mosese interview on Ancestral Visions of the Future at Berlin Festival 2025",
+    "channel": "The Upcoming"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Berliner Festspiele",
+    "title": "Ancestral Visions of the Future / Pageantry of Wailing",
+    "href": "https://www.berlinerfestspiele.de/en/programm/2023/performing-exiles-start/spielplan-performing-exiles/ancestral-visions-of-the-future--pageantry-of-wailing"
+   },
+   {
+    "outlet": "Screen Global Production",
+    "title": "Berlinale's World Cinema Fund backs 10 projects including 'Aisha Can't Fly Away'",
+    "href": "https://www.screenglobalproduction.com/news/2024/07/24/berlin-world-cinema-fund-movie-backing"
+   }
+  ],
+  "imdb": "tt33037725"
  },
  "anikulapo": {
   "videos": [
@@ -424,6 +567,44 @@
   "cinemaRelease": true,
   "imdb": "tt26256406"
  },
+ "baps": {
+  "videos": [
+   {
+    "id": "ZFa4AfJpXyg",
+    "kind": "Filmmaker interview",
+    "title": "Robert Townsend Says Cardi B & Megan Thee Stallion Asked To Star In ‘B.A.P.S.’ Remake",
+    "channel": "AllHipHopTV"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Washington Post",
+    "title": "BAPS",
+    "href": "https://www.washingtonpost.com/wp-srv/style/longterm/movies/videos/baps.htm",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Chicago Reader",
+    "title": "B.A.P.S",
+    "href": "https://www.chicagoreader.com/chicago/baps/Film?oid=1061133",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Ebert's Most Hated – Roger Ebert's Journal",
+    "href": "https://www.rogerebert.com/rogers-journal/eberts-most-hated"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Trashy Chic Goes West And Finds Rodeo Drive",
+    "href": "https://www.nytimes.com/1997/03/28/movies/trashy-chic-goes-west-and-finds-rodeo-drive.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0118663"
+ },
  "ben-hur": {
   "videos": [],
   "reviews": [
@@ -653,6 +834,75 @@
   "cinemaRelease": true,
   "imdb": "tt0029947"
  },
+ "bugonia": {
+  "videos": [
+   {
+    "id": "7VBigr-JHB0",
+    "kind": "Official trailer",
+    "title": "BUGONIA - Official Trailer 2 [HD] - In Select Theaters October 24, Everywhere October 31",
+    "channel": "Focus Features"
+   },
+   {
+    "id": "_p4BCpJ44Qg",
+    "kind": "Teaser",
+    "title": "BUGONIA - Official Teaser Trailer [HD] - Only in Theaters October",
+    "channel": "Focus Features"
+   },
+   {
+    "id": "OJ0P8dHmZLI",
+    "kind": "Cast interview",
+    "title": "Bugonia Interview with Emma Stone & Jesse Plemons",
+    "channel": "AMC Theatres"
+   },
+   {
+    "id": "uNW9jlG0WPs",
+    "kind": "Cast interview",
+    "title": "Stars and director of 'Bugonia' chat with Today | Today Show Australia",
+    "channel": "TODAY"
+   },
+   {
+    "id": "QiuxZ1ovNQ8",
+    "kind": "Filmmaker interview",
+    "title": "Director Yorgos Lanthimos Exploring the World of Bugonia Through VistaVision | 60 Second Film School",
+    "channel": "Focus Features"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Bugonia Review: Emma Stone and Jesse Plemons Battle Over Doomed Humanity in Yorgos Lanthimos' Loopy Dark Comedy About Our Planet in Peril",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/bugonia-review-emma-stone-jesse-plemons-yorgos-lanthimos-1236355544/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'Bugonia' Review: Emma Stone and Jesse Plemons Descend into a Riveting Duel in Yorgos Lanthimos's Scaldingly Topical Kidnap Thriller",
+    "href": "https://variety.com/2025/film/reviews/bugonia-review-emma-stone-jesse-plemons-yorgos-lanthimos-1236499397/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Bugonia Review: Emma Stone, Jesse Plemons and an Alien Conspiracy",
+    "href": "https://www.nytimes.com/2025/10/23/movies/bugonia-review.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Irish Times",
+    "title": "Bugonia review: Mid-ranking Yorgosia that just about justifies its many indulgences",
+    "href": "https://www.irishtimes.com/culture/film/review/2025/10/31/bugonia-review-mid-ranking-yorgosia-that-just-about-justifies-its-many-indulgences/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Slate",
+    "title": "Bugonia Is Going to Be Nominated for All the Oscars. I Hated It.",
+    "href": "https://slate.com/culture/2025/10/bugonia-emma-stone-movie-ending-jesse-plemons-oscars.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt12300742"
+ },
  "cabin-in-the-sky": {
   "videos": [],
   "reviews": [
@@ -790,6 +1040,107 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0034583"
+ },
+ "charlies-angels": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Refinery29",
+    "title": "Charlie's Angels Is Now On Netflix. How Well Does It Hold Up?",
+    "href": "https://www.refinery29.com/en-us/2019/10/8484955/charlies-angels-2000-movie-sexist-or-empowering",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Slate",
+    "title": "Angel Cake",
+    "href": "https://slate.com/culture/2000/11/angel-cake.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "ENTERTAINMENT WEEKLY MOVIE REVIEW – Charlie's Angels: Drew Barrymore, Cameron Diaz",
+    "href": "https://web.archive.org/web/20001110055800/https://ew.com/ew/review/movie/0,1683,1631,charliesangels.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Rolling Stone",
+    "title": "Charlie's Angels",
+    "href": "https://www.rollingstone.com/movies/movie-reviews/charlies-angels-92051/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Washington Post",
+    "title": "Charlie's Angels Review",
+    "href": "https://www.washingtonpost.com/wp-srv/entertainment/movies/reviews/charliesangelshowe.htm",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "Charlie's Angels tops the box office",
+    "href": "https://ew.com/article/2000/11/05/charlies-angels-tops-box-office/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0160127"
+ },
+ "chicago": {
+  "videos": [
+   {
+    "id": "o5MxBcoindo",
+    "kind": "Cast interview",
+    "title": "Chicago 20th Anniversary: Director Rob Marshall on the Film’s Legacy & Who He'd Cast as Roxie Today",
+    "channel": "Collider Interviews"
+   },
+   {
+    "id": "MycL2dNq_Ns",
+    "kind": "Cast interview",
+    "title": "Rob Marshall on casting Roxie Hart in CHICAGO",
+    "channel": "American Film Institute"
+   },
+   {
+    "id": "2iFouT5NTBM",
+    "kind": "Cast interview",
+    "title": "Queen Latifah Talks About Making 'Chicago'",
+    "channel": "Queen Latifah"
+   },
+   {
+    "id": "32FRdk_GeQg",
+    "kind": "Featurette",
+    "title": "Chicago Behind The Scenes - Renée Zellweger (2002) HD",
+    "channel": "Fandango (Stream)"
+   },
+   {
+    "id": "oEJDxCdgGEI",
+    "kind": "Featurette",
+    "title": "Chicago Behind The Scenes - Mr. Cellophane (2002) - Richard Gere Movie HD",
+    "channel": "Fandango (Stream)"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Daily Telegraph",
+    "title": "This Jailhouse Rocks",
+    "href": "https://www.telegraph.co.uk/culture/4729504/This-jailhouse-rocks.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Chicago movie review & film summary (2002)",
+    "href": "https://www.rogerebert.com/reviews/chicago-2002",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Filmcritic.com",
+    "title": "Chicago Movie Review, DVD Release",
+    "href": "https://web.archive.org/web/20080621224936/https://www.filmcritic.com/misc/emporium.nsf/reviews/Chicago",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0299658"
  },
  "children-of-blood-and-bone": {
   "videos": [],
@@ -1689,6 +2040,475 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt14905854"
+ },
+ "harry-potter-and-the-chamber-of-secrets": {
+  "videos": [
+   {
+    "id": "s4Fh2WQ2Xbk",
+    "kind": "Official trailer",
+    "title": "Harry Potter and the Chamber of Secrets - Original 2002 Theatrical Trailer",
+    "channel": "Warner Bros. Rewind"
+   },
+   {
+    "id": "l0Hi1x-mRMk",
+    "kind": "Cast interview",
+    "title": "The cast of 'Harry Potter and The Chamber Of Secrets' launched the films new DVD Rushes 50",
+    "channel": "AP Archive"
+   },
+   {
+    "id": "zBwLQdX3Ntk",
+    "kind": "Featurette",
+    "title": "Harry Potter and the Chamber of Secrets BTS - Making of Part 1 (2002) Daniel Radcliffe Movie HD",
+    "channel": "Fandango (Stream)"
+   },
+   {
+    "id": "KEEY5wxzUOU",
+    "kind": "Featurette",
+    "title": "Harry Potter and the Chamber of Secrets | HBO First Look | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "jkPy0vFbMRQ",
+    "kind": "Featurette",
+    "title": "Harry Potter and the Chamber of Secrets BTS - Making of Part 2 (2002) Daniel Radcliffe Movie HD",
+    "channel": "Fandango (Stream)"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Guardian",
+    "title": "Film: Harry Potter and the Chamber of Secrets",
+    "href": "http://www.theguardian.com/film/2002/nov/15/harrypotter",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "Harry, Bond finish neck and neck at the box office",
+    "href": "https://ew.com/article/2002/12/01/harry-bond-finish-neck-and-neck-box-office/"
+   },
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "Finding Nemo scales to the top at the box office",
+    "href": "https://ew.com/article/2003/06/13/finding-nemo-scales-top-box-office/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0295297"
+ },
+ "harry-potter-and-the-deathly-hallows-part-1": {
+  "videos": [
+   {
+    "id": "-L-z8VNbrcU",
+    "kind": "Official trailer",
+    "title": "Harry Potter and the Deathly Hallows: Part 1 Official Trailer #2 - (2010) HD",
+    "channel": "Movieclips"
+   },
+   {
+    "id": "bj7bufDzy08",
+    "kind": "Cast interview",
+    "title": "Harry Potter and the Deathly Hallows Part 1 Interview | Prime Video",
+    "channel": "Amazon Prime Video UK & IE"
+   },
+   {
+    "id": "w-GwAe0qP-g",
+    "kind": "Cast interview",
+    "title": "Harry Potter and the Deathly Hallows: Part 1 World Premiere Interviews",
+    "channel": "HeyUGuys"
+   },
+   {
+    "id": "ln7ZSRN80-I",
+    "kind": "Featurette",
+    "title": "Harry Potter And The Deathly Hallows Part 1 Behind The Scenes",
+    "channel": "Collider Behind the Scenes"
+   },
+   {
+    "id": "mnj4pPJVQL8",
+    "kind": "Featurette",
+    "title": "Harry Potter and the Deathly Hallows Part 1 \"Epic Finale\" Featurette",
+    "channel": "ClevverTV"
+   },
+   {
+    "id": "WtgSzhx7TuM",
+    "kind": "Featurette",
+    "title": "Harry Potter and the Deathly Hallows, Part 1 Soundtrack Featurette Official (HD)",
+    "channel": "ClevverTV"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Harry Potter and the Deathly Hallows: Part 1",
+    "href": "https://www.rogerebert.com/reviews/harry-potter-and-the-deathly-hallows-part-1-2010",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "Movie Review: Harry Potter and the Deathly Hallows -- Part 1",
+    "href": "https://ew.com/article/2012/06/16/harry-potter-and-deathly-hallows-part-1-0/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Orlando Sentinel",
+    "title": "Movie Review: Harry Potter and the Deathly Hallows: Part 1",
+    "href": "https://web.archive.org/web/20120829064110/http://blogs.orlandosentinel.com/entertainment_movies_blog/2010/11/movie-review-harry-potter-and-the-deathly-hallows.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Newsweek",
+    "title": "'Deathly Hallows'? Try Deadly Boring",
+    "href": "http://www.newsweek.com/2010/11/15/harry-potter-deathly-dull.html",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "MSNBC",
+    "title": "'Potter' conjures $24M at midnight showings",
+    "href": "https://web.archive.org/web/20101122092402/http://today.msnbc.msn.com/id/40277442/ns/today-entertainment"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0926084"
+ },
+ "harry-potter-and-the-deathly-hallows-part-2": {
+  "videos": [
+   {
+    "id": "5NYt1qirBWg",
+    "kind": "Official trailer",
+    "title": "\"Harry Potter and the Deathly Hallows - Part 2\" Trailer 2",
+    "channel": "Warner Bros."
+   },
+   {
+    "id": "-cJ8rT36EpE",
+    "kind": "Cast interview",
+    "title": "Daniel Radcliffe 'Harry Potter and the Deathly Hallows Part 2' Interview",
+    "channel": "ClevverTV"
+   },
+   {
+    "id": "1S8BVxeAURY",
+    "kind": "Filmmaker interview",
+    "title": "Interview: Director David Yates Talks Harry Potter and the Deathly Hallows: Part 2",
+    "channel": "HeyUGuys"
+   },
+   {
+    "id": "j8wMzYeHQew",
+    "kind": "Featurette",
+    "title": "Harry Potter And The Deathly Hallows Part 2 Behind The Scenes",
+    "channel": "Collider Behind the Scenes"
+   },
+   {
+    "id": "Ym9VmEjTY7M",
+    "kind": "Featurette",
+    "title": "Harry Potter and the Deathly Hallows Part 2 BTS - The Fiery Escape (2011) Daniel Radcliffe Movie HD",
+    "channel": "Fandango (Stream)"
+   },
+   {
+    "id": "W4knejwo674",
+    "kind": "Featurette",
+    "title": "Harry Potter and the Deathly Hallows Part 2 BTS - Harry Returns To Hogwarts (2011) Movie HD",
+    "channel": "Fandango (Stream)"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Daily Telegraph",
+    "title": "Harry Potter and the Deathly Hallows, Part 2, review",
+    "href": "https://wayback.archive-it.org/all/20110712233906/http://www.telegraph.co.uk/culture/harry-potter/8619487/Harry-Potter-and-the-Deathly-Hallows-Part-2-review.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Daily Express",
+    "title": "Harry Potter And The Deathly Hallows: Part 2",
+    "href": "http://www.express.co.uk/entertainment/view/257239/Harry-Potter-And-The-Deathly-Hallows-Part-2",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+    "href": "https://www.rogerebert.com/reviews/harry-potter-and-the-deathly-hallows-part-2-2011",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "BBC",
+    "title": "Wild About Harry",
+    "href": "https://www.bbc.co.uk/webarchive/https%3A%2F%2Fwww.bbc.co.uk%2Fblogs%2Fmarkkermode%2F2011%2F07%2Fwild_about_harry.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Boston.com",
+    "title": "Review: Final 'Potter' Film Is Sad and Satisfying",
+    "href": "http://archive.boston.com/ae/movies/articles/2011/07/11/review_final_potter_film_is_sad_and_satisfying/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "RichardRoeper.com",
+    "title": "Harry Potter and the Deathly Hallows: Part 2 Review",
+    "href": "https://web.archive.org/web/20110718090711/http://www.richardroeper.com/reviews/harrypotterandthedeathlyhallowspart2.aspx",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Box Office Report: Harry Potter Nabs a Record-Breaking $476 Mil in Worldwide Debut",
+    "href": "https://www.hollywoodreporter.com/news/box-office-report-harry-potter-212332"
+   },
+   {
+    "outlet": "Business Insider",
+    "title": "\"Harry Potter And The Deathly Hollows - Part 2\" Breaks Opening Day Record With $92.1 Million",
+    "href": "https://www.businessinsider.com/harry-potter-and-the-deathly-hollows-part-2-breaks-opening-day-record-with-921-million-2011-7"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1201607"
+ },
+ "harry-potter-and-the-goblet-of-fire": {
+  "videos": [
+   {
+    "id": "7lJ6Suyp1ok",
+    "kind": "Official trailer",
+    "title": "Harry Potter and the Goblet of Fire - Original Theatrical Trailer",
+    "channel": "Warner Bros. Rewind"
+   },
+   {
+    "id": "6HKvY0407zw",
+    "kind": "Featurette",
+    "title": "The Making of Harry Potter and the Goblet of Fire | Behind the Scenes",
+    "channel": "Harry Potter"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Salon",
+    "title": "Harry Potter and the Goblet of Fire",
+    "href": "https://web.archive.org/web/20070519154640/http://dir.salon.com/story/ent/movies/review/2005/11/17/potter/index.html?pn=2",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Harry Potter and the Goblet of Fire",
+    "href": "https://variety.com/2005/film/awards/harry-potter-and-the-goblet-of-fire-1200520391/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Young Wizard Puts Away Childish Things",
+    "href": "http://movies2.nytimes.com/2005/11/17/movies/17pott.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0330373"
+ },
+ "harry-potter-and-the-half-blood-prince": {
+  "videos": [
+   {
+    "id": "sg81Lts5kYY",
+    "kind": "Official trailer",
+    "title": "Harry Potter and the Half Blood Prince (2009) Official Trailer - Daniel Radcliffe Movie HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "xi-Q13fz7sg",
+    "kind": "Cast interview",
+    "title": "Harry Potter and the Half-Blood Prince Interviews",
+    "channel": "IGN"
+   },
+   {
+    "id": "zfN8FVA3yvc",
+    "kind": "Featurette",
+    "title": "Harry Potter And The Half Blood Prince Behind The Scenes",
+    "channel": "Collider Behind the Scenes"
+   },
+   {
+    "id": "2eVkozXkDTM",
+    "kind": "Featurette",
+    "title": "Harry Potter and the Half Blood Prince - Behind the Scenes!!",
+    "channel": "ClevverTV"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chud.com",
+    "title": "REVIEW: HARRY POTTER AND THE HALF-BLOOD PRINCE",
+    "href": "https://web.archive.org/web/20090708011643/http://chud.com/articles/articles/20066/1/REVIEW-HARRY-POTTER-AND-THE-HALF-BLOOD-PRINCE/Page1.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Film review:Harry Potter and the Half-Blood Prince",
+    "href": "https://www.theguardian.com/film/2009/jul/04/harry-potter-half-blood-prince-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Harry Potter and the Half-Blood Prince Review",
+    "href": "https://variety.com/2009/film/features/harry-potter-and-the-half-blood-prince-1200506934/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "BBC News",
+    "title": "Review: Harry Potter and the Half-Blood Prince",
+    "href": "https://news.bbc.co.uk/1/hi/entertainment/8133379.stm",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Harry Potter and the Half-Blood Prince--Film Review",
+    "href": "https://web.archive.org/web/20110427041955/http://www1.hollywoodreporter.com/hr/film-reviews/harry-potter-and-the-half-blood-prince-film-1003990567.story",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "CNN",
+    "title": "'Half-Blood Prince' finds Potter crew closer to end",
+    "href": "http://www.cnn.com/2009/SHOWBIZ/Movies/07/13/potter.preview/index.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0417741"
+ },
+ "harry-potter-and-the-order-of-the-phoenix": {
+  "videos": [
+   {
+    "id": "WIj9DYJ5EKk",
+    "kind": "Official trailer",
+    "title": "Harry Potter and the Order of the Phoenix - Original 2007 Theatrical Trailer",
+    "channel": "Warner Bros. Rewind"
+   },
+   {
+    "id": "hbyORo5igpU",
+    "kind": "Cast interview",
+    "title": "Emma Watson interview for Harry Potter and the Order Of the Phoenix",
+    "channel": "Historic Films Stock Footage Archive"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Roger Ebert",
+    "title": "The trouble with 'Harry'",
+    "href": "https://www.rogerebert.com/reviews/harry-potter-and-the-order-of-the-phoenix-2007",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Daily Telegraph",
+    "title": "Potter film is the best and darkest yet",
+    "href": "https://web.archive.org/web/20070701155632/http://www.telegraph.co.uk/news/main.jhtml?xml=%2Fnews%2F2007%2F06%2F29%2Fwpotter129.xml",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Daily Mirror",
+    "title": "Harry Potter and the Order of the Phoenix",
+    "href": "http://www.sundaymirror.co.uk/showbiz/movies/tm_method=full%26objectid=19386975%26siteid=98487-name_page.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Harry Potter and the Order of the Phoenix",
+    "href": "https://variety.com/2007/film/awards/harry-potter-and-the-order-of-the-phoenix-1200558031/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Box Office Prophets",
+    "title": "Daily Box Office Analysis for 11 July 2007",
+    "href": "http://www.boxofficeprophets.com/column/index.cfm?columnID=10134"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0373889"
+ },
+ "harry-potter-and-the-philosophers-stone": {
+  "videos": [
+   {
+    "id": "9I6WBvL-skk",
+    "kind": "Cast interview",
+    "title": "Interview with Rupert Grint, star of Harry Potter and the Philosopher's Stone",
+    "channel": "AP Archive"
+   },
+   {
+    "id": "kE3y4IZGxXg",
+    "kind": "Filmmaker interview",
+    "title": "Interview with Chris Columbus, director of Harry Potter and the Philosopher's Stone",
+    "channel": "AP Archive"
+   },
+   {
+    "id": "dxoW8orkMeI",
+    "kind": "Featurette",
+    "title": "Harry Potter And The Philosopher's Stone Behind The Scenes",
+    "channel": "Collider Behind the Scenes"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "British Film Institute",
+    "title": "UK weekend box office reports: 2001",
+    "href": "https://www2.bfi.org.uk/sites/bfi.org.uk/files/downloads/uk-film-council-box-office-report-2001.xls"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Harry Potter and the Box Office of Gold; Film Based on Popular Book Sets Record With $93.5 Million Opening Weekend",
+    "href": "https://www.nytimes.com/2001/11/19/arts/harry-potter-box-office-gold-film-based-popular-book-sets-record-with-93.5.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0241527"
+ },
+ "harry-potter-and-the-prisoner-of-azkaban": {
+  "videos": [
+   {
+    "id": "OgLy1LgSdjM",
+    "kind": "Official trailer",
+    "title": "Harry Potter and the Prisoner of Azkaban - Original 2004 Theatrical Trailer",
+    "channel": "Warner Bros. Rewind"
+   },
+   {
+    "id": "EPvbCC9rwAo",
+    "kind": "Cast interview",
+    "title": "Harry Potter and the Prisoner of Azkaban Robbie Coltrane Interview Press Junket (2004)",
+    "channel": "Historic Films Stock Footage Archive"
+   },
+   {
+    "id": "D9IMPd599ns",
+    "kind": "Featurette",
+    "title": "Behind The Scenes Of Harry Potter And The Prisoner Of Azkaban",
+    "channel": "Collider Behind the Scenes"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "BBC",
+    "title": "BBC - Films - Harry Potter And The Prisoner Of Azkaban",
+    "href": "https://www.bbc.co.uk/films/2004/05/28/harry_potter_and_the_prisoner_of_azkaban_2004_review.shtml",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Hollywood.com",
+    "title": "Harry Potter and the Prisoner of Azkaban Review",
+    "href": "https://www.hollywood.com/movies/harry-potter-and-the-prisoner-of-azkaban-review-57238518",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Guardian",
+    "title": "Harry Potter and the Prisoner of Azkaban",
+    "href": "http://www.theguardian.com/film/2004/may/28/harrypotter"
+   },
+   {
+    "outlet": "Screen Daily",
+    "title": "Harry Potter & The Prisoner Of Azkaban",
+    "href": "https://www.screendaily.com/harry-potter-and-the-prisoner-of-azkaban/4018878.article"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0304141"
  },
  "heart-of-the-hunter": {
   "videos": [
@@ -2747,6 +3567,38 @@
   "articles": [],
   "streaming": "Netflix"
  },
+ "matilda": {
+  "videos": [
+   {
+    "id": "L453VY554vg",
+    "kind": "Cast interview",
+    "title": "MATILDA - Chocolate Cake Scene Reenactment | Cast Reunion",
+    "channel": "Sony Pictures Entertainment"
+   },
+   {
+    "id": "VCViPar1t20",
+    "kind": "Cast interview",
+    "title": "\"Matilda\" (1996) Cast Reunion - The Tammy Tuckey Show",
+    "channel": "Tammy Tuckey"
+   },
+   {
+    "id": "aqDNfOaAJ50",
+    "kind": "Featurette",
+    "title": "MATILDA Behind The Scenes (1996) Family",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Matilda",
+    "href": "http://www.rogerebert.com/reviews/matilda-1996"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0117008"
+ },
  "mildred-pierce": {
   "videos": [
    {
@@ -2802,6 +3654,73 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0037913"
+ },
+ "modern-family": {
+  "videos": [
+   {
+    "id": "1vg_2j5bLik",
+    "kind": "Cast interview",
+    "title": "Watch the Cast of Modern Family React to Their First ET Interviews (Exclusive)",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "sukBiafGmjk",
+    "kind": "Cast interview",
+    "title": "'Modern Family' Kids Interview 'Modern Family' Parents | Entertainment Weekly",
+    "channel": "Entertainment Weekly"
+   },
+   {
+    "id": "yi2pzzF57Bk",
+    "kind": "Cast interview",
+    "title": "\"Modern Family\" Actor Eric Stonestreet Explains He Is Nothing Like His Character Cam 05/03/2017",
+    "channel": "Dan Patrick Show"
+   },
+   {
+    "id": "8UjnXeLsdNw",
+    "kind": "Cast interview",
+    "title": "'Modern Family' Cast Spill Their Secrets",
+    "channel": "TheEllenShow"
+   },
+   {
+    "id": "u7IL8yLiZDc",
+    "kind": "Cast interview",
+    "title": "'Modern Family' cast reflects on show's impact before 11th and final season",
+    "channel": "ABC News"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "Modern Family",
+    "href": "https://ew.com/article/2009/10/09/modern-family/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time",
+    "title": "Yes, We Kin",
+    "href": "https://web.archive.org/web/20100404055415/http://www.time.com/time/magazine/article/0,9171,1924499,00.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "E!",
+    "title": "Fall TV Preview 2009: Modern Family",
+    "href": "https://www.eonline.com/news/143276/fall-tv-preview-2009-modern-family",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Modern Family' is a 'Cosby' celebre",
+    "href": "https://variety.com/2010/scene/features/modern-family-is-a-cosby-celebre-1118026163/"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "'Modern Family': Savior of the sitcom",
+    "href": "https://www.latimes.com/entertainment/news/la-ca-modern-family-20111030,0,3791963.story"
+   }
+  ],
+  "imdb": "tt1442437"
  },
  "modern-times": {
   "videos": [
@@ -2881,6 +3800,19 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0031679"
+ },
+ "nanny-mcphee": {
+  "videos": [],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Nanny' lures Lansbury",
+    "href": "https://variety.com/2004/film/markets-festivals/nanny-lures-lansbury-1117901099/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0396752"
  },
  "native-son-1951": {
   "videos": [],
@@ -4342,6 +5274,54 @@
   "cinemaRelease": true,
   "imdb": "tt0043014"
  },
+ "tenzing": {
+  "videos": [
+   {
+    "id": "rvpLrYx6yBM",
+    "kind": "Official trailer",
+    "title": "TENZING Trailer | TIFF 2026",
+    "channel": "TIFF"
+   },
+   {
+    "id": "x80_dQRUym0",
+    "kind": "Cast interview",
+    "title": "Tom Hiddleston stars in Tenzing alongside Genden Phuntsok | Apple TV",
+    "channel": "Bollywood Hungama"
+   },
+   {
+    "id": "ecqYXT9X2y4",
+    "kind": "Cast interview",
+    "title": "Caitríona Balfe: \"Humanity Is the Future\" | Tenzing Premiere Interview",
+    "channel": "HeyUGuys"
+   },
+   {
+    "id": "bfW-WG0yA1Y",
+    "kind": "Filmmaker interview",
+    "title": "Jennifer Peedom interview at Tenzing premiere",
+    "channel": "The Upcoming"
+   },
+   {
+    "id": "l8lDiZJTiys",
+    "kind": "Featurette",
+    "title": "Tenzing — The Making Of | Inside Look | Apple TV",
+    "channel": "Apple TV"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Netflix & The Obamas' Higher Ground Set TV & Film Slate Including 'Firekeeper's Daughter' Adaptation, Tenzing Norgay Feature & National Parks Docuseries",
+    "href": "https://deadline.com/2021/02/netflix-obamas-higher-ground-tv-film-slate-firekeepers-daughter-adaptation-tenzing-norgay-feature-national-parks-docuseries-1234688357/"
+   },
+   {
+    "outlet": "IF Magazine",
+    "title": "Jennifer Peedom's 'Tenzing' underway in Nepal",
+    "href": "https://if.com.au/jennifer-peedoms-tenzing-underway-in-nepal/"
+   }
+  ],
+  "imdb": "tt6262770"
+ },
  "the-adventures-of-robin-hood": {
   "videos": [
    {
@@ -4709,6 +5689,23 @@
   ],
   "articles": [],
   "imdb": "tt0045936"
+ },
+ "the-last-days-of-ptolemy-grey": {
+  "videos": [],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Samuel L. Jackson To Star In 'The Last Days Of Ptolemy Grey' Apple Limited Series From Author Walter Mosley",
+    "href": "https://deadline.com/2020/12/samuel-l-jackson-star-the-last-days-of-ptolemy-grey-apple-limited-series-walter-mosley1234658134-1234658134/"
+   },
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Dominique Fishback Joins Samuel L. Jackson In 'The Last Days Of Ptolemy Grey', Ramin Bahrani To Direct Apple Limited Series",
+    "href": "https://deadline.com/2021/03/dominique-fishback-samuel-l-jackson-the-last-days-of-ptolemy-grey-ramin-bahrani-direct-apple-limited-series-1234710185/"
+   }
+  ],
+  "imdb": "tt13820498"
  },
  "the-maltese-falcon": {
   "videos": [
@@ -5086,6 +6083,37 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0033045"
+ },
+ "the-sound-of-music": {
+  "videos": [
+   {
+    "id": "PuFIey-T2P8",
+    "kind": "Cast interview",
+    "title": "Julie Andrews Interview Part 2 - THE SOUND OF MUSIC 50th Anniversary",
+    "channel": "Rodgers & Hammerstein"
+   },
+   {
+    "id": "zNTKnhuOzMY",
+    "kind": "Cast interview",
+    "title": "Julie Andrews Interview Part 1 - THE SOUND OF MUSIC 50th Anniversary",
+    "channel": "Rodgers & Hammerstein"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "The Sound of Music Salzburg",
+    "title": "The making of",
+    "href": "https://www.sound-of-music.com/sound-of-music/the-making-of/"
+   },
+   {
+    "outlet": "ABC News",
+    "title": "Journey to the Meadow: How They Filmed the Opening Scene of 'The Sound of Music'",
+    "href": "https://abcnews.go.com/Entertainment/journey-meadow-filmed-opening-scene-sound-music/story?id=29698288"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0059742"
  },
  "the-wizard-of-oz": {
   "videos": [

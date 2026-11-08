@@ -101,6 +101,16 @@ export const UPDATES: Update[] = [
     weight: { production: 0.7, fashion: 0.4, creator: 0.4 },
   },
   {
+    id: "greatest-tv",
+    date: "2026-11-08",
+    title: "Greatest TV, and more films to study",
+    body: "A new Greatest TV shelf of sitcoms and drama series, all eight Harry Potter films, Chicago, Matilda and more, each with its cast and crew and a press kit.",
+    href: "/explore/greatest-tv",
+    cta: "Browse Greatest TV",
+    icon: "Film",
+    weight: { production: 0.6, fashion: 0.5, creator: 0.6 },
+  },
+  {
     id: "cast-crew",
     date: "2026-11-01",
     title: "Cast and crew on Explore",

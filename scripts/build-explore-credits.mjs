@@ -58,7 +58,7 @@ for (const m of filmBlock.matchAll(/^ {2}("?[a-z0-9-]+"?): (?:\{([\s\S]*?)^ {2}\
 }
 
 // Items checked by hand where the search can't confirm them (no English label on Wikidata).
-const CHECKED = { "shaka-ilembe": "Q121796698" };
+const CHECKED = { "shaka-ilembe": "Q121796698", baps: "Q690167", "ancestral-visions-of-the-future": "Q131986177" };
 
 // ---- Wikidata ----
 async function qidByImdb(imdb) {

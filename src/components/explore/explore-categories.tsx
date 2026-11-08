@@ -8,11 +8,11 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CREATORS, CREATORS_HREF } from "@/features/explore/creators";
-import { HOLLYWOOD_CLASSICS, HOLLYWOOD_CLASSICS_HREF, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF } from "@/features/explore/made-in-africa";
+import { GREATEST_TV, GREATEST_TV_HREF, HOLLYWOOD_CLASSICS, HOLLYWOOD_CLASSICS_HREF, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, greatestTv } from "@/features/explore/made-in-africa";
 import { CreatorsStrip } from "./creators-strip";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory } from "./explore-data";
-import { HollywoodClassicsStrip } from "./hollywood-classics-strip";
+import { CategoryStrip } from "./category-strip";
 import { MadeInAfricaStrip } from "./made-in-africa-strip";
 import { StudioStrip } from "./studio-strip";
 import type { StudioRow } from "@/features/explore/studios";
@@ -27,7 +27,9 @@ export function CategorySections({ seed, studios }: { seed: number; studios: Stu
   const epk = getCategory("epk");
   const sections: Section[] = [
     { id: "made-in-africa", name: MADE_IN_AFRICA.name, href: MADE_IN_AFRICA_HREF, row: <MadeInAfricaStrip seed={seed} bare /> },
-    { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, href: HOLLYWOOD_CLASSICS_HREF, row: <HollywoodClassicsStrip bare /> },
+    { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, href: HOLLYWOOD_CLASSICS_HREF, row: <CategoryStrip category="hollywood-classics" /> },
+    // Greatest TV (approved 2026-10-30) shows once a title in it has a cover.
+    ...(greatestTv.length ? [{ id: "greatest-tv", name: GREATEST_TV.name, href: GREATEST_TV_HREF, row: <CategoryStrip category="greatest-tv" /> }] : []),
     { id: "creators", name: CREATORS.name, href: CREATORS_HREF, row: <CreatorsStrip seed={seed} bare /> },
     // By studio (Ika, 2026-10-31).
     ...(studios.length ? [{ id: "studios", name: "By studio", row: <StudioStrip rows={studios} /> }] : []),
