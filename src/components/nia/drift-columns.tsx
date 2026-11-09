@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { useReducedMotion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
@@ -23,6 +23,7 @@ export function DriftColumns<T>({
   gridClassName,
   columnClassName,
   getAspect,
+  fitShortest = false,
 }: {
   items: T[];
   getKey: (item: T) => string;
@@ -40,10 +41,31 @@ export function DriftColumns<T>({
   columnClassName?: string;
   /** Each card's picture shape (width ÷ height), when the cards differ. */
   getAspect?: (item: T) => number;
+  /** Wide screens: end the area where the shortest column ends, the longer ones running on
+   * under its edge, so columns of mixed cards end on one line. */
+  fitShortest?: boolean;
 }) {
   const reduce = useReducedMotion();
   const [pointerY, setPointerY] = useState(0.5);
   const frame = useFrame();
+  const columns = useRef<(HTMLDivElement | null)[]>([]);
+  const [fit, setFit] = useState<number | null>(null);
+  useLayoutEffect(() => {
+    if (!fitShortest) return;
+    const wide = window.matchMedia("(min-width: 64rem)");
+    const measure = () => {
+      const heights = columns.current.flatMap((c) => (c && c.offsetHeight ? [c.offsetHeight] : []));
+      setFit(wide.matches && heights.length ? Math.min(...heights) : null);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    columns.current.forEach((c) => c && observer.observe(c));
+    wide.addEventListener("change", measure);
+    return () => {
+      observer.disconnect();
+      wide.removeEventListener("change", measure);
+    };
+  }, [fitShortest, items.length]);
   // Which column each card goes in: in turn, or the shortest so far (a card's height in column
   // widths: its picture, plus about a third for its lines of text).
   const columnOf: number[] = [];
@@ -66,13 +88,16 @@ export function DriftColumns<T>({
   };
 
   return (
-    <section aria-label={label} onPointerMove={onMove} onPointerLeave={onLeave} className={className}>
+    <section aria-label={label} onPointerMove={onMove} onPointerLeave={onLeave} className={className} style={fit ? { height: fit } : undefined}>
       <div className={cn("grid lg:flex lg:items-start", gridClassName)}>
         {drift.map((d, c) => {
           const y = (reduce ? 0 : (pointerY - 0.5) * d) + (c % 2 ? oddOffset : 0);
           return (
             <div
               key={c}
+              ref={(el) => {
+                columns.current[c] = el;
+              }}
               style={{ transform: `translate3d(0, ${y.toFixed(1)}px, 0)` }}
               className={cn("contents lg:flex lg:min-w-0 lg:flex-1 lg:flex-col lg:transition-transform lg:duration-drift lg:ease-glide", columnClassName)}
             >

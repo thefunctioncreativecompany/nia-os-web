@@ -100,6 +100,7 @@ function RecentGallery({ items }: { items: { item: ExploreItem; added: string }[
       drift={DRIFT}
       oddOffset={ODD_OFFSET}
       getAspect={({ item }) => item.aspect ?? POSTER}
+      fitShortest
       className="mt-8 lg:-mx-1.5 lg:max-h-295 lg:overflow-hidden lg:px-1.5"
       gridClassName="grid-cols-2 gap-3.25 sm:grid-cols-3 lg:pt-2.5"
       columnClassName="lg:gap-3.25"
