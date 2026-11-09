@@ -20,7 +20,7 @@ import { recordView } from "@/features/explore/views";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { AddToProject, SaveToCollection } from "./save-controls";
 import { CreditsViewAll } from "./credits-view-all";
-import { TitleCard } from "./title-card";
+import { TitleCard, entrySpan } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
 import { VideoThumbnail } from "./video-thumbnail";
 import { BackLink } from "@/components/nia/back-link";
@@ -271,7 +271,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
         </h2>
         <ScrollRow label="You may also like">
           {similarItems(title.slug, sameCategory(entry).map((e) => e.title.slug)).map((slug) => findEntry(slug)!).map((e) => (
-            <li key={e.title.slug} className="w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[16%]">
+            <li key={e.title.slug} className="w-[calc(44%*var(--span,1))] flex-none snap-start sm:w-[calc(30%*var(--span,1))] md:w-[calc(22%*var(--span,1))] lg:w-[calc(16%*var(--span,1))]" style={entrySpan(e)}>
               <TitleCard entry={e} href={titleHref(e.title.slug, from)} sizes="(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw" />
             </li>
           ))}

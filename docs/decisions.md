@@ -545,6 +545,12 @@ onboarding's Import profile and Follow creators describe features removed in the
   frame chosen by eye (`CHOSEN` in scripts/trailer-stills.mjs, frame "cover"). Those covers stay
   poster-shaped in Recently added's mosaic. The ~280 studio-catalogue titles waiting on TMDB get the
   same treatment, title by title.
+- (2026-11-08) Explore cards keep their picture's shape, like creators' films (Ika): a title with a
+  poster stands tall; one shown by a trailer still or trailer cover image lies wide, uncropped
+  (`titleCover` in made-in-africa.ts), in every row (cells widen by `--span`), Top 10, the canvas,
+  the timeline and search. When a poster arrives it turns tall by itself. View all pages are
+  masonry columns. Trailer cover images are used only where the whole image is clean (no burned-in
+  "TRAILER", "HD", titles or logos); the rest show a frame chosen by eye.
 - (2026-11-08) Explore's order (Ika): Explore all, then Top 10 on Explore, then Recently added
   (15 titles, the rest on View all at `/explore/recent`, newest first with the day each was
   added; `GALLERY_SIZE` in `recent.ts`), then By category. Top 10 left By category.

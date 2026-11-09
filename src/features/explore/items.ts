@@ -1,7 +1,7 @@
 // One shape for anything Explore can show as a card, save to a collection or add to a project's
 // references: a Made in Africa title or a creator's film (Ika, 2026-10-21). Collections and
 // references store the item's slug; this turns it back into a card.
-import { coverFor, findEntry, metaLine, titleHref } from "./made-in-africa";
+import { findEntry, metaLine, titleCover, titleHref } from "./made-in-africa";
 import { rankForProject, type ProjectSignals, type Taste } from "./match";
 import { getFilm } from "@/components/explore/explore-data";
 import { filmHref, getFilmDetails } from "@/components/explore/film-details";
@@ -19,8 +19,8 @@ export type ExploreItem = {
   grain: string;
   /** A small label on the card (a creator film's type). */
   badge?: string;
-  /** A creator film's true shape (width ÷ height); its card keeps that shape. Posters have none
-   * and show at the poster shape. */
+  /** A creator film's or a trailer still's true shape (width ÷ height); its card keeps that shape.
+   * Posters have none and show at the poster shape. */
   aspect?: number;
   href: (from?: "all" | "library") => string;
 };
@@ -56,7 +56,7 @@ export function exploreItem(slug: string): ExploreItem | null {
       title: entry.title.title,
       credit: entry.title.credit ?? metaLine(entry.title),
       meta: metaLine(entry.title),
-      image: coverFor(slug),
+      ...titleCover(slug),
       grain: entry.grain,
       href: (from) => titleHref(slug, from),
     };

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import type { ExploreItem } from "@/features/explore/items";
-import { coverFor, metaLine, type Entry } from "@/features/explore/made-in-africa";
+import { metaLine, titleCover, type Entry } from "@/features/explore/made-in-africa";
 
 // An Explore card (Ika, 2026-10-21: equal cards, like the Top 10 press kits, without numbers): the
 // cover, then the title and who made it. Without a cover it gets a typographic poster on its
@@ -18,9 +18,12 @@ const POSTER = 268 / 373;
 /** For a row's cell: a film's card is as tall as the posters beside it, so its cell is wider (or,
  * for a vertical film, narrower) by this much. Cells size themselves as
  * `w-[calc(30%*var(--span,1))]`. */
-export function cardSpan(item: ExploreItem): CSSProperties | undefined {
+export function cardSpan(item: { aspect?: number }): CSSProperties | undefined {
   return item.aspect ? ({ "--span": item.aspect / POSTER } as CSSProperties) : undefined;
 }
+
+/** `cardSpan` for a title: wide when its card is a trailer still (titleCover). */
+export const entrySpan = (entry: Entry) => cardSpan(titleCover(entry.title.slug));
 
 export function TitleCard({
   entry,
@@ -37,14 +40,16 @@ export function TitleCard({
   actions?: React.ReactNode;
 }) {
   const { title, grain } = entry;
+  const { image, aspect } = titleCover(title.slug);
   return (
     <PosterCard
       href={href}
       title={title.title}
       credit={title.credit ?? metaLine(title)}
       label={`${title.title}, ${metaLine(title)}${title.credit ? `, ${title.credit}` : ""}`}
-      image={coverFor(title.slug)}
+      image={image}
       grain={grain}
+      aspect={aspect}
       sizes={sizes}
       first={first}
       actions={actions}

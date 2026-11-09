@@ -6,7 +6,7 @@ import { ChipRow, FilterChip } from "@/components/nia/filter-bar";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { exploreItem } from "@/features/explore/items";
 import type { StudioRow } from "@/features/explore/studios";
-import { ExploreCard } from "./title-card";
+import { ExploreCard, cardSpan } from "./title-card";
 
 // By studio (src/features/explore/studios.ts): a chip per studio with how many of its titles are
 // on Explore, and the chosen studio's titles in one still row. The group that owns a studio today
@@ -32,7 +32,7 @@ export function StudioStrip({ rows }: { rows: StudioRow[] }) {
       {row.group !== row.name && <p className="-mt-2 text-small text-muted-foreground">{row.name} is part of {row.group}.</p>}
       <ScrollRow label={row.name}>
         {items.map((item) => (
-          <li key={item.slug} className="w-[44%] flex-none snap-start sm:w-[30%] md:w-[22%] lg:w-[18%]">
+          <li key={item.slug} className="w-[calc(44%*var(--span,1))] flex-none snap-start sm:w-[calc(30%*var(--span,1))] md:w-[calc(22%*var(--span,1))] lg:w-[calc(18%*var(--span,1))]" style={cardSpan(item)}>
             <ExploreCard item={item} href={item.href()} sizes="(min-width: 64rem) 18vw, (min-width: 40rem) 30vw, 44vw" />
           </li>
         ))}

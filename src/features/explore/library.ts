@@ -5,7 +5,7 @@
 // Africa one wins, since it has a page of its own.
 import { FILMS, grainFor } from "@/components/explore/explore-data";
 import { creatorFilms, creatorHref, creatorImage, leadCredit } from "./creators";
-import { allEntries, coverFor, metaLine, titleHref } from "./made-in-africa";
+import { allEntries, metaLine, titleCover, titleHref } from "./made-in-africa";
 
 export type LibraryItem = {
   key: string;
@@ -27,7 +27,7 @@ const fromList: LibraryItem[] = allEntries.map((e) => ({
   key: `t:${e.title.slug}`,
   title: e.title.title,
   credit: e.title.credit ?? metaLine(e.title),
-  image: coverFor(e.title.slug),
+  ...titleCover(e.title.slug),
   grain: e.grain,
   open: { kind: "page", href: titleHref(e.title.slug, "library") },
 }));

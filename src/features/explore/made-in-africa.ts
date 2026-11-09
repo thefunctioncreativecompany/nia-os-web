@@ -64,10 +64,16 @@ export const isTrailerStill = (slug: string) => !COVERS.has(slug) && slug in STI
  * Ika, 2026-11-08), with its width ÷ height; null for a poster. YouTube's frames are 1280 × 720
  * unless the still says otherwise (older videos: 640 × 480). */
 export function wideCoverFor(slug: string): { image: string; aspect: number } | null {
-  const still = STILLS[slug] as { id: string; size: string; top?: number; bottom?: number; w?: number; h?: number; cover?: boolean } | undefined;
-  // A trailer's cover image stays poster-shaped: shown whole, its badges and logos would show.
-  if (COVERS.has(slug) || !still || still.cover) return null;
+  const still = STILLS[slug] as { id: string; size: string; top?: number; bottom?: number; w?: number; h?: number } | undefined;
+  if (COVERS.has(slug) || !still) return null;
   return { image: `/api/explore-still/${still.id}-${still.size}-wide/${slug}.jpg`, aspect: (still.w ?? 1280) / ((still.h ?? 720) - (still.top ?? 0) - (still.bottom ?? 0)) };
+}
+/** A title's card picture and shape (Ika, 2026-11-08, like creators' films): a poster stands tall;
+ * a trailer still or cover image shows whole and wide, with its own width ÷ height, so nothing is
+ * cropped. When a poster arrives (cover-sources.json) the card turns tall by itself. */
+export function titleCover(slug: string): { image: string | null; aspect?: number } {
+  const wide = wideCoverFor(slug);
+  return wide ?? { image: coverFor(slug) };
 }
 /** What the stand-in still is from: "trailer", or the studio's own "clip" or "promo". */
 export const stillKind = (slug: string) => (STILLS[slug] as { kind?: string } | undefined)?.kind ?? "trailer";

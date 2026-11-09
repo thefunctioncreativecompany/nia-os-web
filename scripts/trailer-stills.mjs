@@ -16,22 +16,23 @@ const posters = new Set(Object.keys(JSON.parse(fs.readFileSync("src/features/exp
 // (2026-10-31, contact sheets); a title not listed keeps waiting for its cover.
 // [frame, where the subject is across the picture (0 left, 1 right), "sd" for 640 × 480 frames],
 // for the poster crop. Frame "cover" (Ika, 2026-11-08): the trailer's own cover image, used where
-// it has no burned-in badge or words inside the crop ("CLASSIC TRAILER", logos); the rest keep a frame.
+// the whole image is clean (no burned-in "CLASSIC TRAILER", "HD", titles or logos: these covers
+// show wide, uncropped); the rest keep a frame.
 const CHOSEN = {
   "children-of-blood-and-bone": [2, 0.5], "in-the-heat-of-the-night": [3, 0.48], "the-graduate": [1, 0.4],
-  "2001-a-space-odyssey": ["cover", 0.5], "the-godfather": ["cover", 0.62], "taxi-driver": [1, 0.35],
-  "star-wars": ["cover", 0.55], "apocalypse-now": ["cover", 0.68], "ride-along": ["cover", 0.7],
+  "2001-a-space-odyssey": ["cover", 0.5], "the-godfather": [1, 0.3], "taxi-driver": [1, 0.35],
+  "star-wars": ["cover", 0.55], "apocalypse-now": [2, 0.45], "ride-along": [3, 0.3],
   "the-matrix": [2, 0.5], "coming-to-america": [3, 0.42], "coming-2-america": [3, 0.62],
   "the-karate-kid-2010": [2, 0.45], "the-pursuit-of-happyness": [1, 0.28], "boyz-n-the-hood": [1, 0.35],
   "malcolm-x": [2, 0.7], "training-day": [2, 0.72], "ray": [3, 0.65],
-  "dreamgirls": [3, 0.5], "bad-boys": ["cover", 0.68], "waiting-to-exhale": [3, 0.6],
+  "dreamgirls": [3, 0.5], "bad-boys": [3, 0.55], "waiting-to-exhale": [3, 0.6],
   "crouching-tiger-hidden-dragon": [2, 0.56], "get-out": [2, 0.55], "black-panther": [2, 0.27],
-  "moonlight": ["cover", 0.66], "hidden-figures": [2, 0.5], "crazy-rich-asians": ["cover", 0.6],
+  "moonlight": [3, 0.5], "hidden-figures": [2, 0.5], "crazy-rich-asians": ["cover", 0.6],
   "rocky": [1, 0.4], "the-godfather-part-ii": [2, 0.72], "back-to-the-future": [3, 0.5],
-  "die-hard": [3, 0.42], "pulp-fiction": ["cover", 0.62], "the-shawshank-redemption": [2, 0.5],
+  "die-hard": [3, 0.42], "pulp-fiction": [2, 0.55], "the-shawshank-redemption": [2, 0.5],
   "toy-story": [1, 0.45], "titanic": [2, 0.4], "the-blair-witch-project": [3, 0.5],
   // 2026-11-08 (Mbali, Paballo and Ika's titles)
-  "harry-potter-and-the-philosophers-stone": [3, 0.5], "harry-potter-and-the-chamber-of-secrets": [3, 0.38], "harry-potter-and-the-prisoner-of-azkaban": [3, 0.42], "harry-potter-and-the-goblet-of-fire": [2, 0.4], "harry-potter-and-the-order-of-the-phoenix": [2, 0.5], "harry-potter-and-the-half-blood-prince": ["cover", 0.6], "harry-potter-and-the-deathly-hallows-part-1": ["cover", 0.5], "harry-potter-and-the-deathly-hallows-part-2": ["cover", 0.4], "27-dresses": [1, 0.32], "13-going-on-30": [3, 0.5], "baps": [2, 0.5], "charlies-angels": [1, 0.45], "matilda": [1, 0.52], "chicago": [2, 0.5], "nanny-mcphee": ["cover", 0.55], "bugonia": [2, 0.5], "tenzing": [3, 0.5], "modern-family": ["cover", 0.4], "love-thy-neighbor": ["cover", 0.55], "the-last-days-of-ptolemy-grey": ["cover", 0.65], "ancestral-visions-of-the-future": [1, 0.55],
+  "harry-potter-and-the-philosophers-stone": [3, 0.5], "harry-potter-and-the-chamber-of-secrets": [3, 0.38], "harry-potter-and-the-prisoner-of-azkaban": [3, 0.42], "harry-potter-and-the-goblet-of-fire": [2, 0.4], "harry-potter-and-the-order-of-the-phoenix": [2, 0.5], "harry-potter-and-the-half-blood-prince": [1, 0.35], "harry-potter-and-the-deathly-hallows-part-1": [1, 0.45], "harry-potter-and-the-deathly-hallows-part-2": ["cover", 0.4], "27-dresses": [1, 0.32], "13-going-on-30": [3, 0.5], "baps": [2, 0.5], "charlies-angels": [1, 0.45], "matilda": [1, 0.52], "chicago": [2, 0.5], "nanny-mcphee": [2, 0.52], "bugonia": [2, 0.5], "tenzing": [3, 0.5], "modern-family": ["cover", 0.4], "love-thy-neighbor": ["cover", 0.55], "the-last-days-of-ptolemy-grey": [1, 0.45], "ancestral-visions-of-the-future": [1, 0.55],
   // 2026-11-08 (Coodie & Chike's films, and Katrina Babies). "sd": an older video YouTube keeps
   // only 640 × 480 frames for.
   "jeen-yuhs": [2, 0.5], "benji": ["cover", 0.5], "a-kid-from-coney-island": [3, 0.6], "muhammad-ali-the-peoples-champ": [2, 0.5],

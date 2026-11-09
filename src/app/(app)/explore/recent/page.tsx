@@ -4,7 +4,7 @@ import { BackLink } from "@/components/nia/back-link";
 import { dayLabel } from "@/components/nia/new-marker";
 import { FilmMosaic } from "@/components/explore/film-mosaic";
 import { exploreItem } from "@/features/explore/items";
-import { exploreHome, wideCoverFor } from "@/features/explore/made-in-africa";
+import { exploreHome } from "@/features/explore/made-in-africa";
 import { everyAddition } from "@/features/explore/recent";
 
 export const metadata: Metadata = {
@@ -17,10 +17,7 @@ export const metadata: Metadata = {
 export default function Page() {
   const items = everyAddition().flatMap(({ slug, added }) => {
     const item = exploreItem(slug);
-    if (!item) return [];
-    // Trailer stills show their whole wide frame here, posters stay tall, so the mosaic varies.
-    const wide = item.kind === "title" ? wideCoverFor(slug) : null;
-    return [{ item: wide ? { ...item, ...wide } : item, added }];
+    return item ? [{ item, added }] : [];
   });
   return (
     <div className="flex flex-1 flex-col gap-8 px-4 pt-10 pb-24 md:px-15">
