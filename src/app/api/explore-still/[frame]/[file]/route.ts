@@ -15,14 +15,16 @@ const POSTER = 268 / 373;
 export async function GET(_request: Request, { params }: { params: Promise<{ frame: string; file: string }> }) {
   const { frame, file } = await params;
   const still = STILLS[file.replace(/\.jpg$/, "")];
-  if (!still || frame !== `${still.id}-${still.size}`) return new Response("Not found", { status: 404 });
+  // `-wide` (Recently added's mosaic): the whole frame, only its black bars cut.
+  const wideFrame = frame === `${still?.id}-${still?.size}-wide`;
+  if (!still || (frame !== `${still.id}-${still.size}` && !wideFrame)) return new Response("Not found", { status: 404 });
 
   const r = await fetch(`https://i.ytimg.com/vi/${still.id}/${still.size}.jpg`);
   if (!r.ok) return new Response("Not found", { status: 404 });
   const image = sharp(Buffer.from(await r.arrayBuffer()));
   const { width = 1280, height = 720 } = await image.metadata();
   const tall = height - still.top - still.bottom;
-  const wide = Math.min(width, Math.round(tall * POSTER));
+  const wide = wideFrame ? width : Math.min(width, Math.round(tall * POSTER));
   const left = Math.max(0, Math.min(width - wide, Math.round(still.x * width - wide / 2)));
   const body = await image
     .extract({ left, top: still.top, width: wide, height: tall })
