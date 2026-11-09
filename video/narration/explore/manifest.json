@@ -1,0 +1,65 @@
+[
+  {
+    "file": "scene-1.mp3",
+    "text": "This is Explore: films, series and creator work, chosen for what you can learn from them.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 6.16
+  },
+  {
+    "file": "scene-2.mp3",
+    "text": "Explore all lays the whole library out on one canvas. Drag anywhere to wander.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 6.48
+  },
+  {
+    "file": "scene-3.mp3",
+    "text": "Or switch to the timeline, and move through film history.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4
+  },
+  {
+    "file": "scene-4.mp3",
+    "text": "Search by style. Documentary finds ten titles.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4.24
+  },
+  {
+    "file": "scene-5.mp3",
+    "text": "Add a name, and Coodie and Chike's films come straight up.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4.16
+  },
+  {
+    "file": "scene-6.mp3",
+    "text": "Every title opens like a project: the trailer, what to study, and who made it.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.28
+  },
+  {
+    "file": "scene-7.mp3",
+    "text": "Its press kit gathers the trailers, interviews and coverage in one place.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.12
+  },
+  {
+    "file": "scene-8.mp3",
+    "text": "On the timeline, Jeen-Yuhs sits among everything else made in those years.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.12
+  },
+  {
+    "file": "scene-9.mp3",
+    "text": "When something inspires you, add it to a project as a reference.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4.24
+  }
+]

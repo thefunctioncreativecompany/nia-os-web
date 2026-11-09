@@ -1,0 +1,61 @@
+{
+  "id": "explore",
+  "title": "Explore",
+  "subtitle": "Films, series and creator work to study",
+  "scenes": [
+    {
+      "line": "This is Explore: films, series and creator work, chosen for what you can learn from them.",
+      "caption": "Explore",
+      "shots": [{ "shot": "explore", "camera": [[960, 540, 1], [960, 600, 1.06]] }, { "shot": "explore-scrolled", "camera": [[960, 540, 1.04], [960, 540, 1]] }]
+    },
+    {
+      "line": "Explore all lays the whole library out on one canvas. Drag anywhere to wander.",
+      "caption": "Explore all, on one canvas",
+      "shots": [
+        { "shot": "explore", "cursor": "exploreAll", "click": true, "weight": 0.6 },
+        { "shot": "canvas", "cursor": "dragFrom", "weight": 0.5 },
+        { "shot": "canvas", "cursor": "dragTo", "press": true, "blendTo": "canvas-dragged", "weight": 1.1 },
+        { "shot": "canvas-dragged", "weight": 0.8 }
+      ]
+    },
+    {
+      "line": "Or switch to the timeline, and move through film history.",
+      "caption": "The timeline",
+      "shots": [
+        { "shot": "canvas-dragged", "cursor": "timelineTab", "click": true, "weight": 0.5 },
+        { "shot": "timeline", "cursor": "century", "click": true },
+        { "shot": "timeline-century", "camera": [[960, 540, 1], [960, 640, 1.12]] }
+      ]
+    },
+    {
+      "line": "Search by style. Documentary finds ten titles.",
+      "caption": "Search by style",
+      "shots": [{ "shot": "search-documentary", "camera": [[960, 540, 1], [700, 420, 1.3]] }]
+    },
+    {
+      "line": "Add a name, and Coodie and Chike's films come straight up.",
+      "caption": "Or by who made it",
+      "shots": [{ "shot": "search-coodie", "cursor": "jeenYuhs", "click": true, "camera": [[700, 420, 1.3], [800, 480, 1.2]] }]
+    },
+    {
+      "line": "Every title opens like a project: the trailer, what to study, and who made it.",
+      "caption": "Each title, ready to study",
+      "shots": [{ "shot": "title", "camera": [[960, 540, 1], [700, 560, 1.15]] }, { "shot": "title-cast", "camera": [[700, 400, 1.3], [700, 400, 1.2]] }]
+    },
+    {
+      "line": "Its press kit gathers the trailers, interviews and coverage in one place.",
+      "caption": "The press kit",
+      "shots": [{ "shot": "title-press", "camera": [[960, 540, 1], [960, 600, 1.12]] }]
+    },
+    {
+      "line": "On the timeline, Jeen-Yuhs sits among everything else made in those years.",
+      "caption": "In its time",
+      "shots": [{ "shot": "timeline-coodie", "camera": [[960, 540, 1], [1180, 620, 1.35]] }]
+    },
+    {
+      "line": "When something inspires you, add it to a project as a reference.",
+      "caption": "Add it to a project",
+      "shots": [{ "shot": "title", "cursor": "addToProject", "click": true, "weight": 0.6 }, { "shot": "add-to-project", "camera": [[700, 700, 1.3], [500, 820, 1.45]] }]
+    }
+  ]
+}

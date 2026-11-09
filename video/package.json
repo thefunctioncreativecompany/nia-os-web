@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@types/react": "^19",
+    "puppeteer-core": "^23.11.1",
     "typescript": "^5"
   }
 }
