@@ -150,6 +150,35 @@
   "cinemaRelease": true,
   "imdb": "tt0988595"
  },
+ "a-kid-from-coney-island": {
+  "videos": [
+   {
+    "id": "3UNVA-W_z6Q",
+    "kind": "Official trailer",
+    "title": "A Kid From Coney Island | Official Trailer",
+    "channel": "Boardroom"
+   },
+   {
+    "id": "BB4TEI7WQa8",
+    "kind": "Cast interview",
+    "title": "NBA Star Stephon Marbury Talks Spike Lee & Kobe Bryant, Plus: His Doc ‘A Kid from Coney Island’",
+    "channel": "extratv"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Tribeca",
+    "title": "A Kid From Coney Island",
+    "href": "https://tribecafilm.com/films/kid-from-coney-island-2019"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "1091 Acquires Domestic Rights to Stephon Marbury Doc 'A Kid From Coney Island'",
+    "href": "https://www.thewrap.com/stephon-marbury-a-kid-from-coney-island"
+   }
+  ]
+ },
  "a-raisin-in-the-sun": {
   "videos": [
    {
@@ -635,6 +664,30 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0052618"
+ },
+ "benji": {
+  "videos": [
+   {
+    "id": "BgXLP8rCwEE",
+    "kind": "Official trailer",
+    "title": "ESPN 30 for 30 documentary: Benji, official trailer",
+    "channel": "Creative Control"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Newsday",
+    "title": "'Benji' tells sad tale of Ben Wilson",
+    "href": "https://www.newsday.com/sports/media/benji-tells-sad-tale-of-ben-wilson-u14343"
+   },
+   {
+    "outlet": "Outside",
+    "title": "Outside at Tribeca: The Tragic Death of Chicago's Ben Wilson",
+    "href": "http://www.outsideonline.com/outdoor-adventure/media/film/Outside-at-Tribeca-The-Tragic-Death-of-Ben-Wilson.html"
+   }
+  ],
+  "imdb": "tt2519480"
  },
  "black-girl": {
   "videos": [],
@@ -3136,6 +3189,49 @@
   "cinemaRelease": true,
   "imdb": "tt0073195"
  },
+ "jeen-yuhs": {
+  "videos": [
+   {
+    "id": "i-e_YPO-RYc",
+    "kind": "Teaser",
+    "title": "jeen-yuhs: A Kanye Trilogy | Official Teaser | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "MnRcytmJvow",
+    "kind": "Cast interview",
+    "title": "Jeen-Yuhs Conversation: Personal Stories Behind Some of the Biggest Moments | Netflix",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "y4OH805yaM4",
+    "kind": "Cast interview",
+    "title": "Director on Director | jeen-yuhs: A Kanye Trilogy",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "B3syMS0lkEA",
+    "kind": "Cast interview",
+    "title": "jeen-yuhs: A Kanye Trilogy | Speedy Morman Interviews Biggs | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "OKkBBexZP_Q",
+    "kind": "Cast interview",
+    "title": "Directors of ‘jeen-yuhs: A Kanye Trilogy’ talk film reception, Ye’s social media activities",
+    "channel": "Associated Press"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Kanye West Documentary Lands at Netflix",
+    "href": "https://variety.com/2021/music/news/kanye-west-documentary-netflix-1234945384"
+   }
+  ],
+  "imdb": "tt14599438"
+ },
  "jerusalema": {
   "videos": [],
   "reviews": [
@@ -3204,6 +3300,31 @@
   ],
   "streaming": "Netflix",
   "imdb": "tt27048691"
+ },
+ "katrina-babies": {
+  "videos": [
+   {
+    "id": "VDxcmEFjmyU",
+    "kind": "Official trailer",
+    "title": "Katrina Babies (2022) | Trailer | Edward Buckles Jr.",
+    "channel": "Film Movement"
+   },
+   {
+    "id": "qq8oiLW2U3c",
+    "kind": "Cast interview",
+    "title": "New Orleans filmmaker opens up conversation on trauma and healing with 'Katrina Babies' documentary",
+    "channel": "WDSU News"
+   },
+   {
+    "id": "jVoboQ5xKY0",
+    "kind": "Filmmaker interview",
+    "title": "Filmmaker Edward Buckles, Jr. talks HBO documentary \"Katrina Babies\"",
+    "channel": "WWLTV"
+   }
+  ],
+  "reviews": [],
+  "articles": [],
+  "imdb": "tt15306876"
  },
  "king-kong": {
   "videos": [
@@ -3800,6 +3921,30 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0031679"
+ },
+ "muhammad-ali-the-peoples-champ": {
+  "videos": [
+   {
+    "id": "e49IM_ZiM1k",
+    "kind": "Featurette",
+    "title": "The Making of The People's Champ",
+    "channel": "BET"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Blavity",
+    "title": "Trailer: 2015 Urbanworld opening night film Muhammad Ali: The People's Champ",
+    "href": "https://blavity.com/trailer-2015-urbanworld-opening-night-film-muhammad-ali-the-peoples-champ"
+   },
+   {
+    "outlet": "Soulhead",
+    "title": "Muhammad Ali: The People's Champ, film review and interview",
+    "href": "https://soulhead.com/amp/2015/09/23/muhammad-ali-the-peoples-champ-film-review-interview-by-michael-a-gonzales"
+   }
+  ],
+  "imdb": "nm0000738"
  },
  "nanny-mcphee": {
   "videos": [],
@@ -5519,6 +5664,25 @@
   "articles": [],
   "streaming": "Netflix",
   "imdb": "tt7497366"
+ },
+ "the-college-dropout-video-anthology": {
+  "videos": [
+   {
+    "id": "tkFOBx6j0l8",
+    "kind": "Music video",
+    "title": "Kanye West - Two Words ft. Mos Def, Freeway, The Boys Choir Of Harlem",
+    "channel": "Kanye West"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "The New York Times",
+    "title": "A Trinity of Videos for One Religious Rap",
+    "href": "https://www.nytimes.com/2004/06/23/arts/a-trinity-of-videos-for-one-religious-rap.html"
+   }
+  ],
+  "imdb": "tt0466040"
  },
  "the-emperor-jones": {
   "videos": [],

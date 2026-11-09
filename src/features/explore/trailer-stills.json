@@ -400,5 +400,51 @@
   "top": 22,
   "bottom": 22,
   "x": 0.55
+ },
+ "jeen-yuhs": {
+  "id": "X3d5rT7FGLE",
+  "size": "maxres2",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.5
+ },
+ "a-kid-from-coney-island": {
+  "id": "3UNVA-W_z6Q",
+  "size": "maxres3",
+  "top": 87,
+  "bottom": 87,
+  "x": 0.6
+ },
+ "benji": {
+  "id": "BgXLP8rCwEE",
+  "size": "maxres2",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.55
+ },
+ "muhammad-ali-the-peoples-champ": {
+  "id": "e49IM_ZiM1k",
+  "size": "maxres2",
+  "top": 30,
+  "bottom": 30,
+  "x": 0.5,
+  "kind": "featurette"
+ },
+ "the-college-dropout-video-anthology": {
+  "id": "tkFOBx6j0l8",
+  "size": "sd2",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.5,
+  "w": 640,
+  "h": 480,
+  "kind": "music video"
+ },
+ "katrina-babies": {
+  "id": "NjteP4qBqn4",
+  "size": "maxres3",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.55
  }
 }

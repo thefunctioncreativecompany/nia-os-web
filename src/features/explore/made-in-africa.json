@@ -5928,6 +5928,188 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "jeen-yuhs",
+   "collection": "explore-all",
+   "title": "Jeen-Yuhs: A Kanye Trilogy",
+   "type": "documentary",
+   "genres": [
+    "Documentary",
+    "Music",
+    "Biography"
+   ],
+   "year": 2022,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Coodie & Chike",
+   "recognition": "Premiered at the Sundance Film Festival, 2022",
+   "pair_with": "",
+   "study_note": "Twenty years of a filmmaker's own footage of a friend becoming famous, with the filmmaker in the story too",
+   "added": "2026-11-08",
+   "suggested_by": "Ika",
+   "imdb_id": "tt14599438",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "X3d5rT7FGLE",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "a-kid-from-coney-island",
+   "collection": "explore-all",
+   "title": "A Kid from Coney Island",
+   "type": "documentary",
+   "genres": [
+    "Documentary",
+    "Sports",
+    "Biography"
+   ],
+   "year": 2019,
+   "countries": [
+    "United States",
+    "China"
+   ],
+   "credit": "Coodie & Chike",
+   "recognition": "Premiered at the Tribeca Film Festival, 2019",
+   "pair_with": "",
+   "study_note": "Stephon Marbury from Coney Island's courts to the NBA and a second life in China: a career retold as redemption",
+   "added": "2026-11-08",
+   "suggested_by": "Ika",
+   "imdb_id": "tt9567112",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "3UNVA-W_z6Q",
+     "kind": "trailer",
+     "channel": "Boardroom",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "benji",
+   "collection": "explore-all",
+   "title": "Benji",
+   "type": "documentary",
+   "genres": [
+    "Documentary",
+    "Sports",
+    "Biography"
+   ],
+   "year": 2012,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Coodie & Chike",
+   "recognition": "Premiered at the Tribeca/ESPN Sports Film Festival, 2012",
+   "pair_with": "",
+   "study_note": "ESPN's 30 for 30 on Ben Wilson, Chicago's top high-school player, shot in 1984: a city's memory built from interviews",
+   "added": "2026-11-08",
+   "suggested_by": "Ika",
+   "imdb_id": "tt2519480",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "BgXLP8rCwEE",
+     "kind": "trailer",
+     "channel": "Creative Control",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "muhammad-ali-the-peoples-champ",
+   "collection": "explore-all",
+   "title": "Muhammad Ali: The People's Champ",
+   "type": "documentary",
+   "genres": [
+    "Documentary",
+    "Sports",
+    "Biography"
+   ],
+   "year": 2015,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Coodie & Chike",
+   "recognition": "Opening night film, Urbanworld Film Festival 2015",
+   "pair_with": "",
+   "study_note": "Ali's life told through the people he moved, made for BET",
+   "added": "2026-11-08",
+   "suggested_by": "Ika",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "e49IM_ZiM1k",
+     "kind": "featurette",
+     "channel": "BET",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-college-dropout-video-anthology",
+   "collection": "explore-all",
+   "title": "The College Dropout Video Anthology",
+   "type": "short",
+   "genres": [
+    "Music"
+   ],
+   "year": 2005,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Coodie & Chike and others",
+   "recognition": null,
+   "pair_with": "",
+   "study_note": "The music videos from Kanye West's first album, with Coodie & Chike's Two Words, Through the Wire and Jesus Walks",
+   "added": "2026-11-08",
+   "suggested_by": "Ika",
+   "imdb_id": "tt0466040",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "tkFOBx6j0l8",
+     "kind": "music video",
+     "channel": "Kanye West",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "katrina-babies",
+   "collection": "explore-all",
+   "title": "Katrina Babies",
+   "type": "documentary",
+   "genres": [
+    "Documentary"
+   ],
+   "year": 2022,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Edward Buckles Jr.",
+   "recognition": "Premiered at the Tribeca Festival, 2022",
+   "pair_with": "",
+   "study_note": "New Orleans children who lived through Hurricane Katrina, filmed by one of them",
+   "added": "2026-11-08",
+   "suggested_by": "Ika",
+   "imdb_id": "tt15306876",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "NjteP4qBqn4",
+     "kind": "trailer",
+     "channel": "HBO",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

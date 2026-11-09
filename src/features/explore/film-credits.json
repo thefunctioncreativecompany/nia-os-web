@@ -1202,6 +1202,19 @@
    }
   ]
  },
+ "benji": {
+  "qid": "Q4889511",
+  "people": [
+   {
+    "id": "Q54608703",
+    "role": "Director"
+   },
+   {
+    "id": "Q54608672",
+    "role": "Director"
+   }
+  ]
+ },
  "black-girl": {
   "qid": "Q3211102",
   "people": [
@@ -6839,6 +6852,19 @@
    }
   ]
  },
+ "jeen-yuhs": {
+  "qid": "Q108704207",
+  "people": [
+   {
+    "id": "Q54608672",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q54608703",
+    "role": "Director, Producer"
+   }
+  ]
+ },
  "jerusalema": {
   "qid": "Q2455693",
   "people": [
@@ -6950,6 +6976,10 @@
  },
  "kandasamys-the-baby": {
   "qid": "Q123208176",
+  "people": []
+ },
+ "katrina-babies": {
+  "qid": "Q113659484",
   "people": []
  },
  "king-kong": {
@@ -11250,6 +11280,10 @@
     "role": "Director"
    }
   ]
+ },
+ "the-college-dropout-video-anthology": {
+  "qid": "Q7726753",
+  "people": []
  },
  "the-emperor-jones": {
   "qid": "Q1394119",

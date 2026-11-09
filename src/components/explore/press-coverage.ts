@@ -15,7 +15,7 @@ import kits from "@/features/explore/press-kits.json";
 export type PressVideo = {
   /** The YouTube video id. */
   id: string;
-  kind: "Official trailer" | "Teaser" | "Cast interview" | "Filmmaker interview" | "Featurette" | "Press conference" | "Festival Q&A" | "Video review";
+  kind: "Official trailer" | "Teaser" | "Cast interview" | "Filmmaker interview" | "Featurette" | "Press conference" | "Festival Q&A" | "Video review" | "Music video";
   title: string;
   /** The channel it's on. */
   channel: string;

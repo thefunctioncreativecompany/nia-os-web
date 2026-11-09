@@ -171,6 +171,13 @@ for (const it of items) {
       const buf = await get(`https://i.ytimg.com/vi/${it.video}/${f}.jpg`, "buffer");
       if (buf) all.push(...(await pixels(buf)));
     }
+    // Older videos keep only 640 × 480 frames.
+    if (!all.length) {
+      for (const f of ["sd1", "sd2", "sd3"]) {
+        const buf = await get(`https://i.ytimg.com/vi/${it.video}/${f}.jpg`, "buffer");
+        if (buf) all.push(...(await pixels(buf)));
+      }
+    }
     if (all.length) fromTrailer++;
   }
   if (!all.length && existsSync(it.cover)) all = await pixels(await readFile(it.cover));

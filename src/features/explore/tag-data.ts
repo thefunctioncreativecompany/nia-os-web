@@ -296,6 +296,13 @@ export const HAND_TAGS: Record<string, string[]> = {
   "nanny-mcphee": ["family", "youth", "myth", "home", "period-setting", "costume", "set-design", "practical-effects", "adaptation", "playful", "joyful", "cinema", "interiors"],
   "bugonia": ["crime", "money", "identity", "home", "celebrity", "close-ups", "tense", "darkly-comic", "mysterious", "genre-blend", "adaptation", "cinema", "bold"],
   "tenzing": ["mountains", "snow", "nature", "history", "true-story", "travel", "identity", "community", "wide-vistas", "celebrity", "uplifting", "streaming", "period-setting"],
+  // 2026-11-08 (Coodie & Chike's films, and Katrina Babies)
+  "jeen-yuhs": ["music", "celebrity", "friendship", "identity", "family", "archive", "true-story", "interviews", "handheld", "film-grain", "intimate", "raw", "nostalgic", "streaming", "small-crew"],
+  "a-kid-from-coney-island": ["sport", "athletes", "celebrity", "identity", "community", "city-streets", "true-story", "interviews", "archive", "uplifting", "nostalgic", "travel", "cinema"],
+  "benji": ["sport", "athletes", "youth", "school", "community", "city-streets", "true-story", "interviews", "archive", "melancholy", "nostalgic", "history", "streaming"],
+  "muhammad-ali-the-peoples-champ": ["sport", "athletes", "celebrity", "history", "politics", "identity", "community", "true-story", "interviews", "archive", "uplifting", "streaming"],
+  "the-college-dropout-video-anthology": ["music", "music-led", "music-release", "celebrity", "youth", "community", "school", "shot-on-film", "film-grain", "handheld", "nostalgic", "bold", "playful", "small-crew"],
+  "katrina-babies": ["youth", "community", "home", "water", "history", "true-story", "interviews", "archive", "non-actors", "intimate", "raw", "melancholy", "streaming"],
   "modern-family": ["family", "home", "interiors", "love", "queer", "ensemble", "interviews", "handheld", "playful", "joyful", "series", "streaming", "identity"],
   "love-thy-neighbor": ["family", "community", "food-drink", "interiors", "women", "ensemble", "costume", "playful", "joyful", "bold", "series", "full-crew", "identity"],
   "the-last-days-of-ptolemy-grey": ["family", "history", "identity", "mental-health", "home", "interiors", "close-ups", "celebrity", "intimate", "melancholy", "adaptation", "streaming", "series"],

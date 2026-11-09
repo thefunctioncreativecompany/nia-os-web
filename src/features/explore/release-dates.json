@@ -15,6 +15,10 @@
   "date": "2008-01-09",
   "precision": "day"
  },
+ "a-kid-from-coney-island": {
+  "date": "2019-01-01",
+  "precision": "year"
+ },
  "a-raisin-in-the-sun": {
   "date": "1961-01-01",
   "precision": "year"
@@ -70,6 +74,10 @@
  "ben-hur": {
   "date": "1959-11-18",
   "precision": "day"
+ },
+ "benji": {
+  "date": "2012-01-01",
+  "precision": "year"
  },
  "black-girl": {
   "date": "1966-01-01",
@@ -823,6 +831,10 @@
   "date": "1975-06-20",
   "precision": "day"
  },
+ "jeen-yuhs": {
+  "date": "2022-02-16",
+  "precision": "day"
+ },
  "jerusalema": {
   "date": "2008-01-01",
   "precision": "year"
@@ -833,6 +845,10 @@
  },
  "kandasamys-the-baby": {
   "date": "2023-01-01",
+  "precision": "year"
+ },
+ "katrina-babies": {
+  "date": "2022-01-01",
   "precision": "year"
  },
  "king-kong": {
@@ -914,6 +930,10 @@
  "mr-smith-goes-to-washington": {
   "date": "1939-10-19",
   "precision": "day"
+ },
+ "muhammad-ali-the-peoples-champ": {
+  "date": "2015-01-01",
+  "precision": "year"
  },
  "nanny-mcphee": {
   "date": "2005-01-01",
@@ -1110,6 +1130,10 @@
  "the-burial-of-kojo": {
   "date": "2018-01-01",
   "precision": "year"
+ },
+ "the-college-dropout-video-anthology": {
+  "date": "2005-03-22",
+  "precision": "day"
  },
  "the-emperor-jones": {
   "date": "1933-01-01",

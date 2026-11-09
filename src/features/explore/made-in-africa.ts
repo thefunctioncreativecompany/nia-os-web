@@ -61,11 +61,12 @@ export const coverFor = (slug: string): string | null =>
 /** The cover is a still from the official trailer, standing in for the poster. */
 export const isTrailerStill = (slug: string) => !COVERS.has(slug) && slug in STILLS;
 /** A trailer-still cover at the frame's own wide shape, black bars cut (Recently added's mosaic,
- * Ika, 2026-11-08), with its width ÷ height; null for a poster. YouTube's frames are 1280 × 720. */
+ * Ika, 2026-11-08), with its width ÷ height; null for a poster. YouTube's frames are 1280 × 720
+ * unless the still says otherwise (older videos: 640 × 480). */
 export function wideCoverFor(slug: string): { image: string; aspect: number } | null {
-  const still = STILLS[slug] as { id: string; size: string; top?: number; bottom?: number } | undefined;
+  const still = STILLS[slug] as { id: string; size: string; top?: number; bottom?: number; w?: number; h?: number } | undefined;
   if (COVERS.has(slug) || !still) return null;
-  return { image: `/api/explore-still/${still.id}-${still.size}-wide/${slug}.jpg`, aspect: 1280 / (720 - (still.top ?? 0) - (still.bottom ?? 0)) };
+  return { image: `/api/explore-still/${still.id}-${still.size}-wide/${slug}.jpg`, aspect: (still.w ?? 1280) / ((still.h ?? 720) - (still.top ?? 0) - (still.bottom ?? 0)) };
 }
 /** What the stand-in still is from: "trailer", or the studio's own "clip" or "promo". */
 export const stillKind = (slug: string) => (STILLS[slug] as { kind?: string } | undefined)?.kind ?? "trailer";
