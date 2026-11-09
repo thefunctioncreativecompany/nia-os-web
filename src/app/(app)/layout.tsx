@@ -5,7 +5,7 @@ import { Feedback } from "@/components/nia/feedback";
 import { ExploreAllButton } from "@/components/nia/explore-all-button";
 import { NavTrail } from "@/components/nia/back-link";
 import { MotionProvider } from "@/components/nia/motion-provider";
-import { NavDock, Navbar } from "@/components/nia/navbar";
+import { NavDock, NavScrollMarker, Navbar } from "@/components/nia/navbar";
 import { UserMenu, UserMenuSkeleton } from "@/components/nia/user-menu";
 import { UpgradeDialog } from "@/components/nia/upgrade-dialog";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -25,7 +25,11 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
             }
           />
           {/* Room at the bottom on phones and tablets so the dock never covers the end of a page. */}
-          <main className="flex flex-1 flex-col pb-28 lg:pb-0">{children}</main>
+          <main className="flex flex-1 flex-col pb-28 lg:pb-0">
+            {/* Tells the desktop bar when the page has scrolled under it (its blur strip). */}
+            <NavScrollMarker />
+            {children}
+          </main>
           <NavDock />
           {/* The upgrade prompt, opened when a free limit is reached. */}
           <UpgradeDialog />

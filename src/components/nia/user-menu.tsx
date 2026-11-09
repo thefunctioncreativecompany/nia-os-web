@@ -1,6 +1,5 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import { CompassIcon, GemIcon, MessageSquareIcon, SettingsIcon, UserRoundIcon } from "lucide-react";
 
@@ -16,13 +15,12 @@ import { Skeleton } from "@/components/ui/skeleton";
 export function UserMenu({ user }: { user: CurrentUser }) {
   const router = useRouter();
   const displayName = user.name || user.email;
-  // The name beside the avatar needs a wide screen; the desktop tabs carry their names too.
-  const wide = useSyncExternalStore(subscribeWide, isWide, () => false);
 
   return (
     <ArcUserMenu
       user={{ name: displayName, email: user.email, avatarSrc: user.avatarUrl ?? undefined }}
-      showName={wide}
+      // Avatar only (Ika, 2026-11-08, navbar decision 6): the tabs carry their names, and the search gets the room.
+      showName={false}
       showTheme={false}
       items={[
         { label: "Profile", icon: <UserRoundIcon size={16} />, onSelect: () => router.push("/settings/profile") },
@@ -40,19 +38,8 @@ export function UserMenu({ user }: { user: CurrentUser }) {
   );
 }
 
-const WIDE = "(min-width: 80rem)";
-const subscribeWide = (onChange: () => void) => {
-  const query = window.matchMedia(WIDE);
-  query.addEventListener("change", onChange);
-  return () => query.removeEventListener("change", onChange);
-};
-const isWide = () => window.matchMedia(WIDE).matches;
-
 export function UserMenuSkeleton() {
   return (
-    <div className="flex items-center gap-3">
-      <Skeleton className="size-9 rounded-full" />
-      <Skeleton className="hidden h-4 w-20 sm:block" />
-    </div>
+    <Skeleton className="size-9 rounded-full" />
   );
 }

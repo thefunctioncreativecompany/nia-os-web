@@ -280,7 +280,7 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
         }
       }}
     >
-      <DialogContent showCloseButton={false} className="top-[12svh] flex h-[min(44rem,76svh)] w-[min(72rem,calc(100%-4rem))] translate-y-0 flex-col gap-0 overflow-hidden p-0 sm:max-w-none max-lg:top-0 max-lg:left-0 max-lg:h-svh max-lg:w-screen max-lg:max-w-none max-lg:translate-x-0 max-lg:rounded-none max-lg:border-0">
+      <DialogContent showCloseButton={false} className="top-[12svh] flex lg:top-[calc(var(--nav-h)+0.5rem)] h-[min(44rem,76svh)] w-[min(72rem,calc(100%-4rem))] translate-y-0 flex-col gap-0 overflow-hidden p-0 sm:max-w-none max-lg:top-0 max-lg:left-0 max-lg:h-svh max-lg:w-screen max-lg:max-w-none max-lg:translate-x-0 max-lg:rounded-none max-lg:border-0">
         <DialogTitle className="sr-only">Search Nia</DialogTitle>
         <DialogDescription className="sr-only">Projects, documents, files, templates and Explore. Use the arrow keys to move through results and Enter to open one.</DialogDescription>
 

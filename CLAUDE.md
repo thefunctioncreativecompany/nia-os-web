@@ -268,9 +268,10 @@ sheets live until issued; crew without accounts for now)
   remove; a viewer can't write). To do: link a person to their Nia account (the old "pick
   someone on Nia" is gone from the form), Nia photos in the project row, people's own pages.
 
-Navbar (NAVBAR_BUILD.md): N0 decisions logged, Figma frames pending; N1 done 2026-11-08 (bar
-height `--nav-h` and sticky offset `--nav-offset` tokens, nothing visible changed). N2 (the new
-bar) waits for the Figma frames.
+Navbar (NAVBAR_BUILD.md): N0 decisions logged, Figma frames pending (built from the Claude
+Design boards meanwhile, Ika 2026-11-08). N1–N3 done 2026-11-08: on desktop a 4rem frosted bar
+(`glass-bar`, `nav-edge` blur strip) that stays at the top, tabs left, search pill and round +
+in the middle, avatar right; phones unchanged. Next: N4 "Try" ideas, N5 gallery and fallbacks.
 
 Milestone 5 — Copilot: not started.
 

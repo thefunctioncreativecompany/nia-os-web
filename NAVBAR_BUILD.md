@@ -142,7 +142,10 @@ Each one has a recommendation. Log the answers in `docs/decisions.md` (dated) be
     `/explore/all`, `/explore/all/timeline` and a title page. They must be pixel-identical. `npm run build`,
     `npm run lint` and `npm test` pass.
 
-- [ ] **N2 — The new bar (desktop).**
+- [x] **N2 — The new bar (desktop).** *Done 2026-11-08 from the Claude Design boards Ika linked (N1 frosted,
+  N3 dark with search open); Figma frames still to reconcile. Phones and tablets pixel-identical; Explore all and
+  the timeline fill the screen; the activity month bar sticks under the bar; light and dark checked. The avatar
+  has no chevron: uiarc shows it only with the name.*
   - In globals.css:
     - The `lg` override: `--nav-h: 4rem; --nav-offset: var(--nav-h)`. For N2 floating, `--nav-h` is `4.625rem`.
     - Add `--shadow-glass` and the `glass-bar` and `nav-edge` utilities.
@@ -164,7 +167,9 @@ Each one has a recommendation. Log the answers in `docs/decisions.md` (dated) be
     - The timeline fits.
     - The activity month bar and the template outline sit just under the bar.
 
-- [ ] **N3 — Search and + in the middle.**
+- [x] **N3 — Search and + in the middle.** *Done 2026-11-08 with N2: 38rem pill (558px at 1280 and up, 406px
+  at 1024), tooltip "Search Nia · ⌘K", round outline +, search window opens under the bar. Tab order checked:
+  tabs → search → + → profile. No colour, picture or voice buttons (decision 4).*
   - `nav-search.tsx`, desktop button only:
     - The pill per NAVBAR_SPEC §3 (`h-11 w-full`, `bg-background/95`).
     - The hint, `Search Nia` until an idea is picked.

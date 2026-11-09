@@ -323,11 +323,52 @@
   --duration-track: 1100ms; /* Templates: filmstrip track following the pointer */
 }
 
-/* The top bar (NAVBAR_BUILD.md, N1): its height, and how far a sticky part must sit below the
-   top of the screen to clear it (0 while the bar scrolls away with the page). */
+/* The top bar (NAVBAR_BUILD.md, design-ref/navbar/NAVBAR_SPEC.md): its height, and how far a
+   sticky part must sit below the top of the screen to clear it. Phones and tablets: 5rem, and the
+   bar scrolls away (0). Desktop: a 4rem frosted bar that stays at the top (Ika, 2026-11-08). */
 :root {
   --nav-h: 5rem;
   --nav-offset: 0rem;
+}
+@media (width >= 64rem) {
+  :root {
+    --nav-h: 4rem;
+    --nav-offset: var(--nav-h);
+  }
+}
+
+/* The desktop bar's frosted glass: the page shows through softly as it scrolls under. 80% (the
+   design's 62% and 55% fail contrast over people's own covers, NAVBAR_SPEC §6). Solid where glass
+   isn't supported, or the device asks for less transparency or more contrast. */
+@utility glass-bar {
+  background: color-mix(in oklab, var(--background) 80%, transparent);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  &:is(.dark *) {
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    backdrop-filter: blur(22px) saturate(140%);
+  }
+  @supports not (backdrop-filter: blur(1px)) {
+    background: var(--background);
+  }
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    background: var(--background);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* The soft blur under the bar's lower edge once the page has scrolled, so content doesn't cut off
+   at a hard line. */
+@utility nav-edge {
+  height: 2.25rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-mask-image: linear-gradient(to bottom, #000, transparent);
+  mask-image: linear-gradient(to bottom, #000, transparent);
+  @media (prefers-reduced-transparency: reduce) {
+    display: none;
+  }
 }
 
 /* uiarc components (src/components/arc) read these names. Each one points at a Nia token,

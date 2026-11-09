@@ -532,6 +532,13 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-08) The Explore all timeline is open to everyone in the beta (Ika): the paid-plan
   check and its "comes with paid plans" note are gone; it stays a desktop view (phones and
   tablets keep "The timeline is on desktop"). Cast & Crew's View all still checks the plan.
+- (2026-11-08) Desktop navbar, steps N1–N3 (Ika: "go ahead with navbar build", with the Claude
+  Design boards N1 frosted and N3 dark as the reference; Figma reconcile still to do): a 4rem
+  frosted bar (`glass-bar`, 80% instead of the design's 62%/55% for contrast over covers) that
+  stays at the top, a soft blur under it once the page scrolls (`nav-edge`), tabs at 13px with
+  icons, the search as a 38rem pill in the middle with a round +, the avatar alone on the right
+  (no name, no chevron). `--nav-h`/`--nav-offset` carry the height to every full-height and
+  sticky part. Phones and tablets unchanged. Back out: `pre-navbar-2026-11` tag.
 - (2026-11-08) Explore's order (Ika): Explore all, then Top 10 on Explore, then Recently added
   (15 titles, the rest on View all at `/explore/recent`, newest first with the day each was
   added; `GALLERY_SIZE` in `recent.ts`), then By category. Top 10 left By category.
