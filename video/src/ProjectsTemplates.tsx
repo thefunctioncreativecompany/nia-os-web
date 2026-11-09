@@ -327,3 +327,6 @@ function EndCard({ frame }: { frame: number }) {
     </AbsoluteFill>
   );
 }
+
+
+
