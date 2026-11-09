@@ -1,0 +1,229 @@
+{
+  "id": "crew",
+  "title": "Cast & crew",
+  "subtitle": "Everyone on the production, and how to reach them",
+  "scenes": [
+    {
+      "line": "Every project keeps its cast and crew in one place. Open Manage cast and crew.",
+      "caption": "Cast & crew",
+      "shots": [
+        {
+          "shot": "project-crew-row",
+          "cursor": "manage",
+          "click": true,
+          "camera": [
+            [
+              1300,
+              500,
+              1.15
+            ],
+            [
+              1500,
+              520,
+              1.3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Add someone with their role, and Nia files them under the right department, with how to reach them.",
+      "caption": "Add people",
+      "shots": [
+        {
+          "shot": "empty",
+          "cursor": "add",
+          "click": true,
+          "weight": 0.6,
+          "camera": [
+            [
+              700,
+              460,
+              1.3
+            ],
+            [
+              640,
+              520,
+              1.4
+            ]
+          ]
+        },
+        {
+          "shot": "add-form",
+          "cursor": "save",
+          "click": true,
+          "camera": [
+            [
+              960,
+              420,
+              1.2
+            ],
+            [
+              960,
+              520,
+              1.25
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "The team is grouped by department, each person with their status and contact.",
+      "caption": "Grouped by department",
+      "shots": [
+        {
+          "shot": "list",
+          "camera": [
+            [
+              960,
+              540,
+              1
+            ],
+            [
+              560,
+              640,
+              1.3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Filter by department or by status, to see at once who still needs confirming.",
+      "caption": "Filter by department or status",
+      "shots": [
+        {
+          "shot": "list",
+          "camera": [
+            [
+              700,
+              400,
+              1.3
+            ],
+            [
+              640,
+              440,
+              1.5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Confirm someone in one tap, and the count at the top keeps up: who's confirmed, out of the whole headcount.",
+      "caption": "Confirm in one tap",
+      "shots": [
+        {
+          "shot": "status-open",
+          "cursor": "confirmed",
+          "click": true,
+          "camera": [
+            [
+              1500,
+              300,
+              1.4
+            ],
+            [
+              1600,
+              260,
+              1.5
+            ]
+          ]
+        },
+        {
+          "shot": "confirmed",
+          "camera": [
+            [
+              1500,
+              260,
+              1.5
+            ],
+            [
+              1300,
+              300,
+              1.3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Open anyone to see their contact details, agent, availability and notes.",
+      "caption": "Every profile",
+      "shots": [
+        {
+          "shot": "confirmed",
+          "cursor": "person",
+          "click": true,
+          "weight": 0.6,
+          "camera": [
+            [
+              600,
+              800,
+              1.3
+            ],
+            [
+              500,
+              900,
+              1.35
+            ]
+          ]
+        },
+        {
+          "shot": "profile",
+          "camera": [
+            [
+              1300,
+              400,
+              1.2
+            ],
+            [
+              1500,
+              360,
+              1.35
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Or switch to the grid, and see the whole team at a glance.",
+      "caption": "The whole team",
+      "shots": [
+        {
+          "shot": "profile",
+          "cursor": "grid",
+          "click": true,
+          "weight": 0.5,
+          "camera": [
+            [
+              700,
+              500,
+              1.3
+            ],
+            [
+              500,
+              460,
+              1.4
+            ]
+          ]
+        },
+        {
+          "shot": "grid",
+          "camera": [
+            [
+              700,
+              700,
+              1.2
+            ],
+            [
+              700,
+              740,
+              1.4
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

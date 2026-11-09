@@ -1,0 +1,208 @@
+{
+  "id": "templates",
+  "title": "Templates",
+  "subtitle": "Production documents that fill in fast",
+  "scenes": [
+    {
+      "line": "Nia has templates for every stage of a production, from development to wrap: call sheets, shot lists, budgets, invoices, and templates made for creators.",
+      "caption": "Templates",
+      "shots": [
+        {
+          "shot": "gallery",
+          "camera": [
+            [
+              960,
+              540,
+              1
+            ],
+            [
+              760,
+              420,
+              1.2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Search for the one you need.",
+      "caption": "Find one fast",
+      "shots": [
+        {
+          "shot": "search",
+          "cursor": "callSheet",
+          "click": true,
+          "camera": [
+            [
+              700,
+              450,
+              1.3
+            ],
+            [
+              680,
+              470,
+              1.4
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Preview any template before you use it: its sections, its fields, and the PDF it makes.",
+      "caption": "Preview, then use",
+      "shots": [
+        {
+          "shot": "preview",
+          "cursor": "use",
+          "click": true,
+          "camera": [
+            [
+              1100,
+              500,
+              1.1
+            ],
+            [
+              1300,
+              420,
+              1.25
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Fill it in. Every change saves as you go, and the PDF you'll download redraws beside it.",
+      "caption": "It saves as you go",
+      "shots": [
+        {
+          "shot": "editor",
+          "cursor": "title",
+          "click": true,
+          "weight": 0.6,
+          "camera": [
+            [
+              700,
+              700,
+              1.3
+            ],
+            [
+              760,
+              700,
+              1.4
+            ]
+          ]
+        },
+        {
+          "shot": "filled",
+          "camera": [
+            [
+              760,
+              700,
+              1.4
+            ],
+            [
+              1500,
+              560,
+              1.3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Save it to a project, so it sits with the production and everyone on it can open it.",
+      "caption": "Save it to the project",
+      "shots": [
+        {
+          "shot": "filled",
+          "cursor": "save",
+          "click": true,
+          "weight": 0.6,
+          "camera": [
+            [
+              1500,
+              700,
+              1.3
+            ],
+            [
+              1600,
+              780,
+              1.4
+            ]
+          ]
+        },
+        {
+          "shot": "save-dialog",
+          "cursor": "pick",
+          "click": true,
+          "camera": [
+            [
+              960,
+              600,
+              1.3
+            ],
+            [
+              960,
+              640,
+              1.45
+            ]
+          ]
+        },
+        {
+          "shot": "saved",
+          "camera": [
+            [
+              1600,
+              900,
+              1.35
+            ],
+            [
+              1600,
+              940,
+              1.45
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Then download it as a PDF, a Word file, Markdown or plain text, with or without Nia's footer.",
+      "caption": "Download in any format",
+      "shots": [
+        {
+          "shot": "saved",
+          "cursor": "downloads",
+          "click": true,
+          "weight": 0.6,
+          "camera": [
+            [
+              1500,
+              900,
+              1.3
+            ],
+            [
+              1600,
+              900,
+              1.4
+            ]
+          ]
+        },
+        {
+          "shot": "downloads",
+          "camera": [
+            [
+              1600,
+              900,
+              1.4
+            ],
+            [
+              1550,
+              880,
+              1.5
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "file": "scene-1.mp3",
+    "text": "Every production starts as a project. Choose New project, then Blank project.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 6
+  },
+  {
+    "file": "scene-2.mp3",
+    "text": "Give it a name, and a line on what the production is.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 3.6
+  },
+  {
+    "file": "scene-3.mp3",
+    "text": "Add a cover, and frame it the way you want it seen.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 3.28
+  },
+  {
+    "file": "scene-4.mp3",
+    "text": "Pick the production type, then drop in your first stills, briefs or scripts.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.52
+  },
+  {
+    "file": "scene-5.mp3",
+    "text": "Create it, and the project page holds the cover, the story and the production details together.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.84
+  },
+  {
+    "file": "scene-6.mp3",
+    "text": "Everything you upload lands in Files and references, sorted as it arrives.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.36
+  },
+  {
+    "file": "scene-7.mp3",
+    "text": "Tag what each file is for: a reference, a raw file, work in progress, or a final asset.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 7.28
+  },
+  {
+    "file": "scene-8.mp3",
+    "text": "Final assets show up front, under the description, ready to share.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4.72
+  }
+]

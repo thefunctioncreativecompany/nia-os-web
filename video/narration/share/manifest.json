@@ -1,0 +1,44 @@
+[
+  {
+    "file": "scene-1.mp3",
+    "text": "When you're ready to bring people in, open the project's Manage tab and choose Share project.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.84
+  },
+  {
+    "file": "scene-2.mp3",
+    "text": "Invite someone by email, and choose whether they can view the project or edit it with you.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.84
+  },
+  {
+    "file": "scene-3.mp3",
+    "text": "Everyone with access is listed here, and you can change what they can do, or remove them, at any time.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 6.72
+  },
+  {
+    "file": "scene-4.mp3",
+    "text": "Or turn on a link that anyone can open to view it, with no account needed.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4.88
+  },
+  {
+    "file": "scene-5.mp3",
+    "text": "Whoever opens it sees the project as you've set it out: the cover, the story and the production details.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 7.04
+  },
+  {
+    "file": "scene-6.mp3",
+    "text": "Everyone you invite sees changes as they happen, and the project keeps track of who did what.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 6
+  }
+]

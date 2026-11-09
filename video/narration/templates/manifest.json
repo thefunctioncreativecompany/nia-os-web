@@ -1,0 +1,44 @@
+[
+  {
+    "file": "scene-1.mp3",
+    "text": "Nia has templates for every stage of a production, from development to wrap: call sheets, shot lists, budgets, invoices, and templates made for creators.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 10.32
+  },
+  {
+    "file": "scene-2.mp3",
+    "text": "Search for the one you need.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 1.84
+  },
+  {
+    "file": "scene-3.mp3",
+    "text": "Preview any template before you use it: its sections, its fields, and the PDF it makes.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 6.88
+  },
+  {
+    "file": "scene-4.mp3",
+    "text": "Fill it in. Every change saves as you go, and the PDF you'll download redraws beside it.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 7.28
+  },
+  {
+    "file": "scene-5.mp3",
+    "text": "Save it to a project, so it sits with the production and everyone on it can open it.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.04
+  },
+  {
+    "file": "scene-6.mp3",
+    "text": "Then download it as a PDF, a Word file, Markdown or plain text, with or without Nia's footer.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 7.2
+  }
+]

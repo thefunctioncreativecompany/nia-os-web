@@ -1,0 +1,51 @@
+[
+  {
+    "file": "scene-1.mp3",
+    "text": "Every project keeps its cast and crew in one place. Open Manage cast and crew.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.92
+  },
+  {
+    "file": "scene-2.mp3",
+    "text": "Add someone with their role, and Nia files them under the right department, with how to reach them.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 6
+  },
+  {
+    "file": "scene-3.mp3",
+    "text": "The team is grouped by department, each person with their status and contact.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.2
+  },
+  {
+    "file": "scene-4.mp3",
+    "text": "Filter by department or by status, to see at once who still needs confirming.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.68
+  },
+  {
+    "file": "scene-5.mp3",
+    "text": "Confirm someone in one tap, and the count at the top keeps up: who's confirmed, out of the whole headcount.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 7.44
+  },
+  {
+    "file": "scene-6.mp3",
+    "text": "Open anyone to see their contact details, agent, availability and notes.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.84
+  },
+  {
+    "file": "scene-7.mp3",
+    "text": "Or switch to the grid, and see the whole team at a glance.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 3.6
+  }
+]

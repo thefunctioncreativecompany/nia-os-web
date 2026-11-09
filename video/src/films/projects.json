@@ -1,0 +1,66 @@
+{
+  "id": "projects",
+  "title": "Projects",
+  "subtitle": "Every production in one place",
+  "scenes": [
+    {
+      "line": "Every production starts as a project. Choose New project, then Blank project.",
+      "caption": "Start a project",
+      "shots": [
+        { "shot": "projects", "cursor": "newProject", "click": true },
+        { "shot": "dialog", "cursor": "blank", "click": true, "camera": [[960, 540, 1], [880, 560, 1.25]] }
+      ]
+    },
+    {
+      "line": "Give it a name, and a line on what the production is.",
+      "caption": "Name it",
+      "shots": [
+        { "shot": "form", "cursor": "name", "click": true, "weight": 0.6, "camera": [[960, 480, 1.2], [960, 480, 1.3]] },
+        { "shot": "form-typed", "cursor": "description", "camera": [[960, 480, 1.3], [960, 500, 1.35]] }
+      ]
+    },
+    {
+      "line": "Add a cover, and frame it the way you want it seen.",
+      "caption": "Add a cover",
+      "shots": [
+        { "shot": "form-typed", "cursor": "cover", "click": true, "weight": 0.6, "camera": [[960, 560, 1.2], [960, 640, 1.25]] },
+        { "shot": "cropper", "cursor": "apply", "click": true, "camera": [[960, 560, 1.1], [1000, 600, 1.2]] },
+        { "shot": "form-cover", "camera": [[960, 600, 1.2], [960, 620, 1.25]] }
+      ]
+    },
+    {
+      "line": "Pick the production type, then drop in your first stills, briefs or scripts.",
+      "caption": "Type and first files",
+      "shots": [
+        { "shot": "type-open", "cursor": "documentary", "click": true, "camera": [[1100, 400, 1.3], [1100, 380, 1.35]] },
+        { "shot": "form-files", "camera": [[960, 560, 1.15], [960, 600, 1.25]] }
+      ]
+    },
+    {
+      "line": "Create it, and the project page holds the cover, the story and the production details together.",
+      "caption": "Your project page",
+      "shots": [
+        { "shot": "form-ready", "cursor": "create", "click": true, "weight": 0.6, "camera": [[960, 700, 1.2], [1100, 820, 1.3]] },
+        { "shot": "project", "camera": [[960, 540, 1], [800, 480, 1.12]] }
+      ]
+    },
+    {
+      "line": "Everything you upload lands in Files and references, sorted as it arrives.",
+      "caption": "Files and references",
+      "shots": [{ "shot": "files", "camera": [[960, 540, 1], [800, 600, 1.12]] }]
+    },
+    {
+      "line": "Tag what each file is for: a reference, a raw file, work in progress, or a final asset.",
+      "caption": "Tag each file",
+      "shots": [
+        { "shot": "files", "cursor": "tag", "click": true, "weight": 0.6, "camera": [[700, 620, 1.3], [500, 680, 1.45]] },
+        { "shot": "tag-open", "cursor": "final", "click": true, "camera": [[500, 680, 1.45], [500, 700, 1.5]] }
+      ]
+    },
+    {
+      "line": "Final assets show up front, under the description, ready to share.",
+      "caption": "Final assets, up front",
+      "shots": [{ "shot": "project-final", "camera": [[960, 540, 1], [560, 800, 1.4]] }]
+    }
+  ]
+}
