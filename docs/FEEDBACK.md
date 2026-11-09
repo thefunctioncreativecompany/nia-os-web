@@ -1,17 +1,156 @@
-# Feedback and fixes tracker
+# Nia master list
 
-One fix per session, finished fully (built, checked on desktop + 375px, live, committed) before
-the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waiting on Ika.
+**Updated 2026-11-08.** The one place for what's shipped, what's open, feedback and future features.
+Each item runs as its own fix, one at a time (below). Elsewhere, and kept there:
+
+- Why each decision was made: [decisions.md](decisions.md).
+- Milestone checklist and what's next: CLAUDE.md → Progress, and [BUILD_PLAN.md](../BUILD_PLAN.md).
+- Step-by-step build guides: NAVBAR_BUILD.md, TEMPLATES_BUILD.md, TEMPLATE_ENGINE.md (the Explore timeline
+  spec was pasted in chat on 2026-11-01 and isn't in the repo).
+- Weekly notes and side projects: [progress-log.md](progress-log.md).
+
+Status: ⬜ logged, not started · 🔍 being studied · 🔄 in progress · ✅ done · ⏸ waiting on Ika.
 
 ## How each fix runs
 
-1. Restate the fix in plain English and list what changes (and any SQL or dashboard step for Ika).
-2. Build it from `src/components` (the `/dev/components` library) and the theme; no new looks invented.
+1. Restate the fix in plain English, say what changes and why, and list any SQL or dashboard step for Ika.
+2. Design first where it's new (Claude Design, then Figma), then build from `src/components` and the theme.
 3. Check: desktop and phone width, refresh, two test accounts where data is involved, no console errors.
 4. Ika runs any SQL or Supabase dashboard step.
-5. Commit, push, check the live site, tick the box here and in BUILD_PLAN.md if it maps to a step.
+5. Commit, push, check the live site, update this list (and BUILD_PLAN.md if it maps to a step).
 
-## Queue (in order)
+---
+
+## 1. Logged 2026-11-08: Ika's update list and Alvin's feedback (not started)
+
+Nothing here is built yet. "Today" is what exists in the app now. "Implications" is what it would
+touch: the rules in CLAUDE.md, data and permissions, design, plans, and other items it depends on.
+Size: S (a day or less), M (a few days), L (a week or more, or several steps).
+
+### A. First-run value: who Nia is for, and getting to an outcome fast
+
+| # | What | Source | Today | Implications | Size |
+|---|------|--------|-------|--------------|------|
+| B1 | **Explore as the front door.** Browse and study references before making an account; sign up only to save, study deeper or start a project | Ika; Alvin agreed | Signed-out visitors are sent to `/login`. Explore is early access only (`has_explore_access()`, invite codes) | Reverses two standing rules (Explore early-access only; bare domain routes by sign-in state), so it needs Ika's decision first. Public pages need: a signed-out Explore that reads no user data; what a visitor can and can't do (save, Cast & Crew View all, timeline); Explore's "link, never copy" and credits are already public-safe, but ~280 titles wait on the TMDB licence and the TMDB credit must show to visitors; search engines will index it (titles, people pages); rate limits on the still and image routes; Top 10 counts must ignore visitors. Then onboarding starts from what they were doing ("Save this to a project") | L |
+| B2 | **Say who Nia is for, before sign-up.** A short intro of the vision and who it serves (filmmakers, photographers, creators, agencies, production teams) | Alvin | Sign-up hero is a slideshow of Ika's images; no line on who it's for | Copy first (plain, no slogans, "No catchy AI copy"). Could live on the sign-up hero, the share page and B1's front door. Pairs with B1 | S |
+| B3 | **Guided workflows: start from a goal, not a template.** "Plan a photoshoot" → shoot brief, shot list, mood board, model release, delivery checklist; "Plan next week's content" → Day in My Life, Product Review, GRWM, Storytime, Tutorial; "Prepare for production" → budget, call sheet, crew list, equipment log | Ika (paraphrasing Alvin) | Templates stand alone; a project can hold documents; the Editorial Shoot workflow (Fix 13 / 3.1 launcher) is Ika's named priority but not built | This is the 3.1 launcher grown into a general "workflow" (a named bundle of templates plus a project). Needs: a workflow list per goal and role, which templates are missing or not yet working (model release, delivery checklist and shoot brief may not exist), one-tap "create project with these documents" (free-plan limit is 5 documents per project and one of each template: a workflow may hit it), Claude Design first. Strongest answer to Alvin's main point | L |
+| B4 | **Example projects.** A few finished projects from start to finish (photoshoot, creator campaign, commercial, short film) to show what success looks like | Alvin; Ika | Explore shows finished films (by design, "Explore models finished projects"), not Nia projects | Needs real projects with permission (rule: imagery comes from the user's own work; pictures of people only with consent). Read-only, probably via the existing share-link page. Could double as B3's demo and B1's front door. Ask: who curates, and is there a bar for showing one (Alvin asked) | M |
+| B5 | **"If you used Nia for the first time again"** answers: understand what success looks like quickly; personalisation; examples before sign-up | Alvin | n/a | Feeds B1–B4 and B6. Not a build item on its own | — |
+
+### B. Personalisation by role
+
+| # | What | Source | Today | Implications | Size |
+|---|------|--------|-------|--------------|------|
+| B6 | **The role chosen at onboarding should shape the app.** Alvin chose Photographer and Home promoted Production Budget, Script Breakdown and Series Bible | Alvin | Suggestions already weight the role (`recommend.ts`: +6 made for the role), but only templates that work in the editor are offered, and few photography ones work, so film ones fill the row. What's new is already weighted by group | Mostly a template gap, not a ranking bug: build the photographer's core templates (ties to B3). Also: what Home leads with per role (the template row, Explore picks, the empty-state copy). Rule from Ika: multidisciplinary people mustn't be boxed in (see B8) | M |
+| B7 | **Filter templates by profession or creator type** (Photography, Film & TV, Content creation, Producing, Agency / client work) as well as by production phase | Alvin | Filters by phase and category; each template already lists the roles it's for (`icps`) | Small: a chip row in the existing filter bar (`filter-bar.tsx`, Marketplace look). Grouping names need Ika's OK (don't invent categories) | S |
+| B8 | **Don't limit people to one role** (nonois.co): let them try everything and decide | Alvin; Ika | Onboarding asks one profession; Settings → AI assistant has "I work as…" | Let people pick several roles, or weight but never hide. Touches `profiles.profession` (one value today): a migration if it becomes a list | S–M |
+| B9 | **Greeting uses the surname.** "Welcome, bukenya" instead of "Welcome, Alvin" | Alvin | The first word of the full name (`name.split(" ")[0]`); names written surname first, or a Google name in that order, greet by surname | Bug. Ask for "What should we call you?" (a first-name field, or check at onboarding's name step) instead of guessing. Small migration if it's a new column | S |
+| B10 | Template library will need organising as it grows | Alvin | 63 templates; working ones lead each row | Covered by B7 and B3 | — |
+
+### C. Projects: files, references, sharing and people
+
+| # | What | Source | Today | Implications | Size |
+|---|------|--------|-------|--------------|------|
+| B11 | **Files section under each project**: one place to manage everything uploaded | Ika | Uploads, tags (Reference, Raw, WIP, Final asset, Brief), Archive, restore and delete live inside the project page (P3, P4, A8) | A project sub-page like Cast & crew (`/projects/[id]/files`): list or grid, filter by tag and kind, bulk select, rename, move, version (B16). Mostly reuses `project-files.tsx`. Design first | M |
+| B12 | **Carousel view for references** | Ika | References show as a grid; the ring carousel (R1, Bencho) was planned but not built, and the prototype carousel was removed in the 2026-11-01 audit | Restore the Carousel from tag `parked-2026-11-02` or build R1 fresh; keyboard and reduced motion; animation is allowed only for listed cases, so a carousel needs Ika's OK as an exception or a no-loop design | S–M |
+| B13 | **Share final assets only**, as a gallery, a PDF or a link to the project | Ika | The view-only link shows the whole project; files can be tagged Final asset, and final assets show under the description | A second kind of share link scoped to Final asset files (new token kind or an option on the link), a gallery page, a PDF export of the gallery, private storage served by signed links that expire. Watermark or download rules? Plan limits (Pro?) | M |
+| B14 | **Permissions that fit real workflows.** Who sees and edits what (a photographer shouldn't edit the invoice) without being too strict for multidisciplinary people | Ika | Project roles are owner, Can edit, Can view (`editor`/`viewer`); anyone who can edit can edit every document | Biggest data change on this list: database rules (RLS) per document kind or per document, e.g. money documents (Invoice, Budget) owner and producer only; a role per person on the project (from Cast & crew departments?) and per-document overrides; request access. Needs a design of the few roles that matter, then a migration Ika runs, then tests with two accounts. Do before B15 and B17 | L |
+| B15 | **Add cast and crew the quick way**: Nia username or email that fills in from their profile, plus a role; the longer form for more detail; people accept or decline being added | Ika | 4.1 People: add pop-up and edit drawer; someone with the same email in the workspace is reused; the people picker (`find_people`) exists in templates; linking a person to their Nia account is the open 4.1 to-do | Finishes 4.1. Accepting = a notification with Accept / Decline (like invites); until accepted, show only what they typed, never their Nia photo (consent rule). Ties to B14 (what an added person can see) | M |
+| B16 | **Version history** for documents (and files) | Ika | Autosave; Undo/Redo only while the document is open | A versions table (snapshot on a pause or on close), a history panel with restore and compare; files keep old uploads. Storage and plan limits (versions kept on Free?) | M–L |
+| B17 | **Live collaboration** | Ika | The project page updates live for others in 1–2 s; documents aren't edited together live | Real-time co-editing of documents: presence (who's here), live cursors, and merging edits without overwriting (a CRDT such as Yjs over Supabase Realtime, or a service). Must work with autosave and B16. Largest build on the list | L |
+| B18 | **Import brand assets and context** (logos, colours, fonts, tone, past work) | Ika | None. D2 (Pro: your own logo on downloads) is waiting | A brand kit per workspace: storage, a settings page, used by downloads (D2), templates and later Copilot (Milestone 5: AI proposes, the producer decides). Plan gate (Pro) | M |
+
+### D. Data and privacy
+
+| # | What | Source | Today | Implications | Size |
+|---|------|--------|-------|--------------|------|
+| B19 | **Anonymous usage data, with a line at sign-up** and a way to opt out | Ika | No analytics service. Nia already stores some usage tied to accounts: `template_events` (opens, uses, searches), Explore views for Top 10 | The pasted clause names "T3 Code": it was copied from another product and must be rewritten for Nia. Decide the tool (Vercel Analytics is cookie-free and simplest; PostHog for product funnels) and what's collected; update the privacy page; an opt-out in Settings that's honoured on the server; never personal data in addresses or events; check POPIA and GDPR wording. Measuring time-to-value (B1–B3) needs this first | S–M |
+
+### How these connect (study notes)
+
+- **One theme runs through Alvin's feedback: show the outcome first.** B1 (Explore before sign-up), B3
+  (workflows by goal), B4 (example projects) and B6 (role shapes Home) are four doors to the same room.
+  B3 is the core: it gives B4 something to show, gives B6 something per role, and is already Ika's
+  stated priority (Editorial Shoot).
+- **Measure before and after.** B19 should come early so time-to-first-project can be compared once
+  B1–B3 ship.
+- **People and permissions come before collaboration.** B14 decides what B15 (adding people), B13
+  (sharing) and B17 (live editing) are allowed to show. Building B17 first would mean redoing it.
+- **Rules that would change:** B1 (Explore early-access only; signed-out routing), B12 (motion
+  exceptions), B8 (one profession per person). Each needs Ika's dated decision in decisions.md.
+- **Cheap, high-value first:** B9 (greeting bug), B7 (profession filter), B2 (who Nia is for).
+
+---
+
+## 2. Still open from before
+
+| # | What | Status | Notes |
+|---|------|--------|-------|
+| 1 | Sign-up email: branded email, link that works on any device, 6-digit code | ⏸ | Last test sent no email: check junk, Resend → Emails, Supabase → Logs → Auth; then link and code on a phone; DMARC; remove old redirect URLs |
+| 7 | Onboarding: "How will you use Nia?" | ⬜ | Draft in Claude Design first. Now overlaps B3 and B8 |
+| L1 | Loading screen with a status bar | ⏸ | Waiting on a Claude Design draft |
+| R1 | References as a ring carousel | ⬜ | Now B12 |
+| W1 | Set up your workspace on Home (stepper) | ⬜ | Claude Design draft first |
+| 10 / 13 | Template 01 opens the project launcher; Editorial Shoot workflow | ⬜ | Ika's priority. Now part of B3 |
+| 11 / 12 | Project sections; two projects open at once | ⏸ | Claude Design first |
+| 14 | Review the build history for missed fixes | ⬜ | This list is the first pass |
+| C2 | Generate a project cover (paid AI) | ⏸ | Later; needs an image service key |
+| D2 | Nia mark on downloads; Pro removes it or uses your logo | ⏸ | Ties to B18 |
+| G1 / G2 | Google sign-in shows the Supabase address | ⏸ | Ika: Google Auth Platform branding; custom auth domain is a paid add-on |
+| E1 | Explore title → "Start a project from this" (AI proposal) | ⬜ | Explore side is built; the proposal waits for Copilot (Milestone 5). Ties to B3 |
+| 1.3 / 1.4 / 2.2–2.5 | Plan steps still open | ⬜ | See CLAUDE.md → Progress (Team Members, sort, Next shoot, Complete your profile, onboarding extras) |
+| 4.1 | Cast & crew: link a person to their Nia account; Nia photos in the project row; people's own pages | 🔄 | Now B15 |
+| 4.2+ | Locations, shoot days and the schedule; documents fill themselves; Shoot Day screen | ⬜ | Milestone 4 plan agreed 2026-11-01 |
+| 6.3 | Settings: Notifications and the other tabs | ⬜ | Notifications draft exists in Claude Design |
+| NAV | Desktop navbar N4 ("Try" ideas), N5 (gallery, fallbacks), N6 (full check); Figma frames | 🔄 | NAVBAR_BUILD.md. Built from Claude Design boards; Figma reconcile still to do |
+| EX1 | Explore: notify people of new titles they'd like; let people suggest titles | ⏸ | Design rows A–E on the Claude Design canvas; Ika to pick before anything is built |
+| EX2 | Explore: covers for the titles waiting (Girlfriends, Martin, Monk, Lie to Me, American Housewife, Half & Half, One on One, Abouna, The House Is Black); ~280 waiting on the TMDB licence; weekly import | ⏸ | TMDB commercial licence; confirm "One on One" and Tyler Perry's "Love Thy Neighbor" |
+| EX3 | Explore timeline steps E (colour band, filter) and F | ⬜ | From the timeline spec (pasted 2026-11-01; not in the repo) |
+| OPS | Ika: run `20261107000000_security_function_access.sql`; leaked password protection; paste the two email templates into Supabase; Vercel CLI account and extra projects; delete old branches | ⏸ | From CLAUDE.md → Next week |
+| BETA | Beta pilot: invite the three groups, move them to Pro by hand, read `feedback_review` weekly | ⏸ | Alvin's feedback is the first written review |
+
+---
+
+## 3. Shipped 2026-10-21 to 2026-11-08
+
+**Explore**
+- Made in Africa, Hollywood Classics (studio era, New Hollywood, modern classics, Black and POC
+  leads), Greatest TV (sitcoms, drama series), By studio (312-title catalogue and the update run);
+  creator films from Instagram, Vimeo and YouTube; 31 titles suggested by Mbali, Paballo and Ika.
+- Every title: press kit (reviews, interviews, context), Cast & Crew (top 10 free, View all on paid
+  plans), release date, palette, tags; trailer stills stand in for missing posters.
+- Top 10 from what people open, save and use (now a numbered row like the press kits); Recently added
+  (15, View all as a mosaic with wide stills); Recently viewed; For you; Collections and Add to project.
+- Explore all as a canvas and a timeline (eras of film history; desktop only; open to everyone in the beta).
+- An Explore all button bottom left on desktop; the pinwheel icon.
+
+**Projects**
+- Project details for production; Crew & talent, then the Cast & crew directory (add, edit, status,
+  remove) as Milestone 4 step 1.
+- Instagram links as references; final assets under the description; References from Explore and
+  Inspiration for this project.
+
+**Templates**
+- Production Budget, Script Breakdown, Series Bible, Call Sheet – Detailed, Talent Roster Report,
+  Content Production Guideline, Press Junket Brief and the 13 creator templates work in the editor.
+- A mini tutorial in the preview and on first use; Just added row.
+
+**Across the app**
+- Dark and light mode (neutral greys, Nia Blue accent, follows the device); card hover sweep.
+- Global search (tags, autocorrect, suggestions), the same on phones; filter rows that swipe on phones.
+- Welcome tour and What's new since your last tour; pilot feedback (Send feedback).
+- Back links return where you left off.
+- Shorter onboarding; plain sign-up messages.
+- Speed work (AVIF pictures, lighter pages); security headers.
+- The 2026-11-01 audit removed parked features (Marketplace, Explore's Feed, the quick view, two onboarding screens,
+  the Carousel; all kept in tag `parked-2026-11-02`).
+- New desktop navbar (2026-11-08): frosted bar that stays at the top, search in the middle (N1–N3).
+
+---
+
+## 4. Archive
+
+### The tracker as it stood on 2026-10-21
 
 | # | Fix | Status | Notes |
 |---|-----|--------|-------|
@@ -81,7 +220,7 @@ the next starts. Status: ⬜ to do · 🔄 in progress · ✅ done · ⏸ waitin
 | D2 | Nia branding on downloaded files; Pro removes it or replaces it with the user's own logo (Ika's idea) | ⏸ | Free downloads already carry "Generated by Nia · version" (PDF, Word, Markdown, .txt). Next: the Nia mark in the PDF footer (Claude Design), then the Pro plan gate (not built yet) for remove / own logo |
 | E2 | Explore "Coming soon" screen from Ika's Claude Design (ExploreSoon): ring of stills around a frosted panel, Notify me | 🔄 | Built at `/explore` (Explore tab and dock icon now open it). Adapted: Geist, "Coming soon" in sentence case, still gold dot (no pulse), ring turns only with the pointer or a finger (no loop), Ika's sign-in stills. Notify me saves to `feature_waitlist`: **Ika runs `20261027000000_feature_waitlist.sql`**. "Preview Explore" waits for the Explore library design |
 
-## Done
+### Done before the tracker
 
 - Favicon and app icons from the Nia logo
 - Fix 1 code and email templates pushed (8bb6e52); waiting on Ika to paste the templates into Supabase

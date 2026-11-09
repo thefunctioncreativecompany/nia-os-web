@@ -73,7 +73,8 @@ Data:
 ## Decisions that shape everyday work
 
 The full, dated log is [docs/decisions.md](docs/decisions.md): read a feature's entry before
-changing it. Weekly summaries and side-project notes: [docs/progress-log.md](docs/progress-log.md).
+changing it. The master list of what's shipped, open, fed back and planned is
+[docs/FEEDBACK.md](docs/FEEDBACK.md): log new feedback there first, study it, then build one item at a time. Weekly summaries and side-project notes: [docs/progress-log.md](docs/progress-log.md).
 
 - Look: neutral greys, Nia Blue for active states only, dark mode follows the device (Settings →
   General → Appearance overrides it), Geist in sentence case, theme tokens only. Card hover
