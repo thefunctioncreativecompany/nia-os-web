@@ -539,6 +539,12 @@ onboarding's Import profile and Follow creators describe features removed in the
   icons, the search as a 38rem pill in the middle with a round +, the avatar alone on the right
   (no name, no chevron). `--nav-h`/`--nav-offset` carry the height to every full-height and
   sticky part. Phones and tablets unchanged. Back out: `pre-navbar-2026-11` tag.
+- (2026-11-08) Explore covers from the official trailer's own cover image (Ika): where a title has no
+  poster, its cover is the trailer's YouTube cover image when the poster crop is clean (no burned-in
+  "CLASSIC TRAILER", Fandango or "OFFICIAL TRAILER" badges, logos or titles in it); the rest keep a
+  frame chosen by eye (`CHOSEN` in scripts/trailer-stills.mjs, frame "cover"). Those covers stay
+  poster-shaped in Recently added's mosaic. The ~280 studio-catalogue titles waiting on TMDB get the
+  same treatment, title by title.
 - (2026-11-08) Explore's order (Ika): Explore all, then Top 10 on Explore, then Recently added
   (15 titles, the rest on View all at `/explore/recent`, newest first with the day each was
   added; `GALLERY_SIZE` in `recent.ts`), then By category. Top 10 left By category.

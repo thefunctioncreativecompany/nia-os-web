@@ -64,12 +64,16 @@ export const isTrailerStill = (slug: string) => !COVERS.has(slug) && slug in STI
  * Ika, 2026-11-08), with its width ÷ height; null for a poster. YouTube's frames are 1280 × 720
  * unless the still says otherwise (older videos: 640 × 480). */
 export function wideCoverFor(slug: string): { image: string; aspect: number } | null {
-  const still = STILLS[slug] as { id: string; size: string; top?: number; bottom?: number; w?: number; h?: number } | undefined;
-  if (COVERS.has(slug) || !still) return null;
+  const still = STILLS[slug] as { id: string; size: string; top?: number; bottom?: number; w?: number; h?: number; cover?: boolean } | undefined;
+  // A trailer's cover image stays poster-shaped: shown whole, its badges and logos would show.
+  if (COVERS.has(slug) || !still || still.cover) return null;
   return { image: `/api/explore-still/${still.id}-${still.size}-wide/${slug}.jpg`, aspect: (still.w ?? 1280) / ((still.h ?? 720) - (still.top ?? 0) - (still.bottom ?? 0)) };
 }
 /** What the stand-in still is from: "trailer", or the studio's own "clip" or "promo". */
 export const stillKind = (slug: string) => (STILLS[slug] as { kind?: string } | undefined)?.kind ?? "trailer";
+/** The cover's caption: the official video's own cover image, or a still from it. */
+export const stillCaption = (slug: string) =>
+  (STILLS[slug] as { cover?: boolean } | undefined)?.cover ? `Cover: the official ${stillKind(slug)}'s cover image.` : `Cover: a still from the official ${stillKind(slug)}.`;
 
 // Written out in full so Tailwind finds each class name in the code.
 const GRAINS = [

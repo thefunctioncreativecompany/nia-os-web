@@ -22,17 +22,19 @@
  },
  "2001-a-space-odyssey": {
   "id": "oR_e9y-bka0",
-  "size": "maxres2",
-  "top": 67,
-  "bottom": 67,
-  "x": 0.48
+  "size": "maxresdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.5,
+  "cover": true
  },
  "the-godfather": {
   "id": "UaVTIH8mujA",
-  "size": "maxres1",
-  "top": 14,
-  "bottom": 14,
-  "x": 0.3
+  "size": "maxresdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.62,
+  "cover": true
  },
  "taxi-driver": {
   "id": "T5IligQP7Fo",
@@ -43,24 +45,27 @@
  },
  "star-wars": {
   "id": "vZ734NWnAHA",
-  "size": "maxres2",
-  "top": 0,
-  "bottom": 0,
-  "x": 0.35
+  "size": "maxresdefault",
+  "top": 3,
+  "bottom": 3,
+  "x": 0.55,
+  "cover": true
  },
  "apocalypse-now": {
   "id": "9l-ViOOFH-s",
-  "size": "maxres2",
-  "top": 92,
-  "bottom": 92,
-  "x": 0.45
+  "size": "maxresdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.68,
+  "cover": true
  },
  "ride-along": {
   "id": "5klp6rkHIks",
-  "size": "maxres3",
-  "top": 94,
-  "bottom": 94,
-  "x": 0.3
+  "size": "maxresdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.7,
+  "cover": true
  },
  "the-matrix": {
   "id": "vKQi3bBA1y8",
@@ -134,10 +139,11 @@
  },
  "bad-boys": {
   "id": "Xm12NSa8jsM",
-  "size": "maxres3",
+  "size": "maxresdefault",
   "top": 0,
   "bottom": 0,
-  "x": 0.55
+  "x": 0.68,
+  "cover": true
  },
  "waiting-to-exhale": {
   "id": "t5iE3Wt2cJs",
@@ -169,10 +175,11 @@
  },
  "moonlight": {
   "id": "9NJj12tJzqc",
-  "size": "maxres3",
-  "top": 93,
-  "bottom": 93,
-  "x": 0.5
+  "size": "maxresdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.66,
+  "cover": true
  },
  "hidden-figures": {
   "id": "5wfrDhgUMGI",
@@ -183,10 +190,11 @@
  },
  "crazy-rich-asians": {
   "id": "ZQ-YX-5bAs0",
-  "size": "maxres3",
-  "top": 91,
-  "bottom": 91,
-  "x": 0.48
+  "size": "maxresdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.6,
+  "cover": true
  },
  "rocky": {
   "id": "-Hk-LYcavrw",
@@ -218,10 +226,11 @@
  },
  "pulp-fiction": {
   "id": "s7EdQ4FqbhY",
-  "size": "maxres2",
-  "top": 23,
-  "bottom": 23,
-  "x": 0.55
+  "size": "maxresdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.62,
+  "cover": true
  },
  "the-shawshank-redemption": {
   "id": "NmzuHjWmXOc",
@@ -288,24 +297,27 @@
  },
  "harry-potter-and-the-half-blood-prince": {
   "id": "tAiy66Xrsz4",
-  "size": "maxres1",
-  "top": 86,
-  "bottom": 86,
-  "x": 0.35
+  "size": "maxresdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.6,
+  "cover": true
  },
  "harry-potter-and-the-deathly-hallows-part-1": {
   "id": "MxqsmsA8y5k",
-  "size": "maxres1",
-  "top": 28,
-  "bottom": 28,
-  "x": 0.45
+  "size": "maxresdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.5,
+  "cover": true
  },
  "harry-potter-and-the-deathly-hallows-part-2": {
   "id": "mObK5XD8udk",
-  "size": "maxres2",
+  "size": "maxresdefault",
   "top": 88,
   "bottom": 88,
-  "x": 0.55
+  "x": 0.4,
+  "cover": true
  },
  "27-dresses": {
   "id": "J9DzAjOe7sY",
@@ -351,10 +363,11 @@
  },
  "nanny-mcphee": {
   "id": "RUKc3NxdW3w",
-  "size": "maxres2",
-  "top": 87,
-  "bottom": 87,
-  "x": 0.52,
+  "size": "maxresdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.55,
+  "cover": true,
   "kind": "clip"
  },
  "bugonia": {
@@ -373,26 +386,40 @@
  },
  "modern-family": {
   "id": "coGCtUCrp0E",
-  "size": "maxres1",
+  "size": "maxresdefault",
   "top": 0,
   "bottom": 0,
-  "x": 0.36,
+  "x": 0.4,
+  "cover": true,
   "kind": "clip"
  },
  "love-thy-neighbor": {
   "id": "qKk90o4fQe4",
-  "size": "maxres1",
+  "size": "maxresdefault",
   "top": 0,
   "bottom": 0,
-  "x": 0.45,
+  "x": 0.55,
+  "cover": true,
   "kind": "promo"
  },
  "the-last-days-of-ptolemy-grey": {
   "id": "C_T1IqlQba4",
-  "size": "maxres1",
-  "top": 14,
-  "bottom": 14,
-  "x": 0.45
+  "size": "maxresdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.65,
+  "cover": true
+ },
+ "girlfriends": {
+  "id": "1edQJIsrLew",
+  "size": "sddefault",
+  "top": 55,
+  "bottom": 55,
+  "x": 0.5,
+  "w": 640,
+  "h": 480,
+  "cover": true,
+  "kind": "promo"
  },
  "ancestral-visions-of-the-future": {
   "id": "Y9iW8l5KgcU",
@@ -400,6 +427,16 @@
   "top": 22,
   "bottom": 22,
   "x": 0.55
+ },
+ "the-house-is-black": {
+  "id": "P_rMOBMhDQA",
+  "size": "hqdefault",
+  "top": 0,
+  "bottom": 0,
+  "x": 0.5,
+  "w": 480,
+  "h": 360,
+  "cover": true
  },
  "jeen-yuhs": {
   "id": "X3d5rT7FGLE",
@@ -417,10 +454,11 @@
  },
  "benji": {
   "id": "BgXLP8rCwEE",
-  "size": "maxres2",
+  "size": "maxresdefault",
   "top": 0,
   "bottom": 0,
-  "x": 0.55
+  "x": 0.5,
+  "cover": true
  },
  "muhammad-ali-the-peoples-champ": {
   "id": "e49IM_ZiM1k",
