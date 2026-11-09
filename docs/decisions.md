@@ -551,6 +551,10 @@ onboarding's Import profile and Follow creators describe features removed in the
   the timeline and search. When a poster arrives it turns tall by itself. View all pages are
   masonry columns. Trailer cover images are used only where the whole image is clean (no burned-in
   "TRAILER", "HD", titles or logos); the rest show a frame chosen by eye.
+- (2026-11-08) Recently added removed from Explore for now (Ika: "not working great"): the section,
+  its View all page (`/explore/recent` redirects to Explore), the drifting columns and the mosaic
+  are in git tag `parked-2026-11-08-recently-added`. Titles keep their `added` day for when it
+  returns (and for telling people about new titles). Logged as a future build.
 - (2026-11-08) Explore's order (Ika): Explore all, then Top 10 on Explore, then Recently added
   (15 titles, the rest on View all at `/explore/recent`, newest first with the day each was
   added; `GALLERY_SIZE` in `recent.ts`), then By category. Top 10 left By category.

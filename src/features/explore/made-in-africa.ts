@@ -142,9 +142,6 @@ export const waitingForCover: string[] = EVERY.filter((e) => !hasCover(e.title.s
 /** Every title's slug, listed or waiting (for the tag checks). */
 export const everyTitleSlug: string[] = EVERY.map((e) => e.title.slug);
 
-/** When each title joined Explore, for the ones that say (recent.ts). */
-export const titleAddedOn = new Map((raw.titles as RawTitle[]).flatMap((t) => (t.added && hasCover(t.slug) ? [[t.slug, t.added] as const] : [])));
-
 export const MADE_IN_AFRICA = raw.categories.find((c) => c.slug === "made-in-africa")!;
 
 /** Hollywood Classics (Ika, 2026-10-29): 30 defining films, 1939 to 1979, in release order. */

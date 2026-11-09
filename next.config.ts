@@ -52,6 +52,8 @@ const nextConfig: NextConfig = {
       { source: "/marketplace/:path*", destination: "/home", permanent: false },
       { source: "/explore/feed", destination: "/explore", permanent: false },
       { source: "/explore/all/quick", destination: "/explore/all", permanent: false },
+      // Recently added, removed for now (Ika, 2026-11-08; git tag parked-2026-11-08-recently-added).
+      { source: "/explore/recent", destination: "/explore", permanent: false },
     ];
   },
   turbopack: {

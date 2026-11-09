@@ -10,6 +10,3 @@ export function NewMarker({ label = "New", className }: { label?: string; classN
     </span>
   );
 }
-
-/** "28 October" for a YYYY-MM-DD day, the same on the server and in the browser. */
-export const dayLabel = (day: string) => new Date(`${day}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", timeZone: "UTC" });

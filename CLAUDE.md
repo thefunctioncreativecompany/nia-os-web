@@ -234,6 +234,8 @@ Future builds (agreed with Ika, build later; need designs first)
   Nia's lists; each title arrives as a proposal with a Nia-written summary for Ika to approve.
   Needs Explore reading from Supabase first (`20261030000000_explore_made_in_africa.sql` + seed),
   a `TMDB_API_KEY`, and the TMDB commercial licence (plus a JustWatch credit) before launch.
+- Explore: Recently added, rethought (removed 2026-11-08, tag `parked-2026-11-08-recently-added`):
+  a row that works with posters and wide trailer stills together.
 - Vercel: sign the CLI in as the nia-technologies account (it's on a personal one), then
   disconnect the extra projects (`nia-os-web`, `nia-os-web-s5dn`) that build every commit.
 
