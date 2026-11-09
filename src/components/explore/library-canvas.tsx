@@ -218,7 +218,7 @@ export function LibraryCanvas() {
         e.stopPropagation();
       }}
       onKeyDown={onKeyDown}
-      className="relative isolate h-[calc(100svh-5rem)] min-h-140 cursor-grab touch-none overflow-hidden bg-nia-canvas outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset active:cursor-grabbing"
+      className="relative isolate h-[calc(100svh-var(--nav-h))] min-h-140 cursor-grab touch-none overflow-hidden bg-nia-canvas outline-none select-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset active:cursor-grabbing"
     >
       <div ref={plane} className="absolute top-0 left-0 will-change-transform">
         {cells.map(({ key, item, x, y, h }) => (

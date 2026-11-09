@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 // be shared.
 export default function Page({ searchParams }: PageProps<"/explore/all/timeline">) {
   return (
-    <Suspense fallback={<Skeleton className="mx-4 mt-4 h-[calc(100svh-7rem)] rounded-2xl md:mx-6" />}>
+    <Suspense fallback={<Skeleton className="mx-4 mt-4 h-[calc(100svh-var(--nav-h)-2rem)] rounded-2xl md:mx-6" />}>
       <Timeline searchParams={searchParams} />
     </Suspense>
   );

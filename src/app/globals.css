@@ -323,6 +323,13 @@
   --duration-track: 1100ms; /* Templates: filmstrip track following the pointer */
 }
 
+/* The top bar (NAVBAR_BUILD.md, N1): its height, and how far a sticky part must sit below the
+   top of the screen to clear it (0 while the bar scrolls away with the page). */
+:root {
+  --nav-h: 5rem;
+  --nav-offset: 0rem;
+}
+
 /* uiarc components (src/components/arc) read these names. Each one points at a Nia token,
    so those components use only Nia's colours, type, radii and motion. On :root because
    their menus and sheets render outside the page. */

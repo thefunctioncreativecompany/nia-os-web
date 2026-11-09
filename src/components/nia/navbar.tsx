@@ -42,7 +42,7 @@ const tabs: Tab[] = [
 // passed in from the server so it can stream in.
 export function Navbar({ user }: { user: React.ReactNode }) {
   return (
-    <header className="relative flex h-20 shrink-0 print:hidden items-center justify-between gap-4 border-b border-nia-line bg-background px-4 md:px-15">
+    <header className="relative flex h-(--nav-h) shrink-0 print:hidden items-center justify-between gap-4 border-b border-nia-line bg-background px-4 md:px-15">
       {/* Which tab is active depends on the address, known only at request time; until
           then the tabs show with none highlighted. */}
       <Suspense fallback={<NavTabs segment={null} />}>

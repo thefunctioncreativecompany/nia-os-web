@@ -226,7 +226,7 @@ export function TimelineView({
 
   return (
     // Below the navbar; on phones and tablets above the dock, on desktop clear of Send feedback.
-    <div className="flex h-[calc(100svh-12rem)] min-h-140 flex-col gap-4 px-4 pt-4 pb-4 md:px-6 lg:h-[calc(100svh-5rem)] lg:pb-20">
+    <div className="flex h-[calc(100svh-var(--nav-h)-7rem)] min-h-140 flex-col gap-4 px-4 pt-4 pb-4 md:px-6 lg:h-[calc(100svh-var(--nav-h))] lg:pb-20">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <BackLink
           href="/explore"

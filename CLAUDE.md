@@ -268,6 +268,10 @@ sheets live until issued; crew without accounts for now)
   remove; a viewer can't write). To do: link a person to their Nia account (the old "pick
   someone on Nia" is gone from the form), Nia photos in the project row, people's own pages.
 
+Navbar (NAVBAR_BUILD.md): N0 decisions logged, Figma frames pending; N1 done 2026-11-08 (bar
+height `--nav-h` and sticky offset `--nav-offset` tokens, nothing visible changed). N2 (the new
+bar) waits for the Figma frames.
+
 Milestone 5 — Copilot: not started.
 
 Milestone 6 — Share & launch

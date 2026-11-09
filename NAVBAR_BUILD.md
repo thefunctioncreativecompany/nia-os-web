@@ -119,9 +119,12 @@ Each one has a recommendation. Log the answers in `docs/decisions.md` (dated) be
 
 - [ ] **N0 — Decisions and Figma.** Ika answers §3, the answers go into `docs/decisions.md`, and the Figma
   node IDs go here: light `____`, dark `____`, search open `____`. No code.
-  *Decisions logged 2026-11-08 (all as recommended). Waiting for the Figma frames.*
+  *Decisions logged 2026-11-08 (all as recommended). Waiting for the Figma frames; Ika said to go ahead
+  with the build meanwhile (2026-11-08). N1 changes nothing visible; N2 needs the frames.*
 
-- [ ] **N1 — Make pages ready for a sticky bar (nothing visible changes).**
+- [x] **N1 — Make pages ready for a sticky bar (nothing visible changes).** *Done 2026-11-08: before
+  and after screenshots at 1440 and 375 identical (the timeline differed only by the minute that passed;
+  the test account has no project, so the project page wasn't shot; none of its parts changed).*
   - Add `--nav-h: 5rem` and `--nav-offset: 0rem` to `:root` in globals.css (NAVBAR_SPEC §2). Don't add the
     `lg` override yet.
   - Navbar `h-20` → `h-(--nav-h)`.

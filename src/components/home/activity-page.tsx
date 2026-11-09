@@ -44,6 +44,11 @@ type Entry = {
 const SAME_CHANGE_MS = 5_000;
 const NOTIFIED = { shared: ["shared"], activity: ["renamed", "updated", "cover_changed", "link_on", "link_off", "doc_added", "doc_removed", "doc_deleted", "files_added"] };
 
+// How far the top bar covers the page, in pixels (`--nav-offset`, in rem; 0 while the bar scrolls away).
+const navOffset = () => {
+  const root = getComputedStyle(document.documentElement);
+  return (parseFloat(root.getPropertyValue("--nav-offset")) || 0) * (parseFloat(root.fontSize) || 16);
+};
 const monthKey = (iso: string) => iso.slice(0, 7);
 const monthLabel = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { month: "long", year: "numeric" });
 const monthShort = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { month: "short" });
@@ -143,7 +148,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
       let key = groups[0]?.key ?? "";
       for (const g of groups) {
         const el = groupRefs.current.get(g.key);
-        if (el && el.getBoundingClientRect().top <= 180) key = g.key;
+        if (el && el.getBoundingClientRect().top <= 180 + navOffset()) key = g.key;
       }
       setActive(key);
     };
@@ -160,7 +165,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
 
   const jumpTo = (key: string) => {
     const el = groupRefs.current.get(key);
-    if (el) window.scrollTo({ top: window.scrollY + el.getBoundingClientRect().top - 150, behavior: reduce ? "auto" : "smooth" });
+    if (el) window.scrollTo({ top: window.scrollY + el.getBoundingClientRect().top - 150 - navOffset(), behavior: reduce ? "auto" : "smooth" });
   };
   const toggleFilter = (kind: Kind) => setFilters((f) => (f.includes(kind) ? f.filter((k) => k !== kind) : [...f, kind]));
   const toggle = (entry: Entry) => {
@@ -214,7 +219,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
           </div>
 
           {/* The month bar: where you are, and a way to jump. Sticks to the top while scrolling. */}
-          <div className="sticky top-0 z-10 -mx-4 mt-5 flex items-center justify-between gap-4 border-b border-border bg-card/90 px-4 py-3 backdrop-blur md:-mx-11 md:px-11">
+          <div className="sticky top-(--nav-offset) z-10 -mx-4 mt-5 flex items-center justify-between gap-4 border-b border-border bg-card/90 px-4 py-3 backdrop-blur md:-mx-11 md:px-11">
             <span aria-hidden className="truncate text-lead font-semibold text-foreground">
               {current?.label ?? "No updates"}
               {current && <span className="ml-2 text-small font-normal text-muted-foreground">{current.entries.length} {current.entries.length === 1 ? "update" : "updates"}</span>}

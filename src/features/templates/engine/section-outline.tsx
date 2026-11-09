@@ -37,7 +37,7 @@ export function SectionOutline({ schema, data, filled }: { schema: TemplateSchem
   };
 
   return (
-    <nav aria-label="Sections" className="sticky top-3 z-20 -mx-2 flex items-center gap-3 rounded-xl border border-border bg-card/90 px-2 py-2 shadow-card backdrop-blur-md print:hidden">
+    <nav aria-label="Sections" className="sticky top-[calc(var(--nav-offset)+0.75rem)] z-20 -mx-2 flex items-center gap-3 rounded-xl border border-border bg-card/90 px-2 py-2 shadow-card backdrop-blur-md print:hidden">
       <ol className="flex min-w-0 flex-1 gap-1.5 overflow-x-auto [scrollbar-width:none]">
         {schema.sections.map((section, i) => {
           const done = hasContent(section, data[i]);

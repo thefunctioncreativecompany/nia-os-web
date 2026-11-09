@@ -161,7 +161,7 @@ export function TemplateEditor({
         <fieldset disabled={readOnly} className="flex min-w-0 flex-col gap-7 [&_:disabled]:cursor-default [&_:disabled]:bg-transparent [&_:disabled]:opacity-100">
         {schema.sections.map((section, index) => (
           <section key={section.title} aria-labelledby={`section-${index}`} className="flex flex-col gap-3">
-            <h2 id={`section-${index}`} className="scroll-mt-20 text-base leading-normal font-bold text-foreground">
+            <h2 id={`section-${index}`} className="scroll-mt-[calc(var(--nav-offset)+5rem)] text-base leading-normal font-bold text-foreground">
               {section.title}
             </h2>
             <SectionView
@@ -180,7 +180,7 @@ export function TemplateEditor({
         aria-label="Preview and download"
         className="flex min-w-0 flex-[1_1_360px] flex-col border-border bg-nia-panel px-4 pt-10 pb-15 md:border-l md:pr-15 md:pl-10 lg:max-w-[540px] print:hidden"
       >
-        <div className="flex flex-col gap-6 md:sticky md:top-6">
+        <div className="flex flex-col gap-6 md:sticky md:top-[calc(var(--nav-offset)+1.5rem)]">
           <DocumentPreviewHeader status={doc.paid ? 'Paid' : ready ? 'Ready to export' : 'Draft'} />
           <LivePreview schema={schema} data={doc.data} branded={branded} />
           {total < 3 && (
