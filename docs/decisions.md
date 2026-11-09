@@ -555,6 +555,13 @@ onboarding's Import profile and Follow creators describe features removed in the
   its View all page (`/explore/recent` redirects to Explore), the drifting columns and the mosaic
   are in git tag `parked-2026-11-08-recently-added`. Titles keep their `added` day for when it
   returns (and for telling people about new titles). Logged as a future build.
+- (2026-11-09) Nia resizes its own pictures (Ika): Vercel's image allowance on the Hobby plan ran
+  out on 2026-11-08 and every picture it hadn't resized before (new creator films, the timeline's
+  posters, new uploads) came back "402". A custom next/image loader (`src/lib/image-loader.ts`)
+  sends them to `src/app/api/img`, which resizes to the asked width as WebP and lets Vercel's
+  network keep each answer for a year. It only fetches Nia's own files, public Supabase
+  storage, YouTube thumbnails and Wikimedia Commons. Back to Vercel's resizer (e.g. on Pro): remove
+  `loader`/`loaderFile` from next.config.ts.
 - (2026-11-08) Explore's order (Ika): Explore all, then Top 10 on Explore, then Recently added
   (15 titles, the rest on View all at `/explore/recent`, newest first with the day each was
   added; `GALLERY_SIZE` in `recent.ts`), then By category. Top 10 left By category.

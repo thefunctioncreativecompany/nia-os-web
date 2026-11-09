@@ -34,6 +34,6 @@ export async function GET(_request: Request, { params }: { params: Promise<{ fra
     .jpeg({ quality: 88 })
     .toBuffer();
   return new Response(new Uint8Array(body), {
-    headers: { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=31536000, immutable" },
+    headers: { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=31536000, s-maxage=31536000, immutable" },
   });
 }

@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   images: {
+    // Nia's own resizer (src/lib/image-loader.ts, src/app/api/img): Vercel's monthly image
+    // allowance on the Hobby plan ran out on 2026-11-08 (Ika, 2026-11-09).
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
     // 90 for the full-bleed auth/onboarding hero images; 75 is the default elsewhere.
     qualities: [75, 90],
     // AVIF first (Explore's posters are the heaviest part of any page; speed audit 2026-10-31),
