@@ -7,6 +7,7 @@ import { PROJECTS_DURATION, ProjectsFilm } from "./films/projects";
 import { CREW_DURATION, CrewFilm } from "./films/crew";
 import { TEMPLATES_DURATION, TemplatesFilm } from "./films/templates";
 import { SHARE_DURATION, ShareFilm } from "./films/share";
+import { REFERENCES_DURATION, ReferencesFilm } from "./films/references";
 
 export function Root() {
   return (
@@ -21,6 +22,7 @@ export function Root() {
       <Composition id="CastCrew" component={CrewFilm} durationInFrames={CREW_DURATION} fps={30} width={1920} height={1080} />
       <Composition id="Templates" component={TemplatesFilm} durationInFrames={TEMPLATES_DURATION} fps={30} width={1920} height={1080} />
       <Composition id="Share" component={ShareFilm} durationInFrames={SHARE_DURATION} fps={30} width={1920} height={1080} />
+      <Composition id="References" component={ReferencesFilm} durationInFrames={REFERENCES_DURATION} fps={30} width={1920} height={1080} />
       {/* A new user creates a project, then fills a call sheet and saves it there; its length
           follows the narration. */}
       <Composition id="ProjectsTemplates" component={ProjectsTemplates} durationInFrames={DEMO_DURATION} fps={30} width={1920} height={1080} />

@@ -1,0 +1,169 @@
+{
+  "id": "references",
+  "title": "References and production details",
+  "subtitle": "What the production looks like, and what it needs",
+  "scenes": [
+    {
+      "line": "Found something on Explore that fits your production? Add it straight to the project as a reference.",
+      "caption": "From Explore to your project",
+      "shots": [
+        {
+          "shot": "title",
+          "cursor": "addToProject",
+          "click": true,
+          "weight": 0.7,
+          "camera": [
+            [
+              700,
+              700,
+              1.2
+            ],
+            [
+              500,
+              820,
+              1.4
+            ]
+          ]
+        },
+        {
+          "shot": "add-popover",
+          "cursor": "add",
+          "click": true,
+          "camera": [
+            [
+              500,
+              820,
+              1.4
+            ],
+            [
+              560,
+              820,
+              1.55
+            ]
+          ]
+        },
+        {
+          "shot": "added",
+          "camera": [
+            [
+              900,
+              700,
+              1.2
+            ],
+            [
+              1400,
+              760,
+              1.3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "On the project, references sit together, so the whole team works from the same picture.",
+      "caption": "References in one place",
+      "shots": [
+        {
+          "shot": "references",
+          "camera": [
+            [
+              960,
+              540,
+              1
+            ],
+            [
+              860,
+              700,
+              1.2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Paste an Instagram post or reel, and Nia reads it into a reference too.",
+      "caption": "Instagram links too",
+      "shots": [
+        {
+          "shot": "references",
+          "camera": [
+            [
+              860,
+              400,
+              1.3
+            ],
+            [
+              760,
+              380,
+              1.5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "And Nia suggests more, matched to the project's type, genres, deliverables and description.",
+      "caption": "Inspiration for the project",
+      "shots": [
+        {
+          "shot": "inspiration",
+          "camera": [
+            [
+              960,
+              540,
+              1
+            ],
+            [
+              960,
+              720,
+              1.15
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Beside them sit the production details: shoot dates, client, agency, deliverables, the due date and the budget, which only you and your editors can see.",
+      "caption": "Production details",
+      "shots": [
+        {
+          "shot": "details",
+          "camera": [
+            [
+              960,
+              540,
+              1
+            ],
+            [
+              1500,
+              520,
+              1.35
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "line": "Fill them in as the production takes shape. They save as you go.",
+      "caption": "They save as you go",
+      "shots": [
+        {
+          "shot": "details-filled",
+          "cursor": "deliverable",
+          "camera": [
+            [
+              1500,
+              500,
+              1.35
+            ],
+            [
+              1450,
+              560,
+              1.5
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

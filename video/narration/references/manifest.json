@@ -1,0 +1,44 @@
+[
+  {
+    "file": "scene-1.mp3",
+    "text": "Found something on Explore that fits your production? Add it straight to the project as a reference.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.36
+  },
+  {
+    "file": "scene-2.mp3",
+    "text": "On the project, references sit together, so the whole team works from the same picture.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.68
+  },
+  {
+    "file": "scene-3.mp3",
+    "text": "Paste an Instagram post or reel, and Nia reads it into a reference too.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 5.28
+  },
+  {
+    "file": "scene-4.mp3",
+    "text": "And Nia suggests more, matched to the project's type, genres, deliverables and description.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 6.24
+  },
+  {
+    "file": "scene-5.mp3",
+    "text": "Beside them sit the production details: shoot dates, client, agency, deliverables, the due date and the budget, which only you and your editors can see.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 11.28
+  },
+  {
+    "file": "scene-6.mp3",
+    "text": "Fill them in as the production takes shape. They save as you go.",
+    "voiceId": "JBFqnCBsd6RMkjVDRZzb",
+    "modelId": "eleven_v4",
+    "seconds": 4.32
+  }
+]
