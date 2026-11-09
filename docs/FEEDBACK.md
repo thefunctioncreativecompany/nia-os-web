@@ -111,6 +111,54 @@ Size: S (a day or less), M (a few days), L (a week or more, or several steps).
 
 ---
 
+## 2b. Future builds on record
+
+Gathered 2026-11-08 from every earlier list: CLAUDE.md's Future builds (now and 2026-10-21), the
+2026-10-22 Future fixes, the "Nia OS: product state, October 2026" doc, the "Creative Director
+Role Analysis" doc, the old prototypes' notes (`~/Downloads/Nia Technologies/Old prototypes`,
+private: holds press contacts) and the Claude Design canvases. Built items are left out.
+
+**Designed or partly built**
+- Start from a brief (Home: type, attach or record; an "AI draft" project with sources; Apply /
+  Modify / Dismiss). Designed; needs Copilot, transcription, a drafts table, a per-plan limit.
+- One production profile + "Projects like this had": on branch `feature/core-features`, not merged.
+- Explore new-for-you notifications and title suggestions: design rows A–E, waiting for a pick.
+- Recently added, rethought: removed 2026-11-08, tag `parked-2026-11-08-recently-added`.
+- Navbar N4–N6 and its Figma frames; Explore timeline steps E–F.
+- Nia Learn (L0–L5 spec and screens on canvases).
+- Link preview video: branch `link-preview-draft`, waiting for a direction.
+- Marketplace: removed in the 2026-11-01 audit (tag `parked-2026-11-02`).
+- Demo films for Coodie: Explore done; Projects and files, Cast & crew, Templates and call sheet,
+  Share and collaborate, References and production details to make.
+
+**Producing and running a shoot**
+- Home that knows the phase (next shoot, today, double-booking warnings); Complete your profile
+  (W1); shoot days, locations, schedule, documents that fill themselves; a project location field.
+- Team Members; reference board (now B12); project cards' no-cover look, type chip, stage badge.
+- Editorial Shoot launcher (part of B3); Storyboard and Casting Deck (picture storage); the 31
+  undesigned templates; document toolbar in the pill style with downloads in one menu (check).
+
+**From the Creative Director analysis (build order)**
+1. Brief Builder + Inbox (email, WhatsApp, Slack into a structured brief, gaps flagged).
+2. Production Room review and approvals (timestamped notes, client sign-off).
+3. Pitch Builder (first deck from the brief). 4. Account home and Studio (load, review queue,
+roster). 5. Radar (daily trend digest) and Wrap and Results (specs, rights, results, case study).
+Open: client approvals inside Nia or by link; who pays; how much of a deck Nia writes.
+
+**From the old prototypes**
+- AI-filled production frameworks (most exist as templates; filling waits for Copilot); a crew
+  roster with primary and secondary disciplines; Contacts and Events databases, events that
+  start a brief; an archetype library (ties to Nia Learn).
+
+**Data, launch and housekeeping**
+- Explore in Supabase; TMDB weekly import; before launch (February 2027): TMDB licence, Meta
+  oEmbed, JustWatch credit; the ~280 waiting titles (batches of about 25).
+- Image resizing past Vercel's free allowance (Vercel Pro, or Nia's own resizer).
+- Settings tabs and account deletion; privacy policy (B19); Figma reconcile; repository private?;
+  Vercel CLI account and extra projects.
+- Sounds on real speakers; phone dock tick on lift; a vertical creator film in normal Chrome;
+  ElevenLabs commercial use before the demo films go out; delete the film test projects.
+
 ## 3. Shipped 2026-10-21 to 2026-11-08
 
 **Explore**
@@ -119,8 +167,8 @@ Size: S (a day or less), M (a few days), L (a week or more, or several steps).
   creator films from Instagram, Vimeo and YouTube; 31 titles suggested by Mbali, Paballo and Ika.
 - Every title: press kit (reviews, interviews, context), Cast & Crew (top 10 free, View all on paid
   plans), release date, palette, tags; trailer stills stand in for missing posters.
-- Top 10 from what people open, save and use (now a numbered row like the press kits); Recently added
-  (15, View all as a mosaic with wide stills); Recently viewed; For you; Collections and Add to project.
+- Top 10 from what people open, save and use (now a numbered row like the press kits); Recently
+  viewed; For you; Collections and Add to project. (Recently added was removed again on 2026-11-08.)
 - Explore all as a canvas and a timeline (eras of film history; desktop only; open to everyone in the beta).
 - An Explore all button bottom left on desktop; the pinwheel icon.
 
