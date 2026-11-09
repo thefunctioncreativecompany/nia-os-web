@@ -2,7 +2,7 @@ import { loadFont } from "@remotion/fonts";
 import type { CSSProperties } from "react";
 import { AbsoluteFill, Audio, Easing, Img, interpolate, Sequence, spring, staticFile, useCurrentFrame } from "remotion";
 
-import { theme } from "./theme";
+import { alpha, theme } from "./theme";
 
 loadFont({ family: "Geist", url: staticFile("fonts/Geist-Regular.ttf"), weight: "400" });
 loadFont({ family: "Geist", url: staticFile("fonts/Geist-Bold.ttf"), weight: "700" });
@@ -82,7 +82,7 @@ export function Walkthrough({ film, voice, screens, targets }: { film: FilmDef; 
       {inFilm && n >= 0 && <SceneView film={film} n={n} scene={scenes[n]} shots={shots} frame={frame} screens={screens} targets={targets} />}
       <TitleCard film={film} frame={frame} end={end} />
       <Grain frame={frame} />
-      <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.55) 100%)", pointerEvents: "none" }} />
+      <AbsoluteFill style={{ background: `radial-gradient(ellipse at center, transparent 55%, ${alpha(theme.black, 0.55)} 100%)`, pointerEvents: "none" }} />
       {voice.map((line, i) => (
         <Sequence key={i} from={scenes[i].from + VOICE_AT}>
           <Audio src={line.src} />
@@ -98,7 +98,7 @@ function Canvas({ frame }: { frame: number }) {
   return (
     <AbsoluteFill
       style={{
-        background: `radial-gradient(ellipse 70% 60% at ${x}% 30%, rgba(55, 148, 255, 0.12), transparent 70%), linear-gradient(180deg, #1a1a1a 0%, ${theme.bgDeep} 100%)`,
+        background: `radial-gradient(ellipse 70% 60% at ${x}% 30%, ${alpha(theme.blue, 0.12)}, transparent 70%), linear-gradient(180deg, ${theme.bg} 0%, ${theme.bgDeep} 100%)`,
       }}
     />
   );
@@ -168,14 +168,14 @@ function Window({ s, at, frame, screens, targets, veil, own, style }: { s: Timed
           transform: `translate(${W / 2 - fx}px, ${H / 2 - fy}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`,
           borderRadius: 26,
           overflow: "hidden",
-          boxShadow: "0 60px 160px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.07)",
+          boxShadow: `0 60px 160px ${alpha(theme.black, 0.7)}, 0 0 0 1px ${alpha(theme.white, 0.07)}`,
           filter: veil > 0 ? `blur(${(18 * veil).toFixed(1)}px) brightness(${(1 - 0.62 * veil).toFixed(2)})` : undefined,
         }}
       >
         <Img src={screens[s.shot]} style={full} />
         {s.blendTo && <Img src={screens[s.blendTo]} style={{ ...full, opacity: blend }} />}
         {/* A 1px highlight along the window's top edge. */}
-        <div style={{ ...full, borderRadius: 26, boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.16)", pointerEvents: "none" }} />
+        <div style={{ ...full, borderRadius: 26, boxShadow: `inset 0 1px 0 ${alpha(theme.white, 0.16)}`, pointerEvents: "none" }} />
         {veil < 1 && <Cursor s={s} own={own} frame={frame} targets={targets} scale={scale} />}
       </div>
     </AbsoluteFill>
@@ -204,7 +204,7 @@ function Cursor({ s, own, frame, targets, scale }: { s: Timed; own: Timed[]; fra
       {ring !== null && (
         <div style={{ position: "absolute", left: -44 * ring, top: -44 * ring, width: 88 * ring, height: 88 * ring, borderRadius: 999, border: `3px solid ${theme.blue}`, opacity: 0.7 * (1 - ring) }} />
       )}
-      <svg width={34} height={42} viewBox="0 0 20 25" style={{ position: "absolute", left: -3, top: -2, transform: `scale(${pressed ? 0.86 : 1})`, transformOrigin: "3px 2px", filter: "drop-shadow(0 4px 10px rgba(0, 0, 0, 0.55))" }}>
+      <svg width={34} height={42} viewBox="0 0 20 25" style={{ position: "absolute", left: -3, top: -2, transform: `scale(${pressed ? 0.86 : 1})`, transformOrigin: "3px 2px", filter: `drop-shadow(0 4px 10px ${alpha(theme.black, 0.55)})` }}>
         <path d="M3 2 L3 20 L7.5 15.8 L10.6 22.6 L13.4 21.4 L10.4 14.8 L16.5 14.8 Z" fill={theme.white} stroke={theme.bg} strokeWidth={1.3} strokeLinejoin="round" />
       </svg>
     </div>
@@ -249,7 +249,7 @@ function TitleCard({ film, frame, end }: { film: FilmDef; frame: number; end: nu
   const markStyle: CSSProperties = { height: 92, width: 280 };
   return (
     <AbsoluteFill style={{ background: theme.bgDeep, opacity: card, alignItems: "center", justifyContent: "center" }}>
-      <div style={{ position: "absolute", width: 900, height: 900, borderRadius: 999, background: "radial-gradient(circle, rgba(55, 148, 255, 0.55), transparent 65%)", opacity: bloom, transform: `scale(${bloomSize})`, filter: "blur(40px)" }} />
+      <div style={{ position: "absolute", width: 900, height: 900, borderRadius: 999, background: `radial-gradient(circle, ${alpha(theme.blue, 0.55)}, transparent 65%)`, opacity: bloom, transform: `scale(${bloomSize})`, filter: "blur(40px)" }} />
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 34 }}>
         <div style={{ position: "relative", ...markStyle, opacity: mark, filter: `blur(${(1 - mark) * 14}px)`, transform: `scale(${lerp(0.94, 1, mark)})` }}>
           <Img src={wordmark} style={{ ...markStyle, objectFit: "contain" }} />
@@ -258,7 +258,7 @@ function TitleCard({ film, frame, end }: { film: FilmDef; frame: number; end: nu
             style={{
               position: "absolute",
               inset: 0,
-              background: `linear-gradient(105deg, transparent ${sweep - 18}%, rgba(255, 255, 255, 0.95) ${sweep}%, transparent ${sweep + 18}%)`,
+              background: `linear-gradient(105deg, transparent ${sweep - 18}%, ${alpha(theme.white, 0.95)} ${sweep}%, transparent ${sweep + 18}%)`,
               WebkitMaskImage: `url(${wordmark})`,
               maskImage: `url(${wordmark})`,
               WebkitMaskSize: "contain",

@@ -4,7 +4,7 @@ import { AbsoluteFill, Audio, Easing, Img, interpolate, Sequence, staticFile, us
 
 import { VOICE } from "./narration-audio";
 import { screens, type Screen } from "./screens";
-import { theme } from "./theme";
+import { alpha, theme } from "./theme";
 
 loadFont({ family: "Geist", url: staticFile("fonts/Geist-Regular.ttf"), weight: "400" });
 loadFont({ family: "Geist", url: staticFile("fonts/Geist-Bold.ttf"), weight: "700" });
@@ -258,13 +258,13 @@ function Cursor({ frame }: { frame: number }) {
             width: 72 * ring,
             height: 72 * ring,
             borderRadius: 999,
-            border: `3px solid ${theme.obsidian}`,
+            border: `3px solid ${theme.ink}`,
             opacity: 0.35 * (1 - ring),
           }}
         />
       )}
-      <svg width={30} height={38} viewBox="0 0 20 25" style={{ position: "absolute", left: -3, top: -2, transform: `scale(${press})`, transformOrigin: "3px 2px", filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))" }}>
-        <path d="M3 2 L3 20 L7.5 15.8 L10.6 22.6 L13.4 21.4 L10.4 14.8 L16.5 14.8 Z" fill={theme.obsidian} stroke={theme.white} strokeWidth={1.4} strokeLinejoin="round" />
+      <svg width={30} height={38} viewBox="0 0 20 25" style={{ position: "absolute", left: -3, top: -2, transform: `scale(${press})`, transformOrigin: "3px 2px", filter: `drop-shadow(0 2px 4px ${alpha(theme.black, 0.3)})` }}>
+        <path d="M3 2 L3 20 L7.5 15.8 L10.6 22.6 L13.4 21.4 L10.4 14.8 L16.5 14.8 Z" fill={theme.ink} stroke={theme.white} strokeWidth={1.4} strokeLinejoin="round" />
       </svg>
     </div>
   );
@@ -288,11 +288,11 @@ function Caption({ frame }: { frame: number }) {
         height: 64,
         padding: "0 28px 0 12px",
         borderRadius: 999,
-        background: theme.obsidian,
+        background: theme.ink,
         color: theme.white,
         fontSize: 26,
         fontWeight: 700,
-        boxShadow: "0 12px 32px rgba(10, 9, 8, 0.28)",
+        boxShadow: `0 12px 32px ${alpha(theme.ink, 0.28)}`,
         opacity: Math.min(p, out),
         transform: `translateY(${(1 - p) * 16}px)`,
       }}
@@ -305,7 +305,7 @@ function Caption({ frame }: { frame: number }) {
           width: 40,
           height: 40,
           borderRadius: 999,
-          background: "rgba(255, 255, 255, 0.12)",
+          background: alpha(theme.white, 0.12),
           fontSize: 20,
           fontVariantNumeric: "tabular-nums",
         }}
@@ -327,6 +327,3 @@ function EndCard({ frame }: { frame: number }) {
     </AbsoluteFill>
   );
 }
-
-
-

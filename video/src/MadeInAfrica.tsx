@@ -4,7 +4,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { AbsoluteFill, Easing, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 
 import { collections, countFor, cover, covers, metaLine, stats, title } from "./data";
-import { theme } from "./theme";
+import { alpha, theme } from "./theme";
 
 loadFont({ family: "Geist", url: staticFile("fonts/Geist-Regular.ttf"), weight: "400" });
 loadFont({ family: "Geist", url: staticFile("fonts/Geist-Bold.ttf"), weight: "700" });
@@ -41,7 +41,7 @@ export function MadeInAfrica({ frame: fixed }: { frame?: number }) {
   const activeCollection = active >= 0 ? title(PAIRINGS[active].slug).collection : null;
 
   return (
-    <AbsoluteFill style={{ background: theme.obsidian, color: theme.white, fontFamily: theme.font }}>
+    <AbsoluteFill style={{ background: theme.bg, color: theme.white, fontFamily: theme.font }}>
       <PosterWall frame={frame} />
       <Header frame={frame} />
       <Intro frame={frame} activeCollection={activeCollection} />
@@ -71,11 +71,11 @@ function Header({ frame }: { frame: number }) {
           padding: "0 20px",
           borderRadius: 999,
           border: `1px solid ${theme.line}`,
-          background: "rgba(10, 9, 8, 0.6)",
+          background: alpha(theme.bg, 0.6),
           fontSize: 18,
         }}
       >
-        <span style={{ width: 8, height: 8, borderRadius: 999, background: theme.gold }} />
+        <span style={{ width: 8, height: 8, borderRadius: 999, background: theme.blue }} />
         Early access
       </div>
     </div>
@@ -135,7 +135,7 @@ function Stat({ frame, delay, value, label }: { frame: number; delay: number; va
   );
 }
 
-// Explore's filter chip: 40px pill; on = gold border and a light gold tint.
+// Explore's filter chip: 40px pill; on = Nia Blue border and a light blue tint.
 function Chip({ frame, delay, name, count, on }: { frame: number; delay: number; name: string; count: number; on: boolean }) {
   const p = useEnter(frame, delay);
   return (
@@ -147,8 +147,8 @@ function Chip({ frame, delay, name, count, on }: { frame: number; delay: number;
         height: 44,
         padding: "0 18px",
         borderRadius: 999,
-        border: `1px solid ${on ? theme.gold : theme.line}`,
-        background: on ? "rgba(138, 122, 82, 0.22)" : "rgba(255, 255, 255, 0.04)",
+        border: `1px solid ${on ? theme.blue : theme.line}`,
+        background: on ? alpha(theme.blue, 0.16) : alpha(theme.white, 0.04),
         fontSize: 18,
         transition: "none",
         ...rise(p, 12),
@@ -195,12 +195,12 @@ function PosterWall({ frame }: { frame: number }) {
       {/* Blend the wall into the page on the left, top and bottom, and dim it behind the card. */}
       <AbsoluteFill
         style={{
-          background: `linear-gradient(90deg, ${theme.obsidian} 0%, ${theme.obsidian} 48%, rgba(10, 9, 8, 0.35) 64%, rgba(10, 9, 8, 0.2) 100%)`,
+          background: `linear-gradient(90deg, ${theme.bg} 0%, ${theme.bg} 48%, ${alpha(theme.bg, 0.35)} 64%, ${alpha(theme.bg, 0.2)} 100%)`,
         }}
       />
       <AbsoluteFill
         style={{
-          background: `linear-gradient(180deg, ${theme.obsidian} 0%, rgba(10, 9, 8, 0) 18%, rgba(10, 9, 8, 0) 46%, rgba(10, 9, 8, 0.82) 82%, ${theme.obsidian} 100%)`,
+          background: `linear-gradient(180deg, ${theme.bg} 0%, ${alpha(theme.bg, 0)} 18%, ${alpha(theme.bg, 0)} 46%, ${alpha(theme.bg, 0.82)} 82%, ${theme.bg} 100%)`,
         }}
       />
     </AbsoluteFill>
@@ -221,7 +221,7 @@ function PairingCard({ frame }: { frame: number }) {
         border: `1px solid ${theme.line}`,
         background: theme.panel,
         backdropFilter: "blur(24px)",
-        boxShadow: "0 24px 64px rgba(0, 0, 0, 0.5)",
+        boxShadow: `0 24px 64px ${alpha(theme.black, 0.5)}`,
         overflow: "hidden",
         ...rise(p, 60),
       }}
@@ -259,7 +259,7 @@ function Pairing({ slug, opacity }: { slug: string; opacity: number }) {
             {t.recognition}
           </Row>
         )}
-        <Row icon={<ArrowLeftRight size={20} color={theme.gold} />} style={{ marginTop: 10 }}>
+        <Row icon={<ArrowLeftRight size={20} color={theme.blue} />} style={{ marginTop: 10 }}>
           <span style={{ color: theme.muted }}>Pair with</span>&nbsp;{t.pair_with}
         </Row>
         <div
@@ -311,7 +311,7 @@ function Pill({ icon, children, outline }: { icon: ReactNode; children: ReactNod
         fontWeight: 700,
         border: `1px solid ${outline ? theme.line : theme.white}`,
         background: outline ? "transparent" : theme.white,
-        color: outline ? theme.white : theme.obsidian,
+        color: outline ? theme.white : theme.bg,
       }}
     >
       {icon}
