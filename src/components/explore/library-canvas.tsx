@@ -15,6 +15,7 @@ import type { CategoryItem } from "./explore-data";
 import { ExploreAllViews } from "./explore-all-views";
 import { PressKitPreview } from "./press-kit-preview";
 import { BackLink } from "@/components/nia/back-link";
+import { servedSized } from "@/lib/served-sized";
 
 // The gap between posters, as on Explore all's grid (0.8125rem).
 const GAP = 13;
@@ -307,7 +308,7 @@ function Tile({ item, x, y, w, h, onFilm }: { item: LibraryItem; x: number; y: n
   const body = (
     <>
       {item.image ? (
-        <Image src={item.image} alt="" fill sizes={`${w}px`} loading="eager" draggable={false} className="pointer-events-none object-cover" />
+        <Image src={item.image} unoptimized={servedSized(item.image)} alt="" fill sizes={`${w}px`} loading="eager" draggable={false} className="pointer-events-none object-cover" />
       ) : (
         <span aria-hidden className="absolute inset-x-0 bottom-0 p-3 text-lead leading-tight font-bold">
           {item.title}

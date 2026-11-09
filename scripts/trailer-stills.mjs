@@ -41,25 +41,34 @@ const CHOSEN = {
   "girlfriends": ["cover", 0.5], "the-house-is-black": ["cover", 0.5],
 };
 
-// The black bars above and below the picture, in pixels, so the cover can be cropped to the
-// picture alone (src/app/api/explore-still/[slug]/route.ts).
-async function bars(url) {
+// The black bars around the picture, in pixels (above and below a widescreen film, either side of
+// a 4:3 one), so the cover is the picture alone (src/app/api/explore-still/[frame]/[file]/route.ts).
+// A line counts as bar when four fifths of it is black, so a channel's watermark printed in
+// the bar ("MOVIECLIPS.com") doesn't stop it.
+// Night scenes whose dark edges aren't bars: only all-black lines count there.
+const STRICT = new Set(["taxi-driver"]);
+async function bars(url, strict = false) {
   const r = await fetch(url);
   if (!r.ok) return null;
   const { data, info } = await sharp(Buffer.from(await r.arrayBuffer())).greyscale().raw().toBuffer({ resolveWithObject: true });
-  const rowMean = (y) => {
-    let sum = 0;
-    for (let x = 0; x < info.width; x++) sum += data[y * info.width + x];
-    return sum / info.width;
+  const { width: w, height: h } = info;
+  const dark = (n, at) => {
+    let black = 0;
+    for (let k = 0; k < n; k++) if (at(k) < 28) black++;
+    return black / n > (strict ? 0.97 : 0.8);
   };
-  let top = 0;
-  while (top < info.height / 3 && rowMean(top) < 8) top++;
-  let bottom = 0;
-  while (bottom < info.height / 3 && rowMean(info.height - 1 - bottom) < 8) bottom++;
-  // Letterbox bars are pure black and the same top and bottom; a dark scene isn't, so the
-  // smaller side counts for both.
-  const bar = Math.min(top, bottom);
-  return { top: bar, bottom: bar, width: info.width, height: info.height };
+  const row = (y) => dark(w, (x) => data[y * w + x]);
+  const col = (x) => dark(h, (y) => data[y * w + x]);
+  let top = 0, bottom = 0, left = 0, right = 0;
+  while (top < h / 3 && row(top)) top++;
+  while (bottom < h / 3 && row(h - 1 - bottom)) bottom++;
+  while (left < w / 3 && col(left)) left++;
+  while (right < w / 3 && col(w - 1 - right)) right++;
+  // Bars come in pairs of the same size; a dark scene on one side isn't a bar, so the smaller of
+  // each pair counts for both.
+  const tb = Math.min(top, bottom);
+  const lr = Math.min(left, right);
+  return { top: tb, bottom: tb, left: lr, right: lr, width: w, height: h };
 }
 
 const out = {};
@@ -81,14 +90,14 @@ for (const t of data.titles) {
   let size = `${small ?? "maxres"}${frame}`;
   let cut = null;
   for (const s of frame === "cover" ? ["maxresdefault", "sddefault", "hqdefault"] : [size]) {
-    cut = await bars(`https://i.ytimg.com/vi/${trailer.video_id}/${s}.jpg`);
+    cut = await bars(`https://i.ytimg.com/vi/${trailer.video_id}/${s}.jpg`, STRICT.has(t.slug));
     if (cut) {
       size = s;
       break;
     }
   }
   const dims = cut && (cut.width !== 1280 || cut.height !== 720) ? { w: cut.width, h: cut.height } : {};
-  if (cut) out[t.slug] = { id: trailer.video_id, size, top: cut.top, bottom: cut.bottom, x, ...dims, ...(frame === "cover" ? { cover: true } : {}), ...(trailer.kind === "trailer" ? {} : { kind: trailer.kind }) };
+  if (cut) out[t.slug] = { id: trailer.video_id, size, top: cut.top, bottom: cut.bottom, ...(cut.left ? { left: cut.left, right: cut.right } : {}), x, ...dims, ...(frame === "cover" ? { cover: true } : {}), ...(trailer.kind === "trailer" ? {} : { kind: trailer.kind }) };
   if (!out[t.slug]) console.log(`${t.slug}: no frames for ${trailer.video_id}, keeps waiting`);
 }
 fs.writeFileSync("src/features/explore/trailer-stills.json", JSON.stringify(out, null, 1) + "\n");

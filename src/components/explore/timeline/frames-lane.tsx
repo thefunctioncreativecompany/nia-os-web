@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { GAP, MAX_ROWS, perYear, type Slot } from "@/features/explore/timeline/layout";
 import type { View } from "@/features/explore/timeline/scale";
 import type { TimelineFrame } from "./timeline-view";
+import { servedSized } from "@/lib/served-sized";
 
 // The Timeline's posters (EXPLORE_TIMELINE_SPEC.md §4, §6): each title at its date, stacked in up
 // to three rows; a cluster shows its leading title with two more peeking behind and a count, and
@@ -113,7 +114,7 @@ const Poster = memo(function Poster({ item, width }: { item: TimelineFrame; widt
   return (
     <span className={cn("absolute inset-0 overflow-hidden rounded-lg", item.image ? "bg-muted" : item.grain)}>
       {item.image ? (
-        <Image src={item.image} alt="" fill sizes={`${Math.max(64, width)}px`} draggable={false} className="pointer-events-none object-cover" />
+        <Image src={item.image} unoptimized={servedSized(item.image)} alt="" fill sizes={`${Math.max(64, width)}px`} draggable={false} className="pointer-events-none object-cover" />
       ) : (
         <span className="absolute inset-x-1.5 bottom-1.5 line-clamp-3 text-micro leading-tight font-bold">{item.title}</span>
       )}

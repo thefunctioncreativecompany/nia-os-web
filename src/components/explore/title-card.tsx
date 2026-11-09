@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { ExploreItem } from "@/features/explore/items";
 import { metaLine, titleCover, type Entry } from "@/features/explore/made-in-africa";
+import { servedSized } from "@/lib/served-sized";
 
 // An Explore card (Ika, 2026-10-21: equal cards, like the Top 10 press kits, without numbers): the
 // cover, then the title and who made it. Without a cover it gets a typographic poster on its
@@ -131,6 +132,7 @@ function PosterCard({
         {image ? (
           <Image
             src={image}
+            unoptimized={servedSized(image)}
             alt=""
             fill
             sizes={sizes}

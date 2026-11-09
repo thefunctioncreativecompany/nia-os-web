@@ -15,6 +15,7 @@ import type { Added } from "@/features/explore/recent";
 import { CategorySections } from "./explore-categories";
 import type { StudioRow } from "@/features/explore/studios";
 import { ExploreCard } from "./title-card";
+import { POSTER } from "./film-gallery";
 import { TopTen } from "./top-ten";
 
 // How far each of the five columns slides as the pointer moves down the grid (EXPLORE_SPEC.md),
@@ -98,7 +99,8 @@ function RecentGallery({ items }: { items: { item: ExploreItem; added: string }[
       )}
       drift={DRIFT}
       oddOffset={ODD_OFFSET}
-      className="mt-8 lg:-mx-1.5 lg:h-295 lg:overflow-hidden lg:px-1.5"
+      getAspect={({ item }) => item.aspect ?? POSTER}
+      className="mt-8 lg:-mx-1.5 lg:max-h-295 lg:overflow-hidden lg:px-1.5"
       gridClassName="grid-cols-2 gap-3.25 sm:grid-cols-3 lg:pt-2.5"
       columnClassName="lg:gap-3.25"
     />

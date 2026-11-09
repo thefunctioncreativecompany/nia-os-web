@@ -4,6 +4,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { recognizeAspect } from "@/lib/aspect-ratios";
 import type { ExploreItem } from "@/features/explore/items";
+import { servedSized } from "@/lib/served-sized";
 
 /** A poster's shape, width ÷ height (Made in Africa titles have posters, not frames). */
 export const POSTER = 268 / 373;
@@ -46,6 +47,7 @@ export function GalleryCard({ item, href, aspect, first, actions, note }: { item
           {item.image ? (
             <Image
               src={item.image}
+              unoptimized={servedSized(item.image)}
               alt=""
               fill
               sizes="(min-width: 96rem) 20vw, (min-width: 64rem) 25vw, (min-width: 48rem) 33vw, 50vw"

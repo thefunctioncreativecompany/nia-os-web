@@ -8,7 +8,8 @@ import { isMouse, pointerIn, useFrame } from "@/hooks/use-pointer";
 
 // Columns of cards that drift apart as the pointer moves down them (Ika's Claude Designs: Explore's
 // poster grid, Marketplace's Latest gear). Card i goes to column i % columns, so the order reads
-// across. Each column moves by its own `drift` (pixels at the top or bottom edge, either way), odd
+// across; with `getAspect` (cards of mixed shapes, Ika 2026-11-08), each card goes into the
+// shortest column so far instead, so the columns stay level. Each column moves by its own `drift` (pixels at the top or bottom edge, either way), odd
 // columns sit `oddOffset` higher. Wide screens only; phones and tablets get a plain grid of the
 // same cards. Reduced motion keeps the columns still (the odd offset stays).
 export function DriftColumns<T>({
@@ -21,6 +22,7 @@ export function DriftColumns<T>({
   className,
   gridClassName,
   columnClassName,
+  getAspect,
 }: {
   items: T[];
   getKey: (item: T) => string;
@@ -36,10 +38,22 @@ export function DriftColumns<T>({
   gridClassName?: string;
   /** Gaps inside each column on wide screens. */
   columnClassName?: string;
+  /** Each card's picture shape (width ÷ height), when the cards differ. */
+  getAspect?: (item: T) => number;
 }) {
   const reduce = useReducedMotion();
   const [pointerY, setPointerY] = useState(0.5);
   const frame = useFrame();
+  // Which column each card goes in: in turn, or the shortest so far (a card's height in column
+  // widths: its picture, plus about a third for its lines of text).
+  const columnOf: number[] = [];
+  const heights = drift.map(() => 0);
+  items.forEach((item, i) => {
+    if (!getAspect) return void columnOf.push(i % drift.length);
+    const c = heights.indexOf(Math.min(...heights));
+    columnOf.push(c);
+    heights[c] += 1 / getAspect(item) + 0.35;
+  });
 
   const onMove = (e: React.PointerEvent<HTMLElement>) => {
     if (reduce || !isMouse(e)) return;
@@ -63,7 +77,7 @@ export function DriftColumns<T>({
               className={cn("contents lg:flex lg:min-w-0 lg:flex-1 lg:flex-col lg:transition-transform lg:duration-drift lg:ease-glide", columnClassName)}
             >
               {items.map((item, i) =>
-                i % drift.length === c ? (
+                columnOf[i] === c ? (
                   <div key={getKey(item)} className="contents">
                     {renderItem(item, i)}
                   </div>

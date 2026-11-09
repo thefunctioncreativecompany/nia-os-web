@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { CastCrewRow, WIKIDATA_NOTE, type RowPerson } from "@/components/nia/cast-crew-row";
-import { LIBRARY_HREF, categoryViews, coverFor, essentialWhy, isTrailerStill, stillCaption, type CategoryKey, creditTerm, exploreHome, metaLine, findEntry, sameCategory, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
+import { LIBRARY_HREF, categoryViews, coverFor, essentialWhy, isTrailerStill, stillCaption, stillVideoId, wideCoverFor, type CategoryKey, creditTerm, exploreHome, metaLine, findEntry, sameCategory, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
 import { similarItems } from "@/features/explore/match";
 import { ProductionNotes } from "./production-notes";
 import { PressKitSection } from "./press-kit-body";
@@ -24,6 +24,7 @@ import { TitleCard, entrySpan } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
 import { VideoThumbnail } from "./video-thumbnail";
 import { BackLink } from "@/components/nia/back-link";
+import { servedSized } from "@/lib/served-sized";
 
 // A Made in Africa title, full screen (Ika, 2026-10-21), laid out like a project page (Figma
 // 824:23124) so the two read the same: the trailer where the cover sits, then the title and what to
@@ -49,6 +50,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
   const [playing, setPlaying] = useState(false);
   const hero = useRef<HTMLDivElement>(null);
   const cover = coverFor(title.slug);
+  const still = wideCoverFor(title.slug);
   // Leaving the page (it stays alive, hidden, for Back) stops the video.
   useStopVideosWhenHidden(hero, () => setPlaying(false));
   const thumb = video?.provider === "youtube";
@@ -104,10 +106,14 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
               />
             ) : (
               <>
-                {video && thumb ? (
+                {video && thumb && still && video.video_id === stillVideoId(title.slug) ? (
+                  // The frame chosen for the cover, not YouTube's own thumbnail, which often has
+                  // "CLASSIC TRAILER" or a logo burned in (Ika, 2026-11-08).
+                  <Image src={still.image} unoptimized={servedSized(still.image)} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover opacity-90" />
+                ) : video && thumb ? (
                   <VideoThumbnail key={video.video_id} video={video} preload sizes="(min-width: 1024px) 50vw, 100vw" className="opacity-90" />
                 ) : cover ? (
-                  <Image src={cover} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover opacity-80" />
+                  <Image src={cover} unoptimized={servedSized(cover)} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover opacity-80" />
                 ) : (
                   <span aria-hidden className="absolute top-6 left-7 max-w-[70%] text-h2 leading-tight font-bold tracking-tight">
                     {title.title}

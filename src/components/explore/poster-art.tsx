@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 import { grainFor, type Film } from "./explore-data";
+import { servedSized } from "@/lib/served-sized";
 
 // A film's picture: its poster, or its still (`still`), falling back to the other one and then to a
 // grain gradient. Fills the nearest positioned parent.
@@ -24,7 +25,7 @@ export function PosterArt({
   const src = still ? (film.stillUrl ?? film.posterUrl) : (film.posterUrl ?? film.stillUrl);
   return (
     <span aria-hidden className={cn("absolute inset-0 block bg-muted", !src && grainFor(film.id), className)}>
-      {src && <Image src={src} alt="" fill sizes={sizes} loading={first ? "eager" : undefined} fetchPriority={first ? "high" : undefined} className="object-cover" style={{ objectPosition: position }} />}
+      {src && <Image src={src} unoptimized={servedSized(src)} alt="" fill sizes={sizes} loading={first ? "eager" : undefined} fetchPriority={first ? "high" : undefined} className="object-cover" style={{ objectPosition: position }} />}
     </span>
   );
 }

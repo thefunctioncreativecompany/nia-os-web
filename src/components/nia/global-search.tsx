@@ -19,6 +19,7 @@ import { loadTemplateIndex, loadTemplatePreview, type TemplatePreview } from "@/
 import { LIBRARY } from "@/features/explore/library";
 import { ALL_TAGS, tagLabel, tagsFor } from "@/features/explore/tags";
 import { exploreAccess } from "@/features/explore/saves";
+import { servedSized } from "@/lib/served-sized";
 
 type Kind = "project" | "document" | "file" | "template" | "explore";
 type Filter = "all" | Kind;
@@ -487,7 +488,7 @@ function Preview({ result: r, now, onOpen }: { result: Result; now: number; onOp
         </div>
       ) : r.explore ? (
         <div className="relative mx-auto w-1/2 overflow-hidden rounded-xl bg-muted" style={{ aspectRatio: r.explore.aspect ?? 268 / 373 }}>
-          {r.explore.image && <Image src={r.explore.image} alt="" fill sizes="16rem" className="object-cover" />}
+          {r.explore.image && <Image src={r.explore.image} unoptimized={servedSized(r.explore.image)} alt="" fill sizes="16rem" className="object-cover" />}
         </div>
       ) : r.file ? (
         <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl bg-card">

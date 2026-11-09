@@ -4,13 +4,17 @@
   "size": "maxres2",
   "top": 92,
   "bottom": 92,
+  "left": 6,
+  "right": 6,
   "x": 0.5
  },
  "in-the-heat-of-the-night": {
   "id": "d15DhX_ltls",
   "size": "maxres3",
-  "top": 15,
-  "bottom": 15,
+  "top": 207,
+  "bottom": 207,
+  "left": 378,
+  "right": 378,
   "x": 0.48
  },
  "the-graduate": {
@@ -18,13 +22,17 @@
   "size": "maxres1",
   "top": 0,
   "bottom": 0,
+  "left": 182,
+  "right": 182,
   "x": 0.4
  },
  "2001-a-space-odyssey": {
   "id": "oR_e9y-bka0",
   "size": "maxresdefault",
-  "top": 0,
-  "bottom": 0,
+  "top": 1,
+  "bottom": 1,
+  "left": 25,
+  "right": 25,
   "x": 0.5,
   "cover": true
  },
@@ -40,13 +48,17 @@
   "size": "maxres1",
   "top": 13,
   "bottom": 13,
+  "left": 1,
+  "right": 1,
   "x": 0.35
  },
  "star-wars": {
   "id": "vZ734NWnAHA",
   "size": "maxresdefault",
-  "top": 3,
-  "bottom": 3,
+  "top": 4,
+  "bottom": 4,
+  "left": 14,
+  "right": 14,
   "x": 0.55,
   "cover": true
  },
@@ -69,6 +81,8 @@
   "size": "maxres2",
   "top": 0,
   "bottom": 0,
+  "left": 160,
+  "right": 160,
   "x": 0.5
  },
  "coming-to-america": {
@@ -146,6 +160,8 @@
   "size": "maxres3",
   "top": 0,
   "bottom": 0,
+  "left": 158,
+  "right": 158,
   "x": 0.6
  },
  "crouching-tiger-hidden-dragon": {
@@ -165,8 +181,8 @@
  "black-panther": {
   "id": "oHLU3T-e2t4",
   "size": "maxres2",
-  "top": 92,
-  "bottom": 92,
+  "top": 93,
+  "bottom": 93,
   "x": 0.27
  },
  "moonlight": {
@@ -208,8 +224,8 @@
  "back-to-the-future": {
   "id": "qvsgGtivCgs",
   "size": "maxres3",
-  "top": 29,
-  "bottom": 29,
+  "top": 30,
+  "bottom": 30,
   "x": 0.5
  },
  "die-hard": {
@@ -231,6 +247,8 @@
   "size": "maxres2",
   "top": 0,
   "bottom": 0,
+  "left": 205,
+  "right": 205,
   "x": 0.5
  },
  "toy-story": {
@@ -238,27 +256,29 @@
   "size": "maxres1",
   "top": 0,
   "bottom": 0,
+  "left": 160,
+  "right": 160,
   "x": 0.45
  },
  "titanic": {
   "id": "CHekzSiZjrY",
   "size": "maxres2",
-  "top": 86,
-  "bottom": 86,
+  "top": 87,
+  "bottom": 87,
   "x": 0.4
  },
  "the-blair-witch-project": {
   "id": "MBZ-POVsrlI",
   "size": "maxres3",
-  "top": 15,
-  "bottom": 15,
+  "top": 16,
+  "bottom": 16,
   "x": 0.5
  },
  "harry-potter-and-the-philosophers-stone": {
   "id": "l91Km49W9qI",
   "size": "maxres3",
-  "top": 20,
-  "bottom": 20,
+  "top": 120,
+  "bottom": 120,
   "x": 0.5
  },
  "harry-potter-and-the-chamber-of-secrets": {
@@ -299,8 +319,10 @@
  "harry-potter-and-the-deathly-hallows-part-1": {
   "id": "MxqsmsA8y5k",
   "size": "maxres1",
-  "top": 28,
-  "bottom": 28,
+  "top": 90,
+  "bottom": 90,
+  "left": 16,
+  "right": 16,
   "x": 0.45
  },
  "harry-potter-and-the-deathly-hallows-part-2": {
@@ -351,6 +373,8 @@
   "size": "maxres2",
   "top": 0,
   "bottom": 0,
+  "left": 160,
+  "right": 160,
   "x": 0.5
  },
  "nanny-mcphee": {
@@ -364,8 +388,10 @@
  "bugonia": {
   "id": "bd_5HcTujfc",
   "size": "maxres2",
-  "top": 0,
-  "bottom": 0,
+  "top": 9,
+  "bottom": 9,
+  "left": 100,
+  "right": 100,
   "x": 0.5
  },
  "tenzing": {
@@ -423,6 +449,8 @@
   "size": "hqdefault",
   "top": 0,
   "bottom": 0,
+  "left": 2,
+  "right": 2,
   "x": 0.5,
   "w": 480,
   "h": 360,
@@ -433,6 +461,8 @@
   "size": "maxres2",
   "top": 0,
   "bottom": 0,
+  "left": 154,
+  "right": 154,
   "x": 0.5
  },
  "a-kid-from-coney-island": {
@@ -453,8 +483,8 @@
  "muhammad-ali-the-peoples-champ": {
   "id": "e49IM_ZiM1k",
   "size": "maxres2",
-  "top": 30,
-  "bottom": 30,
+  "top": 35,
+  "bottom": 35,
   "x": 0.5,
   "kind": "featurette"
  },
@@ -463,6 +493,8 @@
   "size": "sd2",
   "top": 0,
   "bottom": 0,
+  "left": 3,
+  "right": 3,
   "x": 0.5,
   "w": 640,
   "h": 480,
