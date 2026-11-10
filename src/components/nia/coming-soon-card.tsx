@@ -17,7 +17,8 @@ export function ComingSoonCard({
   note,
   className,
 }: {
-  status: string;
+  /** The pill above the title; leave it out for none. */
+  status?: string;
   /** The dot's colour: green for a date that's set, amber while it's still to be announced. */
   tone?: "success" | "pending";
   title: string;
@@ -37,7 +38,8 @@ export function ComingSoonCard({
         className,
       )}
     >
-      <span className="inline-flex h-7 items-center gap-2 rounded-full border border-border px-3 text-caption font-medium text-muted-foreground">
+      {status && (
+        <span className="inline-flex h-7 items-center gap-2 rounded-full border border-border px-3 text-caption font-medium text-muted-foreground">
         <span
           aria-hidden
           className={cn(
@@ -45,8 +47,9 @@ export function ComingSoonCard({
             tone === "success" ? "animate-explore-pulse bg-status-confirmed-foreground" : "animate-pending-pulse bg-status-pending-foreground",
           )}
         />
-        {status}
-      </span>
+          {status}
+        </span>
+      )}
       <h1 className={cn("text-h2 font-semibold tracking-tight text-foreground sm:text-hero", titleClassName)}>{title}</h1>
       <p className={cn("max-w-90 text-small leading-relaxed text-muted-foreground sm:text-lead", bodyClassName)}>{children}</p>
       <div className="mt-1 flex flex-wrap justify-center gap-2 sm:mt-1.5 sm:gap-2.5">{actions}</div>

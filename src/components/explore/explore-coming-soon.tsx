@@ -118,8 +118,6 @@ function WelcomeCard() {
   };
   return (
     <ComingSoonCard
-      status="Open to everyone in the beta"
-      tone="success"
       title="Explore"
       actions={
         <Button onClick={() => void enter()} disabled={busy} className={comingSoonButton}>
