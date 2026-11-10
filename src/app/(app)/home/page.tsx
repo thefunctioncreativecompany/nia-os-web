@@ -12,9 +12,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/nia/empty-state";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { ActivityFeed } from "@/components/home/activity-feed";
-import { HomeTemplates } from "@/components/home/home-templates";
 import { NewTemplatesNotice } from "@/components/home/new-templates-notice";
-import { ImportFilesDialog } from "@/components/home/import-files-dialog";
 import { WelcomeTourLoader } from "@/components/home/welcome-tour-loader";
 import { GROUP_LABEL, groupFor, whatsNew } from "@/features/whats-new/updates";
 import { hasExploreAccess } from "@/lib/explore-access";
@@ -59,8 +57,9 @@ async function Tour() {
 }
 
 // New templates, announced once (launches.ts): until the person uses one or closes the card, or
-// it stops being new. Not while the welcome tour is about to open. Then "Start from a template"
-// (H4): the working templates, ordered in the browser by what the person viewed last.
+// it stops being new. Not while the welcome tour is about to open. Then Start from a goal, Recent
+// projects and Activity: Home was cut to these on 2026-11-10 (Ika: "too much on the home page");
+// Start from a template, Upcoming schedule and Quick actions are in git tag parked-2026-11-10-home.
 async function HomeBody() {
   const [{ user }, templates, current] = await Promise.all([getSession(), workingGallery(), getCurrentUser()]);
   const announced = user?.metadata.templates_announced ?? [];
@@ -70,7 +69,6 @@ async function HomeBody() {
       {fresh.length > 0 && <NewTemplatesNotice templates={fresh} announced={announced} />}
       {/* Start from a goal (Ika, 2026-11-10): workflows for the person's kind of work first. */}
       <WorkflowCards templates={templates.map(({ code, name }) => ({ code, name }))} profession={current.profession} />
-      <HomeTemplates templates={templates} />
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         <h2 id="recent-projects" className="text-xl leading-[1.4] font-bold text-foreground">
@@ -81,41 +79,9 @@ async function HomeBody() {
         </Suspense>
       </section>
 
-      {/* minmax(0, …) keeps long activity lines from widening the page on phones. */}
-      <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.62fr)]">
-        <Suspense fallback={<Skeleton className="h-60 rounded-xl" />}>
-          <RecentActivity />
-        </Suspense>
-
-        <div className="flex flex-col gap-10">
-          <section aria-labelledby="schedule" className="flex flex-col gap-5">
-            <h2 id="schedule" className="text-xl leading-[1.4] font-bold text-foreground">
-              Upcoming schedule
-            </h2>
-            <EmptyState
-              message="No upcoming events. Add events from your project calendar."
-              className="min-h-[180px]"
-            />
-          </section>
-
-          <section aria-labelledby="quick-actions" className="flex flex-col gap-5">
-            <h2 id="quick-actions" className="text-xl leading-[1.4] font-bold text-foreground">
-              Quick actions
-            </h2>
-            <div className="flex flex-wrap gap-3">
-              <NewProjectDialog>
-                <Button>+ New project</Button>
-              </NewProjectDialog>
-              <Button asChild variant="outline">
-                <Link href="/templates">Browse templates</Link>
-              </Button>
-              <ImportFilesDialog>
-                <Button variant="outline">Import files</Button>
-              </ImportFilesDialog>
-            </div>
-          </section>
-        </div>
-      </div>
+      <Suspense fallback={<Skeleton className="h-60 rounded-xl" />}>
+        <RecentActivity />
+      </Suspense>
     </>
   );
 }
@@ -172,6 +138,6 @@ async function RecentProjects() {
 }
 
 async function RecentActivity() {
-  const { items, now } = await listActivity({ limit: 12 });
+  const { items, now } = await listActivity({ limit: 5 });
   return <ActivityFeed items={items} now={now} />;
 }
