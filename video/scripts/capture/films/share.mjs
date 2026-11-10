@@ -4,7 +4,7 @@
 // out), and the project's activity. The link is turned off again at the end.
 // Run from video/ with the web app on localhost: node scripts/capture/films/share.mjs
 import puppeteer from "puppeteer-core";
-import { SCALE, start, wait } from "../lib.mjs";
+import { PIXELS, start, wait } from "../lib.mjs";
 
 const c = await start("share");
 const { page, go, shot, mark, byText } = c;
@@ -48,8 +48,8 @@ console.log("share link", url ? "found" : "missing");
 if (url) {
   const other = await puppeteer.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", headless: true });
   const guest = await other.newPage();
-  await guest.setViewport({ width: 1440, height: 810, deviceScaleFactor: SCALE });
-  await guest.emulateMediaFeatures([{ name: "prefers-color-scheme", value: "dark" }, { name: "prefers-reduced-motion", value: "reduce" }]);
+  await guest.setViewport({ width: 1440, height: 810, deviceScaleFactor: PIXELS });
+  await guest.emulateMediaFeatures([{ name: "prefers-color-scheme", value: "light" }, { name: "prefers-reduced-motion", value: "reduce" }]);
   const href = url.startsWith("http") ? url.replace(/^https?:\/\/[^/]+/, "http://localhost:3000") : `http://localhost:3000${url}`;
   await guest.goto(href, { waitUntil: "networkidle2", timeout: 120000 });
   await wait(2500);
