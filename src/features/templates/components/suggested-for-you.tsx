@@ -49,11 +49,6 @@ export function SuggestedForYou({
       <div className="mb-3.5 flex flex-wrap items-end justify-between gap-3.5">
         <div>
           <h2 id="suggested" className="text-subtitle font-semibold text-foreground">Suggested for you</h2>
-          <p className="text-small text-muted-foreground">
-            {learned
-              ? "Based on your role and the templates you use. It adapts as you work."
-              : "Based on your role. It adapts as you open and use templates."}
-          </p>
         </div>
         <div className="flex flex-wrap items-center gap-2.5">
           <Select value={profile.role ?? NONE} onValueChange={(v) => onRoleChange(v === NONE ? null : v)}>

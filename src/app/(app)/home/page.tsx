@@ -34,7 +34,6 @@ export default function Page() {
         <Suspense fallback={<Skeleton className="h-10 w-72" />}>
           <Welcome />
         </Suspense>
-        <p className="text-lead text-muted-foreground">What would you like to create today?</p>
       </header>
 
       {/* The announcement and everything under it arrive together, so nothing below jumps down
@@ -68,7 +67,7 @@ async function HomeBody() {
     <>
       {fresh.length > 0 && <NewTemplatesNotice templates={fresh} announced={announced} />}
       {/* Start from a goal (Ika, 2026-11-10): workflows for the person's kind of work first. */}
-      <WorkflowCards templates={templates.map(({ code, name }) => ({ code, name }))} profession={current.profession} />
+      <WorkflowCards templates={templates.map(({ code, name, icon }) => ({ code, name, icon }))} profession={current.profession} />
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         <h2 id="recent-projects" className="text-subtitle font-semibold text-foreground">

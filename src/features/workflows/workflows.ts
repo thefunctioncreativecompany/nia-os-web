@@ -34,9 +34,10 @@ export const WORKFLOWS: Workflow[] = [
   { id: "short-film-prep", icp: "filmmakers", name: "Prep a short film", does: "From script breakdown to budget, shot list, crew list and the first call sheet.", productionType: "Short Film", templates: ["D05", "D02", "D06", "D03", "D01"] },
   { id: "shoot-day", icp: "filmmakers", name: "Run a shoot day", does: "The call sheet, the filming notice for neighbours, and logs for continuity, takes and kit.", productionType: "Film", templates: ["D24", "D07", "D13", "D14", "D08"] },
   { id: "develop-series", icp: "filmmakers", name: "Develop a series", does: "The series bible, a first episode broken down and a budget to pitch with.", productionType: "TV Series", templates: ["D11", "D05", "D02"] },
-  // Photographers
+  // Photographers. "Editorial shoot" is the workflow designed first (the manifest's T01, Ika's
+  // priority since October): its steps now map to the brief, pulls, shots, team and call sheet.
   { id: "client-photoshoot", icp: "photographers", name: "Plan a client photoshoot", does: "The brief, the shot list, the usage licence and the invoice.", productionType: "Photo Shoot", templates: ["G14", "G16", "G17", "D04"] },
-  { id: "fashion-editorial", icp: "photographers", name: "Shoot a fashion editorial", does: "The brief, the pull sheet, the shot list, the team's contacts and the call sheet.", productionType: "Editorial", templates: ["G14", "G24", "G16", "D03", "D01"] },
+  { id: "editorial-shoot", icp: "photographers", name: "Editorial shoot", does: "The brief, the pull sheet, the shot list, the team's contacts and the call sheet.", productionType: "Editorial", templates: ["G14", "G24", "G16", "D03", "D01"] },
   { id: "cover-event", icp: "photographers", name: "Cover an event", does: "The event brief, the must-have pictures, the usage licence and the invoice.", productionType: "Live Event", templates: ["G18", "G16", "G17", "D04"] },
   // Small production studios
   { id: "brand-campaign", icp: "studios", name: "Produce a brand campaign", does: "The social brief, the script, the budget, the shot list and the call sheet.", productionType: "Campaign", templates: ["G05", "D10", "D02", "D06", "D01"] },

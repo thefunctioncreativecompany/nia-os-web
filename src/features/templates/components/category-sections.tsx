@@ -254,9 +254,7 @@ function ColumnsSection({ group, items, onPreview }: { group: string; items: Gal
   return (
     <section aria-labelledby={sectionId(group)}>
       <div className="mb-4">
-        <SectionTitle group={group} count={items.length}>
-          <span className="text-small text-muted-foreground max-sm:hidden">Hover a column to pause</span>
-        </SectionTitle>
+        <SectionTitle group={group} count={items.length} />
       </div>
       <MarqueeColumns
         items={items}

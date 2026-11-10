@@ -688,3 +688,11 @@ onboarding's Import profile and Follow creators describe features removed in the
   `20261110000000_explore_open.sql` (has_explore_access() says yes to anyone signed in), for Ika
   to run: until then people without an invite can browse but not save titles or add them to
   projects. The invite list and codes are kept; switching the flag off restores the code screen.
+- (2026-11-10) Few words (Ika: "creatives usually hate reading… it should never feel too much"):
+  a section gets a title and no explaining line. Workflows is titled "Workflows" (not "Start from
+  a goal" with a sentence) and its cards are big picture cards with the goal's name only, like
+  Strategy & Development's. Removed: Home's "What would you like to create today?", the line
+  under Suggested for you, "Hover a column to pause". Rule added to CLAUDE.md. The Editorial
+  Shoot flow designed in October (the manifest's T01, hidden since only working templates show)
+  is back as the photographers' "Editorial shoot" workflow: brief, pull sheet, shot list, crew
+  contacts, call sheet.

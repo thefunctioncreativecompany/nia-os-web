@@ -55,6 +55,9 @@ Design:
 - Headings (Ika, 2026-11-10, one standard, from Explore): a page title is
   `text-h2 font-semibold tracking-tight text-foreground`; a section heading is
   `text-subtitle font-semibold text-foreground`. No `font-extrabold` or `text-display` titles.
+- Few words (Ika, 2026-11-10): creatives are visual, so a section gets a title and no explaining
+  line; cards lead with a picture and a name. Add a sentence only where someone would be stuck
+  without it.
 - Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
   motion. Only modals/panels, the saved tick, cards settling, the card hover sweep, Copilot highlights
   and onboarding slides animate.

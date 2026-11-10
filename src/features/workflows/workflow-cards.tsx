@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowRight, FileText } from "lucide-react";
+import { FileText } from "lucide-react";
 import { toast } from "sonner";
 
 import { ChipRow, FilterChip } from "@/components/nia/filter-bar";
@@ -11,18 +11,20 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { FlatIcon } from "@/features/templates/components/flat-icon";
+import { grainFor } from "@/features/templates/gallery";
 import { cn } from "@/lib/utils";
 import { ICPS, WORKFLOWS, icpFor, type Icp, type Workflow } from "./workflows";
 
-type Named = { code: string; name: string };
+type Named = { code: string; name: string; icon: string };
 const documentsOf = (w: Workflow, templates: Named[]) => w.templates.flatMap((code) => templates.find((t) => t.code === code)?.name ?? []);
 
-// "Start from a goal" (Ika, 2026-11-10; FEEDBACK B3): three workflows for each group Nia is for,
-// the person's own group first (from their onboarding profession). A card names the goal and the
-// documents it sets up; starting one asks for the project's name, creates the project with those
-// documents as drafts and opens it. Built from existing pieces: filter chips, the card look,
-// the dialog. `templates` is the working templates the page already has (for the documents' names);
-// the code that creates the project loads when one is started.
+// Workflows (Ika, 2026-11-10; FEEDBACK B3): three for each group Nia is for, the person's own
+// group first (from their onboarding profession). Big picture cards with the goal's name and
+// nothing else (Ika: creatives are visual; no explaining lines), like Strategy & Development's.
+// Starting one asks for the project's name, creates the project with its documents as drafts and
+// opens it. `templates` is the working templates the page already has (names and icons); the
+// code that creates the project loads when one is started.
 export function WorkflowCards({ templates, profession, headingId = "workflows", headingClassName = "text-subtitle font-semibold text-foreground", className }: { templates: Named[]; profession?: string | null; headingId?: string; headingClassName?: string; className?: string }) {
   const mine = icpFor(profession);
   const [chosen, setChosen] = useState<Icp | null>(null);
@@ -31,12 +33,9 @@ export function WorkflowCards({ templates, profession, headingId = "workflows", 
 
   return (
     <section aria-labelledby={headingId} className={cn("flex flex-col gap-5", className)}>
-      <div className="flex flex-col gap-1">
-        <h2 id={headingId} className={headingClassName}>
-          Start from a goal
-        </h2>
-        <p className="text-small text-muted-foreground">Pick what you&rsquo;re making. Nia sets up the project and its documents.</p>
-      </div>
+      <h2 id={headingId} className={headingClassName}>
+        Workflows
+      </h2>
       <ChipRow role="group" aria-label="Who it's for">
         {ICPS.map((g) => (
           <FilterChip key={g.id} on={g.id === icp} onClick={() => setChosen(g.id)}>
@@ -44,33 +43,26 @@ export function WorkflowCards({ templates, profession, headingId = "workflows", 
           </FilterChip>
         ))}
       </ChipRow>
-      <ul className="grid gap-4 md:grid-cols-3">
-        {WORKFLOWS.filter((w) => w.icp === icp).map((w) => (
-          <li key={w.id}>
-            <button
-              type="button"
-              aria-haspopup="dialog"
-              onClick={() => setStarting(w)}
-              className="hover-sweep group flex h-full w-full flex-col gap-4 rounded-xl border border-border bg-card p-5 text-left outline-none transition-colors duration-fast hover:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
-            >
-              <span className="flex flex-col gap-1.5">
-                <span className="text-lead leading-[1.4] font-bold text-foreground">{w.name}</span>
-                <span className="text-small leading-normal text-muted-foreground">{w.does}</span>
-              </span>
-              <span className="flex flex-wrap gap-1.5">
-                {documentsOf(w, templates).map((name) => (
-                  <span key={name} className="rounded-full bg-secondary px-2.5 py-1 text-caption font-medium text-foreground">
-                    {name}
-                  </span>
-                ))}
-              </span>
-              <span className="mt-auto flex items-center gap-1.5 text-small font-semibold text-foreground">
-                Start
-                <ArrowRight aria-hidden className="size-4 transition-transform duration-fast ease-out group-hover:translate-x-0.5 motion-reduce:translate-x-0!" />
-              </span>
-            </button>
-          </li>
-        ))}
+      <ul className="grid gap-4 sm:grid-cols-3">
+        {WORKFLOWS.filter((w) => w.icp === icp).map((w) => {
+          const lead = templates.find((t) => t.code === w.templates[0]);
+          return (
+            <li key={w.id}>
+              <button
+                type="button"
+                aria-haspopup="dialog"
+                aria-label={`${w.name}: ${documentsOf(w, templates).join(", ")}`}
+                onClick={() => setStarting(w)}
+                className="group flex w-full flex-col gap-2.5 rounded-2xl text-left outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+              >
+                <span className={cn("grid aspect-[16/10] w-full place-items-center overflow-hidden rounded-2xl transition-shadow duration-base group-hover:shadow-card-hover", grainFor(w.templates[0]))}>
+                  {lead && <FlatIcon name={lead.icon} className="size-15 stroke-[1.3] text-current" />}
+                </span>
+                <span className="text-lg font-bold text-foreground">{w.name}</span>
+              </button>
+            </li>
+          );
+        })}
       </ul>
       {starting && <StartDialog key={starting.id} workflow={starting} documents={documentsOf(starting, templates)} onClose={() => setStarting(null)} />}
     </section>
@@ -104,9 +96,7 @@ function StartDialog({ workflow, documents, onClose }: { workflow: Workflow; doc
     <Dialog open onOpenChange={(open) => !open && !busy && onClose()}>
       <DialogContent className="sm:max-w-md">
         <DialogTitle>{workflow.name}</DialogTitle>
-        <DialogDescription>
-          A new project with {documents.length} documents, each a blank draft ready to fill in.
-        </DialogDescription>
+        <DialogDescription className="sr-only">A new project with {documents.length} documents, each a blank draft.</DialogDescription>
         <form onSubmit={start} className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
             <Label htmlFor="workflow-project-name">Project name</Label>
