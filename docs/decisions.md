@@ -701,3 +701,8 @@ onboarding's Import profile and Follow creators describe features removed in the
   initials) of people credited on three or more things on Explore, most credits first, the top
   40 in one row (333 qualify today); each opens their person page. `featuredPeople()` in
   people-index.ts.
+- (2026-11-10) Workflow covers move a little (Ika: "slightly animated… to imply they're workflows
+  and not static templates"): a cover shows the workflow's documents as steps on a line, in
+  order. The steps arrive one after another when the card appears; on hover or focus the line
+  draws across and each step lifts in turn. No loops; reduced motion shows it still. Added to
+  CLAUDE.md's list of what may animate.

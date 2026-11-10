@@ -59,8 +59,9 @@ Design:
   line; cards lead with a picture and a name. Add a sentence only where someone would be stuck
   without it.
 - Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
-  motion. Only modals/panels, the saved tick, cards settling, the card hover sweep, Copilot highlights
-  and onboarding slides animate.
+  motion. Only modals/panels, the saved tick, cards settling, the card hover sweep, workflow covers
+  (steps arriving once, the line drawing on hover; Ika, 2026-11-10), Copilot highlights and
+  onboarding slides animate.
 - Theme tokens (`src/app/globals.css`): colors `foreground`/`primary` (near-black), `nia-blue`
   (the accent, + `nia-blue-foreground`), neutral greys (`muted`, `muted-foreground`, `border`, `secondary`, `accent`);
   fonts `font-sans` (Geist, everything), `font-wordmark` (the "NIA" mark); `font-serif` and `font-mono`

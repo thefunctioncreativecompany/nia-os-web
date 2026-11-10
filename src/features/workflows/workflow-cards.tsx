@@ -45,19 +45,17 @@ export function WorkflowCards({ templates, profession, headingId = "workflows", 
       </ChipRow>
       <ul className="grid gap-4 sm:grid-cols-3">
         {WORKFLOWS.filter((w) => w.icp === icp).map((w) => {
-          const lead = templates.find((t) => t.code === w.templates[0]);
+          const steps = w.templates.flatMap((code) => templates.find((t) => t.code === code) ?? []);
           return (
             <li key={w.id}>
               <button
                 type="button"
                 aria-haspopup="dialog"
-                aria-label={`${w.name}: ${documentsOf(w, templates).join(", ")}`}
+                aria-label={`${w.name}: ${steps.map((t) => t.name).join(", ")}`}
                 onClick={() => setStarting(w)}
                 className="group flex w-full flex-col gap-2.5 rounded-2xl text-left outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
               >
-                <span className={cn("grid aspect-[16/10] w-full place-items-center overflow-hidden rounded-2xl transition-shadow duration-base group-hover:shadow-card-hover", grainFor(w.templates[0]))}>
-                  {lead && <FlatIcon name={lead.icon} className="size-15 stroke-[1.3] text-current" />}
-                </span>
+                <WorkflowCover steps={steps} className={grainFor(w.templates[0])} />
                 <span className="text-lg font-bold text-foreground">{w.name}</span>
               </button>
             </li>
@@ -66,6 +64,31 @@ export function WorkflowCards({ templates, profession, headingId = "workflows", 
       </ul>
       {starting && <StartDialog key={starting.id} workflow={starting} documents={documentsOf(starting, templates)} onClose={() => setStarting(null)} />}
     </section>
+  );
+}
+
+// A workflow's cover (Ika, 2026-11-10: slightly animated, so it reads as a workflow and not one
+// template): its documents as steps on a line, in order. The steps arrive one after another when
+// the card appears; on hover or focus the line draws across and each step lifts in turn. Nothing
+// loops, and with reduced motion it's simply shown, still.
+function WorkflowCover({ steps, className }: { steps: Named[]; className?: string }) {
+  return (
+    <span aria-hidden className={cn("grid aspect-[16/10] w-full place-items-center overflow-hidden rounded-2xl px-[8%] transition-shadow duration-base group-hover:shadow-card-hover", className)}>
+      <span className="relative flex w-full items-center justify-between">
+        {/* The line the steps sit on, and the one that draws over it. */}
+        <span className="absolute inset-x-5 top-1/2 h-px -translate-y-1/2 bg-current opacity-25" />
+        <span className="absolute inset-x-5 top-1/2 h-0.5 origin-left -translate-y-1/2 scale-x-0 bg-current transition-transform duration-settle ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none" />
+        {steps.map((t, i) => (
+          <span
+            key={t.code}
+            style={{ animationDelay: `${i * 90}ms`, transitionDelay: `${i * 70}ms` }}
+            className="relative grid size-10 animate-in place-items-center rounded-xl bg-card text-foreground shadow-elevation-2 transition-transform duration-base ease-out fade-in zoom-in-90 fill-mode-both group-hover:-translate-y-1 group-focus-visible:-translate-y-1 motion-reduce:translate-y-0! motion-reduce:animate-none sm:size-11 lg:size-12"
+          >
+            <FlatIcon name={t.icon} className="size-5 stroke-[1.6]" />
+          </span>
+        ))}
+      </span>
+    </span>
   );
 }
 
