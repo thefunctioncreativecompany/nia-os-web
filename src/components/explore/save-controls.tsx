@@ -8,6 +8,10 @@ import { Bookmark, Check, FolderPlus, Plus } from "lucide-react";
 import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
+import { projectLimitReached } from "@/lib/plan-client";
+import { recordEvent } from "@/lib/product-events";
+import type { ProductionType } from "@/lib/projects";
+import { openUpgrade } from "@/components/nia/upgrade-dialog";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -140,12 +144,42 @@ export function SaveToCollection({ slug, title, size = "md" }: { slug: string; t
 }
 
 // Add a title to a project's Files & references (Ika, 2026-10-21). Lists the projects you can
-// edit, ticks the ones that already have it, and adds it in one tap.
-export function AddToProject({ slug, title, size = "md" }: { slug: string; title: string; size?: "md" | "compact" }) {
+// edit, ticks the ones that already have it, and adds it in one tap. "New project" at the top
+// (Ika, 2026-11-10: lead people from browsing to making, without interrupting them) starts a
+// project with this title as its first reference, of the same kind of production (`kind`) when
+// that's known; you stay on the page, and the toast offers to open it.
+export function AddToProject({ slug, title, size = "md", kind }: { slug: string; title: string; size?: "md" | "compact"; kind?: ProductionType }) {
   const router = useRouter();
   const [projects, setProjects] = useState<EditableProject[] | null>(null);
   const [holding, setHolding] = useState<Set<string>>(new Set());
   const [busy, setBusy] = useState<string | null>(null);
+  const [naming, setNaming] = useState(false);
+  const [name, setName] = useState("");
+
+  const create = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const projectTitle = name.trim();
+    if (!projectTitle) return;
+    setBusy("new");
+    const db = createClient();
+    const { data: workspaceId, error: wsError } = await db.rpc("my_workspace_id");
+    if (wsError) return void (setBusy(null), toast.error("Couldn't start the project. Please try again."));
+    if (await projectLimitReached(db, workspaceId)) return void (setBusy(null), openUpgrade("projects"));
+    const { data: project, error } = await db
+      .from("projects")
+      .insert({ workspace_id: workspaceId, title: projectTitle, description: "", ...(kind ? { production_type: kind } : {}) })
+      .select("id, title, cover_url")
+      .single();
+    if (error) return void (setBusy(null), toast.error(`Couldn't start the project: ${error.message}`));
+    recordEvent("project_created", { projectId: project.id, props: { from: "explore", title: slug } });
+    const added = await addReference(db, project.id, slug);
+    setBusy(null);
+    setProjects((list) => [{ id: project.id, title: project.title, coverUrl: project.cover_url }, ...(list ?? [])]);
+    if (added.ready) setHolding((h) => new Set(h).add(project.id));
+    setNaming(false);
+    setName("");
+    toast.success(`Started ${project.title}${added.ready ? `, with ${title} as its first reference` : ""}.`, { action: { label: "Open", onClick: () => router.push(`/projects/${project.id}`) } });
+  };
 
   const load = async () => {
     const db = createClient();
@@ -173,16 +207,31 @@ export function AddToProject({ slug, title, size = "md" }: { slug: string; title
       </PopoverTrigger>
       <PopoverContent align="start" className="flex w-80 flex-col gap-3 rounded-2xl p-3">
         <p className="px-1 text-small font-semibold text-foreground">Add to a project&rsquo;s references</p>
+        {naming ? (
+          <form onSubmit={create} className="flex items-center gap-2">
+            <Input autoFocus value={name} onChange={(e) => setName(e.target.value)} maxLength={120} placeholder="Project name" aria-label="New project's name" className="h-9 flex-1" />
+            <Button type="submit" size="compact" disabled={!name.trim() || busy !== null}>
+              {busy === "new" ? "Starting…" : "Start"}
+            </Button>
+          </form>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setNaming(true)}
+            className="flex w-full items-center gap-3 rounded-lg p-2 text-left text-sm outline-none hover:bg-accent focus-visible:ring-3 focus-visible:ring-ring/50"
+          >
+            <span className="flex size-9 shrink-0 items-center justify-center rounded-md border border-dashed border-border">
+              <Plus aria-hidden className="size-4 text-muted-foreground" />
+            </span>
+            <span className="flex min-w-0 flex-1 flex-col">
+              <span className="font-medium text-foreground">New project</span>
+              <span className="truncate text-caption text-muted-foreground">Starts with this as its first reference</span>
+            </span>
+          </button>
+        )}
         {!projects ? (
           <Skeleton className="h-24 rounded-lg" />
-        ) : projects.length === 0 ? (
-          <p className="px-1 text-small text-muted-foreground">
-            You don&rsquo;t have a project you can edit yet.{" "}
-            <Link href="/projects/new" className="font-semibold text-foreground underline underline-offset-2">
-              Start one
-            </Link>
-          </p>
-        ) : (
+        ) : projects.length === 0 ? null : (
           <ul className="flex max-h-72 flex-col gap-0.5 overflow-y-auto">
             {projects.map((p) => {
               const has = holding.has(p.id);

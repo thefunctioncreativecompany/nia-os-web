@@ -159,7 +159,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
             {/* Keep it, or put it to work in a project (Ika, 2026-10-21). */}
             <div className="flex flex-wrap gap-2">
               <SaveToCollection slug={title.slug} title={title.title} />
-              <AddToProject slug={title.slug} title={title.title} />
+              <AddToProject slug={title.slug} title={title.title} kind={({ film: "Film", series: "TV Series", documentary: "Documentary", short: "Short Film" } as const)[title.type]} />
             </div>
             {title.synopsis && <p className="text-sm leading-relaxed text-foreground/80">{title.synopsis}</p>}
             {essentialWhy.has(title.slug) && (

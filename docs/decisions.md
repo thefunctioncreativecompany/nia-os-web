@@ -677,3 +677,7 @@ onboarding's Import profile and Follow creators describe features removed in the
   pages (they were bold or extra-bold at four sizes). Written into CLAUDE.md's Design rules.
   Still different: side gutters (Explore and Templates `md:px-7.5`; Home, Projects and Settings
   `md:px-15`), and small card headings.
+- (2026-11-10) From browsing to making (Ika: "direct users to actually creating projects as they
+  explore, without disrupting browsing"): "Add to project" on every Explore title starts with a
+  "New project" row; naming it creates the project (the title's kind of production) with the
+  title as its first reference. The person stays on the page; the toast offers Open.
