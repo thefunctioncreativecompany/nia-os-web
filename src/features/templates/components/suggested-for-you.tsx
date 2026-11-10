@@ -45,10 +45,10 @@ export function SuggestedForYou({
   const learned = profile.events.length > 0;
 
   return (
-    <section aria-labelledby="suggested" className={cn("px-4 md:px-11", className)}>
+    <section aria-labelledby="suggested" className={cn("px-4 md:px-7.5", className)}>
       <div className="mb-3.5 flex flex-wrap items-end justify-between gap-3.5">
         <div>
-          <h2 id="suggested" className="text-lg font-extrabold text-foreground">Suggested for you</h2>
+          <h2 id="suggested" className="text-subtitle font-semibold text-foreground">Suggested for you</h2>
           <p className="text-small text-muted-foreground">
             {learned
               ? "Based on your role and the templates you use. It adapts as you work."

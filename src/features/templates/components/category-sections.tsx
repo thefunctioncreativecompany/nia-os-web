@@ -78,10 +78,10 @@ export function CategorySections({
   const soon = templates.filter((t) => t.status === "gap");
   const sections = groups.map((group) => ({ group, items: inGroup(group) })).filter((s) => s.items.length);
 
-  if (!sections.length && !soon.length) return <p className="px-4 pt-7 text-sm text-muted-foreground md:px-11">No templates here yet.</p>;
+  if (!sections.length && !soon.length) return <p className="px-4 pt-7 text-sm text-muted-foreground md:px-7.5">No templates here yet.</p>;
 
   return (
-    <div className="flex flex-col gap-22 px-4 pt-20 md:px-11">
+    <div className="flex flex-col gap-22 px-4 pt-20 md:px-7.5">
       {sections.map(({ group, items }) =>
         group === WORKFLOWS_GROUP ? (
           <WorkflowsSection key={group} items={items} onPreview={onPreview} />
@@ -103,7 +103,7 @@ const sectionId = (group: string) => `cat-${group.replace(/\W+/g, "-").toLowerCa
 function SectionTitle({ group, count, children }: { group: string; count: number; children?: ReactNode }) {
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-3">
-      <h2 id={sectionId(group)} className="text-lg font-extrabold text-foreground">
+      <h2 id={sectionId(group)} className="text-subtitle font-semibold text-foreground">
         {group} <span className="text-micro font-normal text-muted-foreground">{count}</span>
       </h2>
       {children}

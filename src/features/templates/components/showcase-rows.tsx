@@ -28,7 +28,7 @@ export function SuggestedRow({
   const suggested = ready ? workingSuggestions(templates, profile).map((s) => s.template) : [];
   return (
     <section aria-labelledby="m-suggested" className="pt-7">
-      <h2 id="m-suggested" className="mb-3 px-4 text-lg font-extrabold text-foreground">Suggested for you</h2>
+      <h2 id="m-suggested" className="mb-3 px-4 text-subtitle font-semibold text-foreground">Suggested for you</h2>
       <div className="flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 [scrollbar-width:none]">
         {ready
           ? suggested.map((t) => (

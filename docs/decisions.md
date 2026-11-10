@@ -657,3 +657,10 @@ onboarding's Import profile and Follow creators describe features removed in the
   person, so database rules apply). Built from FilterChip, the card look with the hover sweep,
   and Dialog. The manifest's Editorial Shoot (T01) stays parked: "Shoot a fashion editorial"
   covers it. Not in Figma yet.
+- (2026-11-10) Templates takes Explore's page layout (Ika: "more closely mimic the layout of
+  Explore", same contents and functions): full width with Explore's gutters (`px-4 md:px-7.5`),
+  the page title at `text-h2 font-semibold tracking-tight`, section headings at
+  `text-subtitle font-semibold` (they were `text-display font-extrabold` and
+  `text-lg font-extrabold` in a centred `max-w-7xl` column). The platform check found four title
+  styles and three section-heading styles; Home, Projects, Settings, Activity and Plans still
+  use their own, waiting for Ika's call on one standard.

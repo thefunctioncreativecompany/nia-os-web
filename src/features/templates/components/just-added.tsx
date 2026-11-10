@@ -23,7 +23,7 @@ export function JustAdded({
   if (!fresh.length) return null;
   return (
     <section aria-labelledby="just-added" className={cn("flex flex-col gap-3", className)}>
-      <h2 id="just-added" className="text-lg font-extrabold text-foreground">
+      <h2 id="just-added" className="text-subtitle font-semibold text-foreground">
         Just added
       </h2>
       <ScrollRow label="Just added">

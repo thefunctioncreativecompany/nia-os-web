@@ -95,9 +95,9 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl flex-col pt-10 pb-18">
-      <div className="flex flex-col gap-4.5 px-4 md:px-11">
-        <h1 className="text-display font-extrabold tracking-tight text-foreground">Templates</h1>
+    <div className="flex w-full flex-col pt-10 pb-18 lg:pt-12.5">
+      <div className="flex flex-col gap-4.5 px-4 md:px-7.5">
+        <h1 className="text-h2 font-semibold tracking-tight text-foreground">Templates</h1>
 
         <TemplateSearch
           templates={templates}
@@ -128,10 +128,10 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
       </div>
 
       {results ? (
-        <section aria-labelledby="results" className="px-4 pt-7.5 md:px-11">
+        <section aria-labelledby="results" className="px-4 pt-7.5 md:px-7.5">
           <div className="mb-4.5 flex items-start justify-between gap-3">
             <div>
-              <h2 id="results" className="text-lg font-extrabold text-foreground">Results for &ldquo;{committed}&rdquo;</h2>
+              <h2 id="results" className="text-subtitle font-semibold text-foreground">Results for &ldquo;{committed}&rdquo;</h2>
               <p className="text-small text-muted-foreground">
                 {!results.length
                   ? "Nothing matches yet."
@@ -165,9 +165,9 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
       ) : (
         <>
           {/* Start from a goal (Ika, 2026-11-10): the person's own group first. */}
-          <WorkflowCards templates={templates} profession={learning.profile.role} className="px-4 pt-7.5 md:px-11" />
+          <WorkflowCards templates={templates} profession={learning.profile.role} headingClassName="text-subtitle font-semibold text-foreground" className="px-4 pt-7.5 md:px-7.5" />
           {/* New templates lead while they're new (launches.ts). */}
-          <JustAdded templates={templates} onPreview={(t) => openPreview(t, templates.filter((x) => x.fresh))} className="px-4 pt-7.5 pb-6 md:px-11" />
+          <JustAdded templates={templates} onPreview={(t) => openPreview(t, templates.filter((x) => x.fresh))} className="px-4 pt-7.5 pb-6 md:px-7.5" />
           {/* Documents you started and haven't put in a project (audit #3). */}
           <MyDrafts icons={icons} />
           {/* Phones: the suggested templates lead (Apple Music style). */}
@@ -181,7 +181,7 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
             />
           </div>
           {/* Larger screens: the featured row, then Suggested for you. */}
-          <div ref={row} className="flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 pt-7 pb-13 [scrollbar-width:none] max-md:hidden md:scroll-px-11 md:px-11">
+          <div ref={row} className="flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 pt-7 pb-13 [scrollbar-width:none] max-md:hidden md:scroll-px-7.5 md:px-7.5">
             {featured.map((t) => <TemplateCard key={t.code} template={t} onPreview={(x, viaHover) => openPreview(x, featured, viaHover)} onUse={use} />)}
             {featured.length === 0 && <p className="text-sm text-muted-foreground">No templates here yet.</p>}
           </div>

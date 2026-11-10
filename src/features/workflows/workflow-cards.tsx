@@ -23,7 +23,7 @@ const documentsOf = (w: Workflow, templates: Named[]) => w.templates.flatMap((co
 // documents as drafts and opens it. Built from existing pieces: filter chips, the card look,
 // the dialog. `templates` is the working templates the page already has (for the documents' names);
 // the code that creates the project loads when one is started.
-export function WorkflowCards({ templates, profession, headingId = "workflows", className }: { templates: Named[]; profession?: string | null; headingId?: string; className?: string }) {
+export function WorkflowCards({ templates, profession, headingId = "workflows", headingClassName = "text-xl leading-[1.4] font-bold text-foreground", className }: { templates: Named[]; profession?: string | null; headingId?: string; headingClassName?: string; className?: string }) {
   const mine = icpFor(profession);
   const [chosen, setChosen] = useState<Icp | null>(null);
   const icp = chosen ?? mine ?? "creators";
@@ -32,7 +32,7 @@ export function WorkflowCards({ templates, profession, headingId = "workflows", 
   return (
     <section aria-labelledby={headingId} className={cn("flex flex-col gap-5", className)}>
       <div className="flex flex-col gap-1">
-        <h2 id={headingId} className="text-xl leading-[1.4] font-bold text-foreground">
+        <h2 id={headingId} className={headingClassName}>
           Start from a goal
         </h2>
         <p className="text-small text-muted-foreground">Pick what you&rsquo;re making. Nia sets up the project and its documents.</p>
