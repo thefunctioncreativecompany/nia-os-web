@@ -81,3 +81,17 @@ export function workedWith(person: Person, limit = 16): RowMember[] {
   }
   return [...shared.values()].toSorted((a, b) => b.n - a.n || a.rank - b.rank).slice(0, limit).map(({ n: _n, ...m }) => m);
 }
+
+/**
+ * People credited on at least `min` things on Explore, most credits first (Ika, 2026-11-10: the
+ * By cast & crew row). Each as the row shows them: their most frequent role, their page, and
+ * their Commons photo where there is one.
+ */
+export function featuredPeople(min = 3, limit = 40) {
+  return [...allPeople().values()]
+    .map((p) => ({ p, n: new Set(p.films.map((f) => f.slug)).size }))
+    .filter((x) => x.n >= min)
+    .toSorted((a, b) => b.n - a.n || Number(!!b.p.photo) - Number(!!a.p.photo) || a.p.name.localeCompare(b.p.name))
+    .slice(0, limit)
+    .map(({ p }) => ({ key: p.key, name: p.name, role: p.roles[0] ?? "", href: `/explore/person/${encodeURIComponent(p.key)}`, photo: p.photo?.src ?? null }));
+}

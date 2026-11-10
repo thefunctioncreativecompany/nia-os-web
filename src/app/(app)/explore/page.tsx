@@ -6,6 +6,7 @@ import { ExploreLibrary } from "@/components/explore/explore-library";
 import { newSeed } from "@/lib/shuffle";
 import { loadTopTen } from "@/features/explore/top-server";
 import { studioRows } from "@/features/explore/studios";
+import { featuredPeople } from "@/features/explore/people-index";
 
 export const metadata: Metadata = {
   title: "Explore · Nia OS",
@@ -25,5 +26,5 @@ export default function Page() {
 async function Shuffled() {
   await connection();
   // The Top 10 is read without waiting: only its own section waits for it.
-  return <ExploreLibrary seed={newSeed()} top={loadTopTen()} studios={studioRows()} />;
+  return <ExploreLibrary seed={newSeed()} top={loadTopTen()} studios={studioRows()} people={featuredPeople()} />;
 }

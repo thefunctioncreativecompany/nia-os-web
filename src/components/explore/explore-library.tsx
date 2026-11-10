@@ -11,12 +11,14 @@ import { CategorySections } from "./explore-categories";
 import type { StudioRow } from "@/features/explore/studios";
 import { StudioLogos } from "./studio-strip";
 import { TopTen } from "./top-ten";
+import { PersonTile, type RowPerson } from "@/components/nia/cast-crew-row";
+import { ScrollRow } from "@/components/nia/scroll-row";
 
 // Explore, the library: Ika's Claude Design "ExploreLibrary" as designed (layout, motion, images),
 // in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts. The
 // rows under By category come in a new order on each visit (`seed`, Ika 2026-10-22).
 // Recently added was removed for now (Ika, 2026-11-08; git tag parked-2026-11-08-recently-added).
-export function ExploreLibrary({ seed, top, studios }: { seed: number; top: Promise<string[]>; studios: StudioRow[] }) {
+export function ExploreLibrary({ seed, top, studios, people = [] }: { seed: number; top: Promise<string[]>; studios: StudioRow[]; people?: RowPerson[] }) {
   return (
     <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-7.5 lg:pt-12.5">
       {/* Opens the whole library as one canvas (Ika, 2026-10-21). */}
@@ -51,6 +53,25 @@ export function ExploreLibrary({ seed, top, studios }: { seed: number; top: Prom
           </h2>
           <div className="mt-6">
             <StudioLogos rows={studios} />
+          </div>
+        </section>
+      )}
+
+      {/* By cast & crew, under By studio (Ika, 2026-11-10): people credited on three or more things
+          on Explore, most credits first; each opens their page. */}
+      {people.length > 0 && (
+        <section aria-labelledby="by-cast-crew" className="mt-12">
+          <h2 id="by-cast-crew" className="text-subtitle font-semibold text-foreground">
+            By cast &amp; crew
+          </h2>
+          <div className="mt-6">
+            <ScrollRow label="Cast and crew">
+              {people.map((p) => (
+                <li key={p.key} className="w-28 flex-none snap-start sm:w-32 lg:w-36">
+                  <PersonTile person={p} />
+                </li>
+              ))}
+            </ScrollRow>
           </div>
         </section>
       )}

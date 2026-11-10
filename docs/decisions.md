@@ -697,3 +697,7 @@ onboarding's Import profile and Follow creators describe features removed in the
   is back as the photographers' "Editorial shoot" workflow: brief, pull sheet, shot list, crew
   contacts, call sheet.
 - (2026-11-10) Workflows are off Home for now (Ika); they stay on the Templates page.
+- (2026-11-10) By cast & crew on Explore, under By studio (Ika): round pictures (Commons photo or
+  initials) of people credited on three or more things on Explore, most credits first, the top
+  40 in one row (333 qualify today); each opens their person page. `featuredPeople()` in
+  people-index.ts.
