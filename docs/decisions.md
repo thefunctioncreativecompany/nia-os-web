@@ -624,3 +624,13 @@ onboarding's Import profile and Follow creators describe features removed in the
   access) Explore's tags (`src/features/navbar/try-ideas.ts`, tested); no timer. The search
   window's suggestions lead with the same idea and the two projects worked on last. Explore
   access reaches the bar with the user menu (`ExploreAccessFlag`), so nothing new loads.
+- (2026-11-10) Priorities (Ika): build the remaining templates and guided workflows first
+  (Alvin's feedback, B3), "what will lead to greater value and retention". Explore titles ship
+  2 to 3 at a time, each complete with its press kit, not in batches of 25 to 45. Batch 4 (60)
+  was stopped before anything was added; 175 catalogue titles wait. Also asked the same day and
+  not started: Explore as the landing page before sign-up (B1), search by colour and by type,
+  five demo accounts (needs `SUPABASE_SERVICE_ROLE_KEY` in `.env.local`).
+- (2026-11-10) Sign-in trouble, "Your connection isn't private": app.niatechnologies.co serves a
+  valid certificate on every address. The bare niatechnologies.co is broken: GoDaddy DNS has
+  three A records for it (two GoDaddy, one Vercel) and Vercel has no certificate for it. Ika to
+  fix in Vercel → Domains and GoDaddy DNS.
