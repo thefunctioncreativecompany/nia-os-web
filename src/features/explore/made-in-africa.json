@@ -6849,6 +6849,1165 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "the-green-mile",
+   "collection": "modern-classics",
+   "title": "The Green Mile",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Fantasy",
+    "Crime"
+   ],
+   "year": 1999,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Frank Darabont",
+   "recognition": "Four Academy Award nominations, including Best Picture",
+   "pair_with": "",
+   "study_note": "Three hours in one prison corridor: a set and an ensemble that hold a slow, patient story",
+   "added": "2026-11-10",
+   "imdb_id": "tt0120689",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Ki4haFrqSrw",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-godfather-part-iii",
+   "collection": "modern-classics",
+   "title": "The Godfather Part III",
+   "type": "film",
+   "genres": [
+    "Crime",
+    "Drama"
+   ],
+   "year": 1990,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Francis Ford Coppola",
+   "recognition": "Seven Academy Award nominations, including Best Picture",
+   "pair_with": "",
+   "study_note": "A finale cut against an opera: Gordon Willis's shadows return sixteen years on",
+   "added": "2026-11-10",
+   "imdb_id": "tt0099674",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "UUkG37KSWf0",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-wolf-of-wall-street",
+   "collection": "modern-classics",
+   "title": "The Wolf of Wall Street",
+   "type": "film",
+   "genres": [
+    "Biography",
+    "Comedy",
+    "Crime"
+   ],
+   "year": 2013,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Martin Scorsese",
+   "recognition": "Five Academy Award nominations, including Best Picture",
+   "pair_with": "",
+   "study_note": "Voice-over straight to camera and long improvised scenes: excess told at the pace of its lead",
+   "added": "2026-11-10",
+   "imdb_id": "tt0993846",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "iszwuX1AK6A",
+     "kind": "trailer",
+     "channel": "Paramount Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "spider-man-homecoming",
+   "collection": "modern-classics",
+   "title": "Spider-Man: Homecoming",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Comedy"
+   ],
+   "year": 2017,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Jon Watts",
+   "pair_with": "",
+   "study_note": "A superhero film shaped like a high-school comedy: small stakes, a young cast, a villain with a day job",
+   "added": "2026-11-10",
+   "imdb_id": "tt2250912",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "rk-dF1lIbIg",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "star-wars-episode-vii-the-force-awakens",
+   "collection": "modern-classics",
+   "title": "Star Wars: Episode VII – The Force Awakens",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Adventure",
+    "Action"
+   ],
+   "year": 2015,
+   "countries": [
+    "United States"
+   ],
+   "credit": "J.J. Abrams",
+   "recognition": "Five Academy Award nominations",
+   "pair_with": "",
+   "study_note": "Back to real sets, puppets and film stock: a sequel that rebuilt the look of the original by hand",
+   "added": "2026-11-10",
+   "imdb_id": "tt2488496"
+  },
+  {
+   "slug": "money-heist",
+   "collection": "drama-series",
+   "title": "Money Heist",
+   "type": "series",
+   "genres": [
+    "Crime",
+    "Thriller",
+    "Drama"
+   ],
+   "year": 2017,
+   "countries": [
+    "Spain"
+   ],
+   "credit": "Álex Pina",
+   "recognition": "International Emmy Award for best drama series, 2018",
+   "pair_with": "",
+   "study_note": "Red overalls and a mask made a costume the whole world recognised; a heist told out of order by one narrator",
+   "added": "2026-11-10",
+   "imdb_id": "tt6468322",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "_InqQJRqGW4",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-social-network",
+   "collection": "modern-classics",
+   "title": "The Social Network",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Biography"
+   ],
+   "year": 2010,
+   "countries": [
+    "United States"
+   ],
+   "credit": "David Fincher",
+   "recognition": "Three Academy Awards: adapted screenplay, score and editing",
+   "pair_with": "",
+   "study_note": "Dialogue at double speed, cut across two lawsuits; one actor played twins with a second actor's body",
+   "added": "2026-11-10",
+   "imdb_id": "tt1285016",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "lB95KLmpLR4",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "django-unchained",
+   "collection": "black-and-poc-leads",
+   "title": "Django Unchained",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Adventure",
+    "Historical"
+   ],
+   "year": 2012,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Quentin Tarantino",
+   "recognition": "Two Academy Awards: original screenplay and Christoph Waltz as supporting actor",
+   "pair_with": "",
+   "study_note": "A western's shapes turned on slavery: wide landscapes, sudden zooms and music from another era",
+   "added": "2026-11-10",
+   "imdb_id": "tt1853728",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "0fUCuvNlOCg",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "pirates-of-the-caribbean-on-stranger-tides",
+   "collection": "modern-classics",
+   "title": "Pirates of the Caribbean: On Stranger Tides",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Action"
+   ],
+   "year": 2011,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Rob Marshall",
+   "pair_with": "",
+   "study_note": "Shot in 3D on location in Hawaii and at sea: among the most expensive productions ever mounted",
+   "added": "2026-11-10",
+   "imdb_id": "tt1298650",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "2sr3gSss5gA",
+     "kind": "trailer",
+     "channel": "Disney NL",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-hobbit-an-unexpected-journey",
+   "collection": "modern-classics",
+   "title": "The Hobbit: An Unexpected Journey",
+   "type": "film",
+   "genres": [
+    "Fantasy",
+    "Adventure"
+   ],
+   "year": 2012,
+   "countries": [
+    "New Zealand",
+    "United States"
+   ],
+   "credit": "Peter Jackson",
+   "recognition": "Three Academy Award nominations",
+   "pair_with": "",
+   "study_note": "Shot at 48 frames a second in 3D: a test of how sharp a fantasy can look before it stops feeling like cinema",
+   "added": "2026-11-10",
+   "imdb_id": "tt0903624",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "SDnYMbYB-nU",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-truman-show",
+   "collection": "modern-classics",
+   "title": "The Truman Show",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "year": 1998,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Peter Weir",
+   "recognition": "Three Academy Award nominations; three Golden Globes",
+   "pair_with": "",
+   "study_note": "A life filmed by hidden cameras: vignettes, odd angles and product shots tell you who is watching",
+   "added": "2026-11-10",
+   "imdb_id": "tt0120382",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "dlnmQbPGuls",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "2012",
+   "collection": "modern-classics",
+   "title": "2012",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2009,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Roland Emmerich",
+   "pair_with": "",
+   "study_note": "Destruction as the product: whole cities built digitally to fall apart on cue",
+   "added": "2026-11-10",
+   "imdb_id": "tt1190080",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "sFXGrTng0gQ",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "life-of-pi",
+   "collection": "black-and-poc-leads",
+   "title": "Life of Pi",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Drama",
+    "Fantasy"
+   ],
+   "year": 2012,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Ang Lee",
+   "recognition": "Four Academy Awards, including Best Director",
+   "pair_with": "",
+   "study_note": "A boy and a digital tiger in a wave tank: a first-time actor carrying a film alone, in 3D",
+   "added": "2026-11-10",
+   "imdb_id": "tt0454876",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "3mMN693-F3U",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-revenant",
+   "collection": "modern-classics",
+   "title": "The Revenant",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Drama",
+    "Historical"
+   ],
+   "year": 2015,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Alejandro G. Iñárritu",
+   "recognition": "Three Academy Awards: director, lead actor and cinematography",
+   "pair_with": "",
+   "study_note": "Natural light only, in long takes, in the cold: a shoot planned around a few usable hours each day",
+   "added": "2026-11-10",
+   "imdb_id": "tt1663202",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "LoebZZ8K5N0",
+     "kind": "trailer",
+     "channel": "20th Century Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-hunger-games",
+   "collection": "modern-classics",
+   "title": "The Hunger Games",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Adventure",
+    "Action"
+   ],
+   "year": 2012,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Gary Ross",
+   "pair_with": "",
+   "study_note": "Handheld and close on its lead: a studio franchise shot like a small drama",
+   "added": "2026-11-10",
+   "imdb_id": "tt1392170",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "mfmrPu43DF8",
+     "kind": "trailer",
+     "channel": "Lionsgate Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "shakespeare-in-love",
+   "collection": "modern-classics",
+   "title": "Shakespeare in Love",
+   "type": "film",
+   "genres": [
+    "Romance",
+    "Comedy",
+    "Historical"
+   ],
+   "year": 1998,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "John Madden",
+   "recognition": "Seven Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "A full Elizabethan theatre built for the shoot; a script that plays backstage farce and romance at once",
+   "added": "2026-11-10",
+   "imdb_id": "tt0138097",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "gk1rTKB6ZF8",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "scarface",
+   "collection": "modern-classics",
+   "title": "Scarface",
+   "type": "film",
+   "genres": [
+    "Crime",
+    "Drama"
+   ],
+   "year": 1983,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Brian De Palma",
+   "pair_with": "",
+   "study_note": "Excess as style: saturated colour, a synth score and a lead performance pitched as large as the sets",
+   "added": "2026-11-10",
+   "imdb_id": "tt0086250",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "cv276Wg3e7I",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "alice-in-wonderland",
+   "collection": "modern-classics",
+   "title": "Alice in Wonderland",
+   "type": "film",
+   "genres": [
+    "Fantasy",
+    "Family",
+    "Adventure"
+   ],
+   "year": 2010,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Tim Burton",
+   "recognition": "Two Academy Awards: art direction and costume design",
+   "pair_with": "",
+   "study_note": "Actors on green stages with almost every set digital: costume and design carry the world",
+   "added": "2026-11-10",
+   "imdb_id": "tt1014759",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "9POCgSRVvf0",
+     "kind": "trailer",
+     "channel": "Disney UK",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-martian",
+   "collection": "modern-classics",
+   "title": "The Martian",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Adventure",
+    "Drama"
+   ],
+   "year": 2015,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Ridley Scott",
+   "recognition": "Seven Academy Award nominations; Golden Globe for best comedy or musical film",
+   "pair_with": "",
+   "study_note": "One actor talking to a camera for half the film: video diaries as the script's way in; Jordan's desert as Mars",
+   "added": "2026-11-10",
+   "imdb_id": "tt3659388",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "ej3ioOneTy8",
+     "kind": "trailer",
+     "channel": "20th Century Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "iron-man-3",
+   "collection": "modern-classics",
+   "title": "Iron Man 3",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Sci-Fi",
+    "Adventure"
+   ],
+   "year": 2013,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Shane Black",
+   "pair_with": "",
+   "study_note": "The hero out of his suit for most of the film: a buddy-thriller script inside a studio sequel",
+   "added": "2026-11-10",
+   "imdb_id": "tt1300854",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "aV8H7kszXqo",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "shutter-island",
+   "collection": "modern-classics",
+   "title": "Shutter Island",
+   "type": "film",
+   "genres": [
+    "Thriller",
+    "Mystery",
+    "Drama"
+   ],
+   "year": 2010,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Martin Scorsese",
+   "pair_with": "",
+   "study_note": "Deliberate mistakes in continuity and unreal back-projection: the film looks wrong because its narrator is",
+   "added": "2026-11-10",
+   "imdb_id": "tt1130884",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "v8yrZSkKxTA",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "green-book",
+   "collection": "black-and-poc-leads",
+   "title": "Green Book",
+   "type": "film",
+   "genres": [
+    "Biography",
+    "Comedy",
+    "Drama"
+   ],
+   "year": 2018,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Peter Farrelly",
+   "recognition": "Three Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "A two-hander in a car: two performances and a period road trip carry the whole film",
+   "added": "2026-11-10",
+   "imdb_id": "tt6966692",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "QkZxoko_HC0",
+     "kind": "trailer",
+     "channel": "Universal Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "casino-royale",
+   "collection": "modern-classics",
+   "title": "Casino Royale",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Adventure"
+   ],
+   "year": 2006,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Martin Campbell",
+   "recognition": "BAFTA Award for sound",
+   "pair_with": "",
+   "study_note": "A reboot built on real stunts, from a crane chase on foot to a long card game played for tension",
+   "added": "2026-11-10",
+   "imdb_id": "tt0381061",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "36mnx8dBbGE",
+     "kind": "trailer",
+     "channel": "MOVIECLIPS News",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "independence-day",
+   "collection": "modern-classics",
+   "title": "Independence Day",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Adventure"
+   ],
+   "year": 1996,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Roland Emmerich",
+   "recognition": "Academy Award for visual effects",
+   "pair_with": "",
+   "study_note": "Model landmarks blown up for real: the last great miniature-effects blockbuster, sold on one image",
+   "added": "2026-11-10",
+   "imdb_id": "tt0116629",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "B1E7h3SeMDk",
+     "kind": "trailer",
+     "channel": "20th Century Studios UK",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "indiana-jones-and-the-temple-of-doom",
+   "collection": "modern-classics",
+   "title": "Indiana Jones and the Temple of Doom",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Action"
+   ],
+   "year": 1984,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Steven Spielberg",
+   "recognition": "Academy Award for visual effects",
+   "pair_with": "",
+   "study_note": "Set pieces stacked end to end: a mine-cart chase made with miniatures and stop motion",
+   "added": "2026-11-10",
+   "imdb_id": "tt0087469",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "NGsWgHNxK9c",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-da-vinci-code",
+   "collection": "modern-classics",
+   "title": "The Da Vinci Code",
+   "type": "film",
+   "genres": [
+    "Thriller",
+    "Mystery"
+   ],
+   "year": 2006,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Ron Howard",
+   "pair_with": "",
+   "study_note": "A puzzle book made visual: night shoots in the Louvre and flashbacks layered over the present",
+   "added": "2026-11-10",
+   "imdb_id": "tt0382625"
+  },
+  {
+   "slug": "spider-man-2",
+   "collection": "modern-classics",
+   "title": "Spider-Man 2",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Sci-Fi",
+    "Romance"
+   ],
+   "year": 2004,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Sam Raimi",
+   "recognition": "Academy Award for visual effects",
+   "pair_with": "",
+   "study_note": "A villain's arms worked by puppeteers on set; a sequel about the cost of the hero's double life",
+   "added": "2026-11-10",
+   "imdb_id": "tt0316654",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "b7Ym14wNp78",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "spider-man-far-from-home",
+   "collection": "modern-classics",
+   "title": "Spider-Man: Far From Home",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Comedy"
+   ],
+   "year": 2019,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Jon Watts",
+   "pair_with": "",
+   "study_note": "A school trip across Europe as the plot: a villain whose power is visual effects themselves",
+   "added": "2026-11-10",
+   "imdb_id": "tt6320628",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Nt9L1jCKGnE",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "spider-man-no-way-home",
+   "collection": "modern-classics",
+   "title": "Spider-Man: No Way Home",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2021,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Jon Watts",
+   "pair_with": "",
+   "study_note": "Three generations of one role in a single film: casting kept secret until release",
+   "added": "2026-11-10",
+   "imdb_id": "tt10872600",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "JfVOs4VSpmA",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "aliens",
+   "collection": "modern-classics",
+   "title": "Aliens",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Thriller"
+   ],
+   "year": 1986,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "James Cameron",
+   "recognition": "Two Academy Awards: visual effects and sound effects editing",
+   "pair_with": "",
+   "study_note": "A horror film's sequel remade as a war film: a puppet queen fourteen feet tall, worked by hand",
+   "added": "2026-11-10",
+   "imdb_id": "tt0090605",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "oSeQQlaCZgU",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "avatar-the-way-of-water",
+   "collection": "modern-classics",
+   "title": "Avatar: The Way of Water",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Adventure"
+   ],
+   "year": 2022,
+   "countries": [
+    "United States"
+   ],
+   "credit": "James Cameron",
+   "recognition": "Academy Award for visual effects",
+   "pair_with": "",
+   "study_note": "Performance capture underwater, in a tank, with actors holding their breath: years of method for one look",
+   "added": "2026-11-10",
+   "imdb_id": "tt1630029",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "SoOL2CrJtkA",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-hobbit-the-desolation-of-smaug",
+   "collection": "modern-classics",
+   "title": "The Hobbit: The Desolation of Smaug",
+   "type": "film",
+   "genres": [
+    "Fantasy",
+    "Adventure",
+    "Action"
+   ],
+   "year": 2013,
+   "countries": [
+    "New Zealand",
+    "United States"
+   ],
+   "credit": "Peter Jackson",
+   "recognition": "Three Academy Award nominations",
+   "pair_with": "",
+   "study_note": "A dragon performed by an actor on a capture stage: voice and movement taken from one person",
+   "added": "2026-11-10",
+   "imdb_id": "tt1170358",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "fnaojlfdUbs",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "love-actually",
+   "collection": "modern-classics",
+   "title": "Love Actually",
+   "type": "film",
+   "genres": [
+    "Romance",
+    "Comedy",
+    "Drama"
+   ],
+   "year": 2003,
+   "countries": [
+    "United Kingdom"
+   ],
+   "credit": "Richard Curtis",
+   "recognition": "BAFTA for Bill Nighy as supporting actor",
+   "pair_with": "",
+   "study_note": "Ten stories and twenty leads in one film: an ensemble kept clear by cutting and a single season",
+   "added": "2026-11-10",
+   "imdb_id": "tt0314331"
+  },
+  {
+   "slug": "e-t-the-extra-terrestrial",
+   "collection": "modern-classics",
+   "title": "E.T. the Extra-Terrestrial",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Family",
+    "Adventure"
+   ],
+   "year": 1982,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Steven Spielberg",
+   "recognition": "Four Academy Awards, including original score",
+   "pair_with": "",
+   "study_note": "Shot from a child's eye level, with adults kept out of frame; a puppet lit like an actor",
+   "added": "2026-11-10",
+   "imdb_id": "tt0083866",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "DSx8Jobx-Gs",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "lost-in-translation",
+   "collection": "modern-classics",
+   "title": "Lost in Translation",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Romance",
+    "Comedy"
+   ],
+   "year": 2003,
+   "countries": [
+    "United States",
+    "Japan"
+   ],
+   "credit": "Sofia Coppola",
+   "recognition": "Academy Award for original screenplay",
+   "pair_with": "",
+   "study_note": "Shot in 27 days on fast film stock in Tokyo, often without permits: mood made from available light",
+   "added": "2026-11-10",
+   "imdb_id": "tt0335266",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "W6iVPCRflQM",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "quantum-of-solace",
+   "collection": "modern-classics",
+   "title": "Quantum of Solace",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Adventure"
+   ],
+   "year": 2008,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Marc Forster",
+   "pair_with": "",
+   "study_note": "Cut faster than any Bond before it: action told in fragments, and what that costs in clarity",
+   "added": "2026-11-10",
+   "imdb_id": "tt0830515",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "BBqYaFEWBxI",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "once-upon-a-time-in-hollywood",
+   "collection": "modern-classics",
+   "title": "Once Upon a Time in Hollywood",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "year": 2019,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Quentin Tarantino",
+   "recognition": "Two Academy Awards: Brad Pitt as supporting actor and production design",
+   "pair_with": "",
+   "study_note": "Whole blocks of Los Angeles dressed back to 1969, shot on film: a period rebuilt in camera, not in post",
+   "added": "2026-11-10",
+   "imdb_id": "tt7131622",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "ELeMaP8EPAA",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "cast-away",
+   "collection": "modern-classics",
+   "title": "Cast Away",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Drama"
+   ],
+   "year": 2000,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Robert Zemeckis",
+   "recognition": "Golden Globe for Tom Hanks; Academy Award nomination for lead actor",
+   "pair_with": "",
+   "study_note": "Production stopped for a year so its lead could lose weight; forty minutes with no dialogue and no score",
+   "added": "2026-11-10",
+   "imdb_id": "tt0162222",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "qGuOZPwLayY",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "transformers",
+   "collection": "modern-classics",
+   "title": "Transformers",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Adventure"
+   ],
+   "year": 2007,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Michael Bay",
+   "pair_with": "",
+   "study_note": "Low angles, lens flare and a moving camera on every shot: a house style applied to digital robots",
+   "added": "2026-11-10",
+   "imdb_id": "tt0418279",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "CbX_SIz_9fk",
+     "kind": "trailer",
+     "channel": "Paramount Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "indiana-jones-and-the-last-crusade",
+   "collection": "modern-classics",
+   "title": "Indiana Jones and the Last Crusade",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Action"
+   ],
+   "year": 1989,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Steven Spielberg",
+   "recognition": "Academy Award for sound effects editing",
+   "pair_with": "",
+   "study_note": "A father and son double act inside an adventure: comedy played at the speed of the chases",
+   "added": "2026-11-10",
+   "imdb_id": "tt0097576",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "sagmdpkWUqc",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

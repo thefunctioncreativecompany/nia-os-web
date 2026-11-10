@@ -1,4 +1,8 @@
 {
+ "2012": {
+  "date": "2009-11-11",
+  "precision": "day"
+ },
  "12-angry-men": {
   "date": "1957-04-10",
   "precision": "day"
@@ -31,9 +35,17 @@
   "date": "2002-01-01",
   "precision": "year"
  },
+ "alice-in-wonderland": {
+  "date": "2010-02-25",
+  "precision": "day"
+ },
  "alien": {
   "date": "1979-05-25",
   "precision": "day"
+ },
+ "aliens": {
+  "date": "1986-01-01",
+  "precision": "year"
  },
  "all-about-eve": {
   "date": "1950-01-01",
@@ -65,6 +77,10 @@
  },
  "avatar": {
   "date": "2009-12-16",
+  "precision": "day"
+ },
+ "avatar-the-way-of-water": {
+  "date": "2022-12-14",
   "precision": "day"
  },
  "back-to-the-future": {
@@ -145,6 +161,14 @@
  },
  "casablanca": {
   "date": "1942-11-26",
+  "precision": "day"
+ },
+ "casino-royale": {
+  "date": "2006-11-14",
+  "precision": "day"
+ },
+ "cast-away": {
+  "date": "2000-12-07",
   "precision": "day"
  },
  "charlies-angels": {
@@ -607,6 +631,10 @@
   "date": "1988-01-01",
   "precision": "year"
  },
+ "django-unchained": {
+  "date": "2012-12-25",
+  "precision": "day"
+ },
  "do-the-right-thing": {
   "date": "1989-01-01",
   "precision": "year"
@@ -617,6 +645,10 @@
  },
  "dreamgirls": {
   "date": "2006-12-09",
+  "precision": "day"
+ },
+ "e-t-the-extra-terrestrial": {
+  "date": "1982-05-26",
   "precision": "day"
  },
  "eyimofe": {
@@ -755,6 +787,10 @@
   "date": "2023-04-01",
   "precision": "month"
  },
+ "green-book": {
+  "date": "2018-09-11",
+  "precision": "day"
+ },
  "half-and-half": {
   "date": "2002-09-23",
   "precision": "day"
@@ -843,6 +879,18 @@
   "date": "2010-07-08",
   "precision": "day"
  },
+ "independence-day": {
+  "date": "1996-01-01",
+  "precision": "year"
+ },
+ "indiana-jones-and-the-last-crusade": {
+  "date": "1989-05-24",
+  "precision": "day"
+ },
+ "indiana-jones-and-the-temple-of-doom": {
+  "date": "1984-05-23",
+  "precision": "day"
+ },
  "inglourious-basterds": {
   "date": "2009-05-20",
   "precision": "day"
@@ -865,6 +913,10 @@
  },
  "iron-man": {
   "date": "2008-04-30",
+  "precision": "day"
+ },
+ "iron-man-3": {
+  "date": "2013-04-24",
   "precision": "day"
  },
  "it-happened-one-night": {
@@ -919,6 +971,10 @@
   "date": "2009-01-21",
   "precision": "day"
  },
+ "life-of-pi": {
+  "date": "2012-12-20",
+  "precision": "day"
+ },
  "lilies-of-the-field": {
   "date": "1963-01-01",
   "precision": "year"
@@ -930,6 +986,14 @@
  "lobola-man": {
   "date": "2024-01-01",
   "precision": "year"
+ },
+ "lost-in-translation": {
+  "date": "2003-08-29",
+  "precision": "day"
+ },
+ "love-actually": {
+  "date": "2003-11-06",
+  "precision": "day"
  },
  "love-thy-neighbor": {
   "date": "2013-05-29",
@@ -965,6 +1029,10 @@
  },
  "modern-times": {
   "date": "1936-02-05",
+  "precision": "day"
+ },
+ "money-heist": {
+  "date": "2017-05-02",
   "precision": "day"
  },
  "monk": {
@@ -1019,6 +1087,10 @@
   "date": "1954-07-28",
   "precision": "day"
  },
+ "once-upon-a-time-in-hollywood": {
+  "date": "2019-05-21",
+  "precision": "day"
+ },
  "one-on-one": {
   "date": "2001-09-03",
   "precision": "day"
@@ -1047,6 +1119,10 @@
   "date": "2006-07-07",
   "precision": "day"
  },
+ "pirates-of-the-caribbean-on-stranger-tides": {
+  "date": "2011-05-18",
+  "precision": "day"
+ },
  "pirates-of-the-caribbean-the-curse-of-the-black-pearl": {
   "date": "2003-07-09",
   "precision": "day"
@@ -1070,6 +1146,10 @@
  "pumzi": {
   "date": "2010-01-01",
   "precision": "year"
+ },
+ "quantum-of-solace": {
+  "date": "2008-10-29",
+  "precision": "day"
  },
  "queen-sono": {
   "date": "2020-02-28",
@@ -1119,6 +1199,10 @@
   "date": "1998-01-01",
   "precision": "year"
  },
+ "scarface": {
+  "date": "1983-01-01",
+  "precision": "year"
+ },
  "seriously-single": {
   "date": "2020-01-01",
   "precision": "year"
@@ -1138,6 +1222,14 @@
  "shaka-ilembe": {
   "date": "2023-01-01",
   "precision": "year"
+ },
+ "shakespeare-in-love": {
+  "date": "1998-12-11",
+  "precision": "day"
+ },
+ "shutter-island": {
+  "date": "2010-02-13",
+  "precision": "day"
  },
  "silverton-siege": {
   "date": "2022-04-27",
@@ -1159,6 +1251,22 @@
   "date": "2002-05-03",
   "precision": "day"
  },
+ "spider-man-2": {
+  "date": "2004-06-30",
+  "precision": "day"
+ },
+ "spider-man-far-from-home": {
+  "date": "2019-06-28",
+  "precision": "day"
+ },
+ "spider-man-homecoming": {
+  "date": "2017-06-28",
+  "precision": "day"
+ },
+ "spider-man-no-way-home": {
+  "date": "2021-07-16",
+  "precision": "day"
+ },
  "squid-game": {
   "date": "2021-09-17",
   "precision": "day"
@@ -1169,6 +1277,10 @@
  },
  "star-wars": {
   "date": "1977-05-25",
+  "precision": "day"
+ },
+ "star-wars-episode-vii-the-force-awakens": {
+  "date": "2015-12-16",
   "precision": "day"
  },
  "stormy-weather": {
@@ -1231,6 +1343,10 @@
   "date": "2005-03-22",
   "precision": "day"
  },
+ "the-da-vinci-code": {
+  "date": "2006-05-17",
+  "precision": "day"
+ },
  "the-emperor-jones": {
   "date": "1933-01-01",
   "precision": "year"
@@ -1247,6 +1363,10 @@
   "date": "1974-12-12",
   "precision": "day"
  },
+ "the-godfather-part-iii": {
+  "date": "1990-12-25",
+  "precision": "day"
+ },
  "the-graduate": {
   "date": "1967-12-21",
   "precision": "day"
@@ -1255,13 +1375,29 @@
   "date": "1940-01-01",
   "precision": "year"
  },
+ "the-green-mile": {
+  "date": "1999-12-10",
+  "precision": "day"
+ },
  "the-heart-is-a-muscle": {
   "date": "2025-01-01",
   "precision": "year"
  },
+ "the-hobbit-an-unexpected-journey": {
+  "date": "2012-11-28",
+  "precision": "day"
+ },
+ "the-hobbit-the-desolation-of-smaug": {
+  "date": "2013-12-02",
+  "precision": "day"
+ },
  "the-house-is-black": {
   "date": "1962-01-01",
   "precision": "year"
+ },
+ "the-hunger-games": {
+  "date": "2012-03-21",
+  "precision": "day"
  },
  "the-joe-louis-story": {
   "date": "1953-01-01",
@@ -1278,6 +1414,10 @@
  "the-maltese-falcon": {
   "date": "1941-01-01",
   "precision": "year"
+ },
+ "the-martian": {
+  "date": "2015-10-01",
+  "precision": "day"
  },
  "the-matrix": {
   "date": "1999-03-31",
@@ -1307,6 +1447,10 @@
   "date": "2006-12-15",
   "precision": "day"
  },
+ "the-revenant": {
+  "date": "2015-12-25",
+  "precision": "day"
+ },
  "the-searchers": {
   "date": "1956-01-01",
   "precision": "year"
@@ -1319,12 +1463,24 @@
   "date": "1940-01-01",
   "precision": "year"
  },
+ "the-social-network": {
+  "date": "2010-09-24",
+  "precision": "day"
+ },
  "the-sound-of-music": {
   "date": "1965-03-02",
   "precision": "day"
  },
+ "the-truman-show": {
+  "date": "1998-01-01",
+  "precision": "year"
+ },
  "the-wizard-of-oz": {
   "date": "1939-08-25",
+  "precision": "day"
+ },
+ "the-wolf-of-wall-street": {
+  "date": "2013-12-17",
   "precision": "day"
  },
  "this-is-not-a-burial": {
@@ -1361,6 +1517,10 @@
  },
  "training-day": {
   "date": "2001-09-02",
+  "precision": "day"
+ },
+ "transformers": {
+  "date": "2007-06-12",
   "precision": "day"
  },
  "trouble-in-paradise": {

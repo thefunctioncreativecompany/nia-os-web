@@ -1,4 +1,5 @@
 {
+ "2012": [],
  "creator-0o6_b9dPyEI": [
   "low-key"
  ],
@@ -349,8 +350,16 @@
  "abouna": [
   "cool-palette"
  ],
+ "alice-in-wonderland": [
+  "warm-palette"
+ ],
  "alien": [
   "muted-colour",
+  "low-key"
+ ],
+ "aliens": [
+  "vivid-colour",
+  "cool-palette",
   "low-key"
  ],
  "all-about-eve": [
@@ -379,6 +388,11 @@
   "low-key"
  ],
  "atlantics": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
+ ],
+ "avatar-the-way-of-water": [
   "vivid-colour",
   "cool-palette",
   "low-key"
@@ -461,6 +475,12 @@
  "casablanca": [
   "black-and-white"
  ],
+ "casino-royale": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
+ ],
+ "cast-away": [],
  "charlies-angels": [
   "vivid-colour",
   "warm-palette",
@@ -510,6 +530,10 @@
   "warm-palette",
   "low-key"
  ],
+ "django-unchained": [
+  "muted-colour",
+  "warm-palette"
+ ],
  "do-the-right-thing": [
   "vivid-colour",
   "cool-palette"
@@ -523,6 +547,10 @@
   "vivid-colour",
   "warm-palette",
   "low-key"
+ ],
+ "e-t-the-extra-terrestrial": [
+  "vivid-colour",
+  "cool-palette"
  ],
  "eyimofe": [
   "warm-palette",
@@ -582,6 +610,10 @@
   "vivid-colour",
   "warm-palette",
   "low-key"
+ ],
+ "green-book": [
+  "vivid-colour",
+  "cool-palette"
  ],
  "half-and-half": [
   "warm-palette"
@@ -667,6 +699,20 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "independence-day": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "indiana-jones-and-the-last-crusade": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "indiana-jones-and-the-temple-of-doom": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "inglourious-basterds": [
   "warm-palette"
  ],
@@ -681,6 +727,9 @@
  ],
  "inxeba": [
   "warm-palette"
+ ],
+ "iron-man-3": [
+  "vivid-colour"
  ],
  "iron-man": [
   "vivid-colour",
@@ -728,6 +777,10 @@
   "bright-airy"
  ],
  "lie-to-me": [],
+ "life-of-pi": [
+  "muted-colour",
+  "bright-airy"
+ ],
  "lilies-of-the-field": [
   "black-and-white"
  ],
@@ -738,6 +791,14 @@
  "lobola-man": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "lost-in-translation": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "love-actually": [
+  "warm-palette",
+  "bright-airy"
  ],
  "love-thy-neighbor": [],
  "malcolm-x": [
@@ -769,6 +830,9 @@
  ],
  "modern-times": [
   "black-and-white"
+ ],
+ "money-heist": [
+  "warm-palette"
  ],
  "monk": [
   "vivid-colour",
@@ -818,6 +882,9 @@
   "black-and-white",
   "bright-airy"
  ],
+ "once-upon-a-time-in-hollywood": [
+  "warm-palette"
+ ],
  "one-on-one": [
   "vivid-colour",
   "cool-palette"
@@ -847,6 +914,7 @@
   "warm-palette",
   "low-key"
  ],
+ "pirates-of-the-caribbean-on-stranger-tides": [],
  "pirates-of-the-caribbean-the-curse-of-the-black-pearl": [
   "vivid-colour",
   "warm-palette",
@@ -868,6 +936,9 @@
   "warm-palette"
  ],
  "pumzi": [],
+ "quantum-of-solace": [
+  "warm-palette"
+ ],
  "queen-sono": [
   "warm-palette",
   "low-key"
@@ -913,6 +984,10 @@
  "saving-private-ryan": [
   "muted-colour"
  ],
+ "scarface": [
+  "muted-colour",
+  "warm-palette"
+ ],
  "seriously-single": [
   "vivid-colour",
   "warm-palette"
@@ -926,6 +1001,15 @@
   "warm-palette"
  ],
  "shaka-ilembe": [],
+ "shakespeare-in-love": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "shutter-island": [
+  "vivid-colour",
+  "low-key"
+ ],
  "silverton-siege": [
   "vivid-colour",
   "warm-palette"
@@ -940,6 +1024,18 @@
  "some-like-it-hot": [
   "black-and-white"
  ],
+ "spider-man-2": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "spider-man-far-from-home": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "spider-man-homecoming": [],
+ "spider-man-no-way-home": [
+  "warm-palette"
+ ],
  "spider-man": [
   "vivid-colour",
   "warm-palette"
@@ -950,6 +1046,11 @@
  ],
  "stagecoach": [
   "black-and-white"
+ ],
+ "star-wars-episode-vii-the-force-awakens": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "star-wars": [
   "vivid-colour"
@@ -1006,6 +1107,11 @@
  "the-burial-of-kojo": [
   "cool-palette"
  ],
+ "the-da-vinci-code": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "the-emperor-jones": [
   "vivid-colour",
   "warm-palette"
@@ -1016,6 +1122,10 @@
  ],
  "the-godfather-part-ii": [
   "muted-colour",
+  "low-key"
+ ],
+ "the-godfather-part-iii": [
+  "warm-palette",
   "low-key"
  ],
  "the-godfather": [
@@ -1029,13 +1139,29 @@
   "black-and-white",
   "bright-airy"
  ],
+ "the-green-mile": [
+  "warm-palette"
+ ],
  "the-heart-is-a-muscle": [
   "vivid-colour",
   "warm-palette",
   "low-key"
  ],
+ "the-hobbit-an-unexpected-journey": [
+  "warm-palette",
+  "low-key"
+ ],
+ "the-hobbit-the-desolation-of-smaug": [
+  "warm-palette",
+  "low-key"
+ ],
  "the-house-is-black": [
   "black-and-white"
+ ],
+ "the-hunger-games": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "the-joe-louis-story": [
   "vivid-colour",
@@ -1051,6 +1177,9 @@
  ],
  "the-maltese-falcon": [
   "vivid-colour",
+  "warm-palette"
+ ],
+ "the-martian": [
   "warm-palette"
  ],
  "the-matrix": [
@@ -1076,6 +1205,7 @@
   "low-key"
  ],
  "the-pursuit-of-happyness": [],
+ "the-revenant": [],
  "the-searchers": [
   "vivid-colour",
   "warm-palette"
@@ -1089,12 +1219,26 @@
   "black-and-white",
   "bright-airy"
  ],
+ "the-social-network": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "the-sound-of-music": [
   "warm-palette",
   "bright-airy"
  ],
+ "the-truman-show": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "the-wizard-of-oz": [
   "warm-palette"
+ ],
+ "the-wolf-of-wall-street": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "this-is-not-a-burial": [
   "vivid-colour",
@@ -1126,6 +1270,9 @@
   "cool-palette"
  ],
  "training-day": [],
+ "transformers": [
+  "warm-palette"
+ ],
  "trouble-in-paradise": [
   "vivid-colour",
   "warm-palette"
