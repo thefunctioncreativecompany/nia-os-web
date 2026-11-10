@@ -1,12 +1,15 @@
 import "server-only";
 import { cache } from "react";
 import { redirect } from "next/navigation";
+import { firstNameOf } from "@/lib/first-name";
 import { getSession } from "@/lib/supabase/session";
 
 export type CurrentUser = {
   id: string;
   email: string;
   name: string;
+  /** What to call them in a greeting (first-name.ts). */
+  firstName: string;
   avatarUrl: string | null;
   /** From onboarding, e.g. "Line Producer" (what's new is weighted by it). */
   profession: string | null;
@@ -35,6 +38,7 @@ export const getCurrentUser = cache(async (): Promise<CurrentUser> => {
     id: user.id,
     email: user.email,
     name: profile?.full_name || user.metadata.full_name || "",
+    firstName: firstNameOf({ preferred: user.metadata.preferred_name, given: user.metadata.given_name, full: profile?.full_name || user.metadata.full_name }),
     avatarUrl: profile?.avatar_url ?? user.metadata.avatar_url ?? null,
     profession: profile?.profession ?? null,
   };

@@ -54,7 +54,7 @@ async function Tour() {
   const seenAt = user?.metadata.tour_seen_at;
   const group = groupFor(current.profession);
   const news = seenAt ? { since: seenAt, forWhom: GROUP_LABEL[group], updates: whatsNew(seenAt, group, { explore }) } : null;
-  return <WelcomeTourLoader firstName={current.name.split(" ")[0]} firstVisit={user?.metadata.tour_pending === true} news={news} />;
+  return <WelcomeTourLoader firstName={current.firstName} firstVisit={user?.metadata.tour_pending === true} news={news} />;
 }
 
 // New templates, announced once (launches.ts): until the person uses one or closes the card, or
@@ -133,7 +133,7 @@ const recentProjects = cache(() => listProjects(undefined, 4));
 // 2026-10-31: a brand-new account was greeted "Welcome back").
 async function Welcome() {
   const [user, { projects }] = await Promise.all([getCurrentUser(), recentProjects()]);
-  const first = user.name.split(" ")[0];
+  const first = user.firstName;
   return (
     <h1 className="text-h2 font-bold text-foreground">
       {projects.length ? "Welcome back" : "Welcome"}

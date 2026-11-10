@@ -3,6 +3,8 @@
 
 export type ProfileSettings = {
   fullName: string;
+  /** "What should we call you?": the name greetings use (kept on the account, first-name.ts). */
+  preferredName: string;
   role: string;
   phone: string;
   bio: string;

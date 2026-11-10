@@ -9,6 +9,9 @@ export type SessionUser = {
   email: string;
   metadata: {
     full_name?: string;
+    /** Google's first name, and the one chosen in Settings → Profile (first-name.ts). */
+    given_name?: string;
+    preferred_name?: string;
     avatar_url?: string;
     onboarded?: boolean;
     tour_pending?: boolean;

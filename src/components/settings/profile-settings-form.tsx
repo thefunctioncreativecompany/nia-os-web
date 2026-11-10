@@ -95,6 +95,13 @@ export function ProfileSettingsForm({
         })
         .eq("id", userId);
       if (error) throw error;
+      // The greeting name lives on the account, so every page has it without a database read.
+      if (profile.preferredName.trim() !== initial.preferredName) {
+        const { error: nameError } = await supabase.auth.updateUser({ data: { preferred_name: profile.preferredName.trim() } });
+        if (nameError) throw nameError;
+        // A fresh sign-in token, so the new name shows straight away.
+        await supabase.auth.refreshSession();
+      }
 
       // Remove the photo this one replaced, if it was one of ours.
       const oldPath = avatarPath(previousAvatarUrl, userId);
@@ -134,6 +141,17 @@ export function ProfileSettingsForm({
                 value={profile.fullName}
                 onChange={(e) => set("fullName", e.target.value)}
                 placeholder="Your name"
+                className={settingsInputClassName}
+              />
+            </SettingsField>
+            <SettingsField id="preferred-name" label="What should we call you?">
+              <Input
+                id="preferred-name"
+                autoComplete="given-name"
+                maxLength={40}
+                value={profile.preferredName}
+                onChange={(e) => set("preferredName", e.target.value)}
+                placeholder="Your first name"
                 className={settingsInputClassName}
               />
             </SettingsField>

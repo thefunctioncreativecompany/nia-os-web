@@ -42,6 +42,7 @@ export async function getProfileSettings(): Promise<{
     identities: user.identities ?? [],
     profile: {
       fullName: data.full_name,
+      preferredName: typeof user.user_metadata?.preferred_name === "string" ? user.user_metadata.preferred_name : "",
       role: data.role,
       phone: data.phone,
       bio: data.bio,
