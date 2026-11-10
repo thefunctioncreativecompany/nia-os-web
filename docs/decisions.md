@@ -696,3 +696,4 @@ onboarding's Import profile and Follow creators describe features removed in the
   Shoot flow designed in October (the manifest's T01, hidden since only working templates show)
   is back as the photographers' "Editorial shoot" workflow: brief, pull sheet, shot list, crew
   contacts, call sheet.
+- (2026-11-10) Workflows are off Home for now (Ika); they stay on the Templates page.

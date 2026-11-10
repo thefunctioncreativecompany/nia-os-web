@@ -17,7 +17,6 @@ import { WelcomeTourLoader } from "@/components/home/welcome-tour-loader";
 import { GROUP_LABEL, groupFor, whatsNew } from "@/features/whats-new/updates";
 import { hasExploreAccess } from "@/lib/explore-access";
 import { ProjectGrid } from "@/components/projects/project-grid";
-import { WorkflowCards } from "@/features/workflows/workflow-cards";
 
 export const metadata: Metadata = {
   title: "Home · Nia OS",
@@ -56,18 +55,16 @@ async function Tour() {
 }
 
 // New templates, announced once (launches.ts): until the person uses one or closes the card, or
-// it stops being new. Not while the welcome tour is about to open. Then Start from a goal, Recent
-// projects and Activity: Home was cut to these on 2026-11-10 (Ika: "too much on the home page");
+// it stops being new. Not while the welcome tour is about to open. Then Recent projects and
+// Activity (Workflows live on the Templates page; off Home for now, Ika 2026-11-10): Home was cut to these on 2026-11-10 (Ika: "too much on the home page");
 // Start from a template, Upcoming schedule and Quick actions are in git tag parked-2026-11-10-home.
 async function HomeBody() {
-  const [{ user }, templates, current] = await Promise.all([getSession(), workingGallery(), getCurrentUser()]);
+  const [{ user }, templates] = await Promise.all([getSession(), workingGallery()]);
   const announced = user?.metadata.templates_announced ?? [];
   const fresh = user && !user.metadata.tour_pending ? templates.filter((t) => t.fresh && !announced.includes(t.code)) : [];
   return (
     <>
       {fresh.length > 0 && <NewTemplatesNotice templates={fresh} announced={announced} />}
-      {/* Start from a goal (Ika, 2026-11-10): workflows for the person's kind of work first. */}
-      <WorkflowCards templates={templates.map(({ code, name, icon }) => ({ code, name, icon }))} profession={current.profession} />
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         <h2 id="recent-projects" className="text-subtitle font-semibold text-foreground">
