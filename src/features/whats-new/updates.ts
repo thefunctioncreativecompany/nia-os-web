@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "workflows",
+    date: "2026-11-10",
+    title: "Start from a goal",
+    body: "Pick what you're making, like a client photoshoot, a month of content or a short film, and Nia sets up the project with the documents it needs, ready to fill in.",
+    href: "/home",
+    cta: "Start from a goal",
+    icon: "Workflow",
+    weight: { production: 0.9, fashion: 0.9, creator: 0.9 },
+  },
+  {
     id: "creator-planning-templates",
     date: "2026-11-10",
     title: "Content Calendar, Social Media Brief and Brand Deal Tracker",

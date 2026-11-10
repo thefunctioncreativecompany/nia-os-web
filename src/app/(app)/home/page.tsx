@@ -19,6 +19,7 @@ import { WelcomeTourLoader } from "@/components/home/welcome-tour-loader";
 import { GROUP_LABEL, groupFor, whatsNew } from "@/features/whats-new/updates";
 import { hasExploreAccess } from "@/lib/explore-access";
 import { ProjectGrid } from "@/components/projects/project-grid";
+import { WorkflowCards } from "@/features/workflows/workflow-cards";
 
 export const metadata: Metadata = {
   title: "Home · Nia OS",
@@ -61,12 +62,14 @@ async function Tour() {
 // it stops being new. Not while the welcome tour is about to open. Then "Start from a template"
 // (H4): the working templates, ordered in the browser by what the person viewed last.
 async function HomeBody() {
-  const [{ user }, templates] = await Promise.all([getSession(), workingGallery()]);
+  const [{ user }, templates, current] = await Promise.all([getSession(), workingGallery(), getCurrentUser()]);
   const announced = user?.metadata.templates_announced ?? [];
   const fresh = user && !user.metadata.tour_pending ? templates.filter((t) => t.fresh && !announced.includes(t.code)) : [];
   return (
     <>
       {fresh.length > 0 && <NewTemplatesNotice templates={fresh} announced={announced} />}
+      {/* Start from a goal (Ika, 2026-11-10): workflows for the person's kind of work first. */}
+      <WorkflowCards templates={templates.map(({ code, name }) => ({ code, name }))} profession={current.profession} />
       <HomeTemplates templates={templates} />
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">

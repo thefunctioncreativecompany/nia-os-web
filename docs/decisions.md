@@ -648,3 +648,12 @@ onboarding's Import profile and Follow creators describe features removed in the
   exist. First set, photography: Photo Brief, Shot List (Photo), Usage License (plain-language,
   with "have a lawyer check" in its questions), Event Brief, Pull Sheet. Waiting: Contact Sheet,
   Storyboard, Casting Deck (picture storage); Lighting Plot, Set Drawing (drawings).
+- (2026-11-10) Workflows, "Start from a goal" (Ika: three for each ICP, cards from existing
+  components; FEEDBACK B3): twelve goals (`src/features/workflows/workflows.ts`, tested: working
+  templates only, three to five documents, so the free plan's limit holds). Home and Templates
+  show the person's own group first (from their profession), with chips for the other three. A
+  card opens a dialog for the project's name; Create makes the project (its production type and
+  description set) with a blank draft of each document, then opens it (`start.ts`, as the signed-in
+  person, so database rules apply). Built from FilterChip, the card look with the hover sweep,
+  and Dialog. The manifest's Editorial Shoot (T01) stays parked: "Shoot a fashion editorial"
+  covers it. Not in Figma yet.

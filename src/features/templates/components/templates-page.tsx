@@ -19,6 +19,7 @@ import { useTemplateProfile } from "@/features/templates/use-template-profile";
 import { MyDrafts } from "@/features/templates/components/my-drafts";
 import { JustAdded } from "@/features/templates/components/just-added";
 import { FilterChip, ChipRow } from "@/components/nia/filter-bar";
+import { WorkflowCards } from "@/features/workflows/workflow-cards";
 
 const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1fr))] gap-3.5";
 
@@ -163,6 +164,8 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
         </section>
       ) : (
         <>
+          {/* Start from a goal (Ika, 2026-11-10): the person's own group first. */}
+          <WorkflowCards templates={templates} profession={learning.profile.role} className="px-4 pt-7.5 md:px-11" />
           {/* New templates lead while they're new (launches.ts). */}
           <JustAdded templates={templates} onPreview={(t) => openPreview(t, templates.filter((x) => x.fresh))} className="px-4 pt-7.5 pb-6 md:px-11" />
           {/* Documents you started and haven't put in a project (audit #3). */}
