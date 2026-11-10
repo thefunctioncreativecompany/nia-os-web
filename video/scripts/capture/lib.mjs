@@ -25,8 +25,12 @@ function env() {
 
 // `keep`: add to the film's shots instead of starting over (re-shooting a few).
 export async function start(film, { account = 2, theme = "light", keep = false } = {}) {
-  const out = path.resolve(import.meta.dirname, "../../screens", film);
-  if (!keep) fs.rmSync(out, { recursive: true, force: true });
+  // New shots go to a holding folder (with the old ones copied in when keeping), which replaces
+  // the film's folder only once every shot is taken: a failed run never leaves a film half-shot.
+  const final = path.resolve(import.meta.dirname, "../../screens", film);
+  const out = path.resolve(import.meta.dirname, "../../screens", `.${film}-new`);
+  fs.rmSync(out, { recursive: true, force: true });
+  if (keep && fs.existsSync(final)) fs.cpSync(final, out, { recursive: true });
   fs.mkdirSync(out, { recursive: true });
   const targetsFile = path.join(out, "targets.json");
   const browser = await puppeteer.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", headless: true });
@@ -48,8 +52,17 @@ export async function start(film, { account = 2, theme = "light", keep = false }
   const targets = keep && fs.existsSync(targetsFile) ? JSON.parse(fs.readFileSync(targetsFile, "utf8")) : {};
   const api = {
     page,
+    /** Where this run saves its shots (for a script that saves one itself). */
+    dir: out,
     go: async (url, settle = 1500) => {
-      await page.goto(BASE + url, { waitUntil: "networkidle2", timeout: 120000 });
+      // A page that keeps a connection open never goes quiet: after 45s, take it as it is.
+      try {
+        await page.goto(BASE + url, { waitUntil: "networkidle2", timeout: 45000 });
+      } catch (e) {
+        if (e.name !== "TimeoutError") throw e;
+        console.log(`(${url} still busy after 45s; carrying on)`);
+        await wait(3000);
+      }
       await wait(settle);
     },
     /** Saves the screen as `name`, with the cursor kept out of it and the dev badge hidden. */
@@ -98,6 +111,8 @@ export async function start(film, { account = 2, theme = "light", keep = false }
       fs.mkdirSync(path.resolve(import.meta.dirname, "../../src/films"), { recursive: true });
       fs.writeFileSync(path.resolve(import.meta.dirname, `../../src/films/${film}-screens.ts`), index);
       await browser.close();
+      fs.rmSync(final, { recursive: true, force: true });
+      fs.renameSync(out, final);
       console.log(`${shots.length} shots taken; ${all.length} in screens/${film}`);
     },
   };

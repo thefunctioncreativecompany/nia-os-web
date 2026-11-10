@@ -1,3 +1,5 @@
 # Packages and rendered films (re-render with npm run render / render:demo).
 node_modules/
 out/
+# A capture run's holding folder (scripts/capture/lib.mjs).
+screens/.*-new/

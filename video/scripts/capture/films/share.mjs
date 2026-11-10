@@ -54,7 +54,7 @@ if (url) {
   await guest.goto(href, { waitUntil: "networkidle2", timeout: 120000 });
   await wait(2500);
   await guest.evaluate(() => document.querySelectorAll("nextjs-portal").forEach((e) => (e.style.display = "none")));
-  await guest.screenshot({ path: new URL("../../../screens/share/shared-page.png", import.meta.url).pathname });
+  await guest.screenshot({ path: `${c.dir}/shared-page.png` });
   console.log("shot shared-page");
   await other.close();
 }
