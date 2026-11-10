@@ -1,0 +1,46 @@
+[
+  {
+    "code": "G04",
+    "group": "UGC & Social Content",
+    "preview": "A month of posts on one page: what goes out when, on which platform, in what format, and how far along each one is.",
+    "alt": "A desk calendar",
+    "related": ["G05", "G06", "D15"],
+    "contents": ["Post date and time: when each post goes out", "Platform and format: where it runs and what kind of post it is", "Topic / Hook: what the post is about", "Status: from idea to posted"],
+    "sections": [
+      { "type": "fields", "title": "Plan", "fields": ["Channel / Brand", "Month", "Posting goal"] },
+      { "type": "table", "title": "Posts", "columns": [{ "label": "Post date", "kind": "date" }, { "label": "Time", "kind": "time" }, { "label": "Platform", "kind": "choice", "options": ["Instagram", "TikTok", "YouTube", "YouTube Shorts", "Facebook", "X", "LinkedIn", "Pinterest", "Snapchat"] }, { "label": "Format", "kind": "choice", "options": ["Reel", "Short", "Story", "Post", "Carousel", "Long-form video", "Live"] }, "Topic / Hook", { "label": "Status", "kind": "choice", "options": ["Idea", "Scripted", "Filmed", "Edited", "Scheduled", "Posted"] }, "Link"], "rows": 8 },
+      { "type": "text", "title": "Themes & Notes", "placeholder": "Weekly themes, series, dates to plan around, what worked last month…", "optional": true }
+    ]
+  },
+  {
+    "code": "G05",
+    "group": "UGC & Social Content",
+    "preview": "The brief for a social campaign: goal, audience, message, what to post where, the rules and how success is measured.",
+    "alt": "A phone showing a social feed",
+    "related": ["G04", "G06", "D23"],
+    "contents": ["Campaign: brand, goal, dates and budget", "Audience and message: who it's for and what it should say", "Deliverables: each post, by platform and format, with its due date", "Guidelines: tags, labels and approvals"],
+    "sections": [
+      { "type": "fields", "title": "Campaign", "fields": ["Brand / Client", "Campaign", { "label": "Goal", "kind": "choice", "options": ["Awareness", "Engagement", "Traffic", "Sales", "Launch", "Community"] }, { "label": "Start date", "kind": "date" }, { "label": "End date", "kind": "date", "after": "Start date" }, { "label": "Budget", "kind": "money" }] },
+      { "type": "text", "title": "Audience", "placeholder": "Who this is for: age, interests, where they spend time, what they care about…" },
+      { "type": "text", "title": "Key Message", "placeholder": "The one thing people should take away, and the tone to say it in…" },
+      { "type": "table", "title": "Deliverables", "columns": [{ "label": "Platform", "kind": "choice", "options": ["Instagram", "TikTok", "YouTube", "YouTube Shorts", "Facebook", "X", "LinkedIn", "Pinterest", "Snapchat"] }, { "label": "Format", "kind": "choice", "options": ["Reel", "Short", "Story", "Post", "Carousel", "Long-form video", "Live"] }, { "label": "Quantity", "kind": "number" }, { "label": "Due", "kind": "date" }, "Notes"], "rows": 4 },
+      { "type": "fields", "title": "Guidelines", "fields": ["Hashtags", "Accounts to tag", { "label": "Paid partnership label", "kind": "yesNo", "placeholder": "The wording the platform or brand needs" }, { "label": "Approval before posting", "kind": "yesNo", "placeholder": "Who approves, and how long they need" }] },
+      { "type": "text", "title": "Do and Don't", "placeholder": "What must be shown or said, and what to avoid…", "optional": true },
+      { "type": "table", "title": "How We'll Measure It", "columns": ["Measure", "Target"], "rows": 3, "optional": true }
+    ]
+  },
+  {
+    "code": "G06",
+    "group": "UGC & Social Content",
+    "tags": ["Administrative"],
+    "preview": "Every brand deal in one list: who it's with, what you owe them, the fee, where it stands and when you get paid.",
+    "alt": "A price tag",
+    "related": ["D04", "G05", "G04"],
+    "contents": ["Brand and contact: who the deal is with", "Deliverables and fee: what you owe and what it pays, with a total", "Status: from pitched to paid", "Dates: when content is due and when payment is due"],
+    "sections": [
+      { "type": "fields", "title": "Tracker Info", "fields": ["Creator / Channel", "Period"] },
+      { "type": "table", "title": "Deals", "columns": ["Brand", "Contact", "Deliverables", { "label": "Fee", "kind": "money" }, { "label": "Status", "kind": "choice", "options": ["Pitched", "Negotiating", "Signed", "In production", "Delivered", "Invoiced", "Paid", "Declined"] }, { "label": "Content due", "kind": "date" }, { "label": "Payment due", "kind": "date" }, { "label": "Paid", "kind": "check" }], "rows": 6, "money": ["Fee"], "checkbox": ["Paid"], "total": { "column": "Fee", "label": "Total fees" } },
+      { "type": "text", "title": "Notes", "placeholder": "Usage rights, exclusivity, renewals, who to chase…", "optional": true }
+    ]
+  }
+]

@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "creator-planning-templates",
+    date: "2026-11-10",
+    title: "Content Calendar, Social Media Brief and Brand Deal Tracker",
+    body: "Plan a month of posts, brief a campaign with its deliverables and rules, and keep every brand deal's fee, status and payment date in one list.",
+    href: "/templates/G04",
+    cta: "Open the Content Calendar",
+    icon: "CalendarDays",
+    weight: { production: 0.3, fashion: 0.5, creator: 0.95 },
+  },
+  {
     id: "photography-templates",
     date: "2026-11-10",
     title: "Five templates for photographers and stylists",

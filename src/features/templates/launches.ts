@@ -190,6 +190,22 @@ export const LAUNCHES: Record<string, Launch> = {
     forYou: "Track every piece pulled for a shoot, with its showroom, value and look, and tick it off as it goes back.",
     forTeam: "Assistants know what's due back where, and the total value on set is there if insurance asks.",
   },
+  // Creators (2026-11-10).
+  G04: {
+    launched: "2026-11-10",
+    forYou: "See a month of posts at once: what goes out when, where, in what format and how far along each one is.",
+    forTeam: "An editor or manager knows what's due next and what's already scheduled, without asking.",
+  },
+  G05: {
+    launched: "2026-11-10",
+    forYou: "Start a social campaign with its goal, audience, message, deliverables and rules agreed up front.",
+    forTeam: "The brand and everyone making content work to the same deliverables, tags, labels and approval steps.",
+  },
+  G06: {
+    launched: "2026-11-10",
+    forYou: "Keep every brand deal in one list, with its fee, status, due dates and whether you've been paid.",
+    forTeam: "A manager or agent sees what's signed, what's owed and what needs chasing.",
+  },
 };
 
 const DAY = 24 * 60 * 60 * 1000;

@@ -3095,15 +3095,15 @@
       "family": "creator",
       "variant": "c",
       "stage": "Pre-production",
-      "label": "In design",
-      "status": "gap",
+      "label": "New template",
+      "status": "live",
       "icps": [
         "Social Media Manager",
         "Content Creator / Influencer"
       ],
       "object": "Flip desk calendar",
-      "alt": null,
-      "preview": null,
+      "alt": "A desk calendar",
+      "preview": "A month of posts on one page: what goes out when, on which platform, in what format, and how far along each one is.",
       "thumbnail": null,
       "icon": "calendar",
       "keywords": [
@@ -3121,18 +3121,48 @@
         "black": "/templates/icons/black/calendar.webp"
       },
       "related": [
-        "D15",
-        "D16",
-        "D22"
+        "G05",
+        "G06",
+        "D15"
       ],
       "details": {
         "about": [
-          "Content Calendar is in design. It's planned for Social Media Manager and Content Creator / Influencer.",
-          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+          "A month of posts on one page: what goes out when, on which platform, in what format, and how far along each one is.",
+          "Made for Social Media Manager and Content Creator / Influencer roles. Post date and time: when each post goes out. Platform and format: where it runs and what kind of post it is.",
+          "It's laid out as Plan, Posts and Themes & Notes."
         ],
-        "howTo": [],
-        "faq": []
-      }
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Plan: channel / Brand and Month.",
+          "Add a row to Posts for each entry, with Post date, Time and Platform.",
+          "Write the themes & Notes.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Content Calendar?",
+            "a": "A month of posts on one page: what goes out when, on which platform, in what format, and how far along each one is."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Social Media Manager and Content Creator / Influencer. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Social Media Brief?",
+            "a": "Content Calendar covers a month of posts on one page: what goes out when, on which platform, in what format, and how far along each one is. Social Media Brief covers the brief for a social campaign: goal, audience, message, what to post where, the rules and how success is measured. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Social Media Brief and Brand Deal Tracker, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      },
+      "group": "UGC & Social Content",
+      "schema": "G04"
     },
     {
       "code": "G05",
@@ -3142,14 +3172,14 @@
       "family": "creator",
       "variant": "a",
       "stage": "Pre-production",
-      "label": "In design",
-      "status": "gap",
+      "label": "New template",
+      "status": "live",
       "icps": [
         "Social Media Manager"
       ],
       "object": "Tabletop tripod with an empty phone clamp",
-      "alt": null,
-      "preview": null,
+      "alt": "A phone showing a social feed",
+      "preview": "The brief for a social campaign: goal, audience, message, what to post where, the rules and how success is measured.",
       "thumbnail": null,
       "icon": "phone",
       "keywords": [
@@ -3167,18 +3197,49 @@
         "black": "/templates/icons/black/phone.webp"
       },
       "related": [
-        "D22",
-        "D15",
-        "D16"
+        "G04",
+        "G06",
+        "D23"
       ],
       "details": {
         "about": [
-          "Social Media Brief is in design. It's planned for Social Media Manager.",
-          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+          "The brief for a social campaign: goal, audience, message, what to post where, the rules and how success is measured.",
+          "Made for Social Media Manager roles. Campaign: brand, goal, dates and budget. Audience and message: who it's for and what it should say.",
+          "It's laid out as Campaign, Audience, Key Message, Deliverables, Guidelines, Do and Don't and How We'll Measure It."
         ],
-        "howTo": [],
-        "faq": []
-      }
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Campaign: brand / Client and Campaign.",
+          "Write the audience.",
+          "Write the key Message.",
+          "Add a row to Deliverables for each entry, with Platform, Format and Quantity.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Social Media Brief?",
+            "a": "The brief for a social campaign: goal, audience, message, what to post where, the rules and how success is measured."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Social Media Manager. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Content Calendar?",
+            "a": "Social Media Brief covers the brief for a social campaign: goal, audience, message, what to post where, the rules and how success is measured. Content Calendar covers a month of posts on one page: what goes out when, on which platform, in what format, and how far along each one is. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Content Calendar and Brand Deal Tracker, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      },
+      "group": "UGC & Social Content",
+      "schema": "G05"
     },
     {
       "code": "G06",
@@ -3188,14 +3249,14 @@
       "family": "creator",
       "variant": "b",
       "stage": "Pre-production",
-      "label": "In design",
-      "status": "gap",
+      "label": "New template",
+      "status": "live",
       "icps": [
         "Content Creator / Influencer"
       ],
       "object": "Paper swing tag on string",
-      "alt": null,
-      "preview": null,
+      "alt": "A price tag",
+      "preview": "Every brand deal in one list: who it's with, what you owe them, the fee, where it stands and when you get paid.",
       "thumbnail": null,
       "icon": "tag",
       "keywords": [
@@ -3205,25 +3266,57 @@
         "collab",
         "influencer"
       ],
-      "tags": [],
+      "tags": [
+        "Administrative"
+      ],
       "sku": "BD-02",
       "iconRenders": {
         "clay": "/templates/icons/clay/tag.webp",
         "black": "/templates/icons/black/tag.webp"
       },
       "related": [
-        "D20",
-        "D15",
-        "D16"
+        "D04",
+        "G05",
+        "G04"
       ],
       "details": {
         "about": [
-          "Brand Deal Tracker is in design. It's planned for Content Creator / Influencer.",
-          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+          "Every brand deal in one list: who it's with, what you owe them, the fee, where it stands and when you get paid.",
+          "Made for Content Creator / Influencer roles. Brand and contact: who the deal is with. Deliverables and fee: what you owe and what it pays, with a total.",
+          "It's laid out as Tracker Info, Deals and Notes."
         ],
-        "howTo": [],
-        "faq": []
-      }
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Tracker Info: creator / Channel and Period.",
+          "Add a row to Deals for each entry, with Brand, Contact and Deliverables.",
+          "Write the notes.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Brand Deal Tracker?",
+            "a": "Every brand deal in one list: who it's with, what you owe them, the fee, where it stands and when you get paid."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Content Creator / Influencer. It sits in UGC & Social Content and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Invoice?",
+            "a": "Brand Deal Tracker covers every brand deal in one list: who it's with, what you owe them, the fee, where it stands and when you get paid. Invoice covers bills for crew fees, equipment, locations and other production costs, itemised line by line. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Invoice and Social Media Brief, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      },
+      "group": "UGC & Social Content",
+      "schema": "G06"
     },
     {
       "code": "G07",
