@@ -9,10 +9,9 @@ import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { grainFor, type GalleryTemplate } from "@/features/templates/gallery";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
-import { TemplateValue } from "@/features/templates/components/template-value";
 
-// New templates, announced once on Home (Ika, 2026-10-28): the newest one with what it does
-// for you and your team, and the others by name. Using one or closing the card marks them all
+// New templates, announced once on Home (Ika, 2026-10-28): the newest one by name and stage, and the
+// others by name. What it does for you and your team shows only in its preview (Ika, 2026-11-10). Using one or closing the card marks them all
 // announced on the account (`templates_announced` in the sign-in metadata), so it doesn't come
 // back on another device.
 export function NewTemplatesNotice({ templates, announced }: { templates: GalleryTemplate[]; announced: string[] }) {
@@ -49,7 +48,6 @@ export function NewTemplatesNotice({ templates, announced }: { templates: Galler
           <h2 id="new-templates" className="text-h3 font-bold tracking-tight text-foreground">{lead.name}</h2>
           <p className="text-small text-muted-foreground">{lead.stage}</p>
         </div>
-        <TemplateValue template={lead} />
         <div className="flex flex-wrap items-center gap-2.5">
           <Button onClick={() => use(lead)}>
             Use this template <ArrowRight aria-hidden />
