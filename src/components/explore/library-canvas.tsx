@@ -9,13 +9,17 @@ import { Volume2, VolumeX } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ambienceOn, ambientLoop, setAmbienceOn, soundsOn, subscribeSounds } from "@/lib/sounds";
 import { useMediaQuery } from "@/hooks/use-pointer";
-import { exploreHome } from "@/features/explore/made-in-africa";
+import { exploreHome, isNewOn } from "@/features/explore/made-in-africa";
 import { LIBRARY, type LibraryItem } from "@/features/explore/library";
 import type { CategoryItem } from "./explore-data";
 import { ExploreAllViews } from "./explore-all-views";
 import { PressKitPreview } from "./press-kit-preview";
 import { BackLink } from "@/components/nia/back-link";
 import { servedSized } from "@/lib/served-sized";
+
+const noChange = () => () => {};
+// Today (YYYY-MM-DD), known only in the browser: tiles added in the last seven days say "New".
+const today = () => new Date().toISOString().slice(0, 10);
 
 // The gap between posters, as on Explore all's grid (0.8125rem).
 const GAP = 13;
@@ -74,6 +78,7 @@ export function LibraryCanvas() {
   const plane = useRef<HTMLDivElement>(null);
   const offset = useRef({ x: 0, y: 0 });
   const [range, setRange] = useState<Range | null>(null);
+  const day = useSyncExternalStore(noChange, today, () => "");
   const [open, setOpen] = useState<CategoryItem | null>(null);
   const drag = useRef<{ id: number; x: number; y: number; moved: boolean; t: number; vx: number; vy: number } | null>(null);
   const glide = useRef(0);
@@ -223,7 +228,7 @@ export function LibraryCanvas() {
     >
       <div ref={plane} className="absolute top-0 left-0 will-change-transform">
         {cells.map(({ key, item, x, y, h }) => (
-          <Tile key={key} item={item} x={x} y={y} w={tileW} h={h} onFilm={(filmId) => setOpen({ filmId })} />
+          <Tile key={key} item={item} x={x} y={y} w={tileW} h={h} isNew={isNewOn(item.added, day)} onFilm={(filmId) => setOpen({ filmId })} />
         ))}
       </div>
 
@@ -299,7 +304,7 @@ function Ambience() {
 }
 
 // One tile on the canvas, at its shape: a title page link, or a button that opens the film's pop-up.
-function Tile({ item, x, y, w, h, onFilm }: { item: LibraryItem; x: number; y: number; w: number; h: number; onFilm: (filmId: string) => void }) {
+function Tile({ item, x, y, w, h, isNew, onFilm }: { item: LibraryItem; x: number; y: number; w: number; h: number; isNew: boolean; onFilm: (filmId: string) => void }) {
   const className = cn(
     "group absolute overflow-hidden rounded-lg text-left text-foreground shadow-card outline-none transition-[scale,box-shadow] duration-lift ease-glide hover:z-[3] hover:scale-104 hover:shadow-card-hover focus-visible:z-[3] focus-visible:scale-104 focus-visible:shadow-card-hover focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:hover:scale-100 motion-reduce:focus-visible:scale-100",
     item.image ? "bg-muted" : item.grain,
@@ -314,6 +319,12 @@ function Tile({ item, x, y, w, h, onFilm }: { item: LibraryItem; x: number; y: n
           {item.title}
         </span>
       )}
+      {/* New on Explore (Ika, 2026-11-10): a small Nia Blue tag for a week after a title joins. */}
+      {isNew && (
+        <span aria-hidden className="absolute top-2 left-2 rounded-full bg-nia-blue px-2 py-0.5 text-micro leading-[1.4] font-semibold text-nia-blue-foreground shadow-card">
+          New
+        </span>
+      )}
       <span
         aria-hidden
         className="absolute inset-x-2 bottom-2 flex translate-y-1.5 flex-col rounded-md bg-card/95 px-2.5 py-1.75 opacity-0 transition-[opacity,translate] duration-base ease-glide group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
@@ -324,7 +335,7 @@ function Tile({ item, x, y, w, h, onFilm }: { item: LibraryItem; x: number; y: n
     </>
   );
   const style = { left: x, top: y, width: w, height: h };
-  const label = `${item.title}, ${item.credit}`;
+  const label = `${item.title}, ${item.credit}${isNew ? ", new on Explore" : ""}`;
   return item.open.kind === "page" ? (
     <Link href={item.open.href} aria-label={label} draggable={false} style={style} className={className}>
       {body}

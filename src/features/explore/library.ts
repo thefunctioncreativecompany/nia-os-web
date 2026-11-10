@@ -5,7 +5,7 @@
 // Africa one wins, since it has a page of its own.
 import { FILMS, grainFor } from "@/components/explore/explore-data";
 import { creatorFilms, creatorHref, creatorImage, leadCredit } from "./creators";
-import { allEntries, metaLine, titleCover, titleHref } from "./made-in-africa";
+import { addedOn, allEntries, metaLine, titleCover, titleHref } from "./made-in-africa";
 
 export type LibraryItem = {
   key: string;
@@ -19,6 +19,8 @@ export type LibraryItem = {
   aspect?: number;
   /** A title page to go to, or one of Explore's films to preview in its pop-up. */
   open: { kind: "page"; href: string } | { kind: "film"; filmId: string };
+  /** The day it joined Explore (YYYY-MM-DD): the canvas marks the last week's as new. */
+  added?: string;
 };
 
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -29,6 +31,7 @@ const fromList: LibraryItem[] = allEntries.map((e) => ({
   credit: e.title.credit ?? metaLine(e.title),
   ...titleCover(e.title.slug),
   grain: e.grain,
+  added: addedOn(e.title.slug),
   open: { kind: "page", href: titleHref(e.title.slug, "library") },
 }));
 const listed = new Set(allEntries.map((e) => norm(e.title.title)));
@@ -49,6 +52,7 @@ const fromCreators: LibraryItem[] = creatorFilms.map((f, i) => ({
   image: creatorImage(f),
   grain: ["grain-2", "grain-5", "grain-8", "grain-11"][i % 4],
   aspect: f.aspect,
+  added: f.added,
   open: { kind: "page", href: creatorHref(f, "library") },
 }));
 

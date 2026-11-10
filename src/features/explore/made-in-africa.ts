@@ -237,3 +237,13 @@ export const categoryViews: Record<CategoryKey, CategoryView> = {
 
 /** "Directed by" for films, "Created by" for series. */
 export const creditTerm = (t: Title) => (t.type === "series" ? "Created by" : "Directed by");
+
+const ADDED = new Map((raw.titles as RawTitle[]).map((t) => [t.slug, t.added]));
+/** The day a title joined Explore (YYYY-MM-DD), if it's known. */
+export const addedOn = (slug: string) => ADDED.get(slug);
+/** Whether something that joined on `added` is still new on `today` (both YYYY-MM-DD): seven days. */
+export function isNewOn(added: string | undefined, today: string): boolean {
+  if (!added || !today) return false;
+  const days = (Date.parse(today) - Date.parse(added)) / 86_400_000;
+  return days >= 0 && days < 7;
+}

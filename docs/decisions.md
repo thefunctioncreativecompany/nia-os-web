@@ -616,3 +616,6 @@ onboarding's Import profile and Follow creators describe features removed in the
   Oppenheimer, Stranger Things… `explore-update.mjs` offers every catalogue title when the TMDB
   key is set. ICP groups (Ika): content creators, filmmakers, photographers, small production
   studios; Nia is "the production office".
+- (2026-11-10) "New" comes back to Explore as a tag, not a section (Ika): on the Explore all
+  canvas, anything added in the last seven days carries a small Nia Blue "New" tag, top left
+  (`isNewOn`, from each title's and creator film's `added` day; today is read in the browser).
