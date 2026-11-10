@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "photography-templates",
+    date: "2026-11-10",
+    title: "Five templates for photographers and stylists",
+    body: "Photo Brief, Shot List (Photo), Event Brief, Usage License and Pull Sheet: plan a shoot, tick off each picture, track what was pulled and record what the client may do with the images.",
+    href: "/templates/G14",
+    cta: "Open the Photo Brief",
+    icon: "Camera",
+    weight: { production: 0.4, fashion: 1, creator: 0.5 },
+  },
+  {
     id: "explore-posters-studios",
     date: "2026-11-10",
     title: "Official posters and studios on Explore",

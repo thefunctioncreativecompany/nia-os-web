@@ -3585,6 +3585,558 @@
         "empty": "854:2496",
         "populated": "857:723"
       }
+    },
+    {
+      "code": "G14",
+      "name": "Photo Brief",
+      "group": "Strategy & Development",
+      "description": "The brief for a photoshoot: client, concept, deliverables, usage and who's on the day, on one page.",
+      "contents": [
+        "Shoot overview: client, date, call time and location",
+        "Deliverables: how many images, in what format, due when",
+        "Usage: where the images will run, for how long",
+        "Team: who's on set and how to reach them"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Shoot Overview",
+          "fields": [
+            "Client",
+            "Project / Campaign",
+            {
+              "label": "Shoot type",
+              "kind": "choice",
+              "options": [
+                "Editorial",
+                "Commercial",
+                "Campaign",
+                "Lookbook",
+                "E-commerce",
+                "Portrait",
+                "Product",
+                "Event"
+              ]
+            },
+            {
+              "label": "Shoot date",
+              "kind": "date"
+            },
+            {
+              "label": "Call time",
+              "kind": "time"
+            },
+            {
+              "label": "Wrap",
+              "kind": "time"
+            },
+            "Location",
+            {
+              "label": "Photographer",
+              "kind": "people",
+              "single": true
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Concept & Mood",
+          "placeholder": "What the pictures should say and feel like: the idea, references, light, colour…"
+        },
+        {
+          "type": "table",
+          "title": "Deliverables",
+          "columns": [
+            "Deliverable",
+            {
+              "label": "Quantity",
+              "kind": "number"
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "JPEG",
+                "TIFF",
+                "RAW",
+                "PNG",
+                "PSD"
+              ]
+            },
+            {
+              "label": "Orientation",
+              "kind": "choice",
+              "options": [
+                "Portrait",
+                "Landscape",
+                "Square",
+                "Mixed"
+              ]
+            },
+            {
+              "label": "Due",
+              "kind": "date"
+            }
+          ],
+          "rows": 3
+        },
+        {
+          "type": "fields",
+          "title": "Usage",
+          "fields": [
+            {
+              "label": "Where the images will run",
+              "kind": "choice",
+              "options": [
+                "Editorial",
+                "Social media",
+                "Website",
+                "Print advertising",
+                "Out-of-home",
+                "Internal only",
+                "All media"
+              ]
+            },
+            "Territory",
+            "Term",
+            {
+              "label": "Exclusive to the client",
+              "kind": "yesNo",
+              "placeholder": "For how long, and in which sector"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Team",
+          "columns": [
+            {
+              "label": "Position",
+              "kind": "role"
+            },
+            {
+              "label": "Name",
+              "kind": "people",
+              "single": true,
+              "fills": {
+                "Position": "role"
+              }
+            },
+            {
+              "label": "Phone",
+              "kind": "phone"
+            },
+            {
+              "label": "Call time",
+              "kind": "time"
+            }
+          ],
+          "rows": 4
+        },
+        {
+          "type": "text",
+          "title": "Notes",
+          "placeholder": "Wardrobe, props, permits, parking, catering…"
+        }
+      ],
+      "figma": {}
+    },
+    {
+      "code": "G16",
+      "name": "Shot List (Photo)",
+      "group": "Production Management & Operations",
+      "description": "Every picture a photoshoot needs: set-up, framing, orientation, light and who or what is in it, ticked off as you shoot.",
+      "contents": [
+        "Shot #: numbered in shooting order",
+        "Set-up / Look: the scene, outfit or product",
+        "Framing and orientation: how each picture is composed",
+        "Got it: tick each picture as it's shot"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Shoot Info",
+          "fields": [
+            "Project",
+            "Client",
+            {
+              "label": "Shoot date",
+              "kind": "date"
+            },
+            {
+              "label": "Photographer",
+              "kind": "people",
+              "single": true
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Shots",
+          "columns": [
+            "Shot #",
+            "Set-up / Look",
+            "Description",
+            {
+              "label": "Framing",
+              "kind": "choice",
+              "options": [
+                "Full length",
+                "Three-quarter",
+                "Half length",
+                "Close-up",
+                "Detail",
+                "Wide",
+                "Flat lay",
+                "Overhead"
+              ]
+            },
+            {
+              "label": "Orientation",
+              "kind": "choice",
+              "options": [
+                "Portrait",
+                "Landscape",
+                "Square"
+              ]
+            },
+            {
+              "label": "Light",
+              "kind": "choice",
+              "options": [
+                "Natural light",
+                "Strobe",
+                "Continuous",
+                "Mixed"
+              ]
+            },
+            "Talent / Product",
+            {
+              "label": "Priority",
+              "kind": "choice",
+              "options": [
+                "Must have",
+                "Nice to have"
+              ]
+            },
+            {
+              "label": "Got it",
+              "kind": "check"
+            }
+          ],
+          "rows": 8,
+          "autonumber": "Shot #",
+          "checkbox": [
+            "Got it"
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Notes",
+          "placeholder": "Order of set-ups, light changes, anything to watch for…",
+          "optional": true
+        }
+      ],
+      "figma": {}
+    },
+    {
+      "code": "G17",
+      "name": "Usage License",
+      "group": "Production Management & Operations",
+      "description": "A plain-language record of what a client may do with your images: which pictures, where, for how long and for what fee.",
+      "contents": [
+        "Parties: who owns the images and who is licensing them",
+        "Licensed images: the files this covers",
+        "Terms: media, territory, dates, fee and credit",
+        "Licence: the wording both sides sign"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Parties",
+          "fields": [
+            "Photographer",
+            "Client",
+            "Project / Shoot",
+            {
+              "label": "Date",
+              "kind": "date"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Licensed Images",
+          "columns": [
+            "#",
+            "Image / File name",
+            "Description"
+          ],
+          "rows": 4,
+          "autonumber": "#"
+        },
+        {
+          "type": "fields",
+          "title": "Terms",
+          "fields": [
+            {
+              "label": "Usage",
+              "kind": "choice",
+              "options": [
+                "Editorial",
+                "Social media",
+                "Website",
+                "Print advertising",
+                "Out-of-home",
+                "Internal only",
+                "All media"
+              ]
+            },
+            "Territory",
+            {
+              "label": "Start date",
+              "kind": "date"
+            },
+            {
+              "label": "End date",
+              "kind": "date",
+              "after": "Start date"
+            },
+            {
+              "label": "Exclusive",
+              "kind": "yesNo",
+              "placeholder": "In which sector or territory"
+            },
+            {
+              "label": "Licence fee",
+              "kind": "money"
+            },
+            "Credit line"
+          ]
+        },
+        {
+          "type": "letter",
+          "title": "Licence",
+          "default": "[Photographer] grants [Client] a licence to use the images listed above for the usage, in the territory and for the dates set out in the terms above.\n\nThe images stay the property of [Photographer]. They may not be resold, passed to anyone else, or changed beyond normal retouching without written permission. Any use outside these terms needs a new licence.\n\nWhere a credit line is given above, it appears wherever the images run.\n\nSigned, [Photographer]:\n\nSigned, [Client]:",
+          "fills": {
+            "[Photographer]": "Photographer",
+            "[Client]": "Client"
+          }
+        }
+      ],
+      "figma": {}
+    },
+    {
+      "code": "G18",
+      "name": "Event Brief",
+      "group": "Strategy & Development",
+      "description": "The brief for covering an event: where to be and when, the people and moments that must be photographed, and when pictures are due.",
+      "contents": [
+        "Event details: venue, coverage hours, contact and access",
+        "Run of show: what happens when, and where",
+        "Must-have shots: the people and moments that can't be missed",
+        "Delivery: how many pictures, in what format, by when"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Event Details",
+          "fields": [
+            "Event",
+            "Client / Publication",
+            {
+              "label": "Date",
+              "kind": "date"
+            },
+            {
+              "label": "Coverage",
+              "kind": "timeRange"
+            },
+            "Venue",
+            "On-site contact",
+            {
+              "label": "Contact phone",
+              "kind": "phone"
+            },
+            "Access / Credentials",
+            "Dress code"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Run of Show",
+          "columns": [
+            {
+              "label": "Time",
+              "kind": "time"
+            },
+            "Moment",
+            "Where",
+            "Notes"
+          ],
+          "rows": 5
+        },
+        {
+          "type": "table",
+          "title": "Must-have Shots",
+          "columns": [
+            "#",
+            "Person / Moment",
+            "Notes",
+            {
+              "label": "Got it",
+              "kind": "check"
+            }
+          ],
+          "rows": 6,
+          "autonumber": "#",
+          "checkbox": [
+            "Got it"
+          ]
+        },
+        {
+          "type": "fields",
+          "title": "Delivery",
+          "fields": [
+            {
+              "label": "Number of selects",
+              "kind": "number"
+            },
+            {
+              "label": "First selects due",
+              "kind": "date"
+            },
+            {
+              "label": "Full gallery due",
+              "kind": "date",
+              "after": "First selects due"
+            },
+            {
+              "label": "Format",
+              "kind": "choice",
+              "options": [
+                "JPEG",
+                "TIFF",
+                "RAW"
+              ]
+            },
+            "How to deliver"
+          ]
+        },
+        {
+          "type": "text",
+          "title": "Notes",
+          "placeholder": "Restrictions, embargoes, people not to photograph, parking…",
+          "optional": true
+        }
+      ],
+      "figma": {}
+    },
+    {
+      "code": "G24",
+      "name": "Pull Sheet",
+      "group": "Production Management & Operations",
+      "description": "Every piece pulled for a shoot: brand, showroom, size, value and the look it's for, ticked off as it goes back.",
+      "contents": [
+        "Item: each garment or accessory, with brand and showroom",
+        "Value: what each piece is worth, with a total",
+        "Look: which look or set-up it's for",
+        "Back: tick each piece as it goes back"
+      ],
+      "builder": false,
+      "actions": [
+        "Add Row",
+        "Print"
+      ],
+      "version": "v1.0",
+      "sections": [
+        {
+          "type": "fields",
+          "title": "Pull Info",
+          "fields": [
+            "Project / Shoot",
+            "Client / Publication",
+            {
+              "label": "Stylist",
+              "kind": "people",
+              "single": true
+            },
+            {
+              "label": "Shoot date",
+              "kind": "date"
+            },
+            {
+              "label": "Return by",
+              "kind": "date",
+              "after": "Shoot date"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Items",
+          "columns": [
+            "#",
+            "Item",
+            "Brand",
+            "Showroom / PR",
+            "Size",
+            "Colour",
+            "Look",
+            {
+              "label": "Value",
+              "kind": "money"
+            },
+            {
+              "label": "Back",
+              "kind": "check"
+            }
+          ],
+          "rows": 8,
+          "autonumber": "#",
+          "money": [
+            "Value"
+          ],
+          "checkbox": [
+            "Back"
+          ],
+          "total": {
+            "column": "Value",
+            "label": "Total value"
+          }
+        },
+        {
+          "type": "text",
+          "title": "Notes",
+          "placeholder": "Damage, alterations, steaming, courier details…",
+          "optional": true
+        }
+      ],
+      "figma": {}
     }
   ]
 }

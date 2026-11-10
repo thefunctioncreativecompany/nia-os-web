@@ -216,7 +216,9 @@ Milestone 3 — Documents
   filters, preview pop-up (`?preview=` link), Suggested for you (learns from `template_events`). Step 7, the
   template engine (TEMPLATE_ENGINE.md §8): part 1 done, the Filming Notice opens at `/templates/D07`
   with autosave, Undo/Redo and downloads (PDF, Word, Markdown, .txt); part 2 done, six table templates
-  with typed columns (T5); people fields; Invoice with totals, currency and Mark paid; Call Sheet. Next: Editorial Shoot workflow (Ika's priority). Fix list and
+  with typed columns (T5); people fields; Invoice with totals, currency and Mark paid; Call Sheet. 2026-11-10: the in-design templates are being built by ICP
+  (`scripts/add-templates.mjs`, definitions in `scripts/templates/`): photography done (34 work), then creators,
+  filmmakers and small studios; then three workflows per ICP. Fix list and
   open items: docs/FEEDBACK.md.
 
 - [x] 3.4 PDF export (print layout; Download PDF, Word, Markdown, .txt) and 3.7 Batch C (Continuity Log,

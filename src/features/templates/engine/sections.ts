@@ -47,6 +47,8 @@ const READY = new Set([
   // Checklists and breakdown categories (Ika, 2026-10-30).
   'D05', 'D22', 'D23',
   'D11', 'D24', 'D25',
+  // Photography (Ika, 2026-11-10: build the rest, by who they're for; scripts/templates/photography.json).
+  'G14', 'G16', 'G17', 'G18', 'G24',
 ]);
 
 export const canEdit = (schema: TemplateSchema | null): schema is TemplateSchema =>

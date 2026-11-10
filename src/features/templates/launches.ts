@@ -164,6 +164,32 @@ export const LAUNCHES: Record<string, Launch> = {
     forYou: "Cost above the line, below the line and additional spend line by line, with each group's subtotal, a contingency you set and the grand total worked out in your currency.",
     forTeam: "Producers and the client see one number and what each department is getting, and the shares show where the money goes before anyone books crew or kit.",
   },
+  // Photography (2026-11-10).
+  G14: {
+    launched: "2026-11-10",
+    forYou: "Put a photoshoot's client, concept, deliverables, usage and team on one page before the day.",
+    forTeam: "Stylist, assistants and the client work from the same call time, location and list of pictures to deliver.",
+  },
+  G16: {
+    launched: "2026-11-10",
+    forYou: "List every picture the shoot needs, with framing, orientation and light, and tick each one off as you get it.",
+    forTeam: "Assistants and the stylist know which set-up comes next, and the client can see nothing was missed.",
+  },
+  G17: {
+    launched: "2026-11-10",
+    forYou: "Record what a client may do with your images: which pictures, where, for how long and for what fee.",
+    forTeam: "The client and anyone publishing the pictures know the limits before they run, and where the credit goes.",
+  },
+  G18: {
+    launched: "2026-11-10",
+    forYou: "Go into an event knowing where to be and when, who must be photographed and when pictures are due.",
+    forTeam: "A second shooter or assistant covers the same must-have list, and the client knows when to expect selects.",
+  },
+  G24: {
+    launched: "2026-11-10",
+    forYou: "Track every piece pulled for a shoot, with its showroom, value and look, and tick it off as it goes back.",
+    forTeam: "Assistants know what's due back where, and the total value on set is there if insurance asks.",
+  },
 };
 
 const DAY = 24 * 60 * 60 * 1000;

@@ -3549,14 +3549,14 @@
       "family": "photo",
       "variant": "a",
       "stage": "Pre-production",
-      "label": "In design",
-      "status": "gap",
+      "label": "New template",
+      "status": "live",
       "icps": [
         "Photographer"
       ],
       "object": "Medium-format camera (invented form)",
-      "alt": null,
-      "preview": null,
+      "alt": "A medium-format camera",
+      "preview": "The brief for a photoshoot: client, concept, deliverables, usage and who's on the day, on one page.",
       "thumbnail": null,
       "icon": "camera",
       "keywords": [
@@ -3573,18 +3573,49 @@
         "black": "/templates/icons/black/camera.webp"
       },
       "related": [
-        "T01",
         "G16",
-        "D02"
+        "G24",
+        "D04"
       ],
       "details": {
         "about": [
-          "Photo Brief is in design. It's planned for Photographer.",
-          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+          "The brief for a photoshoot: client, concept, deliverables, usage and who's on the day, on one page.",
+          "Made for Photographer roles. Shoot overview: client, date, call time and location. Deliverables: how many images, in what format, due when.",
+          "It's laid out as Shoot Overview, Concept & Mood, Deliverables, Usage, Team and Notes."
         ],
-        "howTo": [],
-        "faq": []
-      }
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Shoot Overview: client and Project / Campaign.",
+          "Write the concept & Mood.",
+          "Add a row to Deliverables for each entry, with Deliverable, Quantity and Format.",
+          "Fill in Usage: where the images will run and Territory.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Photo Brief?",
+            "a": "The brief for a photoshoot: client, concept, deliverables, usage and who's on the day, on one page."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Photographer. It sits in Strategy & Development and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Shot List (Photo)?",
+            "a": "Photo Brief covers the brief for a photoshoot: client, concept, deliverables, usage and who's on the day, on one page. Shot List (Photo) covers every picture a photoshoot needs: set-up, framing, orientation, light and who or what is in it, ticked off as you shoot. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Shot List (Photo) and Pull Sheet, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      },
+      "group": "Strategy & Development",
+      "schema": "G14"
     },
     {
       "code": "G15",
@@ -3639,14 +3670,14 @@
       "family": "photo",
       "variant": "c",
       "stage": "Pre-production",
-      "label": "In design",
-      "status": "gap",
+      "label": "New template",
+      "status": "live",
       "icps": [
         "Photographer"
       ],
       "object": "Handheld light meter",
-      "alt": null,
-      "preview": null,
+      "alt": "A handheld light meter",
+      "preview": "Every picture a photoshoot needs: set-up, framing, orientation, light and who or what is in it, ticked off as you shoot.",
       "thumbnail": null,
       "icon": "viewfinder",
       "keywords": [
@@ -3655,25 +3686,57 @@
         "stills",
         "shots"
       ],
-      "tags": [],
+      "tags": [
+        "Camera & Visual"
+      ],
       "sku": "SH-02",
       "iconRenders": {
         "clay": "/templates/icons/clay/viewfinder.webp",
         "black": "/templates/icons/black/viewfinder.webp"
       },
       "related": [
-        "T01",
-        "D06",
-        "G14"
+        "G14",
+        "G18",
+        "D06"
       ],
       "details": {
         "about": [
-          "Shot List (Photo) is in design. It's planned for Photographer.",
-          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+          "Every picture a photoshoot needs: set-up, framing, orientation, light and who or what is in it, ticked off as you shoot.",
+          "Made for Photographer roles. Shot #: numbered in shooting order. Set-up / Look: the scene, outfit or product.",
+          "It's laid out as Shoot Info, Shots and Notes."
         ],
-        "howTo": [],
-        "faq": []
-      }
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Shoot Info: project and Client.",
+          "Add a row to Shots for each entry, with Set-up / Look, Description and Framing.",
+          "Write the notes.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Shot List (Photo)?",
+            "a": "Every picture a photoshoot needs: set-up, framing, orientation, light and who or what is in it, ticked off as you shoot."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Photographer. It sits in Production Management & Operations and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Photo Brief?",
+            "a": "Shot List (Photo) covers every picture a photoshoot needs: set-up, framing, orientation, light and who or what is in it, ticked off as you shoot. Photo Brief covers the brief for a photoshoot: client, concept, deliverables, usage and who's on the day, on one page. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Photo Brief and Event Brief, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      },
+      "group": "Production Management & Operations",
+      "schema": "G16"
     },
     {
       "code": "G17",
@@ -3683,14 +3746,14 @@
       "family": "photo",
       "variant": "a",
       "stage": "Post-production",
-      "label": "In design",
-      "status": "gap",
+      "label": "New template",
+      "status": "live",
       "icps": [
         "Photographer"
       ],
       "object": "Embossed seal on a certificate",
-      "alt": null,
-      "preview": null,
+      "alt": "An embossed seal on a certificate",
+      "preview": "A plain-language record of what a client may do with your images: which pictures, where, for how long and for what fee.",
       "thumbnail": null,
       "icon": "seal",
       "keywords": [
@@ -3700,25 +3763,62 @@
         "rights",
         "photo"
       ],
-      "tags": [],
+      "tags": [
+        "Administrative"
+      ],
       "sku": "UL-01",
       "iconRenders": {
         "clay": "/templates/icons/clay/seal.webp",
         "black": "/templates/icons/black/seal.webp"
       },
       "related": [
-        "T01",
         "D04",
-        "D23"
+        "G14",
+        "G18"
       ],
       "details": {
         "about": [
-          "Usage License is in design. It's planned for Photographer.",
-          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+          "A plain-language record of what a client may do with your images: which pictures, where, for how long and for what fee.",
+          "Made for Photographer roles. Parties: who owns the images and who is licensing them. Licensed images: the files this covers.",
+          "It's laid out as Parties, Licensed Images, Terms and Licence."
         ],
-        "howTo": [],
-        "faq": []
-      }
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Parties: photographer and Client.",
+          "Add a row to Licensed Images for each entry, with Image / File name and Description.",
+          "Fill in Terms: usage and Territory.",
+          "Write the licence.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is an Usage License?",
+            "a": "A plain-language record of what a client may do with your images: which pictures, where, for how long and for what fee."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Photographer. It sits in Production Management & Operations and is used mainly in post-production."
+          },
+          {
+            "q": "How is it different from Invoice?",
+            "a": "Usage License covers a plain-language record of what a client may do with your images: which pictures, where, for how long and for what fee. Invoice covers bills for crew fees, equipment, locations and other production costs, itemised line by line. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Invoice and Photo Brief, so the whole job stays in one place."
+          },
+          {
+            "q": "Is this a legal contract?",
+            "a": "It's a starting point that records what was agreed. For high-value or exclusive work, have a lawyer check the wording before anyone signs."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      },
+      "group": "Production Management & Operations",
+      "schema": "G17"
     },
     {
       "code": "G18",
@@ -3728,14 +3828,14 @@
       "family": "photo",
       "variant": "b",
       "stage": "Pre-production",
-      "label": "In design",
-      "status": "gap",
+      "label": "New template",
+      "status": "live",
       "icps": [
         "Event / Press Photographer"
       ],
       "object": "Hot-shoe flash",
-      "alt": null,
-      "preview": null,
+      "alt": "A hot-shoe flash",
+      "preview": "The brief for covering an event: where to be and when, the people and moments that must be photographed, and when pictures are due.",
       "thumbnail": null,
       "icon": "flash",
       "keywords": [
@@ -3752,18 +3852,49 @@
         "black": "/templates/icons/black/flash.webp"
       },
       "related": [
-        "D06",
-        "D23",
-        "T01"
+        "G16",
+        "G17",
+        "D04"
       ],
       "details": {
         "about": [
-          "Event Brief is in design. It's planned for Event / Press Photographer.",
-          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+          "The brief for covering an event: where to be and when, the people and moments that must be photographed, and when pictures are due.",
+          "Made for Event / Press Photographer roles. Event details: venue, coverage hours, contact and access. Run of show: what happens when, and where.",
+          "It's laid out as Event Details, Run of Show, Must-have Shots, Delivery and Notes."
         ],
-        "howTo": [],
-        "faq": []
-      }
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Event Details: event and Client / Publication.",
+          "Add a row to Run of Show for each entry, with Time, Moment and Where.",
+          "Add a row to Must-have Shots for each entry, with Person / Moment, Notes and Got it.",
+          "Fill in Delivery: number of selects and First selects due.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is an Event Brief?",
+            "a": "The brief for covering an event: where to be and when, the people and moments that must be photographed, and when pictures are due."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Event / Press Photographer. It sits in Strategy & Development and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Shot List (Photo)?",
+            "a": "Event Brief covers the brief for covering an event: where to be and when, the people and moments that must be photographed, and when pictures are due. Shot List (Photo) covers every picture a photoshoot needs: set-up, framing, orientation, light and who or what is in it, ticked off as you shoot. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Shot List (Photo) and Usage License, so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      },
+      "group": "Strategy & Development",
+      "schema": "G18"
     },
     {
       "code": "G19",
@@ -3996,14 +4127,14 @@
       "family": "craft",
       "variant": "c",
       "stage": "Pre-production",
-      "label": "In design",
-      "status": "gap",
+      "label": "New template",
+      "status": "live",
       "icps": [
         "Stylist"
       ],
       "object": "Garment on a hanger with a pull tag",
-      "alt": null,
-      "preview": null,
+      "alt": "A garment on a hanger with a pull tag",
+      "preview": "Every piece pulled for a shoot: brand, showroom, size, value and the look it's for, ticked off as it goes back.",
       "thumbnail": null,
       "icon": "hanger",
       "keywords": [
@@ -4022,18 +4153,48 @@
         "black": "/templates/icons/black/hanger.webp"
       },
       "related": [
-        "T01",
-        "D13",
-        "D02"
+        "G14",
+        "G16",
+        "D13"
       ],
       "details": {
         "about": [
-          "Pull Sheet is in design. It's planned for Stylist.",
-          "It isn't ready to use yet. Templates in design move to the gallery as soon as their editor is built."
+          "Every piece pulled for a shoot: brand, showroom, size, value and the look it's for, ticked off as it goes back.",
+          "Made for Stylist roles. Item: each garment or accessory, with brand and showroom. Value: what each piece is worth, with a total.",
+          "It's laid out as Pull Info, Items and Notes."
         ],
-        "howTo": [],
-        "faq": []
-      }
+        "howTo": [
+          "Open the template: it starts as a new draft in your project.",
+          "Fill in Pull Info: project / Shoot and Client / Publication.",
+          "Add a row to Items for each entry, with Item, Brand and Showroom / PR.",
+          "Write the notes.",
+          "Download it as a PDF, or save it to the project for the team."
+        ],
+        "faq": [
+          {
+            "q": "What is a Pull Sheet?",
+            "a": "Every piece pulled for a shoot: brand, showroom, size, value and the look it's for, ticked off as it goes back."
+          },
+          {
+            "q": "Who is it for?",
+            "a": "Mainly Stylist. It sits in Production Management & Operations and is used mainly in pre-production."
+          },
+          {
+            "q": "How is it different from Photo Brief?",
+            "a": "Pull Sheet covers every piece pulled for a shoot: brand, showroom, size, value and the look it's for, ticked off as it goes back. Photo Brief covers the brief for a photoshoot: client, concept, deliverables, usage and who's on the day, on one page. Many teams use both."
+          },
+          {
+            "q": "Does it connect to my other documents?",
+            "a": "It lives in your project next to related templates like Photo Brief and Shot List (Photo), so the whole job stays in one place."
+          },
+          {
+            "q": "Can I export it?",
+            "a": "Yes. Download it as a PDF to send or print."
+          }
+        ]
+      },
+      "group": "Production Management & Operations",
+      "schema": "G24"
     },
     {
       "code": "G25",

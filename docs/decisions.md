@@ -639,3 +639,12 @@ onboarding's Import profile and Follow creators describe features removed in the
   "Invite team members" on the workspace step (emails were stored, never sent) are removed; git
   tag `parked-2026-11-10-onboarding`. Five screens, "Step N of 4"; the workspace step, saved or
   skipped, marks onboarding complete (`completeOnboarding`). Stored invites are left untouched.
+- (2026-11-10) The rest of the templates, built by who they're for (Ika: "build the rest of the
+  templates as planned, then 3 workflows for each ICP": content creators, filmmakers,
+  photographers, small production studios). Each in-design template gets its sections and typed
+  controls written as a definition (`scripts/templates/<set>.json`), brought live by
+  `scripts/add-templates.mjs` (schema, manifest, help text), then READY and LAUNCHES. They use the
+  editor's standard layout and the flat icon card, so no new design. Groups stay the four that
+  exist. First set, photography: Photo Brief, Shot List (Photo), Usage License (plain-language,
+  with "have a lawyer check" in its questions), Event Brief, Pull Sheet. Waiting: Contact Sheet,
+  Storyboard, Casting Deck (picture storage); Lighting Plot, Set Drawing (drawings).
