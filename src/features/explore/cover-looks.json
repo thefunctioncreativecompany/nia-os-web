@@ -64,7 +64,7 @@
   "bright-airy"
  ],
  "creator-DZFvwjTzRwn": [
-  "black-and-white",
+  "muted-colour",
   "bright-airy"
  ],
  "creator-DZIUH91NEYP": [],
@@ -320,23 +320,52 @@
   "low-key"
  ],
  "12-angry-men": [
-  "vivid-colour",
+  "black-and-white",
+  "bright-airy"
+ ],
+ "13-going-on-30": [
   "warm-palette",
   "bright-airy"
+ ],
+ "2001-a-space-odyssey": [
+  "low-key"
+ ],
+ "27-dresses": [
+  "muted-colour",
+  "bright-airy"
+ ],
+ "a-kid-from-coney-island": [
+  "warm-palette",
+  "low-key"
  ],
  "a-raisin-in-the-sun": [
+  "black-and-white",
   "bright-airy"
  ],
+ "abouna": [
+  "cool-palette"
+ ],
  "all-about-eve": [
-  "muted-colour",
-  "warm-palette",
+  "black-and-white",
   "bright-airy"
+ ],
+ "american-housewife": [
+  "vivid-colour"
  ],
  "an-american-in-paris": [
   "warm-palette",
   "bright-airy"
  ],
+ "ancestral-visions-of-the-future": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "anikulapo": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "apocalypse-now": [
   "vivid-colour",
   "warm-palette",
   "low-key"
@@ -346,7 +375,18 @@
   "cool-palette",
   "low-key"
  ],
+ "back-to-the-future": [
+  "vivid-colour"
+ ],
+ "bad-boys": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "banel-and-adama": [
+  "warm-palette",
+  "bright-airy"
+ ],
+ "baps": [
   "warm-palette",
   "bright-airy"
  ],
@@ -355,9 +395,14 @@
   "warm-palette",
   "bright-airy"
  ],
+ "benji": [],
  "black-girl": [
   "black-and-white",
   "bright-airy"
+ ],
+ "black-panther": [
+  "cool-palette",
+  "low-key"
  ],
  "blood-and-water": [
   "vivid-colour",
@@ -368,6 +413,10 @@
   "warm-palette",
   "bright-airy"
  ],
+ "boyz-n-the-hood": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "bride-of-frankenstein": [
   "vivid-colour",
   "warm-palette"
@@ -376,23 +425,58 @@
   "warm-palette",
   "bright-airy"
  ],
+ "bugonia": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "cabin-in-the-sky": [
-  "warm-palette",
+  "black-and-white",
   "bright-airy"
  ],
  "capernaum": [
   "vivid-colour",
   "warm-palette"
  ],
- "casablanca": [
-  "muted-colour",
+ "carmen-jones": [
+  "vivid-colour",
   "warm-palette"
  ],
- "citizen-kane": [
+ "casablanca": [
+  "black-and-white"
+ ],
+ "charlies-angels": [
+  "vivid-colour",
   "warm-palette",
+  "low-key"
+ ],
+ "chicago": [
+  "warm-palette",
+  "low-key"
+ ],
+ "children-of-blood-and-bone": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "citizen-kane": [
+  "black-and-white",
   "bright-airy"
  ],
  "city-lights": [
+  "black-and-white"
+ ],
+ "coming-2-america": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "coming-to-america": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "crazy-rich-asians": [
+  "vivid-colour"
+ ],
+ "crouching-tiger-hidden-dragon": [
   "vivid-colour",
   "warm-palette"
  ],
@@ -404,10 +488,24 @@
  "dam": [
   "cool-palette"
  ],
+ "die-hard": [
+  "muted-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "do-the-right-thing": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "double-indemnity": [
   "vivid-colour",
   "warm-palette",
   "bright-airy"
+ ],
+ "dreamgirls": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "eyimofe": [
   "warm-palette",
@@ -441,7 +539,13 @@
  "frankenstein": [
   "warm-palette"
  ],
+ "get-out": [
+  "muted-colour"
+ ],
  "gilda": [],
+ "girlfriends": [
+  "muted-colour"
+ ],
  "go": [
   "vivid-colour",
   "warm-palette"
@@ -454,16 +558,51 @@
   "warm-palette",
   "low-key"
  ],
+ "half-and-half": [
+  "warm-palette"
+ ],
+ "harry-potter-and-the-chamber-of-secrets": [
+  "vivid-colour"
+ ],
+ "harry-potter-and-the-deathly-hallows-part-1": [
+  "vivid-colour",
+  "low-key"
+ ],
+ "harry-potter-and-the-deathly-hallows-part-2": [
+  "low-key"
+ ],
+ "harry-potter-and-the-goblet-of-fire": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
+ ],
+ "harry-potter-and-the-half-blood-prince": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "harry-potter-and-the-order-of-the-phoenix": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "harry-potter-and-the-philosophers-stone": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "harry-potter-and-the-prisoner-of-azkaban": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "heart-of-the-hunter": [
   "warm-palette"
  ],
+ "hidden-figures": [
+  "cool-palette"
+ ],
  "high-noon": [
-  "vivid-colour",
-  "warm-palette"
+  "black-and-white"
  ],
  "his-girl-friday": [
-  "vivid-colour",
-  "warm-palette"
+  "black-and-white"
  ],
  "hounds": [
   "vivid-colour",
@@ -492,6 +631,10 @@
   "warm-palette",
   "bright-airy"
  ],
+ "in-the-heat-of-the-night": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "inumber-number-jozi-gold": [
   "vivid-colour",
   "warm-palette"
@@ -504,7 +647,7 @@
   "warm-palette"
  ],
  "it-happened-one-night": [
-  "warm-palette"
+  "black-and-white"
  ],
  "its-a-wonderful-life": [
   "warm-palette",
@@ -513,29 +656,40 @@
  "jaws": [
   "cool-palette"
  ],
+ "jeen-yuhs": [
+  "muted-colour"
+ ],
  "jerusalema": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "jurassic-park": [
+  "muted-colour",
+  "warm-palette",
+  "low-key"
  ],
  "kandasamys-the-baby": [
   "vivid-colour",
   "warm-palette"
  ],
+ "katrina-babies": [
+  "muted-colour"
+ ],
  "king-kong": [
-  "warm-palette"
+  "black-and-white"
  ],
  "kings-of-joburg": [],
  "laura": [
-  "vivid-colour",
-  "warm-palette"
+  "black-and-white"
  ],
  "lawrence-of-arabia": [
   "muted-colour",
   "warm-palette",
   "bright-airy"
  ],
+ "lie-to-me": [],
  "lilies-of-the-field": [
-  "warm-palette"
+  "black-and-white"
  ],
  "lingui-the-sacred-bonds": [
   "vivid-colour",
@@ -545,6 +699,12 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "love-thy-neighbor": [],
+ "malcolm-x": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "mami-wata": [
   "black-and-white",
   "low-key"
@@ -552,23 +712,50 @@
  "marked": [
   "muted-colour"
  ],
- "mildred-pierce": [
+ "martin": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "matilda": [
+  "vivid-colour",
   "warm-palette"
  ],
+ "mildred-pierce": [
+  "black-and-white"
+ ],
+ "modern-family": [
+  "muted-colour",
+  "bright-airy"
+ ],
  "modern-times": [
+  "black-and-white"
+ ],
+ "monk": [
+  "vivid-colour",
   "warm-palette"
+ ],
+ "moonlight": [
+  "vivid-colour",
+  "cool-palette"
  ],
  "mr-smith-goes-to-washington": [
   "vivid-colour",
   "warm-palette"
  ],
- "native-son-1951": [
+ "nanny-mcphee": [
   "vivid-colour",
-  "warm-palette",
+  "cool-palette"
+ ],
+ "native-son-1951": [
+  "black-and-white",
   "low-key"
  ],
  "neptune-frost": [
   "warm-palette",
+  "bright-airy"
+ ],
+ "network": [
+  "muted-colour",
   "bright-airy"
  ],
  "nickel-boys": [
@@ -581,23 +768,26 @@
   "bright-airy"
  ],
  "notorious": [
-  "warm-palette"
+  "black-and-white"
  ],
  "on-becoming-a-guinea-fowl": [
   "vivid-colour",
   "warm-palette"
  ],
  "on-the-waterfront": [
-  "warm-palette",
+  "black-and-white",
   "bright-airy"
+ ],
+ "one-on-one": [
+  "vivid-colour",
+  "cool-palette"
  ],
  "out-of-the-past": [
   "vivid-colour",
   "warm-palette"
  ],
  "paths-of-glory": [
-  "vivid-colour",
-  "warm-palette"
+  "black-and-white"
  ],
  "porgy-and-bess": [
   "muted-colour",
@@ -605,8 +795,11 @@
   "bright-airy"
  ],
  "psycho": [
+  "black-and-white"
+ ],
+ "pulp-fiction": [
   "vivid-colour",
-  "cool-palette"
+  "warm-palette"
  ],
  "pumzi": [],
  "queen-sono": [
@@ -616,6 +809,11 @@
  "rafiki": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "ray": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
  ],
  "rear-window": [
   "vivid-colour",
@@ -627,9 +825,15 @@
  "rebel-without-a-cause": [
   "warm-palette"
  ],
+ "ride-along": [
+  "muted-colour"
+ ],
+ "rocky": [
+  "muted-colour",
+  "bright-airy"
+ ],
  "roman-holiday": [
-  "vivid-colour",
-  "warm-palette",
+  "black-and-white",
   "bright-airy"
  ],
  "saloum": [
@@ -661,12 +865,13 @@
   "bright-airy"
  ],
  "some-like-it-hot": [
-  "vivid-colour",
-  "warm-palette"
+  "black-and-white"
  ],
  "stagecoach": [
-  "vivid-colour",
-  "cool-palette"
+  "black-and-white"
+ ],
+ "star-wars": [
+  "vivid-colour"
  ],
  "stormy-weather": [
   "warm-palette"
@@ -675,9 +880,14 @@
   "warm-palette"
  ],
  "sunset-boulevard": [
-  "vivid-colour",
-  "warm-palette"
+  "black-and-white"
  ],
+ "taxi-driver": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "tenzing": [],
  "the-adventures-of-robin-hood": [
   "vivid-colour",
   "warm-palette"
@@ -690,6 +900,10 @@
  "the-best-years-of-our-lives": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "the-blair-witch-project": [
+  "muted-colour",
+  "low-key"
  ],
  "the-blood-of-jesus": [
   "vivid-colour",
@@ -710,9 +924,19 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "the-godfather-part-ii": [
+  "muted-colour",
+  "low-key"
+ ],
+ "the-godfather": [
+  "muted-colour",
+  "low-key"
+ ],
+ "the-graduate": [
+  "muted-colour"
+ ],
  "the-grapes-of-wrath": [
-  "vivid-colour",
-  "warm-palette",
+  "black-and-white",
   "bright-airy"
  ],
  "the-heart-is-a-muscle": [
@@ -720,7 +944,18 @@
   "warm-palette",
   "low-key"
  ],
+ "the-house-is-black": [
+  "black-and-white"
+ ],
  "the-joe-louis-story": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "the-karate-kid-2010": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "the-last-days-of-ptolemy-grey": [
   "vivid-colour",
   "warm-palette"
  ],
@@ -728,13 +963,16 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "the-matrix": [
+  "vivid-colour",
+  "low-key"
+ ],
  "the-mother-of-all-lies": [
   "vivid-colour",
   "warm-palette"
  ],
  "the-night-of-the-hunter": [
-  "vivid-colour",
-  "warm-palette"
+  "black-and-white"
  ],
  "the-ox-bow-incident": [
   "warm-palette"
@@ -743,12 +981,18 @@
   "warm-palette",
   "low-key"
  ],
+ "the-pursuit-of-happyness": [],
  "the-searchers": [
   "vivid-colour",
   "warm-palette"
  ],
- "the-shop-around-the-corner": [
+ "the-shawshank-redemption": [
+  "vivid-colour",
   "warm-palette",
+  "low-key"
+ ],
+ "the-shop-around-the-corner": [
+  "black-and-white",
   "bright-airy"
  ],
  "the-sound-of-music": [
@@ -767,21 +1011,27 @@
   "vivid-colour",
   "warm-palette"
  ],
- "to-kill-a-mockingbird": [
-  "vivid-colour",
+ "titanic": [
   "warm-palette"
+ ],
+ "to-kill-a-mockingbird": [
+  "black-and-white"
  ],
  "top-hat": [
   "vivid-colour",
   "warm-palette"
  ],
  "touch-of-evil": [
-  "vivid-colour",
-  "warm-palette"
+  "black-and-white"
  ],
  "touki-bouki": [
   "warm-palette"
  ],
+ "toy-story": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "training-day": [],
  "trouble-in-paradise": [
   "vivid-colour",
   "warm-palette"
@@ -794,6 +1044,10 @@
  "vertigo": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "waiting-to-exhale": [
+  "warm-palette",
+  "bright-airy"
  ],
  "west-side-story": [
   "vivid-colour",

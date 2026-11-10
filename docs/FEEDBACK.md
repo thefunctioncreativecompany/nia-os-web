@@ -104,7 +104,7 @@ Size: S (a day or less), M (a few days), L (a week or more, or several steps).
 | 6.3 | Settings: Notifications and the other tabs | ⬜ | Notifications draft exists in Claude Design |
 | NAV | Desktop navbar N4 ("Try" ideas), N5 (gallery, fallbacks), N6 (full check); Figma frames | 🔄 | NAVBAR_BUILD.md. Built from Claude Design boards; Figma reconcile still to do |
 | EX1 | Explore: notify people of new titles they'd like; let people suggest titles | ⏸ | Design rows A–E on the Claude Design canvas; Ika to pick before anything is built |
-| EX2 | Explore: covers for the titles waiting (Girlfriends, Martin, Monk, Lie to Me, American Housewife, Half & Half, One on One, Abouna, The House Is Black); ~280 waiting on the TMDB licence; weekly import | ⏸ | TMDB commercial licence; confirm "One on One" and Tyler Perry's "Love Thy Neighbor" |
+| EX2 | Explore: covers for the titles waiting (done 2026-11-10 with TMDB's free API during the private beta: 74 posters); the 289 studio-catalogue titles; weekly import | 🔄 | Commercial licence before Nia charges anyone; confirm "One on One" and Tyler Perry's "Love Thy Neighbor" |
 | EX3 | Explore timeline steps E (colour band, filter) and F | ⬜ | From the timeline spec (pasted 2026-11-01; not in the repo) |
 | OPS | Ika: run `20261107000000_security_function_access.sql`; leaked password protection; paste the two email templates into Supabase; Vercel CLI account and extra projects; delete old branches | ⏸ | From CLAUDE.md → Next week |
 | BETA | Beta pilot: invite the three groups, move them to Pro by hand, read `feedback_review` weekly | ⏸ | Alvin's feedback is the first written review |

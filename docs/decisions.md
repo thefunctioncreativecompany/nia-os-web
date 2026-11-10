@@ -584,3 +584,15 @@ onboarding's Import profile and Follow creators describe features removed in the
   bar, its empty state led by "Try, for your work"; no second search. 8. The adjusted glass and
   text values in NAVBAR_SPEC §6 (80% glass, `foreground/80` tabs, dark text on the blue tint).
   9. Ika puts N1 (light, dark, search open) into Figma; node IDs go in NAVBAR_BUILD.md N0.
+- (2026-11-10) Official posters during the private beta (Ika: "strictly in private beta, no
+  revenue, no clients charged; give the full experience"): Explore uses TMDB's free,
+  non-commercial API (`TMDB_API_KEY` in `.env.local`) for official posters, credited as before
+  (`TmdbCredit`), every source in `cover-sources.json`. Before Nia charges anyone: the TMDB
+  commercial licence, or swap the covers from that list. Never posters copied from unofficial
+  sites. First run: 74 posters for the titles on trailer stills and the 11 hidden (Network,
+  Jurassic Park, Martin, Monk…); Muhammad Ali: The People's Champ (TMDB has a book cover) and The
+  College Dropout Video Anthology (none) keep their trailer stills. `find-title-assets.mjs`
+  searches TMDB's TV shows for series and documentaries, and `--posters` fetches posters only.
+  Cover looks: a title's black and white comes from its trailer palette (before 1968), or from
+  trailer and poster agreeing (after): Casablanca, Citizen Kane and 27 other classics now read
+  black and white; Network and Get Out stay colour.

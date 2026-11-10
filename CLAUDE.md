@@ -250,7 +250,7 @@ Next week (from 2026-11-02, in order; agree each with Ika first)
    project Details, Cast & crew directory, Explore Cast & Crew row and View all, person pages,
    dark mode tokens, card hover.
 5. Explore: rerun cast & crew and press kits as titles are added; the 17 titles with no
-   credits; TMDB commercial licence for the ~280 titles waiting on posters.
+   credits; the 289 studio-catalogue titles (posters from TMDB's free API during the private beta; commercial licence before charging).
 6. Small: genre pills "More genres" fold; Nia photos in the project page's crew row.
 
 Milestone 4 — Shoot day (plan agreed 2026-11-01: People → Locations → Shoot days & schedule →

@@ -281,7 +281,7 @@ export const HAND_TAGS: Record<string, string[]> = {
   "harry-potter-and-the-philosophers-stone": ["myth", "youth", "school", "friendship", "coming-of-age", "period-setting", "set-design", "costume", "practical-effects", "vfx", "adaptation", "ensemble", "cinema"],
   "harry-potter-and-the-chamber-of-secrets": ["myth", "youth", "school", "friendship", "mysterious", "set-design", "costume", "practical-effects", "vfx", "adaptation", "ensemble", "cinema", "playful"],
   "harry-potter-and-the-prisoner-of-azkaban": ["myth", "youth", "school", "friendship", "coming-of-age", "snow", "cool-palette", "long-takes", "vfx", "adaptation", "ensemble", "cinema", "mysterious"],
-  "harry-potter-and-the-goblet-of-fire": ["myth", "youth", "school", "coming-of-age", "love", "set-design", "costume", "vfx", "adaptation", "ensemble", "cinema", "tense", "party"],
+  "harry-potter-and-the-goblet-of-fire": ["myth", "youth", "school", "coming-of-age", "love", "set-design", "costume", "vfx", "adaptation", "ensemble", "cinema", "tense"],
   "harry-potter-and-the-order-of-the-phoenix": ["myth", "youth", "school", "politics", "coming-of-age", "cool-palette", "vfx", "adaptation", "ensemble", "cinema", "tense", "moody", "identity"],
   "harry-potter-and-the-half-blood-prince": ["myth", "youth", "school", "love", "coming-of-age", "muted-colour", "painterly", "vfx", "adaptation", "ensemble", "cinema", "melancholy", "moody"],
   "harry-potter-and-the-deathly-hallows-part-1": ["myth", "friendship", "nature", "travel", "coming-of-age", "cool-palette", "vfx", "adaptation", "ensemble", "cinema", "tense", "melancholy", "wide-vistas"],

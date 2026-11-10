@@ -3,7 +3,7 @@
 // src/features/explore/cover-looks.json, which src/features/explore/tags.ts turns into Look tags.
 // Run from the project root after adding covers:
 //   node scripts/measure-explore-covers.mjs
-import { readdir, writeFile } from "node:fs/promises";
+import { readdir, readFile, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 
 const FOLDERS = [
@@ -27,12 +27,23 @@ async function measure(file) {
   return { saturation: sat / n, lightness: light / n, warmth: warm / n };
 }
 
+// Whether a title is black and white comes from its palette where it has one (palettes.json,
+// measured from frames inside the official trailer): a poster can be monochrome when the film
+// isn't (Network, Get Out), and a colourful poster can sell a black-and-white film (Casablanca). Run build-explore-timeline-data.mjs first after adding titles.
+const palettes = JSON.parse(await readFile("src/features/explore/palettes.json", "utf8"));
+// A greyish trailer can fool it, so after the 1960s (when black and white became rare) the poster
+// has to agree too (Shawshank, Inxeba).
+const years = Object.fromEntries(JSON.parse(await readFile("src/features/explore/made-in-africa.json", "utf8")).titles.map((t) => [t.slug, t.year]));
 const looks = {};
 for (const { dir, slug } of FOLDERS) {
   for (const file of (await readdir(dir)).filter((f) => f.endsWith(".jpg")).sort()) {
     const m = await measure(`${dir}/${file}`);
     const tags = [];
-    if (m.saturation < 0.08) tags.push("black-and-white");
+    const key = slug(file.replace(/\.jpg$/, ""));
+    const posterMono = m.saturation < 0.08;
+    const trailerMono = palettes[key]?.isMono;
+    const mono = trailerMono === undefined ? posterMono : trailerMono && ((years[key] ?? 9999) < 1968 || posterMono);
+    if (mono) tags.push("black-and-white");
     else {
       if (m.saturation < 0.22) tags.push("muted-colour");
       if (m.saturation > 0.42) tags.push("vivid-colour");
@@ -41,7 +52,7 @@ for (const { dir, slug } of FOLDERS) {
     }
     if (m.lightness < 0.28) tags.push("low-key");
     if (m.lightness > 0.62) tags.push("bright-airy");
-    looks[slug(file.replace(/\.jpg$/, ""))] = tags;
+    looks[key] = tags;
   }
 }
 await writeFile("src/features/explore/cover-looks.json", `${JSON.stringify(looks, null, 1)}\n`);

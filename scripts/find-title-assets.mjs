@@ -5,7 +5,9 @@
 // for the title data, cover-sources.json and a person's check. Run from the project root with a
 // JSON list of titles:
 //   node scripts/find-title-assets.mjs scripts/out/new-titles.json
-// where the file is [{ "slug": "casablanca", "title": "Casablanca", "year": 1942 }, …].
+// where the file is [{ "slug": "casablanca", "title": "Casablanca", "year": 1942 }, …] (add
+// "type": "series" or "documentary" to search TMDB's TV shows too). Add --posters to fetch only
+// posters, for titles already on Explore that wait on one.
 // Check each poster and trailer by eye before adding the titles.
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createRequire } from "node:module";
@@ -23,14 +25,20 @@ const get = (url, ua = BROWSER) => fetch(url, { headers: { "User-Agent": ua, "Ac
 // Posters, from the official TMDB API when TMDB_API_KEY is set (TMDB refuses automated page
 // requests, so its website isn't used), otherwise from Wikimedia Commons through Wikidata's
 // "film poster" (P3383), which holds free-licence or public-domain posters.
-async function tmdb(title, year) {
+// Series search TMDB's TV shows first; documentaries can be either (a film or a docuseries).
+async function tmdb(title, year, type) {
   const key = process.env.TMDB_API_KEY;
   if (!key) return null;
   const bearer = key.length > 40;
-  const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(title)}${year ? `&year=${year}` : ""}${bearer ? "" : `&api_key=${key}`}`;
-  const r = await fetch(url, { headers: bearer ? { Authorization: `Bearer ${key}` } : {}, signal: AbortSignal.timeout(20000) }).catch(() => null);
-  const hit = r?.ok ? (await r.json()).results?.find((m) => m.poster_path) : null;
-  return hit ? { source: "TMDB", tmdb: `movie/${hit.id}`, image: `https://image.tmdb.org/t/p/original${hit.poster_path}` } : null;
+  const kinds = type === "series" ? ["tv", "movie"] : type === "documentary" ? ["movie", "tv"] : ["movie"];
+  for (const kind of kinds) {
+    const yearParam = year ? (kind === "tv" ? `&first_air_date_year=${year}` : `&year=${year}`) : "";
+    const url = `https://api.themoviedb.org/3/search/${kind}?query=${encodeURIComponent(title)}${yearParam}${bearer ? "" : `&api_key=${key}`}`;
+    const r = await fetch(url, { headers: bearer ? { Authorization: `Bearer ${key}` } : {}, signal: AbortSignal.timeout(20000) }).catch(() => null);
+    const hit = r?.ok ? (await r.json()).results?.find((m) => m.poster_path) : null;
+    if (hit) return { source: "TMDB", tmdb: `${kind}/${hit.id}`, name: hit.title ?? hit.name, image: `https://image.tmdb.org/t/p/original${hit.poster_path}` };
+  }
+  return null;
 }
 
 // A title in the list can name its Commons file ("commons": "City Lights (1931 theatrical poster).jpg")
@@ -73,6 +81,7 @@ async function imdb(title, year) {
   return { wikipedia: page, imdb: wd?.entities?.[qid]?.claims?.P345?.[0]?.mainsnak?.datavalue?.value ?? null, qid };
 }
 
+const POSTERS_ONLY = process.argv.includes("--posters");
 const list = JSON.parse(await readFile(process.argv[2], "utf8"));
 await mkdir("scripts/out", { recursive: true });
 const prior = JSON.parse(await readFile("scripts/out/title-assets.json", "utf8").catch(() => "{}"));
@@ -80,8 +89,9 @@ const out = {};
 for (const t of list) {
   // Titles already found keep what they have (re-runs only fill gaps).
   const had = prior[t.slug] ?? {};
-  const [video, ids] = await Promise.all([had.video ? had.video : trailer(t.title, t.year), had.qid ? had : imdb(t.title, t.year)]);
-  const found = (await tmdb(t.title, t.year)) ?? (await commons(ids.qid, t.commons));
+  // --posters: only the poster (titles already on Explore have their trailer and ids).
+  const [video, ids] = await Promise.all([had.video || POSTERS_ONLY ? (had.video ?? null) : trailer(t.title, t.year), had.qid ? had : imdb(t.title, t.year)]);
+  const found = (await tmdb(t.title, t.year, t.type)) ?? (await commons(ids.qid, t.commons));
   let cover = had.cover ?? null;
   if (!cover && found) {
     const r = await get(found.image, UA);
@@ -91,7 +101,7 @@ for (const t of list) {
     }
   }
   out[t.slug] = { cover, video, wikipedia: ids.wikipedia, imdb: ids.imdb, qid: ids.qid };
-  console.log(`${t.slug}: poster ${cover ? cover.size : "MISSING"}, trailer ${video ? `${video.channel}` : "MISSING"}, imdb ${ids.imdb ?? "MISSING"}`);
+  console.log(`${t.slug}: poster ${cover ? `${cover.size} (${cover.source}${cover.name ? `: ${cover.name}` : ""})` : "MISSING"}, trailer ${video ? `${video.channel}` : "MISSING"}, imdb ${ids.imdb ?? "MISSING"}`);
   await sleep(2500);
 }
 await writeFile("scripts/out/title-assets.json", `${JSON.stringify(out, null, 1)}\n`);
