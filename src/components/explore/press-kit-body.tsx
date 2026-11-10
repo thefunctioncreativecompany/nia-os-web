@@ -273,7 +273,7 @@ export function PressKitSection({
   const links = pressLinks(title, imdb, press);
   return (
     <section aria-labelledby="press-kit" className="flex flex-col">
-      <h2 id="press-kit" className="text-xl leading-[1.4] font-bold text-foreground">
+      <h2 id="press-kit" className="text-subtitle font-semibold text-foreground">
         Press kit <span className="text-micro font-normal text-muted-foreground">{pressSummary(press)}</span>
       </h2>
       <p className="mt-1 max-w-160 text-sm text-muted-foreground">

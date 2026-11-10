@@ -23,7 +23,7 @@ const documentsOf = (w: Workflow, templates: Named[]) => w.templates.flatMap((co
 // documents as drafts and opens it. Built from existing pieces: filter chips, the card look,
 // the dialog. `templates` is the working templates the page already has (for the documents' names);
 // the code that creates the project loads when one is started.
-export function WorkflowCards({ templates, profession, headingId = "workflows", headingClassName = "text-xl leading-[1.4] font-bold text-foreground", className }: { templates: Named[]; profession?: string | null; headingId?: string; headingClassName?: string; className?: string }) {
+export function WorkflowCards({ templates, profession, headingId = "workflows", headingClassName = "text-subtitle font-semibold text-foreground", className }: { templates: Named[]; profession?: string | null; headingId?: string; headingClassName?: string; className?: string }) {
   const mine = icpFor(profession);
   const [chosen, setChosen] = useState<Icp | null>(null);
   const icp = chosen ?? mine ?? "creators";

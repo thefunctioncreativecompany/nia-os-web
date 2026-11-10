@@ -186,7 +186,7 @@ export function ProjectForm() {
       className="flex w-full max-w-[600px] flex-col gap-7 rounded-2xl bg-card p-6 shadow-elevation-2 sm:p-10"
     >
       {/* The heading follows the name as it's typed (Ika, 2026-10-23). */}
-      <h1 className="text-h2 font-bold break-words text-foreground">{title.trim() || "New blank project"}</h1>
+      <h1 className="text-h2 font-semibold tracking-tight break-words text-foreground">{title.trim() || "New blank project"}</h1>
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="project-name" className={fieldLabelClassName}>

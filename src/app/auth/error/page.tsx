@@ -16,7 +16,7 @@ export default function Page({ searchParams }: PageProps<'/auth/error'>) {
     <AuthLayout hero="auth-error">
       <div className="flex w-full max-w-[380px] flex-col gap-7">
         <div className="flex flex-col gap-2">
-          <h1 className="text-h1 font-bold text-nia-ink">
+          <h1 className="text-h2 font-semibold tracking-tight text-nia-ink">
             Something went wrong
           </h1>
           <p className="text-sm leading-normal break-words text-nia-ink-muted">

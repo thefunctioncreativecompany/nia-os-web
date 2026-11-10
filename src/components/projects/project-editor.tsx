@@ -278,7 +278,7 @@ export function ProjectEditor({
                 maxLength={120}
                 readOnly={!canEdit}
                 onSave={(next) => save("title", "title", next)}
-                className={cn("text-h3 font-bold text-foreground md:text-h2", !project.title && "text-muted-foreground")}
+                className={cn("text-h3 font-semibold tracking-tight text-foreground md:text-h2", !project.title && "text-muted-foreground")}
               />
             </h1>
             <EditableText
@@ -311,7 +311,7 @@ export function ProjectEditor({
           {tab === "details" ? (
             <>
               <section aria-labelledby="details" className="flex flex-col gap-4">
-                <h2 id="details" className="text-xl leading-[1.4] font-bold text-foreground">
+                <h2 id="details" className="text-subtitle font-semibold text-foreground">
                   Details
                 </h2>
                 <dl className="flex flex-col gap-3">
@@ -366,7 +366,7 @@ export function ProjectEditor({
               <CrewSection crew={project.crew} canEdit={canEdit} directoryHref={`/projects/${project.id}/crew`} />
 
               <section aria-labelledby="behind" className="flex flex-col gap-4">
-                <h2 id="behind" className="text-xl leading-[1.4] font-bold text-foreground">
+                <h2 id="behind" className="text-subtitle font-semibold text-foreground">
                   Behind the Production
                 </h2>
                 {behind}

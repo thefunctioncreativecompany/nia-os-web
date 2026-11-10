@@ -14,7 +14,7 @@ export function NotFoundView({ signedIn = true }: { signedIn?: boolean }) {
         <Compass aria-hidden className="size-6 text-muted-foreground" />
       </span>
       <div className="flex max-w-md flex-col gap-2">
-        <h1 className="text-h2 font-bold text-foreground">We couldn&rsquo;t find that</h1>
+        <h1 className="text-h2 font-semibold tracking-tight text-foreground">We couldn&rsquo;t find that</h1>
         <p className="text-lead text-muted-foreground">
           The link may be wrong, or what it pointed to was deleted, moved, or isn&rsquo;t shared with you.
         </p>

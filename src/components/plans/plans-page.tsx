@@ -43,7 +43,7 @@ export function PlansPage() {
     <div className="mx-auto flex w-full max-w-7xl flex-col gap-14 px-4 pt-10 pb-24 md:px-11">
       <header className="flex flex-wrap items-end justify-between gap-6">
         <div className="max-w-140">
-          <h1 className="text-display font-extrabold tracking-tight text-foreground">Plans</h1>
+          <h1 className="text-h2 font-semibold tracking-tight text-foreground">Plans</h1>
           <p className="mt-2 text-lead text-muted-foreground">
             Start free and upgrade when the production grows. Paid plans open soon: pick one to save your place and we&rsquo;ll email you when payments start.
           </p>
@@ -72,7 +72,7 @@ export function PlansPage() {
 
       <section aria-labelledby="top-ups" className="flex flex-col gap-4">
         <div>
-          <h2 id="top-ups" className="text-lg font-extrabold text-foreground">AI credit top-ups</h2>
+          <h2 id="top-ups" className="text-subtitle font-semibold text-foreground">AI credit top-ups</h2>
           <p className="text-small text-muted-foreground">For months you need more than your plan includes. Credits arrive with Nia&rsquo;s Copilot.</p>
         </div>
         <ul className="grid gap-4 sm:grid-cols-3">
@@ -203,7 +203,7 @@ function Comparison({ billing }: { billing: Billing }) {
 
   return (
     <section aria-labelledby="compare" className="flex flex-col gap-4">
-      <h2 id="compare" className="text-lg font-extrabold text-foreground">Compare plans</h2>
+      <h2 id="compare" className="text-subtitle font-semibold text-foreground">Compare plans</h2>
       <div className="overflow-x-auto rounded-2xl border border-border [scrollbar-width:thin]">
         <table className="w-full min-w-200 border-collapse text-left text-small">
           <thead>

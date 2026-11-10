@@ -152,7 +152,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
 
           <div className="flex flex-col gap-3">
             <p className="text-small font-semibold text-muted-foreground">{[film.type, creatorYear(film), film.country].filter(Boolean).join(" · ")}</p>
-            <h1 className="text-h3 font-bold text-foreground md:text-h2">{film.title}</h1>
+            <h1 className="text-h3 font-semibold tracking-tight text-foreground md:text-h2">{film.title}</h1>
             <div className="flex flex-wrap gap-2">
               <SaveToCollection slug={film.slug} title={film.title} />
               <AddToProject slug={film.slug} title={film.title} />
@@ -163,7 +163,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
 
         <div className="flex min-w-0 flex-col gap-8">
           <section aria-labelledby="details" className="flex flex-col gap-4">
-            <h2 id="details" className="text-xl leading-[1.4] font-bold text-foreground">
+            <h2 id="details" className="text-subtitle font-semibold text-foreground">
               Details
             </h2>
             <dl className="flex flex-col gap-3">
@@ -193,7 +193,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
           {/* People are in Cast & Crew below; the companies credited stay here. */}
           {companies(film).length > 0 && (
           <section aria-labelledby="credits" className="flex flex-col gap-4">
-            <h2 id="credits" className="text-xl leading-[1.4] font-bold text-foreground">
+            <h2 id="credits" className="text-subtitle font-semibold text-foreground">
               Companies <span className="text-micro font-normal text-muted-foreground">{companies(film).length}</span>
             </h2>
             <dl className="flex flex-col gap-3">
@@ -219,7 +219,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
       <CastCrewRow people={credits.slice(0, TOP_CREDITS)} total={credits.length} viewAll={<CreditsViewAll slug={film.slug} title={film.title} total={credits.length} />} />
 
       <section aria-labelledby="more-creators" className="flex flex-col gap-4">
-        <h2 id="more-creators" className="text-xl leading-[1.4] font-bold text-foreground">
+        <h2 id="more-creators" className="text-subtitle font-semibold text-foreground">
           More from creators
         </h2>
         <ScrollRow label="More from creators">

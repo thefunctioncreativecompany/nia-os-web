@@ -84,7 +84,7 @@ async function PersonPage({ params }: Pick<PageProps<"/explore/person/[key]">, "
       </header>
 
       <section aria-labelledby="films" className="flex flex-col gap-4">
-        <h2 id="films" className="text-xl leading-[1.4] font-bold text-foreground">
+        <h2 id="films" className="text-subtitle font-semibold text-foreground">
           Films <span className="text-micro font-normal text-muted-foreground">{films.length}</span>
         </h2>
         <ScrollRow label="Films">

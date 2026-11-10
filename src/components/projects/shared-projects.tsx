@@ -13,7 +13,7 @@ export type LinkShared = { id: string; title: string; description: string; cover
 export function SharedProjects({ projects, linked = [], now }: { projects: Project[]; linked?: LinkShared[]; now: number }) {
   return (
     <section aria-labelledby="shared-with-you" className="mt-6 flex flex-col gap-4">
-      <h2 id="shared-with-you" className="text-xl font-bold text-foreground">Shared with you</h2>
+      <h2 id="shared-with-you" className="text-subtitle font-semibold text-foreground">Shared with you</h2>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,16.25rem),1fr))] gap-6">
         {projects.map((p) => (
           <Card

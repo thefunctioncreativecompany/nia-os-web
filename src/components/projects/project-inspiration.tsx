@@ -115,7 +115,7 @@ export function ProjectInspiration({
   return (
     <div className="flex flex-col gap-10">
       <section id="references" aria-labelledby="project-references" className="flex scroll-mt-24 flex-col gap-4">
-        <h2 id="project-references" className="text-xl leading-[1.4] font-bold text-foreground">
+        <h2 id="project-references" className="text-subtitle font-semibold text-foreground">
           References {row && row.length > 0 && <span className="text-micro font-normal text-muted-foreground">{row.length}</span>}
         </h2>
         {canEdit &&
@@ -157,7 +157,7 @@ export function ProjectInspiration({
 
       {access === false ? (
         <section aria-labelledby="inspiration" className="flex flex-col gap-3">
-          <h2 id="inspiration" className="text-xl leading-[1.4] font-bold text-foreground">
+          <h2 id="inspiration" className="text-subtitle font-semibold text-foreground">
             Inspiration for this project
           </h2>
           <NotYet>
@@ -172,7 +172,7 @@ export function ProjectInspiration({
         <section aria-labelledby="inspiration" className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-1">
-              <h2 id="inspiration" className="text-xl leading-[1.4] font-bold text-foreground">
+              <h2 id="inspiration" className="text-subtitle font-semibold text-foreground">
                 Inspiration for this project
               </h2>
               <TmdbCredit />

@@ -92,7 +92,7 @@ export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[];
   return (
     <section aria-labelledby="activity" className="flex flex-col gap-5">
       <div className="flex items-center gap-2">
-        <h2 id="activity" className="text-xl leading-[1.4] font-bold text-foreground">
+        <h2 id="activity" className="text-subtitle font-semibold text-foreground">
           Activity
         </h2>
         {unread > 0 && <span className="rounded-full bg-nia-blue/15 px-2 py-0.5 text-micro font-bold text-foreground">{unread} new</span>}

@@ -10,7 +10,7 @@ export function ProductionNotes({ slug, listHref }: { slug: string; listHref: st
   if (!groups.length) return null;
   return (
     <section aria-labelledby="production-notes" className="flex flex-col gap-4">
-      <h2 id="production-notes" className="text-xl leading-[1.4] font-bold text-foreground">
+      <h2 id="production-notes" className="text-subtitle font-semibold text-foreground">
         Production notes
       </h2>
       <dl className="flex flex-col gap-3.5">

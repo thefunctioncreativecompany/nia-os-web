@@ -154,7 +154,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
               <p className="text-small font-semibold text-muted-foreground">{metaLine(title)}</p>
               <TmdbCredit />
             </div>
-            <h1 className="text-h3 font-bold text-foreground md:text-h2">{title.title}</h1>
+            <h1 className="text-h3 font-semibold tracking-tight text-foreground md:text-h2">{title.title}</h1>
             {isTrailerStill(title.slug) && <p className="-mt-2 text-caption text-muted-foreground">{stillCaption(title.slug)}</p>}
             {/* Keep it, or put it to work in a project (Ika, 2026-10-21). */}
             <div className="flex flex-wrap gap-2">
@@ -180,7 +180,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
         {/* Right: Details and Behind the production. */}
         <div className="flex min-w-0 flex-col gap-8">
           <section aria-labelledby="details" className="flex flex-col gap-4">
-            <h2 id="details" className="text-xl leading-[1.4] font-bold text-foreground">
+            <h2 id="details" className="text-subtitle font-semibold text-foreground">
               Details
             </h2>
             <dl className="flex flex-col gap-3">
@@ -196,7 +196,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
           </section>
 
           <section aria-labelledby="behind" className="flex flex-col gap-4">
-            <h2 id="behind" className="text-xl leading-[1.4] font-bold text-foreground">
+            <h2 id="behind" className="text-subtitle font-semibold text-foreground">
               Behind the Production
             </h2>
             <dl className="flex flex-col gap-3">
@@ -218,7 +218,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
 
       {videos.length > 0 && (
         <section aria-labelledby="videos" className="flex flex-col gap-4">
-          <h2 id="videos" className="text-xl leading-[1.4] font-bold text-foreground">
+          <h2 id="videos" className="text-subtitle font-semibold text-foreground">
             Videos{season && title.seasons.length > 1 ? `, ${season.label ?? `season ${season.number}`}` : ""}{" "}
             <span className="text-micro font-normal text-muted-foreground">{videos.length}</span>
           </h2>
@@ -272,7 +272,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
       )}
 
       <section aria-labelledby="also-like" className="flex flex-col gap-4">
-        <h2 id="also-like" className="text-xl leading-[1.4] font-bold text-foreground">
+        <h2 id="also-like" className="text-subtitle font-semibold text-foreground">
           You may also like
         </h2>
         <ScrollRow label="You may also like">

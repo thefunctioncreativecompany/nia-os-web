@@ -71,7 +71,7 @@ async function HomeBody() {
       <WorkflowCards templates={templates.map(({ code, name }) => ({ code, name }))} profession={current.profession} />
 
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
-        <h2 id="recent-projects" className="text-xl leading-[1.4] font-bold text-foreground">
+        <h2 id="recent-projects" className="text-subtitle font-semibold text-foreground">
           Recent projects
         </h2>
         <Suspense fallback={<Skeleton className="h-48 rounded-xl" />}>
@@ -104,7 +104,7 @@ async function Welcome() {
   const [user, { projects }] = await Promise.all([getCurrentUser(), recentProjects()]);
   const first = user.firstName;
   return (
-    <h1 className="text-h2 font-bold text-foreground">
+    <h1 className="text-h2 font-semibold tracking-tight text-foreground">
       {projects.length ? "Welcome back" : "Welcome"}
       {first ? `, ${first}` : ""}
     </h1>

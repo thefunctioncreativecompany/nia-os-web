@@ -670,3 +670,10 @@ onboarding's Import profile and Follow creators describe features removed in the
   schedule (always empty until the schedule is built) and Quick actions (the + in the bar, the
   Templates tab, and files on each project). Git tag `parked-2026-11-10-home`. The new-template
   card no longer lists For you / For your team; that shows in the preview only.
+- (2026-11-10) One heading standard, from Explore (Ika: "do a platform wide check" for
+  inconsistent hierarchy and boldness): page titles `text-h2 font-semibold tracking-tight`,
+  section headings `text-subtitle font-semibold`, applied to Home, Projects, Collections,
+  Settings, Plans, Activity, Cast & crew, the project page, the share page and Explore's title
+  pages (they were bold or extra-bold at four sizes). Written into CLAUDE.md's Design rules.
+  Still different: side gutters (Explore and Templates `md:px-7.5`; Home, Projects and Settings
+  `md:px-15`), and small card headings.

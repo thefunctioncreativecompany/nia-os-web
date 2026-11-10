@@ -275,7 +275,7 @@ export function CrewSection({ crew, canEdit, directoryHref }: { crew: CrewMember
   return (
     <section aria-labelledby="crew" className="flex flex-col gap-4">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
-        <h2 id="crew" className="text-xl leading-[1.4] font-bold text-foreground">
+        <h2 id="crew" className="text-subtitle font-semibold text-foreground">
           Crew &amp; talent {people.length > 0 && <span className="text-micro font-normal text-muted-foreground">{people.length}</span>}
         </h2>
         {(people.length > 0 || canEdit) && (

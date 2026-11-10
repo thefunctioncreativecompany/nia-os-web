@@ -186,7 +186,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
         </Link>
       </Button>
       <header className="mt-4 flex flex-col gap-1">
-        <h1 className="text-display font-extrabold tracking-tight text-foreground">Activity</h1>
+        <h1 className="text-h2 font-semibold tracking-tight text-foreground">Activity</h1>
         <p className="text-lead text-muted-foreground">What&rsquo;s for you, and everything else from your projects, newest first.</p>
       </header>
 

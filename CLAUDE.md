@@ -52,6 +52,9 @@ Design:
   `src/components/nia/filter-bar.tsx`: `SearchField` (56px pill), `FilterChip` (40px pill; on = dark
   border, grey fill; optional count), `ChipMenu` ("Category: All ▾"), `ResultCount`; chip and menu rows go in `ChipRow` (one line to swipe on phones and tablets, wrapping on
   wide screens; Ika, 2026-10-31).
+- Headings (Ika, 2026-11-10, one standard, from Explore): a page title is
+  `text-h2 font-semibold tracking-tight text-foreground`; a section heading is
+  `text-subtitle font-semibold text-foreground`. No `font-extrabold` or `text-display` titles.
 - Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
   motion. Only modals/panels, the saved tick, cards settling, the card hover sweep, Copilot highlights
   and onboarding slides animate.

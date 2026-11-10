@@ -165,7 +165,7 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
       ) : (
         <>
           {/* Start from a goal (Ika, 2026-11-10): the person's own group first. */}
-          <WorkflowCards templates={templates} profession={learning.profile.role} headingClassName="text-subtitle font-semibold text-foreground" className="px-4 pt-7.5 md:px-7.5" />
+          <WorkflowCards templates={templates} profession={learning.profile.role} className="px-4 pt-7.5 md:px-7.5" />
           {/* New templates lead while they're new (launches.ts). */}
           <JustAdded templates={templates} onPreview={(t) => openPreview(t, templates.filter((x) => x.fresh))} className="px-4 pt-7.5 pb-6 md:px-7.5" />
           {/* Documents you started and haven't put in a project (audit #3). */}

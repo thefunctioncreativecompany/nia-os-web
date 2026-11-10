@@ -65,7 +65,7 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0 }: { filmId: str
 
           <div className="flex flex-col gap-3">
             <p className="text-small font-semibold text-muted-foreground">{meta}</p>
-            <h1 className="text-h3 font-bold text-foreground md:text-h2">{film.title}</h1>
+            <h1 className="text-h3 font-semibold tracking-tight text-foreground md:text-h2">{film.title}</h1>
             <div className="flex flex-wrap gap-2">
               <SaveToCollection slug={slug} title={film.title} />
               <AddToProject slug={slug} title={film.title} />
@@ -77,7 +77,7 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0 }: { filmId: str
         {/* Right: Details and Behind the production. */}
         <div className="flex min-w-0 flex-col gap-8">
           <section aria-labelledby="details" className="flex flex-col gap-4">
-            <h2 id="details" className="text-xl leading-[1.4] font-bold text-foreground">
+            <h2 id="details" className="text-subtitle font-semibold text-foreground">
               Details
             </h2>
             <dl className="flex flex-col gap-3">
@@ -95,7 +95,7 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0 }: { filmId: str
           </section>
 
           <section aria-labelledby="behind" className="flex flex-col gap-4">
-            <h2 id="behind" className="text-xl leading-[1.4] font-bold text-foreground">
+            <h2 id="behind" className="text-subtitle font-semibold text-foreground">
               Behind the Production
             </h2>
             <div className="flex flex-wrap gap-2.5">

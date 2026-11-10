@@ -36,7 +36,7 @@ export function CastCrewRow({
   return (
     <section aria-labelledby="cast-crew" className={cn("flex flex-col gap-4", className)}>
       <div className="flex flex-wrap items-baseline justify-between gap-3">
-        <h2 id="cast-crew" className="text-xl leading-[1.4] font-bold text-foreground">
+        <h2 id="cast-crew" className="text-subtitle font-semibold text-foreground">
           {label} <span className="text-micro font-normal text-muted-foreground">{total}</span>
         </h2>
         {total > people.length && viewAll}

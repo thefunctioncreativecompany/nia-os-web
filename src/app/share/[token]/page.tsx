@@ -170,7 +170,7 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
 function LinkOff() {
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-4 py-15 text-center">
-      <h1 className="text-h2 font-bold text-foreground">This link is off</h1>
+      <h1 className="text-h2 font-semibold tracking-tight text-foreground">This link is off</h1>
       <p className="max-w-110 text-lead text-muted-foreground">
         The project&rsquo;s owner has turned off its share link, or the link has changed. Ask them for a new one.
       </p>

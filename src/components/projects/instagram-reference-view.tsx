@@ -119,7 +119,7 @@ export function InstagramReferenceView({
 
           <div className="flex flex-col gap-3">
             <p className="text-small font-semibold text-muted-foreground">{[ref.productionType, ref.postedOn?.slice(0, 4), "Instagram"].filter(Boolean).join(" · ")}</p>
-            <h1 className="text-h3 font-bold text-foreground md:text-h2">{ref.title}</h1>
+            <h1 className="text-h3 font-semibold tracking-tight text-foreground md:text-h2">{ref.title}</h1>
             {canEdit && (
               <div className="flex flex-wrap gap-2">
                 <Button variant="outline" size="md" disabled={removing} onClick={() => void remove()}>
@@ -138,7 +138,7 @@ export function InstagramReferenceView({
 
         <div className="flex min-w-0 flex-col gap-8">
           <section aria-labelledby="details" className="flex flex-col gap-4">
-            <h2 id="details" className="text-xl leading-[1.4] font-bold text-foreground">
+            <h2 id="details" className="text-subtitle font-semibold text-foreground">
               Details
             </h2>
             <dl className="flex flex-col gap-3">
@@ -167,7 +167,7 @@ export function InstagramReferenceView({
 
           {ref.credits.length > 0 && (
             <section aria-labelledby="credits" className="flex flex-col gap-4">
-              <h2 id="credits" className="text-xl leading-[1.4] font-bold text-foreground">
+              <h2 id="credits" className="text-subtitle font-semibold text-foreground">
                 Credits <span className="text-micro font-normal text-muted-foreground">{ref.credits.length}</span>
               </h2>
               <dl className="flex flex-col gap-3">

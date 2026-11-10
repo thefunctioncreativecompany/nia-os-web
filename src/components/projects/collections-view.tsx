@@ -54,7 +54,7 @@ export function CollectionsView() {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <h1 className="text-h2 font-bold text-foreground">Collections</h1>
+        <h1 className="text-h2 font-semibold tracking-tight text-foreground">Collections</h1>
         <p className="max-w-160 text-lead text-muted-foreground">Titles you&rsquo;ve saved from Explore, ready to add to a project&rsquo;s references.</p>
       </div>
 
