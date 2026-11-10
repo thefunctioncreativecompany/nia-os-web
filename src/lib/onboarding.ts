@@ -1,19 +1,20 @@
 // Onboarding steps in order. Each one is a page at /onboarding/<step>. (Import your profile and
-// Follow creators were removed on 2026-11-02; git tag parked-2026-11-02.)
+// Follow creators were removed on 2026-11-02, git tag parked-2026-11-02; "What you can do on Nia"
+// and inviting team members on 2026-11-10, since they promised things that aren't live yet, git
+// tag parked-2026-11-10-onboarding.) The workspace step is the last: it marks onboarding complete.
 export const ONBOARDING_STEPS = [
   "source",
   "username",
   "photo",
   "profession",
   "workspace",
-  "features",
   "done",
 ] as const;
 
 export type OnboardingStepId = (typeof ONBOARDING_STEPS)[number];
 
-// "Step N of 6" starts after the first question, which isn't counted.
-export const ONBOARDING_TOTAL_STEPS = ONBOARDING_STEPS.length - 1;
+// "Step N of 4": the first question and the "You're all set" screen aren't counted.
+export const ONBOARDING_TOTAL_STEPS = ONBOARDING_STEPS.length - 2;
 
 export const stepNumber = (step: OnboardingStepId) => ONBOARDING_STEPS.indexOf(step);
 

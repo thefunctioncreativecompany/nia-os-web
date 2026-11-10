@@ -54,6 +54,7 @@ export function OnboardingStep({
 // Optional "Skip" link above the black Continue pill.
 export function OnboardingActions({
   skipHref,
+  onSkip,
   skipLabel = "Skip for now",
   submitLabel = "Continue",
   pendingLabel = "Saving…",
@@ -62,6 +63,8 @@ export function OnboardingActions({
   className,
 }: {
   skipHref?: string;
+  /** For a step whose skip still has something to save (the last step finishes onboarding). */
+  onSkip?: () => void;
   skipLabel?: string;
   submitLabel?: string;
   pendingLabel?: string;
@@ -72,6 +75,16 @@ export function OnboardingActions({
   return (
     <div className={cn("flex w-full flex-col items-center gap-5", className)}>
       {skipHref && <SkipLink href={skipHref}>{skipLabel}</SkipLink>}
+      {onSkip && (
+        <button
+          type="button"
+          onClick={onSkip}
+          disabled={isPending}
+          className="rounded-sm text-small leading-normal text-muted-foreground outline-none hover:text-foreground hover:underline focus-visible:ring-3 focus-visible:ring-ring/50"
+        >
+          {skipLabel}
+        </button>
+      )}
       <Button type="submit" disabled={disabled || isPending} className="w-full">
         {isPending ? pendingLabel : submitLabel}
       </Button>

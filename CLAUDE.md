@@ -182,7 +182,9 @@ Milestone 1 — Accounts
 - [ ] 1.4 Onboarding. Built as all 9 Figma screens under `/onboarding/*`, saving each step, tested end
   to end locally and live. Trimmed 2026-10-31 (beta walkthrough): Import your profile and Follow
   creators are out of the flow (`features.onboardingExtrasShown`, pages redirect), so 7 screens to
-  Home ("Step N of 6"). Still to do: How did you hear as an optional tap on the last screen, and
+  Home ("Step N of 6"). Trimmed again 2026-11-10 (Ika: nothing that isn't active): "What you can do
+  on Nia" and inviting team members are out (tag `parked-2026-11-10-onboarding`), so 5 screens
+  and "Step N of 4"; the workspace step finishes onboarding. Still to do: How did you hear as an optional tap on the last screen, and
   What you can do as slides (wait for Figma).
 
 Milestone 2 — Projects (built from Figma sections 778-2218, 872-42448, 840-26959; Ika chose to do

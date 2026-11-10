@@ -634,3 +634,8 @@ onboarding's Import profile and Follow creators describe features removed in the
   valid certificate on every address. The bare niatechnologies.co is broken: GoDaddy DNS has
   three A records for it (two GoDaddy, one Vercel) and Vercel has no certificate for it. Ika to
   fix in Vercel → Domains and GoDaddy DNS.
+- (2026-11-10) Onboarding shows only what's live (Ika: "remove any steps that are not yet
+  active"): "What you can do on Nia" (it promised an AI assistant, timelines and storyboards) and
+  "Invite team members" on the workspace step (emails were stored, never sent) are removed; git
+  tag `parked-2026-11-10-onboarding`. Five screens, "Step N of 4"; the workspace step, saved or
+  skipped, marks onboarding complete (`completeOnboarding`). Stored invites are left untouched.
