@@ -15,6 +15,7 @@
   --color-nia-blue: var(--nia-blue);
   --color-nia-blue-foreground: var(--nia-blue-foreground);
   --color-logo-plate: var(--logo-plate);
+  --color-logo-ink: var(--logo-ink);
   --color-nia-surface: var(--nia-surface);
   --color-nia-canvas: var(--nia-canvas);
   --color-nia-panel: var(--nia-panel);
@@ -255,6 +256,7 @@
   --nia-blue-foreground: #ffffff;
   /* Behind company logos (Explore's studios, Ika 2026-11-10): white in both themes, like print. */
   --logo-plate: #ffffff;
+  --logo-ink: #1f1f1f;
   --nia-footer: #1f1f1f;
   --nia-placeholder: #8a8a8a;
   --nia-success: #166534;
@@ -454,6 +456,7 @@
   --nia-blue: #3794ff;
   --nia-blue-foreground: #1f1f1f;
   --logo-plate: #f2f2f2;
+  --logo-ink: #1f1f1f;
   --nia-footer: #181818;
   --nia-placeholder: #969696;
   --nia-success: #6ee7a0;

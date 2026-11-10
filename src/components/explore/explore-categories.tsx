@@ -14,8 +14,6 @@ import { EpkLanes } from "./epk-lanes";
 import { getCategory } from "./explore-data";
 import { CategoryStrip } from "./category-strip";
 import { MadeInAfricaStrip } from "./made-in-africa-strip";
-import { StudioStrip } from "./studio-strip";
-import type { StudioRow } from "@/features/explore/studios";
 
 type Section = { id: string; name: string; href?: string; row: React.ReactNode };
 
@@ -23,7 +21,7 @@ type Section = { id: string; name: string; href?: string; row: React.ReactNode }
 // category under a heading that shows or hides it, with Show all / Hide all. All start open.
 // Headings are the name alone, no count or explaining line (Ika, 2026-10-30).
 // Top 10 on Explore sits above Recently added since 2026-11-08 (explore-library.tsx).
-export function CategorySections({ seed, studios }: { seed: number; studios: StudioRow[] }) {
+export function CategorySections({ seed }: { seed: number }) {
   const epk = getCategory("epk");
   const sections: Section[] = [
     { id: "made-in-africa", name: MADE_IN_AFRICA.name, href: MADE_IN_AFRICA_HREF, row: <MadeInAfricaStrip seed={seed} bare /> },
@@ -31,8 +29,7 @@ export function CategorySections({ seed, studios }: { seed: number; studios: Stu
     // Greatest TV (approved 2026-10-30) shows once a title in it has a cover.
     ...(greatestTv.length ? [{ id: "greatest-tv", name: GREATEST_TV.name, href: GREATEST_TV_HREF, row: <CategoryStrip category="greatest-tv" /> }] : []),
     { id: "creators", name: CREATORS.name, href: CREATORS_HREF, row: <CreatorsStrip seed={seed} bare /> },
-    // By studio (Ika, 2026-10-31).
-    ...(studios.length ? [{ id: "studios", name: "By studio", row: <StudioStrip rows={studios} /> }] : []),
+    // By studio moved under Top 10 (Ika, 2026-11-10; explore-library.tsx).
     { id: "epk", name: epk.title, row: <EpkLanes category={epk} bare /> },
   ];
   const [open, setOpen] = useState(() => new Set(sections.map((s) => s.id)));

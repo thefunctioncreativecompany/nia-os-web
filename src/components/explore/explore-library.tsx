@@ -9,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { LIBRARY_HREF } from "@/features/explore/made-in-africa";
 import { CategorySections } from "./explore-categories";
 import type { StudioRow } from "@/features/explore/studios";
+import { StudioLogos } from "./studio-strip";
 import { TopTen } from "./top-ten";
 
 // Explore, the library: Ika's Claude Design "ExploreLibrary" as designed (layout, motion, images),
@@ -42,8 +43,20 @@ export function ExploreLibrary({ seed, top, studios }: { seed: number; top: Prom
         </div>
       </section>
 
+      {/* By studio, just under Top 10 (Ika, 2026-11-10): logos that open each studio's View all. */}
+      {studios.length > 0 && (
+        <section aria-labelledby="by-studio" className="mt-12">
+          <h2 id="by-studio" className="text-subtitle font-semibold text-foreground">
+            By studio
+          </h2>
+          <div className="mt-6">
+            <StudioLogos rows={studios} />
+          </div>
+        </section>
+      )}
+
       {/* Every category under a heading that shows or hides it (Ika, 2026-10-29). */}
-      <CategorySections seed={seed} studios={studios} />
+      <CategorySections seed={seed} />
     </div>
   );
 }

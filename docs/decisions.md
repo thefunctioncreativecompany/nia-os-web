@@ -602,3 +602,7 @@ onboarding's Import profile and Follow creators describe features removed in the
   light mode, `#f2f2f2` in dark), the chosen one ringed like an "on" chip; a line under the row
   names the studio, its owner when different, and how many titles are on Explore. A studio
   without a logo falls back to its word chip. Not in Figma yet.
+- (2026-11-10, later) By studio moves out of By category to just under Top 10, with no show/hide
+  heading (Ika): logos half as wide as a Top 10 card, each opening the studio's View all
+  (`/explore/studio/[id]`: logo, name, owner, every title in masonry columns; "← Back to Explore").
+  The in-place chips and title row are gone. `logo-ink` names a studio without a logo on its plate.
