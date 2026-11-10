@@ -681,3 +681,10 @@ onboarding's Import profile and Follow creators describe features removed in the
   explore, without disrupting browsing"): "Add to project" on every Explore title starts with a
   "New project" row; naming it creates the project (the title's kind of production) with the
   title as its first reference. The person stays on the page; the toast offers Open.
+- (2026-11-10) Explore open to everyone signed in, no invite code for now (Ika: "remove the
+  creativity2026 for all users for now, you can still leave the welcome page for first users"):
+  `features.exploreUnlocked` is on; a first visit shows the ring-of-posters screen once as a
+  welcome with one button, remembered on the account (`explore_welcomed`). The database side is
+  `20261110000000_explore_open.sql` (has_explore_access() says yes to anyone signed in), for Ika
+  to run: until then people without an invite can browse but not save titles or add them to
+  projects. The invite list and codes are kept; switching the flag off restores the code screen.

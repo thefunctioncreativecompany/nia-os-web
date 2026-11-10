@@ -5,6 +5,8 @@
 // so the screens can say so instead of failing.
 import type { SupabaseClient } from "@supabase/supabase-js";
 
+import { features } from "@/lib/features";
+
 import { currentUser } from "@/lib/supabase/current-user";
 import { recordEvent } from "@/lib/product-events";
 
@@ -14,6 +16,7 @@ export type EditableProject = { id: string; title: string; coverUrl: string | nu
 
 /** Whether this person can use Explore (early access by invite or code), from the browser. */
 export async function exploreAccess(db: SupabaseClient): Promise<boolean> {
+  if (features.exploreUnlocked) return true;
   const { data, error } = await db.rpc("has_explore_access");
   return !error && data === true;
 }

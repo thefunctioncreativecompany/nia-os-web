@@ -89,8 +89,8 @@ changing it. The master list of what's shipped, open, fed back and planned is
 - Plan limits apply on the live site only (`src/lib/plans.ts`); paid-only things check the plan
   on the server.
 - Templates: only working ones are in `catalog`; build the rest in Ika's priority order.
-- Explore is curation, not distribution: early access only (`has_explore_access()`; invite codes
-  live only in the SQL Editor), link and never copy, no review scores, credit TMDB, Wikidata and
+- Explore is curation, not distribution: open to everyone signed in since 2026-11-10 (no invite
+  code for now; `features.exploreUnlocked`, a welcome screen on the first visit), link and never copy, no review scores, credit TMDB, Wikidata and
   Commons. Only titles with a cover show. Every new title gets a press kit, cast and crew, a
   release date and a palette (the scripts in `scripts/`), committed without asking. Never invent
   an Explore category.
@@ -305,5 +305,5 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261106000000_project_details_crew.sql`; also `20261028000000_plans.sql`,
 `20261029000000_marketplace_waitlist.sql` and `20261103000000_explore_views.sql` (found run,
 2026-10-28); `20261107000000_security_function_access.sql`, `20261108000000_explore_top.sql` and
-`20261109000000_people.sql`. Not run: `20261030000000_explore_made_in_africa.sql` (Explore reads
+`20261109000000_people.sql`. Not run: `20261110000000_explore_open.sql` (until it is, only invited people can save titles or add them to projects), `20261030000000_explore_made_in_africa.sql` (Explore reads
 sample data).

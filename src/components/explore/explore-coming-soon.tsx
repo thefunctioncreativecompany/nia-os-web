@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
 import { useReducedMotion } from "framer-motion";
+import { useRouter } from "next/navigation";
+
+import { createClient } from "@/lib/supabase/client";
 
 import { Button } from "@/components/ui/button";
 import { ComingSoonCard, comingSoonButton } from "@/components/nia/coming-soon-card";
@@ -27,16 +30,14 @@ const STEER = 1.2;
 // posters on a ring that turns on its own; moving the pointer left or right steers it, up and down
 // tilts it. A frosted card rises in over it. Platform font, colours, buttons and sentence case.
 // Reduced motion stops the ring and the pulse.
-export function ExploreComingSoon() {
+// `welcome` (Ika, 2026-11-10: no invite code for now, everyone has Explore): the same screen as a
+// first visit's welcome, with one button in; it shows once per account.
+export function ExploreComingSoon({ welcome = false }: { welcome?: boolean }) {
   const reduce = useReducedMotion();
   const [angle, setAngle] = useState(0);
   const pointer = useRef({ x: 0.5, y: 0.5 });
   const [tilt, setTilt] = useState(0.5);
   const frame = useFrame();
-  const { waiting, toggle, email } = useWaitlist("explore", {
-    joined: "We'll let you know when Explore opens.",
-    left: "You won't get a note when Explore opens.",
-  });
   // Phones: the card fills the middle, so the ring stands taller to show above and below it.
   const narrow = useMediaQuery("(max-width: 40rem)");
 
@@ -97,27 +98,67 @@ export function ExploreComingSoon() {
         </div>
       ))}
 
-      <ComingSoonCard
-        status="Early access by invite"
-        title="Explore"
-        note={email && <>We&rsquo;ll email {email} when Explore opens.</>}
-        actions={
-          <>
-            {waiting ? (
-              <Button variant="outline" onClick={() => void toggle()} aria-pressed className={comingSoonButton}>
-                <Check aria-hidden /> We&rsquo;ll let you know
-              </Button>
-            ) : (
-              <Button onClick={() => void toggle()} disabled={waiting === null} className={comingSoonButton}>
-                Notify me
-              </Button>
-            )}
-            <InviteCodeForm area="explore" unlocked="Explore is unlocked. Welcome in." />
-          </>
-        }
-      >
-        Films, series and creators&rsquo; work with full production credits, ready to save to your projects. Open to invited members now, and to everyone in February 2027.
-      </ComingSoonCard>
+      {welcome ? <WelcomeCard /> : <WaitCard />}
     </div>
+  );
+}
+
+
+// First visit, now that Explore is open to everyone: one line and the way in.
+function WelcomeCard() {
+  const router = useRouter();
+  const [busy, setBusy] = useState(false);
+  const enter = async () => {
+    setBusy(true);
+    const supabase = createClient();
+    // Remembered on the account, so the welcome shows once on any device.
+    await supabase.auth.updateUser({ data: { explore_welcomed: true } });
+    await supabase.auth.refreshSession();
+    router.refresh();
+  };
+  return (
+    <ComingSoonCard
+      status="Open to everyone in the beta"
+      tone="success"
+      title="Explore"
+      actions={
+        <Button onClick={() => void enter()} disabled={busy} className={comingSoonButton}>
+          {busy ? "Opening…" : "Enter Explore"}
+        </Button>
+      }
+    >
+      Films, series and creators&rsquo; work, with who made them and how.
+    </ComingSoonCard>
+  );
+}
+
+// Before Explore opened to everyone: join the list, or enter an invite code.
+function WaitCard() {
+  const { waiting, toggle, email } = useWaitlist("explore", {
+    joined: "We'll let you know when Explore opens.",
+    left: "You won't get a note when Explore opens.",
+  });
+  return (
+    <ComingSoonCard
+      status="Early access by invite"
+      title="Explore"
+      note={email && <>We&rsquo;ll email {email} when Explore opens.</>}
+      actions={
+        <>
+          {waiting ? (
+            <Button variant="outline" onClick={() => void toggle()} aria-pressed className={comingSoonButton}>
+              <Check aria-hidden /> We&rsquo;ll let you know
+            </Button>
+          ) : (
+            <Button onClick={() => void toggle()} disabled={waiting === null} className={comingSoonButton}>
+              Notify me
+            </Button>
+          )}
+          <InviteCodeForm area="explore" unlocked="Explore is unlocked. Welcome in." />
+        </>
+      }
+    >
+      Films, series and creators&rsquo; work with full production credits, ready to save to your projects. Open to invited members now, and to everyone in February 2027.
+    </ComingSoonCard>
   );
 }
