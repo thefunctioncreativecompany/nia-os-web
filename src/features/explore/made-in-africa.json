@@ -6110,6 +6110,745 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "avatar",
+   "collection": "modern-classics",
+   "title": "Avatar",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Adventure"
+   ],
+   "year": 2009,
+   "countries": [
+    "United States"
+   ],
+   "credit": "James Cameron",
+   "recognition": "Three Academy Awards: cinematography, visual effects and art direction",
+   "pair_with": "",
+   "study_note": "Performance capture and a virtual camera: actors on a bare stage, directed inside a finished world",
+   "added": "2026-11-10",
+   "imdb_id": "tt0499549",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "5PSNL1qE6VY",
+     "kind": "trailer",
+     "channel": "20th Century Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "squid-game",
+   "collection": "drama-series",
+   "title": "Squid Game",
+   "type": "series",
+   "genres": [
+    "Thriller",
+    "Drama",
+    "Mystery"
+   ],
+   "year": 2021,
+   "countries": [
+    "South Korea"
+   ],
+   "credit": "Hwang Dong-hyuk",
+   "recognition": "Six Emmy Awards for its first season, including directing and lead actor",
+   "pair_with": "",
+   "study_note": "Children's games on giant pastel sets: production design that makes the horror clear at a glance",
+   "added": "2026-11-10",
+   "imdb_id": "tt10919420",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "oqxAJKy0ii4",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "gladiator",
+   "collection": "modern-classics",
+   "title": "Gladiator",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Drama",
+    "Historical"
+   ],
+   "year": 2000,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Ridley Scott",
+   "recognition": "Five Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "A part-built Colosseum finished digitally; a lead performance completed after an actor died mid-shoot",
+   "added": "2026-11-10",
+   "imdb_id": "tt0172495",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "P5ieIbInFpg",
+     "kind": "trailer",
+     "channel": "Paramount Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "fight-club",
+   "collection": "modern-classics",
+   "title": "Fight Club",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Thriller"
+   ],
+   "year": 1999,
+   "countries": [
+    "United States"
+   ],
+   "credit": "David Fincher",
+   "pair_with": "",
+   "study_note": "A narrator you can't trust, told in voice-over, a sickly grade and frames that hide the twist in plain sight",
+   "added": "2026-11-10",
+   "imdb_id": "tt0137523",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "qtRKdVHc-cE",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "interstellar",
+   "collection": "modern-classics",
+   "title": "Interstellar",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Adventure",
+    "Drama"
+   ],
+   "year": 2014,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Christopher Nolan",
+   "recognition": "Academy Award for visual effects",
+   "pair_with": "",
+   "study_note": "Space projected on screens outside the set's windows, so the actors and the lens saw it for real",
+   "added": "2026-11-10",
+   "imdb_id": "tt0816692",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "zSWdZVtXT7E",
+     "kind": "trailer",
+     "channel": "Warner Bros. UK & Ireland",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "inception",
+   "collection": "modern-classics",
+   "title": "Inception",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Thriller"
+   ],
+   "year": 2010,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Christopher Nolan",
+   "recognition": "Four Academy Awards: cinematography, visual effects, sound editing and sound mixing",
+   "pair_with": "",
+   "study_note": "A rotating hotel corridor built for real: four layers of story kept clear by look and cutting",
+   "added": "2026-11-10",
+   "imdb_id": "tt1375666",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "YoHD9XEInc0",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-avengers",
+   "collection": "modern-classics",
+   "title": "The Avengers",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Sci-Fi",
+    "Adventure"
+   ],
+   "year": 2012,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Joss Whedon",
+   "pair_with": "",
+   "study_note": "Six leads from five films in one story: an ensemble balanced so each has a moment",
+   "added": "2026-11-10",
+   "imdb_id": "tt0848228",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "sXT4uBpGxNY",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "pirates-of-the-caribbean-the-curse-of-the-black-pearl",
+   "collection": "modern-classics",
+   "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Action"
+   ],
+   "year": 2003,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Gore Verbinski",
+   "recognition": "Five Academy Award nominations, including Johnny Depp as lead actor",
+   "pair_with": "",
+   "study_note": "A theme-park ride turned into a film by one unexpected lead performance; ships and sea shot for real",
+   "added": "2026-11-10",
+   "imdb_id": "tt0325980",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "naQr0uTrH_s",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "prison-break",
+   "collection": "drama-series",
+   "title": "Prison Break",
+   "type": "series",
+   "genres": [
+    "Thriller",
+    "Crime",
+    "Drama"
+   ],
+   "year": 2005,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Paul T. Scheuring",
+   "pair_with": "",
+   "study_note": "The escape plan is tattooed on the lead: a whole season's plot carried on one image, shot in a real closed prison",
+   "added": "2026-11-10",
+   "imdb_id": "tt0455275"
+  },
+  {
+   "slug": "saving-private-ryan",
+   "collection": "modern-classics",
+   "title": "Saving Private Ryan",
+   "type": "film",
+   "genres": [
+    "Historical",
+    "Drama",
+    "Action"
+   ],
+   "year": 1998,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Steven Spielberg",
+   "recognition": "Five Academy Awards, including Best Director",
+   "pair_with": "",
+   "study_note": "Omaha Beach handheld, with the colour drained and the shutter narrowed: the look war films have copied since",
+   "added": "2026-11-10",
+   "imdb_id": "tt0120815",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "9CiW_DgxCnQ",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "a-beautiful-mind",
+   "collection": "modern-classics",
+   "title": "A Beautiful Mind",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Biography",
+    "Romance"
+   ],
+   "year": 2001,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Ron Howard",
+   "recognition": "Four Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "The audience shares the delusions before learning they are delusions: point of view as the whole design",
+   "added": "2026-11-10",
+   "imdb_id": "tt0268978",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "YWwAOutgWBQ",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "brokeback-mountain",
+   "collection": "modern-classics",
+   "title": "Brokeback Mountain",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Romance"
+   ],
+   "year": 2005,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Ang Lee",
+   "recognition": "Three Academy Awards, including Best Director; Golden Lion at Venice",
+   "pair_with": "",
+   "study_note": "Twenty years told in few words: wide landscapes and long silences do the talking",
+   "added": "2026-11-10",
+   "imdb_id": "tt0388795",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "U5D1iU5KnqQ",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "pirates-of-the-caribbean-at-worlds-end",
+   "collection": "modern-classics",
+   "title": "Pirates of the Caribbean: At World's End",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Action"
+   ],
+   "year": 2007,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Gore Verbinski",
+   "pair_with": "",
+   "study_note": "Shot back to back with the second film: one of the largest productions of its day, planned as a single shoot",
+   "added": "2026-11-10",
+   "imdb_id": "tt0449088",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "HKSZtp_OGHY",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "iron-man",
+   "collection": "modern-classics",
+   "title": "Iron Man",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Sci-Fi",
+    "Adventure"
+   ],
+   "year": 2008,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Jon Favreau",
+   "pair_with": "",
+   "study_note": "Much of the dialogue was improvised on set; practical suits mixed with digital ones started a studio's whole run",
+   "added": "2026-11-10",
+   "imdb_id": "tt0371746",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "8ugaeA-nMTc",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "spider-man",
+   "collection": "modern-classics",
+   "title": "Spider-Man",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Sci-Fi",
+    "Romance"
+   ],
+   "year": 2002,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Sam Raimi",
+   "pair_with": "",
+   "study_note": "A superhero story played as a teenager's coming of age, with a comic-book camera swinging through New York",
+   "added": "2026-11-10",
+   "imdb_id": "tt0145487",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "t06RUxPbp_c",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "pirates-of-the-caribbean-dead-mans-chest",
+   "collection": "modern-classics",
+   "title": "Pirates of the Caribbean: Dead Man's Chest",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Action"
+   ],
+   "year": 2006,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Gore Verbinski",
+   "recognition": "Academy Award for visual effects",
+   "pair_with": "",
+   "study_note": "Davy Jones, performance-captured on set among the other actors: a digital character that still holds up",
+   "added": "2026-11-10",
+   "imdb_id": "tt0383574",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "SNA-Ezahmok",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "alien",
+   "collection": "new-hollywood",
+   "title": "Alien",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Sci-Fi"
+   ],
+   "year": 1979,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Ridley Scott",
+   "recognition": "Academy Award for visual effects",
+   "pair_with": "",
+   "study_note": "A haunted house in space: the creature is kept in shadow, and the lived-in sets do the world-building",
+   "added": "2026-11-10",
+   "imdb_id": "tt0078748",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "jQ5lPt9edzQ",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "home-alone",
+   "collection": "modern-classics",
+   "title": "Home Alone",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "year": 1990,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Chris Columbus",
+   "pair_with": "",
+   "study_note": "One house, one child, one set of traps: physical comedy staged like stunts, under a John Williams score",
+   "added": "2026-11-10",
+   "imdb_id": "tt0099785",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "jEDaVHmw7r4",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "oppenheimer",
+   "collection": "modern-classics",
+   "title": "Oppenheimer",
+   "type": "film",
+   "genres": [
+    "Biography",
+    "Historical",
+    "Drama"
+   ],
+   "year": 2023,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Christopher Nolan",
+   "recognition": "Seven Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "Three hours of people talking in rooms, shot on large-format film, some of it black and white; the bomb test made without computer imagery",
+   "added": "2026-11-10",
+   "imdb_id": "tt15398776",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "uYPbbksJxIg",
+     "kind": "trailer",
+     "channel": "Universal Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "parasite",
+   "collection": "explore-all",
+   "title": "Parasite",
+   "type": "film",
+   "genres": [
+    "Thriller",
+    "Comedy",
+    "Drama"
+   ],
+   "year": 2019,
+   "countries": [
+    "South Korea"
+   ],
+   "credit": "Bong Joon-ho",
+   "recognition": "Palme d'Or at Cannes; four Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "Two homes built as sets, one above and one below: class told through stairs, windows and rain",
+   "added": "2026-11-10",
+   "imdb_id": "tt6751668",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "isOGD_7hNIY",
+     "kind": "trailer",
+     "channel": "NEON",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "inglourious-basterds",
+   "collection": "modern-classics",
+   "title": "Inglourious Basterds",
+   "type": "film",
+   "genres": [
+    "Historical",
+    "Thriller",
+    "Drama"
+   ],
+   "year": 2009,
+   "countries": [
+    "United States",
+    "Germany"
+   ],
+   "credit": "Quentin Tarantino",
+   "recognition": "Academy Award for Christoph Waltz as supporting actor",
+   "pair_with": "",
+   "study_note": "Long table scenes in four languages where the tension is who understands whom",
+   "added": "2026-11-10",
+   "imdb_id": "tt0361748",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "KnrRy6kSFF0",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "captain-america-the-first-avenger",
+   "collection": "modern-classics",
+   "title": "Captain America: The First Avenger",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2011,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Joe Johnston",
+   "pair_with": "",
+   "study_note": "A 1940s serial look for a comic-book origin; the lead digitally shrunk for the first act",
+   "added": "2026-11-10",
+   "imdb_id": "tt0458339",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "qi5UTD7kEr0",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-pianist",
+   "collection": "explore-all",
+   "title": "The Pianist",
+   "type": "film",
+   "genres": [
+    "Biography",
+    "Historical",
+    "Drama"
+   ],
+   "year": 2002,
+   "countries": [
+    "France",
+    "Poland",
+    "Germany",
+    "United Kingdom"
+   ],
+   "credit": "Roman Polanski",
+   "recognition": "Palme d'Or at Cannes; three Academy Awards, including Best Director and Best Actor",
+   "pair_with": "",
+   "study_note": "Survival watched from windows: the camera stays with one man as the city empties around him",
+   "added": "2026-11-10",
+   "imdb_id": "tt0253474",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "BFwGqLa_oAo",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "skyfall",
+   "collection": "modern-classics",
+   "title": "Skyfall",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Adventure"
+   ],
+   "year": 2012,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Sam Mendes",
+   "recognition": "Two Academy Awards: original song and sound editing",
+   "pair_with": "",
+   "study_note": "Roger Deakins lights a blockbuster like a drama: a fight in silhouette against neon, a finale lit by fire",
+   "added": "2026-11-10",
+   "imdb_id": "tt1074638",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "6kw1UVovByw",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "stranger-things",
+   "collection": "drama-series",
+   "title": "Stranger Things",
+   "type": "series",
+   "genres": [
+    "Sci-Fi",
+    "Mystery",
+    "Drama"
+   ],
+   "year": 2016,
+   "countries": [
+    "United States"
+   ],
+   "credit": "The Duffer Brothers",
+   "recognition": "Screen Actors Guild Award for its ensemble, 2017",
+   "pair_with": "",
+   "study_note": "The 1980s rebuilt in props, synth score and title type: nostalgia as production design, led by a young cast",
+   "added": "2026-11-10",
+   "imdb_id": "tt4574334",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "b9EkMc79ZSU",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

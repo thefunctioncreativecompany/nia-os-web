@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "explore-posters-studios",
+    date: "2026-11-10",
+    title: "Official posters and studios on Explore",
+    body: "Explore titles now show their official posters, 36 more films and series have joined (Parasite, Oppenheimer, Squid Game), and you can browse by studio from the logos under Top 10.",
+    href: "/explore",
+    cta: "Open Explore",
+    icon: "Clapperboard",
+    weight: { production: 0.7, fashion: 0.5, creator: 0.5 },
+  },
+  {
     id: "budget-breakdown",
     date: "2026-10-30",
     title: "Production Budget and Script Breakdown",

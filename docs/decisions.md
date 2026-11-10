@@ -606,3 +606,13 @@ onboarding's Import profile and Follow creators describe features removed in the
   heading (Ika): logos half as wide as a Top 10 card, each opening the studio's View all
   (`/explore/studio/[id]`: logo, name, owner, every title in masonry columns; "← Back to Explore").
   The in-place chips and title row are gone. `logo-ink` names a studio without a logo on its plate.
+- (2026-11-10) Explore's tagger and the studio-catalogue batches (Ika: "add the rest", "automated
+  AI tagging"; Claude Code does the tagging, no API cost). `scripts/suggest-tags.mts` drafts each
+  new title from TMDB (genres, keywords, director, countries, IMDb id) through fixed rules into
+  Nia's tag list only; the hand pass adds camera, light and how it was made; the tag test keeps
+  15 to 20 per title. Collections stay the existing ones: Hollywood films to Modern classics,
+  1960 to 1979 to New Hollywood, series to Drama and limited series or Sitcoms, films made
+  outside Hollywood to Explore all. Batch 1 (25): Avatar, Squid Game, Gladiator, Parasite,
+  Oppenheimer, Stranger Things… `explore-update.mjs` offers every catalogue title when the TMDB
+  key is set. ICP groups (Ika): content creators, filmmakers, photographers, small production
+  studios; Nia is "the production office".

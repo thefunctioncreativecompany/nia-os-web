@@ -17,7 +17,7 @@
 import fs from "node:fs";
 
 const BATCH = Number(process.argv[2] || 10);
-const slugify = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const slugify = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/['’]/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 const catalogueFile = "src/features/explore/studio-catalogue.json";
 const catalogue = JSON.parse(fs.readFileSync(catalogueFile, "utf8"));
@@ -42,13 +42,15 @@ const REJECTED = new Map([
 // 2. The next batch, most notable first. Every poster is still checked by eye before it's added
 // (Commons sometimes files an ad, a lobby card or a later re-release under a film).
 const missing = catalogue.titles.filter((t) => !t.onExplore);
-const ready = missing.filter((t) => t.freePoster && !REJECTED.has(t.qid));
+// With TMDB_API_KEY set (Ika, 2026-11-10: free API in the private beta), every title can get its
+// official poster; without it, only those with a free Commons poster.
+const ready = missing.filter((t) => (process.env.TMDB_API_KEY || t.freePoster) && !REJECTED.has(t.qid));
 const studioName = new Map(catalogue.studios.map((s) => [s.id, s.name]));
 const batch = ready.slice(0, BATCH).map((t) => ({
   slug: slugify(t.title),
   title: t.title,
   year: t.year,
-  type: t.type,
+  type: t.type === "TV Series" ? "series" : "film",
   studio: studioName.get(t.studios[0]),
   wikidata: t.qid,
   commons: t.freePoster,

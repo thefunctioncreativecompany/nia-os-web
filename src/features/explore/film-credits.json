@@ -335,6 +335,94 @@
    }
   ]
  },
+ "a-beautiful-mind": {
+  "qid": "Q164103",
+  "people": [
+   {
+    "id": "Q129817",
+    "role": "Cast",
+    "character": "John Nash"
+   },
+   {
+    "id": "Q104791",
+    "role": "Cast",
+    "character": "William Parcher"
+   },
+   {
+    "id": "Q103343",
+    "role": "Cast",
+    "character": "Alicia Nash"
+   },
+   {
+    "id": "Q242707",
+    "role": "Cast",
+    "character": "Charles Herman"
+   },
+   {
+    "id": "Q463325",
+    "role": "Cast",
+    "character": "Marcee Herman"
+   },
+   {
+    "id": "Q190523",
+    "role": "Cast",
+    "character": "Dr. Rosen"
+   },
+   {
+    "id": "Q281964",
+    "role": "Cast",
+    "character": "Richard Sol"
+   },
+   {
+    "id": "Q53651",
+    "role": "Cast",
+    "character": "Martin Hansen"
+   },
+   {
+    "id": "Q39983",
+    "role": "Cast",
+    "character": "Bender"
+   },
+   {
+    "id": "Q365023",
+    "role": "Cast",
+    "character": "Helinger"
+   },
+   {
+    "id": "Q572004",
+    "role": "Cast",
+    "character": "Thomas King"
+   },
+   {
+    "id": "Q1281723",
+    "role": "Cast"
+   },
+   {
+    "id": "Q103646",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q419454",
+    "role": "Writer"
+   },
+   {
+    "id": "Q320025",
+    "role": "Producer"
+   },
+   {
+    "id": "Q460277",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q484948",
+    "role": "Editor"
+   },
+   {
+    "id": "Q106221",
+    "role": "Music"
+   }
+  ]
+ },
  "a-raisin-in-the-sun": {
   "qid": "Q1304498",
   "people": [
@@ -445,6 +533,87 @@
    },
    {
     "id": "Q334947",
+    "role": "Music"
+   }
+  ]
+ },
+ "alien": {
+  "qid": "Q103569",
+  "people": [
+   {
+    "id": "Q266270",
+    "role": "Cast",
+    "character": "Dennis Monroe Parker"
+   },
+   {
+    "id": "Q283872",
+    "role": "Cast",
+    "character": "Joan Lambert"
+   },
+   {
+    "id": "Q314290",
+    "role": "Cast",
+    "character": "Samuel Brett"
+   },
+   {
+    "id": "Q200405",
+    "role": "Cast",
+    "character": "Gilbert Kane"
+   },
+   {
+    "id": "Q102124",
+    "role": "Cast",
+    "character": "Ellen Ripley"
+   },
+   {
+    "id": "Q223091",
+    "role": "Cast",
+    "character": "Ash"
+   },
+   {
+    "id": "Q3047302",
+    "role": "Cast",
+    "character": "Big Chap"
+   },
+   {
+    "id": "Q323185",
+    "role": "Cast",
+    "character": "Big Chap"
+   },
+   {
+    "id": "Q56005",
+    "role": "Director"
+   },
+   {
+    "id": "Q498430",
+    "role": "Writer"
+   },
+   {
+    "id": "Q3056094",
+    "role": "Writer"
+   },
+   {
+    "id": "Q2396324",
+    "role": "Producer"
+   },
+   {
+    "id": "Q350422",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1537983",
+    "role": "Producer"
+   },
+   {
+    "id": "Q5262422",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q541143",
+    "role": "Editor"
+   },
+   {
+    "id": "Q235077",
     "role": "Music"
    }
   ]
@@ -845,6 +1014,102 @@
    {
     "id": "Q19938170",
     "role": "Music"
+   }
+  ]
+ },
+ "avatar": {
+  "qid": "Q24871",
+  "people": [
+   {
+    "id": "Q82085",
+    "role": "Cast",
+    "character": "Jake Sully"
+   },
+   {
+    "id": "Q190162",
+    "role": "Cast",
+    "character": "Neytiri"
+   },
+   {
+    "id": "Q312902",
+    "role": "Cast",
+    "character": "Miles Quaritch"
+   },
+   {
+    "id": "Q184219",
+    "role": "Cast",
+    "character": "Trudy Chacón"
+   },
+   {
+    "id": "Q371786",
+    "role": "Cast",
+    "character": "Norm Spellman"
+   },
+   {
+    "id": "Q224081",
+    "role": "Cast",
+    "character": "Parker Selfridge"
+   },
+   {
+    "id": "Q1225469",
+    "role": "Cast",
+    "character": "Max Patel"
+   },
+   {
+    "id": "Q302335",
+    "role": "Cast",
+    "character": "Tsu'tey"
+   },
+   {
+    "id": "Q350819",
+    "role": "Cast",
+    "character": "Eytukan"
+   },
+   {
+    "id": "Q1889482",
+    "role": "Cast",
+    "character": "Lyle Wainfleet"
+   },
+   {
+    "id": "Q469145",
+    "role": "Cast",
+    "character": "Akwey"
+   },
+   {
+    "id": "Q42574",
+    "role": "Director, Writer, Producer, Editor"
+   },
+   {
+    "id": "Q132451",
+    "role": "Producer"
+   },
+   {
+    "id": "Q926054",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q2344673",
+    "role": "Editor"
+   },
+   {
+    "id": "Q533802",
+    "role": "Editor"
+   },
+   {
+    "id": "Q106221",
+    "role": "Music"
+   },
+   {
+    "id": "Q16195065",
+    "role": "Music"
+   },
+   {
+    "id": "Q506268",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q2158922",
+    "role": "Production Designer"
    }
   ]
  },
@@ -1669,6 +1934,95 @@
    }
   ]
  },
+ "brokeback-mountain": {
+  "qid": "Q160618",
+  "people": [
+   {
+    "id": "Q40572",
+    "role": "Cast"
+   },
+   {
+    "id": "Q133313",
+    "role": "Cast"
+   },
+   {
+    "id": "Q36301",
+    "role": "Cast"
+   },
+   {
+    "id": "Q156796",
+    "role": "Cast"
+   },
+   {
+    "id": "Q316647",
+    "role": "Cast"
+   },
+   {
+    "id": "Q234204",
+    "role": "Cast"
+   },
+   {
+    "id": "Q4491",
+    "role": "Cast"
+   },
+   {
+    "id": "Q391359",
+    "role": "Cast"
+   },
+   {
+    "id": "Q231249",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1188962",
+    "role": "Cast"
+   },
+   {
+    "id": "Q509026",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1341403",
+    "role": "Cast, Director of Photography"
+   },
+   {
+    "id": "Q160726",
+    "role": "Creator, Director"
+   },
+   {
+    "id": "Q611672",
+    "role": "Writer"
+   },
+   {
+    "id": "Q460684",
+    "role": "Writer, Producer"
+   },
+   {
+    "id": "Q229840",
+    "role": "Writer"
+   },
+   {
+    "id": "Q1354081",
+    "role": "Producer"
+   },
+   {
+    "id": "Q516057",
+    "role": "Editor"
+   },
+   {
+    "id": "Q464015",
+    "role": "Editor, Music"
+   },
+   {
+    "id": "Q15839423",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q433537",
+    "role": "Costume Designer"
+   }
+  ]
+ },
  "bugonia": {
   "qid": "Q125971387",
   "people": [
@@ -1853,6 +2207,113 @@
    {
     "id": "Q6399373",
     "role": "Music"
+   }
+  ]
+ },
+ "captain-america-the-first-avenger": {
+  "qid": "Q275120",
+  "people": [
+   {
+    "id": "Q170587",
+    "role": "Cast",
+    "character": "Colonel Chester Phillips"
+   },
+   {
+    "id": "Q223117",
+    "role": "Cast",
+    "character": "Dr. Abraham Erskine"
+   },
+   {
+    "id": "Q178348",
+    "role": "Cast",
+    "character": "Captain America/Steve Rogers"
+   },
+   {
+    "id": "Q455898",
+    "role": "Cast",
+    "character": "James Buchanan \"Bucky\" Barnes"
+   },
+   {
+    "id": "Q317761",
+    "role": "Cast",
+    "character": "Howard Stark"
+   },
+   {
+    "id": "Q445125",
+    "role": "Cast",
+    "character": "Timothy \"Dum Dum\" Dugan"
+   },
+   {
+    "id": "Q648897",
+    "role": "Cast",
+    "character": "Gabe Jones"
+   },
+   {
+    "id": "Q342419",
+    "role": "Cast",
+    "character": "Dr. Arnim Zola"
+   },
+   {
+    "id": "Q172678",
+    "role": "Cast",
+    "character": "Nick Fury"
+   },
+   {
+    "id": "Q181806",
+    "role": "Cast",
+    "character": "Heinz Kruger"
+   },
+   {
+    "id": "Q352948",
+    "role": "Director"
+   },
+   {
+    "id": "Q5112818",
+    "role": "Writer"
+   },
+   {
+    "id": "Q5933887",
+    "role": "Writer"
+   },
+   {
+    "id": "Q3703332",
+    "role": "Writer"
+   },
+   {
+    "id": "Q311607",
+    "role": "Writer"
+   },
+   {
+    "id": "Q725384",
+    "role": "Writer"
+   },
+   {
+    "id": "Q515161",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1521001",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q2156838",
+    "role": "Editor"
+   },
+   {
+    "id": "Q11309299",
+    "role": "Editor"
+   },
+   {
+    "id": "Q313537",
+    "role": "Music"
+   },
+   {
+    "id": "Q541608",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q585823",
+    "role": "Costume Designer"
    }
   ]
  },
@@ -3264,6 +3725,92 @@
    {
     "id": "Q3358314",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "fight-club": {
+  "qid": "Q190050",
+  "people": [
+   {
+    "id": "Q125904",
+    "role": "Cast",
+    "character": "The Narrator"
+   },
+   {
+    "id": "Q35332",
+    "role": "Cast",
+    "character": "Tyler Durden"
+   },
+   {
+    "id": "Q170428",
+    "role": "Cast",
+    "character": "Marla Singer"
+   },
+   {
+    "id": "Q484523",
+    "role": "Cast",
+    "character": "Angel Face"
+   },
+   {
+    "id": "Q152929",
+    "role": "Cast",
+    "character": "Robert Paulson"
+   },
+   {
+    "id": "Q139341",
+    "role": "Cast"
+   },
+   {
+    "id": "Q329859",
+    "role": "Cast"
+   },
+   {
+    "id": "Q964006",
+    "role": "Cast"
+   },
+   {
+    "id": "Q330801",
+    "role": "Cast"
+   },
+   {
+    "id": "Q953588",
+    "role": "Cast"
+   },
+   {
+    "id": "Q4993338",
+    "role": "Cast"
+   },
+   {
+    "id": "Q15288220",
+    "role": "Cast"
+   },
+   {
+    "id": "Q184903",
+    "role": "Director"
+   },
+   {
+    "id": "Q3178961",
+    "role": "Writer"
+   },
+   {
+    "id": "Q268181",
+    "role": "Writer"
+   },
+   {
+    "id": "Q705631",
+    "role": "Producer"
+   },
+   {
+    "id": "Q961183",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1358070",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q16225548",
+    "role": "Editor"
    }
   ]
  },
@@ -4916,6 +5463,118 @@
    }
   ]
  },
+ "gladiator": {
+  "qid": "Q128518",
+  "people": [
+   {
+    "id": "Q129817",
+    "role": "Cast",
+    "character": "Maximus Decimus Meridius"
+   },
+   {
+    "id": "Q185140",
+    "role": "Cast",
+    "character": "Commodus"
+   },
+   {
+    "id": "Q231951",
+    "role": "Cast",
+    "character": "Lucilla"
+   },
+   {
+    "id": "Q313588",
+    "role": "Cast",
+    "character": "Antonius Proximo"
+   },
+   {
+    "id": "Q298682",
+    "role": "Cast",
+    "character": "Juba"
+   },
+   {
+    "id": "Q256164",
+    "role": "Cast",
+    "character": "Senator Gracchus"
+   },
+   {
+    "id": "Q737369",
+    "role": "Cast",
+    "character": "General Quintus"
+   },
+   {
+    "id": "Q310217",
+    "role": "Cast",
+    "character": "Cassius"
+   },
+   {
+    "id": "Q61112",
+    "role": "Cast",
+    "character": "Hagen"
+   },
+   {
+    "id": "Q2165590",
+    "role": "Cast",
+    "character": "Lucius Verus"
+   },
+   {
+    "id": "Q1176556",
+    "role": "Cast",
+    "character": "Senator Falco"
+   },
+   {
+    "id": "Q56005",
+    "role": "Director"
+   },
+   {
+    "id": "Q384004",
+    "role": "Writer"
+   },
+   {
+    "id": "Q706935",
+    "role": "Writer"
+   },
+   {
+    "id": "Q1174454",
+    "role": "Writer, Producer"
+   },
+   {
+    "id": "Q1252563",
+    "role": "Producer"
+   },
+   {
+    "id": "Q703611",
+    "role": "Producer"
+   },
+   {
+    "id": "Q28044847",
+    "role": "Producer"
+   },
+   {
+    "id": "Q957926",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1970454",
+    "role": "Editor"
+   },
+   {
+    "id": "Q76364",
+    "role": "Music"
+   },
+   {
+    "id": "Q40580",
+    "role": "Music"
+   },
+   {
+    "id": "Q471537",
+    "role": "Music"
+   },
+   {
+    "id": "Q710582",
+    "role": "Production Designer"
+   }
+  ]
+ },
  "gone-with-the-wind": {
   "qid": "Q2875",
   "people": [
@@ -6177,6 +6836,83 @@
    }
   ]
  },
+ "home-alone": {
+  "qid": "Q105031",
+  "people": [
+   {
+    "id": "Q103578",
+    "role": "Cast",
+    "character": "Kevin McCallister"
+   },
+   {
+    "id": "Q20178",
+    "role": "Cast",
+    "character": "Harry"
+   },
+   {
+    "id": "Q379811",
+    "role": "Cast",
+    "character": "Marv"
+   },
+   {
+    "id": "Q462327",
+    "role": "Cast"
+   },
+   {
+    "id": "Q233365",
+    "role": "Cast"
+   },
+   {
+    "id": "Q443592",
+    "role": "Cast"
+   },
+   {
+    "id": "Q218532",
+    "role": "Cast",
+    "character": "Gus Polinski"
+   },
+   {
+    "id": "Q520144",
+    "role": "Cast"
+   },
+   {
+    "id": "Q447035",
+    "role": "Cast"
+   },
+   {
+    "id": "Q728556",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2395252",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2261425",
+    "role": "Cast"
+   },
+   {
+    "id": "Q75079",
+    "role": "Director"
+   },
+   {
+    "id": "Q311263",
+    "role": "Writer, Producer"
+   },
+   {
+    "id": "Q1712369",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q545351",
+    "role": "Editor"
+   },
+   {
+    "id": "Q131285",
+    "role": "Music"
+   }
+  ]
+ },
  "hounds": {
   "qid": "Q119893109",
   "people": [
@@ -6569,6 +7305,286 @@
    }
   ]
  },
+ "inception": {
+  "qid": "Q25188",
+  "people": [
+   {
+    "id": "Q38111",
+    "role": "Cast",
+    "character": "Dominick Cobb"
+   },
+   {
+    "id": "Q211553",
+    "role": "Cast",
+    "character": "Saito"
+   },
+   {
+    "id": "Q177311",
+    "role": "Cast",
+    "character": "Arthur"
+   },
+   {
+    "id": "Q8927",
+    "role": "Cast",
+    "character": "Mal"
+   },
+   {
+    "id": "Q173399",
+    "role": "Cast",
+    "character": "Ariadne"
+   },
+   {
+    "id": "Q208026",
+    "role": "Cast",
+    "character": "Eames"
+   },
+   {
+    "id": "Q202589",
+    "role": "Cast",
+    "character": "Robert Fischer"
+   },
+   {
+    "id": "Q299317",
+    "role": "Cast",
+    "character": "Peter Browning"
+   },
+   {
+    "id": "Q123351",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1225469",
+    "role": "Cast",
+    "character": "Yusuf"
+   },
+   {
+    "id": "Q217137",
+    "role": "Cast"
+   },
+   {
+    "id": "Q532169",
+    "role": "Cast"
+   },
+   {
+    "id": "Q25191",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q242951",
+    "role": "Producer"
+   },
+   {
+    "id": "Q460144",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1811998",
+    "role": "Editor"
+   },
+   {
+    "id": "Q76364",
+    "role": "Music"
+   },
+   {
+    "id": "Q570190",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q21573201",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "inglourious-basterds": {
+  "qid": "Q153723",
+  "people": [
+   {
+    "id": "Q35332",
+    "role": "Cast",
+    "character": "Aldo Raine"
+   },
+   {
+    "id": "Q76819",
+    "role": "Cast",
+    "character": "Hans Landa"
+   },
+   {
+    "id": "Q358714",
+    "role": "Cast",
+    "character": "Donny Donowitz"
+   },
+   {
+    "id": "Q57147",
+    "role": "Cast",
+    "character": "Archie Hicox"
+   },
+   {
+    "id": "Q57118",
+    "role": "Cast",
+    "character": "Bridget Von Hammersmark"
+   },
+   {
+    "id": "Q58592",
+    "role": "Cast",
+    "character": "Fredrick Zoller"
+   },
+   {
+    "id": "Q57391",
+    "role": "Cast",
+    "character": "Hugo Stiglitz"
+   },
+   {
+    "id": "Q234581",
+    "role": "Cast",
+    "character": "Shosanna Dreyfus / Emmanuelle Mimieux"
+   },
+   {
+    "id": "Q459925",
+    "role": "Cast",
+    "character": "Smithson Utivich"
+   },
+   {
+    "id": "Q86336",
+    "role": "Cast",
+    "character": "Werner Rachtman"
+   },
+   {
+    "id": "Q62557",
+    "role": "Cast",
+    "character": "Dieter Hellstrom"
+   },
+   {
+    "id": "Q731602",
+    "role": "Cast",
+    "character": "Marcel"
+   },
+   {
+    "id": "Q3772",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q514913",
+    "role": "Producer"
+   },
+   {
+    "id": "Q364017",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q273379",
+    "role": "Editor"
+   },
+   {
+    "id": "Q95709545",
+    "role": "Music"
+   },
+   {
+    "id": "Q3018955",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q585823",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "interstellar": {
+  "qid": "Q13417189",
+  "people": [
+   {
+    "id": "Q188955",
+    "role": "Cast",
+    "character": "Joseph Cooper"
+   },
+   {
+    "id": "Q36301",
+    "role": "Cast",
+    "character": "Amelia Brand"
+   },
+   {
+    "id": "Q229313",
+    "role": "Cast",
+    "character": "Murph (as a woman)"
+   },
+   {
+    "id": "Q123351",
+    "role": "Cast",
+    "character": "John Brand"
+   },
+   {
+    "id": "Q603317",
+    "role": "Cast",
+    "character": "TARS"
+   },
+   {
+    "id": "Q211144",
+    "role": "Cast",
+    "character": "Murph (as an old, sick woman)"
+   },
+   {
+    "id": "Q368037",
+    "role": "Cast",
+    "character": "Doyle"
+   },
+   {
+    "id": "Q175535",
+    "role": "Cast",
+    "character": "Hugh Mann"
+   },
+   {
+    "id": "Q1174630",
+    "role": "Cast",
+    "character": "Romilly"
+   },
+   {
+    "id": "Q117415",
+    "role": "Cast",
+    "character": "CASE"
+   },
+   {
+    "id": "Q94913",
+    "role": "Cast",
+    "character": "Murph (as a child)"
+   },
+   {
+    "id": "Q270730",
+    "role": "Cast",
+    "character": "Tom Cooper"
+   },
+   {
+    "id": "Q25191",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q372788",
+    "role": "Writer"
+   },
+   {
+    "id": "Q242951",
+    "role": "Producer"
+   },
+   {
+    "id": "Q514003",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1811998",
+    "role": "Editor"
+   },
+   {
+    "id": "Q76364",
+    "role": "Music"
+   },
+   {
+    "id": "Q3336708",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q511025",
+    "role": "Costume Designer"
+   }
+  ]
+ },
  "inxeba": {
   "qid": "Q28056410",
   "people": [
@@ -6587,6 +7603,119 @@
    {
     "id": "Q104626830",
     "role": "Director of Photography"
+   }
+  ]
+ },
+ "iron-man": {
+  "qid": "Q192724",
+  "people": [
+   {
+    "id": "Q165219",
+    "role": "Cast",
+    "character": "Tony Stark"
+   },
+   {
+    "id": "Q296500",
+    "role": "Cast",
+    "character": "Rhodey"
+   },
+   {
+    "id": "Q174843",
+    "role": "Cast",
+    "character": "Obadiah Stane"
+   },
+   {
+    "id": "Q34460",
+    "role": "Cast",
+    "character": "Pepper Potts"
+   },
+   {
+    "id": "Q144643",
+    "role": "Cast",
+    "character": "Yinsen"
+   },
+   {
+    "id": "Q371972",
+    "role": "Cast",
+    "character": "Raza"
+   },
+   {
+    "id": "Q239453",
+    "role": "Cast",
+    "character": "Christine Everhart"
+   },
+   {
+    "id": "Q113206",
+    "role": "Cast",
+    "character": "Agent Coulson"
+   },
+   {
+    "id": "Q862481",
+    "role": "Cast",
+    "character": "General Gabriel"
+   },
+   {
+    "id": "Q242707",
+    "role": "Cast",
+    "character": "Jarvis"
+   },
+   {
+    "id": "Q295964",
+    "role": "Cast, Director",
+    "character": "Hogan"
+   },
+   {
+    "id": "Q172678",
+    "role": "Cast",
+    "character": "Nick Fury"
+   },
+   {
+    "id": "Q615343",
+    "role": "Writer"
+   },
+   {
+    "id": "Q3128755",
+    "role": "Writer"
+   },
+   {
+    "id": "Q15069840",
+    "role": "Writer"
+   },
+   {
+    "id": "Q15069853",
+    "role": "Writer"
+   },
+   {
+    "id": "Q545394",
+    "role": "Producer"
+   },
+   {
+    "id": "Q515161",
+    "role": "Producer"
+   },
+   {
+    "id": "Q617690",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q3013121",
+    "role": "Editor"
+   },
+   {
+    "id": "Q57577",
+    "role": "Music"
+   },
+   {
+    "id": "Q543832",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q23655675",
+    "role": "Costume Designer"
+   },
+   {
+    "id": "Q23655684",
+    "role": "Costume Designer"
    }
   ]
  },
@@ -8730,6 +9859,103 @@
    }
   ]
  },
+ "oppenheimer": {
+  "qid": "Q108839994",
+  "people": [
+   {
+    "id": "Q202589",
+    "role": "Cast",
+    "character": "J. Robert Oppenheimer"
+   },
+   {
+    "id": "Q165219",
+    "role": "Cast",
+    "character": "Lewis Strauss"
+   },
+   {
+    "id": "Q175535",
+    "role": "Cast",
+    "character": "Leslie Groves"
+   },
+   {
+    "id": "Q193517",
+    "role": "Cast",
+    "character": "Katherine Oppenheimer"
+   },
+   {
+    "id": "Q22277803",
+    "role": "Cast",
+    "character": "Jean Tatlock"
+   },
+   {
+    "id": "Q375590",
+    "role": "Cast",
+    "character": "David L. Hill"
+   },
+   {
+    "id": "Q43676009",
+    "role": "Cast",
+    "character": "Edward Teller"
+   },
+   {
+    "id": "Q303957",
+    "role": "Cast",
+    "character": "Ernest Lawrence"
+   },
+   {
+    "id": "Q860876",
+    "role": "Cast",
+    "character": "Kenneth Nichols"
+   },
+   {
+    "id": "Q1139078",
+    "role": "Cast",
+    "character": "Richard Feynman"
+   },
+   {
+    "id": "Q318249",
+    "role": "Cast",
+    "character": "Vannevar Bush"
+   },
+   {
+    "id": "Q64840837",
+    "role": "Cast",
+    "character": "Frank Oppenheimer"
+   },
+   {
+    "id": "Q25191",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q2740357",
+    "role": "Producer"
+   },
+   {
+    "id": "Q242951",
+    "role": "Producer"
+   },
+   {
+    "id": "Q514003",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q64541563",
+    "role": "Editor"
+   },
+   {
+    "id": "Q1358202",
+    "role": "Music"
+   },
+   {
+    "id": "Q120926518",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q15919390",
+    "role": "Costume Designer"
+   }
+  ]
+ },
  "out-of-the-past": {
   "qid": "Q1400390",
   "people": [
@@ -8824,6 +10050,83 @@
    {
     "id": "Q592131",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "parasite": {
+  "qid": "Q61448040",
+  "people": [
+   {
+    "id": "Q484400",
+    "role": "Cast"
+   },
+   {
+    "id": "Q489681",
+    "role": "Cast"
+   },
+   {
+    "id": "Q626347",
+    "role": "Cast"
+   },
+   {
+    "id": "Q55733858",
+    "role": "Cast"
+   },
+   {
+    "id": "Q492701",
+    "role": "Cast"
+   },
+   {
+    "id": "Q18700040",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16177322",
+    "role": "Cast"
+   },
+   {
+    "id": "Q21710318",
+    "role": "Cast"
+   },
+   {
+    "id": "Q24867395",
+    "role": "Cast"
+   },
+   {
+    "id": "Q5116234",
+    "role": "Cast"
+   },
+   {
+    "id": "Q105706491",
+    "role": "Cast"
+   },
+   {
+    "id": "Q495980",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q81911860",
+    "role": "Writer"
+   },
+   {
+    "id": "Q83945397",
+    "role": "Producer"
+   },
+   {
+    "id": "Q61057522",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q82237483",
+    "role": "Editor"
+   },
+   {
+    "id": "Q19941076",
+    "role": "Music"
+   },
+   {
+    "id": "Q86112333",
+    "role": "Production Designer"
    }
   ]
  },
@@ -8924,6 +10227,324 @@
    }
   ]
  },
+ "pirates-of-the-caribbean-at-worlds-end": {
+  "qid": "Q54274",
+  "people": [
+   {
+    "id": "Q44467",
+    "role": "Cast",
+    "character": "Will Turner"
+   },
+   {
+    "id": "Q42581",
+    "role": "Cast",
+    "character": "Elizabeth Swann"
+   },
+   {
+    "id": "Q166272",
+    "role": "Cast",
+    "character": "Hector Barbossa"
+   },
+   {
+    "id": "Q207179",
+    "role": "Cast",
+    "character": "Davy Jones"
+   },
+   {
+    "id": "Q312124",
+    "role": "Cast",
+    "character": "Cutler Beckett"
+   },
+   {
+    "id": "Q208667",
+    "role": "Cast",
+    "character": "Bill Turner"
+   },
+   {
+    "id": "Q548163",
+    "role": "Cast",
+    "character": "Pintel"
+   },
+   {
+    "id": "Q447614",
+    "role": "Cast",
+    "character": "Ragetti"
+   },
+   {
+    "id": "Q151168",
+    "role": "Cast",
+    "character": "Marty"
+   },
+   {
+    "id": "Q1176556",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1341761",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1332872",
+    "role": "Cast",
+    "character": "Theodore Groves"
+   },
+   {
+    "id": "Q295463",
+    "role": "Director"
+   },
+   {
+    "id": "Q943506",
+    "role": "Writer"
+   },
+   {
+    "id": "Q942914",
+    "role": "Writer"
+   },
+   {
+    "id": "Q217037",
+    "role": "Producer"
+   },
+   {
+    "id": "Q902080",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q2344673",
+    "role": "Editor"
+   },
+   {
+    "id": "Q1138711",
+    "role": "Editor"
+   },
+   {
+    "id": "Q76364",
+    "role": "Music"
+   },
+   {
+    "id": "Q541608",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q3899138",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "pirates-of-the-caribbean-dead-mans-chest": {
+  "qid": "Q161087",
+  "people": [
+   {
+    "id": "Q44467",
+    "role": "Cast",
+    "character": "Will Turner"
+   },
+   {
+    "id": "Q42581",
+    "role": "Cast",
+    "character": "Elizabeth Swann"
+   },
+   {
+    "id": "Q208667",
+    "role": "Cast",
+    "character": "Bill Turner"
+   },
+   {
+    "id": "Q207179",
+    "role": "Cast",
+    "character": "Davy Jones"
+   },
+   {
+    "id": "Q312124",
+    "role": "Cast",
+    "character": "Cutler Beckett"
+   },
+   {
+    "id": "Q548163",
+    "role": "Cast",
+    "character": "Pintel"
+   },
+   {
+    "id": "Q447614",
+    "role": "Cast",
+    "character": "Ragetti"
+   },
+   {
+    "id": "Q1176556",
+    "role": "Cast"
+   },
+   {
+    "id": "Q151168",
+    "role": "Cast",
+    "character": "Marty"
+   },
+   {
+    "id": "Q946101",
+    "role": "Cast"
+   },
+   {
+    "id": "Q166272",
+    "role": "Cast",
+    "character": "Hector Barbossa"
+   },
+   {
+    "id": "Q37175",
+    "role": "Cast",
+    "character": "Captain Jack Sparrow"
+   },
+   {
+    "id": "Q295463",
+    "role": "Director"
+   },
+   {
+    "id": "Q943506",
+    "role": "Writer"
+   },
+   {
+    "id": "Q942914",
+    "role": "Writer"
+   },
+   {
+    "id": "Q217037",
+    "role": "Producer"
+   },
+   {
+    "id": "Q902080",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1138711",
+    "role": "Editor"
+   },
+   {
+    "id": "Q2344673",
+    "role": "Editor"
+   },
+   {
+    "id": "Q76364",
+    "role": "Music"
+   },
+   {
+    "id": "Q541608",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q3899138",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "pirates-of-the-caribbean-the-curse-of-the-black-pearl": {
+  "qid": "Q46717",
+  "people": [
+   {
+    "id": "Q166272",
+    "role": "Cast",
+    "character": "Hector Barbossa"
+   },
+   {
+    "id": "Q44467",
+    "role": "Cast",
+    "character": "Will Turner"
+   },
+   {
+    "id": "Q42581",
+    "role": "Cast",
+    "character": "Elizabeth Swann"
+   },
+   {
+    "id": "Q190162",
+    "role": "Cast",
+    "character": "Anamaria"
+   },
+   {
+    "id": "Q3538544",
+    "role": "Cast"
+   },
+   {
+    "id": "Q151168",
+    "role": "Cast",
+    "character": "Marty"
+   },
+   {
+    "id": "Q548163",
+    "role": "Cast",
+    "character": "Pintel"
+   },
+   {
+    "id": "Q447614",
+    "role": "Cast",
+    "character": "Ragetti"
+   },
+   {
+    "id": "Q1332872",
+    "role": "Cast",
+    "character": "Theodore Groves"
+   },
+   {
+    "id": "Q2849808",
+    "role": "Cast",
+    "character": "Mullroy"
+   },
+   {
+    "id": "Q37175",
+    "role": "Cast",
+    "character": "Captain Jack Sparrow"
+   },
+   {
+    "id": "Q1158461",
+    "role": "Cast",
+    "character": "Lt. Gillette"
+   },
+   {
+    "id": "Q295463",
+    "role": "Director"
+   },
+   {
+    "id": "Q943506",
+    "role": "Writer"
+   },
+   {
+    "id": "Q942914",
+    "role": "Writer"
+   },
+   {
+    "id": "Q217037",
+    "role": "Producer"
+   },
+   {
+    "id": "Q902080",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q2344673",
+    "role": "Editor"
+   },
+   {
+    "id": "Q1138711",
+    "role": "Editor"
+   },
+   {
+    "id": "Q711370",
+    "role": "Editor"
+   },
+   {
+    "id": "Q57833",
+    "role": "Music"
+   },
+   {
+    "id": "Q313537",
+    "role": "Music"
+   },
+   {
+    "id": "Q76364",
+    "role": "Music"
+   },
+   {
+    "id": "Q3899138",
+    "role": "Costume Designer"
+   }
+  ]
+ },
  "porgy-and-bess": {
   "qid": "Q374526",
   "people": [
@@ -9012,6 +10633,87 @@
    },
    {
     "id": "Q123829",
+    "role": "Music"
+   }
+  ]
+ },
+ "prison-break": {
+  "qid": "Q80044",
+  "people": [
+   {
+    "id": "Q484662",
+    "role": "Cast",
+    "character": "Michael Scofield"
+   },
+   {
+    "id": "Q205278",
+    "role": "Cast",
+    "character": "Lincoln Burrows"
+   },
+   {
+    "id": "Q210327",
+    "role": "Cast",
+    "character": "Fernando Sucre"
+   },
+   {
+    "id": "Q201181",
+    "role": "Cast",
+    "character": "Sara Tancredi"
+   },
+   {
+    "id": "Q223193",
+    "role": "Cast",
+    "character": "Theodore \"T-Bag\" Bagwell"
+   },
+   {
+    "id": "Q311084",
+    "role": "Cast",
+    "character": "Paul Kellerman"
+   },
+   {
+    "id": "Q314508",
+    "role": "Cast",
+    "character": "Benjamin Miles \"C-Note\" Franklin"
+   },
+   {
+    "id": "Q220335",
+    "role": "Cast",
+    "character": "Alexander Mahone"
+   },
+   {
+    "id": "Q320973",
+    "role": "Cast",
+    "character": "Lechero"
+   },
+   {
+    "id": "Q275658",
+    "role": "Cast",
+    "character": "Brad Bellick"
+   },
+   {
+    "id": "Q230405",
+    "role": "Cast",
+    "character": "Gretchen Morgan"
+   },
+   {
+    "id": "Q297348",
+    "role": "Cast",
+    "character": "L.J. Burrows"
+   },
+   {
+    "id": "Q314506",
+    "role": "Creator, Director"
+   },
+   {
+    "id": "Q25112678",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q16728109",
+    "role": "Editor"
+   },
+   {
+    "id": "Q57577",
     "role": "Music"
    }
   ]
@@ -9936,6 +11638,107 @@
    }
   ]
  },
+ "saving-private-ryan": {
+  "qid": "Q165817",
+  "people": [
+   {
+    "id": "Q2263",
+    "role": "Cast",
+    "character": "Captain John H. Miller"
+   },
+   {
+    "id": "Q175535",
+    "role": "Cast",
+    "character": "Private First Class James Francis Ryan"
+   },
+   {
+    "id": "Q314485",
+    "role": "Cast",
+    "character": "Private First Class Richard Reiben"
+   },
+   {
+    "id": "Q349852",
+    "role": "Cast",
+    "character": "Technical Sergeant Mike Horvath"
+   },
+   {
+    "id": "Q312337",
+    "role": "Cast",
+    "character": "T/5 Corporal Timothy Upham"
+   },
+   {
+    "id": "Q281964",
+    "role": "Cast",
+    "character": "Private Stanley \"Fish\" Mellish"
+   },
+   {
+    "id": "Q315604",
+    "role": "Cast",
+    "character": "Private Daniel Jackson"
+   },
+   {
+    "id": "Q224081",
+    "role": "Cast",
+    "character": "T/4 Corporal Medic Irwin Wade"
+   },
+   {
+    "id": "Q178166",
+    "role": "Cast",
+    "character": "Private First Class Adrian Caparzo"
+   },
+   {
+    "id": "Q381203",
+    "role": "Cast",
+    "character": "Captain Fred Hamill"
+   },
+   {
+    "id": "Q208649",
+    "role": "Cast",
+    "character": "Sergeant William Hill"
+   },
+   {
+    "id": "Q352935",
+    "role": "Cast",
+    "character": "Lieutenant Colonel Walter Anderson"
+   },
+   {
+    "id": "Q8877",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q49016",
+    "role": "Writer"
+   },
+   {
+    "id": "Q536964",
+    "role": "Producer"
+   },
+   {
+    "id": "Q2417149",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1494906",
+    "role": "Producer"
+   },
+   {
+    "id": "Q365230",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q692550",
+    "role": "Editor"
+   },
+   {
+    "id": "Q131285",
+    "role": "Music"
+   },
+   {
+    "id": "Q3329792",
+    "role": "Costume Designer"
+   }
+  ]
+ },
  "seriously-single": {
   "qid": "Q98079320",
   "people": [
@@ -10208,6 +12011,109 @@
    }
   ]
  },
+ "skyfall": {
+  "qid": "Q4941",
+  "people": [
+   {
+    "id": "Q4547",
+    "role": "Cast",
+    "character": "James Bond"
+   },
+   {
+    "id": "Q134895",
+    "role": "Cast",
+    "character": "Raoul Silva"
+   },
+   {
+    "id": "Q28493",
+    "role": "Cast",
+    "character": "Gareth Mallory"
+   },
+   {
+    "id": "Q156586",
+    "role": "Cast",
+    "character": "Eve Moneypenny"
+   },
+   {
+    "id": "Q28463",
+    "role": "Cast",
+    "character": "Sévérine"
+   },
+   {
+    "id": "Q219546",
+    "role": "Cast",
+    "character": "Kincade"
+   },
+   {
+    "id": "Q28054",
+    "role": "Cast",
+    "character": "M"
+   },
+   {
+    "id": "Q231310",
+    "role": "Cast"
+   },
+   {
+    "id": "Q342617",
+    "role": "Cast",
+    "character": "Q"
+   },
+   {
+    "id": "Q521623",
+    "role": "Cast",
+    "character": "Patrice"
+   },
+   {
+    "id": "Q1320782",
+    "role": "Cast",
+    "character": "Bill Tanner"
+   },
+   {
+    "id": "Q196080",
+    "role": "Cast"
+   },
+   {
+    "id": "Q223233",
+    "role": "Creator, Director"
+   },
+   {
+    "id": "Q384004",
+    "role": "Writer"
+   },
+   {
+    "id": "Q55861575",
+    "role": "Writer"
+   },
+   {
+    "id": "Q8451565",
+    "role": "Writer"
+   },
+   {
+    "id": "Q460578",
+    "role": "Producer"
+   },
+   {
+    "id": "Q237226",
+    "role": "Producer"
+   },
+   {
+    "id": "Q460277",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1715774",
+    "role": "Editor"
+   },
+   {
+    "id": "Q319996",
+    "role": "Music"
+   },
+   {
+    "id": "Q1189128",
+    "role": "Production Designer"
+   }
+  ]
+ },
  "some-like-it-hot": {
   "qid": "Q190086",
   "people": [
@@ -10281,6 +12187,174 @@
    },
    {
     "id": "Q365310",
+    "role": "Music"
+   }
+  ]
+ },
+ "spider-man": {
+  "qid": "Q484442",
+  "people": [
+   {
+    "id": "Q188772",
+    "role": "Cast",
+    "character": "Norman Osborn"
+   },
+   {
+    "id": "Q76478",
+    "role": "Cast",
+    "character": "Mary Jane Watson"
+   },
+   {
+    "id": "Q306403",
+    "role": "Cast",
+    "character": "Harry Osborn"
+   },
+   {
+    "id": "Q181899",
+    "role": "Cast",
+    "character": "Uncle Ben"
+   },
+   {
+    "id": "Q234195",
+    "role": "Cast",
+    "character": "Aunt May"
+   },
+   {
+    "id": "Q150482",
+    "role": "Cast",
+    "character": "J. Jonah Jameson"
+   },
+   {
+    "id": "Q219373",
+    "role": "Cast",
+    "character": "Betty Brant"
+   },
+   {
+    "id": "Q470005",
+    "role": "Cast",
+    "character": "Flash Thompson"
+   },
+   {
+    "id": "Q279834",
+    "role": "Cast",
+    "character": "Robbie Robertson"
+   },
+   {
+    "id": "Q447713",
+    "role": "Cast",
+    "character": "Ted Hoffman"
+   },
+   {
+    "id": "Q982840",
+    "role": "Cast"
+   },
+   {
+    "id": "Q275402",
+    "role": "Director"
+   },
+   {
+    "id": "Q270178",
+    "role": "Writer"
+   },
+   {
+    "id": "Q3476302",
+    "role": "Writer"
+   },
+   {
+    "id": "Q449238",
+    "role": "Writer"
+   },
+   {
+    "id": "Q270533",
+    "role": "Producer"
+   },
+   {
+    "id": "Q536964",
+    "role": "Producer"
+   },
+   {
+    "id": "Q484980",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q28704998",
+    "role": "Editor"
+   },
+   {
+    "id": "Q888156",
+    "role": "Editor"
+   },
+   {
+    "id": "Q193338",
+    "role": "Music"
+   },
+   {
+    "id": "Q346384",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "squid-game": {
+  "qid": "Q106582931",
+  "people": [
+   {
+    "id": "Q491318",
+    "role": "Cast"
+   },
+   {
+    "id": "Q18732317",
+    "role": "Cast"
+   },
+   {
+    "id": "Q28699137",
+    "role": "Cast"
+   },
+   {
+    "id": "Q107541749",
+    "role": "Cast"
+   },
+   {
+    "id": "Q108703406",
+    "role": "Cast"
+   },
+   {
+    "id": "Q55728354",
+    "role": "Cast"
+   },
+   {
+    "id": "Q55737623",
+    "role": "Cast"
+   },
+   {
+    "id": "Q21825451",
+    "role": "Cast"
+   },
+   {
+    "id": "Q12588052",
+    "role": "Cast"
+   },
+   {
+    "id": "Q55733458",
+    "role": "Cast"
+   },
+   {
+    "id": "Q55735954",
+    "role": "Cast"
+   },
+   {
+    "id": "Q18815677",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3143548",
+    "role": "Creator, Director, Writer"
+   },
+   {
+    "id": "Q116766742",
+    "role": "Producer"
+   },
+   {
+    "id": "Q19941076",
     "role": "Music"
    }
   ]
@@ -10573,6 +12647,79 @@
    {
     "id": "Q455568",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "stranger-things": {
+  "qid": "Q19798734",
+  "people": [
+   {
+    "id": "Q101797",
+    "role": "Cast",
+    "character": "Joyce Byers"
+   },
+   {
+    "id": "Q391359",
+    "role": "Cast",
+    "character": "Jim Hopper"
+   },
+   {
+    "id": "Q318249",
+    "role": "Cast",
+    "character": "Martin Brenner"
+   },
+   {
+    "id": "Q26704332",
+    "role": "Cast",
+    "character": "Dustin Henderson"
+   },
+   {
+    "id": "Q26232134",
+    "role": "Cast",
+    "character": "Nancy Wheeler"
+   },
+   {
+    "id": "Q20974088",
+    "role": "Cast",
+    "character": "Jonathan Byers"
+   },
+   {
+    "id": "Q289540",
+    "role": "Cast",
+    "character": "Karen Wheeler"
+   },
+   {
+    "id": "Q26702634",
+    "role": "Cast",
+    "character": "Barb Holland"
+   },
+   {
+    "id": "Q28830394",
+    "role": "Creator, Director, Writer"
+   },
+   {
+    "id": "Q28830397",
+    "role": "Creator, Director, Writer"
+   },
+   {
+    "id": "Q323076",
+    "role": "Director"
+   },
+   {
+    "id": "Q328723",
+    "role": "Director"
+   },
+   {
+    "id": "Q22917876",
+    "role": "Director"
+   },
+   {
+    "id": "Q43761641",
+    "role": "Music"
+   },
+   {
+    "id": "Q43761849",
+    "role": "Music"
    }
   ]
  },
@@ -11078,6 +13225,98 @@
    {
     "id": "Q2571042",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "the-avengers": {
+  "qid": "Q182218",
+  "people": [
+   {
+    "id": "Q272019",
+    "role": "Cast",
+    "character": "James Rhodes"
+   },
+   {
+    "id": "Q17306087",
+    "role": "Cast"
+   },
+   {
+    "id": "Q165219",
+    "role": "Cast",
+    "character": "Tony Stark/Iron Man"
+   },
+   {
+    "id": "Q178348",
+    "role": "Cast",
+    "character": "Steve Rogers/Captain America"
+   },
+   {
+    "id": "Q41422",
+    "role": "Cast",
+    "character": "Bruce Banner/The Hulk"
+   },
+   {
+    "id": "Q54314",
+    "role": "Cast",
+    "character": "Thor Odinson"
+   },
+   {
+    "id": "Q34436",
+    "role": "Cast",
+    "character": "Natasha Romanoff/Black Widow"
+   },
+   {
+    "id": "Q23365",
+    "role": "Cast",
+    "character": "Clint Barton/Hawkeye"
+   },
+   {
+    "id": "Q295803",
+    "role": "Cast",
+    "character": "Loki"
+   },
+   {
+    "id": "Q113206",
+    "role": "Cast",
+    "character": "Agent Phil Coulson"
+   },
+   {
+    "id": "Q200566",
+    "role": "Cast",
+    "character": "Agent Maria Hill"
+   },
+   {
+    "id": "Q208667",
+    "role": "Cast",
+    "character": "Selvig"
+   },
+   {
+    "id": "Q298025",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q19031",
+    "role": "Writer"
+   },
+   {
+    "id": "Q515161",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1359957",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q11309299",
+    "role": "Editor"
+   },
+   {
+    "id": "Q313537",
+    "role": "Music"
+   },
+   {
+    "id": "Q458815",
+    "role": "Costume Designer"
    }
   ]
  },
@@ -12268,6 +14507,111 @@
    },
    {
     "id": "Q23290380",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "the-pianist": {
+  "qid": "Q150804",
+  "people": [
+   {
+    "id": "Q104514",
+    "role": "Cast",
+    "character": "Władysław Szpilman"
+   },
+   {
+    "id": "Q57614",
+    "role": "Cast",
+    "character": "Captain Wilm Hosenfeld"
+   },
+   {
+    "id": "Q738521",
+    "role": "Cast",
+    "character": "Samuel Szpilman"
+   },
+   {
+    "id": "Q213257",
+    "role": "Cast",
+    "character": "Dorota"
+   },
+   {
+    "id": "Q109629",
+    "role": "Cast",
+    "character": "Schultz"
+   },
+   {
+    "id": "Q3300246",
+    "role": "Cast",
+    "character": "Edwarda Szpilman"
+   },
+   {
+    "id": "Q1930601",
+    "role": "Cast",
+    "character": "Jurek"
+   },
+   {
+    "id": "Q2020161",
+    "role": "Cast",
+    "character": "Henryk Szpilman"
+   },
+   {
+    "id": "Q3397928",
+    "role": "Cast",
+    "character": "Rubenstein"
+   },
+   {
+    "id": "Q3431161",
+    "role": "Cast",
+    "character": "Mr. Lipa"
+   },
+   {
+    "id": "Q16213893",
+    "role": "Cast",
+    "character": "Majorek"
+   },
+   {
+    "id": "Q6111701",
+    "role": "Cast",
+    "character": "Andrzej Bogucki"
+   },
+   {
+    "id": "Q51552",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q706668",
+    "role": "Writer"
+   },
+   {
+    "id": "Q157176",
+    "role": "Writer"
+   },
+   {
+    "id": "Q712827",
+    "role": "Producer"
+   },
+   {
+    "id": "Q3434554",
+    "role": "Producer"
+   },
+   {
+    "id": "Q949330",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q513939",
+    "role": "Editor"
+   },
+   {
+    "id": "Q319777",
+    "role": "Music"
+   },
+   {
+    "id": "Q177219",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q585823",
     "role": "Costume Designer"
    }
   ]

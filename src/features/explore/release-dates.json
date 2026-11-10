@@ -15,6 +15,10 @@
   "date": "2008-01-09",
   "precision": "day"
  },
+ "a-beautiful-mind": {
+  "date": "2001-01-01",
+  "precision": "year"
+ },
  "a-kid-from-coney-island": {
   "date": "2019-01-01",
   "precision": "year"
@@ -26,6 +30,10 @@
  "abouna": {
   "date": "2002-01-01",
   "precision": "year"
+ },
+ "alien": {
+  "date": "1979-05-25",
+  "precision": "day"
  },
  "all-about-eve": {
   "date": "1950-01-01",
@@ -54,6 +62,10 @@
  "atlantics": {
   "date": "2019-01-01",
   "precision": "year"
+ },
+ "avatar": {
+  "date": "2009-12-16",
+  "precision": "day"
  },
  "back-to-the-future": {
   "date": "1985-07-03",
@@ -107,6 +119,10 @@
   "date": "1938-01-01",
   "precision": "year"
  },
+ "brokeback-mountain": {
+  "date": "2005-09-02",
+  "precision": "day"
+ },
  "bugonia": {
   "date": "2025-08-28",
   "precision": "day"
@@ -117,6 +133,10 @@
  },
  "capernaum": {
   "date": "2018-05-17",
+  "precision": "day"
+ },
+ "captain-america-the-first-avenger": {
+  "date": "2011-07-22",
   "precision": "day"
  },
  "carmen-jones": {
@@ -615,6 +635,10 @@
   "date": "2017-02-11",
   "precision": "day"
  },
+ "fight-club": {
+  "date": "1999-09-10",
+  "precision": "day"
+ },
  "film-500-days-of-summer": {
   "date": "2009-01-17",
   "precision": "day"
@@ -715,6 +739,10 @@
   "date": "2000-09-11",
   "precision": "day"
  },
+ "gladiator": {
+  "date": "2000-05-05",
+  "precision": "day"
+ },
  "go": {
   "date": "2025-01-01",
   "precision": "year"
@@ -779,6 +807,10 @@
   "date": "1940-01-11",
   "precision": "day"
  },
+ "home-alone": {
+  "date": "1990-11-10",
+  "precision": "day"
+ },
  "hounds": {
   "date": "2023-07-01",
   "precision": "day"
@@ -807,6 +839,18 @@
   "date": "1967-01-01",
   "precision": "year"
  },
+ "inception": {
+  "date": "2010-07-08",
+  "precision": "day"
+ },
+ "inglourious-basterds": {
+  "date": "2009-05-20",
+  "precision": "day"
+ },
+ "interstellar": {
+  "date": "2014-10-26",
+  "precision": "day"
+ },
  "inumber-number": {
   "date": "2013-01-01",
   "precision": "year"
@@ -817,6 +861,10 @@
  },
  "inxeba": {
   "date": "2017-01-22",
+  "precision": "day"
+ },
+ "iron-man": {
+  "date": "2008-04-30",
   "precision": "day"
  },
  "it-happened-one-night": {
@@ -975,17 +1023,41 @@
   "date": "2001-09-03",
   "precision": "day"
  },
+ "oppenheimer": {
+  "date": "2023-07-20",
+  "precision": "day"
+ },
  "out-of-the-past": {
   "date": "1947-11-25",
+  "precision": "day"
+ },
+ "parasite": {
+  "date": "2019-05-21",
   "precision": "day"
  },
  "paths-of-glory": {
   "date": "1957-01-01",
   "precision": "year"
  },
+ "pirates-of-the-caribbean-at-worlds-end": {
+  "date": "2007-05-23",
+  "precision": "day"
+ },
+ "pirates-of-the-caribbean-dead-mans-chest": {
+  "date": "2006-07-07",
+  "precision": "day"
+ },
+ "pirates-of-the-caribbean-the-curse-of-the-black-pearl": {
+  "date": "2003-07-09",
+  "precision": "day"
+ },
  "porgy-and-bess": {
   "date": "1959-01-01",
   "precision": "year"
+ },
+ "prison-break": {
+  "date": "2005-08-29",
+  "precision": "day"
  },
  "psycho": {
   "date": "1960-01-01",
@@ -1043,6 +1115,10 @@
   "date": "2022-05-12",
   "precision": "day"
  },
+ "saving-private-ryan": {
+  "date": "1998-01-01",
+  "precision": "year"
+ },
  "seriously-single": {
   "date": "2020-01-01",
   "precision": "year"
@@ -1071,8 +1147,20 @@
   "date": "1952-03-27",
   "precision": "day"
  },
+ "skyfall": {
+  "date": "2012-10-23",
+  "precision": "day"
+ },
  "some-like-it-hot": {
   "date": "1959-03-19",
+  "precision": "day"
+ },
+ "spider-man": {
+  "date": "2002-05-03",
+  "precision": "day"
+ },
+ "squid-game": {
+  "date": "2021-09-17",
   "precision": "day"
  },
  "stagecoach": {
@@ -1085,6 +1173,10 @@
  },
  "stormy-weather": {
   "date": "1943-01-01",
+  "precision": "year"
+ },
+ "stranger-things": {
+  "date": "2016-01-01",
   "precision": "year"
  },
  "sunrise": {
@@ -1109,6 +1201,10 @@
  },
  "the-african-queen": {
   "date": "1951-12-26",
+  "precision": "day"
+ },
+ "the-avengers": {
+  "date": "2011-07-15",
   "precision": "day"
  },
  "the-best-years-of-our-lives": {
@@ -1198,6 +1294,10 @@
  "the-ox-bow-incident": {
   "date": "1943-01-01",
   "precision": "year"
+ },
+ "the-pianist": {
+  "date": "2002-05-24",
+  "precision": "day"
  },
  "the-polygamist": {
   "date": "2026-06-12",

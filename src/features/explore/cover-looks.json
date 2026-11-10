@@ -334,6 +334,10 @@
   "muted-colour",
   "bright-airy"
  ],
+ "a-beautiful-mind": [
+  "warm-palette",
+  "low-key"
+ ],
  "a-kid-from-coney-island": [
   "warm-palette",
   "low-key"
@@ -344,6 +348,10 @@
  ],
  "abouna": [
   "cool-palette"
+ ],
+ "alien": [
+  "muted-colour",
+  "low-key"
  ],
  "all-about-eve": [
   "black-and-white",
@@ -371,6 +379,11 @@
   "low-key"
  ],
  "atlantics": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
+ ],
+ "avatar": [
   "vivid-colour",
   "cool-palette",
   "low-key"
@@ -425,6 +438,7 @@
   "warm-palette",
   "bright-airy"
  ],
+ "brokeback-mountain": [],
  "bugonia": [
   "vivid-colour",
   "warm-palette"
@@ -436,6 +450,9 @@
  "capernaum": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "captain-america-the-first-avenger": [
+  "muted-colour"
  ],
  "carmen-jones": [
   "vivid-colour",
@@ -523,6 +540,10 @@
  "felicite": [
   "vivid-colour"
  ],
+ "fight-club": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "five-fingers-for-marseilles": [
   "muted-colour"
  ],
@@ -545,6 +566,10 @@
  "gilda": [],
  "girlfriends": [
   "muted-colour"
+ ],
+ "gladiator": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "go": [
   "vivid-colour",
@@ -604,6 +629,9 @@
  "his-girl-friday": [
   "black-and-white"
  ],
+ "home-alone": [
+  "vivid-colour"
+ ],
  "hounds": [
   "vivid-colour",
   "warm-palette"
@@ -635,6 +663,14 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "inception": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "inglourious-basterds": [
+  "warm-palette"
+ ],
+ "interstellar": [],
  "inumber-number-jozi-gold": [
   "vivid-colour",
   "warm-palette"
@@ -645,6 +681,10 @@
  ],
  "inxeba": [
   "warm-palette"
+ ],
+ "iron-man": [
+  "vivid-colour",
+  "low-key"
  ],
  "it-happened-one-night": [
   "black-and-white"
@@ -782,17 +822,43 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "oppenheimer": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "out-of-the-past": [
   "vivid-colour",
   "warm-palette"
  ],
+ "parasite": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "paths-of-glory": [
   "black-and-white"
+ ],
+ "pirates-of-the-caribbean-at-worlds-end": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "pirates-of-the-caribbean-dead-mans-chest": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "pirates-of-the-caribbean-the-curse-of-the-black-pearl": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "porgy-and-bess": [
   "muted-colour",
   "warm-palette",
   "bright-airy"
+ ],
+ "prison-break": [
+  "muted-colour"
  ],
  "psycho": [
   "black-and-white"
@@ -844,6 +910,9 @@
   "warm-palette",
   "low-key"
  ],
+ "saving-private-ryan": [
+  "muted-colour"
+ ],
  "seriously-single": [
   "vivid-colour",
   "warm-palette"
@@ -864,8 +933,20 @@
  "singin-in-the-rain": [
   "bright-airy"
  ],
+ "skyfall": [
+  "muted-colour",
+  "bright-airy"
+ ],
  "some-like-it-hot": [
   "black-and-white"
+ ],
+ "spider-man": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "squid-game": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "stagecoach": [
   "black-and-white"
@@ -875,6 +956,11 @@
  ],
  "stormy-weather": [
   "warm-palette"
+ ],
+ "stranger-things": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "sunrise": [
   "warm-palette"
@@ -896,6 +982,10 @@
   "vivid-colour",
   "warm-palette",
   "bright-airy"
+ ],
+ "the-avengers": [
+  "vivid-colour",
+  "cool-palette"
  ],
  "the-best-years-of-our-lives": [
   "vivid-colour",
@@ -976,6 +1066,10 @@
  ],
  "the-ox-bow-incident": [
   "warm-palette"
+ ],
+ "the-pianist": [
+  "warm-palette",
+  "low-key"
  ],
  "the-polygamist": [
   "warm-palette",
