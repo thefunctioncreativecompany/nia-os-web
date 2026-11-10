@@ -596,3 +596,9 @@ onboarding's Import profile and Follow creators describe features removed in the
   Cover looks: a title's black and white comes from its trailer palette (before 1968), or from
   trailer and poster agreeing (after): Casablanca, Citizen Kane and 27 other classics now read
   black and white; Network and Get Out stay colour.
+- (2026-11-10) By studio picks studios by logo (Ika: "round profile pictures with the company/network
+  logos", bigger, on a white plate): 80px round buttons, each studio's official logo from TMDB
+  (`public/explore/studios/<id>.png`, sources in `studio-logos.json`) on `logo-plate` (white in
+  light mode, `#f2f2f2` in dark), the chosen one ringed like an "on" chip; a line under the row
+  names the studio, its owner when different, and how many titles are on Explore. A studio
+  without a logo falls back to its word chip. Not in Figma yet.

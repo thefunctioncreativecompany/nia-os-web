@@ -1,0 +1,50 @@
+{
+ "paramount": {
+  "source": "TMDB",
+  "tmdb": "company/4"
+ },
+ "universal": {
+  "source": "TMDB",
+  "tmdb": "company/33"
+ },
+ "focus": {
+  "source": "TMDB",
+  "tmdb": "company/10146"
+ },
+ "columbia": {
+  "source": "TMDB",
+  "tmdb": "company/5"
+ },
+ "warner": {
+  "source": "TMDB",
+  "tmdb": "company/174"
+ },
+ "disney": {
+  "source": "TMDB",
+  "tmdb": "company/2"
+ },
+ "20th-century": {
+  "source": "TMDB",
+  "tmdb": "company/127928"
+ },
+ "mgm": {
+  "source": "TMDB",
+  "tmdb": "company/21"
+ },
+ "netflix": {
+  "source": "TMDB",
+  "tmdb": "company/178464"
+ },
+ "lionsgate": {
+  "source": "TMDB",
+  "tmdb": "company/1632"
+ },
+ "a24": {
+  "source": "TMDB",
+  "tmdb": "company/41077"
+ },
+ "neon": {
+  "source": "TMDB",
+  "tmdb": "company/90733"
+ }
+}
