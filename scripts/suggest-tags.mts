@@ -99,7 +99,11 @@ const drafts: Record<string, unknown> = {};
 for (const t of list) {
   const kind = t.type === "series" ? "tv" : "movie";
   const yearParam = kind === "tv" ? `&first_air_date_year=${t.year}` : `&year=${t.year}`;
-  const found = (await tmdb(`search/${kind}`, `&query=${encodeURIComponent(t.title)}${yearParam}`))?.results?.[0];
+  // The same name and year first (remakes share names), then the same year.
+  const hits: { id: number; title?: string; name?: string; release_date?: string; first_air_date?: string }[] = (await tmdb(`search/${kind}`, `&query=${encodeURIComponent(t.title)}${yearParam}`))?.results ?? [];
+  const plain = (s?: string) => (s ?? "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const sameYear = hits.filter((m) => Math.abs(Number((m.release_date ?? m.first_air_date ?? "").slice(0, 4)) - t.year) <= 1);
+  const found = sameYear.find((m) => plain(m.title ?? m.name) === plain(t.title)) ?? sameYear[0];
   if (!found) {
     console.log(`${t.slug}: not found on TMDB`);
     continue;

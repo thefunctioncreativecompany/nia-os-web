@@ -35,7 +35,12 @@ async function tmdb(title, year, type) {
     const yearParam = year ? (kind === "tv" ? `&first_air_date_year=${year}` : `&year=${year}`) : "";
     const url = `https://api.themoviedb.org/3/search/${kind}?query=${encodeURIComponent(title)}${yearParam}${bearer ? "" : `&api_key=${key}`}`;
     const r = await fetch(url, { headers: bearer ? { Authorization: `Bearer ${key}` } : {}, signal: AbortSignal.timeout(20000) }).catch(() => null);
-    const hit = r?.ok ? (await r.json()).results?.find((m) => m.poster_path) : null;
+    // The same name and year first (remakes share names: The Jungle Book, Aladdin), then the same
+    // year, then TMDB's best match.
+    const found = r?.ok ? ((await r.json()).results ?? []).filter((m) => m.poster_path) : [];
+    const yearOf = (m) => Number((m.release_date ?? m.first_air_date ?? "").slice(0, 4));
+    const sameYear = found.filter((m) => !year || Math.abs(yearOf(m) - year) <= 1);
+    const hit = sameYear.find((m) => norm(m.title ?? m.name) === norm(title)) ?? sameYear[0] ?? (year ? null : found[0]);
     if (hit) return { source: "TMDB", tmdb: `${kind}/${hit.id}`, name: hit.title ?? hit.name, image: `https://image.tmdb.org/t/p/original${hit.poster_path}` };
   }
   return null;

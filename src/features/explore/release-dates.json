@@ -7,6 +7,10 @@
   "date": "1957-04-10",
   "precision": "day"
  },
+ "12-monkeys": {
+  "date": "1995-01-01",
+  "precision": "year"
+ },
  "13-going-on-30": {
   "date": "2004-04-23",
   "precision": "day"
@@ -35,6 +39,10 @@
   "date": "2002-01-01",
   "precision": "year"
  },
+ "aladdin": {
+  "date": "2019-05-22",
+  "precision": "day"
+ },
  "alice-in-wonderland": {
   "date": "2010-02-25",
   "precision": "day"
@@ -49,6 +57,10 @@
  },
  "all-about-eve": {
   "date": "1950-01-01",
+  "precision": "year"
+ },
+ "all-quiet-on-the-western-front": {
+  "date": "1930-01-01",
   "precision": "year"
  },
  "american-housewife": {
@@ -70,6 +82,14 @@
  "apocalypse-now": {
   "date": "1979-01-01",
   "precision": "year"
+ },
+ "apollo-13": {
+  "date": "1995-06-30",
+  "precision": "day"
+ },
+ "arrival": {
+  "date": "2016-11-10",
+  "precision": "day"
  },
  "atlantics": {
   "date": "2019-01-01",
@@ -99,6 +119,10 @@
   "date": "1997-01-01",
   "precision": "year"
  },
+ "batman": {
+  "date": "1989-01-01",
+  "precision": "year"
+ },
  "ben-hur": {
   "date": "1959-11-18",
   "precision": "day"
@@ -110,6 +134,10 @@
  "black-girl": {
   "date": "1966-01-01",
   "precision": "year"
+ },
+ "black-mirror": {
+  "date": "2011-12-04",
+  "precision": "day"
  },
  "black-panther": {
   "date": "2018-02-14",
@@ -123,8 +151,16 @@
   "date": "1967-08-04",
   "precision": "day"
  },
+ "borat": {
+  "date": "2006-01-01",
+  "precision": "year"
+ },
  "boyz-n-the-hood": {
   "date": "1991-07-12",
+  "precision": "day"
+ },
+ "breakfast-at-tiffanys": {
+  "date": "1961-10-06",
   "precision": "day"
  },
  "bride-of-frankenstein": {
@@ -651,6 +687,10 @@
   "date": "1982-05-26",
   "precision": "day"
  },
+ "eternal-sunshine-of-the-spotless-mind": {
+  "date": "2004-03-09",
+  "precision": "day"
+ },
  "eyimofe": {
   "date": "2020-10-11",
   "precision": "day"
@@ -759,6 +799,10 @@
   "date": "1931-11-21",
   "precision": "day"
  },
+ "gandhi": {
+  "date": "1982-11-30",
+  "precision": "day"
+ },
  "get-out": {
   "date": "2017-01-24",
   "precision": "day"
@@ -775,6 +819,10 @@
   "date": "2000-05-05",
   "precision": "day"
  },
+ "glee": {
+  "date": "2009-01-01",
+  "precision": "year"
+ },
  "go": {
   "date": "2025-01-01",
   "precision": "year"
@@ -790,6 +838,10 @@
  "green-book": {
   "date": "2018-09-11",
   "precision": "day"
+ },
+ "groundhog-day": {
+  "date": "1993-01-01",
+  "precision": "year"
  },
  "half-and-half": {
   "date": "2002-09-23",
@@ -845,6 +897,10 @@
  },
  "home-alone": {
   "date": "1990-11-10",
+  "precision": "day"
+ },
+ "home-alone-2-lost-in-new-york": {
+  "date": "1992-11-20",
   "precision": "day"
  },
  "hounds": {
@@ -955,6 +1011,10 @@
   "date": "1933-01-01",
   "precision": "year"
  },
+ "kingdom-of-heaven": {
+  "date": "2005-01-01",
+  "precision": "year"
+ },
  "kings-of-joburg": {
   "date": "2020-12-04",
   "precision": "day"
@@ -1003,6 +1063,10 @@
   "date": "1992-01-01",
   "precision": "year"
  },
+ "maleficent": {
+  "date": "2014-05-28",
+  "precision": "day"
+ },
  "mami-wata": {
   "date": "2023-01-23",
   "precision": "day"
@@ -1015,9 +1079,17 @@
   "date": "1992-08-27",
   "precision": "day"
  },
+ "mary-poppins": {
+  "date": "1964-08-27",
+  "precision": "day"
+ },
  "matilda": {
   "date": "1996-01-01",
   "precision": "year"
+ },
+ "men-in-black": {
+  "date": "1997-07-02",
+  "precision": "day"
  },
  "mildred-pierce": {
   "date": "1945-09-24",
@@ -1091,12 +1163,20 @@
   "date": "2019-05-21",
   "precision": "day"
  },
+ "once-upon-a-time-in-the-west": {
+  "date": "1968-01-01",
+  "precision": "year"
+ },
  "one-on-one": {
   "date": "2001-09-03",
   "precision": "day"
  },
  "oppenheimer": {
   "date": "2023-07-20",
+  "precision": "day"
+ },
+ "out-of-africa": {
+  "date": "1985-12-20",
   "precision": "day"
  },
  "out-of-the-past": {
@@ -1119,6 +1199,10 @@
   "date": "2006-07-07",
   "precision": "day"
  },
+ "pirates-of-the-caribbean-dead-men-tell-no-tales": {
+  "date": "2017-05-24",
+  "precision": "day"
+ },
  "pirates-of-the-caribbean-on-stranger-tides": {
   "date": "2011-05-18",
   "precision": "day"
@@ -1131,8 +1215,16 @@
   "date": "1959-01-01",
   "precision": "year"
  },
+ "predator": {
+  "date": "1987-06-12",
+  "precision": "day"
+ },
  "prison-break": {
   "date": "2005-08-29",
+  "precision": "day"
+ },
+ "prometheus": {
+  "date": "2012-05-30",
   "precision": "day"
  },
  "psycho": {
@@ -1199,6 +1291,10 @@
   "date": "1998-01-01",
   "precision": "year"
  },
+ "saw": {
+  "date": "2003-01-01",
+  "precision": "year"
+ },
  "scarface": {
   "date": "1983-01-01",
   "precision": "year"
@@ -1255,6 +1351,10 @@
   "date": "2004-06-30",
   "precision": "day"
  },
+ "spider-man-3": {
+  "date": "2007-05-01",
+  "precision": "day"
+ },
  "spider-man-far-from-home": {
   "date": "2019-06-28",
   "precision": "day"
@@ -1307,6 +1407,10 @@
   "date": "2026-09-04",
   "precision": "day"
  },
+ "terminator-3-rise-of-the-machines": {
+  "date": "2003-07-02",
+  "precision": "day"
+ },
  "the-adventures-of-robin-hood": {
   "date": "1938-05-14",
   "precision": "day"
@@ -1315,8 +1419,20 @@
   "date": "1951-12-26",
   "precision": "day"
  },
+ "the-amazing-spider-man": {
+  "date": "2012-06-28",
+  "precision": "day"
+ },
+ "the-amazing-spider-man-2": {
+  "date": "2014-04-17",
+  "precision": "day"
+ },
  "the-avengers": {
   "date": "2011-07-15",
+  "precision": "day"
+ },
+ "the-batman": {
+  "date": "2022-02-23",
   "precision": "day"
  },
  "the-best-years-of-our-lives": {
@@ -1331,6 +1447,14 @@
   "date": "1941-01-01",
   "precision": "year"
  },
+ "the-bourne-identity": {
+  "date": "2002-06-06",
+  "precision": "day"
+ },
+ "the-bourne-ultimatum": {
+  "date": "2007-07-25",
+  "precision": "day"
+ },
  "the-brave-ones": {
   "date": "2022-01-01",
   "precision": "year"
@@ -1343,13 +1467,37 @@
   "date": "2005-03-22",
   "precision": "day"
  },
+ "the-curious-case-of-benjamin-button": {
+  "date": "2008-12-10",
+  "precision": "day"
+ },
  "the-da-vinci-code": {
   "date": "2006-05-17",
+  "precision": "day"
+ },
+ "the-day-after-tomorrow": {
+  "date": "2004-05-27",
+  "precision": "day"
+ },
+ "the-deer-hunter": {
+  "date": "1978-12-08",
   "precision": "day"
  },
  "the-emperor-jones": {
   "date": "1933-01-01",
   "precision": "year"
+ },
+ "the-fast-and-the-furious": {
+  "date": "2001-06-22",
+  "precision": "day"
+ },
+ "the-fast-and-the-furious-tokyo-drift": {
+  "date": "2006-06-04",
+  "precision": "day"
+ },
+ "the-fifth-element": {
+  "date": "1997-05-07",
+  "precision": "day"
  },
  "the-general": {
   "date": "1926-12-25",
@@ -1387,6 +1535,10 @@
   "date": "2012-11-28",
   "precision": "day"
  },
+ "the-hobbit-the-battle-of-the-five-armies": {
+  "date": "2014-12-01",
+  "precision": "day"
+ },
  "the-hobbit-the-desolation-of-smaug": {
   "date": "2013-12-02",
   "precision": "day"
@@ -1403,12 +1555,20 @@
   "date": "1953-01-01",
   "precision": "year"
  },
+ "the-jungle-book": {
+  "date": "2016-04-08",
+  "precision": "day"
+ },
  "the-karate-kid-2010": {
   "date": "2010-06-11",
   "precision": "day"
  },
  "the-last-days-of-ptolemy-grey": {
   "date": "2022-03-11",
+  "precision": "day"
+ },
+ "the-lost-world-jurassic-park": {
+  "date": "1997-05-23",
   "precision": "day"
  },
  "the-maltese-falcon": {
@@ -1430,6 +1590,10 @@
  "the-night-of-the-hunter": {
   "date": "1955-01-01",
   "precision": "year"
+ },
+ "the-odyssey": {
+  "date": "2026-07-06",
+  "precision": "day"
  },
  "the-ox-bow-incident": {
   "date": "1943-01-01",
@@ -1471,6 +1635,10 @@
   "date": "1965-03-02",
   "precision": "day"
  },
+ "the-theory-of-everything": {
+  "date": "2014-01-01",
+  "precision": "year"
+ },
  "the-truman-show": {
   "date": "1998-01-01",
   "precision": "year"
@@ -1498,6 +1666,10 @@
  "to-kill-a-mockingbird": {
   "date": "1962-12-20",
   "precision": "day"
+ },
+ "top-gun": {
+  "date": "1986-01-01",
+  "precision": "year"
  },
  "top-hat": {
   "date": "1935-01-01",
@@ -1535,6 +1707,10 @@
   "date": "2023-03-29",
   "precision": "day"
  },
+ "venom": {
+  "date": "2018-10-04",
+  "precision": "day"
+ },
  "vertigo": {
   "date": "1958-01-01",
   "precision": "year"
@@ -1546,5 +1722,9 @@
  "west-side-story": {
   "date": "1961-01-01",
   "precision": "year"
+ },
+ "x-men": {
+  "date": "2000-07-13",
+  "precision": "day"
  }
 }

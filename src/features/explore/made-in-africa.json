@@ -8008,6 +8008,1337 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "the-odyssey",
+   "collection": "modern-classics",
+   "title": "The Odyssey",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Action"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Christopher Nolan",
+   "pair_with": "",
+   "study_note": "Shot entirely on IMAX film cameras: an ancient epic made on location and at sea",
+   "added": "2026-11-10",
+   "imdb_id": "tt33764258",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "f_bKjZeJBBI",
+     "kind": "trailer",
+     "channel": "Universal Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "gandhi",
+   "collection": "explore-all",
+   "title": "Gandhi",
+   "type": "film",
+   "genres": [
+    "Biography",
+    "Historical",
+    "Drama"
+   ],
+   "year": 1982,
+   "countries": [
+    "United Kingdom",
+    "India"
+   ],
+   "credit": "Richard Attenborough",
+   "recognition": "Eight Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "A funeral scene with hundreds of thousands of extras, staged for real: scale without effects",
+   "added": "2026-11-10",
+   "imdb_id": "tt0083987",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "B7I6D3mSYTE",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "spider-man-3",
+   "collection": "modern-classics",
+   "title": "Spider-Man 3",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Sci-Fi",
+    "Adventure"
+   ],
+   "year": 2007,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Sam Raimi",
+   "pair_with": "",
+   "study_note": "Three villains in one script: a study in what happens when a sequel carries too many stories",
+   "added": "2026-11-10",
+   "imdb_id": "tt0413300",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "e5wUilOeOmg",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "glee",
+   "collection": "drama-series",
+   "title": "Glee",
+   "type": "series",
+   "genres": [
+    "Comedy",
+    "Drama",
+    "Musical"
+   ],
+   "year": 2009,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Ryan Murphy, Brad Falchuk & Ian Brennan",
+   "recognition": "Golden Globe for best comedy or musical series, twice",
+   "pair_with": "",
+   "study_note": "Musical numbers recorded, staged and released as singles every week: a series run like a record label",
+   "added": "2026-11-10",
+   "imdb_id": "tt3999280",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "SOspGTrGOUg",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-fast-and-the-furious",
+   "collection": "modern-classics",
+   "title": "The Fast and the Furious",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Crime",
+    "Thriller"
+   ],
+   "year": 2001,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Rob Cohen",
+   "pair_with": "",
+   "study_note": "Street racing shot with real cars and a mid-sized budget: the start of a franchise built on stunts and family",
+   "added": "2026-11-10",
+   "imdb_id": "tt0232500",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "2TAOizOnNPo",
+     "kind": "trailer",
+     "channel": "Movieclips",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "eternal-sunshine-of-the-spotless-mind",
+   "collection": "modern-classics",
+   "title": "Eternal Sunshine of the Spotless Mind",
+   "type": "film",
+   "genres": [
+    "Romance",
+    "Sci-Fi",
+    "Drama"
+   ],
+   "year": 2004,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Michel Gondry",
+   "recognition": "Academy Award for original screenplay",
+   "pair_with": "",
+   "study_note": "Memories erased in camera: forced perspective, hidden doors and one light instead of digital effects",
+   "added": "2026-11-10",
+   "imdb_id": "tt0338013",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "07-QBnEkgXU",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-amazing-spider-man",
+   "collection": "modern-classics",
+   "title": "The Amazing Spider-Man",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2012,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Marc Webb",
+   "pair_with": "",
+   "study_note": "A reboot five years after the last film: the same origin, retold with more practical swinging and a romance at its centre",
+   "added": "2026-11-10",
+   "imdb_id": "tt0948470",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "-tnxzJ0SSOw",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "borat",
+   "collection": "modern-classics",
+   "title": "Borat",
+   "type": "film",
+   "genres": [
+    "Comedy"
+   ],
+   "year": 2006,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Larry Charles",
+   "recognition": "Golden Globe for Sacha Baron Cohen; Academy Award nomination for adapted screenplay",
+   "pair_with": "",
+   "study_note": "A fictional character among real people who don't know it: a tiny crew, release forms and nerve",
+   "added": "2026-11-10",
+   "imdb_id": "ch0003778",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "ZN-dGVbCjLI",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "home-alone-2-lost-in-new-york",
+   "collection": "modern-classics",
+   "title": "Home Alone 2: Lost in New York",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Family",
+    "Adventure"
+   ],
+   "year": 1992,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Chris Columbus",
+   "pair_with": "",
+   "study_note": "The same film in a bigger city: how a sequel repeats a structure beat for beat and still works",
+   "added": "2026-11-10",
+   "imdb_id": "tt0104431",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "5h9VDUNtoto",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "kingdom-of-heaven",
+   "collection": "modern-classics",
+   "title": "Kingdom of Heaven",
+   "type": "film",
+   "genres": [
+    "Historical",
+    "Action",
+    "Drama"
+   ],
+   "year": 2005,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Ridley Scott",
+   "pair_with": "",
+   "study_note": "A director's cut that restored 45 minutes and changed the film's reputation: what the edit decides",
+   "added": "2026-11-10",
+   "imdb_id": "tt0320661",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "KartNo8EDWY",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-hobbit-the-battle-of-the-five-armies",
+   "collection": "modern-classics",
+   "title": "The Hobbit: The Battle of the Five Armies",
+   "type": "film",
+   "genres": [
+    "Fantasy",
+    "Adventure",
+    "Action"
+   ],
+   "year": 2014,
+   "countries": [
+    "New Zealand",
+    "United States"
+   ],
+   "credit": "Peter Jackson",
+   "pair_with": "",
+   "study_note": "A battle that fills half the running time, built almost entirely on digital stages",
+   "added": "2026-11-10",
+   "imdb_id": "tt2310332",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "iVAgTiBrrDA",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "saw",
+   "collection": "modern-classics",
+   "title": "Saw",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Thriller",
+    "Mystery"
+   ],
+   "year": 2004,
+   "countries": [
+    "United States"
+   ],
+   "credit": "James Wan",
+   "pair_with": "",
+   "study_note": "Shot in 18 days, mostly in one room, for about a million dollars: a script designed around its budget",
+   "added": "2026-11-10",
+   "imdb_id": "tt0387564",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "S-1QgOMQ-ls",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "arrival",
+   "collection": "modern-classics",
+   "title": "Arrival",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Drama",
+    "Mystery"
+   ],
+   "year": 2016,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Denis Villeneuve",
+   "recognition": "Academy Award for sound editing; eight nominations, including Best Picture",
+   "pair_with": "",
+   "study_note": "A language designed for the film, and an edit that hides its structure until the last act",
+   "added": "2026-11-10",
+   "imdb_id": "tt2543164",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "tFMo3UJ4B4g",
+     "kind": "trailer",
+     "channel": "Paramount Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "predator",
+   "collection": "modern-classics",
+   "title": "Predator",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Thriller"
+   ],
+   "year": 1987,
+   "countries": [
+    "United States"
+   ],
+   "credit": "John McTiernan",
+   "pair_with": "",
+   "study_note": "An action film that turns into a horror film halfway: a creature suit and an early heat-vision effect",
+   "added": "2026-11-10",
+   "imdb_id": "tt0093773",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "_1wDBNHYDv8",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-amazing-spider-man-2",
+   "collection": "modern-classics",
+   "title": "The Amazing Spider-Man 2",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2014,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Marc Webb",
+   "pair_with": "",
+   "study_note": "Shot on 35mm film in New York: a sequel built to launch spin-offs, and what that does to a story",
+   "added": "2026-11-10",
+   "imdb_id": "tt1872181",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "nbp3Ra3Yp74",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "terminator-3-rise-of-the-machines",
+   "collection": "modern-classics",
+   "title": "Terminator 3: Rise of the Machines",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Thriller"
+   ],
+   "year": 2003,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Jonathan Mostow",
+   "pair_with": "",
+   "study_note": "A crane-truck chase that wrecked real streets built for the shoot: the last of the era's practical set pieces",
+   "added": "2026-11-10",
+   "imdb_id": "tt0181852",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "5UgPJhyJmlM",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-day-after-tomorrow",
+   "collection": "modern-classics",
+   "title": "The Day After Tomorrow",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Adventure",
+    "Thriller"
+   ],
+   "year": 2004,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Roland Emmerich",
+   "recognition": "BAFTA for special visual effects",
+   "pair_with": "",
+   "study_note": "New York flooded and frozen digitally: weather as the antagonist",
+   "added": "2026-11-10",
+   "imdb_id": "tt0319262",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "HUBDFoMNXzA",
+     "kind": "trailer",
+     "channel": "20th Century Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-lost-world-jurassic-park",
+   "collection": "modern-classics",
+   "title": "The Lost World: Jurassic Park",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Adventure",
+    "Action"
+   ],
+   "year": 1997,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Steven Spielberg",
+   "pair_with": "",
+   "study_note": "Full-size animatronic dinosaurs working in rain and at night: a sequel darker in look than the first",
+   "added": "2026-11-10",
+   "imdb_id": "tt0119567",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "E6Xf65X0JB8",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "batman",
+   "collection": "modern-classics",
+   "title": "Batman",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Crime",
+    "Fantasy"
+   ],
+   "year": 1989,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Tim Burton",
+   "recognition": "Academy Award for art direction",
+   "pair_with": "",
+   "study_note": "Gotham built whole on a backlot: production design as the film's real star, and a marketing campaign of one logo",
+   "added": "2026-11-10",
+   "imdb_id": "tt0096895",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "dgC9Q0uhX70",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "12-monkeys",
+   "collection": "modern-classics",
+   "title": "12 Monkeys",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Thriller",
+    "Mystery"
+   ],
+   "year": 1995,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Terry Gilliam",
+   "recognition": "Golden Globe for Brad Pitt as supporting actor",
+   "pair_with": "",
+   "study_note": "Wide lenses, tilted frames and sets made from scrap: a future on a modest budget",
+   "added": "2026-11-10",
+   "imdb_id": "tt0114746",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "15s4Y9ffW_o",
+     "kind": "trailer",
+     "channel": "Movieclips",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-theory-of-everything",
+   "collection": "modern-classics",
+   "title": "The Theory of Everything",
+   "type": "film",
+   "genres": [
+    "Biography",
+    "Romance",
+    "Drama"
+   ],
+   "year": 2014,
+   "countries": [
+    "United Kingdom"
+   ],
+   "credit": "James Marsh",
+   "recognition": "Academy Award for Eddie Redmayne as lead actor",
+   "pair_with": "",
+   "study_note": "A performance mapped out of order across decades of illness: the actor charted every stage before the shoot",
+   "added": "2026-11-10",
+   "imdb_id": "tt2980516",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Salz7uGp72c",
+     "kind": "trailer",
+     "channel": "Universal Pictures UK",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "men-in-black",
+   "collection": "black-and-poc-leads",
+   "title": "Men in Black",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Comedy",
+    "Action"
+   ],
+   "year": 1997,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Barry Sonnenfeld",
+   "recognition": "Academy Award for makeup",
+   "pair_with": "",
+   "study_note": "Creature makeup and puppets beside early digital aliens; a comedy shot with a wide lens close to the actors",
+   "added": "2026-11-10",
+   "imdb_id": "tt0119654",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "UxUTTrU6PA4",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "prometheus",
+   "collection": "modern-classics",
+   "title": "Prometheus",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Mystery",
+    "Horror"
+   ],
+   "year": 2012,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Ridley Scott",
+   "pair_with": "",
+   "study_note": "Vast physical sets extended digitally, shot in 3D in Iceland: design-led science fiction",
+   "added": "2026-11-10",
+   "imdb_id": "tt1446714",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "yA6OKoW30Pk",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "black-mirror",
+   "collection": "drama-series",
+   "title": "Black Mirror",
+   "type": "series",
+   "genres": [
+    "Sci-Fi",
+    "Drama",
+    "Thriller"
+   ],
+   "year": 2011,
+   "countries": [
+    "United Kingdom"
+   ],
+   "credit": "Charlie Brooker",
+   "recognition": "Emmy Award for outstanding television movie, three years running",
+   "pair_with": "",
+   "study_note": "Every episode a new cast, world and genre: an anthology held together by one idea about technology",
+   "added": "2026-11-10",
+   "imdb_id": "tt2085059",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "yef_HfQoBd8",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "apollo-13",
+   "collection": "modern-classics",
+   "title": "Apollo 13",
+   "type": "film",
+   "genres": [
+    "Historical",
+    "Drama",
+    "Adventure"
+   ],
+   "year": 1995,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Ron Howard",
+   "recognition": "Two Academy Awards: film editing and sound",
+   "pair_with": "",
+   "study_note": "Weightless scenes filmed in real zero gravity aboard a diving aircraft, 25 seconds at a time",
+   "added": "2026-11-10",
+   "imdb_id": "tt0112384",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "KtEIMC58sZo",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-fifth-element",
+   "collection": "explore-all",
+   "title": "The Fifth Element",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Adventure"
+   ],
+   "year": 1997,
+   "countries": [
+    "France"
+   ],
+   "credit": "Luc Besson",
+   "recognition": "BAFTA for special visual effects",
+   "pair_with": "",
+   "study_note": "Costumes by Jean Paul Gaultier and designs by comic artists: a future drawn first, then built",
+   "added": "2026-11-10",
+   "imdb_id": "tt0119116",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "5Sg2RkdkSvk",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "venom",
+   "collection": "modern-classics",
+   "title": "Venom",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action"
+   ],
+   "year": 2018,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Ruben Fleischer",
+   "pair_with": "",
+   "study_note": "One actor playing both halves of a double act, recording the creature's voice to perform against himself",
+   "added": "2026-11-10",
+   "imdb_id": "tt1270797",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "u9Mv98Gr5pY",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-batman",
+   "collection": "modern-classics",
+   "title": "The Batman",
+   "type": "film",
+   "genres": [
+    "Crime",
+    "Mystery",
+    "Thriller"
+   ],
+   "year": 2022,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Matt Reeves",
+   "pair_with": "",
+   "study_note": "A superhero film lit like a noir: faces half in shadow, rain on the lens, a detective story",
+   "added": "2026-11-10",
+   "imdb_id": "tt1877830",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "mqqft2x_Aa4",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "mary-poppins",
+   "collection": "new-hollywood",
+   "title": "Mary Poppins",
+   "type": "film",
+   "genres": [
+    "Musical",
+    "Family",
+    "Fantasy"
+   ],
+   "year": 1964,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Robert Stevenson",
+   "recognition": "Five Academy Awards, including Julie Andrews as lead actress",
+   "pair_with": "",
+   "study_note": "Actors dancing with animation, years before digital compositing: a process invented for the film",
+   "added": "2026-11-10",
+   "imdb_id": "tt0058331",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "YfkEQDPlb8g",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "pirates-of-the-caribbean-dead-men-tell-no-tales",
+   "collection": "modern-classics",
+   "title": "Pirates of the Caribbean: Dead Men Tell no Tales",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Action"
+   ],
+   "year": 2017,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Joachim Rønning & Espen Sandberg",
+   "pair_with": "",
+   "study_note": "A lead actor made decades younger digitally for a flashback: de-ageing as a storytelling tool",
+   "added": "2026-11-10",
+   "imdb_id": "tt1790809",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "KrGyD4kHTSE",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "x-men",
+   "collection": "modern-classics",
+   "title": "X-Men",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Adventure"
+   ],
+   "year": 2000,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Bryan Singer",
+   "pair_with": "",
+   "study_note": "Comic-book costumes swapped for black leather: the film that showed superheroes could be played straight",
+   "added": "2026-11-10",
+   "imdb_id": "tt0120903",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "VNxwlx6etXI",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-curious-case-of-benjamin-button",
+   "collection": "modern-classics",
+   "title": "The Curious Case of Benjamin Button",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Fantasy",
+    "Romance"
+   ],
+   "year": 2008,
+   "countries": [
+    "United States"
+   ],
+   "credit": "David Fincher",
+   "recognition": "Three Academy Awards: art direction, makeup and visual effects",
+   "pair_with": "",
+   "study_note": "A digital head on other actors' bodies for the first hour: a lead performance captured and re-aged",
+   "added": "2026-11-10",
+   "imdb_id": "tt0421715",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "iH6FdW39Hag",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "once-upon-a-time-in-the-west",
+   "collection": "new-hollywood",
+   "title": "Once Upon a Time in the West",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Drama"
+   ],
+   "year": 1968,
+   "countries": [
+    "Italy",
+    "United States"
+   ],
+   "credit": "Sergio Leone",
+   "pair_with": "",
+   "study_note": "Ennio Morricone's music was written first and played on set: scenes timed to the score, faces held in extreme close-up",
+   "added": "2026-11-10",
+   "imdb_id": "tt0064116",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "TeM7JnY0rsg",
+     "kind": "trailer",
+     "channel": "Universal Pictures Home Entertainment Benelux",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-deer-hunter",
+   "collection": "new-hollywood",
+   "title": "The Deer Hunter",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Historical"
+   ],
+   "year": 1978,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Michael Cimino",
+   "recognition": "Five Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "An hour-long wedding before the war begins: time spent on a community so its loss is felt",
+   "added": "2026-11-10",
+   "imdb_id": "tt0077416",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "UWXIOeYKjXo",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "maleficent",
+   "collection": "modern-classics",
+   "title": "Maleficent",
+   "type": "film",
+   "genres": [
+    "Fantasy",
+    "Adventure",
+    "Family"
+   ],
+   "year": 2014,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Robert Stromberg",
+   "pair_with": "",
+   "study_note": "A fairy tale retold from the villain's side, directed by a production designer: the look came first",
+   "added": "2026-11-10",
+   "imdb_id": "tt1587310",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "7Aw-XMYBeIQ",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-jungle-book",
+   "collection": "black-and-poc-leads",
+   "title": "The Jungle Book",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Family",
+    "Fantasy"
+   ],
+   "year": 2016,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Jon Favreau",
+   "recognition": "Academy Award for visual effects",
+   "pair_with": "",
+   "study_note": "One child actor on a blue stage in Los Angeles; every animal and every leaf made digitally",
+   "added": "2026-11-10",
+   "imdb_id": "tt3040964",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "owgrkAQ-Log",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "aladdin",
+   "collection": "black-and-poc-leads",
+   "title": "Aladdin",
+   "type": "film",
+   "genres": [
+    "Fantasy",
+    "Musical",
+    "Adventure"
+   ],
+   "year": 2019,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Guy Ritchie",
+   "pair_with": "",
+   "study_note": "An animated musical restaged with a cast found through a worldwide search; dance numbers on vast practical sets",
+   "added": "2026-11-10",
+   "imdb_id": "tt6139732",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "sGOQu6mCAMc",
+     "kind": "trailer",
+     "channel": "Disney UK",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "top-gun",
+   "collection": "modern-classics",
+   "title": "Top Gun",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Drama",
+    "Romance"
+   ],
+   "year": 1986,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Tony Scott",
+   "recognition": "Academy Award for original song",
+   "pair_with": "",
+   "study_note": "Real jets filmed air to air at golden hour: an advertising look, with long lenses, filters and backlight",
+   "added": "2026-11-10",
+   "imdb_id": "tt0092099",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "xa_z57UatDY",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "breakfast-at-tiffanys",
+   "collection": "new-hollywood",
+   "title": "Breakfast at Tiffany's",
+   "type": "film",
+   "genres": [
+    "Romance",
+    "Comedy",
+    "Drama"
+   ],
+   "year": 1961,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Blake Edwards",
+   "recognition": "Two Academy Awards: score and original song",
+   "pair_with": "",
+   "study_note": "One black dress and an opening shot on Fifth Avenue at dawn: costume and location as character",
+   "added": "2026-11-10",
+   "imdb_id": "tt0054698",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "OPQkbvo99Ug",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-bourne-ultimatum",
+   "collection": "modern-classics",
+   "title": "The Bourne Ultimatum",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Mystery"
+   ],
+   "year": 2007,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Paul Greengrass",
+   "recognition": "Three Academy Awards: film editing, sound mixing and sound editing",
+   "pair_with": "",
+   "study_note": "Handheld cameras in real crowds at Waterloo station: action cut like documentary",
+   "added": "2026-11-10",
+   "imdb_id": "tt0440963",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "ZT2ZxjUjSo0",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "out-of-africa",
+   "collection": "modern-classics",
+   "title": "Out of Africa",
+   "type": "film",
+   "genres": [
+    "Romance",
+    "Historical",
+    "Drama"
+   ],
+   "year": 1985,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Sydney Pollack",
+   "recognition": "Seven Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "Kenya's light and landscape shot from a biplane: a colonial romance worth studying for whose story it leaves out",
+   "added": "2026-11-10",
+   "imdb_id": "tt0089755",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "2EW2kNCmZZ0",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-fast-and-the-furious-tokyo-drift",
+   "collection": "modern-classics",
+   "title": "The Fast and the Furious: Tokyo Drift",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Crime",
+    "Thriller"
+   ],
+   "year": 2006,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Justin Lin",
+   "pair_with": "",
+   "study_note": "Drifting done for real by professional drivers; Tokyo partly recreated in Los Angeles",
+   "added": "2026-11-10",
+   "imdb_id": "tt0463985",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "xZ96tl5MrfU",
+     "kind": "trailer",
+     "channel": "Movieclips",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-bourne-identity",
+   "collection": "modern-classics",
+   "title": "The Bourne Identity",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Mystery"
+   ],
+   "year": 2002,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Doug Liman",
+   "pair_with": "",
+   "study_note": "A spy film shot on European streets with a small, mobile unit: a Mini chase through Paris",
+   "added": "2026-11-10",
+   "imdb_id": "tt0258463",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "FpKaB5dvQ4g",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "all-quiet-on-the-western-front",
+   "collection": "studio-era",
+   "title": "All Quiet on the Western Front",
+   "type": "film",
+   "genres": [
+    "Historical",
+    "Drama"
+   ],
+   "year": 1930,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Lewis Milestone",
+   "recognition": "Two Academy Awards: Best Picture and Best Director",
+   "pair_with": "",
+   "study_note": "Early sound cameras put on cranes to sweep across the trenches: movement when most talkies stood still",
+   "added": "2026-11-10",
+   "imdb_id": "tt0020629",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "grapXipP3fM",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "groundhog-day",
+   "collection": "modern-classics",
+   "title": "Groundhog Day",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Romance",
+    "Fantasy"
+   ],
+   "year": 1993,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Harold Ramis",
+   "recognition": "BAFTA for original screenplay",
+   "pair_with": "",
+   "study_note": "One day shot dozens of ways: a script that teaches its rules without ever explaining them",
+   "added": "2026-11-10",
+   "imdb_id": "tt0107048",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "GncQtURdcE4",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [
