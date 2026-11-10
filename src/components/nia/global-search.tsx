@@ -3,10 +3,11 @@
 import { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Clapperboard, Compass, FileAudio, FileImage, FileText, FileVideo, Hash, History, LayoutTemplate, Search, X, type LucideIcon } from "lucide-react";
+import { Clapperboard, Compass, FileAudio, FileImage, FileText, FileVideo, Hash, History, LayoutTemplate, Lightbulb, Search, X, type LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { completions, correctQuery, matchesAll, norm, recentSearches, rememberSearch, vocabularyOf, wordsOf } from "@/lib/search";
+import { POPULAR } from "@/features/navbar/try-ideas";
 import { timeAgo } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -152,8 +153,6 @@ function exploreResult(key: string, title: string, meta: string, href: string, e
   return { key: `e:${key}`, kind: "explore", title, meta, words: tags.map(tagLabel).join(" "), href, explore, tags };
 }
 
-// Searches people in production make often: offered while nothing is typed.
-const POPULAR = ["Call sheet", "Production budget", "Shotlist", "Invoice", "Natural light", "Music video"];
 
 /** Forgets the lists, so the next search reads them again (after a project is made or renamed). */
 export function refreshSearch() {
@@ -168,7 +167,8 @@ export function refreshSearch() {
 // Opened from the navbar's search or ⌘K / Ctrl K. Loads on first open (this file is its own
 // download), keeps the lists for two minutes, and filters in memory as you type; previews fetch
 // only what they show (a file's picture, a template's miniature), once.
-export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
+// `idea`: the navbar hint's idea (N4); the empty state leads with it under "Try, for your work".
+export function GlobalSearch({ open, onOpenChange, idea = null }: { open: boolean; onOpenChange: (open: boolean) => void; idea?: string | null }) {
   const router = useRouter();
   const listId = useId();
   const [results, setResults] = useState<Result[] | null>(cache?.results ?? null);
@@ -235,21 +235,29 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [results, deferred, filter, tag, exact, vocab]);
   const hasExplore = (results ?? []).some((r) => r.kind === "explore");
+  const tagIdOf = (label: string) => ALL_TAGS.find((id) => tagLabel(id) === label) ?? null;
 
   // Suggested searches: recent and popular ones while nothing is typed; then completions of what's
   // typed, and Explore's tags that match it.
   const suggestions = useMemo(() => {
     if (!typed.length) {
-      const popular = POPULAR.filter((p) => !recent.some((r) => norm(r) === norm(p)));
-      return [...recent.map((text) => ({ text, kind: "recent" as const })), ...popular.map((text) => ({ text, kind: "popular" as const }))].slice(0, 8);
+      // Try, for your work: the hint's idea, then the two projects worked on last.
+      const mine = (results ?? []).filter((r) => r.kind === "project" && r.title !== "Untitled project").slice(0, 2).map((r) => r.title);
+      const tries = [...(idea && (hasExplore || !tagIdOf(idea)) ? [idea] : []), ...mine].filter((t, i, list) => list.findIndex((x) => norm(x) === norm(t)) === i);
+      const taken = (text: string) => tries.some((t) => norm(t) === norm(text));
+      const popular = POPULAR.filter((p) => !taken(p) && !recent.some((r) => norm(r) === norm(p)) && (hasExplore || !tagIdOf(p)));
+      return [
+        ...tries.map((text) => ({ text, kind: "try" as const })),
+        ...recent.filter((r) => !taken(r)).map((text) => ({ text, kind: "recent" as const })),
+        ...popular.map((text) => ({ text, kind: "popular" as const })),
+      ].slice(0, 9);
     }
     const titles = completions(deferred, (results ?? []).map((r) => r.title), 3).map((text) => ({ text, kind: "complete" as const }));
     const tags = hasExplore ? completions(deferred, ALL_TAGS.map(tagLabel), 4).map((text) => ({ text, kind: "tag" as const })) : [];
     return [...tags, ...titles];
     // `typed` comes from `deferred`.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [deferred, results, recent, hasExplore]);
-  const tagIdOf = (label: string) => ALL_TAGS.find((id) => tagLabel(id) === label) ?? null;
+  }, [deferred, results, recent, hasExplore, idea]);
 
   const flat = groups.flatMap((g) => g.items);
   const active = flat.find((r) => r.key === activeKey) ?? flat[0] ?? null;
@@ -340,13 +348,13 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
           {suggestions.length > 0 && (
             <div role="group" aria-label={typed.length ? "Suggestions" : "Suggested searches"} className="-mt-1 flex flex-wrap items-center gap-x-4 gap-y-1.5">
               {suggestions.map((x) => {
-                const Icon = x.kind === "recent" ? History : x.kind === "tag" ? Hash : Search;
+                const Icon = x.kind === "recent" ? History : x.kind === "tag" ? Hash : x.kind === "try" ? Lightbulb : Search;
                 return (
                   <button
                     key={`${x.kind}:${x.text}`}
                     type="button"
                     onClick={() => {
-                      const id = x.kind === "tag" ? tagIdOf(x.text) : null;
+                      const id = x.kind === "tag" || x.kind === "try" ? tagIdOf(x.text) : null;
                       if (id) {
                         setTag(id);
                         setQuery("");
@@ -358,7 +366,7 @@ export function GlobalSearch({ open, onOpenChange }: { open: boolean; onOpenChan
                     className="flex items-center gap-1.5 rounded-sm text-small text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
                   >
                     <Icon aria-hidden className="size-3.5" />
-                    {x.kind === "tag" ? `Tag: ${x.text}` : x.text}
+                    {x.kind === "tag" ? `Tag: ${x.text}` : x.kind === "try" ? `Try “${x.text}”` : x.text}
                   </button>
                 );
               })}

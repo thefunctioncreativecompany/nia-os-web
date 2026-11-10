@@ -619,3 +619,8 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-10) "New" comes back to Explore as a tag, not a section (Ika): on the Explore all
   canvas, anything added in the last seven days carries a small Nia Blue "New" tag, top left
   (`isNewOn`, from each title's and creator film's `added` day; today is read in the browser).
+- (2026-11-10) Navbar N4, "Try" ideas (Ika: "build out the rest"): the desktop search field says
+  Try “Call sheet”, one idea per page from the section's list, recent searches and (with Explore
+  access) Explore's tags (`src/features/navbar/try-ideas.ts`, tested); no timer. The search
+  window's suggestions lead with the same idea and the two projects worked on last. Explore
+  access reaches the bar with the user menu (`ExploreAccessFlag`), so nothing new loads.

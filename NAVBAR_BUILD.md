@@ -188,7 +188,7 @@ Each one has a recommendation. Log the answers in `docs/decisions.md` (dated) be
     - Esc closes it and focus returns to the field.
     - Tab order: tabs → search → + → profile.
 
-- [ ] **N4 — "Try" ideas.**
+- [x] **N4 — "Try" ideas.** (2026-11-10)
   - New `src/features/navbar/try-ideas.ts`, plain functions only:
     - `SECTION_IDEAS`, short lists: Home and Projects (document and template words such as "Call sheet",
       "Shotlist", "Production budget", "Invoice"), Templates (template names), and Explore (tag labels from

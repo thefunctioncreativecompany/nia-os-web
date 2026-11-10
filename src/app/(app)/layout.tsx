@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 
 import { getCurrentUser } from "@/lib/auth";
+import { hasExploreAccess } from "@/lib/explore-access";
+import { ExploreAccessFlag } from "@/features/navbar/explore-flag";
 import { Feedback } from "@/components/nia/feedback";
 import { ExploreAllButton } from "@/components/nia/explore-all-button";
 import { NavTrail } from "@/components/nia/back-link";
@@ -53,6 +55,12 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
 }
 
 async function NavbarUser() {
-  const user = await getCurrentUser();
-  return <UserMenu user={user} />;
+  // Explore access rides along for the search hint's ideas (N4): read together, streamed in.
+  const [user, explore] = await Promise.all([getCurrentUser(), hasExploreAccess()]);
+  return (
+    <>
+      <UserMenu user={user} />
+      <ExploreAccessFlag value={explore} />
+    </>
+  );
 }

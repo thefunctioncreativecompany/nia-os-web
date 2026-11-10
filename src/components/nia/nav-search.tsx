@@ -1,11 +1,15 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { Suspense, useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Search } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { useExploreAccess } from "@/features/navbar/explore-flag";
+import { pickIdea, sectionOf } from "@/features/navbar/try-ideas";
+import { recentSearches } from "@/lib/search";
 
 const noChange = () => () => {};
 
@@ -22,6 +26,8 @@ export function NavSearch() {
   const [open, setOpen] = useState(false);
   const shortcut = useSyncExternalStore(noChange, () => (/Mac|iPhone|iPad/.test(navigator.platform) ? "⌘K" : "Ctrl K"), () => "⌘K");
   const [wanted, setWanted] = useState(false);
+  // The idea in the hint (N4), kept here so search opens with the same one.
+  const [idea, setIdea] = useState<string | null>(null);
   const preload = () => {
     setWanted(true);
     void loadGlobalSearch();
@@ -62,7 +68,11 @@ export function NavSearch() {
             )}
           >
             <Search aria-hidden className="size-4 shrink-0" />
-            <span className="min-w-0 flex-1 truncate">Search Nia</span>
+            <span className="min-w-0 flex-1 truncate">
+              <Suspense fallback="Search Nia">
+                <TryHint idea={idea} onIdea={setIdea} />
+              </Suspense>
+            </span>
           </button>
         </TooltipTrigger>
         <TooltipContent>Search Nia · {shortcut}</TooltipContent>
@@ -82,7 +92,40 @@ export function NavSearch() {
           <span className="min-w-0 flex-1 truncate">Search projects, documents, templates...</span>
         </button>
       </div>
-      {wanted && <GlobalSearch open={open} onOpenChange={setOpen} />}
+      {wanted && <GlobalSearch open={open} onOpenChange={setOpen} idea={idea} />}
     </>
+  );
+}
+
+const VISITS_KEY = "nia-nav-visits";
+
+// The hint in the field: "Try “Call sheet”", one idea per page (try-ideas.ts). Picked after the
+// page loads, since recent searches and the visit count live in the browser; until then, and
+// when there's nothing to suggest, it says "Search Nia". It reads the address, so it sits in a
+// boundary of its own.
+function TryHint({ idea, onIdea }: { idea: string | null; onIdea: (idea: string | null) => void }) {
+  const pathname = usePathname();
+  const exploreAccess = useExploreAccess();
+  // How many pages this tab has shown, counted once per page: a new idea each time the page
+  // changes, picked again (same count) when Explore access streams in.
+  const counted = useRef<{ pathname: string; visit: number } | null>(null);
+  useEffect(() => {
+    if (counted.current?.pathname !== pathname) {
+      let visit = 0;
+      try {
+        visit = Number(sessionStorage.getItem(VISITS_KEY) ?? "-1") + 1;
+        sessionStorage.setItem(VISITS_KEY, String(visit));
+      } catch {}
+      counted.current = { pathname, visit };
+    }
+    onIdea(pickIdea({ section: sectionOf(pathname), recent: recentSearches(), exploreAccess, visit: counted.current.visit }));
+    // `onIdea` is a state setter.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname, exploreAccess]);
+  if (!idea) return "Search Nia";
+  return (
+    <span key={idea} className="animate-in fade-in duration-fast motion-reduce:animate-none">
+      Try “{idea}”
+    </span>
   );
 }
