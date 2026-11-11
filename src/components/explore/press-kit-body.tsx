@@ -249,12 +249,6 @@ function OutRow({ href, outlet, title, tag }: { href: string; outlet: string; ti
   );
 }
 
-/** What a press kit holds, in a line: "7 videos · 5 reviews · 1 article". */
-export function pressSummary(press: PressCoverage) {
-  const n = (count: number, one: string) => (count ? `${count} ${one}${count === 1 ? "" : "s"}` : null);
-  return [n(press.videos.length, "video"), n(press.reviews.length, "review"), n(press.articles.length, "article")].filter(Boolean).join(" · ");
-}
-
 // A full page's "Press kit" (Ika, 2026-10-28): links to box office and where to watch, then the
 // press tour, what critics said and context. Used by film pages and title pages.
 export function PressKitSection({
@@ -274,7 +268,7 @@ export function PressKitSection({
   return (
     <section aria-labelledby="press-kit" className="flex flex-col">
       <h2 id="press-kit" className="text-subtitle font-semibold text-foreground">
-        Press kit <span className="text-micro font-normal text-muted-foreground">{pressSummary(press)}</span>
+        Press kit
       </h2>
       <p className="mt-1 max-w-160 text-sm text-muted-foreground">
         The press tour, what critics said and the context around the film, from the studios, festivals and publications themselves.

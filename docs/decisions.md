@@ -712,3 +712,4 @@ onboarding's Import profile and Follow creators describe features removed in the
   mixed in a steady order, every third a little lower so it doesn't read as a grid. A bubble
   opens the person's page; the name shows on hover and to screen readers.
 - (2026-11-11) Cast & crew View all is equal circles with name and role, most credits first (Ika: "the bubble feature is not great, just keep it as equal circles").
+- (2026-11-11) Explore title pages lose the "Film · 2023 · 3 h · United States" line above the title (Details beside it says the same) and the press kit loses its "5 videos · 6 reviews · 2 articles" counts, in the section heading and the Top 10 preview (Ika: redundant, unnecessary).

@@ -37,7 +37,6 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0 }: { filmId: str
     hero.current?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" });
   };
 
-  const meta = [details.kind, details.year, lengthOf(details), details.country].filter(Boolean).join(" · ");
   const row = (label: string, value: React.ReactNode) => (
     <div className="flex items-start gap-4 sm:gap-6">
       <dt className="w-24 shrink-0 pt-1.5 text-sm leading-[1.4] font-bold text-foreground sm:w-28">{label}</dt>
@@ -64,7 +63,6 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0 }: { filmId: str
           {video && <p className="-mt-3 text-caption text-muted-foreground">{video.label} from {video.channel} on YouTube.</p>}
 
           <div className="flex flex-col gap-3">
-            <p className="text-small font-semibold text-muted-foreground">{meta}</p>
             <h1 className="text-h3 font-semibold tracking-tight text-foreground md:text-h2">{film.title}</h1>
             <div className="flex flex-wrap gap-2">
               <SaveToCollection slug={slug} title={film.title} />

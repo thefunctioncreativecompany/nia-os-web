@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { CastCrewRow, WIKIDATA_NOTE, type RowPerson } from "@/components/nia/cast-crew-row";
-import { LIBRARY_HREF, categoryViews, coverFor, essentialWhy, isTrailerStill, stillCaption, stillVideoId, wideCoverFor, type CategoryKey, creditTerm, exploreHome, metaLine, findEntry, sameCategory, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
+import { LIBRARY_HREF, categoryViews, coverFor, essentialWhy, isTrailerStill, stillCaption, stillVideoId, wideCoverFor, type CategoryKey, creditTerm, exploreHome, findEntry, sameCategory, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
 import { similarItems } from "@/features/explore/match";
 import { ProductionNotes } from "./production-notes";
 import { PressKitSection } from "./press-kit-body";
@@ -150,11 +150,11 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
           )}
 
           <div className="flex flex-col gap-3">
+            {/* No "Film · 2023 · United States" line: Details beside it says the same (Ika, 2026-11-11). */}
             <div className="flex items-center gap-1">
-              <p className="text-small font-semibold text-muted-foreground">{metaLine(title)}</p>
+              <h1 className="text-h3 font-semibold tracking-tight text-foreground md:text-h2">{title.title}</h1>
               <TmdbCredit />
             </div>
-            <h1 className="text-h3 font-semibold tracking-tight text-foreground md:text-h2">{title.title}</h1>
             {isTrailerStill(title.slug) && <p className="-mt-2 text-caption text-muted-foreground">{stillCaption(title.slug)}</p>}
             {/* Keep it, or put it to work in a project (Ika, 2026-10-21). */}
             <div className="flex flex-wrap gap-2">
