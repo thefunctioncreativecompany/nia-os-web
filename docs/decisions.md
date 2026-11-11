@@ -740,3 +740,9 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-11) Cast & crew View all is grouped by role (Ika: "organize by sub-categories/role
   specifics"): Directors, Actors, Writers, Producers, Directors of photography, Editors, Music,
   Production designers, Costume designers, More roles; a chip narrows the page to one group.
+- (2026-11-11) Search keeps up with the data (Ika: "every time we make changes to the platform's
+  databases, improve the search functionality to consider those changes"). Global search now also
+  finds Explore's 45 studios and 333 cast & crew (each opening its page), finds titles by their
+  studio ("Netflix", "A24"), and finds the twelve workflows by goal, documents and group (opening
+  the workflow's dialog on Templates, `?workflow=`). `features/explore/search-index.ts`, loaded
+  when search first opens. Standing rule in CLAUDE.md.

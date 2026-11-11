@@ -136,6 +136,9 @@ changing it. The master list of what's shipped, open, fed back and planned is
   client per page and a local token check (no trip to Supabase). Use `getUser()` only where its extra
   data or a fresh check matters (Settings identities, the invite email). In the browser use
   `currentUser()` (`src/lib/supabase/current-user.ts`), not `getUser()`.
+- Search keeps up with the data (Ika, 2026-11-11): whenever something new can be found on the
+  platform (a kind of page, a studio, a person, a workflow, a field), add it to global search in the
+  same change (`global-search.tsx`; Explore's extras come from `features/explore/search-index.ts`).
 - Load data a control needs on first use, not on every page load (the navbar search loads on hover,
   tap or focus). Run independent queries together (`Promise.all`), and join instead of chaining.
 - If the dev server serves stale CSS or route types, stop it, `rm -rf .next`, and restart.

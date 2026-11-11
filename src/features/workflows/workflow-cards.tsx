@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { FileText } from "lucide-react";
 import { toast } from "sonner";
@@ -62,6 +63,10 @@ export function WorkflowCards({ templates, profession, headingId = "workflows", 
           );
         })}
       </ul>
+      {/* A link to one workflow (?workflow=, from search) opens its dialog. */}
+      <Suspense fallback={null}>
+        <LinkedWorkflow onOpen={setStarting} />
+      </Suspense>
       {starting && <StartDialog key={starting.id} workflow={starting} documents={documentsOf(starting, templates)} onClose={() => setStarting(null)} />}
     </section>
   );
@@ -90,6 +95,17 @@ function WorkflowCover({ steps, className }: { steps: Named[]; className?: strin
       </span>
     </span>
   );
+}
+
+function LinkedWorkflow({ onOpen }: { onOpen: (w: Workflow) => void }) {
+  const id = useSearchParams().get("workflow");
+  useEffect(() => {
+    const linked = WORKFLOWS.find((w) => w.id === id);
+    if (linked) onOpen(linked);
+    // onOpen is a state setter.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+  return null;
 }
 
 function StartDialog({ workflow, documents, onClose }: { workflow: Workflow; documents: string[]; onClose: () => void }) {

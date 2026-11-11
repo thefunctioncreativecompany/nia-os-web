@@ -20,6 +20,8 @@ import { loadTemplateIndex, loadTemplatePreview, type TemplatePreview } from "@/
 import { LIBRARY } from "@/features/explore/library";
 import { ALL_TAGS, tagLabel, tagsFor } from "@/features/explore/tags";
 import { exploreAccess } from "@/features/explore/saves";
+import { loadExploreSearchIndex, type ExploreSearchIndex } from "@/features/explore/search-index";
+import { ICPS, WORKFLOWS } from "@/features/workflows/workflows";
 import { servedSized } from "@/lib/served-sized";
 
 type Kind = "project" | "document" | "file" | "template" | "explore";
@@ -39,6 +41,8 @@ type Result = {
   file?: { kind: "image" | "document" | "audio" | "video"; path: string; thumb: string | null; tag: string | null; size: number };
   template?: { code: string; icon: string; ready: boolean };
   explore?: { image: string | null; aspect?: number };
+  /** A workflow: the documents it sets up. */
+  workflow?: { documents: string[] };
   /** Explore's tags (tags.ts), for searching by tag. */
   tags?: string[];
 };
@@ -86,6 +90,8 @@ async function load(): Promise<Result[]> {
     loadTemplateIndex().catch(() => []),
     exploreAccess(supabase).catch(() => false),
   ]);
+  // Studios, cast & crew and each title's studios, only for people with Explore.
+  const index: ExploreSearchIndex | null = explore ? await loadExploreSearchIndex().catch(() => null) : null;
   type Ref = { id: string; title: string } | null;
   // Older documents were saved with the template's code as their title; show its name instead.
   const templateName = new Map(templates.map((t) => [t.code, t.name] as const));
@@ -135,12 +141,48 @@ async function load(): Promise<Result[]> {
       href: t.ready ? `/templates/${t.code}` : `/templates?preview=${t.code}`,
       template: { code: t.code, icon: t.icon, ready: t.ready },
     })),
-    // Explore's titles with a page of their own, for people with early access.
+    // Workflows (Ika, 2026-11-10): found by their goal, their documents and who they're for.
+    ...WORKFLOWS.map((w): Result => {
+      const documents = w.templates.flatMap((code) => templateName.get(code) ?? []);
+      return {
+        key: `w:${w.id}`,
+        kind: "template",
+        title: w.name,
+        meta: `Workflow · ${ICPS.find((i) => i.id === w.icp)?.label ?? ""}`,
+        words: `workflow ${w.productionType} ${documents.join(" ")}`,
+        href: `/templates?workflow=${w.id}`,
+        template: { code: w.templates[0], icon: templates.find((t) => t.code === w.templates[0])?.icon ?? "file-text", ready: true },
+        workflow: { documents },
+      };
+    }),
+    // Explore's titles with a page of their own, each also found by the studios that made it.
     ...(explore
-      ? LIBRARY.flatMap((i): Result[] =>
-          i.open.kind === "page" ? [exploreResult(i.key, i.title, i.credit, i.open.href, { image: i.image, aspect: i.aspect })] : [],
-        )
+      ? LIBRARY.flatMap((i): Result[] => {
+          if (i.open.kind !== "page") return [];
+          const r = exploreResult(i.key, i.title, i.credit, i.open.href, { image: i.image, aspect: i.aspect });
+          const studios = index?.titleStudios[i.key.replace(/^t:/, "")] ?? [];
+          return [studios.length ? { ...r, words: `${r.words} ${studios.join(" ")}` } : r];
+        })
       : []),
+    // Explore's studios and cast & crew (2026-11-11), each opening its own page.
+    ...(index?.studios ?? []).map((s): Result => ({
+      key: `s:${s.id}`,
+      kind: "explore",
+      title: s.name,
+      meta: `Studio · ${s.count} ${s.count === 1 ? "title" : "titles"}`,
+      words: `studio ${s.group}`,
+      href: `/explore/studio/${s.id}`,
+      explore: { image: s.logo, aspect: 1 },
+    })),
+    ...(index?.people ?? []).map((p): Result => ({
+      key: `c:${p.key}`,
+      kind: "explore",
+      title: p.name,
+      meta: `${p.role} · ${p.credits} on Explore`,
+      words: `cast crew ${p.role}`,
+      href: p.href,
+      explore: { image: p.photo, aspect: 1 },
+    })),
   ];
   cache = { at: Date.now(), results };
   return results;
@@ -486,7 +528,7 @@ function Preview({ result: r, now, onOpen }: { result: Result; now: number; onOp
   const picture = useFilePicture(r.file);
   const code = r.document?.code ?? r.template?.code ?? null;
   const miniature = useMiniature(code);
-  const label = { project: "Open project", document: "Open document", file: "Open in project", template: r.template?.ready ? "Use template" : "Preview template", explore: "Open" }[r.kind];
+  const label = { project: "Open project", document: "Open document", file: "Open in project", template: r.workflow ? "Start workflow" : r.template?.ready ? "Use template" : "Preview template", explore: "Open" }[r.kind];
 
   return (
     <div className="flex flex-col gap-5">
