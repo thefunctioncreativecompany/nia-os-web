@@ -764,3 +764,14 @@ onboarding's Import profile and Follow creators describe features removed in the
   very bad UX"): category View all pages, the creators gallery, a project's Files and photo grids
   are grids that fill row by row from the left. Rule in CLAUDE.md.
 - (2026-11-11) Explore builds paused (Ika). 175 studio-catalogue titles wait; the ~110 titles from batches 1–3 still need press kits. Resume with those press kits first.
+- (2026-11-11) Spaces (Ika: projects and templates "feel document-like, not an intuitive operating
+  system"; the feature is called "Spaces"). First iteration designed in Claude Design, "Nia Spaces"
+  (https://claude.ai/artifact/8ozwkrEkd8F6HogkAS7YGQ), six screens from existing components: Space
+  overview (side menu, Next up, Needs you with one-tap fixes, phase steps, progress ring), Schedule
+  (shoot days and looks as drag-to-reorder cards, calendar and call-time pickers, clash stopped
+  before saving, Undo toast), Cast & crew (people picker from people you've worked with, role
+  chips, one-tap status, radio-card rates, switches), Documents as outputs (call sheet filled from
+  the Space, missing-item chips, section switches, send), Start a Space (goal as radio cards,
+  calendar days, crew picked), On set on a phone (swipe to check in, shift all calls, Wrap). No
+  node, mind-map or canvas workflows (Ika: too steep; for advanced versions later). Waiting for
+  Ika's review before anything is built.
