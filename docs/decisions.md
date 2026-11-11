@@ -763,3 +763,4 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-11) No masonry anywhere (Ika: "ensure these gaps do not occur anywhere on the platform,
   very bad UX"): category View all pages, the creators gallery, a project's Files and photo grids
   are grids that fill row by row from the left. Rule in CLAUDE.md.
+- (2026-11-11) Explore builds paused (Ika). 175 studio-catalogue titles wait; the ~110 titles from batches 1–3 still need press kits. Resume with those press kits first.
