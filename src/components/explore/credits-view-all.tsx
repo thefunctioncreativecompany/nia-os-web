@@ -1,4 +1,5 @@
 "use client";
+import { ViewAll } from "@/components/nia/view-all";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -34,14 +35,9 @@ export function CreditsViewAll({ slug, title, total }: { slug: string; title: st
 
   return (
     <>
-      <button
-        type="button"
-        onClick={show}
-        disabled={loading}
-        className="rounded-sm text-small font-semibold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 disabled:opacity-60"
-      >
-        {loading ? "Loading…" : `View all ${total} →`}
-      </button>
+      <ViewAll onClick={() => void show()} disabled={loading}>
+        {loading ? "Loading…" : "View all"}
+      </ViewAll>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-h-[calc(100svh-2rem)] gap-0 overflow-y-auto p-0 sm:max-w-xl">
           <div className="flex flex-col gap-1 p-6 pb-2">

@@ -89,7 +89,7 @@ export function AddInstagramReference({ projectId, held, onAdded }: { projectId:
           aria-describedby={problem ? `instagram-link-problem-${projectId}` : undefined}
           className="h-auto flex-1 rounded-lg border-border px-4 py-3 text-sm md:text-sm"
         />
-        <Button type="submit" variant="outline" disabled={reading || !url.trim()} className="h-auto rounded-lg px-4 py-3 text-small font-bold">
+        <Button type="submit" variant="outline" disabled={reading || !url.trim()} className="h-auto px-4 py-3 text-small font-bold">
           {reading ? (
             <>
               <Spinner aria-hidden /> Reading…
@@ -247,10 +247,10 @@ function CheckDraft({
           )}
 
           <div className="flex justify-end gap-4">
-            <Button type="button" variant="outline" onClick={onClose} disabled={saving} className="h-auto rounded-lg px-6 py-3 text-lead font-semibold">
+            <Button type="button" variant="outline" onClick={onClose} disabled={saving} className="h-auto px-6 py-3 text-lead font-semibold">
               Cancel
             </Button>
-            <Button type="submit" disabled={saving || !title.trim()} className="h-auto rounded-lg px-6 py-3 text-lead font-semibold">
+            <Button type="submit" disabled={saving || !title.trim()} className="h-auto px-6 py-3 text-lead font-semibold">
               {saving ? "Adding…" : "Add to references"}
             </Button>
           </div>

@@ -713,3 +713,10 @@ onboarding's Import profile and Follow creators describe features removed in the
   opens the person's page; the name shows on hover and to screen readers.
 - (2026-11-11) Cast & crew View all is equal circles with name and role, most credits first (Ika: "the bubble feature is not great, just keep it as equal circles").
 - (2026-11-11) Explore title pages lose the "Film · 2023 · 3 h · United States" line above the title (Details beside it says the same) and the press kit loses its "5 videos · 6 reviews · 2 articles" counts, in the section heading and the Top 10 preview (Ika: redundant, unnecessary).
+- (2026-11-11) One look for buttons and View all (Ika: "view all buttons are inconsistent… some
+  are pill shaped, some not"; platform check from Explore, then Templates and Home). Found five
+  View all styles (outline pill, pill with a count, bold text, grey text with "→", grey
+  underlined text) and buttons split between pills and small rounded rectangles. Now: `ViewAll`
+  everywhere (Explore's categories, Made in Africa, Creators, cast & crew, a title's Cast & Crew,
+  Home's projects and Activity, a project's cast & crew), and every `Button` size is a pill, every
+  icon button a circle; joined button groups keep their shape. Rule in CLAUDE.md.

@@ -1,6 +1,5 @@
 import { Suspense, cache } from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Inbox } from "lucide-react";
 
 import { getCurrentUser } from "@/lib/auth";
@@ -8,6 +7,7 @@ import { getSession } from "@/lib/supabase/session";
 import { workingGallery } from "@/features/templates/working";
 import { listActivity, listProjects } from "@/lib/projects-data";
 import { Button } from "@/components/ui/button";
+import { ViewAll } from "@/components/nia/view-all";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/nia/empty-state";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
@@ -126,9 +126,7 @@ async function RecentProjects() {
   return (
     <div className="flex flex-col gap-3">
       <ProjectGrid projects={projects} now={now} compact />
-      <Link href="/projects" className="w-fit text-sm font-semibold text-muted-foreground hover:text-foreground">
-        View all projects →
-      </Link>
+      <ViewAll href="/projects" className="w-fit" />
     </div>
   );
 }

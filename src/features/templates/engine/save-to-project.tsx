@@ -152,7 +152,7 @@ export function SaveToProjectDialog({
             placeholder="New project name"
             className="h-10 flex-1 rounded-lg"
           />
-          <Button type="submit" size="compact" disabled={busy || !newName.trim()} className="h-10 rounded-lg px-4">
+          <Button type="submit" size="compact" disabled={busy || !newName.trim()} className="h-10 px-4">
             <FolderPlus aria-hidden /> Create
           </Button>
         </form>

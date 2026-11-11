@@ -202,12 +202,12 @@ export function TemplateEditor({
                 </span>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button asChild size="compact" className="rounded-lg">
+                <Button asChild size="compact">
                   <Link href={`/projects/${doc.project.id}`}>Open project</Link>
                 </Button>
                 {!readOnly && (
                 <>
-                <Button variant="outline" size="compact" className="rounded-lg" onClick={() => setChoosing(true)}>
+                <Button variant="outline" size="compact" onClick={() => setChoosing(true)}>
                   Move
                 </Button>
                 <Button
@@ -226,7 +226,7 @@ export function TemplateEditor({
               </div>
             </div>
           ) : readOnly ? null : (
-            <Button className="w-full rounded-xl" onClick={() => setChoosing(true)}>
+            <Button className="w-full" onClick={() => setChoosing(true)}>
               <FolderPlus aria-hidden /> Save to project
             </Button>
           )}

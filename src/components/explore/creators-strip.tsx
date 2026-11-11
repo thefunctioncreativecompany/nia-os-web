@@ -1,11 +1,9 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { ViewAll } from "@/components/nia/view-all";
 import { InfoNote } from "@/components/nia/info-note";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { shuffled } from "@/lib/shuffle";
-import { CREATORS, CREATORS_HREF, creatorFilms } from "@/features/explore/creators";
+import { CREATORS, CREATORS_HREF } from "@/features/explore/creators";
 import { creatorItems } from "@/features/explore/items";
 import { ExploreCard, cardSpan } from "./title-card";
 
@@ -31,12 +29,7 @@ export function CreatorsStrip({ seed, bare = false }: { seed: number; bare?: boo
             </div>
             <p className="mt-1 max-w-160 text-sm text-muted-foreground">{CREATORS.description}</p>
           </div>
-          <Button variant="outline" asChild>
-            <Link href={CREATORS_HREF}>
-              View all {creatorFilms.length}
-              <ArrowRight aria-hidden data-icon="inline-end" />
-            </Link>
-          </Button>
+          <ViewAll href={CREATORS_HREF} />
         </div>
       )}
       <ScrollRow label={CREATORS.name}>

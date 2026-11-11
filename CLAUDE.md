@@ -55,6 +55,9 @@ Design:
 - Headings (Ika, 2026-11-10, one standard, from Explore): a page title is
   `text-h2 font-semibold tracking-tight text-foreground`; a section heading is
   `text-subtitle font-semibold text-foreground`. No `font-extrabold` or `text-display` titles.
+- Buttons (Ika, 2026-11-11): every button is a pill and every icon button a circle (built into
+  `Button`; no `rounded-md/lg` overrides). "View all" and other go-to links are `ViewAll`
+  (`src/components/nia/view-all.tsx`): an outline pill with an arrow, no counts.
 - Few words (Ika, 2026-11-10): creatives are visual, so a section gets a title and no explaining
   line; cards lead with a picture and a name. Add a sentence only where someone would be stuck
   without it.

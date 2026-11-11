@@ -24,19 +24,21 @@ const buttonVariants = cva(
       size: {
         // Nia's main button (Figma "Continue Pill Button"): 44px, fully rounded, bold.
         pill: "h-11 gap-2 rounded-full px-6 text-sm leading-[1.4] font-bold has-data-[icon=inline-end]:pr-5 has-data-[icon=inline-start]:pl-5",
+        // Every button is a pill and every icon button a circle (Ika, 2026-11-11: "some are pill
+        // shaped, some not"). Buttons joined in a group keep the group's shape.
         compact:
-          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
-        // Design system scales (Section 1.8): 32 / 40 / 48px rounded rectangles.
-        sm: "h-8 gap-1.5 rounded-md px-3 text-caption font-bold [&_svg:not([class*='size-'])]:size-3.5",
-        md: "h-10 gap-2 rounded-md px-4 text-sm leading-[1.4] font-bold",
-        lg: "h-12 gap-2 rounded-lg px-5 text-base font-bold [&_svg:not([class*='size-'])]:size-5",
-        icon: "size-8",
+          "h-8 gap-1.5 rounded-full px-3 in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        xs: "h-6 gap-1 rounded-full px-2.5 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
+        // Design system scales (Section 1.8): 32 / 40 / 48px, now pills like the rest.
+        sm: "h-8 gap-1.5 rounded-full px-3.5 in-data-[slot=button-group]:rounded-lg text-caption font-bold [&_svg:not([class*='size-'])]:size-3.5",
+        md: "h-10 gap-2 rounded-full px-5 in-data-[slot=button-group]:rounded-lg text-sm leading-[1.4] font-bold",
+        lg: "h-12 gap-2 rounded-full px-6 in-data-[slot=button-group]:rounded-lg text-base font-bold [&_svg:not([class*='size-'])]:size-5",
+        icon: "size-8 rounded-full in-data-[slot=button-group]:rounded-lg",
         "icon-xs":
-          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+          "size-6 rounded-full in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
         "icon-sm":
-          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
-        "icon-lg": "size-9",
+          "size-7 rounded-full in-data-[slot=button-group]:rounded-lg",
+        "icon-lg": "size-9 rounded-full in-data-[slot=button-group]:rounded-lg",
       },
     },
     defaultVariants: {

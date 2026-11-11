@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { ViewAll } from "@/components/nia/view-all";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CREATORS, CREATORS_HREF } from "@/features/explore/creators";
 import { GREATEST_TV, GREATEST_TV_HREF, HOLLYWOOD_CLASSICS, HOLLYWOOD_CLASSICS_HREF, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, greatestTv } from "@/features/explore/made-in-africa";
@@ -66,12 +66,7 @@ export function CategorySections({ seed }: { seed: number }) {
                 <span className="min-w-0 text-subtitle font-semibold text-foreground">{s.name}</span>
               </CollapsibleTrigger>
               {s.href && (
-                <Button variant="outline" asChild>
-                  <Link href={s.href}>
-                    View all
-                    <ArrowRight aria-hidden data-icon="inline-end" />
-                  </Link>
-                </Button>
+                <ViewAll href={s.href} />
               )}
             </div>
             <CollapsibleContent className="pb-8">{s.row}</CollapsibleContent>

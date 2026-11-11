@@ -1,8 +1,9 @@
 "use client";
+import { ViewAll } from "@/components/nia/view-all";
 
 import { Suspense } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -65,9 +66,7 @@ export function ExploreLibrary({ seed, top, studios, people = [] }: { seed: numb
             <h2 id="by-cast-crew" className="text-subtitle font-semibold text-foreground">
               By cast &amp; crew
             </h2>
-            <Link href="/explore/people" className="inline-flex items-center gap-1.5 rounded-sm text-small font-semibold text-foreground outline-none hover:text-foreground/70 focus-visible:ring-3 focus-visible:ring-ring/50">
-              View all <ArrowRight aria-hidden className="size-4" />
-            </Link>
+            <ViewAll href="/explore/people" />
           </div>
           <div className="mt-6">
             <ScrollRow label="Cast and crew">

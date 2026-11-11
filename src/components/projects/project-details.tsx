@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { CalendarDays, Plus, X } from "lucide-react";
 import { toast } from "sonner";
 
@@ -12,6 +11,7 @@ import { deliverableText, shootDatesText, type CrewMember, type Deliverable } fr
 import { createClient } from "@/lib/supabase/client";
 import { formatMoney } from "@/features/templates/engine/format";
 import { Button } from "@/components/ui/button";
+import { ViewAll } from "@/components/nia/view-all";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -279,9 +279,7 @@ export function CrewSection({ crew, canEdit, directoryHref }: { crew: CrewMember
           Crew &amp; talent {people.length > 0 && <span className="text-micro font-normal text-muted-foreground">{people.length}</span>}
         </h2>
         {(people.length > 0 || canEdit) && (
-          <Link href={directoryHref} className="rounded-sm text-small font-semibold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
-            {canEdit ? "Manage cast & crew →" : "Open cast & crew →"}
-          </Link>
+          <ViewAll href={directoryHref}>{canEdit ? "Manage cast & crew" : "Open cast & crew"}</ViewAll>
         )}
       </div>
       {people.length === 0 ? (

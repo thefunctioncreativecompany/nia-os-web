@@ -1,7 +1,5 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { ViewAll } from "@/components/nia/view-all";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { shuffled } from "@/lib/shuffle";
 import { MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, madeInAfrica, titleHref } from "@/features/explore/made-in-africa";
@@ -32,12 +30,7 @@ export function MadeInAfricaStrip({ seed, bare = false }: { seed: number; bare?:
             </div>
             <p className="mt-1 max-w-160 text-sm text-muted-foreground">{MADE_IN_AFRICA.description}</p>
           </div>
-          <Button variant="outline" asChild>
-            <Link href={MADE_IN_AFRICA_HREF}>
-              View all {madeInAfrica.length}
-              <ArrowRight aria-hidden data-icon="inline-end" />
-            </Link>
-          </Button>
+          <ViewAll href={MADE_IN_AFRICA_HREF} />
         </div>
       )}
       <ScrollRow label={MADE_IN_AFRICA.name}>

@@ -367,7 +367,7 @@ export function ProjectForm() {
             placeholder="Paste a link to a post or reel"
             className={fieldClassName}
           />
-          <Button type="button" variant="outline" disabled={!link.trim()} onClick={addLink} className="h-auto shrink-0 rounded-lg px-5">
+          <Button type="button" variant="outline" disabled={!link.trim()} onClick={addLink} className="h-auto shrink-0 px-5">
             Add
           </Button>
         </div>
@@ -393,7 +393,7 @@ export function ProjectForm() {
       </div>
 
       <div className="flex justify-end gap-4">
-        <Button asChild variant="outline" className="h-auto rounded-lg px-6 py-3 text-lead font-semibold">
+        <Button asChild variant="outline" className="h-auto px-6 py-3 text-lead font-semibold">
           <Link href="/projects">Cancel</Link>
         </Button>
         <Button

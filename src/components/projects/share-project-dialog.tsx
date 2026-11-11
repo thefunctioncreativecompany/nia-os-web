@@ -181,7 +181,7 @@ export function ShareProjectDialog({
                   <SelectItem value="editor">Can edit</SelectItem>
                 </SelectContent>
               </Select>
-              <Button type="submit" disabled={busy || !email.trim()} className="h-auto rounded-lg px-4 py-3 text-small font-bold">
+              <Button type="submit" disabled={busy || !email.trim()} className="h-auto px-4 py-3 text-small font-bold">
                 Invite
               </Button>
             </div>
