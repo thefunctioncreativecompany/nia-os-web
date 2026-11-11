@@ -711,3 +711,4 @@ onboarding's Import profile and Follow creators describe features removed in the
   round bubbles in five sizes by number of credits (3, 4, 5, 6 to 7, 8 or more), big and small
   mixed in a steady order, every third a little lower so it doesn't read as a grid. A bubble
   opens the person's page; the name shows on hover and to screen readers.
+- (2026-11-11) Cast & crew View all is equal circles with name and role, most credits first (Ika: "the bubble feature is not great, just keep it as equal circles").
