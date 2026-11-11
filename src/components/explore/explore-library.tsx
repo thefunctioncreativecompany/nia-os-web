@@ -2,7 +2,7 @@
 
 import { Suspense } from "react";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -57,13 +57,18 @@ export function ExploreLibrary({ seed, top, studios, people = [] }: { seed: numb
         </section>
       )}
 
-      {/* By cast & crew, under By studio (Ika, 2026-11-10): people credited on three or more things
-          on Explore, most credits first; each opens their page. */}
+      {/* By cast & crew, under By studio (Ika, 2026-11-10): the fifteen people credited on the most
+          things on Explore; each opens their page. View all has everyone with three or more. */}
       {people.length > 0 && (
         <section aria-labelledby="by-cast-crew" className="mt-12">
-          <h2 id="by-cast-crew" className="text-subtitle font-semibold text-foreground">
-            By cast &amp; crew
-          </h2>
+          <div className="flex items-center justify-between gap-3">
+            <h2 id="by-cast-crew" className="text-subtitle font-semibold text-foreground">
+              By cast &amp; crew
+            </h2>
+            <Link href="/explore/people" className="inline-flex items-center gap-1.5 rounded-sm text-small font-semibold text-foreground outline-none hover:text-foreground/70 focus-visible:ring-3 focus-visible:ring-ring/50">
+              View all <ArrowRight aria-hidden className="size-4" />
+            </Link>
+          </div>
           <div className="mt-6">
             <ScrollRow label="Cast and crew">
               {people.map((p) => (

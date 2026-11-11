@@ -706,3 +706,8 @@ onboarding's Import profile and Follow creators describe features removed in the
   order. The steps arrive one after another when the card appears; on hover or focus the line
   draws across and each step lifts in turn. No loops; reduced motion shows it still. Added to
   CLAUDE.md's list of what may animate.
+- (2026-11-10, later) By cast & crew shows the first fifteen and "View all" (Ika: "different sized
+  bubble-like approach"): `/explore/people` shows everyone credited on three or more things as
+  round bubbles in five sizes by number of credits (3, 4, 5, 6 to 7, 8 or more), big and small
+  mixed in a steady order, every third a little lower so it doesn't read as a grid. A bubble
+  opens the person's page; the name shows on hover and to screen readers.

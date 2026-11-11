@@ -26,5 +26,5 @@ export default function Page() {
 async function Shuffled() {
   await connection();
   // The Top 10 is read without waiting: only its own section waits for it.
-  return <ExploreLibrary seed={newSeed()} top={loadTopTen()} studios={studioRows()} people={featuredPeople()} />;
+  return <ExploreLibrary seed={newSeed()} top={loadTopTen()} studios={studioRows()} people={featuredPeople(3, 15)} />;
 }
