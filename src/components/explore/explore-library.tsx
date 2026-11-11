@@ -12,6 +12,7 @@ import { CategorySections } from "./explore-categories";
 import type { StudioRow } from "@/features/explore/studios";
 import { StudioLogos } from "./studio-strip";
 import { TopTen } from "./top-ten";
+import { ROW_MAX } from "@/lib/rows";
 import { PersonTile, type RowPerson } from "@/components/nia/cast-crew-row";
 import { ScrollRow } from "@/components/nia/scroll-row";
 
@@ -49,16 +50,19 @@ export function ExploreLibrary({ seed, top, studios, people = [] }: { seed: numb
       {/* By studio, just under Top 10 (Ika, 2026-11-10): logos that open each studio's View all. */}
       {studios.length > 0 && (
         <section aria-labelledby="by-studio" className="mt-12">
-          <h2 id="by-studio" className="text-subtitle font-semibold text-foreground">
-            By studio
-          </h2>
+          <div className="flex items-center justify-between gap-3">
+            <h2 id="by-studio" className="text-subtitle font-semibold text-foreground">
+              By studio
+            </h2>
+            {studios.length > ROW_MAX && <ViewAll href="/explore/studios" />}
+          </div>
           <div className="mt-6">
-            <StudioLogos rows={studios} />
+            <StudioLogos rows={studios.slice(0, ROW_MAX)} />
           </div>
         </section>
       )}
 
-      {/* By cast & crew, under By studio (Ika, 2026-11-10): the fifteen people credited on the most
+      {/* By cast & crew, under By studio (Ika, 2026-11-10): the ten people credited on the most
           things on Explore; each opens their page. View all has everyone with three or more. */}
       {people.length > 0 && (
         <section aria-labelledby="by-cast-crew" className="mt-12">

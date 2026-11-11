@@ -1,0 +1,383 @@
+{
+ "$comment": "By studio on Explore (Ika, 2026-10-31; more studios and independents 2026-11-11): each studio, the group that owns it today, and its TMDB company ids (and network ids, and the `platform` values on titles) that put a title under it. scripts/build-explore-studios.mjs reads this to write title-studios.json. Add a studio here, then run that script and fetch its logo.",
+ "studios": [
+  {
+   "id": "paramount",
+   "name": "Paramount Pictures",
+   "group": "Paramount Skydance",
+   "tmdb": [
+    4
+   ]
+  },
+  {
+   "id": "universal",
+   "name": "Universal Pictures",
+   "group": "NBCUniversal",
+   "tmdb": [
+    33
+   ]
+  },
+  {
+   "id": "focus",
+   "name": "Focus Features",
+   "group": "NBCUniversal",
+   "tmdb": [
+    10146
+   ]
+  },
+  {
+   "id": "columbia",
+   "name": "Columbia Pictures",
+   "group": "Sony Pictures",
+   "tmdb": [
+    5,
+    3614
+   ]
+  },
+  {
+   "id": "warner",
+   "name": "Warner Bros. Pictures",
+   "group": "Warner Bros. Discovery",
+   "tmdb": [
+    174
+   ]
+  },
+  {
+   "id": "disney",
+   "name": "Walt Disney Pictures",
+   "group": "Disney",
+   "tmdb": [
+    2
+   ]
+  },
+  {
+   "id": "20th-century",
+   "name": "20th Century Studios",
+   "group": "Disney",
+   "tmdb": [
+    127928,
+    25,
+    711
+   ]
+  },
+  {
+   "id": "mgm",
+   "name": "Metro-Goldwyn-Mayer",
+   "group": "Amazon MGM Studios",
+   "tmdb": [
+    21,
+    8411
+   ]
+  },
+  {
+   "id": "netflix",
+   "name": "Netflix",
+   "group": "Netflix",
+   "tmdb": [
+    178464,
+    145174
+   ],
+   "networks": [
+    213
+   ],
+   "platforms": [
+    "Netflix"
+   ]
+  },
+  {
+   "id": "lionsgate",
+   "name": "Lionsgate",
+   "group": "Lionsgate",
+   "tmdb": [
+    1632,
+    35
+   ]
+  },
+  {
+   "id": "a24",
+   "name": "A24",
+   "group": "A24",
+   "tmdb": [
+    41077
+   ]
+  },
+  {
+   "id": "neon",
+   "name": "Neon",
+   "group": "Neon",
+   "tmdb": [
+    90733
+   ]
+  },
+  {
+   "id": "marvel",
+   "name": "Marvel Studios",
+   "group": "Disney",
+   "tmdb": [
+    420,
+    7505
+   ]
+  },
+  {
+   "id": "lucasfilm",
+   "name": "Lucasfilm",
+   "group": "Disney",
+   "tmdb": [
+    1
+   ]
+  },
+  {
+   "id": "new-line",
+   "name": "New Line Cinema",
+   "group": "Warner Bros. Discovery",
+   "tmdb": [
+    12
+   ]
+  },
+  {
+   "id": "dreamworks",
+   "name": "DreamWorks Pictures",
+   "group": "Amblin Partners",
+   "tmdb": [
+    7
+   ]
+  },
+  {
+   "id": "amblin",
+   "name": "Amblin Entertainment",
+   "group": "Amblin Partners",
+   "tmdb": [
+    56
+   ]
+  },
+  {
+   "id": "miramax",
+   "name": "Miramax",
+   "group": "Miramax",
+   "tmdb": [
+    14
+   ]
+  },
+  {
+   "id": "united-artists",
+   "name": "United Artists",
+   "group": "Amazon MGM Studios",
+   "tmdb": [
+    60
+   ]
+  },
+  {
+   "id": "rko",
+   "name": "RKO Radio Pictures",
+   "group": "RKO Radio Pictures",
+   "tmdb": [
+    6
+   ]
+  },
+  {
+   "id": "working-title",
+   "name": "Working Title",
+   "group": "NBCUniversal",
+   "tmdb": [
+    10163
+   ]
+  },
+  {
+   "id": "studiocanal",
+   "name": "StudioCanal",
+   "group": "Canal+",
+   "tmdb": [
+    694
+   ]
+  },
+  {
+   "id": "heyday",
+   "name": "Heyday Films",
+   "group": "Heyday Films",
+   "tmdb": [
+    437
+   ]
+  },
+  {
+   "id": "syncopy",
+   "name": "Syncopy",
+   "group": "Syncopy",
+   "tmdb": [
+    9996
+   ]
+  },
+  {
+   "id": "bruckheimer",
+   "name": "Jerry Bruckheimer Films",
+   "group": "Jerry Bruckheimer Films",
+   "tmdb": [
+    130
+   ]
+  },
+  {
+   "id": "imagine",
+   "name": "Imagine Entertainment",
+   "group": "Imagine Entertainment",
+   "tmdb": [
+    23
+   ]
+  },
+  {
+   "id": "lightstorm",
+   "name": "Lightstorm Entertainment",
+   "group": "Lightstorm Entertainment",
+   "tmdb": [
+    574
+   ]
+  },
+  {
+   "id": "eon",
+   "name": "EON Productions",
+   "group": "EON Productions",
+   "tmdb": [
+    7576
+   ]
+  },
+  {
+   "id": "zoetrope",
+   "name": "American Zoetrope",
+   "group": "American Zoetrope",
+   "tmdb": [
+    70
+   ]
+  },
+  {
+   "id": "anonymous-content",
+   "name": "Anonymous Content",
+   "group": "Anonymous Content",
+   "tmdb": [
+    10039
+   ]
+  },
+  {
+   "id": "appian-way",
+   "name": "Appian Way",
+   "group": "Appian Way",
+   "tmdb": [
+    562
+   ]
+  },
+  {
+   "id": "kennedy-marshall",
+   "name": "The Kennedy/Marshall Company",
+   "group": "The Kennedy/Marshall Company",
+   "tmdb": [
+    862
+   ]
+  },
+  {
+   "id": "wingnut",
+   "name": "WingNut Films",
+   "group": "WingNut Films",
+   "tmdb": [
+    11
+   ]
+  },
+  {
+   "id": "scott-free",
+   "name": "Scott Free Productions",
+   "group": "Scott Free Productions",
+   "tmdb": [
+    1645
+   ]
+  },
+  {
+   "id": "element",
+   "name": "Element Pictures",
+   "group": "Element Pictures",
+   "tmdb": [
+    3353
+   ]
+  },
+  {
+   "id": "arte",
+   "name": "ARTE",
+   "group": "ARTE",
+   "tmdb": [
+    94,
+    11237
+   ]
+  },
+  {
+   "id": "canal-plus",
+   "name": "Canal+",
+   "group": "Canal+",
+   "tmdb": [
+    122329
+   ]
+  },
+  {
+   "id": "les-films-du-bal",
+   "name": "Les Films du Bal",
+   "group": "Les Films du Bal",
+   "tmdb": [
+    36496
+   ]
+  },
+  {
+   "id": "beluga-tree",
+   "name": "Beluga Tree",
+   "group": "Beluga Tree",
+   "tmdb": [
+    104419
+   ]
+  },
+  {
+   "id": "cinekap",
+   "name": "Cinekap",
+   "group": "Cinekap",
+   "tmdb": [
+    16887
+   ]
+  },
+  {
+   "id": "burnt-onion",
+   "name": "Burnt Onion Productions",
+   "group": "Burnt Onion Productions",
+   "tmdb": [
+    145710
+   ]
+  },
+  {
+   "id": "urucu",
+   "name": "Urucu Media",
+   "group": "Urucu Media",
+   "tmdb": [
+    92669
+   ]
+  },
+  {
+   "id": "gambit",
+   "name": "Gambit Films",
+   "group": "Gambit Films",
+   "tmdb": [
+    116966
+   ]
+  },
+  {
+   "id": "quizzical",
+   "name": "Quizzical Pictures",
+   "group": "Quizzical Pictures",
+   "tmdb": [
+    52117
+   ]
+  },
+  {
+   "id": "showmax",
+   "name": "Showmax",
+   "group": "MultiChoice",
+   "tmdb": [],
+   "networks": [
+    2265
+   ],
+   "platforms": [
+    "Showmax"
+   ]
+  }
+ ]
+}

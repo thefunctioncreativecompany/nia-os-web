@@ -1,0 +1,1800 @@
+{
+ "2012": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/14161"
+ },
+ "mami-wata": {
+  "studios": [],
+  "tmdb": "movie/1013865"
+ },
+ "this-is-not-a-burial": {
+  "studios": [
+   "urucu"
+  ],
+  "tmdb": "movie/618208"
+ },
+ "timbuktu": {
+  "studios": [
+   "arte"
+  ],
+  "tmdb": "movie/265228"
+ },
+ "atlantics": {
+  "studios": [
+   "arte",
+   "canal-plus",
+   "les-films-du-bal",
+   "cinekap",
+   "netflix"
+  ],
+  "tmdb": "movie/496967"
+ },
+ "banel-and-adama": {
+  "studios": [
+   "arte",
+   "canal-plus"
+  ],
+  "tmdb": "movie/995806"
+ },
+ "sew-the-winter-to-my-skin": {
+  "studios": [],
+  "tmdb": "movie/542423"
+ },
+ "five-fingers-for-marseilles": {
+  "studios": [],
+  "tmdb": "movie/466415"
+ },
+ "neptune-frost": {
+  "studios": [],
+  "tmdb": "movie/671109"
+ },
+ "on-becoming-a-guinea-fowl": {
+  "studios": [
+   "a24",
+   "element"
+  ],
+  "tmdb": "movie/1082938"
+ },
+ "i-am-not-a-witch": {
+  "studios": [],
+  "tmdb": "movie/449757"
+ },
+ "goodbye-julia": {
+  "studios": [
+   "canal-plus"
+  ],
+  "tmdb": "movie/1111750"
+ },
+ "lingui-the-sacred-bonds": {
+  "studios": [
+   "canal-plus",
+   "beluga-tree"
+  ],
+  "tmdb": "movie/820693"
+ },
+ "felicite": {
+  "studios": [
+   "cinekap"
+  ],
+  "tmdb": "movie/436340"
+ },
+ "eyimofe": {
+  "studios": [],
+  "tmdb": "movie/665429"
+ },
+ "inxeba": {
+  "studios": [
+   "arte",
+   "urucu"
+  ],
+  "tmdb": "movie/428498"
+ },
+ "rafiki": {
+  "studios": [],
+  "tmdb": "movie/517987"
+ },
+ "feathers": {
+  "studios": [],
+  "tmdb": "movie/796166"
+ },
+ "heart-of-the-hunter": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "movie/1181548"
+ },
+ "saloum": {
+  "studios": [],
+  "tmdb": "movie/858096"
+ },
+ "hounds": {
+  "studios": [
+   "beluga-tree"
+  ],
+  "tmdb": "movie/1000130"
+ },
+ "anikulapo": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "movie/1023994"
+ },
+ "the-burial-of-kojo": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "movie/555605"
+ },
+ "children-of-blood-and-bone": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/621304"
+ },
+ "blood-and-water": {
+  "studios": [
+   "netflix",
+   "gambit"
+  ],
+  "tmdb": "tv/103411"
+ },
+ "the-polygamist": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/322430"
+ },
+ "shaka-ilembe": {
+  "studios": [
+   "showmax"
+  ],
+  "tmdb": "tv/226218"
+ },
+ "dam": {
+  "studios": [
+   "showmax"
+  ],
+  "tmdb": "tv/220492"
+ },
+ "dahomey": {
+  "studios": [
+   "arte",
+   "les-films-du-bal"
+  ],
+  "tmdb": "movie/1101256"
+ },
+ "four-daughters": {
+  "studios": [
+   "arte"
+  ],
+  "tmdb": "movie/1069193"
+ },
+ "the-mother-of-all-lies": {
+  "studios": [],
+  "tmdb": "movie/1112527"
+ },
+ "touki-bouki": {
+  "studios": [],
+  "tmdb": "movie/77771"
+ },
+ "black-girl": {
+  "studios": [],
+  "tmdb": "movie/95597"
+ },
+ "pumzi": {
+  "studios": [],
+  "tmdb": "movie/45167"
+ },
+ "how-to-ruin-christmas": {
+  "studios": [
+   "netflix",
+   "burnt-onion"
+  ],
+  "tmdb": "tv/114649"
+ },
+ "how-to-ruin-love": {
+  "studios": [
+   "netflix",
+   "burnt-onion"
+  ],
+  "tmdb": "tv/253833"
+ },
+ "fatal-seduction": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/227975"
+ },
+ "inumber-number": {
+  "studios": [
+   "quizzical"
+  ],
+  "tmdb": "movie/214219"
+ },
+ "inumber-number-jozi-gold": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "movie/1129956"
+ },
+ "go": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/285906"
+ },
+ "umthetho": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/331650"
+ },
+ "silverton-siege": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "movie/951470"
+ },
+ "queen-sono": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/96676"
+ },
+ "kings-of-joburg": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/114187"
+ },
+ "shadow": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/87415"
+ },
+ "seriously-single": {
+  "studios": [
+   "burnt-onion",
+   "netflix"
+  ],
+  "tmdb": "movie/661747"
+ },
+ "savage-beauty": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/197427"
+ },
+ "kandasamys-the-baby": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "movie/1181545"
+ },
+ "the-brave-ones": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/209390"
+ },
+ "unseen": {
+  "studios": [
+   "netflix",
+   "gambit"
+  ],
+  "tmdb": "tv/220932"
+ },
+ "marked": {
+  "studios": [
+   "netflix",
+   "quizzical"
+  ],
+  "tmdb": "tv/293808"
+ },
+ "lobola-man": {
+  "studios": [
+   "burnt-onion",
+   "netflix"
+  ],
+  "tmdb": "movie/1310259"
+ },
+ "the-heart-is-a-muscle": {
+  "studios": [],
+  "tmdb": "movie/1418520"
+ },
+ "jerusalema": {
+  "studios": [],
+  "tmdb": "movie/22600"
+ },
+ "nickel-boys": {
+  "studios": [
+   "anonymous-content"
+  ],
+  "tmdb": "movie/1028196"
+ },
+ "capernaum": {
+  "studios": [],
+  "tmdb": "movie/517814"
+ },
+ "the-wizard-of-oz": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/630"
+ },
+ "citizen-kane": {
+  "studios": [
+   "rko"
+  ],
+  "tmdb": "movie/15"
+ },
+ "the-maltese-falcon": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/963"
+ },
+ "casablanca": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/289"
+ },
+ "its-a-wonderful-life": {
+  "studios": [],
+  "tmdb": "movie/1585"
+ },
+ "all-about-eve": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/705"
+ },
+ "sunset-boulevard": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/599"
+ },
+ "singin-in-the-rain": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/872"
+ },
+ "roman-holiday": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/804"
+ },
+ "on-the-waterfront": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/654"
+ },
+ "carmen-jones": {
+  "studios": [],
+  "tmdb": "movie/51044"
+ },
+ "rebel-without-a-cause": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/221"
+ },
+ "the-searchers": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/3114"
+ },
+ "vertigo": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/426"
+ },
+ "some-like-it-hot": {
+  "studios": [],
+  "tmdb": "movie/239"
+ },
+ "imitation-of-life": {
+  "studios": [],
+  "tmdb": "movie/34148"
+ },
+ "psycho": {
+  "studios": [],
+  "tmdb": "movie/539"
+ },
+ "west-side-story": {
+  "studios": [],
+  "tmdb": "movie/1725"
+ },
+ "lawrence-of-arabia": {
+  "studios": [],
+  "tmdb": "movie/947"
+ },
+ "to-kill-a-mockingbird": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/595"
+ },
+ "in-the-heat-of-the-night": {
+  "studios": [
+   "united-artists"
+  ],
+  "tmdb": "movie/10633"
+ },
+ "the-graduate": {
+  "studios": [],
+  "tmdb": "movie/37247"
+ },
+ "bonnie-and-clyde": {
+  "studios": [],
+  "tmdb": "movie/475"
+ },
+ "2001-a-space-odyssey": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/62"
+ },
+ "the-godfather": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/238"
+ },
+ "jaws": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/578"
+ },
+ "taxi-driver": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/103"
+ },
+ "network": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/10774"
+ },
+ "star-wars": {
+  "studios": [
+   "lucasfilm"
+  ],
+  "tmdb": "movie/11"
+ },
+ "apocalypse-now": {
+  "studios": [
+   "zoetrope"
+  ],
+  "tmdb": "movie/28"
+ },
+ "ride-along": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/168530"
+ },
+ "the-matrix": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/603"
+ },
+ "coming-to-america": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/9602"
+ },
+ "coming-2-america": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/484718"
+ },
+ "the-karate-kid-2010": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/38575"
+ },
+ "the-pursuit-of-happyness": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/1402"
+ },
+ "do-the-right-thing": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/925"
+ },
+ "boyz-n-the-hood": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/650"
+ },
+ "malcolm-x": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/1883"
+ },
+ "training-day": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/2034"
+ },
+ "ray": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/1677"
+ },
+ "dreamgirls": {
+  "studios": [
+   "paramount",
+   "dreamworks"
+  ],
+  "tmdb": "movie/1125"
+ },
+ "bad-boys": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/9737"
+ },
+ "waiting-to-exhale": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/31357"
+ },
+ "crouching-tiger-hidden-dragon": {
+  "studios": [],
+  "tmdb": "movie/146"
+ },
+ "get-out": {
+  "studios": [],
+  "tmdb": "movie/419430"
+ },
+ "black-panther": {
+  "studios": [
+   "marvel"
+  ],
+  "tmdb": "movie/284054"
+ },
+ "moonlight": {
+  "studios": [
+   "a24"
+  ],
+  "tmdb": "movie/376867"
+ },
+ "hidden-figures": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/381284"
+ },
+ "crazy-rich-asians": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/455207"
+ },
+ "rocky": {
+  "studios": [],
+  "tmdb": "movie/1366"
+ },
+ "the-godfather-part-ii": {
+  "studios": [
+   "paramount",
+   "zoetrope"
+  ],
+  "tmdb": "movie/240"
+ },
+ "back-to-the-future": {
+  "studios": [
+   "universal",
+   "amblin"
+  ],
+  "tmdb": "movie/105"
+ },
+ "die-hard": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/562"
+ },
+ "jurassic-park": {
+  "studios": [
+   "universal",
+   "amblin"
+  ],
+  "tmdb": "movie/329"
+ },
+ "pulp-fiction": {
+  "studios": [
+   "miramax"
+  ],
+  "tmdb": "movie/680"
+ },
+ "the-shawshank-redemption": {
+  "studios": [],
+  "tmdb": "movie/278"
+ },
+ "toy-story": {
+  "studios": [],
+  "tmdb": "movie/862"
+ },
+ "titanic": {
+  "studios": [
+   "paramount",
+   "20th-century",
+   "lightstorm"
+  ],
+  "tmdb": "movie/597"
+ },
+ "the-blair-witch-project": {
+  "studios": [],
+  "tmdb": "movie/2667"
+ },
+ "gone-with-the-wind": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/770"
+ },
+ "double-indemnity": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/996"
+ },
+ "rear-window": {
+  "studios": [],
+  "tmdb": "movie/567"
+ },
+ "north-by-northwest": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/213"
+ },
+ "it-happened-one-night": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/3078"
+ },
+ "the-grapes-of-wrath": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/596"
+ },
+ "mildred-pierce": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/3309"
+ },
+ "sunrise": {
+  "studios": [],
+  "tmdb": "movie/631"
+ },
+ "ben-hur": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/665"
+ },
+ "paths-of-glory": {
+  "studios": [
+   "united-artists"
+  ],
+  "tmdb": "movie/975"
+ },
+ "12-angry-men": {
+  "studios": [],
+  "tmdb": "movie/389"
+ },
+ "city-lights": {
+  "studios": [],
+  "tmdb": "movie/901"
+ },
+ "footlight-parade": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/28432"
+ },
+ "out-of-the-past": {
+  "studios": [
+   "rko"
+  ],
+  "tmdb": "movie/678"
+ },
+ "rebecca": {
+  "studios": [],
+  "tmdb": "movie/223"
+ },
+ "seven-samurai": {
+  "studios": [],
+  "tmdb": "movie/346"
+ },
+ "i-am-a-fugitive-from-a-chain-gang": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/29740"
+ },
+ "the-ox-bow-incident": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/980"
+ },
+ "the-shop-around-the-corner": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/20334"
+ },
+ "trouble-in-paradise": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/195"
+ },
+ "stormy-weather": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/43513"
+ },
+ "cabin-in-the-sky": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/59964"
+ },
+ "the-emperor-jones": {
+  "studios": [],
+  "tmdb": "movie/43594"
+ },
+ "porgy-and-bess": {
+  "studios": [],
+  "tmdb": "movie/1940"
+ },
+ "a-raisin-in-the-sun": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/29478"
+ },
+ "imitation-of-life-1934": {
+  "studios": [],
+  "tmdb": null
+ },
+ "lilies-of-the-field": {
+  "studios": [
+   "united-artists"
+  ],
+  "tmdb": "movie/38805"
+ },
+ "the-blood-of-jesus": {
+  "studios": [],
+  "tmdb": "movie/22750"
+ },
+ "native-son-1951": {
+  "studios": [],
+  "tmdb": null
+ },
+ "the-joe-louis-story": {
+  "studios": [],
+  "tmdb": "movie/56159"
+ },
+ "the-general": {
+  "studios": [],
+  "tmdb": "movie/961"
+ },
+ "modern-times": {
+  "studios": [],
+  "tmdb": "movie/3082"
+ },
+ "king-kong": {
+  "studios": [
+   "rko"
+  ],
+  "tmdb": "movie/244"
+ },
+ "frankenstein": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/3035"
+ },
+ "his-girl-friday": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/3085"
+ },
+ "stagecoach": {
+  "studios": [],
+  "tmdb": "movie/995"
+ },
+ "notorious": {
+  "studios": [
+   "rko"
+  ],
+  "tmdb": "movie/303"
+ },
+ "touch-of-evil": {
+  "studios": [],
+  "tmdb": "movie/1480"
+ },
+ "high-noon": {
+  "studios": [],
+  "tmdb": "movie/288"
+ },
+ "the-night-of-the-hunter": {
+  "studios": [
+   "united-artists"
+  ],
+  "tmdb": "movie/3112"
+ },
+ "bride-of-frankenstein": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/229"
+ },
+ "laura": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/1939"
+ },
+ "gilda": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/3767"
+ },
+ "the-african-queen": {
+  "studios": [],
+  "tmdb": "movie/488"
+ },
+ "the-adventures-of-robin-hood": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/10907"
+ },
+ "bringing-up-baby": {
+  "studios": [
+   "rko"
+  ],
+  "tmdb": "movie/900"
+ },
+ "mr-smith-goes-to-washington": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/3083"
+ },
+ "the-best-years-of-our-lives": {
+  "studios": [],
+  "tmdb": "movie/887"
+ },
+ "an-american-in-paris": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/2769"
+ },
+ "top-hat": {
+  "studios": [
+   "rko"
+  ],
+  "tmdb": "movie/3080"
+ },
+ "harry-potter-and-the-philosophers-stone": {
+  "studios": [
+   "warner",
+   "heyday"
+  ],
+  "tmdb": "movie/671"
+ },
+ "harry-potter-and-the-chamber-of-secrets": {
+  "studios": [
+   "warner",
+   "heyday"
+  ],
+  "tmdb": "movie/672"
+ },
+ "harry-potter-and-the-prisoner-of-azkaban": {
+  "studios": [
+   "warner",
+   "heyday"
+  ],
+  "tmdb": "movie/673"
+ },
+ "harry-potter-and-the-goblet-of-fire": {
+  "studios": [
+   "warner",
+   "heyday"
+  ],
+  "tmdb": "movie/674"
+ },
+ "harry-potter-and-the-order-of-the-phoenix": {
+  "studios": [
+   "warner",
+   "heyday"
+  ],
+  "tmdb": "movie/675"
+ },
+ "harry-potter-and-the-half-blood-prince": {
+  "studios": [
+   "warner",
+   "heyday"
+  ],
+  "tmdb": "movie/767"
+ },
+ "harry-potter-and-the-deathly-hallows-part-1": {
+  "studios": [
+   "warner",
+   "heyday"
+  ],
+  "tmdb": "movie/12444"
+ },
+ "harry-potter-and-the-deathly-hallows-part-2": {
+  "studios": [
+   "warner",
+   "heyday"
+  ],
+  "tmdb": "movie/12445"
+ },
+ "27-dresses": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/6557"
+ },
+ "13-going-on-30": {
+  "studios": [],
+  "tmdb": "movie/10096"
+ },
+ "baps": {
+  "studios": [
+   "new-line"
+  ],
+  "tmdb": "movie/18423"
+ },
+ "charlies-angels": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/4327"
+ },
+ "matilda": {
+  "studios": [],
+  "tmdb": "movie/10830"
+ },
+ "the-sound-of-music": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/15121"
+ },
+ "chicago": {
+  "studios": [
+   "miramax"
+  ],
+  "tmdb": "movie/1574"
+ },
+ "nanny-mcphee": {
+  "studios": [
+   "mgm",
+   "working-title",
+   "studiocanal"
+  ],
+  "tmdb": "movie/11283"
+ },
+ "bugonia": {
+  "studios": [
+   "element"
+  ],
+  "tmdb": "movie/701387"
+ },
+ "tenzing": {
+  "studios": [],
+  "tmdb": "movie/1288069"
+ },
+ "modern-family": {
+  "studios": [],
+  "tmdb": "tv/1421"
+ },
+ "love-thy-neighbor": {
+  "studios": [],
+  "tmdb": "tv/46431"
+ },
+ "the-last-days-of-ptolemy-grey": {
+  "studios": [
+   "anonymous-content"
+  ],
+  "tmdb": "tv/155493"
+ },
+ "girlfriends": {
+  "studios": [],
+  "tmdb": "tv/2398"
+ },
+ "martin": {
+  "studios": [],
+  "tmdb": "tv/171"
+ },
+ "monk": {
+  "studios": [],
+  "tmdb": "tv/1695"
+ },
+ "lie-to-me": {
+  "studios": [],
+  "tmdb": "tv/8358"
+ },
+ "american-housewife": {
+  "studios": [],
+  "tmdb": "tv/67117"
+ },
+ "half-and-half": {
+  "studios": [],
+  "tmdb": "tv/619"
+ },
+ "one-on-one": {
+  "studios": [],
+  "tmdb": "tv/431"
+ },
+ "ancestral-visions-of-the-future": {
+  "studios": [],
+  "tmdb": "movie/1405458"
+ },
+ "abouna": {
+  "studios": [],
+  "tmdb": "movie/22014"
+ },
+ "the-house-is-black": {
+  "studios": [],
+  "tmdb": "movie/44065"
+ },
+ "jeen-yuhs": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/155094"
+ },
+ "a-kid-from-coney-island": {
+  "studios": [],
+  "tmdb": "movie/597622"
+ },
+ "benji": {
+  "studios": [],
+  "tmdb": "movie/180705"
+ },
+ "muhammad-ali-the-peoples-champ": {
+  "studios": [],
+  "tmdb": null
+ },
+ "the-college-dropout-video-anthology": {
+  "studios": [],
+  "tmdb": null
+ },
+ "katrina-babies": {
+  "studios": [],
+  "tmdb": "movie/866074"
+ },
+ "avatar": {
+  "studios": [
+   "20th-century",
+   "lightstorm"
+  ],
+  "tmdb": "movie/19995"
+ },
+ "squid-game": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/93405"
+ },
+ "gladiator": {
+  "studios": [
+   "universal",
+   "dreamworks",
+   "scott-free"
+  ],
+  "tmdb": "movie/98"
+ },
+ "fight-club": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/550"
+ },
+ "interstellar": {
+  "studios": [
+   "syncopy"
+  ],
+  "tmdb": "movie/157336"
+ },
+ "inception": {
+  "studios": [
+   "warner",
+   "syncopy"
+  ],
+  "tmdb": "movie/27205"
+ },
+ "the-avengers": {
+  "studios": [
+   "marvel"
+  ],
+  "tmdb": "movie/24428"
+ },
+ "pirates-of-the-caribbean-the-curse-of-the-black-pearl": {
+  "studios": [
+   "disney",
+   "bruckheimer"
+  ],
+  "tmdb": "movie/22"
+ },
+ "prison-break": {
+  "studios": [],
+  "tmdb": "tv/2288"
+ },
+ "saving-private-ryan": {
+  "studios": [
+   "paramount",
+   "dreamworks",
+   "amblin"
+  ],
+  "tmdb": "movie/857"
+ },
+ "a-beautiful-mind": {
+  "studios": [
+   "universal",
+   "dreamworks",
+   "imagine"
+  ],
+  "tmdb": "movie/453"
+ },
+ "brokeback-mountain": {
+  "studios": [
+   "focus"
+  ],
+  "tmdb": "movie/142"
+ },
+ "pirates-of-the-caribbean-at-worlds-end": {
+  "studios": [
+   "disney",
+   "bruckheimer"
+  ],
+  "tmdb": "movie/285"
+ },
+ "iron-man": {
+  "studios": [
+   "marvel"
+  ],
+  "tmdb": "movie/1726"
+ },
+ "spider-man": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/557"
+ },
+ "pirates-of-the-caribbean-dead-mans-chest": {
+  "studios": [
+   "disney",
+   "bruckheimer"
+  ],
+  "tmdb": "movie/58"
+ },
+ "alien": {
+  "studios": [],
+  "tmdb": "movie/348"
+ },
+ "home-alone": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/771"
+ },
+ "oppenheimer": {
+  "studios": [
+   "universal",
+   "syncopy"
+  ],
+  "tmdb": "movie/872585"
+ },
+ "parasite": {
+  "studios": [],
+  "tmdb": "movie/496243"
+ },
+ "inglourious-basterds": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/16869"
+ },
+ "captain-america-the-first-avenger": {
+  "studios": [
+   "marvel"
+  ],
+  "tmdb": "movie/1771"
+ },
+ "the-pianist": {
+  "studios": [
+   "studiocanal"
+  ],
+  "tmdb": "movie/423"
+ },
+ "skyfall": {
+  "studios": [
+   "columbia",
+   "mgm",
+   "eon"
+  ],
+  "tmdb": "movie/37724"
+ },
+ "stranger-things": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/66732"
+ },
+ "the-green-mile": {
+  "studios": [],
+  "tmdb": "movie/497"
+ },
+ "the-godfather-part-iii": {
+  "studios": [
+   "paramount",
+   "zoetrope"
+  ],
+  "tmdb": "movie/242"
+ },
+ "the-wolf-of-wall-street": {
+  "studios": [
+   "appian-way"
+  ],
+  "tmdb": "movie/106646"
+ },
+ "spider-man-homecoming": {
+  "studios": [
+   "columbia",
+   "marvel"
+  ],
+  "tmdb": "movie/315635"
+ },
+ "star-wars-episode-vii-the-force-awakens": {
+  "studios": [
+   "lucasfilm"
+  ],
+  "tmdb": "movie/140607"
+ },
+ "money-heist": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/71446"
+ },
+ "the-social-network": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/37799"
+ },
+ "django-unchained": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/68718"
+ },
+ "pirates-of-the-caribbean-on-stranger-tides": {
+  "studios": [
+   "disney",
+   "bruckheimer"
+  ],
+  "tmdb": "movie/1865"
+ },
+ "the-hobbit-an-unexpected-journey": {
+  "studios": [
+   "mgm",
+   "new-line",
+   "wingnut"
+  ],
+  "tmdb": "movie/49051"
+ },
+ "the-truman-show": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/37165"
+ },
+ "life-of-pi": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/87827"
+ },
+ "the-revenant": {
+  "studios": [
+   "anonymous-content",
+   "appian-way"
+  ],
+  "tmdb": "movie/281957"
+ },
+ "the-hunger-games": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/70160"
+ },
+ "shakespeare-in-love": {
+  "studios": [
+   "universal",
+   "miramax"
+  ],
+  "tmdb": "movie/1934"
+ },
+ "scarface": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/111"
+ },
+ "alice-in-wonderland": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/12155"
+ },
+ "the-martian": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/286217"
+ },
+ "iron-man-3": {
+  "studios": [
+   "marvel"
+  ],
+  "tmdb": "movie/68721"
+ },
+ "shutter-island": {
+  "studios": [
+   "paramount",
+   "appian-way"
+  ],
+  "tmdb": "movie/11324"
+ },
+ "green-book": {
+  "studios": [
+   "dreamworks"
+  ],
+  "tmdb": "movie/490132"
+ },
+ "casino-royale": {
+  "studios": [
+   "columbia",
+   "mgm",
+   "eon"
+  ],
+  "tmdb": "movie/36557"
+ },
+ "independence-day": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/602"
+ },
+ "indiana-jones-and-the-temple-of-doom": {
+  "studios": [
+   "paramount",
+   "lucasfilm"
+  ],
+  "tmdb": "movie/87"
+ },
+ "the-da-vinci-code": {
+  "studios": [
+   "imagine"
+  ],
+  "tmdb": "movie/591"
+ },
+ "spider-man-2": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/558"
+ },
+ "spider-man-far-from-home": {
+  "studios": [
+   "columbia",
+   "marvel"
+  ],
+  "tmdb": "movie/429617"
+ },
+ "spider-man-no-way-home": {
+  "studios": [
+   "columbia",
+   "marvel"
+  ],
+  "tmdb": "movie/634649"
+ },
+ "aliens": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/679"
+ },
+ "avatar-the-way-of-water": {
+  "studios": [
+   "20th-century",
+   "lightstorm"
+  ],
+  "tmdb": "movie/76600"
+ },
+ "the-hobbit-the-desolation-of-smaug": {
+  "studios": [
+   "mgm",
+   "new-line",
+   "wingnut"
+  ],
+  "tmdb": "movie/57158"
+ },
+ "love-actually": {
+  "studios": [
+   "working-title",
+   "studiocanal"
+  ],
+  "tmdb": "movie/508"
+ },
+ "e-t-the-extra-terrestrial": {
+  "studios": [
+   "universal",
+   "amblin"
+  ],
+  "tmdb": "movie/601"
+ },
+ "lost-in-translation": {
+  "studios": [
+   "zoetrope"
+  ],
+  "tmdb": "movie/153"
+ },
+ "quantum-of-solace": {
+  "studios": [
+   "columbia",
+   "mgm",
+   "eon"
+  ],
+  "tmdb": "movie/10764"
+ },
+ "once-upon-a-time-in-hollywood": {
+  "studios": [
+   "columbia",
+   "heyday"
+  ],
+  "tmdb": "movie/466272"
+ },
+ "cast-away": {
+  "studios": [
+   "20th-century",
+   "dreamworks"
+  ],
+  "tmdb": "movie/8358"
+ },
+ "transformers": {
+  "studios": [
+   "paramount",
+   "dreamworks"
+  ],
+  "tmdb": "movie/1858"
+ },
+ "indiana-jones-and-the-last-crusade": {
+  "studios": [
+   "paramount",
+   "lucasfilm"
+  ],
+  "tmdb": "movie/89"
+ },
+ "the-odyssey": {
+  "studios": [
+   "universal",
+   "syncopy"
+  ],
+  "tmdb": "movie/1368337"
+ },
+ "gandhi": {
+  "studios": [],
+  "tmdb": "movie/783"
+ },
+ "spider-man-3": {
+  "studios": [
+   "columbia",
+   "marvel"
+  ],
+  "tmdb": "movie/559"
+ },
+ "glee": {
+  "studios": [],
+  "tmdb": "tv/1417"
+ },
+ "the-fast-and-the-furious": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/9799"
+ },
+ "eternal-sunshine-of-the-spotless-mind": {
+  "studios": [
+   "focus",
+   "anonymous-content"
+  ],
+  "tmdb": "movie/38"
+ },
+ "the-amazing-spider-man": {
+  "studios": [
+   "columbia",
+   "marvel"
+  ],
+  "tmdb": "movie/1930"
+ },
+ "borat": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/496"
+ },
+ "home-alone-2-lost-in-new-york": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/772"
+ },
+ "kingdom-of-heaven": {
+  "studios": [
+   "20th-century",
+   "scott-free"
+  ],
+  "tmdb": "movie/1495"
+ },
+ "the-hobbit-the-battle-of-the-five-armies": {
+  "studios": [
+   "mgm",
+   "new-line",
+   "wingnut"
+  ],
+  "tmdb": "movie/122917"
+ },
+ "saw": {
+  "studios": [],
+  "tmdb": "movie/176"
+ },
+ "arrival": {
+  "studios": [],
+  "tmdb": "movie/329865"
+ },
+ "predator": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/106"
+ },
+ "the-amazing-spider-man-2": {
+  "studios": [
+   "columbia",
+   "marvel"
+  ],
+  "tmdb": "movie/102382"
+ },
+ "terminator-3-rise-of-the-machines": {
+  "studios": [],
+  "tmdb": "movie/296"
+ },
+ "the-day-after-tomorrow": {
+  "studios": [
+   "20th-century",
+   "lionsgate"
+  ],
+  "tmdb": "movie/435"
+ },
+ "the-lost-world-jurassic-park": {
+  "studios": [
+   "universal",
+   "amblin"
+  ],
+  "tmdb": "movie/330"
+ },
+ "batman": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/268"
+ },
+ "12-monkeys": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/63"
+ },
+ "the-theory-of-everything": {
+  "studios": [
+   "working-title"
+  ],
+  "tmdb": "movie/266856"
+ },
+ "men-in-black": {
+  "studios": [
+   "columbia",
+   "amblin"
+  ],
+  "tmdb": "movie/607"
+ },
+ "prometheus": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/70981"
+ },
+ "black-mirror": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/42009"
+ },
+ "apollo-13": {
+  "studios": [
+   "universal",
+   "imagine"
+  ],
+  "tmdb": "movie/568"
+ },
+ "the-fifth-element": {
+  "studios": [],
+  "tmdb": "movie/18"
+ },
+ "venom": {
+  "studios": [
+   "columbia",
+   "marvel"
+  ],
+  "tmdb": "movie/335983"
+ },
+ "the-batman": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/414906"
+ },
+ "mary-poppins": {
+  "studios": [],
+  "tmdb": "movie/433"
+ },
+ "pirates-of-the-caribbean-dead-men-tell-no-tales": {
+  "studios": [
+   "disney",
+   "bruckheimer"
+  ],
+  "tmdb": "movie/166426"
+ },
+ "x-men": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/36657"
+ },
+ "the-curious-case-of-benjamin-button": {
+  "studios": [
+   "paramount",
+   "warner",
+   "kennedy-marshall"
+  ],
+  "tmdb": "movie/4922"
+ },
+ "once-upon-a-time-in-the-west": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/335"
+ },
+ "the-deer-hunter": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/11778"
+ },
+ "maleficent": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/102651"
+ },
+ "the-jungle-book": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/278927"
+ },
+ "aladdin": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/420817"
+ },
+ "top-gun": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/744"
+ },
+ "breakfast-at-tiffanys": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/164"
+ },
+ "the-bourne-ultimatum": {
+  "studios": [
+   "universal",
+   "kennedy-marshall"
+  ],
+  "tmdb": "movie/2503"
+ },
+ "out-of-africa": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/606"
+ },
+ "the-fast-and-the-furious-tokyo-drift": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/9615"
+ },
+ "the-bourne-identity": {
+  "studios": [
+   "universal",
+   "kennedy-marshall"
+  ],
+  "tmdb": "movie/2501"
+ },
+ "all-quiet-on-the-western-front": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/143"
+ },
+ "groundhog-day": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/137"
+ }
+}

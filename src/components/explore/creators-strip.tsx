@@ -1,5 +1,6 @@
 
 import { ViewAll } from "@/components/nia/view-all";
+import { ROW_MAX } from "@/lib/rows";
 import { InfoNote } from "@/components/nia/info-note";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { shuffled } from "@/lib/shuffle";
@@ -33,7 +34,7 @@ export function CreatorsStrip({ seed, bare = false }: { seed: number; bare?: boo
         </div>
       )}
       <ScrollRow label={CREATORS.name}>
-        {shuffled(creatorItems(), seed).map((item) => (
+        {shuffled(creatorItems(), seed).slice(0, ROW_MAX).map((item) => (
           <li key={item.slug} className="w-[calc(44%*var(--span,1))] flex-none snap-start sm:w-[calc(30%*var(--span,1))] md:w-[calc(22%*var(--span,1))] lg:w-[calc(18%*var(--span,1))]" style={cardSpan(item)}>
             <ExploreCard item={item} href={item.href()} sizes="(min-width: 64rem) 18vw, (min-width: 40rem) 30vw, 44vw" />
           </li>

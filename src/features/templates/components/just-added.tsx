@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { ROW_MAX } from "@/lib/rows";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { grainFor, type GalleryTemplate } from "@/features/templates/gallery";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
@@ -27,7 +28,7 @@ export function JustAdded({
         Just added
       </h2>
       <ScrollRow label="Just added">
-        {fresh.map((t) => (
+        {fresh.slice(0, ROW_MAX).map((t) => (
           <li key={t.code} className="w-64 flex-none snap-start sm:w-72">
             <button
               type="button"

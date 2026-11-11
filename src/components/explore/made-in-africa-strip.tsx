@@ -1,5 +1,6 @@
 
 import { ViewAll } from "@/components/nia/view-all";
+import { ROW_MAX } from "@/lib/rows";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { shuffled } from "@/lib/shuffle";
 import { MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, madeInAfrica, titleHref } from "@/features/explore/made-in-africa";
@@ -7,7 +8,7 @@ import { TitleCard, entrySpan } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
 
 // How many titles the row shows; View all has the rest (Ika, 2026-10-21).
-const SHOWN = 15;
+const SHOWN = ROW_MAX;
 
 // Made in Africa on Explore (Ika, 2026-10-21): 15 titles as equal cards in one still row, like the
 // Top 10 press kits (without numbers), and View all for the full category. A different 15 on each

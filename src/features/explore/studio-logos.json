@@ -46,5 +46,137 @@
  "neon": {
   "source": "TMDB",
   "tmdb": "company/90733"
+ },
+ "marvel": {
+  "source": "TMDB",
+  "tmdb": "company/420"
+ },
+ "lucasfilm": {
+  "source": "TMDB",
+  "tmdb": "company/1"
+ },
+ "new-line": {
+  "source": "TMDB",
+  "tmdb": "company/12"
+ },
+ "dreamworks": {
+  "source": "TMDB",
+  "tmdb": "company/7"
+ },
+ "amblin": {
+  "source": "TMDB",
+  "tmdb": "company/56"
+ },
+ "miramax": {
+  "source": "TMDB",
+  "tmdb": "company/14"
+ },
+ "united-artists": {
+  "source": "TMDB",
+  "tmdb": "company/60"
+ },
+ "rko": {
+  "source": "TMDB",
+  "tmdb": "company/6"
+ },
+ "working-title": {
+  "source": "TMDB",
+  "tmdb": "company/10163"
+ },
+ "studiocanal": {
+  "source": "TMDB",
+  "tmdb": "company/694"
+ },
+ "heyday": {
+  "source": "TMDB",
+  "tmdb": "company/437"
+ },
+ "syncopy": {
+  "source": "TMDB",
+  "tmdb": "company/9996"
+ },
+ "bruckheimer": {
+  "source": "TMDB",
+  "tmdb": "company/130"
+ },
+ "imagine": {
+  "source": "TMDB",
+  "tmdb": "company/23"
+ },
+ "lightstorm": {
+  "source": "TMDB",
+  "tmdb": "company/574"
+ },
+ "eon": {
+  "source": "TMDB",
+  "tmdb": "company/7576"
+ },
+ "zoetrope": {
+  "source": "TMDB",
+  "tmdb": "company/70"
+ },
+ "anonymous-content": {
+  "source": "TMDB",
+  "tmdb": "company/10039"
+ },
+ "appian-way": {
+  "source": "TMDB",
+  "tmdb": "company/562"
+ },
+ "kennedy-marshall": {
+  "source": "TMDB",
+  "tmdb": "company/862"
+ },
+ "wingnut": {
+  "source": "TMDB",
+  "tmdb": "company/11"
+ },
+ "scott-free": {
+  "source": "TMDB",
+  "tmdb": "company/1645"
+ },
+ "element": {
+  "source": "TMDB",
+  "tmdb": "company/3353"
+ },
+ "arte": {
+  "source": "TMDB",
+  "tmdb": "company/94"
+ },
+ "canal-plus": {
+  "source": "TMDB",
+  "tmdb": "company/122329"
+ },
+ "les-films-du-bal": {
+  "source": "TMDB",
+  "tmdb": "company/36496"
+ },
+ "beluga-tree": {
+  "source": "TMDB",
+  "tmdb": "company/104419"
+ },
+ "cinekap": {
+  "source": "TMDB",
+  "tmdb": "company/16887"
+ },
+ "burnt-onion": {
+  "source": "TMDB",
+  "tmdb": "company/145710"
+ },
+ "urucu": {
+  "source": "TMDB",
+  "tmdb": "company/92669"
+ },
+ "gambit": {
+  "source": "TMDB",
+  "tmdb": "company/116966"
+ },
+ "quizzical": {
+  "source": "TMDB",
+  "tmdb": "company/52117"
+ },
+ "showmax": {
+  "source": "TMDB",
+  "tmdb": "network/2265"
  }
 }

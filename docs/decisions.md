@@ -720,3 +720,23 @@ onboarding's Import profile and Follow creators describe features removed in the
   everywhere (Explore's categories, Made in Africa, Creators, cast & crew, a title's Cast & Crew,
   Home's projects and Activity, a project's cast & crew), and every `Button` size is a pill, every
   icon button a circle; joined button groups keep their shape. Rule in CLAUDE.md.
+- (2026-11-11) By studio sorted for consistency, with more studios and independents (Ika: Netflix
+  titles in Made in Africa weren't under Netflix; "add more studios including independent studios…
+  a recently loved and requested feature"). A title is now under a studio when TMDB lists the
+  studio among its production companies or networks, or its platform names it
+  (`scripts/build-explore-studios.mjs` writes `title-studios.json`), as well as through the
+  Wikidata catalogue. 45 studios in `studios.json` (was 12): the majors, plus Marvel, Lucasfilm,
+  New Line, DreamWorks, Amblin, Miramax, United Artists, RKO, Working Title, StudioCanal and
+  independents (Heyday, Syncopy, American Zoetrope, Element Pictures, Urucu Media, Gambit Films,
+  Quizzical Pictures, Burnt Onion, Cinekap, Les Films du Bal, Beluga Tree, ARTE, Canal+,
+  Showmax…). 231 of 312 titles sit under at least one; Netflix has 28. Logos from TMDB
+  (`scripts/fetch-studio-logos.mjs`), each checked on the white plate. Studios with the most
+  titles come first. A studio's page is a grid that fills from the left (masonry columns spread
+  two posters apart).
+- (2026-11-11) Ten per row, the rest behind View all (Ika: "as a general rule of thumb"):
+  `ROW_MAX` in `src/lib/rows.ts`. By studio (new `/explore/studios` page), By cast & crew, Made
+  in Africa, Creators, Hollywood Classics and Greatest TV (ten spread through their release
+  order, so the row still reads as history) and Templates' Just added. Rule in CLAUDE.md.
+- (2026-11-11) Cast & crew View all is grouped by role (Ika: "organize by sub-categories/role
+  specifics"): Directors, Actors, Writers, Producers, Directors of photography, Editors, Music,
+  Production designers, Costume designers, More roles; a chip narrows the page to one group.

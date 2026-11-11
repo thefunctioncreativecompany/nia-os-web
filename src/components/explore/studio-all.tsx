@@ -11,7 +11,7 @@ import { TmdbCredit } from "./tmdb-credit";
 
 // A studio's View all (Ika, 2026-11-10), opened from its logo under Top 10: the logo, the studio's
 // name, the group that owns it today when that differs, and every one of its titles on Explore,
-// most notable first, in masonry columns like the other View all pages.
+// most notable first, in a grid that fills from the left.
 export function StudioAll({ row }: { row: StudioRow }) {
   const items = row.slugs.flatMap((slug) => {
     const item = exploreItem(slug);
@@ -45,9 +45,10 @@ export function StudioAll({ row }: { row: StudioRow }) {
         </div>
       </div>
 
-      <ul className="mt-10 columns-2 gap-x-4 sm:columns-3 lg:columns-4 xl:columns-5">
+      {/* A grid, not masonry columns: with two or three titles, columns left gaps between them. */}
+      <ul className="mt-10 grid grid-cols-2 items-start gap-x-4 gap-y-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {items.map((item) => (
-          <li key={item.slug} className="mb-6 break-inside-avoid">
+          <li key={item.slug}>
             <ExploreCard item={item} href={item.href()} sizes="(min-width: 80rem) 18vw, (min-width: 64rem) 23vw, (min-width: 40rem) 31vw, 48vw" />
           </li>
         ))}

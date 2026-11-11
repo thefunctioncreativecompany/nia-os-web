@@ -58,6 +58,8 @@ Design:
 - Buttons (Ika, 2026-11-11): every button is a pill and every icon button a circle (built into
   `Button`; no `rounded-md/lg` overrides). "View all" and other go-to links are `ViewAll`
   (`src/components/nia/view-all.tsx`): an outline pill with an arrow, no counts.
+- Rows (Ika, 2026-11-11): a row shows at most ten things (`ROW_MAX` in `src/lib/rows.ts`); the
+  rest sit behind `ViewAll`.
 - Few words (Ika, 2026-11-10): creatives are visual, so a section gets a title and no explaining
   line; cards lead with a picture and a name. Add a sentence only where someone would be stuck
   without it.
