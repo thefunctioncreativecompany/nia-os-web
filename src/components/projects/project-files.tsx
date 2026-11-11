@@ -405,9 +405,9 @@ function FileGroups({ files, canEdit, now, remove, retag }: { files: ProjectFile
         "Stills",
         stills.length,
         // Stills keep their own shape, like a mood board.
-        <ul className="columns-2 gap-2.5 sm:columns-3">
+        <ul className="grid grid-cols-2 items-start gap-2.5 sm:grid-cols-3">
           {stills.map((file, i) => (
-            <li key={file.id} className="group relative mb-2.5 break-inside-avoid">
+            <li key={file.id} className="group relative">
               <button type="button" aria-label={`Open ${file.name}`} onClick={() => setViewing(i)} className="block w-full overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
                 {/* eslint-disable-next-line @next/next/no-img-element -- private files use short-lived links, which the image optimiser would cache */}
                 {file.url && <img src={file.url} alt={file.name} loading="lazy" className="h-auto w-full transition-transform duration-base ease-out group-hover:scale-[1.02]" />}

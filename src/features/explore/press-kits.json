@@ -150,6 +150,128 @@
   "cinemaRelease": true,
   "imdb": "tt0988595"
  },
+ "a-charlie-brown-christmas": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Pitchfork Media",
+    "title": "A Charlie Brown Christmas Review",
+    "href": "http://pitchfork.com/reviews/albums/9688-a-charlie-brown-christmas/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Vince Guaraldi Trio: A Charlie Brown Christmas (Super Deluxe Edition) review – a festive classic",
+    "href": "https://www.theguardian.com/music/2022/dec/01/vince-guaraldi-trio-a-charlie-brown-christmas-super-deluxe-edition-review-a-festive-classic",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "AllMusic",
+    "title": "A Charlie Brown Christmas",
+    "href": "https://www.allmusic.com/album/mw0000649547",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Pitchfork",
+    "title": "The Genius and Jazz of A Charlie Brown Christmas",
+    "href": "https://pitchfork.com/features/article/9759-the-genius-and-jazz-of-a-charlie-brown-christmas/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Rolling Stone",
+    "title": "The 25 Greatest Christmas Albums of All Time",
+    "href": "https://www.rollingstone.com/music/music-lists/the-25-greatest-christmas-albums-of-all-time-148740/"
+   },
+   {
+    "outlet": "Sputnikmusic",
+    "title": "A Charlie Brown Christmas",
+    "href": "https://www.sputnikmusic.com/review/69334/Vince-Guaraldi-Trio-A-Charlie-Brown-Christmas/"
+   }
+  ],
+  "imdb": "tt0059026"
+ },
+ "a-christmas-story": {
+  "videos": [
+   {
+    "id": "ptbPSR9pAB8",
+    "kind": "Official trailer",
+    "title": "A Christmas Story | 4K Trailer | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "XSTHx5u6Ers",
+    "kind": "Cast interview",
+    "title": "Peter Billingsley on Making A CHRISTMAS STORY",
+    "channel": "American Film Institute"
+   },
+   {
+    "id": "cvKyjnM95NQ",
+    "kind": "Featurette",
+    "title": "A Christmas Story Behind the Scenes | Actors Relive Iconic Moments | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "8vRRILrk0jc",
+    "kind": "Featurette",
+    "title": "A Christmas Story: Unwrapping the Making of a Holiday Classic | A Cinematic Christmas Journey",
+    "channel": "Youth Inc."
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chron",
+    "title": "Classic Christmas Story is cynical, not nostalgic",
+    "href": "https://www.chron.com/entertainment/article/Classic-Christmas-Story-is-cynical-not-nostalgic-1477913.php",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Jacob Writes Forever",
+    "title": "Dec 25 Jacob's Favorite Christmas Films: #1. \"A Christmas Story\" (1983)",
+    "href": "https://www.jacobwritesforever.com/blog/2017/12/10/jacobs-favorite-christmas-films-1-a-christmas-story-1983",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Sounds of Cinema",
+    "title": "Review: A Christmas Story (1983)",
+    "href": "https://soundsofcinema.com/review-archive/review-a-christmas-story-1983/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Chicago Tribune",
+    "title": "A Christmas Story",
+    "href": "https://www.newspapers.com/article/chicago-tribune-a-christmas-story-1983/160362377/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Chicago Tribune",
+    "title": "'Christmas' arrives early, with nostalgic gifts for one and all",
+    "href": "https://www.newspapers.com/article/chicago-tribune/155958310/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "rogerebert.com",
+    "title": "A Christmas Story (1983)",
+    "href": "https://www.rogerebert.com/reviews/great-movie-a-christmas-story-1983",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Broadway Books",
+    "title": "A Christmas Story",
+    "href": "https://archive.org/details/christmasstory00shep"
+   },
+   {
+    "outlet": "[[Vanity Fair (magazine)",
+    "title": "How a Christmas Story Went from Low-Budget Fluke to an American Tradition",
+    "href": "https://www.vanityfair.com/hollywood/2016/11/how-a-christmas-story-became-an-american-tradition"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0085334"
+ },
  "a-kid-from-coney-island": {
   "videos": [
    {
@@ -1470,6 +1592,80 @@
   ],
   "imdb": "tt0036775"
  },
+ "elf": {
+  "videos": [
+   {
+    "id": "GA8EcNisRvA",
+    "kind": "Official trailer",
+    "title": "Elf - Original Theatrical Trailer",
+    "channel": "Warner Bros. Rewind"
+   },
+   {
+    "id": "Ikg9oHVLDMQ",
+    "kind": "Cast interview",
+    "title": "Will Ferrell Interrupts Andy Richter’s Interview About His New Elf Book",
+    "channel": "Jimmy Kimmel Live"
+   },
+   {
+    "id": "wf9GuKKT6bo",
+    "kind": "Cast interview",
+    "title": "We're getting into the #Holiday spirit with these throwback interviews from \"Elf.\"",
+    "channel": "E! News"
+   },
+   {
+    "id": "v6rnT9DGFO0",
+    "kind": "Featurette",
+    "title": "Elf | Behind The Scenes: That's a Wrap | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "6k_xtRe39mk",
+    "kind": "Featurette",
+    "title": "Elf Behind The Scenes - Leon The Snowman (2003) - Will Ferrell Comedy HD",
+    "channel": "Fandango (Stream)"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Elf Movie Review & Film Summary (2003)",
+    "href": "http://www.rogerebert.com/reviews/elf-2003",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Rolling Stone",
+    "title": "'Elf' review",
+    "href": "https://www.rollingstone.com/movies/reviews/elf-20031107",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Elf': THR's 2003 Review",
+    "href": "https://www.hollywoodreporter.com/news/elf-film-review-2003-851030",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Film Review; For One Lad, Pointy Shoes Turn Out to Be Hard to Fill",
+    "href": "https://www.nytimes.com/2003/11/07/movies/film-review-for-one-lad-pointy-shoes-turn-out-to-be-hard-to-fill.html",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "'Elf' a giant at the box office",
+    "href": "https://www.latimes.com/archives/la-xpm-2003-nov-17-et-lowe17-story.html"
+   },
+   {
+    "outlet": "BBC News",
+    "title": "Elf beats Crowe at US box office",
+    "href": "https://news.bbc.co.uk/2/hi/entertainment/3275911.stm"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0319343"
+ },
  "eyimofe": {
   "videos": [
    {
@@ -2657,6 +2853,148 @@
   ],
   "imdb": "tt0032599"
  },
+ "home-alone": {
+  "videos": [
+   {
+    "id": "Tfz7lUemzqo",
+    "kind": "Cast interview",
+    "title": "EXCLUSIVE: 'Home Alone' Turns 25, and the Cast Reveals Secrets Behind the Movie's Biggest Moments",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "1MjPqH7_aKA",
+    "kind": "Filmmaker interview",
+    "title": "‘Home Alone’ Director Chris Columbus Reflects On Film 30 Years Later | TODAY All Day",
+    "channel": "TODAY"
+   },
+   {
+    "id": "Fww4ncItIxc",
+    "kind": "Filmmaker interview",
+    "title": "Chris Columbus talks about how he pulled off the stunts in HOME ALONE",
+    "channel": "American Film Institute"
+   },
+   {
+    "id": "DRyKMf5J_ns",
+    "kind": "Featurette",
+    "title": "Home Alone Turns 30! See RARE Behind the Scenes Interviews",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "95iVOv3bfKk",
+    "kind": "Featurette",
+    "title": "HOME ALONE Behind The Scenes (1990) Macaulay Culkin",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   },
+   {
+    "id": "IkIDgPNGOyI",
+    "kind": "Featurette",
+    "title": "Home Alone - 21 Behind the Scenes Facts",
+    "channel": "Fun Fact Films"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Movie Gazette",
+    "title": "Home Alone – Movie Review",
+    "href": "https://web.archive.org/web/20110714122844/https://movie-gazette.com/1081",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Home Alone review – 1990 Christmas cracker resurfaces",
+    "href": "https://web.archive.org/web/20200407214024/https://www.theguardian.com/film/2018/nov/30/home-alone-review-yuletide-rerelease",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "Every Home Alone movie, ranked",
+    "href": "https://ew.com/movies/home-alone-movies-ranked/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Independent",
+    "title": "'Macaulay Culkin would try to make me laugh during takes': An oral history of Home Alone",
+    "href": "https://www.independent.co.uk/arts-entertainment/films/features/home-alone-interview-macaulay-culkin-b1721771.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "[[Variety (magazine)",
+    "title": "Variety Reviews – Home Alone",
+    "href": "http://variety.com/1989/film/reviews/home-alone-1200428389/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Washington Post",
+    "title": "Home Alone",
+    "href": "https://web.archive.org/web/20200406160806/https://www.washingtonpost.com/wp-srv/style/longterm/movies/videos/homealonepgcooper_a09ecc.htm",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Forbes",
+    "title": "'Home Alone' At 25: How I Forgave A Mediocre Movie For Becoming A Box Office Champion",
+    "href": "https://web.archive.org/web/20180614122520/https://www.forbes.com/sites/scottmendelson/2015/11/16/home-alone-at-25-how-i-forgave-a-mediocre-movie-for-becoming-a-box-office-champion/"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Home Alone in 9th Week as No. 1 Film : Movies: 'Godfather Part III' takes dramatic slide from second to sixth place in its third week out. 'Awakenings' is in second.",
+    "href": "https://web.archive.org/web/20200411145540/https://www.latimes.com/archives/la-xpm-1991-01-14-ca-310-story.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0099785"
+ },
+ "home-alone-2-lost-in-new-york": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Orlando Sentinel",
+    "title": "Making the grade with filmgoers",
+    "href": "https://www.orlandosentinel.com/news/os-xpm-1992-12-04-9212030106-story.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Home Alone 2: Lost in New York (1992)",
+    "href": "https://www.rogerebert.com/reviews/home-alone-2-lost-in-new-york-1992",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "MOVIE REVIEW: 'Home' Again for the Holidays",
+    "href": "https://www.latimes.com/archives/la-xpm-1992-11-20-ca-415-story.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Chicago Tribune",
+    "title": "'Home, Cruel 'Home'",
+    "href": "https://www.chicagotribune.com/news/ct-xpm-1992-11-20-9204160168-story.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Home Alone 2': THR's 1992 Review",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/home-alone-2-lost-new-york-movie-review-1992-1254611/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "[[Empire (magazine)",
+    "title": "Why Home Alone 2: Lost In New York Is Better Than Home Alone",
+    "href": "https://www.empireonline.com/movies/features/why-home-alone-2-lost-in-new-york-is-better-than-home-alone/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Holy Cow! 'Home 2' Hauls in Box-Office Moola : Movies: Sequel starts off with a bang, opening with seventh-biggest weekend. 'Dracula' continues strong; 'X' is third.",
+    "href": "https://www.latimes.com/archives/la-xpm-1992-11-23-ca-624-story.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0104431"
+ },
  "hounds": {
   "videos": [],
   "reviews": [
@@ -2700,6 +3038,67 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt25750836"
+ },
+ "how-the-grinch-stole-christmas-1966": {
+  "videos": [
+   {
+    "id": "BvujUS8xfDk",
+    "kind": "Featurette",
+    "title": "How The Grinch Stole Christmas (1966) - 13 Behind The Scenes Facts",
+    "channel": "Fun Fact Films"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Macon Telegraph",
+    "title": "TV Preview",
+    "href": "https://www.newspapers.com/article/the-macon-telegraph/186616122/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Democrat and Chronicle",
+    "title": "Dr. Seuss' 'Christmas' Is Fun",
+    "href": "https://www.newspapers.com/article/democrat-and-chronicle/186616133/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Los Angeles Times",
+    "title": "'Grinch' Disappointing Christmas Special",
+    "href": "https://www.newspapers.com/article/the-los-angeles-times-grinch-disappoin/186573578/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "TV Review",
+    "href": "https://www.nytimes.com/1966/12/19/archives/tv-review.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Newsday",
+    "title": "'Grinch' Fails To Steal Hearts",
+    "href": "https://newsday.newspapers.com/article/newsday-suffolk-edition-grinch-fails/186573697/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "[[Time Out (magazine)",
+    "title": "How the Grinch Stole Christmas! (1966)",
+    "href": "https://web.archive.org/web/20071216143517/https://www.timeout.com/film/reviews/72355/how_the_grinch_stole_christmas.html",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Toronto Star",
+    "title": "'Grinch' stole more than just Christmas",
+    "href": "https://thestar.newspapers.com/article/the-toronto-star/186616108/"
+   },
+   {
+    "outlet": "Beaver County Times",
+    "title": "Christmas 'Theft' A Charming Hour",
+    "href": "https://news.google.com/newspapers?id=DrQiAAAAIBAJ&pg=4759,3878898&dq=rick-du-brow+grinch&hl=en"
+   }
+  ],
+  "imdb": "tt0060345"
  },
  "how-to-ruin-christmas": {
   "videos": [
@@ -3264,6 +3663,73 @@
   "cinemaRelease": true,
   "imdb": "tt0783532"
  },
+ "jingle-jangle-a-christmas-journey": {
+  "videos": [
+   {
+    "id": "IXUpjjEabYY",
+    "kind": "Official trailer",
+    "title": "Jingle Jangle: A Christmas Journey | Everything is Possible | Official Trailer | Netflix",
+    "channel": "AfricaOnNetflix"
+   },
+   {
+    "id": "1cp2GUwhXXw",
+    "kind": "Cast interview",
+    "title": "The Stars of Netflix’s Musical ‘Jingle Jangle’ Reveal How They Made A New Christmas Classic",
+    "channel": "Rotten Tomatoes TV"
+   },
+   {
+    "id": "IG6A-MwfHIc",
+    "kind": "Cast interview",
+    "title": "Jingle Jangle: A Christmas Journey Cast & Filmmakers Interview",
+    "channel": "Mama's Geeky"
+   },
+   {
+    "id": "QMgSBoEc6ts",
+    "kind": "Cast interview",
+    "title": "Jingle Jangle musical | Forest Whitaker, Keegan-Michael Key, Phylicia Rashad, Ricky Martin interview",
+    "channel": "WhatsOnStage"
+   },
+   {
+    "id": "d0sDukMNx3Q",
+    "kind": "Cast interview",
+    "title": "Forest Whitaker & The Jingle Jangle Cast Talk Potential Greatest Showman Collaboration | MTV Movies",
+    "channel": "MTV UK"
+   },
+   {
+    "id": "yvxujUHQm2I",
+    "kind": "Cast interview",
+    "title": "Secret Talent? Forest Whitaker Talks Singing in ‘Jingle Jangle: A Christmas Journey’",
+    "channel": "extratv"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "'Jingle Jangle': Oh what fun it is to revel in a rousing holiday musical.",
+    "href": "https://chicago.suntimes.com/movies-and-tv/2020/11/11/21557149/jingle-jangle-review-netflix-movie-christmas-forest-whitaker-keegan-michael-key",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "The holidays find a fresh angle in Netflix's joyful Jingle Jangle: A Christmas Journey: Review",
+    "href": "https://ew.com/movies/movie-reviews/jingle-jangle-christmas-journey-netflix-review/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Netflix Buys 'Jingle Jangle' Pitch From 'Almost Christmas' Filmmaker David E. Talbert",
+    "href": "https://deadline.com/2017/12/netflix-jingle-jangle-pitch-almost-christmas-filmmaker-david-e-talbert-1202221476/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "'Jesus Christ Superstar's John Legend & Mike Jackson To Produce David E. Talbert Netflix Holiday Film 'Jingle Jangle'",
+    "href": "https://deadline.com/2018/09/john-legend-jingle-jangle-netflix-david-e-talbert-mike-jackson-jesus-christ-superstar-1202465714/"
+   }
+  ],
+  "imdb": "tt7736496"
+ },
  "kandasamys-the-baby": {
   "videos": [],
   "reviews": [
@@ -3401,6 +3867,73 @@
   "articles": [],
   "streaming": "Netflix",
   "imdb": "tt13453828"
+ },
+ "klaus": {
+  "videos": [
+   {
+    "id": "k520L5yyWl0",
+    "kind": "Official trailer",
+    "title": "Klaus | Official Trailer | Netflix",
+    "channel": "Netflix Malaysia"
+   },
+   {
+    "id": "TyNDv5nwtho",
+    "kind": "Cast interview",
+    "title": "\"Klaus\" Director Wants To Bring Back 2D Animation | Exclusive Interview",
+    "channel": "Mashable"
+   },
+   {
+    "id": "ds9-7cS96vw",
+    "kind": "Cast interview",
+    "title": "KLAUS Meet The Cast (2019) Netflix Christmas",
+    "channel": "JoBlo Animation 4K"
+   },
+   {
+    "id": "4PK_TzFiClc",
+    "kind": "Filmmaker interview",
+    "title": "El DIRECTOR de KLAUS, SERGIO PABLOS, nos cuenta la HISTORIA detrás de la PELÍCULA | Netflix España",
+    "channel": "Netflix España"
+   },
+   {
+    "id": "NMF3Vxr2ND0",
+    "kind": "Filmmaker interview",
+    "title": "SERGIO PABLOS INTERVIEW | DIRECTOR OF THE OSCAR NOMINATED 'KLAUS'",
+    "channel": "Double Toasted"
+   },
+   {
+    "id": "6LBW6x8Vn2w",
+    "kind": "Filmmaker interview",
+    "title": "Sergio Pablos ('Klaus' director) chats origin of Santa Claus for Netflix animated film | GOLD DERBY",
+    "channel": "GoldDerby / Gold Derby"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Klaus': Film Review",
+    "href": "https://www.hollywoodreporter.com/review/klaus-review-1251929",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "[[Variety (magazine)",
+    "title": "Film Review: 'Klaus,' Netflix's First Animated Original Film",
+    "href": "https://variety.com/2019/film/reviews/klaus-review-1203392809/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Reuters",
+    "title": "Netflix says 'Klaus' is a hit with nearly 30 million views worldwide",
+    "href": "https://www.reuters.com/article/us-netflix-klaus/netflix-says-klaus-is-a-hit-with-nearly-30-million-views-worldwide-idUSKBN1YN2FI"
+   },
+   {
+    "outlet": "Cartoon Brew",
+    "title": "Sergio Pablos Talks About His Stunning Hand-Drawn Project 'Klaus'",
+    "href": "https://www.cartoonbrew.com/interviews/sergio-pablos-talks-about-his-stunning-hand-drawn-project-klaus-exclusive-113621.html"
+   }
+  ],
+  "imdb": "tt4729430"
  },
  "laura": {
   "videos": [
@@ -3627,6 +4160,98 @@
   "streaming": "Netflix",
   "imdb": "tt32615298"
  },
+ "love-actually": {
+  "videos": [
+   {
+    "id": "H9Z3_ifFheQ",
+    "kind": "Official trailer",
+    "title": "Love Actually (2003) Official Trailer - Colin Firth, Emma Thompson Movie HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "PDB6fPP8bzA",
+    "kind": "Cast interview",
+    "title": "Love Actually Scene with Directors Commentary | Love Actually (Keira Knightley, Colin Firth)",
+    "channel": "Universal Pictures At Home"
+   },
+   {
+    "id": "NRu2xouQjog",
+    "kind": "Cast interview",
+    "title": "Keira Knightley REACTS to Love Actually Moment Mid-Interview! (Exclusive)",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "tkKeQZb5yes",
+    "kind": "Cast interview",
+    "title": "Love Actually Cast and Richard Curtis on the Holiday Rom-Com l Charlie Rose Rewind",
+    "channel": "Charlie Rose"
+   },
+   {
+    "id": "qu91teBkrkA",
+    "kind": "Cast interview",
+    "title": "‘Love Actually’ director gives behind-the-scenes look at iconic scenes: Part 2",
+    "channel": "ABC News"
+   },
+   {
+    "id": "8DSE5a0Xvyc",
+    "kind": "Filmmaker interview",
+    "title": "Richard Curtis Interview: Love, Actually, Genie, Notting Hill, and Pirate Radio",
+    "channel": "Collider Interviews"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "CinemaScore",
+    "title": "Find CinemaScore",
+    "href": "https://www.cinemascore.com/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Village Voice",
+    "title": "Odd Couplings: Brit Stars Flounder in Singleton Dysfunction",
+    "href": "https://web.archive.org/web/20180916093317/https://www.villagevoice.com/2003/11/04/odd-couplings-brit-stars-flounder-in-singleton-dysfunction/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "www.rogerebert.com",
+    "title": "Love Actually movie review & film summary (2003) {{!",
+    "href": "https://www.rogerebert.com/reviews/love-actually-2003",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Tales of Love, the True and the Not-So-True",
+    "href": "https://www.nytimes.com/2003/11/07/movies/film-review-tales-of-love-the-true-and-the-not-so-true.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Rolling Stone",
+    "title": "Love Actually",
+    "href": "https://www.rollingstone.com/movies/movie-reviews/love-actually-126713/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Atlantic",
+    "title": "Love Actually Is the Least Romantic Film of All Time",
+    "href": "https://www.theatlantic.com/entertainment/archive/2013/12/-em-love-actually-em-is-the-least-romantic-film-of-all-time/282091/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "BBC",
+    "title": "Love Actually (2003)",
+    "href": "https://www.bbc.co.uk/films/2003/11/06/love_actually_2003_review.shtml"
+   },
+   {
+    "outlet": "Vulture",
+    "title": "Richard Curtis on About Time, Love Actually, and Being a 'Fool for Love'",
+    "href": "http://www.vulture.com/2013/10/rom-com-king-richard-curtis-is-a-fool-for-love.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0314331"
+ },
  "mami-wata": {
   "videos": [],
   "reviews": [
@@ -3775,6 +4400,44 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0037913"
+ },
+ "miracle-on-34th-street": {
+  "videos": [
+   {
+    "id": "acQ2tOdtHlo",
+    "kind": "Featurette",
+    "title": "Director/Co-writer George Seaton on the making of MIRACLE ON 34TH STREET (1947)",
+    "channel": "American Film Institute"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Movie Review: ' Miracle on 34th Street,' With Edmund Gwenn in the Role of Santa Claus, at Roxy -- 'Web' at Loew's Criterion",
+    "href": "https://web.archive.org/web/20170823024414/http://www.nytimes.com/movie/review?res=9401E7DB103EE13BBC4D53DFB066838C659EDE",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "www.bbc.co.uk",
+    "title": "BBC - Films - review - Miracle on 34th Street",
+    "href": "https://www.bbc.co.uk/films/2000/12/08/miracle_on_34_street_1947_review.shtml",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Filmsite",
+    "title": "Greatest Films of 1947",
+    "href": "http://www.filmsite.org/1947.html"
+   },
+   {
+    "outlet": "Boston Globe",
+    "title": "'Miracle on 34th Street': A Christmas classic turns 75 - The Boston Globe",
+    "href": "https://www.bostonglobe.com/2022/12/22/arts/miracle-34th-street-christmas-classic-turns-75/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0039628"
  },
  "modern-family": {
   "videos": [
@@ -5841,6 +6504,50 @@
   ],
   "imdb": "tt34713196"
  },
+ "the-holiday": {
+  "videos": [
+   {
+    "id": "NLVLsyE4uUA",
+    "kind": "Official trailer",
+    "title": "The Holiday 20th Anniversary Trailer",
+    "channel": "Sony Pictures Entertainment and Sony Pics at Home"
+   },
+   {
+    "id": "xLOR-twScK4",
+    "kind": "Cast interview",
+    "title": "Get Cosy With The Cast Of The Holiday | All-Time Classics | The Graham Norton Show",
+    "channel": "The Graham Norton Show"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "A cheerful 'Holiday'",
+    "href": "https://www.latimes.com/archives/la-xpm-2006-dec-08-et-holiday8-story.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Apocalypto' lays to ruins all boxoffice newcomers",
+    "href": "https://www.hollywoodreporter.com/news/apocalypto-lays-ruins-all-boxoffice-146176",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Indiewire",
+    "title": "B.O. of the '00s: The Top Grossing Female Helmed Films",
+    "href": "https://www.indiewire.com/article/b.o._of_the_00s_the_top_grossing_female_helmed_films"
+   },
+   {
+    "outlet": "USA Today",
+    "title": "'Holiday' makes for a sappy but pleasant ride",
+    "href": "http://usatoday30.usatoday.com/life/movies/reviews/2006-12-07-review-the-holiday_x.htm"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0457939"
+ },
  "the-joe-louis-story": {
   "videos": [],
   "reviews": [
@@ -6007,6 +6714,45 @@
   ],
   "imdb": "tt0048424"
  },
+ "the-nightmare-before-christmas": {
+  "videos": [
+   {
+    "id": "mWLiTLU_LMQ",
+    "kind": "Cast interview",
+    "title": "Danny Elfman Discusses \"Tim Burton's The Nightmare Before Christmas\" In Concert Live to Film",
+    "channel": "BUILD Series"
+   },
+   {
+    "id": "fxX83fUr63k",
+    "kind": "Featurette",
+    "title": "The Nightmare Before Christmas - 10 Behind the Scenes Facts",
+    "channel": "Fun Fact Films"
+   },
+   {
+    "id": "uFG79xUvJTM",
+    "kind": "Festival Q&A",
+    "title": "The Nightmare Before Christmas Full GalaxyCon Q&A Panel",
+    "channel": "GalaxyCon"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Nightmare Before Christmas",
+    "href": "https://www.rogerebert.com/reviews/tim-burtons-the-nightmare-before-christmas-1993",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Rolling Stone",
+    "title": "The Nightmare Before Christmas",
+    "href": "https://web.archive.org/web/20081130055653/http://www.rollingstone.com/reviews/movie/5947515/review/5947516/the_nightmare_before_christmas"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0107688"
+ },
  "the-odyssey": {
   "videos": [
    {
@@ -6128,6 +6874,86 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0036244"
+ },
+ "the-polar-express": {
+  "videos": [
+   {
+    "id": "f0oyHtZiJJs",
+    "kind": "Official trailer",
+    "title": "The Polar Express | 4K Trailer | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "m6T6SeoO9-A",
+    "kind": "Cast interview",
+    "title": "Tom Hanks Talks ‘The Polar Express’ in 2004",
+    "channel": "TheEllenShow"
+   },
+   {
+    "id": "t_nGury1dsQ",
+    "kind": "Featurette",
+    "title": "The Polar Express | Behind The Scenes with Tom Hanks | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "1mN4VAwhrk4",
+    "kind": "Featurette",
+    "title": "The Polar Express - 10 Behind The Scenes Facts",
+    "channel": "Fun Fact Films"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Why is the $170-million 'Polar Express' getting derailed?",
+    "href": "https://www.latimes.com/archives/la-xpm-2004-nov-17-et-polar17-story.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Abilene Reporter-News",
+    "title": "'Polar Express' quietly chugs past $100 million mark",
+    "href": "https://www.newspapers.com/article/abilene-reporter-news-polar-express-qu/135250515/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Screen Rant",
+    "title": "The Polar Express: Why It Doesn't Deserve The Hate (& 5 Reasons Why It's A Holiday Classic)",
+    "href": "https://screenrant.com/polar-express-movie-holiday-classic-doesnt-deserve-hate/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Bristol Herald Courier",
+    "title": "Holiday traffic propels 'Polar Express' beyond $100 million",
+    "href": "https://www.newspapers.com/article/bristol-herald-courier-holiday-traffic-p/135252703/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Roger Ebert Reviews",
+    "title": "The Polar Express",
+    "href": "https://www.rogerebert.com/reviews/the-polar-express-2004",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "High-tech magic and true feeling make 'Express' a holiday classic",
+    "href": "https://www.sfgate.com/movies/article/High-tech-magic-and-true-feeling-make-Express-a-2637142.php",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "[[Variety (magazine)",
+    "title": "Hot toon cools Polar bow",
+    "href": "https://variety.com/2004/film/markets-festivals/hot-toon-cools-polar-bow-1117913491/"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Polar Express opening less than incredible",
+    "href": "https://www.latimes.com/archives/la-xpm-2004-nov-15-et-boxoffice15-story.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0338348"
  },
  "the-polygamist": {
   "videos": [],
@@ -6771,5 +7597,60 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt0055614"
+ },
+ "white-christmas": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "The Screen in Review",
+    "href": "https://www.nytimes.com/1954/10/15/archives/the-screen-in-review-white-christmas-bows-at-the-music-hall.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "'White Christmas' Delivers Brightly Hued Musical Package",
+    "href": "https://www.newspapers.com/clip/43185039/la-times-october-28/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Los Angeles Mirror",
+    "title": "Crosby, Kaye, Fail to Amuse",
+    "href": "https://www.newspapers.com/article/los-angeles-mirror/134488560/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "[[Variety (magazine)",
+    "title": "Film Reviews: White Christmas",
+    "href": "https://archive.org/details/variety195-1954-09/page/n5/mode/1up",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Chicago Daily Tribune",
+    "title": "Crosby Film is as Light as Yule Bauble",
+    "href": "https://www.newspapers.com/article/chicago-tribune/134488519/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "San Francisco Examiner",
+    "title": "'White Christmas' Sparkles with Stars and VistaVision",
+    "href": "https://www.newspapers.com/article/the-san-francisco-examiner/134488588/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "[[Variety (magazine)",
+    "title": "1954 Boxoffice Champs",
+    "href": "http://www.archive.org/stream/variety197-1955-01-05#page/n58/mode/1up"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'54 Dream Pic: 'White Xmas'",
+    "href": "http://www.archive.org/stream/variety197-1955-01-05#page/n4/mode/1up"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0047673"
  }
 }

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { ViewAll } from "@/components/nia/view-all";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CREATORS, CREATORS_HREF } from "@/features/explore/creators";
-import { GREATEST_TV, GREATEST_TV_HREF, HOLLYWOOD_CLASSICS, HOLLYWOOD_CLASSICS_HREF, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, greatestTv } from "@/features/explore/made-in-africa";
+import { GREATEST_TV, GREATEST_TV_HREF, HOLIDAY_CLASSICS, HOLIDAY_CLASSICS_HREF, HOLLYWOOD_CLASSICS, HOLLYWOOD_CLASSICS_HREF, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, greatestTv, holidayClassics } from "@/features/explore/made-in-africa";
 import { CreatorsStrip } from "./creators-strip";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory } from "./explore-data";
@@ -21,9 +21,14 @@ type Section = { id: string; name: string; href?: string; row: React.ReactNode }
 // category under a heading that shows or hides it, with Show all / Hide all. All start open.
 // Headings are the name alone, no count or explaining line (Ika, 2026-10-30).
 // Top 10 on Explore sits above Recently added since 2026-11-08 (explore-library.tsx).
-export function CategorySections({ seed }: { seed: number }) {
+export function CategorySections({ seed, inSeason = [] }: { seed: number; inSeason?: string[] }) {
   const epk = getCategory("epk");
+  // In season (made-in-africa.ts, seasonOf): a seasonal category leads the list; out of season it isn't listed.
+  const seasonal: Section[] = inSeason.includes("holiday-classics") && holidayClassics.length
+    ? [{ id: "holiday-classics", name: HOLIDAY_CLASSICS.name, href: HOLIDAY_CLASSICS_HREF, row: <CategoryStrip category="holiday-classics" /> }]
+    : [];
   const sections: Section[] = [
+    ...seasonal,
     { id: "made-in-africa", name: MADE_IN_AFRICA.name, href: MADE_IN_AFRICA_HREF, row: <MadeInAfricaStrip seed={seed} bare /> },
     { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, href: HOLLYWOOD_CLASSICS_HREF, row: <CategoryStrip category="hollywood-classics" /> },
     // Greatest TV (approved 2026-10-30) shows once a title in it has a cover.

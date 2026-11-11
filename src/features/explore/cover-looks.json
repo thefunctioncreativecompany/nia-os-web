@@ -343,6 +343,13 @@
   "warm-palette",
   "low-key"
  ],
+ "a-charlie-brown-christmas": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "a-christmas-story": [
+  "warm-palette"
+ ],
  "a-kid-from-coney-island": [
   "warm-palette",
   "low-key"
@@ -589,6 +596,10 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "elf": [
+  "cool-palette",
+  "bright-airy"
+ ],
  "eternal-sunshine-of-the-spotless-mind": [
   "cool-palette"
  ],
@@ -720,6 +731,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "how-the-grinch-stole-christmas-1966": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "how-to-ruin-christmas": [
   "vivid-colour",
   "cool-palette"
@@ -791,6 +806,7 @@
   "black-and-white"
  ],
  "its-a-wonderful-life": [
+  "muted-colour",
   "warm-palette",
   "bright-airy"
  ],
@@ -803,6 +819,10 @@
  "jerusalema": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "jingle-jangle-a-christmas-journey": [
+  "vivid-colour",
+  "low-key"
  ],
  "jurassic-park": [
   "muted-colour",
@@ -823,6 +843,9 @@
   "cool-palette"
  ],
  "kings-of-joburg": [],
+ "klaus": [
+  "warm-palette"
+ ],
  "laura": [
   "black-and-white"
  ],
@@ -889,6 +912,10 @@
  ],
  "mildred-pierce": [
   "black-and-white"
+ ],
+ "miracle-on-34th-street": [
+  "black-and-white",
+  "bright-airy"
  ],
  "modern-family": [
   "muted-colour",
@@ -1289,6 +1316,9 @@
   "warm-palette",
   "low-key"
  ],
+ "the-holiday": [
+  "warm-palette"
+ ],
  "the-house-is-black": [
   "black-and-white"
  ],
@@ -1336,6 +1366,10 @@
  "the-night-of-the-hunter": [
   "black-and-white"
  ],
+ "the-nightmare-before-christmas": [
+  "vivid-colour",
+  "low-key"
+ ],
  "the-odyssey": [
   "vivid-colour",
   "warm-palette",
@@ -1347,6 +1381,10 @@
  "the-pianist": [
   "warm-palette",
   "low-key"
+ ],
+ "the-polar-express": [
+  "vivid-colour",
+  "cool-palette"
  ],
  "the-polygamist": [
   "warm-palette",
@@ -1450,6 +1488,10 @@
  "west-side-story": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "white-christmas": [
+  "warm-palette",
+  "bright-airy"
  ],
  "x-men": [
   "muted-colour"

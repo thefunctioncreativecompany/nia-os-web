@@ -196,10 +196,10 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
                 <p className="mt-1 text-sm text-muted-foreground">{g.description}</p>
               </>
             )}
-            {/* Masonry columns (Ika, 2026-11-08): posters stand tall, trailer stills lie wide. */}
-            <ul className={cn("columns-2 gap-x-4 sm:columns-3 lg:columns-4 xl:columns-5", g.name && "mt-5")}>
+            {/* A grid that fills from the left (Ika, 2026-11-11: masonry columns left gaps). */}
+            <ul className={cn("grid grid-cols-2 items-start gap-x-4 gap-y-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5", g.name && "mt-5")}>
               {g.items.map((e, i) => (
-                <li key={e.title.slug} className="mb-6 break-inside-avoid">
+                <li key={e.title.slug}>
                   <TitleCard
                     entry={e}
                     href={titleHref(e.title.slug, "all")}

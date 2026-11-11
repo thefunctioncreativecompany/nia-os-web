@@ -59,6 +59,8 @@ Design:
   `Button`; no `rounded-md/lg` overrides). Primary (default) buttons carry a soft Nia Blue halo, stronger on hover.
   "View all" and other go-to links are `ViewAll`
   (`src/components/nia/view-all.tsx`): an outline pill with an arrow, no counts.
+- Grids fill row by row from the left: no CSS masonry `columns-*` anywhere (Ika, 2026-11-11: the
+  gaps they leave are "very bad UX").
 - Rows (Ika, 2026-11-11): a row shows at most ten things (`ROW_MAX` in `src/lib/rows.ts`); the
   rest sit behind `ViewAll`.
 - Few words (Ika, 2026-11-10): creatives are visual, so a section gets a title and no explaining
@@ -100,7 +102,8 @@ changing it. The master list of what's shipped, open, fed back and planned is
   on the server.
 - Templates: only working ones are in `catalog`; build the rest in Ika's priority order.
 - Explore is curation, not distribution: open to everyone signed in since 2026-11-10 (no invite
-  code for now; `features.exploreUnlocked`, a welcome screen on the first visit), link and never copy, no review scores, credit TMDB, Wikidata and
+  code for now; `features.exploreUnlocked`, a welcome screen on the first visit), seasonal categories
+  lead By category in their season (`season` in made-in-africa.json, `seasonOf`; Holiday classics 1 Nov–6 Jan), link and never copy, no review scores, credit TMDB, Wikidata and
   Commons. Only titles with a cover show. Every new title gets a press kit, cast and crew, a
   release date and a palette (the scripts in `scripts/`), committed without asking. Never invent
   an Explore category.

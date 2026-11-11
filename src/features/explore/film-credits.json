@@ -604,6 +604,60 @@
    }
   ]
  },
+ "a-charlie-brown-christmas": {
+  "qid": "Q1393337",
+  "people": [
+   {
+    "id": "Q298920",
+    "role": "Creator, Writer"
+   },
+   {
+    "id": "Q862316",
+    "role": "Director"
+   },
+   {
+    "id": "Q706953",
+    "role": "Music"
+   }
+  ]
+ },
+ "a-christmas-story": {
+  "qid": "Q556933",
+  "people": [
+   {
+    "id": "Q3376457",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1150547",
+    "role": "Cast"
+   },
+   {
+    "id": "Q271883",
+    "role": "Cast"
+   },
+   {
+    "id": "Q139906",
+    "role": "Cast"
+   },
+   {
+    "id": "Q526359",
+    "role": "Cast, Director, Writer"
+   },
+   {
+    "id": "Q5982593",
+    "role": "Cast"
+   },
+   {
+    "id": "Q23655536",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q3372439",
+    "role": "Music"
+   }
+  ]
+ },
  "a-raisin-in-the-sun": {
   "qid": "Q1304498",
   "people": [
@@ -5243,6 +5297,80 @@
    }
   ]
  },
+ "elf": {
+  "qid": "Q949879",
+  "people": [
+   {
+    "id": "Q218503",
+    "role": "Cast"
+   },
+   {
+    "id": "Q95043",
+    "role": "Cast"
+   },
+   {
+    "id": "Q154421",
+    "role": "Cast",
+    "character": "Santa Claus"
+   },
+   {
+    "id": "Q3701742",
+    "role": "Cast"
+   },
+   {
+    "id": "Q108935",
+    "role": "Cast"
+   },
+   {
+    "id": "Q718078",
+    "role": "Cast"
+   },
+   {
+    "id": "Q371403",
+    "role": "Cast"
+   },
+   {
+    "id": "Q712452",
+    "role": "Cast"
+   },
+   {
+    "id": "Q262170",
+    "role": "Cast"
+   },
+   {
+    "id": "Q497851",
+    "role": "Cast"
+   },
+   {
+    "id": "Q155449",
+    "role": "Cast"
+   },
+   {
+    "id": "Q295964",
+    "role": "Director"
+   },
+   {
+    "id": "Q3703104",
+    "role": "Writer"
+   },
+   {
+    "id": "Q3481590",
+    "role": "Producer"
+   },
+   {
+    "id": "Q5605599",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q3013121",
+    "role": "Editor"
+   },
+   {
+    "id": "Q48975",
+    "role": "Music"
+   }
+  ]
+ },
  "eternal-sunshine-of-the-spotless-mind": {
   "qid": "Q208269",
   "people": [
@@ -8970,6 +9098,27 @@
    }
   ]
  },
+ "how-the-grinch-stole-christmas-1966": {
+  "qid": "Q251801",
+  "people": [
+   {
+    "id": "Q203219",
+    "role": "Cast"
+   },
+   {
+    "id": "Q312657",
+    "role": "Director"
+   },
+   {
+    "id": "Q2907787",
+    "role": "Writer"
+   },
+   {
+    "id": "Q2605041",
+    "role": "Music"
+   }
+  ]
+ },
  "how-to-ruin-christmas": {
   "qid": "Q104609892",
   "people": []
@@ -10437,6 +10586,31 @@
    }
   ]
  },
+ "jingle-jangle-a-christmas-journey": {
+  "qid": "Q65091103",
+  "people": [
+   {
+    "id": "Q5233216",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q44857",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1889725",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1929616",
+    "role": "Editor"
+   },
+   {
+    "id": "Q48975",
+    "role": "Music"
+   }
+  ]
+ },
  "jurassic-park": {
   "qid": "Q167726",
   "people": [
@@ -10749,6 +10923,63 @@
    {
     "id": "Q113509711",
     "role": "Director"
+   }
+  ]
+ },
+ "klaus": {
+  "qid": "Q67208596",
+  "people": [
+   {
+    "id": "Q313705",
+    "role": "Cast"
+   },
+   {
+    "id": "Q150482",
+    "role": "Cast"
+   },
+   {
+    "id": "Q540608",
+    "role": "Cast"
+   },
+   {
+    "id": "Q272946",
+    "role": "Cast"
+   },
+   {
+    "id": "Q27870243",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q100715818",
+    "role": "Writer"
+   },
+   {
+    "id": "Q100715819",
+    "role": "Writer"
+   },
+   {
+    "id": "Q100715822",
+    "role": "Producer"
+   },
+   {
+    "id": "Q100715824",
+    "role": "Producer"
+   },
+   {
+    "id": "Q100741978",
+    "role": "Editor"
+   },
+   {
+    "id": "Q38794744",
+    "role": "Music"
+   },
+   {
+    "id": "Q100741983",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q100741988",
+    "role": "Production Designer"
    }
   ]
  },
@@ -12001,6 +12232,83 @@
    {
     "id": "Q3314409",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "miracle-on-34th-street": {
+  "qid": "Q1467214",
+  "people": [
+   {
+    "id": "Q229276",
+    "role": "Cast"
+   },
+   {
+    "id": "Q723415",
+    "role": "Cast"
+   },
+   {
+    "id": "Q180919",
+    "role": "Cast"
+   },
+   {
+    "id": "Q344750",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3399241",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1370701",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1290248",
+    "role": "Cast"
+   },
+   {
+    "id": "Q500566",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3127778",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3133457",
+    "role": "Cast"
+   },
+   {
+    "id": "Q344735",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3177416",
+    "role": "Cast"
+   },
+   {
+    "id": "Q288337",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q1422989",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1064479",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1316101",
+    "role": "Editor"
+   },
+   {
+    "id": "Q328857",
+    "role": "Music"
+   },
+   {
+    "id": "Q1247808",
+    "role": "Production Designer"
    }
   ]
  },
@@ -20710,6 +21018,79 @@
    }
   ]
  },
+ "the-holiday": {
+  "qid": "Q478748",
+  "people": [
+   {
+    "id": "Q44380",
+    "role": "Cast"
+   },
+   {
+    "id": "Q202765",
+    "role": "Cast"
+   },
+   {
+    "id": "Q160432",
+    "role": "Cast"
+   },
+   {
+    "id": "Q483907",
+    "role": "Cast"
+   },
+   {
+    "id": "Q232397",
+    "role": "Cast"
+   },
+   {
+    "id": "Q104067",
+    "role": "Cast"
+   },
+   {
+    "id": "Q314485",
+    "role": "Cast"
+   },
+   {
+    "id": "Q299217",
+    "role": "Cast"
+   },
+   {
+    "id": "Q313039",
+    "role": "Cast"
+   },
+   {
+    "id": "Q358137",
+    "role": "Cast"
+   },
+   {
+    "id": "Q231614",
+    "role": "Cast"
+   },
+   {
+    "id": "Q306403",
+    "role": "Cast"
+   },
+   {
+    "id": "Q235555",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q4977019",
+    "role": "Producer"
+   },
+   {
+    "id": "Q497036",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q509948",
+    "role": "Editor"
+   },
+   {
+    "id": "Q76364",
+    "role": "Music"
+   }
+  ]
+ },
  "the-house-is-black": {
   "qid": "Q1168890",
   "people": [
@@ -21478,6 +21859,43 @@
    }
   ]
  },
+ "the-nightmare-before-christmas": {
+  "qid": "Q322328",
+  "people": [
+   {
+    "id": "Q514859",
+    "role": "Director"
+   },
+   {
+    "id": "Q273712",
+    "role": "Writer"
+   },
+   {
+    "id": "Q276817",
+    "role": "Writer"
+   },
+   {
+    "id": "Q56008",
+    "role": "Writer, Producer"
+   },
+   {
+    "id": "Q2053826",
+    "role": "Producer"
+   },
+   {
+    "id": "Q193338",
+    "role": "Producer, Music"
+   },
+   {
+    "id": "Q3376380",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q51931126",
+    "role": "Editor"
+   }
+  ]
+ },
  "the-odyssey": {
   "qid": "Q131547207",
   "people": [
@@ -21758,6 +22176,106 @@
    },
    {
     "id": "Q585823",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "the-polar-express": {
+  "qid": "Q862197",
+  "people": [
+   {
+    "id": "Q2263",
+    "role": "Cast, Producer",
+    "character": "Hero Boy's father"
+   },
+   {
+    "id": "Q217004",
+    "role": "Cast"
+   },
+   {
+    "id": "Q508359",
+    "role": "Cast",
+    "character": "Hero Girl"
+   },
+   {
+    "id": "Q1740243",
+    "role": "Cast",
+    "character": "Billy the Lonely Boy"
+   },
+   {
+    "id": "Q747824",
+    "role": "Cast",
+    "character": "Know-It-All"
+   },
+   {
+    "id": "Q658690",
+    "role": "Cast"
+   },
+   {
+    "id": "Q194045",
+    "role": "Cast",
+    "character": "Elf Lieutenant"
+   },
+   {
+    "id": "Q329716",
+    "role": "Cast",
+    "character": "Smokey and Steamer"
+   },
+   {
+    "id": "Q23767052",
+    "role": "Cast",
+    "character": "Sarah"
+   },
+   {
+    "id": "Q187364",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q3568461",
+    "role": "Writer"
+   },
+   {
+    "id": "Q704553",
+    "role": "Writer, Producer"
+   },
+   {
+    "id": "Q3098559",
+    "role": "Producer"
+   },
+   {
+    "id": "Q6114749",
+    "role": "Producer"
+   },
+   {
+    "id": "Q2347318",
+    "role": "Producer"
+   },
+   {
+    "id": "Q25350636",
+    "role": "Producer"
+   },
+   {
+    "id": "Q497036",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q484980",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q711370",
+    "role": "Editor"
+   },
+   {
+    "id": "Q313537",
+    "role": "Music"
+   },
+   {
+    "id": "Q506268",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q3329792",
     "role": "Costume Designer"
    }
   ]
@@ -24071,6 +24589,111 @@
    {
     "id": "Q893712",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "white-christmas": {
+  "qid": "Q1570133",
+  "people": [
+   {
+    "id": "Q72984",
+    "role": "Cast"
+   },
+   {
+    "id": "Q213425",
+    "role": "Cast"
+   },
+   {
+    "id": "Q466508",
+    "role": "Cast"
+   },
+   {
+    "id": "Q253934",
+    "role": "Cast"
+   },
+   {
+    "id": "Q471309",
+    "role": "Cast"
+   },
+   {
+    "id": "Q263241",
+    "role": "Cast"
+   },
+   {
+    "id": "Q67543",
+    "role": "Cast"
+   },
+   {
+    "id": "Q336841",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1040783",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3758989",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1541287",
+    "role": "Cast"
+   },
+   {
+    "id": "Q513849",
+    "role": "Cast"
+   },
+   {
+    "id": "Q51491",
+    "role": "Director"
+   },
+   {
+    "id": "Q919642",
+    "role": "Writer"
+   },
+   {
+    "id": "Q544016",
+    "role": "Writer"
+   },
+   {
+    "id": "Q41131",
+    "role": "Writer"
+   },
+   {
+    "id": "Q2157024",
+    "role": "Producer"
+   },
+   {
+    "id": "Q568941",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q15454521",
+    "role": "Editor"
+   },
+   {
+    "id": "Q128746",
+    "role": "Music"
+   },
+   {
+    "id": "Q21604862",
+    "role": "Music"
+   },
+   {
+    "id": "Q3185119",
+    "role": "Music"
+   },
+   {
+    "id": "Q6969392",
+    "role": "Music"
+   },
+   {
+    "id": "Q2162645",
+    "role": "Production Designer"
+   },
+   {
+    "id": "Q234961",
+    "role": "Costume Designer"
    }
   ]
  },

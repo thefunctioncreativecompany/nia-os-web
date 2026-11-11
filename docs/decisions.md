@@ -747,3 +747,19 @@ onboarding's Import profile and Follow creators describe features removed in the
   the workflow's dialog on Templates, `?workflow=`). `features/explore/search-index.ts`, loaded
   when search first opens. Standing rule in CLAUDE.md.
 - (2026-11-11) Primary buttons carry a soft Nia Blue halo (a 3px ring at 20% and a faint blue shadow, the ring at 35% on hover; none when disabled), so the main action on each screen stands out (Ika: "a light blue highlight on primary CTAs to improve actionability"). One change in `Button`'s default variant.
+- (2026-11-11) Holiday classics, and seasons built into Explore (Ika: "a category for holiday
+  specials/christmas classics… include 15… an example of how the platform should evolve with the
+  context of the times, world events, major holidays, and should be built into the platform";
+  "feel free to add animations like Polar Express"). New category with two collections, Christmas
+  films (13) and Holiday specials (2): It's a Wonderful Life, Miracle on 34th Street, White
+  Christmas, A Christmas Story, Home Alone, Home Alone 2, The Nightmare Before Christmas, Love
+  Actually, Elf, The Polar Express, The Holiday, Klaus, Jingle Jangle; A Charlie Brown Christmas
+  and How the Grinch Stole Christmas! (1966). Four already on Explore moved in. All 15 have press
+  kits (checked: remake, sequel, stage-show and parody videos removed). A category can carry a
+  `season` (MM-DD to MM-DD, `seasonOf`): in season it leads By category, out of season it isn't
+  listed (its page still works). Holiday classics runs 1 November to 6 January. Other moments
+  (Black History Month, Africa Day, Halloween, Heritage Day…) get a category with a season once
+  Ika approves each. Search finds titles by their collection and category ("Christmas").
+- (2026-11-11) No masonry anywhere (Ika: "ensure these gaps do not occur anywhere on the platform,
+  very bad UX"): category View all pages, the creators gallery, a project's Files and photo grids
+  are grids that fill row by row from the left. Rule in CLAUDE.md.

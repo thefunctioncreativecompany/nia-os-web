@@ -1540,5 +1540,60 @@
   "source": "TMDB",
   "tmdb": "movie/137",
   "image": "https://image.tmdb.org/t/p/original/gCgt1WARPZaXnq523ySQEUKinCs.jpg"
+ },
+ "miracle-on-34th-street": {
+  "source": "TMDB",
+  "tmdb": "movie/11881",
+  "image": "https://image.tmdb.org/t/p/original/vehuIm3y6BeMI7mYjxzaA1H8M0k.jpg"
+ },
+ "white-christmas": {
+  "source": "TMDB",
+  "tmdb": "movie/13368",
+  "image": "https://image.tmdb.org/t/p/original/A5kBQsHKbIptxJyELEpHQJROCRj.jpg"
+ },
+ "a-charlie-brown-christmas": {
+  "source": "TMDB",
+  "tmdb": "movie/13187",
+  "image": "https://image.tmdb.org/t/p/original/6fDmxNVFGSYlVR01zbYSZ4M0lU0.jpg"
+ },
+ "how-the-grinch-stole-christmas-1966": {
+  "source": "TMDB",
+  "tmdb": "movie/13377",
+  "image": "https://image.tmdb.org/t/p/original/7ir0iRuPK9OEuH569cp0nF5CJce.jpg"
+ },
+ "a-christmas-story": {
+  "source": "TMDB",
+  "tmdb": "movie/850",
+  "image": "https://image.tmdb.org/t/p/original/34nSHYqmb7222tiqiuKqKJmZiQa.jpg"
+ },
+ "the-nightmare-before-christmas": {
+  "source": "TMDB",
+  "tmdb": "movie/9479",
+  "image": "https://image.tmdb.org/t/p/original/oQffRNjK8e19rF7xVYEN8ew0j7b.jpg"
+ },
+ "elf": {
+  "source": "TMDB",
+  "tmdb": "movie/10719",
+  "image": "https://image.tmdb.org/t/p/original/oOleziEempUPu96jkGs0Pj6tKxj.jpg"
+ },
+ "the-polar-express": {
+  "source": "TMDB",
+  "tmdb": "movie/5255",
+  "image": "https://image.tmdb.org/t/p/original/eOoCzH0MqeGr2taUZO4SwG416PF.jpg"
+ },
+ "the-holiday": {
+  "source": "TMDB",
+  "tmdb": "movie/1581",
+  "image": "https://image.tmdb.org/t/p/original/h1ITOpvJN3Tw4Sy60w2QTfYMvdd.jpg"
+ },
+ "klaus": {
+  "source": "TMDB",
+  "tmdb": "movie/508965",
+  "image": "https://image.tmdb.org/t/p/original/q125RHUDgR4gjwh1QkfYuJLYkL.jpg"
+ },
+ "jingle-jangle-a-christmas-journey": {
+  "source": "TMDB",
+  "tmdb": "movie/622855",
+  "image": "https://image.tmdb.org/t/p/original/5RbyHIVydD3Krmec1LlUV7rRjet.jpg"
  }
 }

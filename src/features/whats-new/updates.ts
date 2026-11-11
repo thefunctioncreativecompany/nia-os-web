@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "holiday-classics",
+    date: "2026-11-11",
+    title: "Holiday classics on Explore",
+    body: "Fifteen Christmas films and holiday specials, from It's a Wonderful Life to Klaus and The Polar Express, each with its press kit.",
+    href: "/explore/holiday-classics",
+    cta: "Open Holiday classics",
+    icon: "Snowflake",
+    weight: { production: 0.6, fashion: 0.6, creator: 0.7 },
+  },
+  {
     id: "workflows",
     date: "2026-11-10",
     title: "Workflows",

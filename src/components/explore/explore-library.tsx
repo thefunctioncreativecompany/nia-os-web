@@ -20,7 +20,7 @@ import { ScrollRow } from "@/components/nia/scroll-row";
 // in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts. The
 // rows under By category come in a new order on each visit (`seed`, Ika 2026-10-22).
 // Recently added was removed for now (Ika, 2026-11-08; git tag parked-2026-11-08-recently-added).
-export function ExploreLibrary({ seed, top, studios, people = [] }: { seed: number; top: Promise<string[]>; studios: StudioRow[]; people?: RowPerson[] }) {
+export function ExploreLibrary({ seed, top, studios, people = [], inSeason = [] }: { seed: number; top: Promise<string[]>; studios: StudioRow[]; people?: RowPerson[]; inSeason?: string[] }) {
   return (
     <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-7.5 lg:pt-12.5">
       {/* Opens the whole library as one canvas (Ika, 2026-10-21). */}
@@ -85,7 +85,7 @@ export function ExploreLibrary({ seed, top, studios, people = [] }: { seed: numb
       )}
 
       {/* Every category under a heading that shows or hides it (Ika, 2026-10-29). */}
-      <CategorySections seed={seed} />
+      <CategorySections seed={seed} inSeason={inSeason} />
     </div>
   );
 }

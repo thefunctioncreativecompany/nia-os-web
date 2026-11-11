@@ -18,6 +18,7 @@ import { DocMiniature } from "@/features/templates/components/doc-miniature";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { loadTemplateIndex, loadTemplatePreview, type TemplatePreview } from "@/features/templates/actions";
 import { LIBRARY } from "@/features/explore/library";
+import { CATEGORY_NAMES, findEntry } from "@/features/explore/made-in-africa";
 import { ALL_TAGS, tagLabel, tagsFor } from "@/features/explore/tags";
 import { exploreAccess } from "@/features/explore/saves";
 import { loadExploreSearchIndex, type ExploreSearchIndex } from "@/features/explore/search-index";
@@ -160,8 +161,12 @@ async function load(): Promise<Result[]> {
       ? LIBRARY.flatMap((i): Result[] => {
           if (i.open.kind !== "page") return [];
           const r = exploreResult(i.key, i.title, i.credit, i.open.href, { image: i.image, aspect: i.aspect });
-          const studios = index?.titleStudios[i.key.replace(/^t:/, "")] ?? [];
-          return [studios.length ? { ...r, words: `${r.words} ${studios.join(" ")}` } : r];
+          const slug = i.key.replace(/^t:/, "");
+          const studios = index?.titleStudios[slug] ?? [];
+          // Its collection and category too, so "Christmas" or "Holiday" finds the season's titles.
+          const entry = findEntry(slug);
+          const groups = entry ? [entry.collection.name, CATEGORY_NAMES.get(entry.category) ?? ""] : [];
+          return [{ ...r, words: [r.words, ...studios, ...groups].join(" ") }];
         })
       : []),
     // Explore's studios and cast & crew (2026-11-11), each opening its own page.

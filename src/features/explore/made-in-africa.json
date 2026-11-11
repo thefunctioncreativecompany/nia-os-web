@@ -83,6 +83,18 @@
    "name": "Drama and limited series",
    "description": "Dramas, procedurals and limited series.",
    "category": "greatest-tv"
+  },
+  {
+   "slug": "holiday-specials",
+   "name": "Holiday specials",
+   "description": "Short specials made for television, rerun every year.",
+   "category": "holiday-classics"
+  },
+  {
+   "slug": "christmas-films",
+   "name": "Christmas films",
+   "description": "Films people watch every December, from the studio era to now.",
+   "category": "holiday-classics"
   }
  ],
  "titles": [
@@ -2017,7 +2029,7 @@
   },
   {
    "slug": "its-a-wonderful-life",
-   "collection": "studio-era",
+   "collection": "christmas-films",
    "title": "It's a Wonderful Life",
    "type": "film",
    "genres": [
@@ -6609,7 +6621,7 @@
   },
   {
    "slug": "home-alone",
-   "collection": "modern-classics",
+   "collection": "christmas-films",
    "title": "Home Alone",
    "type": "film",
    "genres": [
@@ -7783,7 +7795,7 @@
   },
   {
    "slug": "love-actually",
-   "collection": "modern-classics",
+   "collection": "christmas-films",
    "title": "Love Actually",
    "type": "film",
    "genres": [
@@ -8248,7 +8260,7 @@
   },
   {
    "slug": "home-alone-2-lost-in-new-york",
-   "collection": "modern-classics",
+   "collection": "christmas-films",
    "title": "Home Alone 2: Lost in New York",
    "type": "film",
    "genres": [
@@ -9339,6 +9351,312 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "miracle-on-34th-street",
+   "collection": "christmas-films",
+   "title": "Miracle on 34th Street",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Drama",
+    "Family"
+   ],
+   "year": 1947,
+   "countries": [
+    "United States"
+   ],
+   "credit": "George Seaton",
+   "recognition": "Three Academy Awards, including Edmund Gwenn as supporting actor",
+   "pair_with": "",
+   "study_note": "Shot partly during the real 1946 Thanksgiving parade, with its Santa riding in it: a production that used a live event as its set",
+   "added": "2026-11-11",
+   "imdb_id": "tt0039628",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "LrQmDsDcYzk",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "white-christmas",
+   "collection": "christmas-films",
+   "title": "White Christmas",
+   "type": "film",
+   "genres": [
+    "Musical",
+    "Comedy",
+    "Romance"
+   ],
+   "year": 1954,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Michael Curtiz",
+   "recognition": "The highest-grossing film of 1954",
+   "pair_with": "",
+   "study_note": "The first film in VistaVision, Paramount's sharp wide format, built around Irving Berlin's songs and stage numbers",
+   "added": "2026-11-11",
+   "imdb_id": "tt0047673",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "4K2C0gcEV3Q",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "a-charlie-brown-christmas",
+   "collection": "holiday-specials",
+   "title": "A Charlie Brown Christmas",
+   "type": "short",
+   "genres": [
+    "Animation",
+    "Family",
+    "Comedy"
+   ],
+   "year": 1965,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Bill Melendez",
+   "recognition": "Emmy and Peabody Awards, 1966",
+   "pair_with": "",
+   "study_note": "Real children's voices, a jazz score and no laugh track: choices the network nearly turned down, now the reason it lasts",
+   "added": "2026-11-11",
+   "imdb_id": "tt0059026"
+  },
+  {
+   "slug": "how-the-grinch-stole-christmas-1966",
+   "collection": "holiday-specials",
+   "title": "How the Grinch Stole Christmas!",
+   "type": "short",
+   "genres": [
+    "Animation",
+    "Family",
+    "Comedy"
+   ],
+   "year": 1966,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Chuck Jones",
+   "pair_with": "",
+   "study_note": "Twenty-six minutes of Chuck Jones animating Dr. Seuss, with one actor as both narrator and the Grinch",
+   "added": "2026-11-11",
+   "imdb_id": "tt0060345"
+  },
+  {
+   "slug": "a-christmas-story",
+   "collection": "christmas-films",
+   "title": "A Christmas Story",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Family"
+   ],
+   "year": 1983,
+   "countries": [
+    "United States",
+    "Canada"
+   ],
+   "credit": "Bob Clark",
+   "pair_with": "",
+   "study_note": "Told as a grown man's memory in voice-over: a modest period comedy shot partly in Cleveland and Toronto",
+   "added": "2026-11-11",
+   "imdb_id": "tt0085334",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "cfjEZ88NHBw",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-nightmare-before-christmas",
+   "collection": "christmas-films",
+   "title": "The Nightmare Before Christmas",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Fantasy",
+    "Musical"
+   ],
+   "year": 1993,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Henry Selick",
+   "recognition": "Academy Award nomination for visual effects",
+   "pair_with": "",
+   "study_note": "Stop motion at about a minute of finished film a week, over three years, with puppets and sets built by hand",
+   "added": "2026-11-11",
+   "imdb_id": "tt0107688",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "wr6N_hZyBCk",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "elf",
+   "collection": "christmas-films",
+   "title": "Elf",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Family",
+    "Fantasy"
+   ],
+   "year": 2003,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Jon Favreau",
+   "pair_with": "",
+   "study_note": "Forced perspective and miniatures, not digital effects, to make its lead a giant among elves",
+   "added": "2026-11-11",
+   "imdb_id": "tt0319343",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "gW9wRNqQ_P8",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-polar-express",
+   "collection": "christmas-films",
+   "title": "The Polar Express",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Adventure",
+    "Family"
+   ],
+   "year": 2004,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Robert Zemeckis",
+   "recognition": "Three Academy Award nominations",
+   "pair_with": "",
+   "study_note": "A whole film made with performance capture, one actor playing several parts, from a 32-page picture book",
+   "added": "2026-11-11",
+   "imdb_id": "tt0338348",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "TQhRqtt-Fpo",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-holiday",
+   "collection": "christmas-films",
+   "title": "The Holiday",
+   "type": "film",
+   "genres": [
+    "Romance",
+    "Comedy"
+   ],
+   "year": 2006,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Nancy Meyers",
+   "pair_with": "",
+   "study_note": "Two homes, two countries, two couples: a romantic comedy built on a house swap, its interiors designed to be wanted",
+   "added": "2026-11-11",
+   "imdb_id": "tt0457939",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "wk9caHO3pW0",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "klaus",
+   "collection": "christmas-films",
+   "title": "Klaus",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Family",
+    "Comedy"
+   ],
+   "year": 2019,
+   "countries": [
+    "Spain"
+   ],
+   "credit": "Sergio Pablos",
+   "recognition": "BAFTA for animated film; Academy Award nomination",
+   "pair_with": "",
+   "study_note": "Hand-drawn 2D animation lit as if it were 3D: a new lighting method that gives drawings volume",
+   "added": "2026-11-11",
+   "imdb_id": "tt4729430",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "taE3PwurhYM",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "jingle-jangle-a-christmas-journey",
+   "collection": "christmas-films",
+   "title": "Jingle Jangle: A Christmas Journey",
+   "type": "film",
+   "genres": [
+    "Musical",
+    "Family",
+    "Fantasy"
+   ],
+   "year": 2020,
+   "countries": [
+    "United States"
+   ],
+   "credit": "David E. Talbert",
+   "pair_with": "",
+   "study_note": "An original Christmas musical with a Black cast, its toy workshop and town built as full practical sets",
+   "added": "2026-11-11",
+   "imdb_id": "tt7736496",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "aYPUYVgwLWY",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [
@@ -9361,6 +9679,15 @@
    "slug": "greatest-tv",
    "name": "Greatest TV",
    "description": "Series worth studying for their writing, ensembles and formats."
+  },
+  {
+   "slug": "holiday-classics",
+   "name": "Holiday classics",
+   "description": "Christmas films and holiday specials, back every December.",
+   "season": {
+    "from": "11-01",
+    "to": "01-06"
+   }
   }
  ]
 }

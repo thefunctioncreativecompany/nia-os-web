@@ -1796,5 +1796,60 @@
    "columbia"
   ],
   "tmdb": "movie/137"
+ },
+ "miracle-on-34th-street": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/11881"
+ },
+ "white-christmas": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/13368"
+ },
+ "a-charlie-brown-christmas": {
+  "studios": [],
+  "tmdb": "movie/13187"
+ },
+ "how-the-grinch-stole-christmas-1966": {
+  "studios": [],
+  "tmdb": "movie/13377"
+ },
+ "a-christmas-story": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/850"
+ },
+ "the-nightmare-before-christmas": {
+  "studios": [],
+  "tmdb": "movie/9479"
+ },
+ "elf": {
+  "studios": [
+   "new-line"
+  ],
+  "tmdb": "movie/10719"
+ },
+ "the-polar-express": {
+  "studios": [],
+  "tmdb": "movie/5255"
+ },
+ "the-holiday": {
+  "studios": [
+   "universal",
+   "columbia"
+  ],
+  "tmdb": "movie/1581"
+ },
+ "klaus": {
+  "studios": [],
+  "tmdb": "movie/508965"
+ },
+ "jingle-jangle-a-christmas-journey": {
+  "studios": [],
+  "tmdb": "movie/622855"
  }
 }

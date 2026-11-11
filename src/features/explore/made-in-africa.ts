@@ -142,6 +142,9 @@ export const waitingForCover: string[] = EVERY.filter((e) => !hasCover(e.title.s
 /** Every title's slug, listed or waiting (for the tag checks). */
 export const everyTitleSlug: string[] = EVERY.map((e) => e.title.slug);
 
+/** Each category's name by its slug (search finds titles by it). */
+export const CATEGORY_NAMES = new Map(raw.categories.map((c) => [c.slug, c.name] as const));
+
 export const MADE_IN_AFRICA = raw.categories.find((c) => c.slug === "made-in-africa")!;
 
 /** Hollywood Classics (Ika, 2026-10-29): 30 defining films, 1939 to 1979, in release order. */
@@ -152,6 +155,24 @@ export const hollywoodClassics: Entry[] = ENTRIES.filter((e) => e.category === "
 export const GREATEST_TV = raw.categories.find((c) => c.slug === "greatest-tv")!;
 export const greatestTv: Entry[] = ENTRIES.filter((e) => e.category === "greatest-tv").toSorted((a, b) => (a.title.year ?? 0) - (b.title.year ?? 0));
 export const GREATEST_TV_HREF = "/explore/greatest-tv";
+/** Holiday classics (Ika, 2026-11-11): Christmas films and holiday specials, in release order. */
+export const HOLIDAY_CLASSICS = raw.categories.find((c) => c.slug === "holiday-classics")!;
+export const holidayClassics: Entry[] = ENTRIES.filter((e) => e.category === "holiday-classics").toSorted((a, b) => (a.title.year ?? 0) - (b.title.year ?? 0));
+export const HOLIDAY_CLASSICS_HREF = "/explore/holiday-classics";
+
+// Seasonal categories (Ika, 2026-11-11: Explore "should evolve with the context of the times, world
+// events, major holidays… built into the platform"). A category with a `season` ("MM-DD" to
+// "MM-DD", running over New Year when it ends earlier than it starts) leads By category while it's
+// in season and steps out of the list when it isn't; its View all page always works. Add a moment
+// (Black History Month, Africa Day, Halloween…) as a category with a season, once Ika approves it.
+type SeasonWindow = { from: string; to: string };
+const SEASONS = new Map((raw.categories as { slug: string; season?: SeasonWindow }[]).flatMap((c) => (c.season ? [[c.slug, c.season] as const] : [])));
+/** The seasonal categories, and which of them are in season on `today` (YYYY-MM-DD). */
+export function seasonOf(today: string): { seasonal: string[]; inSeason: string[] } {
+  const md = today.slice(5, 10);
+  const within = ({ from, to }: SeasonWindow) => (from <= to ? md >= from && md <= to : md >= from || md <= to);
+  return { seasonal: [...SEASONS.keys()], inSeason: [...SEASONS].filter(([, s]) => within(s)).map(([slug]) => slug) };
+}
 /** The titles in the same category as this one, for "You may also like". */
 export const sameCategory = (entry: Entry): Entry[] => ENTRIES.filter((e) => e.category === entry.category);
 
@@ -198,7 +219,7 @@ export const YEAR_RANGE = { min: Math.min(...years), max: Math.max(...years) };
 export const essentialWhy = new Map((raw.titles as RawTitle[]).flatMap((t) => (t.essential ? [[t.slug, t.essential] as const] : [])));
 
 // Each category's View all: its titles, collections and the filter choices they have.
-export type CategoryKey = "made-in-africa" | "hollywood-classics" | "greatest-tv";
+export type CategoryKey = "made-in-africa" | "hollywood-classics" | "greatest-tv" | "holiday-classics";
 export type CategoryView = {
   slug: CategoryKey;
   name: string;
@@ -213,7 +234,7 @@ export type CategoryView = {
 };
 function viewOf(slug: CategoryKey, href: string): CategoryView {
   const meta = raw.categories.find((c) => c.slug === slug)!;
-  const entries = slug === "hollywood-classics" ? hollywoodClassics : slug === "greatest-tv" ? greatestTv : madeInAfrica;
+  const entries = slug === "hollywood-classics" ? hollywoodClassics : slug === "greatest-tv" ? greatestTv : slug === "holiday-classics" ? holidayClassics : madeInAfrica;
   const yrs = entries.map((e) => e.title.year).filter((y): y is number => y !== null);
   return {
     slug,
@@ -233,6 +254,7 @@ export const categoryViews: Record<CategoryKey, CategoryView> = {
   "made-in-africa": viewOf("made-in-africa", "/explore/made-in-africa"),
   "hollywood-classics": viewOf("hollywood-classics", HOLLYWOOD_CLASSICS_HREF),
   "greatest-tv": viewOf("greatest-tv", GREATEST_TV_HREF),
+  "holiday-classics": viewOf("holiday-classics", HOLIDAY_CLASSICS_HREF),
 };
 
 /** "Directed by" for films, "Created by" for series. */
