@@ -746,3 +746,4 @@ onboarding's Import profile and Follow creators describe features removed in the
   studio ("Netflix", "A24"), and finds the twelve workflows by goal, documents and group (opening
   the workflow's dialog on Templates, `?workflow=`). `features/explore/search-index.ts`, loaded
   when search first opens. Standing rule in CLAUDE.md.
+- (2026-11-11) Primary buttons carry a soft Nia Blue halo (a 3px ring at 20% and a faint blue shadow, the ring at 35% on hover; none when disabled), so the main action on each screen stands out (Ika: "a light blue highlight on primary CTAs to improve actionability"). One change in `Button`'s default variant.

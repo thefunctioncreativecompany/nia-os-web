@@ -56,7 +56,8 @@ Design:
   `text-h2 font-semibold tracking-tight text-foreground`; a section heading is
   `text-subtitle font-semibold text-foreground`. No `font-extrabold` or `text-display` titles.
 - Buttons (Ika, 2026-11-11): every button is a pill and every icon button a circle (built into
-  `Button`; no `rounded-md/lg` overrides). "View all" and other go-to links are `ViewAll`
+  `Button`; no `rounded-md/lg` overrides). Primary (default) buttons carry a soft Nia Blue halo, stronger on hover.
+  "View all" and other go-to links are `ViewAll`
   (`src/components/nia/view-all.tsx`): an outline pill with an arrow, no counts.
 - Rows (Ika, 2026-11-11): a row shows at most ten things (`ROW_MAX` in `src/lib/rows.ts`); the
   rest sit behind `ViewAll`.
