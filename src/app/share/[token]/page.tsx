@@ -10,7 +10,15 @@ import { createClient } from "@/lib/supabase/server";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Wordmark } from "@/components/nia/wordmark";
-import { AskToEdit } from "@/components/projects/ask-to-edit";
+import { ScrollRow } from "@/components/nia/scroll-row";
+import { PersonTile } from "@/components/nia/cast-crew-row";
+import { ExploreCard, cardSpan } from "@/components/explore/title-card";
+import { OpenProject } from "@/components/projects/open-project";
+import { exploreItem, type ExploreItem } from "@/features/explore/items";
+
+// The references row's cells, as on the project page; landscape films get wider ones (cardSpan).
+const REF_CELL = "w-[calc(42%*var(--span,1))] flex-none snap-start sm:w-[calc(28%*var(--span,1))] md:w-[calc(22%*var(--span,1))]";
+const REF_SIZES = "(min-width: 48rem) 190px, (min-width: 40rem) 28vw, 42vw";
 
 // One lookup per request, shared by the link preview and the page.
 const getShared = cache(async (token: string) => {
@@ -48,10 +56,13 @@ export async function generateMetadata({ params }: PageProps<"/share/[token]">):
 export default function Page({ params }: PageProps<"/share/[token]">) {
   return (
     <div className="flex min-h-svh flex-col bg-background">
-      <header className="border-b border-border px-4 py-6 md:px-15">
+      <header className="flex items-center justify-between gap-4 border-b border-border px-4 py-4 md:px-15">
         <Link href="/" className="inline-flex rounded-sm">
           <Wordmark />
         </Link>
+        <Suspense fallback={null}>
+          <OpenProjectSlot params={params} />
+        </Suspense>
       </header>
       <main className="mx-auto flex w-full max-w-[860px] flex-1 flex-col px-4 py-10 md:py-15">
         <Suspense fallback={<SharedSkeleton />}>
@@ -89,6 +100,28 @@ type SharedRow = {
   crew: CrewMember[] | null;
 };
 
+// The header's Open project: straight in with access, else log in or ask the owner.
+async function OpenProjectSlot({ params }: Pick<PageProps<"/share/[token]">, "params">) {
+  await connection();
+  const { token } = await params;
+  const [data, supabase] = await Promise.all([getShared(token), createClient()]);
+  if (!data) return null;
+  const [access, claims, me] = await Promise.all([
+    supabase.rpc("shared_link_access", { token }),
+    supabase.auth.getClaims(),
+    supabase.rpc("shared_project_me", { token }).maybeSingle<{ project_id: string | null; my_role: string | null; asked: boolean }>(),
+  ]);
+  return (
+    <OpenProject
+      token={token}
+      projectId={me.data?.project_id ?? null}
+      signedIn={Boolean(claims.data?.claims)}
+      canAskToEdit={access.data === "request"}
+      asked={me.data?.asked ?? false}
+    />
+  );
+}
+
 async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "params">) {
   await connection();
   const { token } = await params;
@@ -96,18 +129,11 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
   // A link that was turned off (or never existed) says so plainly, instead of a blank page. The
   // page has already started streaming, so the status stays 200; it's kept out of search engines.
   if (!data) return <LinkOff />;
-  // Signed-in visitors find it again under Shared with you (audit #11). Does nothing when
-  // signed out.
   const supabase = await createClient();
-  // What the link allows ('request' shows Ask to edit; before the link-permissions migration runs
-  // this errors and the page stays view-only), and whether the visitor is signed in.
-  const [, access, claims] = await Promise.all([
-    supabase.rpc("remember_shared_link", { token }),
-    supabase.rpc("shared_link_access", { token }),
-    supabase.auth.getClaims(),
-  ]);
-  const canAsk = !access.error && access.data === "request";
-  const signedIn = Boolean(claims.data?.claims);
+  // Signed-in visitors find it again under Shared with you (audit #11; does nothing when signed
+  // out). The project's Explore references, for the row under the crew.
+  const [, refs] = await Promise.all([supabase.rpc("remember_shared_link", { token }), supabase.rpc("shared_project_references", { token })]);
+  const references = ((refs.data as string[] | null) ?? []).map(exploreItem).filter((item): item is ExploreItem => item !== null);
 
   // The same details as the project page, never the budget; type-specific ones only when set.
   const type = data.production_type as ProductionType | null;
@@ -127,7 +153,6 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
     ["Notes", data.notes],
   ];
   const crew = data.crew ?? [];
-  const roles = [...new Set(crew.map((c) => c.role))];
 
   return (
     <article className="flex flex-col gap-9">
@@ -141,12 +166,11 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
           {[data.production_type, data.stage].filter(Boolean).join(" · ")}
           {data.owner_name ? ` · Shared by ${data.owner_name}` : ""}
         </p>
-        <h1 className="text-h1 font-bold text-foreground">{data.title || "Untitled project"}</h1>
+        <h1 className="text-h2 font-semibold tracking-tight text-foreground">{data.title || "Untitled project"}</h1>
         {data.description && <p className="text-lead whitespace-pre-line text-muted-foreground">{data.description}</p>}
-        {canAsk && <AskToEdit token={token} signedIn={signedIn} />}
       </div>
       <section aria-labelledby="shared-info" className="flex flex-col gap-4">
-        <h2 id="shared-info" className="text-lg leading-[1.4] font-bold text-foreground">
+        <h2 id="shared-info" className="text-subtitle font-semibold text-foreground">
           Details
         </h2>
         <dl className="flex flex-col gap-3 text-sm">
@@ -158,19 +182,32 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
           ))}
         </dl>
       </section>
-      {roles.length > 0 && (
+      {crew.length > 0 && (
         <section aria-labelledby="shared-crew" className="flex flex-col gap-4">
-          <h2 id="shared-crew" className="text-lg leading-[1.4] font-bold text-foreground">
-            Crew &amp; talent
+          <h2 id="shared-crew" className="text-subtitle font-semibold text-foreground">
+            Crew &amp; talent <span className="text-micro font-normal text-muted-foreground">{crew.length}</span>
           </h2>
-          <dl className="flex flex-col gap-3 text-sm">
-            {roles.map((role) => (
-              <div key={role} className="flex gap-4">
-                <dt className="w-[120px] shrink-0 leading-[1.4] font-bold text-muted-foreground">{role}</dt>
-                <dd className="leading-normal font-medium text-foreground">{crew.filter((c) => c.role === role).map((c) => c.name).join(", ")}</dd>
-              </div>
+          <ScrollRow label="Crew & talent">
+            {crew.map((c, i) => (
+              <li key={`${i}-${c.name}`} className="w-24 flex-none snap-start sm:w-28">
+                <PersonTile person={{ key: `${i}-${c.name}`, name: c.name, role: c.role }} small />
+              </li>
             ))}
-          </dl>
+          </ScrollRow>
+        </section>
+      )}
+      {references.length > 0 && (
+        <section aria-labelledby="shared-references" className="flex flex-col gap-4">
+          <h2 id="shared-references" className="text-subtitle font-semibold text-foreground">
+            References <span className="text-micro font-normal text-muted-foreground">{references.length}</span>
+          </h2>
+          <ScrollRow label="References">
+            {references.map((item) => (
+              <li key={item.slug} className={REF_CELL} style={cardSpan(item)}>
+                <ExploreCard item={item} href={item.href()} sizes={REF_SIZES} />
+              </li>
+            ))}
+          </ScrollRow>
         </section>
       )}
     </article>

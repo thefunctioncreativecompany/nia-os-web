@@ -53,14 +53,21 @@ export function CastCrewRow({
   );
 }
 
-export function PersonTile({ person: p, small = false }: { person: RowPerson; small?: boolean }) {
-  return (
-    <Link href={p.href} className="group flex flex-col items-center gap-2.5 rounded-xl text-center outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-      <PersonPicture name={p.name} photo={p.photo} className={cn("group-sweep", small ? "size-20 sm:size-24" : "size-24 sm:size-28 lg:size-32")} />
+/** A person in a row. Without an `href` (a shared link's visitors) it's the same look, not a link. */
+export function PersonTile({ person: p, small = false }: { person: Omit<RowPerson, "href"> & { href?: string }; small?: boolean }) {
+  const inner = (
+    <>
+      <PersonPicture name={p.name} photo={p.photo} className={cn(p.href && "group-sweep", small ? "size-20 sm:size-24" : "size-24 sm:size-28 lg:size-32")} />
       <span className="flex flex-col gap-0.5">
         <span className="line-clamp-2 text-sm leading-snug font-semibold text-foreground">{p.name}</span>
         <span className="line-clamp-2 text-small leading-snug text-muted-foreground">{p.role}</span>
       </span>
+    </>
+  );
+  if (!p.href) return <div className="flex flex-col items-center gap-2.5 text-center">{inner}</div>;
+  return (
+    <Link href={p.href} className="group flex flex-col items-center gap-2.5 rounded-xl text-center outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+      {inner}
     </Link>
   );
 }

@@ -71,17 +71,17 @@ export function ShareProjectDialog({
   // What the link allows ('view' or 'request') and the edit requests waiting (null until the
   // 20261111000000_link_access_requests.sql migration is run: the choice then stays hidden).
   const [access, setAccess] = useState<"view" | "request" | null>(null);
-  const [requests, setRequests] = useState<{ id: string; name: string; message: string }[]>([]);
+  const [requests, setRequests] = useState<{ id: string; name: string; message: string; role: "viewer" | "editor" }[]>([]);
 
   const loadRequests = useCallback(async () => {
     if (!isOwner) return;
     const db = createClient();
     const [a, r] = await Promise.all([db.rpc("project_link_access", { pid: projectId }), db.rpc("pending_access_requests", { pid: projectId })]);
     if (!a.error) setAccess((a.data as "view" | "request" | null) ?? "view");
-    if (!r.error) setRequests((r.data as { id: string; name: string; message: string }[]) ?? []);
+    if (!r.error) setRequests((r.data as { id: string; name: string; message: string; role: "viewer" | "editor" }[]) ?? []);
   }, [isOwner, projectId]);
 
-  const answer = async (id: string, approve: boolean) => {
+  const answer = async (id: string, approve: boolean, role: "viewer" | "editor") => {
     // Approving adds a person: the free plan's limit applies, as for invites.
     const others = (people ?? []).filter((p) => p.kind !== "owner");
     if (approve && others.length >= FREE_LIMITS.collaboratorsPerProject && (await projectLimited(createClient(), projectId))) {
@@ -92,7 +92,7 @@ export function ShareProjectDialog({
     const { error } = await createClient().rpc("respond_project_access", { request_id: id, approve });
     setBusy(false);
     if (error) return void toast.error(error.message);
-    toast.success(approve ? "They can edit now." : "Request declined.");
+    toast.success(approve ? (role === "editor" ? "They can edit now." : "They can open it now.") : "Request declined.");
     await Promise.all([load(), loadRequests()]);
     router.refresh();
   };
@@ -309,7 +309,7 @@ export function ShareProjectDialog({
 
         {requests.length > 0 && (
           <section aria-labelledby="edit-requests" className="flex flex-col gap-3">
-            <h3 id="edit-requests" className="text-small leading-normal font-bold text-muted-foreground">Asking to edit</h3>
+            <h3 id="edit-requests" className="text-small leading-normal font-bold text-muted-foreground">Asking for access</h3>
             <ul className="flex flex-col gap-2">
               {requests.map((r) => (
                 <li key={r.id} className="flex items-center gap-3 rounded-2xl border border-border p-3">
@@ -318,13 +318,13 @@ export function ShareProjectDialog({
                   </Avatar>
                   <span className="flex min-w-0 flex-1 flex-col">
                     <span className="truncate text-sm font-semibold text-foreground">{r.name}</span>
-                    {r.message && <span className="truncate text-caption text-muted-foreground">{r.message}</span>}
+                    <span className="truncate text-caption text-muted-foreground">{r.message || (r.role === "editor" ? "Asks to edit" : "Asks to view")}</span>
                   </span>
-                  <Button type="button" size="compact" variant="outline" disabled={busy} onClick={() => void answer(r.id, false)}>
+                  <Button type="button" size="compact" variant="outline" disabled={busy} onClick={() => void answer(r.id, false, r.role)}>
                     Decline
                   </Button>
-                  <Button type="button" size="compact" disabled={busy} onClick={() => void answer(r.id, true)}>
-                    Let them edit
+                  <Button type="button" size="compact" disabled={busy} onClick={() => void answer(r.id, true, r.role)}>
+                    {r.role === "editor" ? "Let them edit" : "Let them in"}
                   </Button>
                 </li>
               ))}

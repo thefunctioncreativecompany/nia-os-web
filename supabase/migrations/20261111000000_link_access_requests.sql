@@ -5,8 +5,11 @@
 -- 1. What a project's link allows, set by its owner:
 --      'view'     anyone with the link can view (what links did until now, and still the default)
 --      'request'  anyone with the link can view, and a signed-in person can ask to edit
--- 2. Edit requests: someone who opened the link asks to edit; the owner is notified and approves
---    (they join the project as Can edit) or declines. Nothing changes until the owner says yes.
+-- 2. Access requests: someone who opened the link asks to open the project (Can view) or, when
+--    the link allows it, to edit; the owner is notified and approves (they join the project with
+--    that role) or declines. Nothing changes until the owner says yes.
+-- 3. For the shared page: whether the visitor already has the project (its Open project button),
+--    and the project's Explore references (titles only; a project's own links stay private).
 -- The setting and the requests live in their own tables, changed only through the functions below.
 
 create table if not exists public.project_link_settings (
@@ -22,10 +25,12 @@ create table if not exists public.project_access_requests (
   project_id uuid not null references public.projects (id) on delete cascade,
   user_id uuid not null references auth.users (id) on delete cascade,
   message text not null default '' check (char_length(message) <= 300),
+  role text not null default 'editor' check (role in ('viewer', 'editor')),
   status text not null default 'pending' check (status in ('pending', 'approved', 'declined')),
   created_at timestamptz not null default now(),
   decided_at timestamptz
 );
+alter table public.project_access_requests add column if not exists role text not null default 'editor' check (role in ('viewer', 'editor'));
 create unique index if not exists project_access_requests_one_pending
   on public.project_access_requests (project_id, user_id) where status = 'pending';
 create index if not exists project_access_requests_project on public.project_access_requests (project_id, status);
@@ -84,9 +89,11 @@ begin
 end;
 $$;
 
--- Someone who opened the link asks to edit. Returns 'requested', 'pending' (already asked),
--- 'member' (already on the project as Can edit or owner) or raises when the link doesn't allow it.
-create or replace function public.request_project_access(token text, note text default '')
+-- Someone who opened the link asks for access: 'viewer' (open the project) whenever the link is
+-- on, 'editor' only when the link takes edit requests. Returns 'requested', 'pending' (already
+-- asked), 'member' (already has that much access) or raises when the link doesn't allow it.
+drop function if exists public.request_project_access(text, text);
+create or replace function public.request_project_access(token text, note text default '', wanted text default 'editor')
 returns text
 language plpgsql
 security definer
@@ -97,32 +104,39 @@ declare
   pid uuid;
   owner uuid;
   title text;
+  access text;
+  mine text;
 begin
   if me is null then
     raise exception 'Log in to ask for access' using errcode = '42501';
   end if;
-  select p.id, p.owner_id, p.title into pid, owner, title
+  if wanted not in ('viewer', 'editor') then
+    raise exception 'Ask to view or to edit' using errcode = '22023';
+  end if;
+  select p.id, p.owner_id, p.title, coalesce(s.link_access, 'view') into pid, owner, title, access
   from public.projects p
   left join public.project_link_settings s on s.project_id = p.id
-  where char_length(token) >= 24 and p.share_token = token and p.deleted_at is null
-    and coalesce(s.link_access, 'view') = 'request';
-  if pid is null then
-    raise exception 'This link doesn''t take requests' using errcode = '42501';
+  where char_length(token) >= 24 and p.share_token = token and p.deleted_at is null;
+  if pid is null or (wanted = 'editor' and access <> 'request') then
+    raise exception 'This link doesn''t take that request' using errcode = '42501';
   end if;
-  if owner = me or exists (select 1 from public.project_members m where m.project_id = pid and m.user_id = me and m.role = 'editor') then
+  select m.role into mine from public.project_members m where m.project_id = pid and m.user_id = me;
+  if owner = me or mine = 'editor' or (wanted = 'viewer' and mine is not null) then
     return 'member';
   end if;
   if exists (select 1 from public.project_access_requests r where r.project_id = pid and r.user_id = me and r.status = 'pending') then
+    update public.project_access_requests set role = case when wanted = 'editor' then 'editor' else role end
+    where project_id = pid and user_id = me and status = 'pending';
     return 'pending';
   end if;
-  insert into public.project_access_requests (project_id, user_id, message) values (pid, me, left(coalesce(note, ''), 300));
+  insert into public.project_access_requests (project_id, user_id, message, role) values (pid, me, left(coalesce(note, ''), 300), wanted);
   insert into public.notifications (user_id, project_id, kind, title, body)
-  values (owner, pid, 'shared', left(coalesce(public.display_name(me), 'Someone') || ' asked to edit ' || coalesce(nullif(title, ''), 'your project'), 300), left(coalesce(note, ''), 300));
+  values (owner, pid, 'shared', left(coalesce(public.display_name(me), 'Someone') || case when wanted = 'editor' then ' asked to edit ' else ' asked to open ' end || coalesce(nullif(title, ''), 'your project'), 300), left(coalesce(note, ''), 300));
   return 'requested';
 end;
 $$;
 
--- The owner approves (they join as Can edit) or declines a request.
+-- The owner approves (they join with the role asked for; an editor is never lowered) or declines.
 create or replace function public.respond_project_access(request_id uuid, approve boolean)
 returns void
 language plpgsql
@@ -143,30 +157,67 @@ begin
   update public.project_access_requests set status = case when approve then 'approved' else 'declined' end, decided_at = now() where id = request_id;
   if approve then
     insert into public.project_members (project_id, user_id, role, invited_by)
-    values (req.project_id, req.user_id, 'editor', (select auth.uid()))
-    on conflict (project_id, user_id) do update set role = 'editor';
+    values (req.project_id, req.user_id, req.role, (select auth.uid()))
+    on conflict (project_id, user_id) do update set role = case when excluded.role = 'editor' then 'editor' else public.project_members.role end;
     perform public.log_activity(req.project_id, 'shared', coalesce(public.display_name(req.user_id), 'someone'));
     select p.title into title from public.projects p where p.id = req.project_id;
     insert into public.notifications (user_id, project_id, kind, title, body)
-    values (req.user_id, req.project_id, 'shared', left('You can now edit ' || coalesce(nullif(title, ''), 'the project'), 300), '');
+    values (req.user_id, req.project_id, 'shared', left(case when req.role = 'editor' then 'You can now edit ' else 'You can now open ' end || coalesce(nullif(title, ''), 'the project'), 300), '');
   end if;
 end;
 $$;
 
--- The requests waiting on the owner, with who asked.
-create or replace function public.pending_access_requests(pid uuid)
-returns table (id uuid, name text, message text, created_at timestamptz)
+-- The visitor's own standing on a shared project: its id and their role when they have it
+-- ('owner', 'editor', 'viewer'), else null, plus whether they've already asked.
+create or replace function public.shared_project_me(token text)
+returns table (project_id uuid, my_role text, asked boolean)
 language sql
 stable
 security definer
 set search_path = ''
 as $$
-  select r.id, coalesce(public.display_name(r.user_id), 'Someone'), r.message, r.created_at
+  select
+    case when p.owner_id = (select auth.uid()) or m.role is not null then p.id end,
+    case when p.owner_id = (select auth.uid()) then 'owner' else m.role end,
+    exists (select 1 from public.project_access_requests r where r.project_id = p.id and r.user_id = (select auth.uid()) and r.status = 'pending')
+  from public.projects p
+  left join public.project_members m on m.project_id = p.id and m.user_id = (select auth.uid())
+  where (select auth.uid()) is not null and char_length(token) >= 24 and p.share_token = token and p.deleted_at is null;
+$$;
+
+-- A shared project's Explore references, oldest first (titles only).
+create or replace function public.shared_project_references(token text)
+returns setof text
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+  select r.title_slug
+  from public.project_references r
+  join public.projects p on p.id = r.project_id
+  where char_length(token) >= 24 and p.share_token = token and p.deleted_at is null and r.deleted_at is null
+  order by r.created_at;
+$$;
+
+-- The requests waiting on the owner, with who asked.
+create or replace function public.pending_access_requests(pid uuid)
+returns table (id uuid, name text, message text, role text, created_at timestamptz)
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+  select r.id, coalesce(public.display_name(r.user_id), 'Someone'), r.message, r.role, r.created_at
   from public.project_access_requests r
   where r.project_id = pid and r.status = 'pending' and public.is_project_owner(pid)
   order by r.created_at;
 $$;
 
+revoke execute on function public.shared_project_me(text) from public, anon;
+grant execute on function public.shared_project_me(text) to authenticated;
+revoke execute on function public.shared_project_references(text) from public;
+grant execute on function public.shared_project_references(text) to anon, authenticated;
 revoke execute on function public.pending_access_requests(uuid) from public, anon;
 grant execute on function public.pending_access_requests(uuid) to authenticated;
 revoke execute on function public.shared_link_access(text) from public;
@@ -175,7 +226,7 @@ revoke execute on function public.project_link_access(uuid) from public, anon;
 grant execute on function public.project_link_access(uuid) to authenticated;
 revoke execute on function public.set_link_access(uuid, text) from public, anon;
 grant execute on function public.set_link_access(uuid, text) to authenticated;
-revoke execute on function public.request_project_access(text, text) from public, anon;
-grant execute on function public.request_project_access(text, text) to authenticated;
+revoke execute on function public.request_project_access(text, text, text) from public, anon;
+grant execute on function public.request_project_access(text, text, text) to authenticated;
 revoke execute on function public.respond_project_access(uuid, boolean) from public, anon;
 grant execute on function public.respond_project_access(uuid, boolean) to authenticated;

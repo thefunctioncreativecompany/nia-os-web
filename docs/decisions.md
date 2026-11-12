@@ -810,4 +810,14 @@ onboarding's Import profile and Follow creators describe features removed in the
   requests with Let them edit / Decline. Approving adds them as Can edit (the free plan's 3-person
   limit applies) and tells them. Nothing changes until the owner approves. Database:
   `20261111000000_link_access_requests.sql` (its own tables, changed only through functions; Ika
-  to run). Until it's run, links stay view-only and the choice is hidden.
+  to run; run 2026-11-11).
+- (2026-11-11, later) The shared page (Ika): Crew & talent as round profiles, as on the project
+  page (`PersonTile`, not links for visitors); the project's Explore references as a row under it
+  (Instagram links stay private); "Open project" in the top right corner replaces Ask to edit.
+  With access it opens the project; signed out it logs in and comes back; otherwise it asks the
+  owner, to view, or to edit when the link takes edit requests. After an approval the button opens
+  the project when the tab comes back into view. Owners see "Asks to view / to edit" and Let them
+  in / Let them edit. Headings follow the one standard.
+- (2026-11-11) Product analytics: PostHog (`src/components/analytics.tsx`, in the root layout). It
+  loads after the page shows, runs only when `NEXT_PUBLIC_POSTHOG_KEY` is set, records page views
+  on route changes, and knows signed-in people by account id only (no name or email).
