@@ -818,6 +818,14 @@ onboarding's Import profile and Follow creators describe features removed in the
   owner, to view, or to edit when the link takes edit requests. After an approval the button opens
   the project when the tab comes back into view. Owners see "Asks to view / to edit" and Let them
   in / Let them edit. Headings follow the one standard.
+- (2026-11-11, later) Reference stills on the shared page (Ika: "reference stills too, together with
+  explore references"): a project's images tagged Reference join its Explore titles in one
+  References row, newest first, ten at most (the count shows them all); each keeps its shape and
+  opens full size. Only Reference stills; every other file stays private. The store isn't opened
+  to visitors (that would let anyone list every shared project's stills): the database checks the
+  link (`shared_project_reference_items`, `20261111010000_shared_reference_stills.sql`), then the
+  server opens each still with an hour-long link using the secret key (`SUPABASE_SECRET_KEY`,
+  `src/lib/supabase/admin.ts`). Without the migration or the key, the titles show alone.
 - (2026-11-11) Product analytics: PostHog (`src/components/analytics.tsx`, in the root layout). It
   loads after the page shows, runs only when `NEXT_PUBLIC_POSTHOG_KEY` is set, records page views
   on route changes, and knows signed-in people by account id only (no name or email).

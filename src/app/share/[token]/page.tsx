@@ -14,6 +14,9 @@ import { ScrollRow } from "@/components/nia/scroll-row";
 import { PersonTile } from "@/components/nia/cast-crew-row";
 import { ExploreCard, cardSpan } from "@/components/explore/title-card";
 import { OpenProject } from "@/components/projects/open-project";
+import { ReferenceStill } from "@/components/projects/reference-still";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { ROW_MAX } from "@/lib/rows";
 import { exploreItem, type ExploreItem } from "@/features/explore/items";
 
 // The references row's cells, as on the project page; landscape films get wider ones (cardSpan).
@@ -131,9 +134,8 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
   if (!data) return <LinkOff />;
   const supabase = await createClient();
   // Signed-in visitors find it again under Shared with you (audit #11; does nothing when signed
-  // out). The project's Explore references, for the row under the crew.
-  const [, refs] = await Promise.all([supabase.rpc("remember_shared_link", { token }), supabase.rpc("shared_project_references", { token })]);
-  const references = ((refs.data as string[] | null) ?? []).map(exploreItem).filter((item): item is ExploreItem => item !== null);
+  // out). Then the References row under the crew.
+  const [, references] = await Promise.all([supabase.rpc("remember_shared_link", { token }), sharedReferences(supabase, token)]);
 
   // The same details as the project page, never the budget; type-specific ones only when set.
   const type = data.production_type as ProductionType | null;
@@ -202,16 +204,51 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
             References <span className="text-micro font-normal text-muted-foreground">{references.length}</span>
           </h2>
           <ScrollRow label="References">
-            {references.map((item) => (
-              <li key={item.slug} className={REF_CELL} style={cardSpan(item)}>
-                <ExploreCard item={item} href={item.href()} sizes={REF_SIZES} />
-              </li>
-            ))}
+            {/* The ten newest (rows.ts); the count above says how many there are. */}
+            {references.slice(0, ROW_MAX).map((ref) =>
+              ref.kind === "explore" ? (
+                <li key={ref.item.slug} className={REF_CELL} style={cardSpan(ref.item)}>
+                  <ExploreCard item={ref.item} href={ref.item.href()} sizes={REF_SIZES} />
+                </li>
+              ) : (
+                <ReferenceStill key={ref.path} url={ref.url} name={ref.name} className={REF_CELL} />
+              ),
+            )}
           </ScrollRow>
         </section>
       )}
     </article>
   );
+}
+
+type SharedReference = { kind: "explore"; item: ExploreItem } | { kind: "still"; path: string; name: string; url: string };
+type ReferenceRow = { kind: "explore" | "still"; slug: string | null; path: string | null; name: string | null };
+
+// The project's Explore titles and its stills tagged Reference, newest first. The stills sit in
+// the private file store: the database has checked the link, then the server opens each one with
+// a link that lasts an hour (needs SUPABASE_SECRET_KEY; without it, the titles show alone).
+// Before 20261111010000_shared_reference_stills.sql is run, the titles come on their own.
+async function sharedReferences(supabase: Awaited<ReturnType<typeof createClient>>, token: string): Promise<SharedReference[]> {
+  let rows: ReferenceRow[];
+  const items = await supabase.rpc("shared_project_reference_items", { token });
+  if (items.error) {
+    const titles = await supabase.rpc("shared_project_references", { token });
+    rows = ((titles.data as string[] | null) ?? []).map((slug) => ({ kind: "explore", slug, path: null, name: null }));
+  } else rows = (items.data as ReferenceRow[] | null) ?? [];
+
+  const paths = rows.flatMap((r) => (r.kind === "still" && r.path ? [r.path] : []));
+  const admin = paths.length ? createAdminClient() : null;
+  const signed = admin ? ((await admin.storage.from("project-files").createSignedUrls(paths, 60 * 60)).data ?? []) : [];
+  const urls = new Map(signed.flatMap((s) => (s.path && s.signedUrl ? [[s.path, s.signedUrl] as const] : [])));
+
+  return rows.flatMap((r): SharedReference[] => {
+    if (r.kind === "explore") {
+      const item = r.slug ? exploreItem(r.slug) : null;
+      return item ? [{ kind: "explore", item }] : [];
+    }
+    const url = r.path ? urls.get(r.path) : undefined;
+    return url && r.path ? [{ kind: "still", path: r.path, name: r.name ?? "Reference still", url }] : [];
+  });
 }
 
 function LinkOff() {
