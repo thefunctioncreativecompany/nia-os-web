@@ -97,11 +97,11 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0, press = null }:
 
           <section aria-labelledby="behind" className="flex flex-col gap-4">
             <h2 id="behind" className="text-subtitle font-semibold text-foreground">
-              Behind the Production
+              Behind the production
             </h2>
             <div className="flex flex-wrap gap-2.5">
               {linksFor(details).map((l) => (
-                <Button key={l.label} variant="outline" size="md" asChild>
+                <Button key={l.label} variant="outline" asChild>
                   <a href={l.href} target="_blank" rel="noopener noreferrer">
                     {l.label}
                     <ArrowUpRight aria-hidden data-icon="inline-end" />

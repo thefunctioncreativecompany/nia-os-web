@@ -26,6 +26,7 @@ import { TmdbCredit } from "./tmdb-credit";
 import { VideoThumbnail } from "./video-thumbnail";
 import { BackLink } from "@/components/nia/back-link";
 import { servedSized } from "@/lib/served-sized";
+import { sentenceCase } from "@/lib/sentence-case";
 
 // A Made in Africa title, full screen (Ika, 2026-10-21), laid out like a project page (Figma
 // 824:23124) so the two read the same: the trailer where the cover sits, then the title and what to
@@ -187,7 +188,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }:
               Details
             </h2>
             <dl className="flex flex-col gap-3">
-              {row("Type", title.seasons.length ? `${typeName(title)} · ${title.seasons.length} ${title.seasons.length === 1 ? "season" : "seasons"}` : typeName(title))}
+              {row("Type", title.seasons.length ? `${sentenceCase(typeName(title))} · ${title.seasons.length} ${title.seasons.length === 1 ? "season" : "seasons"}` : sentenceCase(typeName(title)))}
               {row("Year", title.year ?? "—")}
               {season && row(season.label ?? `Season ${season.number}`, [season.year, season.episode_count && `${season.episode_count} episodes`].filter(Boolean).join(" · ") || "—")}
               {row(title.countries.length > 1 ? "Countries" : "Country", title.countries.join(", "))}
@@ -200,7 +201,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }:
 
           <section aria-labelledby="behind" className="flex flex-col gap-4">
             <h2 id="behind" className="text-subtitle font-semibold text-foreground">
-              Behind the Production
+              Behind the production
             </h2>
             <dl className="flex flex-col gap-3">
               {row("Recognition", title.recognition ?? "To be confirmed")}
@@ -293,7 +294,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }:
 
 function OutLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Button variant="outline" size="md" asChild>
+    <Button variant="outline" asChild>
       <a href={href} target="_blank" rel="noopener noreferrer">
         {children}
         <ArrowUpRight aria-hidden data-icon="inline-end" />

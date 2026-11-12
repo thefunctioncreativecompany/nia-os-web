@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { recognizeAspect } from "@/lib/aspect-ratios";
 import type { ExploreItem } from "@/features/explore/items";
 import { servedSized } from "@/lib/served-sized";
+import { sentenceCase } from "@/lib/sentence-case";
 
 /** A poster's shape, width ÷ height (Made in Africa titles have posters, not frames). */
 export const POSTER = 268 / 373;
@@ -62,7 +63,7 @@ export function GalleryCard({ item, href, aspect, first, actions, note }: { item
           )}
           {(item.badge || frame) && (
             <span className="absolute top-2.5 left-2.5 flex flex-wrap gap-1.5">
-              {item.badge && <span className="rounded-full bg-card/90 px-2.5 py-1 text-micro font-semibold text-foreground">{item.badge}</span>}
+              {item.badge && <span className="rounded-full bg-card/90 px-2.5 py-1 text-micro font-semibold text-foreground">{sentenceCase(item.badge)}</span>}
               {frame && (
                 <span className="rounded-full bg-foreground/70 px-2.5 py-1 text-micro font-semibold text-background tabular-nums">
                   <span className="sr-only">Frame </span>

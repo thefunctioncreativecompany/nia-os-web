@@ -9,6 +9,7 @@ import { useHoverIntent } from "@/features/templates/use-hover-intent";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { MiniMap } from "@/features/templates/components/mini-map";
 import { NewMarker } from "@/components/nia/new-marker";
+import { Button } from "@/components/ui/button";
 
 // The large Showcase card (TEMPLATES_BUILD.md §2, prototype TemplateCard): title and stage
 // above a flat 16:11 card with the template's icon, its one-line description, and a mini
@@ -79,16 +80,17 @@ export function TemplateCard({
           )}
         </button>
         {open && (
-          <button
+          <Button
             type="button"
+            size="sm"
             onClick={() => {
               hover.cancel();
               onUse(template);
             }}
-            className="absolute top-4 right-4 inline-flex -translate-y-1 items-center gap-1.5 rounded-full bg-foreground px-3.5 py-2 text-small font-semibold text-primary-foreground opacity-0 outline-none transition-all duration-base ease-out group-hover:translate-y-0 group-hover:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100 focus-visible:ring-3 focus-visible:ring-ring/50"
+            className="absolute top-4 right-4 -translate-y-1 opacity-0 transition-all duration-base ease-out group-hover:translate-y-0 group-hover:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100"
           >
-            Use template <ArrowRight aria-hidden className="size-3.5" />
-          </button>
+            Use template <ArrowRight aria-hidden />
+          </Button>
         )}
       </div>
     </div>

@@ -16,6 +16,7 @@ import { Comments } from "@/components/nia/comments";
 import { everyTemplate } from "@/features/templates/catalog";
 import type { ProjectSignals } from "@/features/explore/match";
 import type { Project } from "@/lib/projects";
+import { sentenceCase } from "@/lib/sentence-case";
 
 // Each template's icon, for the documents list.
 const ICONS = Object.fromEntries(everyTemplate.map((t) => [t.code, t.icon]));
@@ -89,8 +90,8 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
                 Project overview
               </h2>
               <dl className="flex flex-col gap-3 text-small leading-normal">
-                <OverviewRow label="Stage" value={project.stage} />
-                <OverviewRow label="Production type" value={project.productionType ?? "—"} />
+                <OverviewRow label="Stage" value={sentenceCase(project.stage)} />
+                <OverviewRow label="Production type" value={project.productionType ? sentenceCase(project.productionType) : "—"} />
                 <OverviewRow label="Team members" value={`${people} ${people === 1 ? "member" : "members"}`} />
                 <OverviewRow
                   label="Created"

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { projectMeta, type Project } from "@/lib/projects";
 import { Card } from "@/components/arc/card/card";
 import { Button } from "@/components/ui/button";
+import { sentenceCase } from "@/lib/sentence-case";
 
 export type LinkShared = { id: string; title: string; description: string; coverUrl: string | null; productionType: string | null; stage: string; token: string; ownerName: string };
 
@@ -25,7 +26,7 @@ export function SharedProjects({ projects, linked = [], now }: { projects: Proje
                 {p.coverUrl && <Image src={p.coverUrl} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />}
               </div>
             }
-            meta={p.productionType ?? p.stage}
+            meta={sentenceCase(p.productionType ?? p.stage)}
             status={projectMeta(p, now)}
             action={
               <Button asChild variant="outline" size="compact">
@@ -44,7 +45,7 @@ export function SharedProjects({ projects, linked = [], now }: { projects: Proje
                 {p.coverUrl && <Image src={p.coverUrl} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />}
               </div>
             }
-            meta={p.productionType ?? p.stage}
+            meta={sentenceCase(p.productionType ?? p.stage)}
             status={p.ownerName ? `Via link · shared by ${p.ownerName}` : "Via link"}
             action={
               <Button asChild variant="outline" size="compact">

@@ -381,9 +381,9 @@ function LinkedAccounts({ identities }: { identities: UserIdentity[] }) {
                 <Button
                   type="button"
                   variant="outline"
+                  size="md"
                   onClick={() => connect(provider.id)}
                   disabled={busy !== null}
-                  className="h-auto rounded-full border-border px-4 py-2 text-small leading-[1.4] font-bold"
                 >
                   {busy === provider.id ? "Redirecting..." : "Connect"}
                 </Button>

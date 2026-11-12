@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { ExploreItem } from "@/features/explore/items";
 import { metaLine, titleCover, type Entry } from "@/features/explore/made-in-africa";
 import { servedSized } from "@/lib/served-sized";
+import { sentenceCase } from "@/lib/sentence-case";
 
 // An Explore card (Ika, 2026-10-21: equal cards, like the Top 10 press kits, without numbers): the
 // cover, then the title and who made it. Without a cover it gets a typographic poster on its
@@ -147,7 +148,7 @@ function PosterCard({
             {title}
           </span>
         )}
-        {badge && <span className="absolute top-2.5 left-2.5 rounded-full bg-card/90 px-2.5 py-1 text-micro font-semibold text-foreground">{badge}</span>}
+        {badge && <span className="absolute top-2.5 left-2.5 rounded-full bg-card/90 px-2.5 py-1 text-micro font-semibold text-foreground">{sentenceCase(badge)}</span>}
       </span>
       <span className="truncate text-lead font-semibold">{title}</span>
       <span className="-mt-1.5 truncate text-small text-muted-foreground">{credit}</span>

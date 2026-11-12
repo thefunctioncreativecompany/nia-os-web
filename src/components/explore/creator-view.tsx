@@ -41,6 +41,7 @@ import { CreatorCredit } from "./creators-strip";
 import { AddToProject, SaveToCollection } from "./save-controls";
 import { ExploreCard, cardSpan } from "./title-card";
 import { BackLink } from "@/components/nia/back-link";
+import { sentenceCase } from "@/lib/sentence-case";
 
 const CAMERA_TAGS = new Set(["shot-on-iphone", "shot-on-film", "red-komodo", "sony-fx", "ai-shots"]);
 
@@ -151,7 +152,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
           </p>
 
           <div className="flex flex-col gap-3">
-            <p className="text-small font-semibold text-muted-foreground">{[film.type, creatorYear(film), film.country].filter(Boolean).join(" · ")}</p>
+            <p className="text-small font-semibold text-muted-foreground">{[sentenceCase(film.type), creatorYear(film), film.country].filter(Boolean).join(" · ")}</p>
             <h1 className="text-h2 font-semibold tracking-tight text-foreground">{film.title}</h1>
             <div className="flex flex-wrap gap-2">
               <SaveToCollection slug={film.slug} title={film.title} />
@@ -167,7 +168,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
               Details
             </h2>
             <dl className="flex flex-col gap-3">
-              {row("Type", film.type)}
+              {row("Type", sentenceCase(film.type))}
               {row("Frame", aspectLabel(film.aspect))}
               {film.brand && row("Brand", film.brand)}
               {row("Posted by", <a href={accountUrl(film)} target="_blank" rel="noopener noreferrer" className="underline-offset-2 hover:text-foreground hover:underline">{accountName(film)}<span className="sr-only"> on {platformName(film)} (opens in a new tab)</span></a>)}
@@ -178,7 +179,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
               {tagsFor(film.slug).includes("spec-ad") && row("Made as", "A spec ad: made on spec, not commissioned by the brand")}
             </dl>
             <div className="flex flex-wrap gap-2.5 pt-2">
-              <Button variant="outline" size="md" asChild>
+              <Button variant="outline" asChild>
                 <a href={watchUrl(film)} target="_blank" rel="noopener noreferrer">
                   View on {platformName(film)}
                   <ArrowUpRight aria-hidden data-icon="inline-end" />

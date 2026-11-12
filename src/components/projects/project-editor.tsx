@@ -25,6 +25,7 @@ import { uploadCover } from "@/components/projects/project-form";
 import { useCoverCropper } from "@/components/projects/use-cover-cropper";
 import { BackLink } from "@/components/nia/back-link";
 import { PROJECT_PANEL_ID, ProjectTabs, isProjectTab, type ProjectTabId } from "@/components/projects/project-tabs";
+import { sentenceCase } from "@/lib/sentence-case";
 
 // Storage path of a cover URL, if it's in this project's folder (so it can be removed).
 function coverPath(url: string | null, projectId: string) {
@@ -241,9 +242,9 @@ export function ProjectEditor({
   // The project's title is the page's main heading (audit #5; a real block since 2026-11-12,
   // `display: contents` could drop it for screen readers). On the cover it's white.
   const onCover = Boolean(project.coverUrl);
-  const meta = [project.productionType, project.stage, shootDatesText(project.shootStart, project.shootEnd)].filter(Boolean).join(" · ");
+  const meta = [project.productionType && sentenceCase(project.productionType), sentenceCase(project.stage), shootDatesText(project.shootStart, project.shootEnd)].filter(Boolean).join(" · ");
   const coverActions = canEdit && (
-    <div className="absolute top-4 right-4 flex gap-2 md:right-page">
+    <div className="absolute top-4 right-4 flex gap-2 md:right-page lg:right-4">
       {project.coverUrl && !isUploading && (
         <button type="button" onClick={() => project.coverUrl && cropper.start(project.coverUrl)} className={coverButton}>
           <Crop aria-hidden className="size-4" />
@@ -274,34 +275,42 @@ export function ProjectEditor({
       {cropper.dialog}
 
       {/* The cover across the page, the title and the main actions on it (Ika, 2026-11-12,
-          variation 2 of the project page board), the tabs right under it. */}
+          variation 2 of the project page board), the tabs right under it. On computers the cover
+          is a thumbnail the size of an Explore title's trailer, with the title and actions beside
+          it (Ika, 2026-11-12: a full-width cover blows up low-resolution pictures). Phones and
+          tablets keep the full-width cover until they get their own design. */}
       <div className="flex flex-col">
       <section
         aria-label="Cover"
         className={cn(
           "group relative -mx-4 flex flex-col justify-end overflow-hidden md:-mx-page",
-          onCover ? "min-h-104 bg-muted sm:aspect-[16/9] sm:min-h-0 lg:aspect-auto lg:h-130" : "min-h-80 bg-nia-panel pt-20",
+          "lg:mx-0 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-end lg:gap-x-10 lg:gap-y-10 lg:overflow-visible lg:bg-transparent lg:pt-10 lg:pb-8 xl:gap-x-16",
+          onCover ? "min-h-104 bg-muted sm:aspect-[16/9] sm:min-h-0 lg:aspect-auto" : "min-h-80 bg-nia-panel pt-20 lg:min-h-0",
         )}
       >
-        {project.coverUrl && (
-          <>
-            <Image src={project.coverUrl} alt="" fill preload sizes="100vw" className="object-cover" />
-            <div aria-hidden className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/30 via-transparent via-30% to-black/75 sm:to-black/70" />
-          </>
-        )}
+        {/* The picture: behind everything on phones and tablets, a rounded thumbnail on computers. */}
+        <div className={cn("absolute inset-0 lg:relative lg:inset-auto lg:row-start-2 lg:aspect-[19/10] lg:overflow-hidden lg:rounded-3xl", onCover ? "lg:bg-muted" : "lg:bg-nia-panel")}>
+          {project.coverUrl && (
+            <>
+              <Image src={project.coverUrl} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              <div aria-hidden className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/30 via-transparent via-30% to-black/75 sm:to-black/70 lg:hidden" />
+            </>
+          )}
+          {coverActions}
+        </div>
         <BackLink
           href="/projects"
           className={cn(
             "absolute top-5 left-4 rounded-sm text-sm leading-[1.4] font-bold outline-none focus-visible:ring-3 md:left-page",
+            "lg:static lg:col-span-2 lg:row-start-1 lg:w-fit lg:text-muted-foreground lg:hover:text-foreground lg:focus-visible:ring-ring/50",
             onCover ? "text-white/90 hover:text-white focus-visible:ring-white/60" : "text-muted-foreground hover:text-foreground focus-visible:ring-ring/50",
           )}
         >
           ← Back to Projects
         </BackLink>
-        {coverActions}
-        <div className="relative flex flex-wrap items-end justify-between gap-4 px-4 pb-6 md:px-page md:pb-8">
+        <div className="relative flex flex-wrap items-end justify-between gap-4 px-4 pb-6 md:px-page md:pb-8 lg:row-start-2 lg:flex-col lg:items-start lg:justify-end lg:gap-5 lg:p-0">
           <div className="flex max-w-3xl min-w-0 flex-col gap-2">
-            {meta && <p className={cn("text-small font-medium", onCover ? "text-white/85" : "text-muted-foreground")}>{meta}</p>}
+            {meta && <p className={cn("text-small font-medium", onCover ? "text-white/85 lg:text-muted-foreground" : "text-muted-foreground")}>{meta}</p>}
             <EditableText
               heading
               label="Title"
@@ -310,20 +319,20 @@ export function ProjectEditor({
               maxLength={120}
               readOnly={!canEdit}
               onSave={(next) => save("title", "title", next)}
-              className={cn("text-h2 font-semibold tracking-tight", onCover ? "text-white" : "text-foreground", !project.title && (onCover ? "text-white/75" : "text-muted-foreground"))}
-              buttonClassName={onCover ? "hover:bg-white/15 focus-visible:ring-white/60" : undefined}
+              className={cn("text-h2 font-semibold tracking-tight", onCover ? "text-white lg:text-foreground" : "text-foreground", !project.title && (onCover ? "text-white/75 lg:text-muted-foreground" : "text-muted-foreground"))}
+              buttonClassName={onCover ? "hover:bg-white/15 focus-visible:ring-white/60 lg:hover:bg-muted/70 lg:focus-visible:ring-ring/50" : undefined}
             />
           </div>
           <div className="flex flex-wrap gap-2">
             {canEdit && (
               <EditDetailsDialog project={project}>
-                <Button type="button" variant="outline" className={cn(onCover && "border-white/60 bg-white/15 text-white hover:bg-white/25 hover:text-white dark:border-white/60 dark:bg-white/15")}>
+                <Button type="button" variant="outline" className={cn(onCover && "border-white/60 bg-white/15 text-white hover:bg-white/25 hover:text-white dark:border-white/60 dark:bg-white/15 lg:border-border lg:bg-background lg:text-foreground lg:hover:border-foreground lg:hover:bg-background lg:hover:text-foreground dark:lg:border-input dark:lg:bg-input/30")}>
                   Edit details
                 </Button>
               </EditDetailsDialog>
             )}
             <ShareProjectDialog projectId={project.id} role={role} shareToken={project.shareToken}>
-              <Button type="button" className="bg-nia-blue text-nia-blue-foreground hover:bg-nia-blue/90">
+              <Button type="button">
                 {role === "owner" ? "Share project" : "People with access"}
               </Button>
             </ShareProjectDialog>
@@ -336,7 +345,7 @@ export function ProjectEditor({
 
       <div id={PROJECT_PANEL_ID} role="tabpanel" aria-labelledby={`project-tab-${tab}`} className="flex min-w-0 flex-col gap-10">
         {tab === "overview" && (
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] xl:gap-14">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
             {/* Left: what it's about, final assets, notes and a look at the references. */}
             <div className="flex min-w-0 flex-col gap-8">
               <section aria-label="About" className="max-w-3xl">
@@ -434,11 +443,11 @@ export function ProjectEditor({
                       selected={genres}
                       // Several genres: tapping one adds or removes it.
                       onChange={(g) => void save("genres", "genres", (genres.includes(g) ? genres.filter((x) => x !== g) : [...genres, g]).join(", ")).catch(() => {})}
-                      options={[...new Set([...genres, ...GENRES])].map((g) => ({ value: g, label: g }))}
+                      options={[...new Set([...genres, ...GENRES])].map((g) => ({ value: g, label: sentenceCase(g) }))}
                       className="gap-1.5 [&>button]:px-3 [&>button]:py-1 [&>button]:text-small"
                     />
                   ) : (
-                    readValues(genres)
+                    readValues(genres.map(sentenceCase))
                   ),
                 )}
                 {extras.includes("logline") && text("Logline", "logline", "logline", "The story in a sentence", 300, true)}

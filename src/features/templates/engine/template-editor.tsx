@@ -114,7 +114,6 @@ export function TemplateEditor({
           backHref={doc.project ? `/projects/${doc.project.id}` : '/templates'}
           backLabel={doc.project ? `Back to ${doc.project.title}` : 'Back to Templates'}
           title={schema.name}
-          description={schema.description}
           status={doc.savedAt ? <SavedIndicator savedAt={doc.savedAt} className="print:hidden" /> : undefined}
         />
 

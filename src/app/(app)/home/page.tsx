@@ -59,9 +59,13 @@ async function HomeBody() {
   return (
     <>
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
-        <h2 id="recent-projects" className="text-subtitle font-semibold text-foreground">
-          Recent projects
-        </h2>
+        {/* View all beside the heading, as on Activity, Explore and the project page (Ika, 2026-11-12). */}
+        <div className="flex items-center gap-2">
+          <h2 id="recent-projects" className="text-subtitle font-semibold text-foreground">
+            Recent projects
+          </h2>
+          <ViewAll href="/projects" className="ml-auto" />
+        </div>
         <Suspense fallback={<Skeleton className="h-48 rounded-xl" />}>
           <RecentProjects />
         </Suspense>
@@ -115,12 +119,7 @@ async function RecentProjects() {
       />
     );
   }
-  return (
-    <div className="flex flex-col gap-3">
-      <ProjectGrid projects={projects} now={now} compact />
-      <ViewAll href="/projects" className="w-fit" />
-    </div>
-  );
+  return <ProjectGrid projects={projects} now={now} compact />;
 }
 
 async function RecentActivity() {

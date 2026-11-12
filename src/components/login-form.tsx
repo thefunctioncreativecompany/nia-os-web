@@ -79,7 +79,7 @@ export function LoginForm() {
   return (
     <AuthForm
       title={adding ? 'Add an account' : 'Log in'}
-      description={adding ? 'You stay signed in to your other accounts' : 'Welcome back to your workspace'}
+      description={adding ? 'You stay signed in to your other accounts' : undefined}
       submitLabel="Log in"
       pendingLabel="Logging in..."
       isPending={isLoading}

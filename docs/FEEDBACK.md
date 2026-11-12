@@ -36,8 +36,8 @@ sideways scroll on phones, Geist only, no all-caps, dark mode consistent.
 | UX5 | Explore titles show placeholders ("Recognition: To be confirmed", "Season 3 —") | ⬜ |
 | UX6 | Settings and Plans light up the Home tab (navbar `match`) | ⬜ |
 | UX7 | Titles off the heading standard (Filming Notice, person pages, Privacy, check-email, onboarding; Explore and project titles smaller on phones); the project title heading read as "Edit title" | ✅ 2026-11-12 |
-| UX8 | Title Case: Pre-Production chips, Camera & Visual, Behind the Production, Notice Metadata, TV Series, Short Film, Production Company | ⬜ |
-| UX9 | Explaining lines under titles (Cast & crew, Filming Notice, Settings, Plans) | ⬜ |
+| UX8 | Title Case: Pre-Production chips, Camera & Visual, Behind the Production, Notice Metadata, TV Series, Short Film, Production Company | ✅ 2026-11-12, shown through `sentenceCase`; template field labels left for a templates pass |
+| UX9 | Explaining lines under titles (Cast & crew, Filming Notice, Settings, Plans) | ✅ 2026-11-12 (Plans keeps one line) |
 | UX10 | Page edges 30 / 60 / 124px across tabs | ✅ 2026-11-12, one edge `md:px-page` (30px) |
 | UX11 | Details/Manage switch square-cornered (`SegmentedControl`, also Plans and project files) | ✅ 2026-11-12, pill |
 | UX12 | No-cover projects show a grey block that looks like loading (future build: no-cover look) | ⬜ |

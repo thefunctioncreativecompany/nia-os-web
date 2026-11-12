@@ -4,6 +4,7 @@
 // src/lib/explore.ts returns, so the screens don't change when they switch to the database.
 
 import { GENRES, PRODUCTION_TYPES, type ProductionType } from "@/lib/projects";
+import { sentenceCase } from "@/lib/sentence-case";
 import type { Season, Title, Video } from "@/lib/explore";
 import sources from "./cover-sources.json";
 import stills from "./trailer-stills.json";
@@ -201,9 +202,9 @@ export const titleHref = (slug: string, from?: "all" | "library") => `/explore/t
 // A title's type in the projects' production types, so Explore and projects use the same words.
 const TYPES: Record<Title["type"], ProductionType> = { film: "Film", series: "TV Series", short: "Short Film", documentary: "Documentary" };
 
-/** "TV Series · 2020 · South Africa". */
+/** "TV series · 2020 · South Africa" (shown, so in sentence case). */
 export function metaLine(t: Title) {
-  return [TYPES[t.type], t.year, t.countries.join(" / ")].filter(Boolean).join(" · ");
+  return [sentenceCase(TYPES[t.type]), t.year, t.countries.join(" / ")].filter(Boolean).join(" · ");
 }
 
 export const typeName = (t: Title): ProductionType => TYPES[t.type];

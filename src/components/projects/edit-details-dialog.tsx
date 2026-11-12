@@ -30,6 +30,7 @@ import {
   fieldLabelClassName,
   selectTriggerClassName,
 } from "@/components/projects/project-form";
+import { sentenceCase } from "@/lib/sentence-case";
 
 // "Edit Project Details" from Project Actions: the fields that aren't edited in place.
 export function EditDetailsDialog({ project, children }: { project: Project; children: React.ReactNode }) {
@@ -117,7 +118,7 @@ export function EditDetailsDialog({ project, children }: { project: Project; chi
                 <SelectContent position="popper">
                   {PRODUCTION_TYPES.map((option) => (
                     <SelectItem key={option} value={option}>
-                      {option}
+                      {sentenceCase(option)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -134,7 +135,7 @@ export function EditDetailsDialog({ project, children }: { project: Project; chi
                 <SelectContent position="popper">
                   {STAGES.map((option) => (
                     <SelectItem key={option} value={option}>
-                      {option}
+                      {sentenceCase(option)}
                     </SelectItem>
                   ))}
                 </SelectContent>

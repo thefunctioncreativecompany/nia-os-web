@@ -67,10 +67,11 @@ function EditableField({
     }
   };
 
+  // Read-only: no side padding (it only makes room for the hover), so values line up.
   if (readOnly) {
     const Text = named ? "span" : "p";
     return (
-      <Text className={cn(named && "block", className, !value && "text-muted-foreground")}>{value || emptyText || placeholder}</Text>
+      <Text className={cn(named && "block", className, "px-0", !value && "text-muted-foreground")}>{value || emptyText || placeholder}</Text>
     );
   }
 

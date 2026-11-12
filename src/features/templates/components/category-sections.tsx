@@ -24,6 +24,7 @@ import { ScrubFilmstrip } from "@/components/nia/scrub-filmstrip";
 import { WORKFLOWS, type WorkflowStep } from "@/lib/template-workflows";
 import { COMING_SOON, grainAt, grainFor, works, type GalleryTemplate } from "@/features/templates/gallery";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
+import { sentenceCase } from "@/lib/sentence-case";
 
 type Preview = (template: GalleryTemplate, list: GalleryTemplate[]) => void;
 
@@ -104,7 +105,7 @@ function SectionTitle({ group, count, children }: { group: string; count: number
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-3">
       <h2 id={sectionId(group)} className="text-subtitle font-semibold text-foreground">
-        {group} <span className="text-micro font-normal text-muted-foreground">{count}</span>
+        {sentenceCase(group)} <span className="text-micro font-normal text-muted-foreground">{count}</span>
       </h2>
       {children}
     </div>
@@ -227,7 +228,7 @@ function StripSection({ group, items, onPreview }: { group: string; items: Galle
         className="mt-2"
         items={items}
         start={0.3}
-        label={group}
+        label={sentenceCase(group)}
         getKey={(t) => t.code}
         footer={(t) => (works(t) ? t.name : `${t.name} · ${COMING_SOON}`)}
         renderCard={(t) => (

@@ -16,6 +16,7 @@ import { shuffled } from "@/lib/shuffle";
 import { TitleCard } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
 import { BackLink } from "@/components/nia/back-link";
+import { sentenceCase } from "@/lib/sentence-case";
 
 const ALL = "all";
 const SORTS = { relevance: "Relevance", forYou: "For you", recent: "Recently viewed", title: "Title A–Z", newest: "Newest first", oldest: "Oldest first", country: "Country A–Z" } as const;
@@ -155,10 +156,10 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
               {tagLabel(tag)} <X aria-hidden className="size-3.5" />
             </FilterChip>
           )}
-          <ChipMenu label="Genre" value={genre} defaultValue={ALL} options={[all("All"), ...view.genres.map((g) => ({ value: g, label: g }))]} onChange={setGenre} />
+          <ChipMenu label="Genre" value={genre} defaultValue={ALL} options={[all("All"), ...view.genres.map((g) => ({ value: g, label: sentenceCase(g) }))]} onChange={setGenre} />
           <ChipMenu label="Country" value={country} defaultValue={ALL} columns={2} options={[all("All"), ...view.countries.map((c) => ({ value: c, label: c }))]} onChange={setCountry} />
           <RangeChip label="Year" min={view.years.min} max={view.years.max} value={years} onChange={setYears} />
-          <ChipMenu label="Type" value={type} defaultValue={ALL} options={[all("All"), ...view.types.map((t) => ({ value: t, label: t }))]} onChange={setType} />
+          <ChipMenu label="Type" value={type} defaultValue={ALL} options={[all("All"), ...view.types.map((t) => ({ value: t, label: sentenceCase(t) }))]} onChange={setType} />
           {(anyFilter || collection !== ALL) && (
             <Button variant="ghost" size="compact" onClick={clear}>
               Clear all

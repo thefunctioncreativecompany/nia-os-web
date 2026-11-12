@@ -18,6 +18,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
 import { fieldClassName, fieldLabelClassName, selectTriggerClassName } from "@/components/projects/project-form";
+import { sentenceCase } from "@/lib/sentence-case";
 
 const NO_TYPE = "none";
 
@@ -87,9 +88,9 @@ export function AddInstagramReference({ projectId, held, onAdded }: { projectId:
           placeholder="Paste an Instagram link..."
           aria-invalid={problem ? true : undefined}
           aria-describedby={problem ? `instagram-link-problem-${projectId}` : undefined}
-          className="h-auto flex-1 rounded-lg border-border px-4 py-3 text-sm md:text-sm"
+          className="h-11 flex-1 rounded-lg border-border px-4 text-sm md:text-sm"
         />
-        <Button type="submit" variant="outline" disabled={reading || !url.trim()} className="h-auto px-4 py-3 text-small font-bold">
+        <Button type="submit" variant="outline" disabled={reading || !url.trim()}>
           {reading ? (
             <>
               <Spinner aria-hidden /> Reading…
@@ -199,7 +200,7 @@ function CheckDraft({
                     <SelectItem value={NO_TYPE}>Not set</SelectItem>
                     {PRODUCTION_TYPES.map((option) => (
                       <SelectItem key={option} value={option}>
-                        {option}
+                        {sentenceCase(option)}
                       </SelectItem>
                     ))}
                   </SelectContent>

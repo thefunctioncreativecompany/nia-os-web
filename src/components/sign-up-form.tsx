@@ -56,7 +56,6 @@ export function SignUpForm() {
   return (
     <AuthForm
       title="Create account"
-      description="Join the production workspace"
       submitLabel="Create account"
       pendingLabel="Creating account..."
       isPending={isLoading}

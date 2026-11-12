@@ -1,5 +1,5 @@
 
-import { SettingsDescription, SettingsTabs } from "@/components/settings/settings-tabs";
+import { SettingsTabs } from "@/components/settings/settings-tabs";
 import { BackLink } from "@/components/nia/back-link";
 
 // Shared header and tab bar for every settings tab.
@@ -14,7 +14,6 @@ export default function SettingsLayout({ children }: LayoutProps<"/settings">) {
           ← Back to Home
         </BackLink>
         <h1 className="text-h2 font-semibold tracking-tight text-foreground">Settings</h1>
-        <SettingsDescription />
       </div>
       <SettingsTabs />
       {children}

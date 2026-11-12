@@ -45,7 +45,7 @@ export function PlansPage() {
         <div className="max-w-140">
           <h1 className="text-h2 font-semibold tracking-tight text-foreground">Plans</h1>
           <p className="mt-2 text-lead text-muted-foreground">
-            Start free and upgrade when the production grows. Paid plans open soon: pick one to save your place and we&rsquo;ll email you when payments start.
+            Paid plans open soon: pick one to save your place.
           </p>
         </div>
         <div className="flex flex-col items-start gap-1.5">

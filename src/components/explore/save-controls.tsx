@@ -33,7 +33,7 @@ import {
 // Save a title into your collections (Ika, 2026-10-21: saved Explore titles live under Projects ›
 // Collections). Opening it lists your collections with a tick where the title is; a first save
 // goes into "Saved". You can start a new collection from here.
-export function SaveToCollection({ slug, title, size = "md" }: { slug: string; title: string; size?: "md" | "compact" }) {
+export function SaveToCollection({ slug, title, size = "pill" }: { slug: string; title: string; size?: "pill" | "compact" }) {
   const [collections, setCollections] = useState<Collection[] | null>(null);
   const [problem, setProblem] = useState<string | null>(null);
   const [name, setName] = useState("");
@@ -148,7 +148,7 @@ export function SaveToCollection({ slug, title, size = "md" }: { slug: string; t
 // (Ika, 2026-11-10: lead people from browsing to making, without interrupting them) starts a
 // project with this title as its first reference, of the same kind of production (`kind`) when
 // that's known; you stay on the page, and the toast offers to open it.
-export function AddToProject({ slug, title, size = "md", kind }: { slug: string; title: string; size?: "md" | "compact"; kind?: ProductionType }) {
+export function AddToProject({ slug, title, size = "pill", kind }: { slug: string; title: string; size?: "pill" | "compact"; kind?: ProductionType }) {
   const router = useRouter();
   const [projects, setProjects] = useState<EditableProject[] | null>(null);
   const [holding, setHolding] = useState<Set<string>>(new Set());

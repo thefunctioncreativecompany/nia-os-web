@@ -876,3 +876,21 @@ onboarding's Import profile and Follow creators describe features removed in the
   The code is in git tag `parked-2026-11-12-settings`; the database columns (`user_settings`,
   `profiles.assistant_*`, `ai_suggestions`) stay, so each returns when it works: Time zone with the
   schedule, notifications with Inbox, the assistant with the Copilot.
+- (2026-11-12) Project cover on computers (Ika: the cover hero blows up low-resolution covers; "keep a
+  smaller thumbnail, similar to explore projects"): from 1024px the cover is a rounded 19:10 thumbnail
+  the size of an Explore title's trailer, with type · stage · dates, the title, Edit details and Share
+  project beside it; the Overview below uses Explore's column split. Phones and tablets keep the
+  full-width cover until they get their own design (Ika: no phone or tablet changes while A/B testing).
+- (2026-11-12) Buttons, one set (Ika: "fix ui button inconsistencies"): page actions 44px (the default),
+  40px inside toolbars (Add person), 32px inside cards and on hover (Use template, now the standard
+  button). Explore's Save, Add to project and outside links went from 40 to 44px to match the project
+  page; Settings' Save and Profile's Connect lost their own sizes; Home's Recent projects View all sits
+  beside the heading like every other. Read-only values drop the hover padding so Details lines up.
+- (2026-11-12) Minimalism wins (Ika: "crucial"), first pass (FEEDBACK UX8, UX9): no explaining line
+  under Cast & crew, Activity, Collections, Settings (per-tab subtitles gone), a template's editor,
+  the empty Projects page, Log in or Create account; Plans says only "Paid plans open soon: pick one to
+  save your place." Kept: lines people need (errors, check your email, reset password rules, Privacy's
+  date, 404, the timeline's phone note, onboarding help) and Explore's curated category text. Names
+  stored in Title Case show in sentence case through `sentenceCase` (stages, production types, genres,
+  template groups, Explore types and badges; "Behind the production"). Template documents' own field
+  labels ("Production Company") are document content, left for a templates pass.

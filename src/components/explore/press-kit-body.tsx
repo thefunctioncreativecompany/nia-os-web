@@ -68,7 +68,7 @@ export function PressKitBody({ filmId, inDialog = false }: { filmId: string; inD
 
           <div className="mt-8 flex flex-wrap gap-2.5">
             {[...linksFor(details), ...pressLinks(film.title, details.imdb, press)].map((l) => (
-              <Button key={l.label} variant="outline" size="md" asChild>
+              <Button key={l.label} variant="outline" asChild>
                 <a href={l.href} target="_blank" rel="noopener noreferrer">
                   {l.label}
                   <ArrowUpRight aria-hidden data-icon="inline-end" />
@@ -285,7 +285,7 @@ export function PressKitSection({
       {links.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-2.5">
           {links.map((l) => (
-            <Button key={l.label} variant="outline" size="md" asChild>
+            <Button key={l.label} variant="outline" asChild>
               <a href={l.href} target="_blank" rel="noopener noreferrer">
                 {l.label}
                 <ArrowUpRight aria-hidden data-icon="inline-end" />

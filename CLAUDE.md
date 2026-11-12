@@ -30,6 +30,8 @@ Product:
 - Priority (Ika, 2026-10-21): optimise creative operations and production management for users
   and teams. When choosing what to build or how, favour what makes planning, making and
   managing a production faster and clearer; Explore and Marketplace serve that work.
+- Minimalism wins (Ika, 2026-11-12: "crucial"): decluttered screens, clear information, clear
+  processes. Remove before adding; one way to do each thing; detail on demand, not all at once.
 - AI proposes, the producer decides: AI output is a proposal card (Apply / Modify / Dismiss) with a
   gold "AI draft" marker; never change user data without Apply.
 - Deep modules (Projects, Documents, People & Places, Schedule, Copilot); one primary action per screen.
@@ -44,7 +46,8 @@ Design:
   Nia Blue as the single accent, active states only (`#005FB8` light, `#3794FF` dark; token
   `nia-blue`, e.g. `bg-nia-blue`, `border-nia-blue/50`). No Obsidian `#0A0908` or Aged Gold
   anywhere: interface, PDFs and emails (Ika, 2026-10-31). Geist for all text,
-  sentence case. No serif and no all-caps monospace labels (Ika, 2026-10-19); the screenplay preview's
+  sentence case. Names stored in Title Case (stages, production types, genres, template groups)
+  are shown through `sentenceCase` (`src/lib/sentence-case.ts`). No serif and no all-caps monospace labels (Ika, 2026-10-19); the screenplay preview's
   Courier capitals are content formatting, kept until Ika decides.
 - Build from `src/components/ui` (shadcn) and `src/components/nia`; new looks are variants. Keep shadcn
   focus rings and keyboard behaviour.

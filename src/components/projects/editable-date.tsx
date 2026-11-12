@@ -30,7 +30,8 @@ export function EditableDate({
   const selected = parseDay(value);
   const shown = value ? formatDay(value) : emptyText;
 
-  if (readOnly) return <span className={className}>{shown}</span>;
+  // Read-only: no side padding (it only makes room for the hover), so values line up.
+  if (readOnly) return <span className={cn(className, "px-0")}>{shown}</span>;
 
   const pick = async (next: string) => {
     setOpen(false);

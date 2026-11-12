@@ -9,6 +9,7 @@ import { EmptyState } from "@/components/nia/empty-state";
 import { ChipMenu, FilterChip, ResultCount, SearchField, ChipRow } from "@/components/nia/filter-bar";
 import { ProjectGrid } from "@/components/projects/project-grid";
 import { SharedProjects, type LinkShared } from "@/components/projects/shared-projects";
+import { sentenceCase } from "@/lib/sentence-case";
 
 const ALL = "all";
 const SORTS = { edited: "Last edited", newest: "Newest", title: "Title A–Z", shoot: "Shoot date" } as const;
@@ -93,13 +94,13 @@ export function ProjectsBrowser({
           </FilterChip>
           {STAGES.map((s) => (
             <FilterChip key={s} on={stage === s} count={inStage(s)} onClick={() => setStage(s)}>
-              {s}
+              {sentenceCase(s)}
             </FilterChip>
           ))}
         </ChipRow>
         <ChipRow>
-          {types.length > 0 && <ChipMenu label="Type" value={type} defaultValue={ALL} options={[all("All"), ...types.map((t) => ({ value: t, label: t }))]} onChange={setType} />}
-          {genres.length > 0 && <ChipMenu label="Genre" value={genre} defaultValue={ALL} options={[all("All"), ...genres.map((g) => ({ value: g, label: g }))]} onChange={setGenre} />}
+          {types.length > 0 && <ChipMenu label="Type" value={type} defaultValue={ALL} options={[all("All"), ...types.map((t) => ({ value: t, label: sentenceCase(t) }))]} onChange={setType} />}
+          {genres.length > 0 && <ChipMenu label="Genre" value={genre} defaultValue={ALL} options={[all("All"), ...genres.map((g) => ({ value: g, label: sentenceCase(g) }))]} onChange={setGenre} />}
           {narrowed && (
             <Button variant="ghost" size="compact" onClick={clear}>
               Clear all

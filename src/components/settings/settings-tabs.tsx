@@ -11,46 +11,33 @@ const tabs = [
     label: "General",
     segment: "general",
     built: true,
-    description: "Manage your workspace and preferences",
   },
   {
     label: "Profile",
     segment: "profile",
     built: true,
-    description: "Manage your workspace and preferences",
   },
   {
     label: "Notifications",
     segment: "notifications",
     built: false,
-    description: "Choose what Nia tells you about, and where",
   },
   {
     label: "Connected apps",
     segment: "connected-apps",
     built: false,
-    description: "Manage your workspace and preferences",
   },
   {
     label: "Security",
     segment: "security",
     built: false,
-    description: "Manage your security credentials, sessions, and data privacy",
   },
   {
     label: "Shortcuts",
     segment: "shortcuts",
     built: false,
-    description: "Learn core screen keyboard controls and production hotkeys",
   },
 ] as const;
-
-// The subtitle under "Settings" changes per tab in the Figma.
-export function SettingsDescription() {
-  const segment = useSelectedLayoutSegment();
-  const tab = tabs.find((t) => t.segment === segment) ?? tabs[0];
-  return <p className="text-lead text-muted-foreground">{tab.description}</p>;
-}
 
 export function SettingsTabs() {
   const segment = useSelectedLayoutSegment();

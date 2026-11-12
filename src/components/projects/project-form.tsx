@@ -30,6 +30,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { sentenceCase } from "@/lib/sentence-case";
 
 export const fieldLabelClassName = "text-small leading-normal font-bold text-muted-foreground";
 export const fieldClassName =
@@ -270,7 +271,7 @@ export function ProjectForm() {
             <SelectContent position="popper">
               {GENRES.map((option) => (
                 <SelectItem key={option} value={option}>
-                  {option}
+                  {sentenceCase(option)}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -287,7 +288,7 @@ export function ProjectForm() {
             <SelectContent position="popper">
               {PRODUCTION_TYPES.map((option) => (
                 <SelectItem key={option} value={option}>
-                  {option}
+                  {sentenceCase(option)}
                 </SelectItem>
               ))}
             </SelectContent>

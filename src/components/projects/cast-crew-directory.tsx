@@ -100,7 +100,6 @@ export function CastCrewDirectory({
         <header className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex max-w-xl flex-col gap-2">
             <h1 className="text-h2 font-semibold tracking-tight text-foreground">Cast &amp; crew</h1>
-            <p className="text-sm leading-normal text-muted-foreground">Everyone on {projectTitle}: who they play or what they do, how to reach them, and whether they&rsquo;re confirmed.</p>
           </div>
           <div className="flex items-center gap-4">
             {onSet > 0 && (
@@ -140,7 +139,7 @@ export function CastCrewDirectory({
                 <ChipMenu label="Status" value={statusFilter} defaultValue="all" options={STATUS_OPTIONS} onChange={setStatusFilter} />
                 <ResultCount className="ml-auto">{shown.length} of {entries.length}</ResultCount>
                 {editable && (
-                  <Button size="compact" onClick={() => setEditor({ open: true, entry: null })} className="shrink-0">
+                  <Button size="md" onClick={() => setEditor({ open: true, entry: null })} className="shrink-0">
                     <Plus aria-hidden /> Add person
                   </Button>
                 )}

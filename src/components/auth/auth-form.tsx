@@ -21,7 +21,7 @@ export function AuthForm({
   children,
 }: {
   title: string;
-  description: string;
+  description?: string;
   submitLabel: string;
   pendingLabel: string;
   isPending?: boolean;
@@ -37,9 +37,7 @@ export function AuthForm({
         <h1 className="text-h2 font-semibold tracking-tight text-nia-ink">
           {title}
         </h1>
-        <p className="text-sm leading-normal text-nia-ink-muted">
-          {description}
-        </p>
+        {description && <p className="text-sm leading-normal text-nia-ink-muted">{description}</p>}
       </div>
 
       {withGoogle && (

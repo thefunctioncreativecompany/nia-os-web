@@ -17,6 +17,7 @@ import { shuffled } from "@/lib/shuffle";
 import { CreatorCredit } from "./creators-strip";
 import { FilmGallery } from "./film-gallery";
 import { BackLink } from "@/components/nia/back-link";
+import { sentenceCase } from "@/lib/sentence-case";
 
 const ALL = "all";
 const SORTS = { relevance: "Relevance", forYou: "For you", recent: "Recently viewed", title: "Title A–Z", newest: "Newest first", oldest: "Oldest first" } as const;
@@ -122,7 +123,7 @@ export function CreatorsAll({ seed, tag: initialTag }: { seed: number; tag?: str
           </FilterChip>
           {TYPES.map((t) => (
             <FilterChip key={t} on={type === t} count={narrowed.filter((f) => f.type === t).length} onClick={() => setType(t)}>
-              {t}
+              {sentenceCase(t)}
             </FilterChip>
           ))}
         </ChipRow>

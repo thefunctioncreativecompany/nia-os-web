@@ -20,6 +20,7 @@ import { MyDrafts } from "@/features/templates/components/my-drafts";
 import { JustAdded } from "@/features/templates/components/just-added";
 import { FilterChip, ChipRow } from "@/components/nia/filter-bar";
 import { WorkflowCards } from "@/features/workflows/workflow-cards";
+import { sentenceCase } from "@/lib/sentence-case";
 
 const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1fr))] gap-3.5";
 
@@ -261,7 +262,7 @@ function FilterChips({ templates, filter, onChange }: { templates: GalleryTempla
     <ChipRow role="group" aria-label="Filter templates">
       {FILTERS.map((f) => (
         <FilterChip key={f} on={filter === f} onClick={() => onChange(f)} count={templates.filter((t) => inFilter(t, f)).length}>
-          {f}
+          {sentenceCase(f)}
         </FilterChip>
       ))}
     </ChipRow>
