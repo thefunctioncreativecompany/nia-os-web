@@ -10,6 +10,7 @@ import { createClient } from "@/lib/supabase/server";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Wordmark } from "@/components/nia/wordmark";
+import { AskToEdit } from "@/components/projects/ask-to-edit";
 
 // One lookup per request, shared by the link preview and the page.
 const getShared = cache(async (token: string) => {
@@ -98,7 +99,15 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
   // Signed-in visitors find it again under Shared with you (audit #11). Does nothing when
   // signed out.
   const supabase = await createClient();
-  await supabase.rpc("remember_shared_link", { token });
+  // What the link allows ('request' shows Ask to edit; before the link-permissions migration runs
+  // this errors and the page stays view-only), and whether the visitor is signed in.
+  const [, access, claims] = await Promise.all([
+    supabase.rpc("remember_shared_link", { token }),
+    supabase.rpc("shared_link_access", { token }),
+    supabase.auth.getClaims(),
+  ]);
+  const canAsk = !access.error && access.data === "request";
+  const signedIn = Boolean(claims.data?.claims);
 
   // The same details as the project page, never the budget; type-specific ones only when set.
   const type = data.production_type as ProductionType | null;
@@ -134,6 +143,7 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
         </p>
         <h1 className="text-h1 font-bold text-foreground">{data.title || "Untitled project"}</h1>
         {data.description && <p className="text-lead whitespace-pre-line text-muted-foreground">{data.description}</p>}
+        {canAsk && <AskToEdit token={token} signedIn={signedIn} />}
       </div>
       <section aria-labelledby="shared-info" className="flex flex-col gap-4">
         <h2 id="shared-info" className="text-lg leading-[1.4] font-bold text-foreground">

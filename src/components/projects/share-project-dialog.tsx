@@ -11,7 +11,7 @@ import { createClient } from "@/lib/supabase/client";
 import { recordEvent } from "@/lib/product-events";
 import { projectLimited } from "@/lib/plan-client";
 import { FREE_LIMITS } from "@/lib/plans";
-import { getInitials } from "@/lib/utils";
+import { cn, getInitials } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { openUpgrade } from "@/components/nia/upgrade-dialog";
@@ -68,6 +68,44 @@ export function ShareProjectDialog({
   const [inviteRole, setInviteRole] = useState<"editor" | "viewer">("viewer");
   const [token, setToken] = useState(initialToken);
   const [busy, setBusy] = useState(false);
+  // What the link allows ('view' or 'request') and the edit requests waiting (null until the
+  // 20261111000000_link_access_requests.sql migration is run: the choice then stays hidden).
+  const [access, setAccess] = useState<"view" | "request" | null>(null);
+  const [requests, setRequests] = useState<{ id: string; name: string; message: string }[]>([]);
+
+  const loadRequests = useCallback(async () => {
+    if (!isOwner) return;
+    const db = createClient();
+    const [a, r] = await Promise.all([db.rpc("project_link_access", { pid: projectId }), db.rpc("pending_access_requests", { pid: projectId })]);
+    if (!a.error) setAccess((a.data as "view" | "request" | null) ?? "view");
+    if (!r.error) setRequests((r.data as { id: string; name: string; message: string }[]) ?? []);
+  }, [isOwner, projectId]);
+
+  const answer = async (id: string, approve: boolean) => {
+    // Approving adds a person: the free plan's limit applies, as for invites.
+    const others = (people ?? []).filter((p) => p.kind !== "owner");
+    if (approve && others.length >= FREE_LIMITS.collaboratorsPerProject && (await projectLimited(createClient(), projectId))) {
+      openUpgrade("collaborators");
+      return;
+    }
+    setBusy(true);
+    const { error } = await createClient().rpc("respond_project_access", { request_id: id, approve });
+    setBusy(false);
+    if (error) return void toast.error(error.message);
+    toast.success(approve ? "They can edit now." : "Request declined.");
+    await Promise.all([load(), loadRequests()]);
+    router.refresh();
+  };
+
+  const changeAccess = async (next: "view" | "request") => {
+    const before = access;
+    setAccess(next);
+    const { error } = await createClient().rpc("set_link_access", { pid: projectId, access: next });
+    if (error) {
+      setAccess(before);
+      toast.error(error.message);
+    }
+  };
 
   const load = useCallback(async () => {
     const { data, error } = await createClient().rpc("project_people", { pid: projectId });
@@ -80,6 +118,7 @@ export function ShareProjectDialog({
     if (next) {
       setToken(initialToken);
       load();
+      void loadRequests();
     }
   };
 
@@ -142,7 +181,7 @@ export function ShareProjectDialog({
       return;
     }
     setToken(data as string | null);
-    toast.success(enabled ? "Link ready. Anyone with it can view." : "Link turned off. It no longer works.");
+    toast.success(enabled ? "Link ready. Choose what people with it can do." : "Link turned off. It no longer works.");
     router.refresh();
   };
 
@@ -268,6 +307,31 @@ export function ShareProjectDialog({
 
         <div className="h-px w-full bg-border" />
 
+        {requests.length > 0 && (
+          <section aria-labelledby="edit-requests" className="flex flex-col gap-3">
+            <h3 id="edit-requests" className="text-small leading-normal font-bold text-muted-foreground">Asking to edit</h3>
+            <ul className="flex flex-col gap-2">
+              {requests.map((r) => (
+                <li key={r.id} className="flex items-center gap-3 rounded-2xl border border-border p-3">
+                  <Avatar className="size-9">
+                    <AvatarFallback className="text-caption">{getInitials(r.name, "")}</AvatarFallback>
+                  </Avatar>
+                  <span className="flex min-w-0 flex-1 flex-col">
+                    <span className="truncate text-sm font-semibold text-foreground">{r.name}</span>
+                    {r.message && <span className="truncate text-caption text-muted-foreground">{r.message}</span>}
+                  </span>
+                  <Button type="button" size="compact" variant="outline" disabled={busy} onClick={() => void answer(r.id, false)}>
+                    Decline
+                  </Button>
+                  <Button type="button" size="compact" disabled={busy} onClick={() => void answer(r.id, true)}>
+                    Let them edit
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         <section className="flex flex-col gap-4">
           <div className="flex items-center justify-between gap-3">
             <h3 className="text-small leading-normal font-bold text-muted-foreground">Invite link</h3>
@@ -281,6 +345,29 @@ export function ShareProjectDialog({
               />
             </label>
           </div>
+          {token && isOwner && access !== null && (
+            <div role="radiogroup" aria-label="People with the link can" className="grid grid-cols-2 gap-2">
+              {([
+                ["view", "View", "Open and read it"],
+                ["request", "View, ask to edit", "You approve each request"],
+              ] as const).map(([value, label, detail]) => (
+                <button
+                  key={value}
+                  type="button"
+                  role="radio"
+                  aria-checked={access === value}
+                  onClick={() => void changeAccess(value)}
+                  className={cn(
+                    "flex flex-col gap-0.5 rounded-2xl border p-3 text-left outline-none transition-colors duration-fast focus-visible:ring-3 focus-visible:ring-ring/50",
+                    access === value ? "border-foreground bg-secondary" : "border-border hover:border-ring",
+                  )}
+                >
+                  <span className="text-small font-semibold text-foreground">{label}</span>
+                  <span className="text-caption text-muted-foreground">{detail}</span>
+                </button>
+              ))}
+            </div>
+          )}
           {token && (
             <div className="flex gap-3">
               <p className="min-w-0 flex-1 truncate rounded-lg border border-border bg-nia-surface p-3 text-small text-muted-foreground">
@@ -293,7 +380,7 @@ export function ShareProjectDialog({
                   await navigator.clipboard.writeText(link);
                   toast.success("Link copied");
                 }}
-                className="h-auto rounded-lg px-4 py-3 text-small font-bold"
+                className="h-auto px-4 py-3 text-small font-bold"
               >
                 Copy
               </Button>
@@ -301,7 +388,7 @@ export function ShareProjectDialog({
           )}
         </section>
 
-        <Button type="button" onClick={() => setOpen(false)} className="h-auto w-full rounded-lg p-3.5">
+        <Button type="button" onClick={() => setOpen(false)} className="h-auto w-full p-3.5">
           Done
         </Button>
       </DialogContent>

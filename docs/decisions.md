@@ -803,3 +803,11 @@ onboarding's Import profile and Follow creators describe features removed in the
   grid, 21 versions, 22 search actions; 14, 15, 16, 18 and 19 wait for shoot days, locations and
   budget data (Milestone 4).
 - (2026-11-11) Free plan: a project can be shared with up to 3 people (was 1; Ika). `FREE_LIMITS.collaboratorsPerProject`; the Plans page, the upgrade prompt and the share dialog follow it. Enforced in the app on the live site only, as before (no database rule for this limit).
+- (2026-11-11) Share link permissions (Ika: "enable permissions on shared links (view, request to
+  edit)"). With the link on, the owner picks what people with it can do: View, or View and ask to
+  edit (two cards in Share project). On the shared page, "Ask to edit" (signed out: log in first,
+  then back to the page) sends the owner a notification; the owner's Share project lists the
+  requests with Let them edit / Decline. Approving adds them as Can edit (the free plan's 3-person
+  limit applies) and tells them. Nothing changes until the owner approves. Database:
+  `20261111000000_link_access_requests.sql` (its own tables, changed only through functions; Ika
+  to run). Until it's run, links stay view-only and the choice is hidden.
