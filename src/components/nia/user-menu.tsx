@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeftRightIcon, CompassIcon, GemIcon, MessageSquareIcon, SettingsIcon, UserPlusIcon, UserRoundIcon } from "lucide-react";
+import { CompassIcon, GemIcon, MessageSquareIcon, SettingsIcon, UserRoundIcon } from "lucide-react";
 import { toast } from "sonner";
 
 import type { CurrentUser } from "@/lib/auth";
@@ -50,16 +50,16 @@ export function UserMenu({ user }: { user: CurrentUser }) {
       // Avatar only (Ika, 2026-11-08, navbar decision 6): the tabs carry their names, and the search gets the room.
       showName={false}
       showTheme={false}
-      items={[
-        ...others.map((a) => ({ label: a.name || a.email, icon: <ArrowLeftRightIcon size={16} />, onSelect: () => void switchAccount(a.id, a.name || a.email) })),
-        {
-          label: "Add another account",
-          icon: <UserPlusIcon size={16} />,
-          onSelect: async () => {
-            remember((await createClient().auth.getSession()).data.session);
-            router.push("/login?add=1");
-          },
+      // Accounts (Ika, 2026-11-11, from her reference): one section listing this account ticked, the
+      // others on this device to switch to, and Add another account; not separate menu rows.
+      accounts={{
+        others: others.map((a) => ({ id: a.id, name: a.name || a.email, email: a.email, avatarSrc: a.avatar ?? undefined, onSelect: () => void switchAccount(a.id, a.name || a.email) })),
+        onAdd: async () => {
+          remember((await createClient().auth.getSession()).data.session);
+          router.push("/login?add=1");
         },
+      }}
+      items={[
         { label: "Profile", icon: <UserRoundIcon size={16} />, onSelect: () => router.push("/settings/profile") },
         { label: "Settings", icon: <SettingsIcon size={16} />, onSelect: () => router.push("/settings/general") },
         { label: "Plans", icon: <GemIcon size={16} />, onSelect: () => router.push("/plans") },

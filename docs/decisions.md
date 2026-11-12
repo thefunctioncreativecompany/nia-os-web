@@ -790,3 +790,4 @@ onboarding's Import profile and Follow creators describe features removed in the
   refresh token kept current as Supabase rotates it (`src/lib/accounts.ts`); switching never signs
   anything out on the server. Log out now ends only this account on this device (it ended every
   device before). Tested with both test accounts: add, switch both ways, log out, continue.
+- (2026-11-11, later) Accounts sit in one section of the profile menu, after Ika's reference: "Accounts", the signed-in account ticked, the others on this device (picture or initial) to switch to, then Add another account; not separate menu rows. Built into the menu component (`accounts` prop).

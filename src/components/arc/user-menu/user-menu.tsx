@@ -5,7 +5,7 @@ import type { CSSProperties, FocusEvent, KeyboardEvent, MouseEvent, PointerEvent
 import { createPortal } from "react-dom";
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import type { PanInfo, Transition, Variants } from "framer-motion";
-import { ChevronDown, LoaderCircle, LogOut, Monitor, Moon, Sun, SunMoon } from "lucide-react";
+import { Check, ChevronDown, LoaderCircle, LogOut, Monitor, Moon, Plus, Sun, SunMoon } from "lucide-react";
 import { motionTokens } from "../lib/motion-tokens";
 import styles from "./user-menu.module.css";
 
@@ -27,6 +27,8 @@ const themes: { value: ThemePreference; label: string; icon: ReactNode }[] = [
 
 export interface UserMenuUser { name: string; email: string; plan?: string; avatarSrc?: string; avatarSrcSet?: string }
 export interface UserMenuItem { label: string; icon?: ReactNode; keys?: string[]; onSelect?: () => void }
+/** The accounts used on this device: the signed-in one (ticked) first, then the others to switch to, and a way to add one. */
+export interface UserMenuAccounts { others: (UserMenuUser & { id: string; onSelect: () => void })[]; onAdd: () => void; addLabel?: string }
 
 /**
  * The account menu behind a person's photo in an app's top bar. It holds a compact identity header, a short group of account
@@ -48,6 +50,8 @@ export interface UserMenuProps {
   showTheme?: boolean;
   /** Account destinations with optional shortcut hints, such as ["⌘", ","]. Keep it to three or four. */
   items?: UserMenuItem[];
+  /** An Accounts section under the items: the current account ticked, the others, and Add another account. */
+  accounts?: UserMenuAccounts;
   onSignOut?: () => void | Promise<unknown>;
   signOutKeys?: string[];
   align?: "start" | "center" | "end";
@@ -141,7 +145,7 @@ function focusStop(stop: HTMLElement | undefined) {
   target?.focus({ preventScroll: true });
 }
 
-export function UserMenu({ user, status: statusProp, defaultStatus = "available", onStatusChange, theme: themeProp, defaultTheme = "system", onThemeChange, showTheme = true, items = [], onSignOut, signOutKeys, align = "end", showName = false, open: openProp, defaultOpen = false, onOpenChange, portal = true, ref, className }: UserMenuProps) {
+export function UserMenu({ user, accounts, status: statusProp, defaultStatus = "available", onStatusChange, theme: themeProp, defaultTheme = "system", onThemeChange, showTheme = true, items = [], onSignOut, signOutKeys, align = "end", showName = false, open: openProp, defaultOpen = false, onOpenChange, portal = true, ref, className }: UserMenuProps) {
   const id = useId();
   const menuId = `${id}-menu`;
   const triggerId = `${id}-trigger`;
@@ -372,6 +376,26 @@ export function UserMenu({ user, status: statusProp, defaultStatus = "available"
           <span className={styles.itemLabel}>{item.label}</span>
           {item.keys && <Keys keys={item.keys} />}
         </m.button>)}
+      </>}
+      {accounts && <>
+        <div className={styles.separator} role="separator" />
+        <span className={styles.sectionLabel}>Accounts</span>
+        <m.button type="button" role="menuitemradio" aria-checked="true" tabIndex={-1} className={styles.item} data-stop="item" data-label={user.name} variants={row}
+          onPointerMove={onItemPointerMove} onClick={() => close(true)}>
+          <span className={styles.face} data-size="xs" aria-hidden="true"><Portrait user={user} /></span>
+          <span className={styles.itemLabel}>{user.name}</span>
+          <Check size={16} strokeWidth={1.75} aria-hidden="true" />
+        </m.button>
+        {accounts.others.map(other => <m.button key={other.id} type="button" role="menuitemradio" aria-checked="false" tabIndex={-1} className={styles.item} data-stop="item" data-label={other.name} variants={row}
+          onPointerMove={onItemPointerMove} onClick={() => { close(true); other.onSelect(); }}>
+          <span className={styles.face} data-size="xs" aria-hidden="true"><Portrait user={other} /></span>
+          <span className={styles.itemLabel}>{other.name}</span>
+        </m.button>)}
+        <m.button type="button" role="menuitem" tabIndex={-1} className={styles.item} data-stop="item" data-tone="quiet" data-label={accounts.addLabel ?? "Add another account"} variants={row}
+          onPointerMove={onItemPointerMove} onClick={() => { close(true); accounts.onAdd(); }}>
+          <span className={styles.icon} aria-hidden="true"><Plus size={16} strokeWidth={1.75} /></span>
+          <span className={styles.itemLabel}>{accounts.addLabel ?? "Add another account"}</span>
+        </m.button>
       </>}
       {(showTheme || showStatus) && <>
         <div className={styles.separator} role="separator" />
