@@ -30,7 +30,7 @@ export async function getProfileSettings(): Promise<{
   const { data, error } = await supabase
     .from("profiles")
     .select(
-      "full_name, role, phone, bio, avatar_url, assistant_name, assistant_traits, communication_style, ai_suggestions",
+      "full_name, role, phone, bio, avatar_url",
     )
     .eq("id", user.id)
     .single();
@@ -47,10 +47,6 @@ export async function getProfileSettings(): Promise<{
       phone: data.phone,
       bio: data.bio,
       avatarUrl: data.avatar_url,
-      assistantName: data.assistant_name,
-      assistantTraits: data.assistant_traits,
-      communicationStyle: data.communication_style,
-      aiSuggestions: data.ai_suggestions,
     },
   };
 }
@@ -60,44 +56,18 @@ export async function getGeneralSettings(): Promise<{
   settings: GeneralSettings;
 }> {
   const { supabase, user } = await requireUser();
-  const [settingsResult, workspaceResult] = await Promise.all([
-    supabase
-      .from("user_settings")
-      .select(
-        "default_view, language, time_zone, email_notifications, push_notifications, weekly_digest, auto_save_interval, version_history",
-      )
-      .eq("user_id", user.id)
-      .single(),
-    // The workspace this user owns (created in onboarding or on first save here).
-    supabase
-      .from("workspaces")
-      .select("id, name")
-      .eq("owner_id", user.id)
-      .order("created_at")
-      .limit(1)
-      .maybeSingle(),
-  ]);
-  if (settingsResult.error) {
-    throw new Error(`Couldn't load your settings: ${settingsResult.error.message}`);
-  }
-  if (workspaceResult.error) {
-    throw new Error(`Couldn't load your workspace: ${workspaceResult.error.message}`);
-  }
+  // The workspace this user owns (created in onboarding or on first save here).
+  const { data, error } = await supabase
+    .from("workspaces")
+    .select("id, name")
+    .eq("owner_id", user.id)
+    .order("created_at")
+    .limit(1)
+    .maybeSingle();
+  if (error) throw new Error(`Couldn't load your workspace: ${error.message}`);
 
-  const s = settingsResult.data;
   return {
     userId: user.id,
-    settings: {
-      workspaceId: workspaceResult.data?.id ?? null,
-      workspaceName: workspaceResult.data?.name ?? "",
-      defaultView: s.default_view,
-      language: s.language,
-      timeZone: s.time_zone,
-      emailNotifications: s.email_notifications,
-      pushNotifications: s.push_notifications,
-      weeklyDigest: s.weekly_digest,
-      autoSaveInterval: s.auto_save_interval,
-      versionHistory: s.version_history,
-    },
+    settings: { workspaceId: data?.id ?? null, workspaceName: data?.name ?? "" },
   };
 }

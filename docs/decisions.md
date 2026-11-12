@@ -847,8 +847,8 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-11) Product analytics: PostHog (`src/components/analytics.tsx`, in the root layout). It
   loads after the page shows, runs only when `NEXT_PUBLIC_POSTHOG_KEY` is set, records page views
   on route changes, and knows signed-in people by account id only (no name or email).
-- (2026-11-12) One page edge and the last off-standard titles (Ika, from the UI/UX audit, FEEDBACK U7,
-  U10, U11; she chose Explore's 30px over 60px): a theme token `--spacing-page` (1.875rem) gives
+- (2026-11-12) One page edge and the last off-standard titles (Ika, from the UI/UX audit, FEEDBACK UX7,
+  UX10, UX11; she chose Explore's 30px over 60px): a theme token `--spacing-page` (1.875rem) gives
   `md:px-page`, used by every page, the navbar on tablets, and the bleed rows (`md:-mx-page`,
   `md:scroll-px-page`); Plans and Activity no longer sit in a centred column. Titles: the document
   header (Filming Notice and every template), person pages, Privacy ("Privacy policy"), check-email
@@ -858,3 +858,11 @@ onboarding's Import profile and Follow creators describe features removed in the
   the button's label gave "Edit title". `SegmentedControl` (Details/Manage, Plans' Monthly/Annual,
   project files) is a pill like every button. Left as they are: the Explore welcome card's big
   "Explore" (a splash, not a page title) and the timeline's full-screen canvas.
+- (2026-11-12) Settings show only what works (Ika, FEEDBACK UX1: "Remove them"). General lost Email
+  and Push notifications, Weekly digest, Default view, Language, Time zone, Auto-save interval and
+  Version history; Profile lost the AI assistant card (name, traits, communication style, AI
+  suggestions) and the Apple row under linked accounts (Apple sign-in is off in Supabase). None of
+  them was read anywhere. General is now Workspace (name, its own Save), Appearance and Sound.
+  The code is in git tag `parked-2026-11-12-settings`; the database columns (`user_settings`,
+  `profiles.assistant_*`, `ai_suggestions`) stay, so each returns when it works: Time zone with the
+  schedule, notifications with Inbox, the assistant with the Copilot.

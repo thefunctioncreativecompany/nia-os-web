@@ -6,11 +6,7 @@ import { useRouter } from "next/navigation";
 import type { UserIdentity } from "@supabase/supabase-js";
 import { toast } from "sonner";
 
-import {
-  COMMUNICATION_STYLES,
-  TRAIT_PRESETS,
-  type ProfileSettings,
-} from "@/lib/settings";
+import type { ProfileSettings } from "@/lib/settings";
 import { AVATAR_BUCKET, MAX_AVATAR_BYTES, avatarPath } from "@/lib/avatars";
 import { PhotoEditor } from "@/components/nia/photo-editor";
 import { createClient } from "@/lib/supabase/client";
@@ -19,27 +15,15 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import {
   SettingsCard,
   SettingsField,
   SettingsSaveButton,
-  SettingsToggleRow,
   settingsInputClassName,
-  settingsSelectClassName,
 } from "@/components/settings/settings-primitives";
 
 const AVATAR_TYPES = ["image/jpeg", "image/png"];
-
-const pillClassName =
-  "rounded-full px-4 py-2 text-small leading-[1.4] font-semibold transition-colors";
 
 export function ProfileSettingsForm({
   userId,
@@ -88,10 +72,6 @@ export function ProfileSettingsForm({
           phone: profile.phone.trim(),
           bio: profile.bio.trim(),
           avatar_url: avatarUrl,
-          assistant_name: profile.assistantName.trim(),
-          assistant_traits: profile.assistantTraits,
-          communication_style: profile.communicationStyle,
-          ai_suggestions: profile.aiSuggestions,
         })
         .eq("id", userId);
       if (error) throw error;
@@ -220,47 +200,6 @@ export function ProfileSettingsForm({
           </SettingsField>
         </SettingsCard>
 
-        <SettingsCard title="AI assistant customization" className="gap-5">
-          <SettingsField id="assistant-name" label="What should Nia call you?">
-            <Input
-              id="assistant-name"
-              maxLength={40}
-              value={profile.assistantName}
-              onChange={(e) => set("assistantName", e.target.value)}
-              placeholder="Your first name or a nickname"
-              className={settingsInputClassName}
-            />
-          </SettingsField>
-          <TraitPicker
-            traits={profile.assistantTraits}
-            onChange={(traits) => set("assistantTraits", traits)}
-          />
-          <SettingsField id="communication-style" label="Communication style">
-            <Select
-              value={profile.communicationStyle}
-              onValueChange={(value) => set("communicationStyle", value)}
-            >
-              <SelectTrigger id="communication-style" className={settingsSelectClassName}>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent position="popper">
-                {COMMUNICATION_STYLES.map((style) => (
-                  <SelectItem key={style} value={style}>
-                    {style}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </SettingsField>
-          <SettingsToggleRow
-            id="ai-suggestions"
-            title="Enable AI suggestions"
-            description="Receive predictive notes during scripts breakdown imports"
-            checked={profile.aiSuggestions}
-            onCheckedChange={(checked) => set("aiSuggestions", checked)}
-          />
-        </SettingsCard>
-
         <SettingsCard title="Linked identity credentials" className="gap-4">
           <LinkedAccounts identities={identities} />
         </SettingsCard>
@@ -354,104 +293,18 @@ function AvatarPicker({
   );
 }
 
-// Selected traits as dark pills (tap to remove). "+ Add trait" offers the
-// remaining presets and a box for your own.
-function TraitPicker({
-  traits,
-  onChange,
-}: {
-  traits: string[];
-  onChange: (traits: string[]) => void;
-}) {
-  const [isAdding, setIsAdding] = useState(false);
-  const [custom, setCustom] = useState("");
-  const remaining = TRAIT_PRESETS.filter((t) => !traits.includes(t));
-
-  const add = (trait: string) => {
-    const value = trait.trim();
-    if (
-      value &&
-      traits.length < 20 &&
-      !traits.some((t) => t.toLowerCase() === value.toLowerCase())
-    ) {
-      onChange([...traits, value]);
-    }
-  };
-
-  return (
-    <div className="flex flex-col gap-2">
-      <span id="traits-label" className="text-small leading-normal font-bold text-foreground">
-        What traits should the assistant have?
-      </span>
-      <div role="group" aria-labelledby="traits-label" className="flex flex-wrap gap-2">
-        {traits.map((trait) => (
-          <button
-            key={trait}
-            type="button"
-            onClick={() => onChange(traits.filter((t) => t !== trait))}
-            aria-label={`Remove ${trait}`}
-            className={cn(pillClassName, "bg-primary text-primary-foreground hover:bg-primary/85")}
-          >
-            {trait}
-          </button>
-        ))}
-        <button
-          type="button"
-          onClick={() => setIsAdding((v) => !v)}
-          aria-expanded={isAdding}
-          className={cn(
-            pillClassName,
-            "border border-border text-muted-foreground hover:text-foreground",
-          )}
-        >
-          {isAdding ? "Done" : "+ Add trait"}
-        </button>
-      </div>
-      {isAdding && (
-        <div className="flex flex-wrap items-center gap-2">
-          {remaining.map((trait) => (
-            <button
-              key={trait}
-              type="button"
-              onClick={() => add(trait)}
-              className={cn(pillClassName, "border border-border text-foreground hover:bg-muted")}
-            >
-              + {trait}
-            </button>
-          ))}
-          <Input
-            aria-label="Add your own trait"
-            placeholder="Your own trait"
-            maxLength={30}
-            value={custom}
-            onChange={(e) => setCustom(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                e.preventDefault();
-                add(custom);
-                setCustom("");
-              }
-            }}
-            className="h-auto w-40 rounded-full border-border px-4 py-2 text-small leading-[1.4] md:text-small"
-          />
-        </div>
-      )}
-    </div>
-  );
-}
-
 const providers = [
   { id: "google", name: "Google Workspace", logo: "/auth/google.svg", width: 16, height: 16 },
-  { id: "apple", name: "Apple Account", logo: "/auth/apple.svg", width: 13, height: 16 },
 ] as const;
 
-// Google and Apple sign-in linked to this account, via Supabase identity linking.
+// Google sign-in linked to this account, via Supabase identity linking (Apple is off in Supabase,
+// so its row went with the settings that do nothing, 2026-11-12).
 // Linking needs "Allow manual linking" on in Supabase → Authentication → Sign In / Providers.
 function LinkedAccounts({ identities }: { identities: UserIdentity[] }) {
   const router = useRouter();
   const [busy, setBusy] = useState<string | null>(null);
 
-  const connect = async (provider: "google" | "apple") => {
+  const connect = async (provider: "google") => {
     setBusy(provider);
     const { error } = await createClient().auth.linkIdentity({
       provider,
@@ -496,7 +349,7 @@ function LinkedAccounts({ identities }: { identities: UserIdentity[] }) {
           >
             <div className="flex min-w-0 items-center gap-3">
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-accent">
-                <Image src={provider.logo} alt="" width={provider.width} height={provider.height} className={provider.id === "apple" ? "dark:invert" : undefined} />
+                <Image src={provider.logo} alt="" width={provider.width} height={provider.height} />
               </span>
               <div className="flex min-w-0 flex-col gap-0.5">
                 <span className="text-sm leading-[1.4] font-bold text-foreground">

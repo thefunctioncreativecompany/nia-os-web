@@ -29,26 +29,26 @@ sideways scroll on phones, Geist only, no all-caps, dark mode consistent.
 
 | # | What | Status |
 |---|------|--------|
-| U1 | Settings → General: Email, Push, Weekly digest, Default view, Language, Time zone, Auto-save, Version history save but nothing reads them (rule: grey out with `NotYet`) | ⬜ |
-| U2 | Phone, Cast & crew: toolbar runs off screen, hiding Add person and Status; cast table's Contact and Status cut off | ⬜ |
-| U3 | Floating Feedback button covers content bottom right (Home Activity menu, title-page chips, Settings switch) | ⬜ |
-| U4 | Plans sells AI credits before the Copilot exists; two equal primary buttons | ⬜ |
-| U5 | Explore titles show placeholders ("Recognition: To be confirmed", "Season 3 —") | ⬜ |
-| U6 | Settings and Plans light up the Home tab (navbar `match`) | ⬜ |
-| U7 | Titles off the heading standard (Filming Notice, person pages, Privacy, check-email, onboarding; Explore and project titles smaller on phones); the project title heading read as "Edit title" | ✅ 2026-11-12 |
-| U8 | Title Case: Pre-Production chips, Camera & Visual, Behind the Production, Notice Metadata, TV Series, Short Film, Production Company | ⬜ |
-| U9 | Explaining lines under titles (Cast & crew, Filming Notice, Settings, Plans) | ⬜ |
-| U10 | Page edges 30 / 60 / 124px across tabs | ✅ 2026-11-12, one edge `md:px-page` (30px) |
-| U11 | Details/Manage switch square-cornered (`SegmentedControl`, also Plans and project files) | ✅ 2026-11-12, pill |
-| U12 | No-cover projects show a grey block that looks like loading (future build: no-cover look) | ⬜ |
-| U13 | Phone tap targets under 44px (crew email icons, show-password eye, text links, Monthly/Annual, tag chips) | ⬜ |
-| U14 | Phone, project page: Adjust and Change cover always over the cover photo | ⬜ |
-| U15 | Phone, Home: the New project tile is a full card of empty space | ⬜ |
-| U16 | Phone, Explore title: "Trailer" label overlaps the trailer's own text | ⬜ |
-| U17 | Template editor: the How-it-works card fills the first screen | ⬜ |
-| U18 | Home Activity repeats share-link on/off lines; group repeats | ⬜ |
-| U19 | Person page: "Films" for a series; "leading actor · Creator" capitals | ⬜ |
-| U20 | Login hero is a *Sinners (2025)* still: rights? (rule: imagery from the user's own work) | ⏸ |
+| UX1 | Settings → General: Email, Push, Weekly digest, Default view, Language, Time zone, Auto-save, Version history save but nothing reads them (rule: grey out with `NotYet`) | ✅ 2026-11-12, removed (and Profile’s AI assistant card and Apple row); tag `parked-2026-11-12-settings` |
+| UX2 | Phone, Cast & crew: toolbar runs off screen, hiding Add person and Status; cast table's Contact and Status cut off | ⬜ |
+| UX3 | Floating Feedback button covers content bottom right (Home Activity menu, title-page chips, Settings switch) | ⬜ |
+| UX4 | Plans sells AI credits before the Copilot exists; two equal primary buttons | ⬜ |
+| UX5 | Explore titles show placeholders ("Recognition: To be confirmed", "Season 3 —") | ⬜ |
+| UX6 | Settings and Plans light up the Home tab (navbar `match`) | ⬜ |
+| UX7 | Titles off the heading standard (Filming Notice, person pages, Privacy, check-email, onboarding; Explore and project titles smaller on phones); the project title heading read as "Edit title" | ✅ 2026-11-12 |
+| UX8 | Title Case: Pre-Production chips, Camera & Visual, Behind the Production, Notice Metadata, TV Series, Short Film, Production Company | ⬜ |
+| UX9 | Explaining lines under titles (Cast & crew, Filming Notice, Settings, Plans) | ⬜ |
+| UX10 | Page edges 30 / 60 / 124px across tabs | ✅ 2026-11-12, one edge `md:px-page` (30px) |
+| UX11 | Details/Manage switch square-cornered (`SegmentedControl`, also Plans and project files) | ✅ 2026-11-12, pill |
+| UX12 | No-cover projects show a grey block that looks like loading (future build: no-cover look) | ⬜ |
+| UX13 | Phone tap targets under 44px (crew email icons, show-password eye, text links, Monthly/Annual, tag chips) | ⬜ |
+| UX14 | Phone, project page: Adjust and Change cover always over the cover photo | ⬜ |
+| UX15 | Phone, Home: the New project tile is a full card of empty space | ⬜ |
+| UX16 | Phone, Explore title: "Trailer" label overlaps the trailer's own text | ⬜ |
+| UX17 | Template editor: the How-it-works card fills the first screen | ⬜ |
+| UX18 | Home Activity repeats share-link on/off lines; group repeats | ⬜ |
+| UX19 | Person page: "Films" for a series; "leading actor · Creator" capitals | ⬜ |
+| UX20 | Login hero is a *Sinners (2025)* still: rights? (rule: imagery from the user's own work) | ⏸ |
 
 ## 1. Logged 2026-11-08: Ika's update list and Alvin's feedback (not started)
 

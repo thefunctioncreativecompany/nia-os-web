@@ -309,8 +309,9 @@ in the middle, avatar right; phones unchanged. Next: N4 "Try" ideas, N5 gallery 
 Milestone 5 — Copilot: not started.
 
 Milestone 6 — Share & launch
-- [ ] 6.3 Essential settings. Partly built: Settings → Profile (incl. AI assistant style and
-  suggestions) and General save to Supabase; other tabs disabled. A Notifications design draft
+- [ ] 6.3 Essential settings. Partly built: Settings → Profile (photo, names, role, phone, bio,
+  Google link) and General (workspace name, appearance, sounds). Settings that did nothing were
+  removed 2026-11-12 (tag `parked-2026-11-12-settings`); other tabs disabled. A Notifications design draft
   exists in Claude Design.
 - [ ] Everything else not started.
 
