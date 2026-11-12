@@ -20,8 +20,9 @@ import { ROW_MAX } from "@/lib/rows";
 import { exploreItem, type ExploreItem } from "@/features/explore/items";
 
 // The references row's cells, as on the project page; landscape films get wider ones (cardSpan).
-const REF_CELL = "w-[calc(42%*var(--span,1))] flex-none snap-start sm:w-[calc(28%*var(--span,1))] md:w-[calc(22%*var(--span,1))]";
-const REF_SIZES = "(min-width: 48rem) 190px, (min-width: 40rem) 28vw, 42vw";
+// Smaller than the project page's: wide stills sit beside the posters at their height.
+const REF_CELL = "w-[calc(34%*var(--span,1))] flex-none snap-start sm:w-[calc(24%*var(--span,1))] md:w-[calc(19%*var(--span,1))]";
+const REF_SIZES = "(min-width: 48rem) 165px, (min-width: 40rem) 24vw, 34vw";
 
 // One lookup per request, shared by the link preview and the page.
 const getShared = cache(async (token: string) => {
@@ -135,7 +136,7 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
   const supabase = await createClient();
   // Signed-in visitors find it again under Shared with you (audit #11; does nothing when signed
   // out). Then the References row under the crew.
-  const [, references] = await Promise.all([supabase.rpc("remember_shared_link", { token }), sharedReferences(supabase, token)]);
+  const [, { shown: references, total: referenceCount }] = await Promise.all([supabase.rpc("remember_shared_link", { token }), sharedReferences(supabase, token)]);
 
   // The same details as the project page, never the budget; type-specific ones only when set.
   const type = data.production_type as ProductionType | null;
@@ -198,14 +199,13 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
           </ScrollRow>
         </section>
       )}
-      {references.length > 0 && (
+      {referenceCount > 0 && (
         <section aria-labelledby="shared-references" className="flex flex-col gap-4">
           <h2 id="shared-references" className="text-subtitle font-semibold text-foreground">
-            References <span className="text-micro font-normal text-muted-foreground">{references.length}</span>
+            References <span className="text-micro font-normal text-muted-foreground">{referenceCount}</span>
           </h2>
           <ScrollRow label="References">
-            {/* The ten newest (rows.ts); the count above says how many there are. */}
-            {references.slice(0, ROW_MAX).map((ref) =>
+            {references.map((ref) =>
               ref.kind === "explore" ? (
                 <li key={ref.item.slug} className={REF_CELL} style={cardSpan(ref.item)}>
                   <ExploreCard item={ref.item} href={ref.item.href()} sizes={REF_SIZES} />
@@ -228,7 +228,8 @@ type ReferenceRow = { kind: "explore" | "still"; slug: string | null; path: stri
 // the private file store: the database has checked the link, then the server opens each one with
 // a link that lasts an hour (needs SUPABASE_SECRET_KEY; without it, the titles show alone).
 // Before 20261111010000_shared_reference_stills.sql is run, the titles come on their own.
-async function sharedReferences(supabase: Awaited<ReturnType<typeof createClient>>, token: string): Promise<SharedReference[]> {
+// The row shows ten (rows.ts): every Explore title, then the newest stills in the places left.
+async function sharedReferences(supabase: Awaited<ReturnType<typeof createClient>>, token: string): Promise<{ shown: SharedReference[]; total: number }> {
   let rows: ReferenceRow[];
   const items = await supabase.rpc("shared_project_reference_items", { token });
   if (items.error) {
@@ -236,12 +237,16 @@ async function sharedReferences(supabase: Awaited<ReturnType<typeof createClient
     rows = ((titles.data as string[] | null) ?? []).map((slug) => ({ kind: "explore", slug, path: null, name: null }));
   } else rows = (items.data as ReferenceRow[] | null) ?? [];
 
+  const total = rows.length;
+  const titles = rows.filter((r) => r.kind === "explore").length;
+  let room = Math.max(0, ROW_MAX - titles);
+  rows = rows.filter((r) => r.kind === "explore" || room-- > 0);
   const paths = rows.flatMap((r) => (r.kind === "still" && r.path ? [r.path] : []));
   const admin = paths.length ? createAdminClient() : null;
   const signed = admin ? ((await admin.storage.from("project-files").createSignedUrls(paths, 60 * 60)).data ?? []) : [];
   const urls = new Map(signed.flatMap((s) => (s.path && s.signedUrl ? [[s.path, s.signedUrl] as const] : [])));
 
-  return rows.flatMap((r): SharedReference[] => {
+  const shown = rows.flatMap((r): SharedReference[] => {
     if (r.kind === "explore") {
       const item = r.slug ? exploreItem(r.slug) : null;
       return item ? [{ kind: "explore", item }] : [];
@@ -249,6 +254,7 @@ async function sharedReferences(supabase: Awaited<ReturnType<typeof createClient
     const url = r.path ? urls.get(r.path) : undefined;
     return url && r.path ? [{ kind: "still", path: r.path, name: r.name ?? "Reference still", url }] : [];
   });
+  return { shown: shown.slice(0, ROW_MAX), total };
 }
 
 function LinkOff() {
