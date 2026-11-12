@@ -7,7 +7,7 @@ import { Camera, Crop } from "lucide-react";
 import { toast } from "sonner";
 
 import { checkCoverFile } from "@/lib/images";
-import { GENRES, typeDetails, type Project } from "@/lib/projects";
+import { GENRES, shootDatesText, typeDetails, type Project } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
@@ -21,6 +21,19 @@ import { BudgetField, CrewSection, DeliverablesField, NumberField, ShootDatesFie
 import { uploadCover } from "@/components/projects/project-form";
 import { useCoverCropper } from "@/components/projects/use-cover-cropper";
 import { BackLink } from "@/components/nia/back-link";
+import { ProjectSectionNav, type ProjectSection } from "@/components/projects/project-section-nav";
+
+// The links under the cover, in reading order. Details, Crew & talent and Behind the Production
+// sit under the Details tab on the right.
+const SECTIONS: ProjectSection[] = [
+  { id: "overview", label: "Overview" },
+  { id: "details", label: "Details", inDetails: true },
+  { id: "crew", label: "Crew & talent", inDetails: true },
+  { id: "behind", label: "Behind the Production", inDetails: true },
+  { id: "comments", label: "Comments" },
+  { id: "files", label: "Files" },
+  { id: "references", label: "References" },
+];
 
 // Storage path of a cover URL, if it's in this project's folder (so it can be removed).
 function coverPath(url: string | null, projectId: string) {
@@ -95,10 +108,11 @@ function DurationField({ value, readOnly, onSave }: { value: string; readOnly: b
   );
 }
 
-// The project page (Figma 824:23124, Ika 2026-10-19): cover, title and description on the left;
-// on the right Details (with Behind the Production) or Manage (actions, overview,
-// documents, activity); stacked on phones and tablets. Final assets sit under the description;
-// Files & references full width below.
+// The project page (Figma 824:23124, Ika 2026-10-19; cover hero since 2026-11-12, variation 2 of
+// the project page board): the cover across the page with the title on it, section links under
+// it; then the description, final assets and comments on the left, and on the right Details
+// (with Behind the Production) or Manage (actions, overview, documents, activity); stacked on
+// phones and tablets. Files & references full width below.
 // Every change saves on its own, with the SavedIndicator.
 export function ProjectEditor({
   project: initial,
@@ -213,8 +227,25 @@ export function ProjectEditor({
   // Photo shoots, editorials and lookbooks are stills: no running time.
   const stills = extras.includes("looks");
 
+  // The project's title is the page's main heading (audit #5; a real block since 2026-11-12,
+  // `display: contents` could drop it for screen readers). On the cover it's white.
+  const title = (onCover: boolean) => (
+    <EditableText
+      heading
+      label="Title"
+      value={project.title}
+      placeholder="Untitled project"
+      maxLength={120}
+      readOnly={!canEdit}
+      onSave={(next) => save("title", "title", next)}
+      className={cn("text-h2 font-semibold tracking-tight", onCover ? "text-white" : "text-foreground", !project.title && (onCover ? "text-white/75" : "text-muted-foreground"))}
+      buttonClassName={onCover ? "hover:bg-white/15 focus-visible:ring-white/60" : undefined}
+    />
+  );
+  const meta = [project.productionType, project.stage, shootDatesText(project.shootStart, project.shootEnd)].filter(Boolean).join(" · ");
+
   return (
-    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-page">
+    <div className="flex flex-1 flex-col gap-10 px-4 pt-10 pb-15 md:px-page">
       <div className="flex items-center justify-between gap-4">
         <BackLink
           href="/projects"
@@ -225,65 +256,69 @@ export function ProjectEditor({
         {savedAt && <SavedIndicator savedAt={savedAt} />}
       </div>
 
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
-        {/* Left: the cover, the title and what it's about. */}
-        <div className="flex min-w-0 flex-col gap-6">
-          <input
-            ref={inputRef}
-            type="file"
-            accept="image/jpeg,image/png,image/webp"
-            className="sr-only"
-            tabIndex={-1}
-            aria-hidden
-            onChange={(e) => {
-              pickCover(e.target.files?.[0]);
-              e.target.value = "";
-            }}
-          />
-          {cropper.dialog}
-          {project.coverUrl ? (
-            <div className="group relative aspect-[19/10] w-full overflow-hidden rounded-3xl bg-muted">
-              <Image src={project.coverUrl} alt="" fill preload sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
-              {canEdit && (
-                <div className="absolute top-4 right-4 flex gap-2">
-                  {!isUploading && (
-                    <button type="button" onClick={() => project.coverUrl && cropper.start(project.coverUrl)} className={coverButton}>
-                      <Crop aria-hidden className="size-4" />
-                      Adjust
-                    </button>
-                  )}
-                  <button type="button" disabled={isUploading} onClick={() => inputRef.current?.click()} className={coverButton}>
-                    <Camera aria-hidden className="size-4" />
-                    {isUploading ? "Uploading…" : "Change cover"}
+      {/* The cover as a hero across the page, the title on it (Ika, 2026-11-12, variation 2). */}
+      <div className="flex flex-col">
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          className="sr-only"
+          tabIndex={-1}
+          aria-hidden
+          onChange={(e) => {
+            pickCover(e.target.files?.[0]);
+            e.target.value = "";
+          }}
+        />
+        {cropper.dialog}
+        {project.coverUrl ? (
+          <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-muted sm:aspect-[16/9] lg:aspect-[21/8]">
+            <Image src={project.coverUrl} alt="" fill preload sizes="100vw" className="object-cover" />
+            <div aria-hidden className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent from-15% to-black/75 sm:from-35% sm:to-black/70" />
+            {canEdit && (
+              <div className="absolute top-4 right-4 flex gap-2">
+                {!isUploading && (
+                  <button type="button" onClick={() => project.coverUrl && cropper.start(project.coverUrl)} className={coverButton}>
+                    <Crop aria-hidden className="size-4" />
+                    Adjust
                   </button>
-                </div>
-              )}
+                )}
+                <button type="button" disabled={isUploading} onClick={() => inputRef.current?.click()} className={coverButton}>
+                  <Camera aria-hidden className="size-4" />
+                  {isUploading ? "Uploading…" : "Change cover"}
+                </button>
+              </div>
+            )}
+            <div className="absolute inset-x-0 bottom-0 flex max-w-4xl flex-col gap-2 p-5 md:p-8">
+              {meta && <p className="text-small font-medium text-white/85">{meta}</p>}
+              {title(true)}
             </div>
-          ) : (
+          </div>
+        ) : (
+          <div className="flex flex-col gap-6">
             <button
               type="button"
               disabled={!canEdit || isUploading}
               onClick={() => inputRef.current?.click()}
-              className="flex aspect-[19/10] w-full flex-col items-center justify-center gap-3 rounded-3xl border-[1.5px] border-dashed border-nia-line-strong bg-nia-panel text-lead font-medium text-muted-foreground outline-none transition-colors duration-fast enabled:hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50"
+              className="flex aspect-[16/9] w-full flex-col items-center justify-center gap-3 rounded-3xl border-[1.5px] border-dashed border-nia-line-strong bg-nia-panel text-lead font-medium text-muted-foreground outline-none transition-colors duration-fast enabled:hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 lg:aspect-[21/6]"
             >
               <Camera aria-hidden className="size-8" strokeWidth={1.5} />
               {isUploading ? "Uploading…" : canEdit ? "Add project thumbnail" : "No thumbnail yet"}
             </button>
-          )}
+            <div className="flex flex-col gap-2">
+              {meta && <p className="text-small font-medium text-muted-foreground">{meta}</p>}
+              {title(false)}
+            </div>
+          </div>
+        )}
+      </div>
 
-          <div className="flex flex-col gap-3">
-            {/* The project's title is the page's main heading (audit #5; a real block since
-                2026-11-12, `display: contents` could drop it for screen readers). */}
-            <EditableText
-              heading
-              label="Title"
-              value={project.title}
-              placeholder="Untitled project"
-              maxLength={120}
-              readOnly={!canEdit}
-              onSave={(next) => save("title", "title", next)}
-              className={cn("text-h2 font-semibold tracking-tight text-foreground", !project.title && "text-muted-foreground")}
-            />
+      <ProjectSectionNav sections={SECTIONS} onDetails={() => setTab("details")} />
+
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
+        {/* Left: what it's about, final assets and comments. */}
+        <div className="flex min-w-0 flex-col gap-6">
+          <section id="overview" aria-label="Overview">
             <EditableText
               label="Description"
               multiline
@@ -294,7 +329,7 @@ export function ProjectEditor({
               onSave={(next) => save("description", "description", next)}
               className="text-sm leading-relaxed text-foreground/80"
             />
-          </div>
+          </section>
           {finals}
           {comments}
         </div>

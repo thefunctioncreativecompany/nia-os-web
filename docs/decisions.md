@@ -837,6 +837,13 @@ onboarding's Import profile and Follow creators describe features removed in the
   after 20 comments in 5 minutes). Run 2026-11-11. On Explore titles and films too, comments sit
   under the description (Ika). Home's new-templates card is gone (Ika, 2026-11-11; git tag
   parked-2026-11-11-new-templates-notice); new templates keep their tag on Templates.
+- (2026-11-12) Project page layout: variation 2, "Cover hero with section tabs", from the project page
+  board in Claude Design (Ika chose it; same contents, new layout). The cover runs across the page
+  with the title on it (still editable) over type · stage · shoot dates; Adjust and Change cover
+  stay in its corner. Under it, section links (Overview, Details, Crew & talent, Behind the
+  Production, Comments, Files, References) stay below the top bar as you scroll, jump to their
+  section (opening Details first when needed) and mark the one you're reading
+  (`project-section-nav.tsx`). Everything else is where it was.
 - (2026-11-11) Product analytics: PostHog (`src/components/analytics.tsx`, in the root layout). It
   loads after the page shows, runs only when `NEXT_PUBLIC_POSTHOG_KEY` is set, records page views
   on route changes, and knows signed-in people by account id only (no name or email).

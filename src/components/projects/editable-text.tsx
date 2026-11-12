@@ -32,6 +32,7 @@ function EditableField({
   readOnly = false,
   className,
   inputClassName,
+  buttonClassName,
 }: {
   // Inside a heading: the button is named by its text plus a hidden "edit" hint.
   named?: boolean;
@@ -46,6 +47,8 @@ function EditableField({
   readOnly?: boolean;
   className?: string;
   inputClassName?: string;
+  /** Last word on the clickable text's look (e.g. a lighter hover on a photo). */
+  buttonClassName?: string;
 }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value);
@@ -112,6 +115,7 @@ function EditableField({
         className,
         "w-full cursor-text rounded-md text-left outline-none transition-colors duration-fast hover:bg-muted/70 focus-visible:ring-3 focus-visible:ring-ring/50",
         !value && "text-nia-placeholder",
+        buttonClassName,
       )}
     >
       {value || emptyText || placeholder}
