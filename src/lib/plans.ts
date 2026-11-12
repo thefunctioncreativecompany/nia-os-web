@@ -45,7 +45,7 @@ export const PLANS: Plan[] = [
     bestFor: "Trying Nia",
     features: [
       { title: "Up to 5 projects", detail: "Each with up to 5 documents, one of each kind." },
-      { title: "One collaborator per project", detail: "Share a project with one other person." },
+      { title: "Three collaborators per project", detail: "Share a project with up to three other people." },
       { title: "Uploads up to 25 MB", detail: "Stills, documents and voice memos." },
       { title: "100 AI credits, once", detail: "Enough to try what Nia's AI can do." },
     ],
@@ -116,7 +116,8 @@ export const money = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`
 export const FREE_LIMITS = {
   projects: 5,
   documentsPerProject: 5,
-  collaboratorsPerProject: 1,
+  // Raised from 1 to 3 (Ika, 2026-11-11).
+  collaboratorsPerProject: 3,
   uploadMb: 25,
 } as const;
 

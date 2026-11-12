@@ -33,7 +33,7 @@ const COPY: Record<UpgradeReason, { title: string; body: string }> = {
   },
   collaborators: {
     title: "Bring in the whole team",
-    body: `On Free a project can be shared with ${FREE_LIMITS.collaboratorsPerProject} person. Paid plans let you invite everyone on the production.`,
+    body: `On Free a project can be shared with ${FREE_LIMITS.collaboratorsPerProject} people. Paid plans let you invite everyone on the production.`,
   },
   branding: {
     title: "Export with your own branding",

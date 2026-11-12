@@ -802,3 +802,4 @@ onboarding's Import profile and Follow creators describe features removed in the
   12 Needs you, 11 phase, 10 Space cards, 9 switcher, 23 setup checklist, 17 shots, 20 references
   grid, 21 versions, 22 search actions; 14, 15, 16, 18 and 19 wait for shoot days, locations and
   budget data (Milestone 4).
+- (2026-11-11) Free plan: a project can be shared with up to 3 people (was 1; Ika). `FREE_LIMITS.collaboratorsPerProject`; the Plans page, the upgrade prompt and the share dialog follow it. Enforced in the app on the live site only, as before (no database rule for this limit).

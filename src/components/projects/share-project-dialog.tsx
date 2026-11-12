@@ -102,7 +102,7 @@ export function ShareProjectDialog({
     const address = email.trim();
     if (!address) return;
     setBusy(true);
-    // Free projects are shared with one person (live site only); a new person needs an upgrade.
+    // Free projects are shared with up to FREE_LIMITS.collaboratorsPerProject people (3; live site only); a new person needs an upgrade.
     const others = (people ?? []).filter((p) => p.kind !== "owner");
     const isNew = !others.some((p) => p.email.toLowerCase() === address.toLowerCase());
     if (isNew && others.length >= FREE_LIMITS.collaboratorsPerProject && (await projectLimited(createClient(), projectId))) {
