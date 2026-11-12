@@ -88,7 +88,7 @@ export function CastCrewDirectory({
 
   return (
     <div className="grid flex-1 grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.62fr)]">
-      <div className="flex min-w-0 flex-col gap-7 px-4 pt-10 pb-15 md:px-15 lg:pr-10">
+      <div className="flex min-w-0 flex-col gap-7 px-4 pt-10 pb-15 md:px-page lg:pr-10">
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm leading-[1.4]">
           <BackLink href={projectHref} className="rounded-sm font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
             ← Back to project
@@ -311,7 +311,7 @@ function StatusMenu({ entry: e, onChange }: { entry: DirectoryEntry; onChange: (
 function ProfilePanel({ entry: e, editable, status, onEdit }: { entry: DirectoryEntry; editable: boolean; status: React.ReactNode; onEdit: () => void }) {
   const label = "text-micro font-bold text-nia-placeholder";
   return (
-    <aside aria-label={`${e.name}'s profile`} className="flex flex-col gap-6 border-border bg-nia-panel px-4 pt-8 pb-15 md:px-15 lg:border-l lg:px-10 lg:pt-10">
+    <aside aria-label={`${e.name}'s profile`} className="flex flex-col gap-6 border-border bg-nia-panel px-4 pt-8 pb-15 md:px-page lg:border-l lg:px-10 lg:pt-10">
       <div className="flex items-center justify-between">
         <p className="text-micro font-bold text-muted-foreground">Selected profile</p>
         {e.status && status}

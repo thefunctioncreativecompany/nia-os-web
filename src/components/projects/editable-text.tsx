@@ -6,7 +6,22 @@ import { cn } from "@/lib/utils";
 
 // Text that turns into an input when clicked and saves when you leave it (or press
 // Enter; Escape cancels). Read-only viewers just see the text.
+// `heading` makes it the page's main heading (<h1>) in every state; screen readers then hear
+// the text itself ("Behind the Lens, edit title"), not only "Edit title".
 export function EditableText({
+  heading = false,
+  ...props
+}: Omit<Parameters<typeof EditableField>[0], "named"> & { heading?: boolean }) {
+  if (!heading) return <EditableField {...props} />;
+  return (
+    <h1 className="min-w-0">
+      <EditableField {...props} named />
+    </h1>
+  );
+}
+
+function EditableField({
+  named = false,
   value,
   label,
   placeholder,
@@ -18,6 +33,8 @@ export function EditableText({
   className,
   inputClassName,
 }: {
+  // Inside a heading: the button is named by its text plus a hidden "edit" hint.
+  named?: boolean;
   value: string;
   label: string;
   placeholder: string;
@@ -48,8 +65,9 @@ export function EditableText({
   };
 
   if (readOnly) {
+    const Text = named ? "span" : "p";
     return (
-      <p className={cn(className, !value && "text-muted-foreground")}>{value || emptyText || placeholder}</p>
+      <Text className={cn(named && "block", className, !value && "text-muted-foreground")}>{value || emptyText || placeholder}</Text>
     );
   }
 
@@ -85,7 +103,7 @@ export function EditableText({
   return (
     <button
       type="button"
-      aria-label={`Edit ${label.toLowerCase()}`}
+      aria-label={named ? undefined : `Edit ${label.toLowerCase()}`}
       onClick={() => {
         setDraft(value);
         setEditing(true);
@@ -97,6 +115,7 @@ export function EditableText({
       )}
     >
       {value || emptyText || placeholder}
+      {named && <span className="sr-only">, edit {label.toLowerCase()}</span>}
     </button>
   );
 }

@@ -214,7 +214,7 @@ export function ProjectEditor({
   const stills = extras.includes("looks");
 
   return (
-    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
+    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-page">
       <div className="flex items-center justify-between gap-4">
         <BackLink
           href="/projects"
@@ -272,18 +272,18 @@ export function ProjectEditor({
           )}
 
           <div className="flex flex-col gap-3">
-            {/* The project's title is the page's main heading (audit #5). */}
-            <h1 className="contents">
-              <EditableText
-                label="Title"
-                value={project.title}
-                placeholder="Untitled project"
-                maxLength={120}
-                readOnly={!canEdit}
-                onSave={(next) => save("title", "title", next)}
-                className={cn("text-h3 font-semibold tracking-tight text-foreground md:text-h2", !project.title && "text-muted-foreground")}
-              />
-            </h1>
+            {/* The project's title is the page's main heading (audit #5; a real block since
+                2026-11-12, `display: contents` could drop it for screen readers). */}
+            <EditableText
+              heading
+              label="Title"
+              value={project.title}
+              placeholder="Untitled project"
+              maxLength={120}
+              readOnly={!canEdit}
+              onSave={(next) => save("title", "title", next)}
+              className={cn("text-h2 font-semibold tracking-tight text-foreground", !project.title && "text-muted-foreground")}
+            />
             <EditableText
               label="Description"
               multiline

@@ -840,3 +840,14 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-11) Product analytics: PostHog (`src/components/analytics.tsx`, in the root layout). It
   loads after the page shows, runs only when `NEXT_PUBLIC_POSTHOG_KEY` is set, records page views
   on route changes, and knows signed-in people by account id only (no name or email).
+- (2026-11-12) One page edge and the last off-standard titles (Ika, from the UI/UX audit, FEEDBACK U7,
+  U10, U11; she chose Explore's 30px over 60px): a theme token `--spacing-page` (1.875rem) gives
+  `md:px-page`, used by every page, the navbar on tablets, and the bleed rows (`md:-mx-page`,
+  `md:scroll-px-page`); Plans and Activity no longer sit in a centred column. Titles: the document
+  header (Filming Notice and every template), person pages, Privacy ("Privacy policy"), check-email
+  and onboarding moved to `text-h2 font-semibold tracking-tight`, and Explore, project and reference
+  titles stay that size on phones. The project title is a real `<h1>` (`EditableText heading`):
+  screen readers hear "Behind the Lens, edit title", where the old `display: contents` wrapper and
+  the button's label gave "Edit title". `SegmentedControl` (Details/Manage, Plans' Monthly/Annual,
+  project files) is a pill like every button. Left as they are: the Explore welcome card's big
+  "Explore" (a splash, not a page title) and the timeline's full-screen canvas.

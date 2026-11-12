@@ -109,7 +109,7 @@ export function TemplateEditor({
   return (
     <DocumentContext.Provider value={{ schema, data: doc.data }}>
     <div className="flex flex-1 flex-wrap">
-      <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-7 px-4 pt-10 pb-15 md:pr-10 md:pl-15 print:p-0">
+      <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-7 px-4 pt-10 pb-15 md:pr-10 md:pl-page print:p-0">
         <DocumentHeader
           backHref={doc.project ? `/projects/${doc.project.id}` : '/templates'}
           backLabel={doc.project ? `Back to ${doc.project.title}` : 'Back to Templates'}
@@ -178,7 +178,7 @@ export function TemplateEditor({
 
       <aside
         aria-label="Preview and download"
-        className="flex min-w-0 flex-[1_1_360px] flex-col border-border bg-nia-panel px-4 pt-10 pb-15 md:border-l md:pr-15 md:pl-10 lg:max-w-[540px] print:hidden"
+        className="flex min-w-0 flex-[1_1_360px] flex-col border-border bg-nia-panel px-4 pt-10 pb-15 md:border-l md:pr-page md:pl-10 lg:max-w-[540px] print:hidden"
       >
         <div className="flex flex-col gap-6 md:sticky md:top-[calc(var(--nav-offset)+1.5rem)]">
           <DocumentPreviewHeader status={doc.paid ? 'Paid' : ready ? 'Ready to export' : 'Draft'} />

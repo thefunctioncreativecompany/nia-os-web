@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: PageProps<"/share/[token]">):
 export default function Page({ params }: PageProps<"/share/[token]">) {
   return (
     <div className="flex min-h-svh flex-col bg-background">
-      <header className="flex items-center justify-between gap-4 border-b border-border px-4 py-4 md:px-15">
+      <header className="flex items-center justify-between gap-4 border-b border-border px-4 py-4 md:px-page">
         <Link href="/" className="inline-flex rounded-sm">
           <Wordmark />
         </Link>

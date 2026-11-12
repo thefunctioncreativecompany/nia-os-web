@@ -47,7 +47,7 @@ export function Navbar({ user }: { user: React.ReactNode }) {
   return (
     // The blur strip sits beside the glass, not inside it: glass inside glass sees nothing to blur.
     <div data-navbar className="group relative z-30 shrink-0 print:hidden lg:sticky lg:top-0">
-      <header className="relative flex h-(--nav-h) items-center justify-between gap-4 border-b border-nia-line bg-background px-4 md:px-15 lg:grid lg:grid-cols-[minmax(max-content,1fr)_minmax(16rem,38rem)_minmax(max-content,1fr)] lg:border-border/60 lg:px-6 lg:glass-bar">
+      <header className="relative flex h-(--nav-h) items-center justify-between gap-4 border-b border-nia-line bg-background px-4 md:px-page lg:grid lg:grid-cols-[minmax(max-content,1fr)_minmax(16rem,38rem)_minmax(max-content,1fr)] lg:border-border/60 lg:px-6 lg:glass-bar">
         {/* Which tab is active depends on the address, known only at request time; until
             then the tabs show with none highlighted. */}
         <Suspense fallback={<NavTabs segment={null} />}>

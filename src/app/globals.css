@@ -88,6 +88,12 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* The page edge (Ika, 2026-11-12: one for every page, Explore's 30px). Pages use
+   `px-4 md:px-page`; rows that bleed to the screen edge use `md:-mx-page` / `md:scroll-px-page`. */
+@theme {
+  --spacing-page: 1.875rem;
+}
+
 /* Named text sizes from the Figma text styles (Heading/H1, Body/Small, Caption, Micro/Tag…). */
 @theme {
   --text-h1: 2rem;

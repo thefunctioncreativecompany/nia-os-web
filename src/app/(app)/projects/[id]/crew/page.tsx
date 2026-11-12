@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 // tables (20261109000000_people.sql); people with edit access add and change them.
 export default function Page({ params }: PageProps<"/projects/[id]/crew">) {
   return (
-    <Suspense fallback={<Skeleton className="mx-4 mt-10 h-96 rounded-2xl md:mx-15" />}>
+    <Suspense fallback={<Skeleton className="mx-4 mt-10 h-96 rounded-2xl md:mx-page" />}>
       <Directory params={params} />
     </Suspense>
   );

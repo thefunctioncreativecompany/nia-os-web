@@ -40,7 +40,7 @@ export function PlansPage() {
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl flex-col gap-14 px-4 pt-10 pb-24 md:px-11">
+    <div className="flex w-full max-w-7xl flex-col gap-14 px-4 pt-10 pb-24 md:px-page">
       <header className="flex flex-wrap items-end justify-between gap-6">
         <div className="max-w-140">
           <h1 className="text-h2 font-semibold tracking-tight text-foreground">Plans</h1>

@@ -54,7 +54,11 @@ Design:
   wide screens; Ika, 2026-10-31).
 - Headings (Ika, 2026-11-10, one standard, from Explore): a page title is
   `text-h2 font-semibold tracking-tight text-foreground`; a section heading is
-  `text-subtitle font-semibold text-foreground`. No `font-extrabold` or `text-display` titles.
+  `text-subtitle font-semibold text-foreground`. No `font-extrabold` or `text-display` titles. Same size on
+  phones (no `text-h3 md:text-h2`).
+- Page edge (Ika, 2026-11-12): every page is `px-4 md:px-page` (16px on phones, 30px from tablets up;
+  token `--spacing-page`); rows that bleed to the screen edge use `md:-mx-page` / `md:scroll-px-page`.
+  No other side padding numbers.
 - Buttons (Ika, 2026-11-11): every button is a pill and every icon button a circle (built into
   `Button`; no `rounded-md/lg` overrides). Primary (default) buttons carry a soft Nia Blue halo, stronger on hover.
   "View all" and other go-to links are `ViewAll`

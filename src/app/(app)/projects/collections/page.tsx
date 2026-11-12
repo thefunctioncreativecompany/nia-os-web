@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 // Projects › Collections: titles saved from Explore (Ika, 2026-10-21).
 export default function Page() {
   return (
-    <div className="flex flex-1 flex-col gap-8 px-4 pt-8 pb-15 md:px-15">
+    <div className="flex flex-1 flex-col gap-8 px-4 pt-8 pb-15 md:px-page">
       <ProjectsTabs />
       <CollectionsView />
     </div>

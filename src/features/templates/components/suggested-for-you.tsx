@@ -45,7 +45,7 @@ export function SuggestedForYou({
   const learned = profile.events.length > 0;
 
   return (
-    <section aria-labelledby="suggested" className={cn("px-4 md:px-7.5", className)}>
+    <section aria-labelledby="suggested" className={cn("px-4 md:px-page", className)}>
       <div className="mb-3.5 flex flex-wrap items-end justify-between gap-3.5">
         <div>
           <h2 id="suggested" className="text-subtitle font-semibold text-foreground">Suggested for you</h2>

@@ -43,7 +43,7 @@ export function OnboardingStep({
             Step {stepNumber(step)} of {ONBOARDING_TOTAL_STEPS}
           </p>
         )}
-        <h1 className="text-h1 font-bold text-foreground">{title}</h1>
+        <h1 className="text-h2 font-semibold tracking-tight text-foreground">{title}</h1>
         <p className="text-sm leading-normal text-muted-foreground">{description}</p>
       </header>
       {children}

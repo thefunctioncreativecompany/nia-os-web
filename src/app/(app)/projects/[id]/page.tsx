@@ -115,7 +115,7 @@ function OverviewRow({ label, value }: { label: string; value: string }) {
 
 function ProjectSkeleton() {
   return (
-    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 md:px-15" aria-busy="true" aria-label="Loading project">
+    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 md:px-page" aria-busy="true" aria-label="Loading project">
       <Skeleton className="h-5 w-36" />
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] xl:gap-16">
         <div className="flex flex-col gap-6">

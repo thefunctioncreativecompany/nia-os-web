@@ -46,7 +46,7 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0, press = null }:
   );
 
   return (
-    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
+    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-page">
       <BackLink
         href={exploreHome()}
         className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
@@ -64,7 +64,7 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0, press = null }:
           {video && <p className="-mt-3 text-caption text-muted-foreground">{video.label} from {video.channel} on YouTube.</p>}
 
           <div className="flex flex-col gap-3">
-            <h1 className="text-h3 font-semibold tracking-tight text-foreground md:text-h2">{film.title}</h1>
+            <h1 className="text-h2 font-semibold tracking-tight text-foreground">{film.title}</h1>
             <div className="flex flex-wrap gap-2">
               <SaveToCollection slug={slug} title={film.title} />
               <AddToProject slug={slug} title={film.title} />

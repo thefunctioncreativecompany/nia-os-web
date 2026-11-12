@@ -25,12 +25,12 @@ export function SegmentedControl({
 }) {
   return (
     <Tabs value={value} onValueChange={onChange} className={className}>
-      <TabsList aria-label={label} className="h-10 w-full rounded-lg border border-border bg-card p-1">
+      <TabsList aria-label={label} className="h-10 w-full rounded-full border border-border bg-card p-1">
         {segments.map((segment) => (
           <TabsTrigger
             key={segment.value}
             value={segment.value}
-            className="group/segment gap-2 rounded-md text-small text-muted-foreground data-active:bg-foreground data-active:font-bold data-active:text-primary-foreground data-active:hover:text-primary-foreground"
+            className="group/segment gap-2 rounded-full text-small text-muted-foreground data-active:bg-foreground data-active:font-bold data-active:text-primary-foreground data-active:hover:text-primary-foreground"
           >
             {segment.label}
             {segment.count !== undefined && (

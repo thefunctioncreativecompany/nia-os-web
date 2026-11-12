@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function Page({ searchParams }: PageProps<"/projects">) {
   return (
-    <div className="flex flex-1 flex-col gap-8 px-4 pt-8 pb-15 md:px-15">
+    <div className="flex flex-1 flex-col gap-8 px-4 pt-8 pb-15 md:px-page">
       <ProjectsTabs />
       <Suspense fallback={<ProjectsSkeleton />}>
         <Projects searchParams={searchParams} />

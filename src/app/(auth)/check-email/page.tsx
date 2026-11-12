@@ -51,7 +51,7 @@ function CheckEmail({ email, type }: { email: string | null; type: EmailLinkType
       </div>
 
       <div className="flex flex-col gap-3">
-        <h1 className="text-h1 font-bold text-nia-ink">
+        <h1 className="text-h2 font-semibold tracking-tight text-nia-ink">
           Check your email
         </h1>
         <p className="text-sm leading-normal break-words text-nia-ink-muted">

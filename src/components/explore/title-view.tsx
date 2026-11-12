@@ -82,7 +82,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }:
   );
 
   return (
-    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
+    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-page">
       <BackLink
         href={back.href}
         className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
@@ -153,7 +153,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }:
           <div className="flex flex-col gap-3">
             {/* No "Film · 2023 · United States" line: Details beside it says the same (Ika, 2026-11-11). */}
             <div className="flex items-center gap-1">
-              <h1 className="text-h3 font-semibold tracking-tight text-foreground md:text-h2">{title.title}</h1>
+              <h1 className="text-h2 font-semibold tracking-tight text-foreground">{title.title}</h1>
               <TmdbCredit />
             </div>
             {isTrailerStill(title.slug) && <p className="-mt-2 text-caption text-muted-foreground">{stillCaption(title.slug)}</p>}

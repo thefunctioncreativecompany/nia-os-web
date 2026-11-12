@@ -87,13 +87,13 @@ async function Editor({ params, searchParams }: Pick<PageProps<"/templates/[code
 function EditorSkeleton() {
   return (
     <div className="flex flex-1 flex-wrap" aria-busy="true" aria-label="Loading template">
-      <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-6 px-4 pt-10 md:pr-10 md:pl-15">
+      <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-6 px-4 pt-10 md:pr-10 md:pl-page">
         <Skeleton className="h-5 w-36" />
         <Skeleton className="h-10 w-2/3" />
         <Skeleton className="h-12 w-full rounded-lg" />
         <Skeleton className="h-80 w-full rounded-xl" />
       </div>
-      <div className="flex flex-[1_1_360px] flex-col gap-6 bg-nia-panel px-4 pt-10 md:pr-15 md:pl-10 lg:max-w-[540px]">
+      <div className="flex flex-[1_1_360px] flex-col gap-6 bg-nia-panel px-4 pt-10 md:pr-page md:pl-10 lg:max-w-[540px]">
         <Skeleton className="h-96 rounded-xl" />
       </div>
     </div>

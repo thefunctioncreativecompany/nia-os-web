@@ -17,7 +17,7 @@ export default function Page() {
           <Check aria-hidden className="size-7 text-white" strokeWidth={2.5} />
         </div>
         <div className="flex flex-col gap-2">
-          <h1 className="text-h1 font-bold text-foreground">You&apos;re all set!</h1>
+          <h1 className="text-h2 font-semibold tracking-tight text-foreground">You&apos;re all set!</h1>
           <p className="text-sm leading-normal text-muted-foreground">
             Your workspace is ready. Start creating amazing productions.
           </p>

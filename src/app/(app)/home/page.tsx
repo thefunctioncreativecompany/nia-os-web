@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 // Home (Figma 872:42636 empty, 872:42800 active), without the old stat cards.
 export default function Page() {
   return (
-    <div className="flex flex-col gap-12 px-4 pt-12 pb-15 md:px-15">
+    <div className="flex flex-col gap-12 px-4 pt-12 pb-15 md:px-page">
       <Suspense fallback={null}>
         <Tour />
       </Suspense>

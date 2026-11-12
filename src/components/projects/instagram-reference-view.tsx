@@ -62,7 +62,7 @@ export function InstagramReferenceView({
   };
 
   return (
-    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
+    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-page">
       <BackLink href={back} className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
         ← Back to {projectTitle || "the project"}
       </BackLink>
@@ -119,7 +119,7 @@ export function InstagramReferenceView({
 
           <div className="flex flex-col gap-3">
             <p className="text-small font-semibold text-muted-foreground">{[ref.productionType, ref.postedOn?.slice(0, 4), "Instagram"].filter(Boolean).join(" · ")}</p>
-            <h1 className="text-h3 font-semibold tracking-tight text-foreground md:text-h2">{ref.title}</h1>
+            <h1 className="text-h2 font-semibold tracking-tight text-foreground">{ref.title}</h1>
             {canEdit && (
               <div className="flex flex-wrap gap-2">
                 <Button variant="outline" size="md" disabled={removing} onClick={() => void remove()}>

@@ -78,10 +78,10 @@ export function CategorySections({
   const soon = templates.filter((t) => t.status === "gap");
   const sections = groups.map((group) => ({ group, items: inGroup(group) })).filter((s) => s.items.length);
 
-  if (!sections.length && !soon.length) return <p className="px-4 pt-7 text-sm text-muted-foreground md:px-7.5">No templates here yet.</p>;
+  if (!sections.length && !soon.length) return <p className="px-4 pt-7 text-sm text-muted-foreground md:px-page">No templates here yet.</p>;
 
   return (
-    <div className="flex flex-col gap-22 px-4 pt-20 md:px-7.5">
+    <div className="flex flex-col gap-22 px-4 pt-20 md:px-page">
       {sections.map(({ group, items }) =>
         group === WORKFLOWS_GROUP ? (
           <WorkflowsSection key={group} items={items} onPreview={onPreview} />

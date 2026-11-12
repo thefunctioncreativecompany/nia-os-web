@@ -55,7 +55,7 @@ export function MyDrafts({ icons }: { icons: Record<string, string> }) {
   };
 
   return (
-    <section aria-labelledby="drafts" className="px-4 md:px-7.5">
+    <section aria-labelledby="drafts" className="px-4 md:px-page">
       <div className="mb-3.5">
         <h2 id="drafts" className="text-subtitle font-semibold text-foreground">Your drafts</h2>
         <p className="text-small text-muted-foreground">Documents you started that aren&rsquo;t in a project yet.</p>

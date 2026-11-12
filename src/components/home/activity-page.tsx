@@ -179,7 +179,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
   const ease: Transition = { duration: reduce ? 0 : DURATION.base, ease: [...EASE_OUT] };
 
   return (
-    <div className="mx-auto flex w-full max-w-200 flex-col px-4 pt-8 pb-24 md:px-11">
+    <div className="flex w-full max-w-200 flex-col px-4 pt-8 pb-24 md:px-page">
       <Button variant="ghost" size="compact" asChild className="-ml-2.5 w-fit text-muted-foreground">
         <Link href="/home">
           <ArrowLeft aria-hidden /> Home
@@ -219,7 +219,7 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
           </div>
 
           {/* The month bar: where you are, and a way to jump. Sticks to the top while scrolling. */}
-          <div className="sticky top-(--nav-offset) z-10 -mx-4 mt-5 flex items-center justify-between gap-4 border-b border-border bg-card/90 px-4 py-3 backdrop-blur md:-mx-11 md:px-11">
+          <div className="sticky top-(--nav-offset) z-10 -mx-4 mt-5 flex items-center justify-between gap-4 border-b border-border bg-card/90 px-4 py-3 backdrop-blur md:-mx-page md:px-page">
             <span aria-hidden className="truncate text-lead font-semibold text-foreground">
               {current?.label ?? "No updates"}
               {current && <span className="ml-2 text-small font-normal text-muted-foreground">{current.entries.length} {current.entries.length === 1 ? "update" : "updates"}</span>}

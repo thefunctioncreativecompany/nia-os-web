@@ -9,7 +9,7 @@ import { StudioLogo } from "./studio-strip";
 // Explore, majors and independents, the ones with the most titles first. A logo opens the studio.
 export function StudiosAll({ rows }: { rows: StudioRow[] }) {
   return (
-    <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-7.5 lg:pt-12.5">
+    <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-page lg:pt-12.5">
       <BackLink
         href={exploreHome()}
         className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"

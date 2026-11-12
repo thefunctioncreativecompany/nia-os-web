@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps<"/explore/film/[id]
 // or "Open film page".
 export default function Page({ params }: PageProps<"/explore/film/[id]">) {
   return (
-    <Suspense fallback={<Skeleton className="mx-4 mt-10 h-96 rounded-2xl md:mx-15" />}>
+    <Suspense fallback={<Skeleton className="mx-4 mt-10 h-96 rounded-2xl md:mx-page" />}>
       <Film params={params} />
     </Suspense>
   );

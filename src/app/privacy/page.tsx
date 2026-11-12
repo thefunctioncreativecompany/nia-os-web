@@ -13,14 +13,14 @@ const CONTACT_EMAIL = "thefunctioncreativecompany@gmail.com";
 export default function Page() {
   return (
     <div className="flex min-h-svh w-full flex-col bg-background text-foreground">
-      <header className="border-b border-nia-line px-4 py-6 md:px-15">
+      <header className="border-b border-nia-line px-4 py-6 md:px-page">
         <Link href="/" className="inline-flex rounded-sm">
           <Wordmark />
         </Link>
       </header>
 
       <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-12 md:py-16">
-        <h1 className="text-h1 font-bold">Privacy Policy</h1>
+        <h1 className="text-h2 font-semibold tracking-tight text-foreground">Privacy policy</h1>
         <p className="mt-2 text-sm text-nia-ink-muted">Last updated: October 17, 2026</p>
 
         <div className="mt-10 flex flex-col gap-8 text-sm leading-relaxed text-nia-ink-muted [&_h2]:mb-2 [&_h2]:text-base [&_h2]:font-bold [&_h2]:text-nia-ink [&_li]:mt-1 [&_ul]:list-disc [&_ul]:pl-5">

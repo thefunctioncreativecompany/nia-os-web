@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps<"/explore/person/[k
 // them is written that the credits don't say.
 export default function Page({ params }: PageProps<"/explore/person/[key]">) {
   return (
-    <Suspense fallback={<Skeleton className="mx-4 mt-10 h-96 rounded-2xl md:mx-15" />}>
+    <Suspense fallback={<Skeleton className="mx-4 mt-10 h-96 rounded-2xl md:mx-page" />}>
       <PersonPage params={params} />
     </Suspense>
   );
@@ -49,7 +49,7 @@ async function PersonPage({ params }: Pick<PageProps<"/explore/person/[key]">, "
   const shown = person.roles.slice(0, 3).join(" · ");
 
   return (
-    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-15">
+    <div className="flex flex-1 flex-col gap-12 px-4 pt-10 pb-15 md:px-page">
       <BackLink href={exploreHome()} className="w-fit rounded-sm text-sm leading-[1.4] font-bold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50">
         ← Back to Explore
       </BackLink>
@@ -64,7 +64,7 @@ async function PersonPage({ params }: Pick<PageProps<"/explore/person/[key]">, "
           )}
         </div>
         <div className="flex max-w-2xl flex-col gap-3">
-          <h1 className="text-h2 font-bold text-foreground md:text-h1">{person.name}</h1>
+          <h1 className="text-h2 font-semibold tracking-tight text-foreground">{person.name}</h1>
           <p className="text-lead text-muted-foreground">
             {shown}
             {shown && " · "}
