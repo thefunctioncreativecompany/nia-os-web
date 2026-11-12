@@ -15,7 +15,7 @@ import { LIBRARY_HREF, categoryViews, coverFor, essentialWhy, isTrailerStill, st
 import { similarItems } from "@/features/explore/match";
 import { ProductionNotes } from "./production-notes";
 import { PressKitSection } from "./press-kit-body";
-import { getPress } from "./press-coverage";
+import type { PressCoverage } from "./press-coverage";
 import { recordView } from "@/features/explore/views";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { AddToProject, SaveToCollection } from "./save-controls";
@@ -34,7 +34,8 @@ import { servedSized } from "@/lib/served-sized";
 // Files & references, each with YouTube's thumbnail (through our image server). The player itself
 // loads only when Play is pressed, and stops when the page is left. "You may also like" closes the
 // page: titles that share its genres, collection, country, type or era.
-export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entry; castCrew?: RowPerson[]; castTotal?: number }) {
+// `press`: this title's press kit, handed in by the page (the browser doesn't carry them all).
+export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }: { entry: Entry; castCrew?: RowPerson[]; castTotal?: number; press?: PressCoverage | null }) {
   const params = useSearchParams();
   const { title, collection, pinnedSeason } = entry;
   const from = params.get("from") === "all" ? "all" : params.get("from") === "library" ? "library" : undefined;
@@ -72,7 +73,6 @@ export function TitleView({ entry, castCrew = [], castTotal = 0 }: { entry: Entr
   };
 
   const imdb = imdbUrl(title);
-  const press = getPress(title.slug);
   const row = (label: string, value: React.ReactNode) => (
     <div className="flex items-start gap-4 sm:gap-6">
       <dt className="w-24 shrink-0 pt-1.5 text-sm leading-[1.4] font-bold text-foreground sm:w-28">{label}</dt>

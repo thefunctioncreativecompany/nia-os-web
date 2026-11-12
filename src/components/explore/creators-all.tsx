@@ -8,7 +8,7 @@ import { EmptyState } from "@/components/nia/empty-state";
 import { ChipMenu, FilterChip, RangeChip, ResultCount, SearchField, type YearRange, ChipRow } from "@/components/nia/filter-bar";
 import { CREATORS, creatorFilms, creatorYear, type CreatorFilm } from "@/features/explore/creators";
 import { exploreItem } from "@/features/explore/items";
-import { exploreHome } from "@/features/explore/made-in-africa";
+import { exploreHome } from "@/features/explore/paths";
 import { recentFirst, recentViews } from "@/features/explore/views";
 import { tasteScore } from "@/features/explore/match";
 import { isTag, tagLabel, tagText, tagsFor } from "@/features/explore/tags";

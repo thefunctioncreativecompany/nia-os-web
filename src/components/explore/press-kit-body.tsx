@@ -10,7 +10,8 @@ import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { getFilm } from "./explore-data";
 import { getFilmDetails, linksFor } from "./film-details";
 import { PosterArt } from "./poster-art";
-import { getPress, type PressCoverage, type PressVideo } from "./press-coverage";
+import type { PressCoverage, PressVideo } from "./press-coverage";
+import { loadPress } from "@/features/explore/press-actions";
 
 export type PlayerVideo = { id: string; label: string; channel: string };
 
@@ -22,7 +23,15 @@ export type PlayerVideo = { id: string; label: string; channel: string };
 export function PressKitBody({ filmId, inDialog = false }: { filmId: string; inDialog?: boolean }) {
   const film = getFilm(filmId);
   const details = getFilmDetails(filmId);
-  const press = getPress(filmId);
+  // Fetched when the pop-up opens, not carried by the page (performance audit 2026-11-11).
+  const [press, setPress] = useState<PressCoverage | null>(null);
+  useEffect(() => {
+    let live = true;
+    void loadPress(filmId).then((p) => live && setPress(p));
+    return () => {
+      live = false;
+    };
+  }, [filmId]);
   const Summary = inDialog ? DialogDescription : "p";
   // The press-tour video chosen for the main player; the official video until one is.
   const [picked, setPicked] = useState<PressVideo | null>(null);

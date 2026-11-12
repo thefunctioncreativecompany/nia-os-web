@@ -5,7 +5,7 @@ import { useState } from "react";
 import { BackLink } from "@/components/nia/back-link";
 import { PersonTile, type RowPerson } from "@/components/nia/cast-crew-row";
 import { ChipRow, FilterChip } from "@/components/nia/filter-bar";
-import { exploreHome } from "@/features/explore/made-in-africa";
+import { exploreHome } from "@/features/explore/paths";
 
 // The roles people are grouped by, in a production's usual order; anything else is "More roles".
 const ROLES: [string, string][] = [

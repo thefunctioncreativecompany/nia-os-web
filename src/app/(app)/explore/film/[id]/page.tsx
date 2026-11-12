@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { FilmView } from "@/components/explore/film-view";
+import { getPress } from "@/components/explore/press-coverage";
 import { FILMS, getFilm } from "@/components/explore/explore-data";
 import { getFilmDetails } from "@/components/explore/film-details";
 import { filmCastAndCrew } from "@/features/explore/film-people";
@@ -36,5 +37,5 @@ async function Film({ params }: Pick<PageProps<"/explore/film/[id]">, "params">)
   // Only the top credits reach the page; the rest comes with "View all" on a paid plan.
   const all = filmCastAndCrew(filmSlug(id));
   const castCrew = all.slice(0, TOP_CREDITS).map(({ key, name, role, href, photo }) => ({ key, name, role, href, photo }));
-  return <FilmView key={id} filmId={id} castCrew={castCrew} castTotal={all.length} />;
+  return <FilmView key={id} filmId={id} castCrew={castCrew} castTotal={all.length} press={getPress(id)} />;
 }

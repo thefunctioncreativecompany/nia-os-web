@@ -1,7 +1,7 @@
 "use client";
 
 import { BackLink } from "@/components/nia/back-link";
-import { exploreHome } from "@/features/explore/made-in-africa";
+import { exploreHome } from "@/features/explore/paths";
 import type { StudioRow } from "@/features/explore/studios";
 import { StudioLogo } from "./studio-strip";
 

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { TitleView } from "@/components/explore/title-view";
+import { getPress } from "@/components/explore/press-coverage";
 import { allSlugs, findEntry } from "@/features/explore/made-in-africa";
 import { filmCastAndCrew } from "@/features/explore/film-people";
 import { TOP_CREDITS } from "@/features/explore/credit-format";
@@ -37,7 +38,7 @@ async function Title({ params }: Pick<PageProps<"/explore/title/[slug]">, "param
   // Only the top credits reach the page; the rest comes with "View all" on a paid plan.
   const all = filmCastAndCrew(slug);
   const castCrew = all.slice(0, TOP_CREDITS).map(({ key, name, role, href, photo }) => ({ key, name, role, href, photo }));
-  return <TitleView key={slug} entry={entry} castCrew={castCrew} castTotal={all.length} />;
+  return <TitleView key={slug} entry={entry} castCrew={castCrew} castTotal={all.length} press={getPress(slug)} />;
 }
 
 // Shaped like the page, as on a project.

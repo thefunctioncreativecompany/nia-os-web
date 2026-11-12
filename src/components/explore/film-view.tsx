@@ -11,7 +11,7 @@ import { recordView } from "@/features/explore/views";
 import { getFilm } from "./explore-data";
 import { getFilmDetails, lengthOf, linksFor } from "./film-details";
 import { FilmVideoPlayer, PressKitSection, type PlayerVideo } from "./press-kit-body";
-import { getPress, type PressVideo } from "./press-coverage";
+import type { PressCoverage, PressVideo } from "./press-coverage";
 import { AddToProject, SaveToCollection } from "./save-controls";
 import { CreditsViewAll } from "./credits-view-all";
 import { BackLink } from "@/components/nia/back-link";
@@ -21,10 +21,10 @@ import { BackLink } from "@/components/nia/back-link";
 // left; Details and Behind the production on the right; the press kit (press tour, what critics
 // said, context) full width below. Choosing a press-tour video plays it in the main player. Cast &
 // Crew sits between the two (Ika, 2026-11-01).
-export function FilmView({ filmId, castCrew = [], castTotal = 0 }: { filmId: string; castCrew?: RowPerson[]; castTotal?: number }) {
+// `press`: this film's press kit, handed in by the page.
+export function FilmView({ filmId, castCrew = [], castTotal = 0, press = null }: { filmId: string; castCrew?: RowPerson[]; castTotal?: number; press?: PressCoverage | null }) {
   const film = getFilm(filmId);
   const details = getFilmDetails(filmId)!;
-  const press = getPress(filmId);
   const slug = filmSlug(filmId);
   // Remembered for Explore's Recently viewed and For you.
   useEffect(() => void recordView(slug), [slug]);

@@ -191,8 +191,8 @@ export function findEntry(slug: string): Entry | null {
   return ENTRIES.find((e) => e.title.slug === slug) ?? null;
 }
 
-/** Where Explore lives: the library once it opens, its preview until then. */
-export const exploreHome = () => "/explore";
+/** Where Explore lives (also in paths.ts, for pages that need only the address). */
+export { exploreHome } from "./paths";
 export const MADE_IN_AFRICA_HREF = "/explore/made-in-africa";
 export const LIBRARY_HREF = "/explore/all";
 /** A title's full-screen page; `from` brings its back link to View all ("all") or the whole library ("library"). */
