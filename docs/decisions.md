@@ -776,3 +776,9 @@ onboarding's Import profile and Follow creators describe features removed in the
   node, mind-map or canvas workflows (Ika: too steep; for advanced versions later). Waiting for
   Ika's review before anything is built.
 - (2026-11-11) Barbie (2023) added to Explore as a one-title exception to the pause, for Hermosa Marca's "The constraints of womanhood" brief (America Ferrera's monologue). Complete: poster, Warner Bros. trailer, tags, cast and crew, palette, studios (Warner Bros., Heyday), checked press kit.
+- (2026-11-11) Hermosa Marca's "The constraints of womanhood" (Canva, 14 pages) set up as a
+  project in test account 2 (`c23cd1bb-…`): a photo series in four chapters; a filled Photo Brief
+  (concept, deliverables, quotes to clear, deck images as mood only) and Shot List (Photo) with the
+  chapters and closing portrait as looks; Barbie added as a reference. Ika's two features from it
+  are logged as BR1 (paste a brief, get a Space) and BR2 (Nia spots the reference) and designed as
+  screens 7 and 8 on the Spaces canvas.
