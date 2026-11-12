@@ -128,6 +128,9 @@ changing it. The master list of what's shipped, open, fed back and planned is
 - Test accounts: credentials in `.env.local` as `TEST_USER_EMAIL` / `TEST_USER_PASSWORD` and
   `TEST_USER2_EMAIL` / `TEST_USER2_PASSWORD`; sign in with them in headless Chrome (turn on focus
   emulation for inputs) and with supabase-js to verify access rules between accounts.
+- Demo accounts for mentors and investors (2026-11-12): `demo1`–`demo5@niatechnologies.co`, logins in
+  `.env.local` (`DEMO_USERn_EMAIL` / `DEMO_USERn_PASSWORD`); onboarded, Pro, Explore access, welcome
+  tour waiting. Never use them for tests. `node scripts/create-demo-accounts.mjs` tops them up.
 - Supabase URL Configuration: Site URL `https://app.niatechnologies.co`; Redirect URLs
   `https://app.niatechnologies.co/**`, `https://nia-os-web-9ahh.vercel.app/**` and `http://localhost:3000/**`. Never use
   `*-nia-technologies.vercel.app` URLs (Vercel-protected, shows a login wall).
