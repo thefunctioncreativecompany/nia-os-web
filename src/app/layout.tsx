@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { geist, geistMono, instrumentSerif } from "@/lib/fonts";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@/components/analytics";
 import { THEME_SCRIPT } from "@/lib/theme";
 import "./globals.css";
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
