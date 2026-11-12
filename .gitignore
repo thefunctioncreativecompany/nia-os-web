@@ -43,3 +43,6 @@ next-env.d.ts
 
 # Drafts from scripts (press kits etc.), reviewed before they reach src/
 scripts/out/
+
+# Playwright MCP screenshots and traces
+.playwright-mcp/
