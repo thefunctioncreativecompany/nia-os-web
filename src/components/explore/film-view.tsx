@@ -71,6 +71,8 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0, press = null }:
             </div>
             <p className="text-sm leading-relaxed text-foreground/80">{details.summary}</p>
           </div>
+          {/* Under the summary, as on a project (Ika, 2026-11-11). */}
+          <Comments subject={{ slug }} />
         </div>
 
         {/* Right: Details and Behind the production. */}
@@ -117,7 +119,6 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0, press = null }:
 
       {press && <PressKitSection title={film.title} imdb={details.imdb} press={press} playing={video?.id ?? null} onChoose={choose} />}
 
-      <Comments subject={{ slug }} />
     </div>
   );
 }

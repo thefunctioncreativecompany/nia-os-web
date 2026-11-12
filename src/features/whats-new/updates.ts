@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "comments",
+    date: "2026-11-11",
+    title: "Comments on projects and Explore",
+    body: "Talk it through with your team under a project's description, and reply in threads. On Explore, anyone signed in can comment on a title.",
+    href: "/projects",
+    cta: "Open a project",
+    icon: "MessageCircle",
+    weight: { production: 0.8, fashion: 0.8, creator: 0.7 },
+  },
+  {
     id: "switch-accounts",
     date: "2026-11-11",
     title: "Switch between accounts",

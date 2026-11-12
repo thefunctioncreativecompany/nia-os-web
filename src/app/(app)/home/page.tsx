@@ -4,7 +4,6 @@ import { Inbox } from "lucide-react";
 
 import { getCurrentUser } from "@/lib/auth";
 import { getSession } from "@/lib/supabase/session";
-import { workingGallery } from "@/features/templates/working";
 import { listActivity, listProjects } from "@/lib/projects-data";
 import { Button } from "@/components/ui/button";
 import { ViewAll } from "@/components/nia/view-all";
@@ -12,7 +11,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/nia/empty-state";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { ActivityFeed } from "@/components/home/activity-feed";
-import { NewTemplatesNotice } from "@/components/home/new-templates-notice";
 import { WelcomeTourLoader } from "@/components/home/welcome-tour-loader";
 import { GROUP_LABEL, groupFor, whatsNew } from "@/features/whats-new/updates";
 import { hasExploreAccess } from "@/lib/explore-access";
@@ -54,18 +52,12 @@ async function Tour() {
   return <WelcomeTourLoader firstName={current.firstName} firstVisit={user?.metadata.tour_pending === true} news={news} />;
 }
 
-// New templates, announced once (launches.ts): until the person uses one or closes the card, or
-// it stops being new. Not while the welcome tour is about to open. Then Recent projects and
-// Activity (Workflows live on the Templates page; off Home for now, Ika 2026-11-10): Home was cut to these on 2026-11-10 (Ika: "too much on the home page");
+// Recent projects and Activity (the new-templates card is off Home since 2026-11-11, Ika; git tag
+// parked-2026-11-11-new-templates-notice; new templates keep their "New" tag on Templates) (Workflows live on the Templates page; off Home for now, Ika 2026-11-10): Home was cut to these on 2026-11-10 (Ika: "too much on the home page");
 // Start from a template, Upcoming schedule and Quick actions are in git tag parked-2026-11-10-home.
 async function HomeBody() {
-  const [{ user }, templates] = await Promise.all([getSession(), workingGallery()]);
-  const announced = user?.metadata.templates_announced ?? [];
-  const fresh = user && !user.metadata.tour_pending ? templates.filter((t) => t.fresh && !announced.includes(t.code)) : [];
   return (
     <>
-      {fresh.length > 0 && <NewTemplatesNotice templates={fresh} announced={announced} />}
-
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         <h2 id="recent-projects" className="text-subtitle font-semibold text-foreground">
           Recent projects

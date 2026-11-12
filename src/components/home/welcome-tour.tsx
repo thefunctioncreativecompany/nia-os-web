@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
-import { Calculator, CirclePlay, FileText, Film, Mic, Moon, Search, Sparkles, Trophy, Users, X, type LucideIcon } from "lucide-react";
+import { ArrowLeftRight, Calculator, CirclePlay, FileText, Film, MessageCircle, Mic, Moon, Search, Sparkles, Trophy, Users, X, type LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { DURATION, EASE_OUT } from "@/lib/motion";
@@ -27,7 +27,7 @@ type Step = { id: string; title: string; body: string; href?: string; cta?: stri
 export type News = { since: string; forWhom: string; updates: Update[] };
 
 // The updates' icons by name (icons can't be sent from the server).
-const UPDATE_ICONS: Record<string, LucideIcon> = { Calculator, CirclePlay, Film, Moon, Search, Sparkles, Trophy, Users };
+const UPDATE_ICONS: Record<string, LucideIcon> = { ArrowLeftRight, Calculator, CirclePlay, Film, MessageCircle, Moon, Search, Sparkles, Trophy, Users };
 
 const dayLabel = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long" });
 

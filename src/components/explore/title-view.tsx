@@ -176,6 +176,8 @@ export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }:
               </div>
             )}
           </div>
+          {/* Under the description, as on a project (Ika, 2026-11-11). */}
+          <Comments subject={{ slug: title.slug }} />
         </div>
 
         {/* Right: Details and Behind the production. */}
@@ -285,7 +287,6 @@ export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }:
         </ScrollRow>
       </section>
 
-      <Comments subject={{ slug: title.slug }} />
     </div>
   );
 }
