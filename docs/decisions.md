@@ -775,3 +775,4 @@ onboarding's Import profile and Follow creators describe features removed in the
   calendar days, crew picked), On set on a phone (swipe to check in, shift all calls, Wrap). No
   node, mind-map or canvas workflows (Ika: too steep; for advanced versions later). Waiting for
   Ika's review before anything is built.
+- (2026-11-11) Barbie (2023) added to Explore as a one-title exception to the pause, for Hermosa Marca's "The constraints of womanhood" brief (America Ferrera's monologue). Complete: poster, Warner Bros. trailer, tags, cast and crew, palette, studios (Warner Bros., Heyday), checked press kit.

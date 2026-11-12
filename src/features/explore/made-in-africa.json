@@ -9657,6 +9657,37 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "barbie",
+   "collection": "modern-classics",
+   "title": "Barbie",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Fantasy",
+    "Adventure"
+   ],
+   "year": 2023,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Greta Gerwig",
+   "recognition": "Academy Award for original song; eight nominations, including Best Picture. The highest-grossing film of 2023",
+   "pair_with": "",
+   "study_note": "Barbieland built as practical sets, flattened and painted like a toy box; a comedy that stops for America Ferrera's monologue on the contradictions women are held to",
+   "added": "2026-11-11",
+   "imdb_id": "tt1517268",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "pBk4NYhWNMM",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

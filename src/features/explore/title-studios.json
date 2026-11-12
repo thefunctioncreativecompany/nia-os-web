@@ -1851,5 +1851,12 @@
  "jingle-jangle-a-christmas-journey": {
   "studios": [],
   "tmdb": "movie/622855"
+ },
+ "barbie": {
+  "studios": [
+   "warner",
+   "heyday"
+  ],
+  "tmdb": "movie/346698"
  }
 }

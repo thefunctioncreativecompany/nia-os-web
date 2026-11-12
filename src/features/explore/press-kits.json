@@ -756,6 +756,86 @@
   "cinemaRelease": true,
   "imdb": "tt0118663"
  },
+ "barbie": {
+  "videos": [
+   {
+    "id": "8zIf0XvoL9Y",
+    "kind": "Teaser",
+    "title": "Barbie | Teaser Trailer",
+    "channel": "Warner Bros."
+   },
+   {
+    "id": "yBk1nKSerXs",
+    "kind": "Cast interview",
+    "title": "The Cast of Barbie On Director Greta Gerwig | Barbie | Max",
+    "channel": "HBO Max"
+   },
+   {
+    "id": "35FbTkEXe2s",
+    "kind": "Cast interview",
+    "title": "The Cast of ‘Barbie’ on Greta Gerwig’s Vision, ‘Big Ken Energy’, and Favorite Outfits",
+    "channel": "Fandango"
+   },
+   {
+    "id": "j7QCOV9V2Hs",
+    "kind": "Cast interview",
+    "title": "'Barbie' Cast Test How Well They Know Each Other | Vanity Fair",
+    "channel": "Vanity Fair"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "ScreenRant",
+    "title": "Barbie 2: Sequel Set-Up, If It's Greenlit & Everything We Know",
+    "href": "https://screenrant.com/barbie-2-cast-story-details-updates/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "HuffPost",
+    "title": "Marc Maron Trounces Right-Wing 'Barbie' Haters As 'Insecure Babies'",
+    "href": "https://www.huffpost.com/entry/marc-maron-barbie-haters-greta-gerwig_n_64cb7a95e4b0fd06594fcff0",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'Barbie' Oscar Dilemma: Warner Bros. Weighs Original or Adapted Screenplay Consideration",
+    "href": "https://variety.com/2023/film/awards/barbie-screenplay-oscars-original-adapted-1235678928/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "NPR",
+    "title": "Taylor Swift, Beyoncé and 'Barbie' made for one epic summer trifecta",
+    "href": "https://www.npr.org/2023/08/11/1193283472/barbie-taylor-swift-beyonce",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Harper's Bazaar Australia",
+    "title": "'Lawyer Barbie' Sharon Rooney never wants to let Barbieland go",
+    "href": "https://harpersbazaar.com.au/sharon-rooney-barbie-interview/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Chicago Tribune",
+    "title": "\"Barbie\" review: A doll's life is richly imagined",
+    "href": "https://www.chicagotribune.com/entertainment/movies/sc-ent-barbie-movie-review-0719-20230718-skedihtmx5ctbgm5psx72kwhqi-story.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Newsround",
+    "title": "Barbie film hits $1 billion at global box office",
+    "href": "https://www.bbc.com/newsround/66426228"
+   },
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "'Barbie' Struts To No. 2",
+    "href": "https://deadline.com/2024/05/barbie-movie-profits-1235902885/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1517268"
+ },
  "ben-hur": {
   "videos": [],
   "reviews": [

@@ -890,6 +890,9 @@
  "Q109326144": {
   "name": "Wiseman Mncube"
  },
+ "Q109361297": {
+  "name": "Nick Houy"
+ },
  "Q109497158": {
   "name": "Diego Mustapha Ngarade"
  },
@@ -2849,6 +2852,15 @@
    "licence": "CC BY-SA 2.0"
   }
  },
+ "Q13560267": {
+  "name": "Issa Rae",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Issa_Rae_%28cropped%29.jpg/500px-Issa_Rae_%28cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Issa_Rae_(cropped).jpg",
+   "author": "Bam0822",
+   "licence": "CC BY-SA 4.0"
+  }
+ },
  "Q1356427": {
   "name": "Ernest Lehman"
  },
@@ -3607,6 +3619,15 @@
  },
  "Q1484304": {
   "name": "G. Pat Collins"
+ },
+ "Q14914898": {
+  "name": "Alexandra Shipp",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Alexandra_Shipp_by_Gage_Skidmore_2.jpg/500px-Alexandra_Shipp_by_Gage_Skidmore_2.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Alexandra_Shipp_by_Gage_Skidmore_2.jpg",
+   "author": "Gage Skidmore",
+   "licence": "CC BY-SA 3.0"
+  }
  },
  "Q1491690": {
   "name": "Vernon L. Walker"
@@ -6758,6 +6779,15 @@
    "licence": "Public domain"
   }
  },
+ "Q193815": {
+  "name": "Ryan Gosling",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/GoslingBFI081223_%2822_of_30%29_%2853388157347%29_%28cropped%29.jpg/500px-GoslingBFI081223_%2822_of_30%29_%2853388157347%29_%28cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:GoslingBFI081223_(22_of_30)_(53388157347)_(cropped).jpg",
+   "author": "Raph_PH",
+   "licence": "CC BY 2.0"
+  }
+ },
  "Q1939485": {
   "name": "Mitchell Amundsen"
  },
@@ -8388,6 +8418,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Elizabeth_Banks_during_interview_in_2019.png",
    "author": "Empire Movies",
    "licence": "CC BY 3.0"
+  }
+ },
+ "Q219402": {
+  "name": "America Ferrera",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/America_Ferrera_at_the_2025_Toronto_International_Film_Festival_%28cropped2%29.jpg/500px-America_Ferrera_at_the_2025_Toronto_International_Film_Festival_%28cropped2%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:America_Ferrera_at_the_2025_Toronto_International_Film_Festival_(cropped2).jpg",
+   "author": "Gabriel Hutchinson",
+   "licence": "CC BY-SA 4.0"
   }
  },
  "Q219507": {
@@ -10070,6 +10109,15 @@
    "licence": "CC BY-SA 4.0"
   }
  },
+ "Q23771417": {
+  "name": "Ynon Kreiz",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Ynon_Kreiz_%2814332933147%29.jpg/500px-Ynon_Kreiz_%2814332933147%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Ynon_Kreiz_(14332933147).jpg",
+   "author": "Gage Skidmore from Peoria, AZ, United States of America",
+   "licence": "CC BY-SA 2.0"
+  }
+ },
  "Q23780935": {
   "name": "Joe Robert Cole"
  },
@@ -10218,6 +10266,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:McCord-Lupino-Clark_in_Deep_Valley.jpg",
    "author": "unknown (Warner Bros.)",
    "licence": "Public domain"
+  }
+ },
+ "Q24004849": {
+  "name": "Simu Liu",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Simu_Liu_by_Gage_Skidmore.jpg/500px-Simu_Liu_by_Gage_Skidmore.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Simu_Liu_by_Gage_Skidmore.jpg",
+   "author": "Gage Skidmore",
+   "licence": "CC BY-SA 3.0"
   }
  },
  "Q240233": {
@@ -10555,6 +10612,15 @@
  },
  "Q24539806": {
   "name": "Virginia Katz"
+ },
+ "Q24572132": {
+  "name": "Kingsley Ben-Adir",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/7/78/Kingsley_Ben-Adir_during_an_interview%2C_January_2021.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Kingsley_Ben-Adir_during_an_interview,_January_2021.png",
+   "author": "AMFM STUDIOS LLC",
+   "licence": "CC BY-SA 3.0"
+  }
  },
  "Q24579118": {
   "name": "Nomzamo Mbatha"
@@ -11789,6 +11855,15 @@
    "licence": "Public domain"
   }
  },
+ "Q271967": {
+  "name": "Greta Gerwig",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Greta_Gerwig.jpg/500px-Greta_Gerwig.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Greta_Gerwig.jpg",
+   "author": "Raph_PH",
+   "licence": "CC BY 4.0"
+  }
+ },
  "Q272019": {
   "name": "Don Cheadle",
   "photo": {
@@ -12815,6 +12890,9 @@
  "Q291686": {
   "name": "Lindy Hemming"
  },
+ "Q29222955": {
+  "name": "Tom Ackerley"
+ },
  "Q29250": {
   "name": "Bill Murray",
   "photo": {
@@ -13671,6 +13749,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Martin_Freeman-5341.jpg",
    "author": "Harald Krichel",
    "licence": "CC BY-SA 3.0"
+  }
+ },
+ "Q309555": {
+  "name": "Michael Cera",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Michael_Cera_2012_%28Cropped%29.jpg/500px-Michael_Cera_2012_%28Cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Michael_Cera_2012_(Cropped).jpg",
+   "author": "Eva Rinaldi",
+   "licence": "CC BY-SA 2.0"
   }
  },
  "Q309589": {
@@ -19928,6 +20015,15 @@
    "licence": "CC BY 2.0"
   }
  },
+ "Q459349": {
+  "name": "Noah Baumbach",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Noah_Baumbach_Jay_Kelly-49.jpg/500px-Noah_Baumbach_Jay_Kelly-49.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Noah_Baumbach_Jay_Kelly-49.jpg",
+   "author": "Bryan Berlin",
+   "licence": "CC BY-SA 4.0"
+  }
+ },
  "Q459551": {
   "name": "Seton I. Miller"
  },
@@ -20592,6 +20688,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Andre_Holland_(32992815392_cut_out).jpg",
    "author": "Gordon Correll Derivative work MagentaGreen",
    "licence": "CC BY-SA 2.0"
+  }
+ },
+ "Q4758985": {
+  "name": "Andrew Wyatt",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Andrew_Wyatt_at_Music_Hall_of_Williamsburg.jpg/500px-Andrew_Wyatt_at_Music_Hall_of_Williamsburg.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Andrew_Wyatt_at_Music_Hall_of_Williamsburg.jpg",
+   "author": "Kennysun",
+   "licence": "CC BY-SA 3.0"
   }
  },
  "Q4761430": {
@@ -23633,6 +23738,24 @@
  "Q6056440": {
   "name": "Benjamin Wallfisch"
  },
+ "Q60590137": {
+  "name": "Emma Mackey",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/6/68/Emma_Mackey_MTV_UK%2C_January_2019.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Emma_Mackey_MTV_UK,_January_2019.jpg",
+   "author": "MTV UK",
+   "licence": "CC BY 3.0"
+  }
+ },
+ "Q60618349": {
+  "name": "Ncuti Gatwa",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Ncuti_Gatwa_3_cropped.png/500px-Ncuti_Gatwa_3_cropped.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Ncuti_Gatwa_3_cropped.png",
+   "author": "Doctor Who",
+   "licence": "CC BY 3.0"
+  }
+ },
  "Q606599": {
   "name": "Arsenio Hall",
   "photo": {
@@ -25406,6 +25529,15 @@
  "Q723014": {
   "name": "Nick Chinlund"
  },
+ "Q723057": {
+  "name": "Kate McKinnon",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Kate_McKinnon_at_the_2026_Sundance_Film_Festival_for_In_the_Blink_of_an_Eye_%28cropped%29.jpg/500px-Kate_McKinnon_at_the_2026_Sundance_Film_Festival_for_In_the_Blink_of_an_Eye_%28cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Kate_McKinnon_at_the_2026_Sundance_Film_Festival_for_In_the_Blink_of_an_Eye_(cropped).jpg",
+   "author": "Sarah K Joyce",
+   "licence": "CC BY-SA 4.0"
+  }
+ },
  "Q723252": {
   "name": "Craig Brewer"
  },
@@ -25765,6 +25897,9 @@
  },
  "Q7340551": {
   "name": "Rob Simonsen"
+ },
+ "Q7340855": {
+  "name": "Robbie Brenner"
  },
  "Q7341915": {
   "name": "Robert Barton"

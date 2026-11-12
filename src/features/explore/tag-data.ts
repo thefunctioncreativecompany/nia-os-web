@@ -437,4 +437,5 @@ export const HAND_TAGS: Record<string, string[]> = {
   "the-holiday": ["love", "home", "interiors", "snow", "rural", "travel", "joyful", "intimate", "set-design", "celebrity", "ensemble", "cinema"],
   "klaus": ["myth", "community", "snow", "friendship", "painterly", "uplifting", "playful", "genre-blend", "streaming", "full-crew", "warm-palette"],
   "jingle-jangle-a-christmas-journey": ["family", "music", "dance", "myth", "joyful", "uplifting", "costume", "set-design", "practical-effects", "music-led", "celebrity", "streaming", "ensemble"],
+  "barbie": ["women", "identity", "fashion", "costume", "set-design", "practical-effects", "playful", "darkly-comic", "vivid-colour", "genre-blend", "celebrity", "ensemble", "cinema"],
 };

@@ -2305,6 +2305,111 @@
    }
   ]
  },
+ "barbie": {
+  "qid": "Q55436290",
+  "people": [
+   {
+    "id": "Q193815",
+    "role": "Cast",
+    "character": "Ken Carson"
+   },
+   {
+    "id": "Q219402",
+    "role": "Cast",
+    "character": "Gloria"
+   },
+   {
+    "id": "Q24004849",
+    "role": "Cast",
+    "character": "Ken Carson"
+   },
+   {
+    "id": "Q723057",
+    "role": "Cast",
+    "character": "Weird Barbie"
+   },
+   {
+    "id": "Q14914898",
+    "role": "Cast",
+    "character": "Writer Barbie"
+   },
+   {
+    "id": "Q60590137",
+    "role": "Cast",
+    "character": "Physicist Barbie"
+   },
+   {
+    "id": "Q24572132",
+    "role": "Cast",
+    "character": "Ken Carson"
+   },
+   {
+    "id": "Q13560267",
+    "role": "Cast",
+    "character": "President Barbie"
+   },
+   {
+    "id": "Q309555",
+    "role": "Cast",
+    "character": "Allan"
+   },
+   {
+    "id": "Q234058",
+    "role": "Cast",
+    "character": "Ruth Handler"
+   },
+   {
+    "id": "Q218503",
+    "role": "Cast",
+    "character": "the CEO of Mattel"
+   },
+   {
+    "id": "Q60618349",
+    "role": "Cast",
+    "character": "Ken Carson"
+   },
+   {
+    "id": "Q271967",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q459349",
+    "role": "Writer"
+   },
+   {
+    "id": "Q1924847",
+    "role": "Producer"
+   },
+   {
+    "id": "Q29222955",
+    "role": "Producer"
+   },
+   {
+    "id": "Q7340855",
+    "role": "Producer"
+   },
+   {
+    "id": "Q319986",
+    "role": "Producer"
+   },
+   {
+    "id": "Q23771417",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1341403",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q109361297",
+    "role": "Editor"
+   },
+   {
+    "id": "Q4758985",
+    "role": "Music"
+   }
+  ]
+ },
  "batman": {
   "qid": "Q116852",
   "people": [
