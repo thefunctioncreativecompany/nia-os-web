@@ -40,6 +40,19 @@ Performance audit (2026-10-21)
   PDF preview waits until the page is idle. Left for later: ten unindexed foreign keys and two
   `project_files` read rules (fine at today's size); `/projects/[id]#references` doesn't scroll
   to References (already so before this audit).
+- [x] Third audit (2026-11-11). Each page's own compressed JavaScript, read from the build's
+  manifests (what the page needs to open, not pages fetched in advance), before → after:
+  Login 295, Home 402, Projects 394, project page 412, editor 444, Templates 414 (all flat or
+  smaller since 2026-10-24); Explore 554 → 488 (was 389 in October), a title page 559 → 493,
+  Explore all 526 → 461, Explore cast & crew 454 → 393, Studios 432 → 372. Fixed: pages no longer
+  carry every title's press kit (173 kits, ~65 KB): title and film pages get their own from the
+  server and the press-kit pop-up fetches its one when it opens (`loadPress`); pages that only link
+  back to Explore no longer import its whole title list (`features/explore/paths.ts`, ~60 KB).
+  Checked: global search's Explore list (studios, cast & crew) is 18 KB, loaded on first open.
+  Left for later: Explore pages still carry the title list (59 KB) and tag data in the browser
+  (moving title cards' data to the server is a bigger change); the editor's PDF preview (125 KB)
+  and first-use tutorial player (106 KB) already load after the page; Home shares a 16 KB piece
+  with Templates that holds the workflows list.
 
 Projects × Explore (Ika, 2026-10-21)
 - [x] Projects: find and sort (search, a chip per stage with counts, Type and Genre in the shared
