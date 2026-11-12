@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "switch-accounts",
+    date: "2026-11-11",
+    title: "Switch between accounts",
+    body: "Add another account from your profile menu and switch between them in one tap, without logging out. Back on the login page, continue as any account you've used here.",
+    href: "/settings/profile",
+    cta: "Open your profile",
+    icon: "ArrowLeftRight",
+    weight: { production: 0.6, fashion: 0.6, creator: 0.6 },
+  },
+  {
     id: "holiday-classics",
     date: "2026-11-11",
     title: "Holiday classics on Explore",

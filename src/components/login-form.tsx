@@ -2,13 +2,24 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useMemo, useState, useSyncExternalStore } from 'react'
 
 import { authProblem, friendlyAuthError } from '@/lib/auth-errors'
 import { safeNextPath } from '@/lib/safe-next-path'
 import { createClient } from '@/lib/supabase/client'
+import { parseAccounts, remember, switchTo } from '@/lib/accounts'
+import { AccountChoices } from '@/components/auth/account-choices'
 import { AuthForm } from '@/components/auth/auth-form'
 import { AuthInput, AuthPasswordInput } from '@/components/auth/auth-input'
+
+const noChange = () => () => {}
+const accountsSnapshot = () => {
+  try {
+    return localStorage.getItem('nia-accounts') ?? '[]'
+  } catch {
+    return '[]'
+  }
+}
 
 export function LoginForm() {
   const [email, setEmail] = useState('')
@@ -24,7 +35,7 @@ export function LoginForm() {
     setError(null)
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       })
@@ -42,6 +53,8 @@ export function LoginForm() {
         }
         throw error
       }
+      // Saved on this device, so the user can switch back to it later (src/lib/accounts.ts).
+      remember(data.session)
       // Send them back where they were going, if a protected page sent them here.
       const next = new URLSearchParams(window.location.search).get('next')
       router.push(safeNextPath(next, '/home'))
@@ -51,10 +64,22 @@ export function LoginForm() {
     }
   }
 
+  // Accounts already used on this device (Ika, 2026-11-11): one tap to continue as one of them.
+  // "Add another account" (?add=1) keeps the current one signed in and shows this form for the next.
+  const raw = useSyncExternalStore(noChange, accountsSnapshot, () => '[]')
+  const accounts = useMemo(() => parseAccounts(raw), [raw])
+  const adding = useSyncExternalStore(noChange, () => new URLSearchParams(window.location.search).has('add'), () => false)
+  const continueAs = async (id: string) => {
+    setIsLoading(true)
+    if ((await switchTo(createClient(), id)) === 'ok') { router.push('/home'); router.refresh(); return }
+    setIsLoading(false)
+    setError('That account was signed out. Log in to it again below.')
+  }
+
   return (
     <AuthForm
-      title="Log in"
-      description="Welcome back to your workspace"
+      title={adding ? 'Add an account' : 'Log in'}
+      description={adding ? 'You stay signed in to your other accounts' : 'Welcome back to your workspace'}
       submitLabel="Log in"
       pendingLabel="Logging in..."
       isPending={isLoading}
@@ -64,12 +89,13 @@ export function LoginForm() {
       footer={
         <>
           Don&apos;t have an account?{' '}
-          <Link href="/signup" className="font-bold text-nia-ink underline">
+          <Link href={adding ? '/signup?add=1' : '/signup'} className="font-bold text-nia-ink underline">
             Create one
           </Link>
         </>
       }
     >
+      {!adding && accounts.length > 0 && <AccountChoices accounts={accounts} disabled={isLoading} onPick={continueAs} />}
       <AuthInput
         id="email"
         type="email"

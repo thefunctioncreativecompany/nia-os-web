@@ -782,3 +782,11 @@ onboarding's Import profile and Follow creators describe features removed in the
   chapters and closing portrait as looks; Barbie added as a reference. Ika's two features from it
   are logged as BR1 (paste a brief, get a Space) and BR2 (Nia spots the reference) and designed as
   screens 7 and 8 on the Spaces canvas.
+- (2026-11-11) More than one account on a device (Ika: "signing in or up with a new account, and
+  switching between accounts, without destroying anything"). The profile menu lists the other
+  accounts used here (one tap to switch) and "Add another account", which keeps the current one
+  signed in and opens the login page as "Add an account" (sign-up works the same way). The login
+  page offers "Continue" for each saved account. Accounts wait in this browser only, each with its
+  refresh token kept current as Supabase rotates it (`src/lib/accounts.ts`); switching never signs
+  anything out on the server. Log out now ends only this account on this device (it ended every
+  device before). Tested with both test accounts: add, switch both ways, log out, continue.
