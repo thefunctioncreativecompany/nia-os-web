@@ -791,3 +791,14 @@ onboarding's Import profile and Follow creators describe features removed in the
   anything out on the server. Log out now ends only this account on this device (it ended every
   device before). Tested with both test accounts: add, switch both ways, log out, continue.
 - (2026-11-11, later) Accounts sit in one section of the profile menu, after Ika's reference: "Accounts", the signed-in account ticked, the others on this device (picture or initial) to switch to, then Add another account; not separate menu rows. Built into the menu component (`accounts` prop).
+- (2026-11-11) Spaces, round 2 (Ika: "at least 15 iterations, then implement each micro UI element
+  into what is currently Projects"): 16 more prototypes on the Spaces canvas (9–24), one
+  interaction each, named after the existing component it uses: Space switcher, Space cards,
+  phase in one tap, Needs you swipe/done/undo, edit in place with undo, shoot days on a calendar,
+  call-time wheel and shift all, location radio cards with map, shots drag/multi-select/bulk bar,
+  who's on the day (avatar multi-select), budget ring and steppers, references grid you reorder,
+  versions and restore, do-it-from-search, first-run setup checklist, the Space on a phone.
+  Proposed order into Projects (smallest change, most daily use first): 13 edit in place + undo,
+  12 Needs you, 11 phase, 10 Space cards, 9 switcher, 23 setup checklist, 17 shots, 20 references
+  grid, 21 versions, 22 search actions; 14, 15, 16, 18 and 19 wait for shoot days, locations and
+  budget data (Milestone 4).
