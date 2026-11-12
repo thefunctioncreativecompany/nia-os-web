@@ -7,7 +7,7 @@ import { ArrowLeft, ArrowRight, Check, ChevronDown, History } from "lucide-react
 
 import { cn, getInitials } from "@/lib/utils";
 import { DURATION, EASE_OUT } from "@/lib/motion";
-import { describeActivity, type ActivityItem } from "@/lib/projects";
+import { describeActivity, projectNoteHref, type ActivityItem } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -37,6 +37,8 @@ type Entry = {
   line: ReactNode;
   unread: boolean;
   noteId?: number;
+  /** Where Open project goes, when not the project's first tab (a comment opens Comments). */
+  href?: string;
 };
 
 // A notification and the activity row it came from are written together (same project, same kind
@@ -81,6 +83,7 @@ function fromNote(note: Note): Entry {
     at: note.created_at,
     kind: note.kind === "shared" ? "sharing" : (KINDS.find((k) => k.id !== "projects" && k.words.test(text))?.id ?? "projects"),
     projectId: note.project_id,
+    href: note.project_id ? projectNoteHref(note.project_id, note.title) : undefined,
     projectTitle: "",
     person: note.title,
     line: (
@@ -321,7 +324,7 @@ function Row({ entry, open, onToggle, ease }: { entry: Entry; open: boolean; onT
               </span>
               {entry.projectId && (
                 <Button variant="outline" size="compact" asChild>
-                  <Link href={`/projects/${entry.projectId}`}>
+                  <Link href={entry.href ?? `/projects/${entry.projectId}`}>
                     Open project <ArrowRight aria-hidden />
                   </Link>
                 </Button>

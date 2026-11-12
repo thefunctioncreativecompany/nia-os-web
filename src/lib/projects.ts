@@ -107,6 +107,13 @@ export type CrewMember = { role: string; name: string; userId?: string };
 export const deliverableText = (d: Deliverable) => `${d.count > 1 ? `${d.count} × ` : ""}${d.what}${d.frame ? ` · ${d.frame}` : ""}`;
 
 /** "Nov 12, 2026 – Nov 14, 2026 · 3 shoot days", or one day. */
+/** Where a notification about a project opens: its Comments tab for a comment or a reply
+ * (20261112000000_comments.sql writes "… commented on …" and "… replied to your comment …"),
+ * else the project. */
+export function projectNoteHref(projectId: string, title: string) {
+  return /\b(commented on|replied to your comment)\b/.test(title) ? `/projects/${projectId}?tab=comments` : `/projects/${projectId}`;
+}
+
 export function shootDatesText(start: string | null, end: string | null) {
   const a = start ? parseDay(start) : undefined;
   if (!start || !a) return "";

@@ -104,6 +104,20 @@ export async function countProjectPeople(projectId: string) {
   return (data ?? []).filter((person: { kind: string }) => person.kind !== "invite").length;
 }
 
+/** The project tabs' counts that need a lookup: its references (Explore titles and Instagram
+ * links; stills are counted from its files) and its comments, removed ones left out. */
+export async function countProjectTabExtras(projectId: string) {
+  const { supabase } = await requireUser();
+  const [refs, comments] = await Promise.all([
+    supabase.from("project_references").select("id", { count: "exact", head: true }).eq("project_id", projectId).is("deleted_at", null),
+    supabase.rpc("list_comments", { pid: projectId }),
+  ]);
+  return {
+    references: refs.count ?? 0,
+    comments: ((comments.data as { removed: boolean }[] | null) ?? []).filter((c) => !c.removed).length,
+  };
+}
+
 /** Projects this person opened through a view-only link that's still on (audit #11). */
 export async function listLinkSharedProjects() {
   const { supabase } = await requireUser();

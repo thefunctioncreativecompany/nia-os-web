@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Archive, MailOpen } from "lucide-react";
 
-import { describeActivity, timeAgo, type ActivityItem } from "@/lib/projects";
+import { describeActivity, projectNoteHref, timeAgo, type ActivityItem } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { cn, getInitials } from "@/lib/utils";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -114,7 +114,7 @@ export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[];
                   type="button"
                   onClick={() => {
                     if (!row.note.read_at) mark(row.note.id, { read_at: new Date().toISOString() });
-                    if (row.note.project_id) router.push(`/projects/${row.note.project_id}`);
+                    if (row.note.project_id) router.push(projectNoteHref(row.note.project_id, row.note.title));
                   }}
                   className="flex w-full min-w-0 items-center gap-3 text-left outline-none"
                 >

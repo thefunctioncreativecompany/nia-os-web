@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "project-tabs",
+    date: "2026-11-12",
+    title: "A new project page",
+    body: "Your cover across the top, then tabs for crew, documents, references, comments and activity. Share and edit from the cover.",
+    href: "/projects",
+    cta: "Open a project",
+    icon: "Clapperboard",
+    weight: { production: 0.9, fashion: 0.9, creator: 0.8 },
+  },
+  {
     id: "comments",
     date: "2026-11-11",
     title: "Comments on projects and Explore",

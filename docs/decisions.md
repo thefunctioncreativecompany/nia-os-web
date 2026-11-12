@@ -844,6 +844,16 @@ onboarding's Import profile and Follow creators describe features removed in the
   Production, Comments, Files, References) stay below the top bar as you scroll, jump to their
   section (opening Details first when needed) and mark the one you're reading
   (`project-section-nav.tsx`). Everything else is where it was.
+- (2026-11-12, later) Variation 2 built as drawn (Ika: "implement as is, build in features that don't
+  yet exist"). The cover runs edge to edge under the top bar with Back to Projects, the title,
+  type · stage · shoot dates, Edit details and Share project on it. Real tabs under it, each with
+  its count and kept in the address (`?tab=comments`; arrow keys move between them;
+  `project-tabs.tsx`): Overview (description, final assets, Notes, three reference stills with
+  View all, and the details in a card, every value still editable), Crew & talent, Documents (the
+  full list), References (Files & references, then Explore references and suggestions), Comments,
+  Activity (recent activity, the project overview, Delete project for the owner). The Details |
+  Manage switch is gone; its parts live in those tabs. Comment notifications open the Comments
+  tab (`projectNoteHref`). Behind the Production's pills are gone (Documents has the full list).
 - (2026-11-11) Product analytics: PostHog (`src/components/analytics.tsx`, in the root layout). It
   loads after the page shows, runs only when `NEXT_PUBLIC_POSTHOG_KEY` is set, records page views
   on route changes, and knows signed-in people by account id only (no name or email).
