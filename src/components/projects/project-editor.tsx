@@ -108,6 +108,7 @@ export function ProjectEditor({
   finals,
   files,
   inspiration,
+  comments,
 }: {
   project: Project;
   canEdit: boolean;
@@ -118,6 +119,8 @@ export function ProjectEditor({
   files: React.ReactNode;
   /** Explore references and suggestions, under the files. */
   inspiration?: React.ReactNode;
+  /** Comments from the people on the project, under the cover and description (Ika, 2026-11-11). */
+  comments?: React.ReactNode;
 }) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -293,6 +296,7 @@ export function ProjectEditor({
             />
           </div>
           {finals}
+          {comments}
         </div>
 
         {/* Right: Details or Manage. */}

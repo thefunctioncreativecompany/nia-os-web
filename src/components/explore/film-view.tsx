@@ -15,6 +15,7 @@ import type { PressCoverage, PressVideo } from "./press-coverage";
 import { AddToProject, SaveToCollection } from "./save-controls";
 import { CreditsViewAll } from "./credits-view-all";
 import { BackLink } from "@/components/nia/back-link";
+import { Comments } from "@/components/nia/comments";
 
 // A film's own page (Ika, 2026-10-28), laid out like a project page and Explore's title pages:
 // the video where the cover sits, then the title, Save / Add to project and the summary on the
@@ -115,6 +116,8 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0, press = null }:
       <CastCrewRow people={castCrew} total={castTotal} viewAll={<CreditsViewAll slug={slug} title={film.title} total={castTotal} />} note={WIKIDATA_NOTE} />
 
       {press && <PressKitSection title={film.title} imdb={details.imdb} press={press} playing={video?.id ?? null} onChoose={choose} />}
+
+      <Comments subject={{ slug }} />
     </div>
   );
 }

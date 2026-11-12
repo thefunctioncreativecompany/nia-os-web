@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { attribution, embedUrl, imdbUrl, pickSeason, primaryVideo, videoName, watchUrl, type Season, type Video } from "@/lib/explore";
 import { Button } from "@/components/ui/button";
 import { ChoicePills } from "@/components/nia/choice-pills";
+import { Comments } from "@/components/nia/comments";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { CastCrewRow, WIKIDATA_NOTE, type RowPerson } from "@/components/nia/cast-crew-row";
 import { LIBRARY_HREF, categoryViews, coverFor, essentialWhy, isTrailerStill, stillCaption, stillVideoId, wideCoverFor, type CategoryKey, creditTerm, exploreHome, findEntry, sameCategory, titleHref, typeName, type Entry } from "@/features/explore/made-in-africa";
@@ -283,6 +284,8 @@ export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }:
           ))}
         </ScrollRow>
       </section>
+
+      <Comments subject={{ slug: title.slug }} />
     </div>
   );
 }

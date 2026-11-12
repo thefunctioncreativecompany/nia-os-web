@@ -11,6 +11,7 @@ import { ProjectLive } from "@/components/projects/project-live";
 import { DocumentPills, ProjectDocuments } from "@/components/projects/project-documents";
 import { ProjectFiles, ProjectFinalAssets } from "@/components/projects/project-files";
 import { ProjectInspiration } from "@/components/projects/project-inspiration-lazy";
+import { Comments } from "@/components/nia/comments";
 import { everyTemplate } from "@/features/templates/catalog";
 import type { ProjectSignals } from "@/features/explore/match";
 import type { Project } from "@/lib/projects";
@@ -66,6 +67,7 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
         finals={<ProjectFinalAssets files={files} canEdit={canEdit} now={now} />}
         files={<ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />}
         inspiration={<ProjectInspiration projectId={id} signals={inspirationSignals(project)} canEdit={canEdit} />}
+        comments={<Comments subject={{ projectId: id }} />}
         manage={
           <div className="flex flex-col gap-6">
             <ProjectActions project={project} role={role} />

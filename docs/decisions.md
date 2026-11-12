@@ -826,6 +826,15 @@ onboarding's Import profile and Follow creators describe features removed in the
   link (`shared_project_reference_items`, `20261111010000_shared_reference_stills.sql`), then the
   server opens each still with an hour-long link using the secret key (`SUPABASE_SECRET_KEY`,
   `src/lib/supabase/admin.ts`). Without the migration or the key, the titles show alone.
+- (2026-11-11, later) Comments (Ika, after YouTube's): on a project, under its cover and description
+  (left column), for everyone on it, viewers included; under Explore titles and films, for anyone
+  signed in. "Add a comment…" grows as you write (Cancel / Comment; Cmd+Enter sends); newest first;
+  replies one level deep behind "N replies"; authors edit (marked "edited") and remove their own; a
+  project's owner can remove any on it. Removed comments with replies stay as "Comment removed".
+  The owner hears about new comments on their project, and people about replies to theirs. No likes
+  or dislikes (Explore keeps no scores). Loads when the section nears the screen. Database:
+  `20261112000000_comments.sql` (one `comments` table reached only through functions; a pause
+  after 20 comments in 5 minutes). Hidden until it's run.
 - (2026-11-11) Product analytics: PostHog (`src/components/analytics.tsx`, in the root layout). It
   loads after the page shows, runs only when `NEXT_PUBLIC_POSTHOG_KEY` is set, records page views
   on route changes, and knows signed-in people by account id only (no name or email).

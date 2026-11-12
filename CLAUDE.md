@@ -321,5 +321,5 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261106000000_project_details_crew.sql`; also `20261028000000_plans.sql`,
 `20261029000000_marketplace_waitlist.sql` and `20261103000000_explore_views.sql` (found run,
 2026-10-28); `20261107000000_security_function_access.sql`, `20261108000000_explore_top.sql` and
-`20261109000000_people.sql`. `20261111000000_link_access_requests.sql` (2026-11-11). Not run: `20261111010000_shared_reference_stills.sql` (until it is, and `SUPABASE_SECRET_KEY` is set, shared links show Explore references only), `20261110000000_explore_open.sql` (until it is, only invited people can save titles or add them to projects), `20261030000000_explore_made_in_africa.sql` (Explore reads
+`20261109000000_people.sql`. `20261111000000_link_access_requests.sql` (2026-11-11). `20261111010000_shared_reference_stills.sql` (2026-11-11). Not run: `20261112000000_comments.sql` (until it is, comments stay hidden), `20261110000000_explore_open.sql` (until it is, only invited people can save titles or add them to projects), `20261030000000_explore_made_in_africa.sql` (Explore reads
 sample data).
