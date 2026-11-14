@@ -928,3 +928,7 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-14) Template preview: only About this template shows; How to use and each question fold out,
   FAQ style (Ika). shadcn Accordion added (`src/components/ui/accordion.tsx`, no animation under
   reduced motion). Related templates stay visible as cards.
+- (2026-11-14, later) Template preview, folded further (Ika: "about this template, description, tags,
+  everything else under FAQ"): the title, Use this template and the picture lead; then the description,
+  the tags and About this template show. What it does for you and your team, How to use, each question
+  and Related templates are fold-out rows, all closed.

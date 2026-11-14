@@ -25,7 +25,8 @@ const TutorialPlayer = dynamic(() => import("@/features/templates/tutorial/tutor
 
 // The template preview pop-up (TEMPLATES_BUILD.md §5, prototype PreviewModal): group and
 // code, title, "Use this template", a miniature of the document (or the workflow map),
-// description and keywords, About, How to use, FAQ and Related templates. Expand / shrink,
+// description, keywords and About, then What it does, How to use, FAQ and Related templates as
+// fold-out rows. Expand / shrink,
 // previous / next (← →) within the list it was opened from, Escape or outside to close.
 // Full screen on phones. PreviewPanel shows the same thing docked on the right (A/B, Ika
 // 2026-11-14: "a right panel open for … template preview", like Claude's artifacts panel).
@@ -194,7 +195,6 @@ function PreviewBody({
             <li key={k} className="rounded-full bg-secondary px-3 py-1.5 text-small text-foreground/80">{k}</li>
           ))}
         </ul>
-        <TemplateValue template={t} className="mt-6.5 max-w-225" />
 
         {preview === undefined ? (
           <div className="mt-9 flex max-w-225 flex-col gap-3">
@@ -210,9 +210,16 @@ function PreviewBody({
               <p key={i} className="mb-3 max-w-225 text-lead leading-relaxed text-foreground/80">{p}</p>
             ))}
 
-            {/* Only About shows; how to use and each question fold out, FAQ style (Ika, 2026-11-14). */}
-            {(preview.details.howTo.length > 0 || preview.details.faq.length > 0) && (
-              <Accordion type="multiple" className="mt-6 max-w-225 border-y border-border">
+            {/* The description, tags and About show; everything else folds out, FAQ style (Ika, 2026-11-14). */}
+            <Accordion type="multiple" className="mt-6 max-w-225 border-y border-border">
+                {(t.forYou || t.forTeam) && (
+                  <AccordionItem value="value" className="border-border">
+                    <AccordionTrigger className={foldTrigger}>What it does for you and your team</AccordionTrigger>
+                    <AccordionContent className="pb-5">
+                      <TemplateValue template={t} />
+                    </AccordionContent>
+                  </AccordionItem>
+                )}
                 {preview.details.howTo.length > 0 && (
                   <AccordionItem value="how-to" className="border-border">
                     <AccordionTrigger className={foldTrigger}>How to use the {t.name}</AccordionTrigger>
@@ -236,13 +243,11 @@ function PreviewBody({
                     </AccordionContent>
                   </AccordionItem>
                 ))}
-              </Accordion>
-            )}
-
-            {preview.related.length > 0 && (
-              <>
-                <Heading>Related templates</Heading>
-                <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,16.25rem),1fr))] gap-4.5">
+                {preview.related.length > 0 && (
+                  <AccordionItem value="related" className="border-border">
+                    <AccordionTrigger className={foldTrigger}>Related templates</AccordionTrigger>
+                    <AccordionContent className="pb-5">
+                      <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,16.25rem),1fr))] gap-4.5">
                   {preview.related.map((r) => (
                     <button
                       key={r.code}
@@ -262,8 +267,10 @@ function PreviewBody({
                     </button>
                   ))}
                 </div>
-              </>
-            )}
+                    </AccordionContent>
+                  </AccordionItem>
+                )}
+            </Accordion>
           </>
         )}
       </div>
