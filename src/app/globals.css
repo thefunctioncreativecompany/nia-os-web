@@ -339,6 +339,8 @@
    bar scrolls away (0). Desktop: a 4rem frosted bar that stays at the top (Ika, 2026-11-08). */
 :root {
   --nav-h: 5rem;
+  /* The docked preview panel (A/B, 2026-11-14): its width, and the room the page leaves for it. */
+  --preview-panel-w: min(46rem, 46vw);
   --nav-offset: 0rem;
 }
 @media (width >= 64rem) {

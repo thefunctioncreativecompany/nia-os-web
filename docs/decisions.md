@@ -909,3 +909,11 @@ onboarding's Import profile and Follow creators describe features removed in the
   carousel shows `ROW_MAX` (ten) and View all opens the whole category as the list in place.
   Production management & operations stays a list (paperwork people find by name). Phone page
   4,573px to 3,539px.
+- (2026-11-14) Template cards back to the earlier look in the carousels (Ika: "revert to the previous card
+  design"): a large picture tile, then name, phase and what it's for, no border.
+- (2026-11-14) A/B: a right panel for previews on computers (Ika: "a/b test a right panel open for
+  artifacts/documents/template preview", after Claude's artifacts panel). A template's preview docks
+  on the right (`PreviewPanel`, width `--preview-panel-w`); the page leaves room for it
+  (`in-data-[preview-panel=open]`), so the list stays in reach and another template swaps in.
+  `features.previewPanel`; `?layout=popup` shows the old pop-up to compare. Phones and tablets
+  keep the pop-up until they get their own design.

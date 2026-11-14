@@ -114,16 +114,15 @@ function CarouselSection({ group, items, onPreview }: { group: string; items: Ga
                 type="button"
                 onClick={() => onPreview(t, items)}
                 aria-label={`${t.name}, ${phaseOf(t)}. Preview the template.`}
-                className="hover-sweep group flex w-64 flex-col gap-3 rounded-2xl border border-border bg-card p-3 text-left outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+                className="group flex w-75 flex-col gap-2.5 rounded-2xl text-left outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
               >
-                <span className={cn(tile, "aspect-[4/3] w-full rounded-xl", grainFor(t.code))}>
-                  <FlatIcon name={t.icon} className="size-10 stroke-[1.4] text-current" />
+                {/* The earlier template card (Ika, 2026-11-14: "revert to the previous card design"). */}
+                <span className={cn(tile, "size-75 rounded-2xl transition-shadow duration-base group-hover:shadow-card-hover", grainFor(t.code))}>
+                  <FlatIcon name={t.icon} className="size-15 stroke-[1.3] text-current" />
                 </span>
-                <span className="flex flex-col gap-2 px-1 pb-1">
-                  <span className="truncate text-lead font-bold tracking-tight text-foreground">{t.name}</span>
-                  <span className={cn("inline-flex h-6.5 w-fit items-center rounded-full px-2.5 text-caption font-medium", PHASE[phaseOf(t)])}>{phaseOf(t)}</span>
-                  <span className="line-clamp-2 text-small leading-snug text-muted-foreground">{t.preview}</span>
-                </span>
+                <span className="text-lg font-bold text-foreground">{t.name}</span>
+                <span className={cn("-mt-1 inline-flex h-6.5 w-fit items-center rounded-full px-2.5 text-caption font-medium", PHASE[phaseOf(t)])}>{phaseOf(t)}</span>
+                <span className="line-clamp-2 text-small leading-snug text-muted-foreground">{t.preview}</span>
               </button>
             </li>
           ))}

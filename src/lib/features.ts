@@ -8,4 +8,8 @@ export const features = {
   // On since 2026-11-10 (Ika: no invite code for now); the database's side is
   // supabase/migrations/20261110000000_explore_open.sql.
   exploreUnlocked: true,
+  // A/B (Ika, 2026-11-14): on computers a template's preview opens in a panel on the right, like
+  // Claude's artifacts, instead of the centred pop-up. Add ?layout=popup to the address to compare.
+  // Phones and tablets keep the pop-up until they get their own design.
+  previewPanel: true,
 } as const;

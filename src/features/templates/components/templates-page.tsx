@@ -11,7 +11,9 @@ import { FILTERS, inFilter, type Filter, type GalleryTemplate } from "@/features
 import { CompactTile } from "@/features/templates/components/compact-tile";
 import { TemplateCard } from "@/features/templates/components/template-card";
 import { TemplateSearch } from "@/features/templates/components/template-search";
-import { PreviewModal } from "@/features/templates/components/preview-modal";
+import { PreviewModal, PreviewPanel } from "@/features/templates/components/preview-modal";
+import { useMediaQuery } from "@/hooks/use-pointer";
+import { features } from "@/lib/features";
 import { CategorySections } from "@/features/templates/components/category-sections";
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
 import { MyDrafts } from "@/features/templates/components/my-drafts";
@@ -85,7 +87,7 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
   };
 
   return (
-    <div className="flex w-full flex-col pt-10 pb-18 lg:pt-12.5">
+    <div className="flex w-full flex-col pt-10 pb-18 lg:pt-12.5 lg:in-data-[preview-panel=open]:pr-(--preview-panel-w)">
       <div className="flex flex-col gap-4.5 px-4 md:px-page">
         <h1 className="text-h2 font-semibold tracking-tight text-foreground">Templates</h1>
 
@@ -196,7 +198,11 @@ function PreviewFromAddress({
   onClose: () => void;
   onUse: (t: GalleryTemplate) => void;
 }) {
-  const code = useSearchParams().get("preview");
+  const params = useSearchParams();
+  const code = params.get("preview");
+  // A/B: the docked panel on computers, the pop-up elsewhere or with ?layout=popup.
+  const computer = useMediaQuery("(min-width: 64rem)");
+  const docked = features.previewPanel && computer && params.get("layout") !== "popup";
   const template = code ? templates.find((t) => t.code === code) : undefined;
   // Every template shown counts as a view, however it was opened (click, hover, a shared link).
   const shown = template?.code;
@@ -208,7 +214,7 @@ function PreviewFromAddress({
   if (!template) return null;
   // A shared link opens with the whole catalogue to step through.
   const within = list.some((t) => t.code === template.code) ? list : templates;
-  return <PreviewModal template={template} list={within} {...actions} />;
+  return docked ? <PreviewPanel template={template} list={within} {...actions} /> : <PreviewModal template={template} list={within} {...actions} />;
 }
 
 function FilterChips({ templates, filter, onChange }: { templates: GalleryTemplate[]; filter: Filter; onChange: (next: Filter) => void }) {
