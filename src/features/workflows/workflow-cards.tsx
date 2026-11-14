@@ -79,7 +79,8 @@ export function WorkflowCards({ templates, profession, headingId = "workflows", 
 function WorkflowCover({ steps, className }: { steps: Named[]; className?: string }) {
   return (
     <span aria-hidden className={cn("grid aspect-[16/10] w-full place-items-center overflow-hidden rounded-2xl px-[8%] transition-shadow duration-base group-hover:shadow-card-hover", className)}>
-      <span className="relative flex w-full items-center justify-between">
+      {/* Sized to the cover (container units) so five steps always fit (Ika, 2026-11-14: the last one was cut off). */}
+      <span className="@container relative flex w-full items-center justify-between">
         {/* The line the steps sit on, and the one that draws over it. */}
         <span className="absolute inset-x-5 top-1/2 h-px -translate-y-1/2 bg-current opacity-25" />
         <span className="absolute inset-x-5 top-1/2 h-0.5 origin-left -translate-y-1/2 scale-x-0 bg-current transition-transform duration-settle ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none" />
@@ -87,9 +88,9 @@ function WorkflowCover({ steps, className }: { steps: Named[]; className?: strin
           <span
             key={t.code}
             style={{ animationDelay: `${i * 90}ms`, transitionDelay: `${i * 70}ms` }}
-            className="relative grid size-10 animate-in place-items-center rounded-xl bg-card text-foreground shadow-elevation-2 transition-transform duration-base ease-out fade-in zoom-in-90 fill-mode-both group-hover:-translate-y-1 group-focus-visible:-translate-y-1 motion-reduce:translate-y-0! motion-reduce:animate-none sm:size-11 lg:size-12"
+            className="relative grid size-[min(3rem,17cqi)] animate-in place-items-center rounded-[min(0.75rem,4cqi)] bg-card text-foreground shadow-elevation-2 transition-transform duration-base ease-out fade-in zoom-in-90 fill-mode-both group-hover:-translate-y-1 group-focus-visible:-translate-y-1 motion-reduce:translate-y-0! motion-reduce:animate-none"
           >
-            <FlatIcon name={t.icon} className="size-5 stroke-[1.6]" />
+            <FlatIcon name={t.icon} className="size-[min(1.25rem,7cqi)] stroke-[1.6]" />
           </span>
         ))}
       </span>
