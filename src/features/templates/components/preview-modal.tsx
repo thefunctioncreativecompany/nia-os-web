@@ -12,6 +12,7 @@ import { WORKFLOWS } from "@/lib/template-workflows";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { PrevNext, SidePanel } from "@/components/nia/side-panel";
 import { loadTemplatePreview, type TemplatePreview } from "@/features/templates/actions";
 import { COMING_SOON, works, type GalleryTemplate } from "@/features/templates/gallery";
@@ -209,32 +210,33 @@ function PreviewBody({
               <p key={i} className="mb-3 max-w-225 text-lead leading-relaxed text-foreground/80">{p}</p>
             ))}
 
-            {preview.details.howTo.length > 0 && (
-              <>
-                <Heading>How to use the {t.name}</Heading>
-                <ol className="flex flex-col gap-3">
-                  {preview.details.howTo.map((step, i) => (
-                    <li key={i} className="flex items-start gap-3.5 text-lead leading-normal text-foreground/80">
-                      <span className="flex size-6.5 shrink-0 items-center justify-center rounded-full border border-border text-micro text-foreground">{i + 1}</span>
-                      {step}
-                    </li>
-                  ))}
-                </ol>
-              </>
-            )}
-
-            {preview.details.faq.length > 0 && (
-              <>
-                <Heading>Frequently asked questions</Heading>
-                <dl className="flex max-w-225 flex-col gap-4.5">
-                  {preview.details.faq.map((f) => (
-                    <div key={f.q}>
-                      <dt className="mb-1.25 text-lead font-bold text-foreground">{f.q}</dt>
-                      <dd className="text-lead leading-relaxed text-foreground/80">{f.a}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </>
+            {/* Only About shows; how to use and each question fold out, FAQ style (Ika, 2026-11-14). */}
+            {(preview.details.howTo.length > 0 || preview.details.faq.length > 0) && (
+              <Accordion type="multiple" className="mt-6 max-w-225 border-y border-border">
+                {preview.details.howTo.length > 0 && (
+                  <AccordionItem value="how-to" className="border-border">
+                    <AccordionTrigger className={foldTrigger}>How to use the {t.name}</AccordionTrigger>
+                    <AccordionContent className="pb-5">
+                      <ol className="flex flex-col gap-3">
+                        {preview.details.howTo.map((step, i) => (
+                          <li key={i} className="flex items-start gap-3.5 text-lead leading-normal text-foreground/80">
+                            <span className="flex size-6.5 shrink-0 items-center justify-center rounded-full border border-border text-micro text-foreground">{i + 1}</span>
+                            {step}
+                          </li>
+                        ))}
+                      </ol>
+                    </AccordionContent>
+                  </AccordionItem>
+                )}
+                {preview.details.faq.map((f) => (
+                  <AccordionItem key={f.q} value={f.q} className="border-border">
+                    <AccordionTrigger className={foldTrigger}>{f.q}</AccordionTrigger>
+                    <AccordionContent className="pb-5">
+                      <p className="text-lead leading-relaxed text-foreground/80">{f.a}</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             )}
 
             {preview.related.length > 0 && (
@@ -268,6 +270,9 @@ function PreviewBody({
     </div>
   );
 }
+
+// A fold-out row in the preview: the question or "How to use", in the body text size.
+const foldTrigger = "py-4 text-lead font-semibold text-foreground hover:no-underline";
 
 function Heading({ children }: { children: React.ReactNode }) {
   return <h3 className="mt-8.5 mb-3 text-subtitle font-bold tracking-tight text-foreground">{children}</h3>;

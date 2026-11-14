@@ -925,3 +925,6 @@ onboarding's Import profile and Follow creators describe features removed in the
   through the grid; Cmd-click still opens the page in a new tab. The panel frame is shared
   (`src/components/nia/side-panel.tsx`, `SidePanel` + `PrevNext`) by templates and projects.
   `?layout=popup`, phones and tablets go straight to the project page. Shared with you is unchanged.
+- (2026-11-14) Template preview: only About this template shows; How to use and each question fold out,
+  FAQ style (Ika). shadcn Accordion added (`src/components/ui/accordion.tsx`, no animation under
+  reduced motion). Related templates stay visible as cards.
