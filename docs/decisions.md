@@ -988,3 +988,9 @@ onboarding's Import profile and Follow creators describe features removed in the
   Files, Select (editors) lets you tick files, Shift-click ticks every file between, Select all; a bar
   offers Set as final (its one blue button) and Tag as… for the rest; one update for all, with Undo.
   Portfolios' own email list (local) now includes Ika's account as well as the two test accounts.
+- (2026-11-14) Portfolios, slice 2: the editor's steps are underlined tabs like the project page's (Ika: "use
+  navbar style like the projects feature"; `src/components/nia/section-tabs.tsx`, with the Sequence
+  count). Sequence gains New work (upload as you build, PORTFOLIOS_BUILD.md §1a): Files make one project
+  (named after the portfolio unless named), a Folder makes one project per folder inside it; each is a
+  Wrapped project with the uploads filed as final assets (small copies made), put on the page; plan
+  limits apply as for any new project.

@@ -13,7 +13,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { BackLink } from "@/components/nia/back-link";
 import { ChoicePills } from "@/components/nia/choice-pills";
-import { SegmentedControl } from "@/components/nia/segmented-control";
+import { SectionTabs } from "@/components/nia/section-tabs";
+import { UploadWork } from "./upload-work";
 import { BACKGROUNDS, TEMPLATES, type Portfolio, type PortfolioProject, type PortfolioTemplate } from "./types";
 
 type Step = "sequence" | "look" | "details";
@@ -60,6 +61,13 @@ export function PortfolioEditor({ initial, initialChosen, projects }: { initial:
     const { error } = await supabase.from("portfolio_projects").insert({ portfolio_id: portfolio.id, project_id: id, position: chosen.length });
     if (error) return void toast.error("Couldn't add that project. Try again.");
     setChosen((c) => [...c, id]);
+  };
+  const addNew = async (ids: string[]) => {
+    const { error } = await supabase.from("portfolio_projects").insert(ids.map((project_id, i) => ({ portfolio_id: portfolio.id, project_id, position: chosen.length + i })));
+    if (error) return void toast.error("The work is uploaded, but couldn't go on the page. Add it from your projects below.");
+    setChosen((c) => [...c, ...ids]);
+    toast.success(ids.length === 1 ? "New work added" : `${ids.length} projects added`);
+    router.refresh();
   };
   const remove = async (id: string) => {
     const { error } = await supabase.from("portfolio_projects").delete().eq("portfolio_id", portfolio.id).eq("project_id", id);
@@ -113,18 +121,20 @@ export function PortfolioEditor({ initial, initialChosen, projects }: { initial:
         </div>
       </header>
 
-      <SegmentedControl
-        label="Portfolio steps"
+      <SectionTabs
+        label="Portfolio"
+        panelId="portfolio-step"
         value={step}
-        onChange={(v) => setStep(v as Step)}
-        segments={[
-          { value: "sequence", label: "Sequence" },
-          { value: "look", label: "Look" },
-          { value: "details", label: "Details" },
+        onChange={setStep}
+        tabs={[
+          { id: "sequence", label: "Sequence", count: inOrder.length },
+          { id: "look", label: "Look" },
+          { id: "details", label: "Details" },
         ]}
-        className="max-w-md"
+        className="-mx-4 px-4 md:-mx-page md:px-page"
       />
 
+      <div id="portfolio-step" role="tabpanel" aria-labelledby={`portfolio-step-tab-${step}`} className="contents">
       {step === "sequence" && (
         <div className="flex max-w-3xl flex-col gap-10">
           <section aria-labelledby="on-the-page" className="flex flex-col gap-3">
@@ -154,6 +164,9 @@ export function PortfolioEditor({ initial, initialChosen, projects }: { initial:
               </ol>
             )}
           </section>
+
+          {/* Upload as you build: new work becomes projects, filed as final assets, on the page. */}
+          <UploadWork portfolioTitle={portfolio.title} onAdded={addNew} />
 
           <section aria-labelledby="from-projects" className="flex flex-col gap-3">
             <h2 id="from-projects" className="text-subtitle font-semibold text-foreground">From your projects</h2>
@@ -245,6 +258,7 @@ export function PortfolioEditor({ initial, initialChosen, projects }: { initial:
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }
