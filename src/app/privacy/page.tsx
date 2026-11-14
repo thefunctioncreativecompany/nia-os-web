@@ -21,7 +21,7 @@ export default function Page() {
 
       <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-12 md:py-16">
         <h1 className="text-h2 font-semibold tracking-tight text-foreground">Privacy policy</h1>
-        <p className="mt-2 text-sm text-nia-ink-muted">Last updated: October 17, 2026</p>
+        <p className="mt-2 text-sm text-nia-ink-muted">Last updated: November 14, 2026</p>
 
         <div className="mt-10 flex flex-col gap-8 text-sm leading-relaxed text-nia-ink-muted [&_h2]:mb-2 [&_h2]:text-base [&_h2]:font-bold [&_h2]:text-nia-ink [&_li]:mt-1 [&_ul]:list-disc [&_ul]:pl-5">
           <section>
@@ -56,6 +56,14 @@ export default function Page() {
                 <strong className="text-nia-ink">Technical information:</strong> cookies that
                 keep you signed in, and standard logs (such as IP address and browser type) kept
                 by our hosting providers for security and reliability.
+              </li>
+              <li>
+                <strong className="text-nia-ink">How you use Nia OS:</strong> the pages you visit
+                and what you click, and recordings of what happens on screen while you use Nia OS,
+                including automated summaries of those sessions. What you type into fields is
+                hidden from recordings, but they can show what is on screen, such as project names
+                and comments. They are linked to your account number, never your name or email, and
+                we use them only to find problems and improve Nia OS.
               </li>
             </ul>
           </section>
@@ -100,6 +108,8 @@ export default function Page() {
             <ul>
               <li>Supabase, for sign-in, our database and file storage.</li>
               <li>Vercel, for hosting the website.</li>
+              <li>Resend, for sending account and invitation emails.</li>
+              <li>PostHog, for product analytics and session recordings.</li>
             </ul>
             <p className="mt-3">
               We may also disclose information if required by law or to protect the rights and
