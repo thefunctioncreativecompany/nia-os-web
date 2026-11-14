@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 import { ProjectsBrowser } from "@/components/projects/projects-browser";
-import { ProjectsTabs } from "@/components/projects/projects-tabs";
+import { ProjectsNav } from "@/components/projects/projects-nav";
 
 export const metadata: Metadata = {
   title: "Projects · Nia OS",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function Page({ searchParams }: PageProps<"/projects">) {
   return (
     <div className="flex flex-1 flex-col gap-8 px-4 pt-8 pb-15 md:px-page">
-      <ProjectsTabs />
+      <ProjectsNav />
       <Suspense fallback={<ProjectsSkeleton />}>
         <Projects searchParams={searchParams} />
       </Suspense>

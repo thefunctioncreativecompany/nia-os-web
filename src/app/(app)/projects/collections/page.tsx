@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { CollectionsView } from "@/components/projects/collections-view";
-import { ProjectsTabs } from "@/components/projects/projects-tabs";
+import { ProjectsNav } from "@/components/projects/projects-nav";
 
 export const metadata: Metadata = {
   title: "Collections · Nia OS",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="flex flex-1 flex-col gap-8 px-4 pt-8 pb-15 md:px-page">
-      <ProjectsTabs />
+      <ProjectsNav />
       <CollectionsView />
     </div>
   );

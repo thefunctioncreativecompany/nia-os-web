@@ -12,4 +12,7 @@ export const features = {
   // Claude's artifacts, instead of the centred pop-up. Add ?layout=popup to the address to compare.
   // Phones and tablets keep the pop-up until they get their own design.
   previewPanel: true,
+  // Portfolios (beta, PORTFOLIOS_BUILD.md; Ika, 2026-11-14: test accounts only). Also needs the
+  // person's email in PORTFOLIOS_BETA_EMAILS (.env.local and Vercel), checked on the server.
+  portfoliosBeta: true,
 } as const;

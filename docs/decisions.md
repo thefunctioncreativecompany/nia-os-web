@@ -955,3 +955,19 @@ onboarding's Import profile and Follow creators describe features removed in the
   project (project panel), Save (Settings). Grey now: View all everywhere, Email (crew profile), Use
   template on cards, and the Plans buttons until Ika picks one plan to feature. Checked page by page:
   no screen has more than one.
+- (2026-11-14) Portfolios beta, slice 1 (Ika: "build portfolios beta without the prototype files, only allow
+  access on test accounts so i can test it myself first"; PORTFOLIOS_BUILD.md, cut down). Access:
+  `features.portfoliosBeta` and the emails in `PORTFOLIOS_BETA_EMAILS` (.env.local; add to Vercel for the
+  live site), checked on the server; nobody else sees the tab or the pages. Data:
+  `20261114000000_portfolios.sql` (portfolios, portfolio_projects; workspace members only), for Ika to
+  run. Projects › Portfolios (Beta): New portfolio, then cards (a picture and a name). The editor:
+  Sequence (projects with final assets, in order: up, down, remove, Add), Look (Grid, Rows or Slides;
+  white or black; the cover from the work's pictures), Details (title, your name, the link, Unpublish,
+  Delete); every change saves as made; Publish is the one blue button, Preview opens the page. The
+  public page `/p/[slug]` (no Nia bar, not indexed): the cover fills the screen, then each project's
+  final pictures and films whole (Grid: square cells with the piece fitted; Rows: full width; Slides:
+  one at a time, arrow keys), a lightbox in Grid, "Made with NIA". Unpublished pages open only for the
+  workspace, marked Preview; files are signed for an hour on the server, final assets of the
+  portfolio's own projects only. Not in this slice: upload as you build, the welcome, framing the cover,
+  more galleries, custom colours, client links, passcodes, favourites, tracking, link previews,
+  Pixieset import and your page on Explore.
