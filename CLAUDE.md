@@ -43,7 +43,7 @@ Product:
 Design:
 - Colors, fonts, radii, spacing and motion only from theme variables; no hex or pixel values in pages.
 - Brand (Ika, 2026-10-31): neutral greys with text `#1F1F1F` (light) / `#E6E6E6` (dark) and VS Code's
-  Nia Blue as the single accent, active states only (`#005FB8` light, `#3794FF` dark; token
+  Nia Blue as the single accent, for active states and main buttons (`#005FB8` light, `#3794FF` dark; token
   `nia-blue`, e.g. `bg-nia-blue`, `border-nia-blue/50`). No Obsidian `#0A0908` or Aged Gold
   anywhere: interface, PDFs and emails (Ika, 2026-10-31). Geist for all text,
   sentence case. Names stored in Title Case (stages, production types, genres, template groups)
@@ -63,9 +63,9 @@ Design:
   token `--spacing-page`); rows that bleed to the screen edge use `md:-mx-page` / `md:scroll-px-page`.
   No other side padding numbers.
 - Buttons (Ika, 2026-11-11): every button is a pill and every icon button a circle (built into
-  `Button`; no `rounded-md/lg` overrides). Primary (default) buttons carry a soft Nia Blue halo, stronger on hover.
+  `Button`; no `rounded-md/lg` overrides). Primary (default) buttons are filled Nia Blue with a soft halo, stronger on hover (Ika, 2026-11-12).
   "View all" and other go-to links are `ViewAll`
-  (`src/components/nia/view-all.tsx`): an outline pill with an arrow, no counts.
+  (`src/components/nia/view-all.tsx`): a Nia Blue pill with an arrow, no counts. Add to project and Share project are Nia Blue too.
 - Grids fill row by row from the left: no CSS masonry `columns-*` anywhere (Ika, 2026-11-11: the
   gaps they leave are "very bad UX").
 - Rows (Ika, 2026-11-11): a row shows at most ten things (`ROW_MAX` in `src/lib/rows.ts`); the
@@ -83,7 +83,7 @@ Design:
   exist but aren't used in the interface; text sizes `text-h1` 32, `text-h2` 28, `text-h3` 24, `text-lead` 15, `text-sm` 14,
   `text-small` 13, `text-caption` 12, `text-micro` 11, `text-meta` 10, `text-tiny` 9, `text-wordmark` 22;
   shadow `shadow-elevation-2`; motion `duration-fast/base/slow`
-  with `ease-out` (code animations use `src/lib/motion.ts`). Nia Blue is for indicators,
+  with `ease-out` (code animations use `src/lib/motion.ts`). Nia Blue is for indicators, main buttons,
   borders and tints.
 
 Data:

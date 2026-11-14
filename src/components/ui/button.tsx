@@ -8,9 +8,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Primary actions carry a soft Nia Blue halo, stronger on hover (Ika, 2026-11-11: "a light blue
-        // highlight on primary CTAs to improve actionability"). None when disabled.
-        default: "bg-primary text-primary-foreground ring-3 ring-nia-blue/20 shadow-md shadow-nia-blue/20 transition-[background-color,box-shadow] hover:bg-primary/80 hover:ring-nia-blue/35 disabled:bg-border disabled:text-nia-placeholder disabled:opacity-100 disabled:ring-0 disabled:shadow-none",
+        // Primary actions are Nia Blue with a soft halo, stronger on hover (Ika, 2026-11-11: "a light
+        // blue highlight on primary CTAs"; 2026-11-12: "Nia blue should be the background color of
+        // main CTAs"). Grey when disabled.
+        default: "bg-nia-blue text-nia-blue-foreground ring-3 ring-nia-blue/20 shadow-md shadow-nia-blue/25 transition-[background-color,box-shadow] hover:bg-nia-blue/90 hover:ring-nia-blue/35 disabled:bg-border disabled:text-nia-placeholder disabled:opacity-100 disabled:ring-0 disabled:shadow-none",
         outline:
           "border-border bg-background hover:border-foreground hover:bg-background hover:text-foreground active:bg-muted aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
         secondary:

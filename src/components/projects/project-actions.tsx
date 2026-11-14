@@ -2,6 +2,7 @@
 
 import type { Project, ProjectRole } from "@/lib/projects";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import { DeleteProjectDialog } from "@/components/projects/delete-project-dialog";
 import { EditDetailsDialog } from "@/components/projects/edit-details-dialog";
 import { ShareProjectDialog } from "@/components/projects/share-project-dialog";
@@ -16,6 +17,12 @@ export function ProjectActions({ project, role }: { project: Project; role: Proj
   return (
     <section className="flex flex-col gap-3 rounded-2xl border border-border bg-nia-surface p-6">
       <h2 className="text-base leading-normal font-bold text-foreground">Project actions</h2>
+      {/* Sharing is the card's main action: a Nia Blue button above the rest (Ika, 2026-11-12). */}
+      <ShareProjectDialog projectId={project.id} role={role} shareToken={project.shareToken}>
+        <Button type="button" className="w-full">
+          {role === "owner" ? "Share project" : "People with access"}
+        </Button>
+      </ShareProjectDialog>
       <div className="flex flex-col gap-1">
         {canEdit && (
           <EditDetailsDialog project={project}>
@@ -24,11 +31,6 @@ export function ProjectActions({ project, role }: { project: Project; role: Proj
             </button>
           </EditDetailsDialog>
         )}
-        <ShareProjectDialog projectId={project.id} role={role} shareToken={project.shareToken}>
-          <button type="button" className={rowClassName}>
-            {role === "owner" ? "Share project" : "People with access"}
-          </button>
-        </ShareProjectDialog>
         {/* Each document downloads as PDF, Word, Markdown or text from its own page. */}
         <a href="#documents" className={rowClassName}>
           Download documents

@@ -857,6 +857,11 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-11) Product analytics: PostHog (`src/components/analytics.tsx`, in the root layout). It
   loads after the page shows, runs only when `NEXT_PUBLIC_POSTHOG_KEY` is set, records page views
   on route changes, and knows signed-in people by account id only (no name or email).
+- (2026-11-12) Main buttons are Nia Blue (Ika: "Nia blue should be the background color of main
+  CTAs (like View All, add to project, share etc)"). The default `Button` is filled `nia-blue`
+  (white text in light mode, near-black in dark mode, both readable) with its soft halo; `ViewAll`,
+  Add to project (Explore) and Share project (now a full-width button at the top of Project
+  actions) use it. Outline, secondary and ghost buttons are unchanged.
 - (2026-11-12) One page edge and the last off-standard titles (Ika, from the UI/UX audit, FEEDBACK UX7,
   UX10, UX11; she chose Explore's 30px over 60px): a theme token `--spacing-page` (1.875rem) gives
   `md:px-page`, used by every page, the navbar on tablets, and the bleed rows (`md:-mx-page`,

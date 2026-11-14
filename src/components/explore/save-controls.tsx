@@ -200,7 +200,7 @@ export function AddToProject({ slug, title, size = "pill", kind }: { slug: strin
   return (
     <Popover onOpenChange={(open) => open && void load()}>
       <PopoverTrigger asChild>
-        <Button variant="outline" size={size} aria-label={`Add ${title} to a project's references`}>
+        <Button size={size} aria-label={`Add ${title} to a project's references`}>
           <FolderPlus aria-hidden />
           Add to project
         </Button>
