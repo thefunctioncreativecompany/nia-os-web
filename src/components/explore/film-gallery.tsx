@@ -19,11 +19,11 @@ export type GalleryEntry = { item: ExploreItem; href: string; actions?: React.Re
 // justified rows (Ika, 2026-11-14: a tall reel beside wide films left big gaps in a grid): every card
 // in a row is the same height and as wide as its shape needs, so a 9:16 reel stands narrow and a
 // 2.39:1 film lies wide, nothing cropped, and each row fills the width. A filler at the end keeps
-// the last row from stretching. Tags on the picture say what it is and its frame; the title and
+// the last row from stretching. Thin gaps between cards (Ika, 2026-11-14). Tags on the picture say what it is and its frame; the title and
 // who made it sit below. Items run left to right, row by row, in order.
 export function FilmGallery({ entries, label, className }: { entries: GalleryEntry[]; label: string; className?: string }) {
   return (
-    <ul aria-label={label} className={cn("flex flex-wrap gap-x-5 gap-y-8 [--row-h:9rem] sm:[--row-h:12rem] lg:[--row-h:15rem] 2xl:[--row-h:17rem]", className)}>
+    <ul aria-label={label} className={cn("flex flex-wrap gap-x-2 gap-y-6 [--row-h:9rem] sm:[--row-h:12rem] lg:[--row-h:15rem] 2xl:[--row-h:17rem]", className)}>
       {entries.map(({ item, href, actions, note }, i) => {
         const aspect = item.aspect ?? POSTER;
         return (
