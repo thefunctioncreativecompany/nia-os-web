@@ -20,7 +20,7 @@
   "precision": "year"
  },
  "27-dresses": {
-  "date": "2008-01-09",
+  "date": "2008-01-10",
   "precision": "day"
  },
  "a-beautiful-mind": {
@@ -232,8 +232,8 @@
   "precision": "day"
  },
  "citizen-kane": {
-  "date": "1941-01-01",
-  "precision": "year"
+  "date": "1941-05-01",
+  "precision": "day"
  },
  "city-lights": {
   "date": "1931-01-30",
@@ -355,6 +355,10 @@
   "date": "2026-08-18",
   "precision": "day"
  },
+ "creator-DCpAuOatWYH": {
+  "date": "2024-11-21",
+  "precision": "day"
+ },
  "creator-DcVA8BoO-Zd": {
   "date": "2026-08-22",
   "precision": "day"
@@ -379,6 +383,10 @@
   "date": "2026-09-17",
   "precision": "day"
  },
+ "creator-DdboaTZu7sh": {
+  "date": "2026-09-18",
+  "precision": "day"
+ },
  "creator-DdEUQEFonBR": {
   "date": "2026-09-09",
   "precision": "day"
@@ -401,6 +409,10 @@
  },
  "creator-DdI-bBSouQg": {
   "date": "2026-09-11",
+  "precision": "day"
+ },
+ "creator-DdmbTwoisxq": {
+  "date": "2026-09-22",
   "precision": "day"
  },
  "creator-DdPGWlyxkD3": {
@@ -429,6 +441,10 @@
  },
  "creator-De_tLLeOBt7": {
   "date": "2026-10-27",
+  "precision": "day"
+ },
+ "creator-De0GxrcPh5Y": {
+  "date": "2026-10-22",
   "precision": "day"
  },
  "creator-De2ustFPZm-": {
@@ -515,12 +531,20 @@
   "date": "2026-10-20",
   "precision": "day"
  },
+ "creator-DeujtBpPtJW": {
+  "date": "2026-10-20",
+  "precision": "day"
+ },
  "creator-DeupC-4tecl": {
   "date": "2026-10-19",
   "precision": "day"
  },
  "creator-DevF8W6xEB-": {
   "date": "2026-10-20",
+  "precision": "day"
+ },
+ "creator-Dew_scxtUk0": {
+  "date": "2026-10-21",
   "precision": "day"
  },
  "creator-Dew233fv8oW": {
@@ -579,6 +603,10 @@
   "date": "2026-10-30",
   "precision": "day"
  },
+ "creator-DfjhV81Edch": {
+  "date": "2026-11-10",
+  "precision": "day"
+ },
  "creator-DfNYqljvPy9": {
   "date": "2026-11-01",
   "precision": "day"
@@ -593,6 +621,18 @@
  },
  "creator-DfSDA1hyQ6G": {
   "date": "2026-11-03",
+  "precision": "day"
+ },
+ "creator-DfW5JU5NVR3": {
+  "date": "2026-11-05",
+  "precision": "day"
+ },
+ "creator-DfWJwV9gWaP": {
+  "date": "2026-11-05",
+  "precision": "day"
+ },
+ "creator-DfXwJrHAAYJ": {
+  "date": "2026-11-05",
   "precision": "day"
  },
  "creator-DfYfBSOyq8m": {
@@ -629,6 +669,10 @@
  },
  "creator-DY4UDZTBa8G": {
   "date": "2026-05-28",
+  "precision": "day"
+ },
+ "creator-DZ2StjDi8rT": {
+  "date": "2026-06-21",
   "precision": "day"
  },
  "creator-DZDJd0uTZTg": {
