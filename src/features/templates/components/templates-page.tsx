@@ -2,22 +2,19 @@
 
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { X } from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { rankTemplates } from "@/features/templates/search";
-import { FILTERS, inFilter, works, type Filter, type GalleryTemplate } from "@/features/templates/gallery";
+import { FILTERS, inFilter, type Filter, type GalleryTemplate } from "@/features/templates/gallery";
 import { CompactTile } from "@/features/templates/components/compact-tile";
 import { TemplateCard } from "@/features/templates/components/template-card";
 import { TemplateSearch } from "@/features/templates/components/template-search";
 import { PreviewModal } from "@/features/templates/components/preview-modal";
-import { SuggestedForYou } from "@/features/templates/components/suggested-for-you";
-import { SuggestedRow } from "@/features/templates/components/showcase-rows";
 import { CategorySections } from "@/features/templates/components/category-sections";
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
 import { MyDrafts } from "@/features/templates/components/my-drafts";
-import { JustAdded } from "@/features/templates/components/just-added";
 import { FilterChip, ChipRow } from "@/components/nia/filter-bar";
 import { WorkflowCards } from "@/features/workflows/workflow-cards";
 import { sentenceCase } from "@/lib/sentence-case";
@@ -25,19 +22,17 @@ import { sentenceCase } from "@/lib/sentence-case";
 const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1fr))] gap-3.5";
 
 // The Templates page (TEMPLATES_BUILD.md §2, build steps 2–6): title, search with the live
-// template count and suggestions, filters, one view and the preview pop-up. Phones lead with
-// the suggested templates; larger screens show the featured row and "Suggested for you"
-// (it learns from what is opened, used and searched here). Every screen then lists all
-// templates by category (filmstrips, ranked lists, scrolling columns). Compact and Index views
-// were retired (Ika) and live on in the component library. The pop-up lives in the address
-// (?preview=D01), so Back closes it.
+// template count and suggestions, filters, Workflows, your drafts, then every template once, by
+// category, in one list (Ika, 2026-11-13: "minimalism wins"; Just added, the featured row and
+// Suggested for you are in git tag parked-2026-11-13-templates). What's opened, used and searched
+// is still recorded: New project and Add document suggest from it. The pop-up lives in the
+// address (?preview=D01), so Back closes it.
 export function TemplatesPage({ templates, groups, familyLabels }: { templates: GalleryTemplate[]; groups: string[]; familyLabels: Record<string, string> }) {
   const router = useRouter();
   const icons = Object.fromEntries(templates.map((t) => [t.code, t.icon]));
   const [filter, setFilter] = useState<Filter>("All");
   const [query, setQuery] = useState("");
   const [committed, setCommitted] = useState("");
-  const row = useRef<HTMLDivElement>(null);
   const learning = useTemplateProfile();
 
   // Using a template: documents whose sections the editor can show open in it (build step 7,
@@ -83,13 +78,7 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
   };
 
   const visible = templates.filter((t) => inFilter(t, filter));
-  // Templates that work lead the featured row; the greyed "Coming soon" ones follow.
-  const featured = visible.filter((t) => t.status !== "gap").sort((a, b) => Number(works(b)) - Number(works(a)));
   const results = committed ? rankTemplates(committed, templates, familyLabels).filter((r) => inFilter(r.template, filter)) : null;
-  const nudge = (direction: 1 | -1) => {
-    const el = row.current;
-    if (el) el.scrollBy({ left: direction * Math.min(584, el.clientWidth - 80), behavior: "smooth" });
-  };
   const clear = () => {
     setQuery("");
     setCommitted("");
@@ -116,16 +105,7 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
           onPick={(t) => openPreview(t, rankTemplates(query, templates, familyLabels).map((r) => r.template))}
         />
 
-        {/* The arrows stay beside the chips: the chips scroll on phones and tablets, wrap on wide screens. */}
-        <div className="flex items-center justify-between gap-3.5 lg:flex-wrap">
-          <FilterChips templates={templates} filter={filter} onChange={setFilter} />
-          {!results && (
-            <div className="flex shrink-0 items-center gap-2 max-md:hidden">
-              <Button variant="outline" size="icon-sm" aria-label="Previous templates" onClick={() => nudge(-1)}><ChevronLeft /></Button>
-              <Button variant="outline" size="icon-sm" aria-label="Next templates" onClick={() => nudge(1)}><ChevronRight /></Button>
-            </div>
-          )}
-        </div>
+        <FilterChips templates={templates} filter={filter} onChange={setFilter} />
       </div>
 
       {results ? (
@@ -167,35 +147,9 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
         <>
           {/* Start from a goal (Ika, 2026-11-10): the person's own group first. */}
           <WorkflowCards templates={templates} profession={learning.profile.role} className="px-4 pt-7.5 md:px-page" />
-          {/* New templates lead while they're new (launches.ts). */}
-          <JustAdded templates={templates} onPreview={(t) => openPreview(t, templates.filter((x) => x.fresh))} className="px-4 pt-7.5 pb-6 md:px-page" />
           {/* Documents you started and haven't put in a project (audit #3). */}
           <MyDrafts icons={icons} />
-          {/* Phones: the suggested templates lead (Apple Music style). */}
-          <div className="md:hidden">
-            <SuggestedRow
-              templates={templates}
-              profile={learning.profile}
-              ready={learning.ready}
-              onPreview={(t, list, viaHover) => openPreview(t, list, viaHover)}
-              onUse={use}
-            />
-          </div>
-          {/* Larger screens: the featured row, then Suggested for you. */}
-          <div ref={row} className="flex snap-x snap-mandatory scroll-px-4 gap-6 overflow-x-auto px-4 pt-7 pb-13 [scrollbar-width:none] max-md:hidden md:scroll-px-page md:px-page">
-            {featured.map((t) => <TemplateCard key={t.code} template={t} onPreview={(x, viaHover) => openPreview(x, featured, viaHover)} onUse={use} />)}
-            {featured.length === 0 && <p className="text-sm text-muted-foreground">No templates here yet.</p>}
-          </div>
-          <SuggestedForYou
-            className="max-md:hidden"
-            templates={templates}
-            profile={learning.profile}
-            ready={learning.ready}
-            onRoleChange={learning.setRole}
-            onReset={learning.reset}
-            onPreview={(t, list, viaHover) => openPreview(t, list, viaHover)}
-          />
-          {/* Every screen: all templates by category, each in its own form (Ika's design, 2026-10-20). */}
+          {/* Every template once, by category, in one list. */}
           <CategorySections templates={visible} groups={groups} total={templates.length} onPreview={(t, list) => openPreview(t, list)} />
         </>
       )}

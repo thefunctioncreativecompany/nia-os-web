@@ -894,3 +894,12 @@ onboarding's Import profile and Follow creators describe features removed in the
   stored in Title Case show in sentence case through `sentenceCase` (stages, production types, genres,
   template groups, Explore types and badges; "Behind the production"). Template documents' own field
   labels ("Production Company") are document content, left for a templates pass.
+- (2026-11-13) Templates cleaned up (Ika: "go ahead with templates clean up first", minimalism wins): the
+  page is the title, search, category chips, Workflows, your drafts, then every template once, by
+  category, all in the one list form (icon, name, phase, what it's for) that Production management
+  already used. Gone: Just added, the large featured row and its arrows, Suggested for you (and its
+  phone row), and the filmstrip and scrolling-column sections (whose looping columns showed
+  templates twice); git tag `parked-2026-11-13-templates`. Desktop went from 210 controls and
+  4,894px to 50 and 4,037px; phone from 5,956px to 4,573px. What's opened, used and searched is
+  still recorded for New project and Add document. No "New" marker in the list (Ika: names stay
+  whole; 28 of 37 were new); `launches.ts` keeps the dates and search results keep the marker.

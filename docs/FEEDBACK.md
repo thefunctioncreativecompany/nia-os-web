@@ -49,6 +49,7 @@ sideways scroll on phones, Geist only, no all-caps, dark mode consistent.
 | UX18 | Home Activity repeats share-link on/off lines; group repeats | ⬜ |
 | UX19 | Person page: "Films" for a series; "leading actor · Creator" capitals | ⬜ |
 | UX20 | Login hero is a *Sinners (2025)* still: rights? (rule: imagery from the user's own work) | ⏸ |
+| UX21 | Templates: the same templates up to four times (Just added, featured row, Suggested for you, category sections in three forms); 210 controls | ✅ 2026-11-13, one list by category; tag `parked-2026-11-13-templates` |
 
 ## 1. Logged 2026-11-08: Ika's update list and Alvin's feedback (not started)
 
