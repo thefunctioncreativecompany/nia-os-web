@@ -2377,6 +2377,9 @@ export const creditName = (x: Credit) => (x.handle && x.name === x.handle ? `@${
 export function leadCredit(f: CreatorFilm) {
   const find = (role: string) => f.credits.find((x) => x.role.toLowerCase() === role);
   const lead = find("director") ?? find("creative director") ?? find("creator") ?? find("producer");
-  return lead ? creditName(lead) : `@${f.account}`;
+  if (lead) return creditName(lead);
+  // A YouTube channel's id (UC + 22 characters) isn't a name: show the channel's own (Ika, 2026-11-14).
+  if (/^UC[\w-]{22}$/.test(f.account) && f.channel) return f.channel;
+  return `@${f.account}`;
 }
 export const creatorYear = (f: CreatorFilm) => Number(f.date.slice(0, 4));

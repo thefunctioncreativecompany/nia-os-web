@@ -979,3 +979,8 @@ onboarding's Import profile and Follow creators describe features removed in the
   about 45 minutes so browsers reuse pictures (files read through the person's own rules, a share
   link's check or a published portfolio's first). `scripts/make-image-previews.mjs` makes copies for
   the 60 older pictures (about 94 MB of egress, once). Test runs block pictures from now on.
+- (2026-11-14) Explore › Creators (and Collections) in justified rows: every card in a row the same height and
+  as wide as its film's shape, each row filling the width, nothing cropped (a tall reel beside wide
+  films had left big gaps in the 4-column grid). Creator films credited to a YouTube channel id show the
+  channel's name instead ("@UCYod…" → "Leaders of the Wav"). Still to do: the Dior × A24 still has a
+  light frame in the picture itself; it needs a new still (Explore data, paused).

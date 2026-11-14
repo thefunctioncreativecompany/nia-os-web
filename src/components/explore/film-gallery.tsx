@@ -15,19 +15,24 @@ export type CardItem = Omit<ExploreItem, "href">;
 
 export type GalleryEntry = { item: ExploreItem; href: string; actions?: React.ReactNode; /** A short line under who made it ("Added 8 November"). */ note?: string };
 
-// A gallery of films at their true shape (Ika's Claude Design "Creators · Explore", 2026-10-22; a
-// grid that fills row by row from the left since 2026-11-11, as masonry columns left gaps): each
-// film as tall as its shape needs, so a 9:16 reel stands tall and a 2.39:1 film lies wide, never squeezed into
-// another's frame. Tags on the picture say what it is and its frame; the title and who made it
-// sit below. Items run down each column in order.
+// A gallery of films at their true shape (Ika's Claude Design "Creators · Explore", 2026-10-22), in
+// justified rows (Ika, 2026-11-14: a tall reel beside wide films left big gaps in a grid): every card
+// in a row is the same height and as wide as its shape needs, so a 9:16 reel stands narrow and a
+// 2.39:1 film lies wide, nothing cropped, and each row fills the width. A filler at the end keeps
+// the last row from stretching. Tags on the picture say what it is and its frame; the title and
+// who made it sit below. Items run left to right, row by row, in order.
 export function FilmGallery({ entries, label, className }: { entries: GalleryEntry[]; label: string; className?: string }) {
   return (
-    <ul aria-label={label} className={cn("grid grid-cols-2 items-start gap-x-5 gap-y-6 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5", className)}>
-      {entries.map(({ item, href, actions, note }, i) => (
-        <li key={item.slug}>
-          <GalleryCard item={item} href={href} aspect={item.aspect ?? POSTER} first={i === 0} actions={actions} note={note} />
-        </li>
-      ))}
+    <ul aria-label={label} className={cn("flex flex-wrap gap-x-5 gap-y-8 [--row-h:9rem] sm:[--row-h:12rem] lg:[--row-h:15rem] 2xl:[--row-h:17rem]", className)}>
+      {entries.map(({ item, href, actions, note }, i) => {
+        const aspect = item.aspect ?? POSTER;
+        return (
+          <li key={item.slug} className="min-w-0" style={{ flexGrow: aspect, flexBasis: `calc(var(--row-h) * ${aspect})` }}>
+            <GalleryCard item={item} href={href} aspect={aspect} first={i === 0} actions={actions} note={note} />
+          </li>
+        );
+      })}
+      <li aria-hidden className="grow-[100]" />
     </ul>
   );
 }
