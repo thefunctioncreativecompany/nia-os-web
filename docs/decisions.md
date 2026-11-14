@@ -932,3 +932,14 @@ onboarding's Import profile and Follow creators describe features removed in the
   everything else under FAQ"): the title, Use this template and the picture lead; then the description,
   the tags and About this template show. What it does for you and your team, How to use, each question
   and Related templates are fold-out rows, all closed.
+- (2026-11-14) Template tutorials slower, with a voice-over that starts off (Ika: "reduce speed of tutorial
+  video to legible speed, add voice over using eleven labs (default sound off, but sound on/off icon")).
+  Each scene is timed to its text (about 0.2s a word as it lights up, a step every 3.5s, then time to
+  read; about 30s in all, was 14s) and stretches to fit its voice clip. Voices are made once by
+  `scripts/make-tutorial-voices.mjs` (ElevenLabs "Sarah", the template's own words, three clips per
+  template, in `public/tutorial-voice`, lengths in `tutorial/voices.json`); a speaker button appears
+  only when a template has them, sound off by default, played beside the muted player in step with
+  its frames. None made yet: the account is on ElevenLabs' free plan (no commercial use, 2,912
+  characters left; all 37 need about 16,840).
+- (2026-11-14) Workflow covers: the step icons are sized to the card (container units, up to 48px) so
+  five steps always fit, beside the preview panel too.

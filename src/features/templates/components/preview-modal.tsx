@@ -19,6 +19,7 @@ import { COMING_SOON, works, type GalleryTemplate } from "@/features/templates/g
 import { DocMiniature } from "@/features/templates/components/doc-miniature";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { TemplateValue } from "@/features/templates/components/template-value";
+import { voiceFor } from "@/features/templates/tutorial/voice";
 
 // The mini tutorial (Ika, 2026-10-31) is its own download: Remotion's player loads with it.
 const TutorialPlayer = dynamic(() => import("@/features/templates/tutorial/tutorial-player").then((m) => m.TutorialPlayer), { ssr: false });
@@ -98,6 +99,7 @@ function usePreview(t: GalleryTemplate, list: GalleryTemplate[], onNavigate: (te
   const tutorial =
     open && preview && !workflow && !reduce
       ? {
+          code: t.code,
           name: t.name,
           icon: t.icon,
           stage: t.stage,
@@ -105,6 +107,7 @@ function usePreview(t: GalleryTemplate, list: GalleryTemplate[], onNavigate: (te
           forTeam: t.forTeam ?? null,
           steps: preview.details.howTo,
           sections: (preview.schema?.sections ?? []).map((x) => x.title),
+          voice: voiceFor(t.code),
         }
       : null;
 

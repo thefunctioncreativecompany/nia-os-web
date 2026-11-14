@@ -10,7 +10,12 @@ import { FlatIcon } from "@/features/templates/components/flat-icon";
 // for you (purpose), then its How to use steps beside a document filling in its real sections
 // (how to). Nia's theme colours, Geist and the type scale; one play, no loop.
 
+// The voice-over for a template (scripts/make-tutorial-voices.mjs): one clip per scene, read by
+// ElevenLabs once and served from public/tutorial-voice, with each clip's length.
+export type TutorialVoice = { src: [string, string, string]; seconds: [number, number, number] };
+
 export type TutorialProps = {
+  code: string;
   name: string;
   icon: string;
   stage: string;
@@ -18,14 +23,27 @@ export type TutorialProps = {
   forTeam: string | null;
   steps: string[];
   sections: string[];
+  voice?: TutorialVoice | null;
 };
 
 export const TUTORIAL_FPS = 30;
-const CONTEXT = 3.5 * TUTORIAL_FPS;
-const PURPOSE = 3.5 * TUTORIAL_FPS;
-const HOW = 7 * TUTORIAL_FPS;
-export const TUTORIAL_FRAMES = CONTEXT + PURPOSE + HOW;
 export const TUTORIAL_SIZE = { width: 1280, height: 720 };
+// Paced to be read with the sound off (Ika, 2026-11-14: "reduce speed … to legible speed"): about
+// 0.2s a word as text appears, a step every 3.5s, then time to read. A scene stretches to fit its
+// voice clip when there is one.
+const WORD = 6;
+const STEP = 3.5 * TUTORIAL_FPS;
+const words = (text: string | null | undefined) => (text ? text.split(/\s+/).filter(Boolean).length : 0);
+
+/** Each scene's length in frames, and the whole tutorial's. */
+export function tutorialTiming(p: TutorialProps) {
+  const fps = TUTORIAL_FPS;
+  const voice = (i: number) => (p.voice ? Math.ceil((p.voice.seconds[i] + 0.8) * fps) : 0);
+  const context = Math.max(5 * fps, 30 + words(p.forTeam) * WORD + 3 * fps, voice(0));
+  const purpose = Math.max(5 * fps, 6 + words(p.forYou ?? `What the ${p.name} is for, on one page.`) * WORD + 3 * fps, voice(1));
+  const how = Math.max(12 * fps, 10 + Math.min(p.steps.length, 3) * STEP + 3 * fps, voice(2));
+  return { context, purpose, how, total: context + purpose + how };
+}
 
 const ease = Easing.out(Easing.cubic);
 /** 0 → 1 over `length` frames from `start`. */
@@ -79,7 +97,7 @@ function Purpose({ forYou, name }: TutorialProps) {
       </Fade>
       <p className="text-[3.1rem] leading-[1.2] font-semibold tracking-tight text-foreground">
         {words.map((w, i) => (
-          <span key={i} style={{ opacity: 0.18 + 0.82 * rise(frame, 6 + i * 2.2, 8) }}>
+          <span key={i} style={{ opacity: 0.18 + 0.82 * rise(frame, 6 + i * WORD, 10) }}>
             {w}{" "}
           </span>
         ))}
@@ -88,11 +106,12 @@ function Purpose({ forYou, name }: TutorialProps) {
   );
 }
 
-function HowTo({ steps, sections, name }: TutorialProps) {
+function HowTo({ steps, sections, name, length }: TutorialProps & { length: number }) {
   const frame = useCurrentFrame();
   const shownSteps = steps.slice(0, 3);
   const shownSections = sections.slice(0, 5);
-  const per = (HOW - 40) / Math.max(shownSections.length, 1);
+  // The document fills while the steps are read, finishing a little before the scene ends.
+  const per = (length - 3 * TUTORIAL_FPS) / Math.max(shownSections.length, 1);
   return (
     <AbsoluteFill className="flex-row items-center gap-14 px-24">
       <div className="flex w-[34rem] flex-col gap-7">
@@ -101,7 +120,7 @@ function HowTo({ steps, sections, name }: TutorialProps) {
         </Fade>
         <ol className="flex flex-col gap-6">
           {shownSteps.map((step, i) => {
-            const t = rise(frame, 10 + i * 45);
+            const t = rise(frame, 10 + i * STEP);
             return (
               <li key={i} className="flex items-start gap-5" style={{ opacity: t, transform: `translateX(${(1 - t) * -20}px)` }}>
                 <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-nia-blue text-h3 font-bold text-nia-blue-foreground">{i + 1}</span>
@@ -130,7 +149,7 @@ function HowTo({ steps, sections, name }: TutorialProps) {
             </div>
           );
         })}
-        <div className="mt-2 flex gap-3" style={{ opacity: rise(frame, HOW - 45) }}>
+        <div className="mt-2 flex gap-3" style={{ opacity: rise(frame, length - 2.5 * TUTORIAL_FPS) }}>
           <span className="rounded-full bg-primary px-5 py-2.5 text-lead font-semibold text-primary-foreground">Download PDF</span>
           <span className="rounded-full border border-border px-5 py-2.5 text-lead font-semibold text-foreground">Save to project</span>
         </div>
@@ -140,16 +159,17 @@ function HowTo({ steps, sections, name }: TutorialProps) {
 }
 
 export function TemplateTutorial(props: TutorialProps) {
+  const { context, purpose, how } = tutorialTiming(props);
   return (
     <AbsoluteFill className="bg-background font-sans">
-      <Sequence durationInFrames={CONTEXT} premountFor={10}>
+      <Sequence durationInFrames={context} premountFor={10}>
         <Context {...props} />
       </Sequence>
-      <Sequence from={CONTEXT} durationInFrames={PURPOSE} premountFor={10}>
+      <Sequence from={context} durationInFrames={purpose} premountFor={10}>
         <Purpose {...props} />
       </Sequence>
-      <Sequence from={CONTEXT + PURPOSE} premountFor={10}>
-        <HowTo {...props} />
+      <Sequence from={context + purpose} premountFor={10}>
+        <HowTo {...props} length={how} />
       </Sequence>
     </AbsoluteFill>
   );
