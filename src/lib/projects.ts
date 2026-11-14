@@ -123,6 +123,26 @@ export function shootDatesText(start: string | null, end: string | null) {
   return `${range} · ${n} shoot ${n === 1 ? "day" : "days"}`;
 }
 
+/** Where the shoot stands on `now`'s day: "Tomorrow", "In 6 days", "Shoot day 2 of 3", "Wrapped 4 days ago". */
+export function shootCountdown(start: string | null, end: string | null, now: number) {
+  const a = start ? parseDay(start) : undefined;
+  if (!a) return "";
+  const b = (end && parseDay(end)) || a;
+  const today = new Date(now);
+  today.setHours(0, 0, 0, 0);
+  const days = (from: Date, to: Date) => Math.round((to.getTime() - from.getTime()) / 864e5);
+  if (today < a) {
+    const n = days(today, a);
+    return n === 1 ? "Tomorrow" : `In ${n} days`;
+  }
+  if (today <= b) {
+    const total = days(a, b) + 1;
+    return total === 1 ? "Shooting today" : `Shoot day ${days(a, today) + 1} of ${total}`;
+  }
+  const n = days(b, today);
+  return n === 1 ? "Wrapped yesterday" : `Wrapped ${n} days ago`;
+}
+
 // Roles offered in Crew & talent (any other can be typed). Director, Writer and Talent hold the
 // names that used to be Director, Writers and Stars.
 export const CREW_ROLES = [

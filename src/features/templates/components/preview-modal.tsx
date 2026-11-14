@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useReducedMotion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2, X } from "lucide-react";
+import { Maximize2, Minimize2, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { sentenceCase } from "@/lib/sentence-case";
@@ -12,6 +12,7 @@ import { WORKFLOWS } from "@/lib/template-workflows";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
+import { PrevNext, SidePanel } from "@/components/nia/side-panel";
 import { loadTemplatePreview, type TemplatePreview } from "@/features/templates/actions";
 import { COMING_SOON, works, type GalleryTemplate } from "@/features/templates/gallery";
 import { DocMiniature } from "@/features/templates/components/doc-miniature";
@@ -56,40 +57,18 @@ export function PreviewModal(props: PreviewProps) {
   );
 }
 
-// The same preview docked on the right of the page (computers). The page beside it shrinks to
-// make room (`in-data-[preview-panel=open]:` on its wrapper), so the list stays in reach and
-// another template swaps in. Escape closes it; Expand fills the page below the bar.
+// The same preview docked on the right of the page on computers (SidePanel).
 export function PreviewPanel(props: PreviewProps) {
-  const [wide, setWide] = useState(false);
   const preview = usePreview(props.template, props.list, props.onNavigate);
-  const panel = useRef<HTMLElement>(null);
-  const { onClose } = props;
-  useEffect(() => {
-    const root = document.documentElement;
-    root.dataset.previewPanel = "open";
-    panel.current?.focus({ preventScroll: true });
-    const onEscape = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    window.addEventListener("keydown", onEscape);
-    return () => {
-      delete root.dataset.previewPanel;
-      window.removeEventListener("keydown", onEscape);
-    };
-  }, [onClose]);
   return (
-    <aside
-      ref={panel}
-      tabIndex={-1}
-      aria-label={`${props.template.name}, template preview`}
+    <SidePanel
+      label={`${props.template.name}, template preview`}
+      onClose={props.onClose}
       onKeyDown={preview.onKeyDown}
-      className={cn(
-        "fixed top-(--nav-h) right-0 bottom-0 z-30 flex flex-col border-l border-border bg-background outline-none",
-        "animate-in duration-base ease-out fade-in-0 slide-in-from-right-10 motion-reduce:animate-none",
-        wide ? "left-0" : "w-(--preview-panel-w)",
-      )}
+      tools={<PrevNext prev={preview.prev} next={preview.next} onNavigate={props.onNavigate} />}
     >
-      <PreviewBar {...props} {...preview} wide={wide} onWide={() => setWide((w) => !w)} close={<CloseButton onClick={props.onClose} />} />
       <PreviewBody {...props} {...preview} Title="h2" Description="p" />
-    </aside>
+    </SidePanel>
   );
 }
 
@@ -156,12 +135,7 @@ function PreviewBar({ prev, next, onNavigate, wide, onWide, close }: Shared & { 
         {wide ? <Minimize2 /> : <Maximize2 />}
       </Button>
       <span aria-hidden className="mx-1.5 hidden h-4.5 w-px bg-border sm:block" />
-      <Button variant="ghost" size="icon-sm" disabled={!prev} onClick={() => prev && onNavigate(prev)} aria-label={prev ? `Previous: ${prev.name}` : "Previous"}>
-        <ChevronLeft />
-      </Button>
-      <Button variant="ghost" size="icon-sm" disabled={!next} onClick={() => next && onNavigate(next)} aria-label={next ? `Next: ${next.name}` : "Next"}>
-        <ChevronRight />
-      </Button>
+      <PrevNext prev={prev} next={next} onNavigate={onNavigate} />
       <div className="flex-1" />
       {close}
     </div>

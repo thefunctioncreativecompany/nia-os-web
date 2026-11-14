@@ -12,6 +12,7 @@ export function ProjectCard({
   meta,
   cover,
   size = "default",
+  onOpen,
   className,
 }: {
   href: string;
@@ -19,6 +20,9 @@ export function ProjectCard({
   meta: string;
   cover?: string | StaticImageData | null;
   size?: "default" | "compact";
+  // Opens the project in place (the right panel, A/B) on a plain click; the link still works for
+  // new tabs and for anyone without a pointer.
+  onOpen?: () => void;
   className?: string;
 }) {
   const compact = size === "compact";
@@ -26,6 +30,11 @@ export function ProjectCard({
   return (
     <Link
       href={href}
+      onClick={(e) => {
+        if (!onOpen || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        onOpen();
+      }}
       className={cn(
         "group flex flex-col rounded-xl outline-none transition-transform duration-fast ease-out hover:scale-[1.02] focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:hover:scale-100",
         compact ? "gap-2" : "gap-3",

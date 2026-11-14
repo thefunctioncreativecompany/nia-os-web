@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useCallback, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { FolderSearch } from "lucide-react";
 
 import { GENRES, PRODUCTION_TYPES, STAGES, type Project } from "@/lib/projects";
@@ -10,6 +11,9 @@ import { ChipMenu, FilterChip, ResultCount, SearchField, ChipRow } from "@/compo
 import { ProjectGrid } from "@/components/projects/project-grid";
 import { SharedProjects, type LinkShared } from "@/components/projects/shared-projects";
 import { sentenceCase } from "@/lib/sentence-case";
+import { features } from "@/lib/features";
+import { useMediaQuery } from "@/hooks/use-pointer";
+import { ProjectPanel } from "@/components/projects/project-panel";
 
 const ALL = "all";
 const SORTS = { edited: "Last edited", newest: "Newest", title: "Title A–Z", shoot: "Shoot date" } as const;
@@ -84,8 +88,36 @@ export function ProjectsBrowser({
     setGenre(ALL);
   };
 
+  // A/B on computers (Ika, 2026-11-14): a project opens in the right panel, kept in the address
+  // (?project=…) so Back closes it. ?layout=popup, phones and tablets go straight to the page.
+  const computer = useMediaQuery("(min-width: 64rem)");
+  const panel = features.previewPanel && computer;
+  const pushed = useRef(false);
+  const router = useRouter();
+  const openProject = (p: Project) => {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("layout") === "popup") return router.push(`/projects/${p.id}`);
+    const showing = url.searchParams.has("project");
+    url.searchParams.set("project", p.id);
+    if (showing) window.history.replaceState(null, "", url);
+    else {
+      window.history.pushState(null, "", url);
+      pushed.current = true;
+    }
+  };
+  const closeProject = useCallback(() => {
+    if (pushed.current) {
+      pushed.current = false;
+      window.history.back();
+    } else {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("project");
+      window.history.replaceState(null, "", url);
+    }
+  }, []);
+
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 lg:in-data-[preview-panel=open]:pr-(--preview-panel-w)">
       <div className="flex flex-col gap-4">
         <SearchField label="Search projects" placeholder="Search titles, clients, crew, genres..." value={query} onChange={(e) => setQuery(e.target.value)} className="max-w-150" />
         <ChipRow role="group" aria-label="Stage">
@@ -126,10 +158,24 @@ export function ProjectsBrowser({
         />
       ) : (
         <>
-          <ProjectGrid projects={mine} now={now} />
+          <ProjectGrid projects={mine} now={now} onOpen={panel ? openProject : undefined} />
           {(theirs.length > 0 || viaLink.length > 0) && <SharedProjects projects={theirs} linked={viaLink} now={now} />}
         </>
       )}
+      {panel && (
+        <Suspense fallback={null}>
+          <ProjectFromAddress list={mine} now={now} onNavigate={openProject} onClose={closeProject} />
+        </Suspense>
+      )}
     </div>
   );
+}
+
+// The project named in the address (?project=…), in the right panel. ?layout=popup turns it off.
+function ProjectFromAddress({ list, now, onNavigate, onClose }: { list: Project[]; now: number; onNavigate: (p: Project) => void; onClose: () => void }) {
+  const params = useSearchParams();
+  const id = params.get("project");
+  const project = id ? list.find((p) => p.id === id) : undefined;
+  if (!project || params.get("layout") === "popup") return null;
+  return <ProjectPanel project={project} list={list} now={now} onNavigate={onNavigate} onClose={onClose} />;
 }

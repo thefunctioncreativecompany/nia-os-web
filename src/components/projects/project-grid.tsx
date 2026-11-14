@@ -10,11 +10,13 @@ export function ProjectGrid({
   projects,
   now,
   compact = false,
+  onOpen,
   className,
 }: {
   projects: Project[];
   now: number;
   compact?: boolean;
+  onOpen?: (project: Project) => void;
   className?: string;
 }) {
   return (
@@ -47,6 +49,7 @@ export function ProjectGrid({
           meta={projectMeta(project, now)}
           cover={project.coverUrl}
           size={compact ? "compact" : "default"}
+          onOpen={onOpen && (() => onOpen(project))}
         />
       ))}
     </div>

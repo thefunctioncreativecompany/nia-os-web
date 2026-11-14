@@ -917,3 +917,11 @@ onboarding's Import profile and Follow creators describe features removed in the
   (`in-data-[preview-panel=open]`), so the list stays in reach and another template swaps in.
   `features.previewPanel`; `?layout=popup` shows the old pop-up to compare. Phones and tablets
   keep the pop-up until they get their own design.
+- (2026-11-14) A/B: the right panel on Projects too (Ika: "apply same to projects … including shoot day").
+  On computers a project card opens `ProjectPanel` (`?project=…`, Back closes it): the cover at
+  Explore-trailer size, type · stage, title, last edit, Open project (the one main action), the shoot
+  first (`shootCountdown`: "In 6 days", "Shoot day 2 of 3", "Wrapped 4 days ago", with the dates),
+  the description, then only the details that hold something. Previous / next and arrow keys step
+  through the grid; Cmd-click still opens the page in a new tab. The panel frame is shared
+  (`src/components/nia/side-panel.tsx`, `SidePanel` + `PrevNext`) by templates and projects.
+  `?layout=popup`, phones and tablets go straight to the project page. Shared with you is unchanged.
