@@ -82,6 +82,7 @@ export function TemplateCard({
         {open && (
           <Button
             type="button"
+            variant="secondary"
             size="sm"
             onClick={() => {
               hover.cancel();

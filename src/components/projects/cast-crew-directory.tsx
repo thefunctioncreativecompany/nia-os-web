@@ -375,7 +375,7 @@ function ProfilePanel({ entry: e, editable, status, onEdit }: { entry: Directory
           </Button>
         )}
         {e.email ? (
-          <Button asChild className="flex-1">
+          <Button variant="secondary" asChild className="flex-1">
             <a href={`mailto:${e.email}`}>
               <Send aria-hidden /> Email {e.name.split(" ")[0]}
             </a>

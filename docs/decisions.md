@@ -948,3 +948,10 @@ onboarding's Import profile and Follow creators describe features removed in the
   characters left; all 37 need about 16,840).
 - (2026-11-14) Workflow covers: the step icons are sized to the card (container units, up to 48px) so
   five steps always fit, beside the preview panel too.
+- (2026-11-14) One blue button per screen (Ika: "only one main blue button per screen, and strictly on high
+  value actions (for example vs code has one sign in button, blue, and the rest are grey"). Replaces
+  2026-11-12's blue View all. Blue stays on: Share project (project page), Add person (Cast & crew), Use
+  this template (preview), Save to project (template editor), Add to project (Explore title), Open
+  project (project panel), Save (Settings). Grey now: View all everywhere, Email (crew profile), Use
+  template on cards, and the Plans buttons until Ika picks one plan to feature. Checked page by page:
+  no screen has more than one.

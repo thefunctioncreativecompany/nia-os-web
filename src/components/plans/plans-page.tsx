@@ -152,7 +152,7 @@ function PlanCard({ plan, billing, current, wanted, onChoose }: { plan: Plan; bi
             <Check aria-hidden /> {plan.id === "enterprise" ? "We'll be in touch" : "We'll email you"}
           </Button>
         ) : (
-          <Button className="w-full" onClick={onChoose}>
+          <Button variant="secondary" className="w-full" onClick={onChoose}>
             {plan.id === "enterprise" ? "Talk to us" : `Get ${plan.name}`}
           </Button>
         )}

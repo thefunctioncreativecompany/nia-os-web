@@ -63,9 +63,11 @@ Design:
   token `--spacing-page`); rows that bleed to the screen edge use `md:-mx-page` / `md:scroll-px-page`.
   No other side padding numbers.
 - Buttons (Ika, 2026-11-11): every button is a pill and every icon button a circle (built into
-  `Button`; no `rounded-md/lg` overrides). Primary (default) buttons are filled Nia Blue with a soft halo, stronger on hover (Ika, 2026-11-12).
-  "View all" and other go-to links are `ViewAll`
-  (`src/components/nia/view-all.tsx`): a Nia Blue pill with an arrow, no counts. Add to project and Share project are Nia Blue too.
+  `Button`; no `rounded-md/lg` overrides). Primary (default) buttons are filled Nia Blue with a soft halo
+  (Ika, 2026-11-12), and a screen has at most one, for its highest-value action; every other button is
+  grey (`secondary`, `outline`, `ghost`) (Ika, 2026-11-14, like VS Code's one blue Sign in).
+  "View all" and other go-to links are `ViewAll` (`src/components/nia/view-all.tsx`): a grey pill with an
+  arrow, no counts.
 - Grids fill row by row from the left: no CSS masonry `columns-*` anywhere (Ika, 2026-11-11: the
   gaps they leave are "very bad UX").
 - Rows (Ika, 2026-11-11): a row shows at most ten things (`ROW_MAX` in `src/lib/rows.ts`); the
