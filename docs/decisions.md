@@ -903,3 +903,9 @@ onboarding's Import profile and Follow creators describe features removed in the
   4,894px to 50 and 4,037px; phone from 5,956px to 4,573px. What's opened, used and searched is
   still recorded for New project and Add document. No "New" marker in the list (Ika: names stay
   whole; 28 of 37 were new); `launches.ts` keeps the dates and search results keep the marker.
+- (2026-11-14) Templates: two categories as carousels (Ika: "change some of the templates sections to be
+  carousels not lists, but with same information"). Strategy & development and UGC & social content are
+  `ScrollRow` carousels of cards with the list's four facts (icon, name, phase, what it's for); a
+  carousel shows `ROW_MAX` (ten) and View all opens the whole category as the list in place.
+  Production management & operations stays a list (paperwork people find by name). Phone page
+  4,573px to 3,539px.

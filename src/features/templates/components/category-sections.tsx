@@ -1,10 +1,13 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { RankedList } from "@/components/nia/ranked-list";
+import { ScrollRow } from "@/components/nia/scroll-row";
+import { ViewAll } from "@/components/nia/view-all";
+import { ROW_MAX } from "@/lib/rows";
 import { COMING_SOON, grainFor, works, type GalleryTemplate } from "@/features/templates/gallery";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { sentenceCase } from "@/lib/sentence-case";
@@ -21,10 +24,16 @@ const PHASE: Record<string, string> = {
 
 const phaseOf = (t: GalleryTemplate) => (works(t) ? t.stage : COMING_SOON);
 
-// Every template once, by category, all in one form: the list Ika's design gave Production
-// Management (2026-10-20), so the page reads the same top to bottom (Ika, 2026-11-13: minimalism
-// wins; the filmstrip and scrolling-column sections are in git tag parked-2026-11-13-templates).
-// The templates still to come follow as a compact list. Clicking a row opens its preview pop-up.
+// Categories shown as carousels, the rest as lists (Ika, 2026-11-14: "some of the templates
+// sections … carousels, not lists, but with same information"). Production management stays a
+// list: paperwork people find by name. Stored names, so Title Case here.
+const CAROUSELS = new Set(["Strategy & Development", "UGC & Social Content"]);
+
+// Every template once, by category (Ika, 2026-11-13: minimalism wins; the old filmstrip and
+// scrolling-column sections are in git tag parked-2026-11-13-templates). A category is a list
+// (icon, name, phase, what it's for) or a carousel of cards saying the same four things; a
+// carousel shows ROW_MAX and View all opens the whole category as the list. The templates still
+// to come follow as a compact list. Clicking a row or card opens its preview pop-up.
 export function CategorySections({
   templates,
   groups,
@@ -46,9 +55,13 @@ export function CategorySections({
 
   return (
     <div className="flex flex-col gap-16 px-4 pt-12 md:px-page">
-      {sections.map(({ group, items }) => (
-        <ListSection key={group} group={group} items={items} onPreview={onPreview} />
-      ))}
+      {sections.map(({ group, items }) =>
+        CAROUSELS.has(group) ? (
+          <CarouselSection key={group} group={group} items={items} onPreview={onPreview} />
+        ) : (
+          <ListSection key={group} group={group} items={items} onPreview={onPreview} />
+        ),
+      )}
       {soon.length > 0 && <SoonSection items={soon} total={total} onPreview={onPreview} />}
     </div>
   );
@@ -76,48 +89,94 @@ function ListSection({ group, items, onPreview }: { group: string; items: Galler
       <div className="mb-3.5">
         <SectionTitle group={group} count={items.length} />
       </div>
-      <RankedList
-        items={items}
-        getKey={(t) => t.code}
-        getLabel={(t) => `${t.name}, ${phaseOf(t)}. Preview the template.`}
-        onSelect={(t) => onPreview(t, items)}
-        previewFollowsCursor
-        previewClassName="size-55 rounded-2xl"
-        renderPreview={(t) => (
-          <span className={cn(tile, "size-full", grainFor(t.code))}>
-            <FlatIcon name={t.icon} className="size-15 stroke-[1.3] text-current" />
-          </span>
-        )}
-        header={
-          <div aria-hidden className="flex gap-4.5 border-b border-border px-2 py-2.5 text-micro font-semibold text-muted-foreground max-md:hidden">
-            <span className="w-11" />
-            <span className="w-70">Template</span>
-            <span className="w-32.5">Phase</span>
-            <span className="flex-1">What it&rsquo;s for</span>
-            <span className="w-32.5" />
-          </div>
-        }
-        rowClassName="min-h-19 gap-4.5 border-b border-secondary px-2 py-2"
-        renderRow={(t) => (
-          <>
-            <span className={cn(tile, "size-11 flex-none rounded-lg", grainFor(t.code))}>
-              <FlatIcon name={t.icon} className="size-5 stroke-[1.6] text-current" />
-            </span>
-            <span className="min-w-0 flex-1 truncate text-lead font-bold tracking-tight transition-transform duration-glide ease-glide group-hover/row:translate-x-3 group-focus-visible/row:translate-x-3 motion-reduce:translate-x-0! md:w-70 md:flex-none md:text-xl">
-              {t.name}
-            </span>
-            <span className="flex-none md:w-32.5">
-              <span className={cn("inline-flex h-6.5 items-center rounded-full px-2.5 text-caption font-medium", PHASE[phaseOf(t)])}>{phaseOf(t)}</span>
-            </span>
-            <span className="min-w-0 flex-1 truncate text-sm text-muted-foreground max-md:hidden">{t.preview}</span>
-            <span className="inline-flex w-32.5 flex-none items-center justify-end gap-1.5 text-small font-semibold opacity-0 transition-opacity duration-base group-hover/row:opacity-100 group-focus-visible/row:opacity-100 max-md:hidden">
-              {works(t) ? "Use template" : "Notify me"}
-              <ArrowRight aria-hidden className="size-3.25" strokeWidth={2} />
-            </span>
-          </>
-        )}
-      />
+      <TemplateList items={items} onPreview={onPreview} />
     </section>
+  );
+}
+
+// A category as a carousel: the first ROW_MAX as cards; View all shows the whole category as the list.
+function CarouselSection({ group, items, onPreview }: { group: string; items: GalleryTemplate[]; onPreview: Preview }) {
+  const [all, setAll] = useState(false);
+  return (
+    <section aria-labelledby={sectionId(group)}>
+      <div className="mb-3.5">
+        <SectionTitle group={group} count={items.length}>
+          {!all && items.length > ROW_MAX && <ViewAll onClick={() => setAll(true)} />}
+        </SectionTitle>
+      </div>
+      {all ? (
+        <TemplateList items={items} onPreview={onPreview} />
+      ) : (
+        <ScrollRow label={sentenceCase(group)}>
+          {items.slice(0, ROW_MAX).map((t) => (
+            <li key={t.code} className="flex-none snap-start">
+              <button
+                type="button"
+                onClick={() => onPreview(t, items)}
+                aria-label={`${t.name}, ${phaseOf(t)}. Preview the template.`}
+                className="hover-sweep group flex w-64 flex-col gap-3 rounded-2xl border border-border bg-card p-3 text-left outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+              >
+                <span className={cn(tile, "aspect-[4/3] w-full rounded-xl", grainFor(t.code))}>
+                  <FlatIcon name={t.icon} className="size-10 stroke-[1.4] text-current" />
+                </span>
+                <span className="flex flex-col gap-2 px-1 pb-1">
+                  <span className="truncate text-lead font-bold tracking-tight text-foreground">{t.name}</span>
+                  <span className={cn("inline-flex h-6.5 w-fit items-center rounded-full px-2.5 text-caption font-medium", PHASE[phaseOf(t)])}>{phaseOf(t)}</span>
+                  <span className="line-clamp-2 text-small leading-snug text-muted-foreground">{t.preview}</span>
+                </span>
+              </button>
+            </li>
+          ))}
+        </ScrollRow>
+      )}
+    </section>
+  );
+}
+
+// The list form: icon, name, phase, what it's for.
+function TemplateList({ items, onPreview }: { items: GalleryTemplate[]; onPreview: Preview }) {
+  return (
+    <RankedList
+      items={items}
+      getKey={(t) => t.code}
+      getLabel={(t) => `${t.name}, ${phaseOf(t)}. Preview the template.`}
+      onSelect={(t) => onPreview(t, items)}
+      previewFollowsCursor
+      previewClassName="size-55 rounded-2xl"
+      renderPreview={(t) => (
+        <span className={cn(tile, "size-full", grainFor(t.code))}>
+          <FlatIcon name={t.icon} className="size-15 stroke-[1.3] text-current" />
+        </span>
+      )}
+      header={
+        <div aria-hidden className="flex gap-4.5 border-b border-border px-2 py-2.5 text-micro font-semibold text-muted-foreground max-md:hidden">
+          <span className="w-11" />
+          <span className="w-70">Template</span>
+          <span className="w-32.5">Phase</span>
+          <span className="flex-1">What it&rsquo;s for</span>
+          <span className="w-32.5" />
+        </div>
+      }
+      rowClassName="min-h-19 gap-4.5 border-b border-secondary px-2 py-2"
+      renderRow={(t) => (
+        <>
+          <span className={cn(tile, "size-11 flex-none rounded-lg", grainFor(t.code))}>
+            <FlatIcon name={t.icon} className="size-5 stroke-[1.6] text-current" />
+          </span>
+          <span className="min-w-0 flex-1 truncate text-lead font-bold tracking-tight transition-transform duration-glide ease-glide group-hover/row:translate-x-3 group-focus-visible/row:translate-x-3 motion-reduce:translate-x-0! md:w-70 md:flex-none md:text-xl">
+            {t.name}
+          </span>
+          <span className="flex-none md:w-32.5">
+            <span className={cn("inline-flex h-6.5 items-center rounded-full px-2.5 text-caption font-medium", PHASE[phaseOf(t)])}>{phaseOf(t)}</span>
+          </span>
+          <span className="min-w-0 flex-1 truncate text-sm text-muted-foreground max-md:hidden">{t.preview}</span>
+          <span className="inline-flex w-32.5 flex-none items-center justify-end gap-1.5 text-small font-semibold opacity-0 transition-opacity duration-base group-hover/row:opacity-100 group-focus-visible/row:opacity-100 max-md:hidden">
+            {works(t) ? "Use template" : "Notify me"}
+            <ArrowRight aria-hidden className="size-3.25" strokeWidth={2} />
+          </span>
+        </>
+      )}
+    />
   );
 }
 
