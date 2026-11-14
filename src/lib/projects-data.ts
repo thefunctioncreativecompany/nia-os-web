@@ -10,6 +10,7 @@ import {
   type ProjectRole,
 } from "@/lib/projects";
 import { getSession } from "@/lib/supabase/session";
+import { fileLinks } from "@/lib/file-links";
 
 // Loaders for the project screens and Home. They read cookies, so call them inside
 // <Suspense>. Row Level Security limits every query to projects the user can access.
@@ -164,9 +165,8 @@ export async function listProjectFiles(projectId: string): Promise<ProjectFile[]
     .is("deleted_at", null)
     .order("created_at", { ascending: false });
   if (error) throw new Error(`Couldn't load this project's files: ${error.message}`);
-  const paths = data.flatMap((f) => (f.thumb_path ? [f.path, f.thumb_path] : [f.path]));
-  const signed = paths.length ? (await supabase.storage.from("project-files").createSignedUrls(paths, 60 * 60)).data ?? [] : [];
-  const urls = new Map(signed.map((s) => [s.path, s.signedUrl] as const));
+  // Read through this person's rules above; links stay the same for a while so pictures are reused.
+  const urls = await fileLinks(data.flatMap((f) => [f.path, f.thumb_path]));
   return data.map((f) => ({
     id: f.id,
     name: f.name,

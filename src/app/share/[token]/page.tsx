@@ -15,9 +15,9 @@ import { PersonTile } from "@/components/nia/cast-crew-row";
 import { ExploreCard, cardSpan } from "@/components/explore/title-card";
 import { OpenProject } from "@/components/projects/open-project";
 import { ReferenceStill } from "@/components/projects/reference-still";
-import { createAdminClient } from "@/lib/supabase/admin";
 import { ROW_MAX } from "@/lib/rows";
 import { exploreItem, type ExploreItem } from "@/features/explore/items";
+import { fileLinks } from "@/lib/file-links";
 
 // The references row's cells, as on the project page; landscape films get wider ones (cardSpan).
 // Smaller than the project page's: wide stills sit beside the posters at their height.
@@ -242,9 +242,8 @@ async function sharedReferences(supabase: Awaited<ReturnType<typeof createClient
   let room = Math.max(0, ROW_MAX - titles);
   rows = rows.filter((r) => r.kind === "explore" || room-- > 0);
   const paths = rows.flatMap((r) => (r.kind === "still" && r.path ? [r.path] : []));
-  const admin = paths.length ? createAdminClient() : null;
-  const signed = admin ? ((await admin.storage.from("project-files").createSignedUrls(paths, 60 * 60)).data ?? []) : [];
-  const urls = new Map(signed.flatMap((s) => (s.path && s.signedUrl ? [[s.path, s.signedUrl] as const] : [])));
+  // Checked by the share link's function above; links stay the same for a while (file-links.ts).
+  const urls = await fileLinks(paths);
 
   const shown = rows.flatMap((r): SharedReference[] => {
     if (r.kind === "explore") {

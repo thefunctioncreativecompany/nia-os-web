@@ -112,9 +112,37 @@ function send(file: File, path: string, token: string, onProgress: (p: number) =
   });
 }
 
+// A smaller copy of a picture (1,600px on its longest side, JPEG) for grids, the viewer, the share
+// page and portfolios, so the original is fetched only to download it (Ika, 2026-11-14: Supabase's
+// free plan, 5 GB of egress a month). Null when the browser can't read it, it's animated or vector,
+// or it's already small.
+async function imagePreview(file: File): Promise<Blob | null> {
+  if (!file.type.startsWith("image/") || file.type === "image/gif" || file.type === "image/svg+xml") return null;
+  try {
+    const bitmap = await createImageBitmap(file);
+    const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
+    if (scale === 1 && file.size < 500_000) {
+      bitmap.close();
+      return null;
+    }
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(bitmap.width * scale);
+    canvas.height = Math.round(bitmap.height * scale);
+    const context = canvas.getContext("2d");
+    if (!context) return null;
+    context.fillStyle = "white"; // transparent PNGs on white, as JPEG has no transparency
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+    bitmap.close();
+    return await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.82));
+  } catch {
+    return null;
+  }
+}
+
 /**
- * Uploads one file to a project: the file, a first-page picture for a PDF (best effort: a locked
- * PDF just shows its icon), then its record with a tag. Used by the upload box and by the
+ * Uploads one file to a project: the file, a smaller copy of a picture or a first-page picture for a
+ * PDF (best effort: a locked PDF just shows its icon), then its record with a tag. Used by the upload box and by the
  * New project form (audit #12). Throws with a readable message if it fails.
  */
 export async function uploadProjectFile(projectId: string, file: File, token: string, tag: FileTag | "auto" = "auto", onProgress: (p: number) => void = () => {}, key: string = crypto.randomUUID()) {
@@ -124,7 +152,14 @@ export async function uploadProjectFile(projectId: string, file: File, token: st
   const path = `${projectId}/${key}-${safe}`;
   await send(file, path, token, onProgress);
   let thumb: string | null = null;
-  if (file.type === "application/pdf") {
+  if (kind === "image") {
+    const small = await imagePreview(file);
+    if (small) {
+      const thumbPath = `${projectId}/${key}-preview.jpg`;
+      const { error: thumbError } = await supabase.storage.from("project-files").upload(thumbPath, small, { contentType: "image/jpeg" });
+      if (!thumbError) thumb = thumbPath;
+    }
+  } else if (file.type === "application/pdf") {
     const picture = await pdfFirstPage(file);
     if (picture) {
       const thumbPath = `${projectId}/${key}-preview.png`;
@@ -410,7 +445,7 @@ function FileGroups({ files, canEdit, now, remove, retag }: { files: ProjectFile
             <li key={file.id} className="group relative">
               <button type="button" aria-label={`Open ${file.name}`} onClick={() => setViewing(i)} className="block w-full overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
                 {/* eslint-disable-next-line @next/next/no-img-element -- private files use short-lived links, which the image optimiser would cache */}
-                {file.url && <img src={file.url} alt={file.name} loading="lazy" className="h-auto w-full transition-transform duration-base ease-out group-hover:scale-[1.02]" />}
+                {file.url && <img src={file.thumbUrl ?? file.url} alt={file.name} loading="lazy" className="h-auto w-full transition-transform duration-base ease-out group-hover:scale-[1.02]" />}
               </button>
               <span className="pointer-events-none absolute inset-x-1.5 top-1.5 flex items-start justify-between gap-1">
                 <span className="pointer-events-auto rounded-full bg-card/90 shadow-sm">
@@ -473,7 +508,7 @@ function FileGroups({ files, canEdit, now, remove, retag }: { files: ProjectFile
           {viewing !== null && stills[viewing]?.url && (
             <div className="relative flex max-h-[86svh] items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element -- see above */}
-              <img src={stills[viewing].url!} alt={stills[viewing].name} className="max-h-[86svh] w-auto rounded-lg object-contain" />
+              <img src={stills[viewing].thumbUrl ?? stills[viewing].url!} alt={stills[viewing].name} className="max-h-[86svh] w-auto rounded-lg object-contain" />
               <span className="absolute top-3 left-3 flex gap-2">
                 <a
                   href={`${stills[viewing].url}&download=${encodeURIComponent(stills[viewing].name)}`}

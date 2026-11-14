@@ -5,14 +5,13 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { features } from "@/lib/features";
 import { getSession } from "@/lib/supabase/session";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { fileLinks } from "@/lib/file-links";
 import { portfolioFrom, type Piece, type Portfolio, type PortfolioProject } from "./types";
 
 // Portfolios' server side (beta). Inside the app everything is read as the signed-in person, so the
 // database rules apply; the public page reads with the admin client only after checking the
 // portfolio is published (or that the viewer is in its workspace, to preview it).
 
-const BUCKET = "project-files";
-const HOUR = 60 * 60;
 const PORTFOLIO_COLUMNS = "id, title, byline, slug, template, background, cover_file_id, published_at, updated_at";
 
 /** Whether the signed-in person may use Portfolios: the beta switch and the PORTFOLIOS_BETA_EMAILS list
@@ -25,14 +24,14 @@ export async function canUsePortfolios() {
   return Boolean(user?.email && allowed.includes(user.email.toLowerCase()));
 }
 
-type FileRow = { id: string; project_id: string; name: string; path: string; kind: string };
+type FileRow = { id: string; project_id: string; name: string; path: string; kind: string; thumb_path: string | null };
 
 // The final pictures and films of these projects, oldest first (the order they were added in).
 async function finals(client: SupabaseClient, projectIds: string[]) {
   if (!projectIds.length) return [] as FileRow[];
   const { data } = await client
     .from("project_files")
-    .select("id, project_id, name, path, kind")
+    .select("id, project_id, name, path, kind, thumb_path")
     .in("project_id", projectIds)
     .eq("tag", "final")
     .in("kind", ["image", "video"])
@@ -41,10 +40,12 @@ async function finals(client: SupabaseClient, projectIds: string[]) {
   return (data ?? []) as FileRow[];
 }
 
-async function signed(client: SupabaseClient, files: FileRow[]) {
-  if (!files.length) return new Map<string, string>();
-  const { data } = await client.storage.from(BUCKET).createSignedUrls(files.map((f) => f.path), HOUR);
-  return new Map((data ?? []).map((d, i) => [files[i].id, d.signedUrl ?? ""]));
+// A picture's smaller copy when it has one (the original only for films), through links that stay
+// the same for a while (file-links.ts). Callers pass files already checked. Keyed by file id.
+const shownPath = (f: FileRow) => (f.kind === "image" && f.thumb_path ? f.thumb_path : f.path);
+async function signed(files: FileRow[]) {
+  const links = await fileLinks(files.map(shownPath));
+  return new Map(files.map((f) => [f.id, links.get(shownPath(f)) ?? ""]));
 }
 
 const piece = (f: FileRow, urls: Map<string, string>): Piece => ({ id: f.id, name: f.name, kind: f.kind === "video" ? "video" : "image", url: urls.get(f.id) ?? "" });
@@ -55,8 +56,8 @@ export async function listPortfolios(): Promise<{ portfolio: Portfolio; cover: s
   const { data } = await supabase.from("portfolios").select(PORTFOLIO_COLUMNS).is("deleted_at", null).order("updated_at", { ascending: false });
   const rows = (data ?? []).map(portfolioFrom);
   const coverIds = rows.map((p) => p.coverFileId).filter((id): id is string => Boolean(id));
-  const { data: files } = coverIds.length ? await supabase.from("project_files").select("id, project_id, name, path, kind").in("id", coverIds) : { data: [] };
-  const urls = await signed(supabase, (files ?? []) as FileRow[]);
+  const { data: files } = coverIds.length ? await supabase.from("project_files").select("id, project_id, name, path, kind, thumb_path").in("id", coverIds) : { data: [] };
+  const urls = await signed((files ?? []) as FileRow[]);
   return rows.map((portfolio) => ({ portfolio, cover: portfolio.coverFileId ? urls.get(portfolio.coverFileId) || null : null }));
 }
 
@@ -71,7 +72,7 @@ export async function loadEditor(id: string) {
   ]);
   const all = (projects ?? []) as { id: string; title: string }[];
   const files = await finals(supabase, all.map((p) => p.id));
-  const urls = await signed(supabase, files);
+  const urls = await signed(files);
   const withFinals: PortfolioProject[] = all
     .map((p) => ({ id: p.id, title: p.title || "Untitled project", pieces: files.filter((f) => f.project_id === p.id).map((f) => piece(f, urls)) }))
     .filter((p) => p.pieces.length > 0);
@@ -100,7 +101,7 @@ export async function loadPublic(slug: string) {
   const { data: projects } = ids.length ? await admin.from("projects").select("id, title").in("id", ids).is("deleted_at", null) : { data: [] };
   const files = await finals(admin, ids);
   const coverFile = row.cover_file_id ? files.find((f) => f.id === row.cover_file_id) ?? null : null;
-  const urls = await signed(admin, files);
+  const urls = await signed(files);
   const byId = new Map(((projects ?? []) as { id: string; title: string }[]).map((p) => [p.id, p]));
   const shown: PortfolioProject[] = ids
     .map((pid) => byId.get(pid))

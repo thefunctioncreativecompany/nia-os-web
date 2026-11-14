@@ -971,3 +971,11 @@ onboarding's Import profile and Follow creators describe features removed in the
   portfolio's own projects only. Not in this slice: upload as you build, the welcome, framing the cover,
   more galleries, custom colours, client links, passcodes, favourites, tracking, link previews,
   Pixieset import and your page on Explore.
+- (2026-11-14) Supabase egress (free plan, 5 GB a month) was used up: 5.09 GB, from about 94 MB of project
+  pictures downloaded again on every visit (originals in grids, a fresh signed link each time, and many
+  automated test runs). Ika stays on the free plan. Fixes: uploads make a smaller copy of each picture
+  (1,600px, JPEG, `thumb_path`, made in the browser) used by Files, References, the viewer and Portfolios,
+  originals only to download; private file links come from `src/lib/file-links.ts`, the same link for
+  about 45 minutes so browsers reuse pictures (files read through the person's own rules, a share
+  link's check or a published portfolio's first). `scripts/make-image-previews.mjs` makes copies for
+  the 60 older pictures (about 94 MB of egress, once). Test runs block pictures from now on.
