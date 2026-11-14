@@ -30,11 +30,16 @@ export function ProjectCard({
   return (
     <Link
       href={href}
-      onClick={(e) => {
-        if (!onOpen || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-        e.preventDefault();
-        onOpen();
-      }}
+      // Only with onOpen: Home draws these cards on the server, where a click handler can't be passed
+      // (it took Home down, 2026-11-14).
+      onClick={
+        onOpen &&
+        ((e) => {
+          if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          e.preventDefault();
+          onOpen();
+        })
+      }
       className={cn(
         "group flex flex-col rounded-xl outline-none transition-transform duration-fast ease-out hover:scale-[1.02] focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:hover:scale-100",
         compact ? "gap-2" : "gap-3",
