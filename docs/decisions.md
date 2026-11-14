@@ -984,3 +984,7 @@ onboarding's Import profile and Follow creators describe features removed in the
   films had left big gaps in the 4-column grid). Creator films credited to a YouTube channel id show the
   channel's name instead ("@UCYod…" → "Leaders of the Wav"). Still to do: the Dior × A24 still has a
   light frame in the picture itself; it needs a new still (Explore data, paused).
+- (2026-11-14) Tagging several files at once (Ika: "select a range or set as final assets"): in a project's
+  Files, Select (editors) lets you tick files, Shift-click ticks every file between, Select all; a bar
+  offers Set as final (its one blue button) and Tag as… for the rest; one update for all, with Undo.
+  Portfolios' own email list (local) now includes Ika's account as well as the two test accounts.

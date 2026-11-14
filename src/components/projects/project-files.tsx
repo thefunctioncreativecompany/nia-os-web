@@ -369,12 +369,72 @@ function useProjectFiles(files: ProjectFile[]) {
     router.refresh();
   };
 
-  return { live, remove, retag, refresh: () => router.refresh(), restored: (id: string) => setRemoved((r) => r.filter((x) => x !== id)) };
+  // Several files at once (Ika, 2026-11-14: "select a range or set as final assets"), with Undo.
+  const retagMany = async (list: ProjectFile[], tag: FileTag) => {
+    if (!list.length) return;
+    const before = Object.fromEntries(list.map((f) => [f.id, f.tag] as const));
+    setRetagged((r) => ({ ...r, ...Object.fromEntries(list.map((f) => [f.id, tag] as const)) }));
+    const { error } = await createClient().from("project_files").update({ tag }).in("id", list.map((f) => f.id));
+    if (error) {
+      setRetagged((r) => {
+        const next = { ...r };
+        list.forEach((f) => delete next[f.id]);
+        return next;
+      });
+      return void toast.error(`Couldn't tag those files: ${error.message}`);
+    }
+    const label = TAGS.find((t) => t.value === tag)?.label.toLowerCase() ?? tag;
+    toast.success(`${list.length} ${list.length === 1 ? "file" : "files"} tagged ${label}`, {
+      action: {
+        label: "Undo",
+        onClick: () => {
+          const groups = new Map<FileTag | null, string[]>();
+          list.forEach((f) => groups.set(before[f.id], [...(groups.get(before[f.id]) ?? []), f.id]));
+          void Promise.all([...groups].map(([t, ids]) => createClient().from("project_files").update({ tag: t }).in("id", ids))).then(() => {
+            setRetagged((r) => {
+              const next = { ...r };
+              list.forEach((f) => {
+                const was = before[f.id];
+                if (was) next[f.id] = was;
+                else delete next[f.id];
+              });
+              return next;
+            });
+            router.refresh();
+          });
+        },
+      },
+    });
+    router.refresh();
+  };
+
+  return { live, remove, retag, retagMany, refresh: () => router.refresh(), restored: (id: string) => setRemoved((r) => r.filter((x) => x !== id)) };
 }
 
+/** Picking files to tag together: on while selecting, which are picked, and picking one (Shift for a range). */
+type Picking = { picked: Set<string>; pick: (file: ProjectFile, range: boolean) => void };
+
 /** Files by kind: stills as a mood board (with a viewer), documents as covers, audio, video. */
-function FileGroups({ files, canEdit, now, remove, retag }: { files: ProjectFile[]; canEdit: boolean; now: number; remove: (file: ProjectFile) => void; retag: (file: ProjectFile, tag: FileTag) => void }) {
+function FileGroups({ files, canEdit, now, remove, retag, picking }: { files: ProjectFile[]; canEdit: boolean; now: number; remove: (file: ProjectFile) => void; retag: (file: ProjectFile, tag: FileTag) => void; picking?: Picking | null }) {
   const [viewing, setViewing] = useState<number | null>(null);
+  // While selecting, a layer over each file picks it instead of opening it.
+  const pickLayer = (file: ProjectFile) => {
+    if (!picking) return null;
+    const on = picking.picked.has(file.id);
+    return (
+      <button
+        type="button"
+        aria-pressed={on}
+        aria-label={`Select ${file.name}`}
+        onClick={(e) => picking.pick(file, e.shiftKey)}
+        className={cn("absolute inset-0 z-10 rounded-lg outline-none focus-visible:ring-3 focus-visible:ring-ring/50", on ? "bg-nia-blue/15 ring-3 ring-nia-blue" : "hover:bg-foreground/5")}
+      >
+        <span className={cn("absolute top-2 right-2 flex size-6 items-center justify-center rounded-full border-2", on ? "border-nia-blue bg-nia-blue text-nia-blue-foreground" : "border-white bg-black/20")}>
+          {on && <Check aria-hidden className="size-3.5" />}
+        </span>
+      </button>
+    );
+  };
   const of = (kind: FileKind) => files.filter((f) => f.kind === kind);
   const stills = of("image");
 
@@ -405,7 +465,8 @@ function FileGroups({ files, canEdit, now, remove, retag }: { files: ProjectFile
   );
 
   const row = (file: ProjectFile, extra?: React.ReactNode) => (
-    <li key={file.id} className="flex flex-col gap-2 rounded-xl border border-border bg-card p-3">
+    <li key={file.id} className="relative flex flex-col gap-2 rounded-xl border border-border bg-card p-3">
+      {pickLayer(file)}
       <div className="flex items-center gap-3">
         <PageIcon name={file.name} kind={file.kind} />
         <span className="flex min-w-0 flex-1 flex-col gap-1">
@@ -443,6 +504,7 @@ function FileGroups({ files, canEdit, now, remove, retag }: { files: ProjectFile
         <ul className="grid grid-cols-2 items-start gap-2.5 sm:grid-cols-3">
           {stills.map((file, i) => (
             <li key={file.id} className="group relative">
+              {pickLayer(file)}
               <button type="button" aria-label={`Open ${file.name}`} onClick={() => setViewing(i)} className="block w-full overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
                 {/* eslint-disable-next-line @next/next/no-img-element -- private files use short-lived links, which the image optimiser would cache */}
                 {file.url && <img src={file.thumbUrl ?? file.url} alt={file.name} loading="lazy" className="h-auto w-full transition-transform duration-base ease-out group-hover:scale-[1.02]" />}
@@ -464,7 +526,8 @@ function FileGroups({ files, canEdit, now, remove, retag }: { files: ProjectFile
         // Documents as covers: the first page where there is one, otherwise the file's icon.
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {of("document").map((file) => (
-            <li key={file.id} className="group flex min-w-0 flex-col gap-2">
+            <li key={file.id} className="group relative flex min-w-0 flex-col gap-2">
+              {pickLayer(file)}
               <a
                 href={file.url ?? undefined}
                 target="_blank"
@@ -574,10 +637,38 @@ const TABS = TAGS.filter((t) => t.value !== "final");
 export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: string; files: ProjectFile[]; canEdit: boolean; now: number }) {
   const [tab, setTab] = useState<Tab>("all");
   const [uploadTag, setUploadTag] = useState<FileTag | "auto">("auto");
-  const { live: all, remove, retag, refresh, restored } = useProjectFiles(files);
+  const { live: all, remove, retag, retagMany, refresh, restored } = useProjectFiles(files);
 
   const live = all.filter((f) => !isFinal(f));
   const inTab = tab === "all" ? live : live.filter((f) => f.tag === tab);
+  // Selecting several files to tag at once; Shift picks every file between this one and the last.
+  const [selecting, setSelecting] = useState(false);
+  const [picked, setPicked] = useState<Set<string>>(new Set());
+  const anchor = useRef<string | null>(null);
+  const shown = (["image", "document", "audio", "video"] as const).flatMap((k) => inTab.filter((f) => f.kind === k));
+  const pick = (file: ProjectFile, range: boolean) => {
+    // Read the last picked file now: the state update below runs later.
+    const from = anchor.current ? shown.findIndex((f) => f.id === anchor.current) : -1;
+    const to = shown.findIndex((f) => f.id === file.id);
+    const span = range && from >= 0 && to >= 0 ? shown.slice(Math.min(from, to), Math.max(from, to) + 1).map((f) => f.id) : null;
+    anchor.current = file.id;
+    setPicked((current) => {
+      const next = new Set(current);
+      if (span) span.forEach((id) => next.add(id));
+      else if (next.has(file.id)) next.delete(file.id);
+      else next.add(file.id);
+      return next;
+    });
+  };
+  const stopSelecting = () => {
+    setSelecting(false);
+    setPicked(new Set());
+    anchor.current = null;
+  };
+  const tagPicked = async (tag: FileTag) => {
+    await retagMany(shown.filter((f) => picked.has(f.id)), tag);
+    stopSelecting();
+  };
   const counts = Object.fromEntries(TABS.map((t) => [t.value, live.filter((f) => f.tag === t.value).length]));
 
   return (
@@ -594,6 +685,11 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
             onChange={(v) => setTab(v as Tab)}
             segments={[{ value: "all", label: "All", count: live.length }, ...TABS.map((t) => ({ value: t.value, label: t.plural, count: counts[t.value] }))]}
           />
+        )}
+        {canEdit && inTab.length > 1 && (
+          <Button variant="secondary" size="compact" className="w-fit" onClick={() => (selecting ? stopSelecting() : setSelecting(true))}>
+            {selecting ? "Done" : "Select"}
+          </Button>
         )}
       </div>
       {canEdit && (
@@ -621,7 +717,36 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
       {canEdit && <ArchiveButton projectId={projectId} onChanged={refresh} onRestored={restored} />}
       {live.length > 0 && inTab.length === 0 && <p className="text-small text-muted-foreground">Nothing tagged {TAGS.find((t) => t.value === tab)?.label.toLowerCase()} yet. Change a file&rsquo;s tag from the menu on it.</p>}
 
-      <FileGroups files={inTab} canEdit={canEdit} now={now} remove={remove} retag={retag} />
+      <FileGroups files={inTab} canEdit={canEdit} now={now} remove={remove} retag={retag} picking={selecting ? { picked, pick } : null} />
+
+      {selecting && (
+        <div role="toolbar" aria-label="Tag selected files" className="fixed inset-x-0 bottom-28 z-40 mx-auto flex w-fit max-w-[calc(100%-2rem)] flex-wrap items-center gap-2 rounded-full border border-border bg-card p-2 pl-4 shadow-elevation-2 lg:bottom-6">
+          <span aria-live="polite" className="text-small font-semibold text-foreground tabular-nums">
+            {picked.size} selected
+          </span>
+          <Button variant="ghost" size="compact" onClick={() => setPicked(new Set(shown.map((f) => f.id)))}>
+            Select all
+          </Button>
+          <Button size="compact" disabled={!picked.size} onClick={() => void tagPicked("final")}>
+            Set as final
+          </Button>
+          <Select value="" onValueChange={(v) => void tagPicked(v as FileTag)} disabled={!picked.size}>
+            <SelectTrigger aria-label="Tag selected as" className="h-8 w-auto rounded-full text-small">
+              <SelectValue placeholder="Tag as…" />
+            </SelectTrigger>
+            <SelectContent>
+              {TAGS.filter((t) => t.value !== "final").map((t) => (
+                <SelectItem key={t.value} value={t.value}>
+                  {t.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Button variant="ghost" size="icon-sm" aria-label="Stop selecting" onClick={stopSelecting}>
+            <X />
+          </Button>
+        </div>
+      )}
     </section>
   );
 }
