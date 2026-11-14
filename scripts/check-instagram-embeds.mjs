@@ -20,7 +20,7 @@ const all = [...source.matchAll(/^ {4}code: "([\w-]+)",\n(\s+platform: "youtube"
 const wanted = process.argv.slice(2);
 const films = wanted.length ? all.filter((f) => wanted.includes(f.code)) : all;
 
-const browser = await puppeteer.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", headless: true });
+const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", args: ["--no-sandbox"], headless: true });
 const page = await browser.newPage();
 
 async function plays(url) {
