@@ -1,27 +1,27 @@
 {
  "updated": "2026-11-15",
  "slugs": [
-  "the-odyssey",
   "spider-man-brand-new-day",
+  "the-odyssey",
   "project-hail-mary",
-  "resident-evil",
   "obsession",
-  "la-bola-negra"
- ],
- "toAdd": [
+  "resident-evil",
+  "la-bola-negra",
   "michael",
   "toy-story-5",
   "heart-of-the-beast",
   "the-super-mario-galaxy-movie",
-  "visionquest",
+  "visionquest"
+ ],
+ "toAdd": [
   "backrooms",
   "disclosure-day",
   "verity",
   "other-mommy",
   "minions-and-monsters",
   "hoppers",
-  "the-body",
   "the-devil-wears-prada-2",
-  "hope"
+  "moana",
+  "the-body"
  ]
 }

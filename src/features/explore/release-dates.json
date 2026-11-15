@@ -951,6 +951,10 @@
   "date": "2004-05-31",
   "precision": "day"
  },
+ "heart-of-the-beast": {
+  "date": "2026-09-24",
+  "precision": "day"
+ },
  "heart-of-the-hunter": {
   "date": "2024-03-29",
   "precision": "day"
@@ -1177,6 +1181,10 @@
  },
  "men-in-black": {
   "date": "1997-07-02",
+  "precision": "day"
+ },
+ "michael": {
+  "date": "2025-10-03",
   "precision": "day"
  },
  "mildred-pierce": {
@@ -1755,6 +1763,10 @@
   "date": "1965-03-02",
   "precision": "day"
  },
+ "the-super-mario-galaxy-movie": {
+  "date": "2026-04-01",
+  "precision": "day"
+ },
  "the-theory-of-everything": {
   "date": "2014-01-01",
   "precision": "year"
@@ -1807,6 +1819,10 @@
   "date": "1995-11-22",
   "precision": "day"
  },
+ "toy-story-5": {
+  "date": "2026-06-09",
+  "precision": "day"
+ },
  "training-day": {
   "date": "2001-09-02",
   "precision": "day"
@@ -1834,6 +1850,10 @@
  "vertigo": {
   "date": "1958-01-01",
   "precision": "year"
+ },
+ "visionquest": {
+  "date": "2026-10-13",
+  "precision": "day"
  },
  "waiting-to-exhale": {
   "date": "1995-01-01",

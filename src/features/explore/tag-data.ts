@@ -457,4 +457,9 @@ export const HAND_TAGS: Record<string, string[]> = {
   "resident-evil": ["snow", "night", "roads", "rural", "tense", "raw", "gritty", "mysterious", "adaptation", "practical-effects", "full-crew", "cinema"],
   "obsession": ["love", "youth", "home", "interiors", "night", "tense", "mysterious", "darkly-comic", "intimate", "myth", "small-crew", "cinema"],
   "la-bola-negra": ["history", "period-setting", "queer", "love", "identity", "poetry", "adaptation", "ensemble", "melancholy", "intimate", "full-crew", "cinema"],
+  "michael": ["music", "dance", "family", "identity", "celebrity", "period-setting", "true-story", "costume", "colour-grade", "energetic", "nostalgic", "full-crew", "cinema"],
+  "toy-story-5": ["youth", "friendship", "family", "tech", "home", "playful", "joyful", "nostalgic", "uplifting", "vfx", "ensemble", "full-crew", "cinema"],
+  "heart-of-the-beast": ["nature", "snow", "mountains", "wide-vistas", "tense", "raw", "gritty", "uplifting", "practical-effects", "celebrity", "full-crew", "cinema"],
+  "the-super-mario-galaxy-movie": ["myth", "future-world", "friendship", "family", "playful", "joyful", "energetic", "bold", "vfx", "adaptation", "celebrity", "full-crew", "cinema"],
+  "visionquest": ["future-world", "tech", "identity", "family", "mysterious", "tense", "moody", "vfx", "adaptation", "celebrity", "full-crew", "streaming"],
 };

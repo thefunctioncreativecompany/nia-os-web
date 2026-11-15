@@ -1427,6 +1427,9 @@
    "licence": "CC BY-SA 4.0"
   }
  },
+ "Q114913710": {
+  "name": "McKenna Harris"
+ },
  "Q114989516": {
   "name": "Priya Kansara"
  },
@@ -1481,6 +1484,15 @@
    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Dakota_Fanning_SAG_AWARDS_2020_%28cropped%29.jpg/500px-Dakota_Fanning_SAG_AWARDS_2020_%28cropped%29.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Dakota_Fanning_SAG_AWARDS_2020_(cropped).jpg",
    "author": "Crislapi3",
+   "licence": "CC0"
+  }
+ },
+ "Q115781248": {
+  "name": "Ruaridh Mollica",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Ruaridh_Mollica_%282024%29.png/500px-Ruaridh_Mollica_%282024%29.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Ruaridh_Mollica_(2024).png",
+   "author": "Joost Pauwels",
    "licence": "CC0"
   }
  },
@@ -1624,6 +1636,9 @@
  },
  "Q1174630": {
   "name": "David Gyasi"
+ },
+ "Q117466114": {
+  "name": "Matthew Fogel"
  },
  "Q117500": {
   "name": "Mary McDonnell",
@@ -1997,6 +2012,15 @@
    "licence": "Public domain"
   }
  },
+ "Q12382": {
+  "name": "Shigeru Miyamoto",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Miyamoto_Shigeru_2026.jpg/500px-Miyamoto_Shigeru_2026.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Miyamoto_Shigeru_2026.jpg",
+   "author": "文部科学省",
+   "licence": "CC BY 4.0"
+  }
+ },
  "Q123829": {
   "name": "George Gershwin",
   "photo": {
@@ -2104,6 +2128,9 @@
    "author": "Georges Biard",
    "licence": "CC BY-SA 3.0"
   }
+ },
+ "Q126719649": {
+  "name": "Lauren Morais"
  },
  "Q126854": {
   "name": "Rochus Gliese"
@@ -4370,6 +4397,9 @@
  "Q15840385": {
   "name": "Philip Cahn"
  },
+ "Q15846027": {
+  "name": "Lindsey Collins"
+ },
  "Q1586470": {
   "name": "Harry Cohn",
   "photo": {
@@ -6155,6 +6185,15 @@
    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Clive_Owen_%28Children_of_men%29_cropped.jpg/500px-Clive_Owen_%28Children_of_men%29_cropped.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Clive_Owen_(Children_of_men)_cropped.jpg",
    "author": "Alfonso_Cuarón_y_Clive_Owen_(Children_of_men).jpg: Mario Antonio Pena Zapatería derivative work: Jan Arkesteijn (talk)",
+   "licence": "CC BY-SA 2.0"
+  }
+ },
+ "Q18350026": {
+  "name": "Damien Chazelle",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Damien_Chazelle_%28cropped%29.jpg/500px-Damien_Chazelle_%28cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Damien_Chazelle_(cropped).jpg",
+   "author": "isabelle VERONESE from ELBEUF, France",
    "licence": "CC BY-SA 2.0"
   }
  },
@@ -13475,6 +13514,15 @@
    "licence": "CC BY 2.0"
   }
  },
+ "Q296928": {
+  "name": "James Spader",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/James_Spader_by_Gage_Skidmore.jpg/500px-James_Spader_by_Gage_Skidmore.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:James_Spader_by_Gage_Skidmore.jpg",
+   "author": "Gage Skidmore",
+   "licence": "CC BY-SA 3.0"
+  }
+ },
  "Q297348": {
   "name": "Marshall Allman",
   "photo": {
@@ -13863,6 +13911,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Elvia_Allman_1944.jpg",
    "author": "Unknown photographer",
    "licence": "Public domain"
+  }
+ },
+ "Q3052376": {
+  "name": "Emily Hampshire",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Emily_Hampshire_in_2015_at_a_CFC_event_in_L.A._-_Honouring_John_Fawcett_and_Graeme_Manson_%2816760605299%29.jpg/500px-Emily_Hampshire_in_2015_at_a_CFC_event_in_L.A._-_Honouring_John_Fawcett_and_Graeme_Manson_%2816760605299%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Emily_Hampshire_in_2015_at_a_CFC_event_in_L.A._-_Honouring_John_Fawcett_and_Graeme_Manson_(16760605299).jpg",
+   "author": "Canadian Film Centre from Toronto, Canada",
+   "licence": "CC BY 2.0"
   }
  },
  "Q30533299": {
@@ -19181,6 +19238,15 @@
  "Q433537": {
   "name": "Marit Allen"
  },
+ "Q43371": {
+  "name": "Chris Meledandri",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Chris_Meledandri.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Chris_Meledandri.jpg",
+   "author": "Boungawa",
+   "licence": "CC BY-SA 3.0"
+  }
+ },
  "Q433800": {
   "name": "Jim Thompson"
  },
@@ -19617,6 +19683,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Cameron_Diaz_at_WWD_Style_Awards_2026-1998.jpg",
    "author": "Kevin Paul",
    "licence": "CC BY 4.0"
+  }
+ },
+ "Q444292": {
+  "name": "Orla Brady",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Orla_Brady_2020_1_cropped.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Orla_Brady_2020_1_cropped.jpg",
+   "author": "Virgin Media Dublin International Film Festival",
+   "licence": "CC BY-SA 3.0"
   }
  },
  "Q444344": {
@@ -20975,6 +21050,15 @@
    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Marvin_%22Krondon%22_Jones_III_%2847086136322%29.jpg/500px-Marvin_%22Krondon%22_Jones_III_%2847086136322%29.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Marvin_%22Krondon%22_Jones_III_(47086136322).jpg",
    "author": "Greg2600",
+   "licence": "CC BY-SA 2.0"
+  }
+ },
+ "Q47492998": {
+  "name": "Aaron Horvath",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Aaron_Horvath_by_Gage_Skidmore.jpg/500px-Aaron_Horvath_by_Gage_Skidmore.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Aaron_Horvath_by_Gage_Skidmore.jpg",
+   "author": "Gage Skidmore from Peoria, AZ, United States of America",
    "licence": "CC BY-SA 2.0"
   }
  },
@@ -22508,6 +22592,15 @@
    "licence": "Public domain"
   }
  },
+ "Q5271532": {
+  "name": "Diane Morgan",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Diane_Morgan_x_Candid_Portraits_Ltd.jpg/500px-Diane_Morgan_x_Candid_Portraits_Ltd.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Diane_Morgan_x_Candid_Portraits_Ltd.jpg",
+   "author": "P. Lovell",
+   "licence": "CC BY-SA 4.0"
+  }
+ },
  "Q528379": {
   "name": "Dorothy Spencer",
   "photo": {
@@ -22706,6 +22799,15 @@
  "Q535273": {
   "name": "Senta Moses"
  },
+ "Q5357354": {
+  "name": "Todd Stashwick",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Todd_Stashwick_at_San_Diego_Comic_Con_2026.jpg/500px-Todd_Stashwick_at_San_Diego_Comic_Con_2026.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Todd_Stashwick_at_San_Diego_Comic_Con_2026.jpg",
+   "author": "Kevin Paul",
+   "licence": "CC BY 4.0"
+  }
+ },
  "Q535856": {
   "name": "Terry McMillan",
   "photo": {
@@ -22797,6 +22899,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:SparksCredGoldDigs1933Trailer.jpg",
    "author": "my own screen capture of public domain trailer",
    "licence": "Public domain"
+  }
+ },
+ "Q5394838": {
+  "name": "Michael Jelenic",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Michael_Jelenic_by_Gage_Skidmore.jpg/500px-Michael_Jelenic_by_Gage_Skidmore.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Michael_Jelenic_by_Gage_Skidmore.jpg",
+   "author": "Gage Skidmore from Peoria, AZ, United States of America",
+   "licence": "CC BY-SA 2.0"
   }
  },
  "Q5395596": {
@@ -23852,6 +23963,15 @@
    "licence": "Public domain"
   }
  },
+ "Q58822718": {
+  "name": "Olivia Hamilton",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/2026_SSIFF_-_Olivia_Hamilton_red_carpet_%2855559151256%29_%28cropped%29.jpg/500px-2026_SSIFF_-_Olivia_Hamilton_red_carpet_%2855559151256%29_%28cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:2026_SSIFF_-_Olivia_Hamilton_red_carpet_(55559151256)_(cropped).jpg",
+   "author": "Mario A. P.",
+   "licence": "CC BY-SA 4.0"
+  }
+ },
  "Q5883626": {
   "name": "Gori Muñoz"
  },
@@ -24212,6 +24332,15 @@
    "licence": "Public domain"
   }
  },
+ "Q610764": {
+  "name": "Vincenzo Natali",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Vincenzo_Natali_at_WonderCon_2010_5.JPG/500px-Vincenzo_Natali_at_WonderCon_2010_5.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Vincenzo_Natali_at_WonderCon_2010_5.JPG",
+   "author": "BrokenSphere",
+   "licence": "CC BY-SA 3.0"
+  }
+ },
  "Q6110147": {
   "name": "Jabez Olssen"
  },
@@ -24341,6 +24470,15 @@
    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Bimbo_Ademoye_in_Sugar_Rush_-_cropped.png/500px-Bimbo_Ademoye_in_Sugar_Rush_-_cropped.png",
    "page": "https://commons.wikimedia.org/wiki/File:Bimbo_Ademoye_in_Sugar_Rush_-_cropped.png",
    "author": "FilmOne NG",
+   "licence": "CC BY-SA 4.0"
+  }
+ },
+ "Q61685429": {
+  "name": "Anna Lambe",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/TIFF-2026-IN-THE-HEART-OF-THE-SOUTH-ANNA-LAMBE-02.png/500px-TIFF-2026-IN-THE-HEART-OF-THE-SOUTH-ANNA-LAMBE-02.png",
+   "page": "https://commons.wikimedia.org/wiki/File:TIFF-2026-IN-THE-HEART-OF-THE-SOUTH-ANNA-LAMBE-02.png",
+   "author": "JoshPopov",
    "licence": "CC BY-SA 4.0"
   }
  },
@@ -24602,6 +24740,9 @@
    "licence": "CC BY 4.0"
   }
  },
+ "Q63114170": {
+  "name": "Christopher J. Byrne"
+ },
  "Q63170856": {
   "name": "Gary Young"
  },
@@ -24710,6 +24851,15 @@
    "licence": "CC BY-SA 3.0"
   }
  },
+ "Q63993432": {
+  "name": "T'Nia Miller",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/The_Peripheral_NYCC_2022_16.jpg/500px-The_Peripheral_NYCC_2022_16.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:The_Peripheral_NYCC_2022_16.jpg",
+   "author": "Chris Roth",
+   "licence": "CC BY-SA 2.0"
+  }
+ },
  "Q6399373": {
   "name": "Khaled Mouzanar",
   "photo": {
@@ -24777,6 +24927,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Dylan_Arnold_-_2024.jpg",
    "author": "Nerdtropolis",
    "licence": "CC BY 3.0"
+  }
+ },
+ "Q64853354": {
+  "name": "Terry Matalas",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Terry_Matalas_at_53rd_Saturn_Awards_2026-01.jpg/500px-Terry_Matalas_at_53rd_Saturn_Awards_2026-01.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Terry_Matalas_at_53rd_Saturn_Awards_2026-01.jpg",
+   "author": "Kevin Paul",
+   "licence": "CC BY 4.0"
   }
  },
  "Q648611": {
@@ -24925,6 +25084,9 @@
  },
  "Q6660371": {
   "name": "Liza Chasin"
+ },
+ "Q66724892": {
+  "name": "Christopher Ross"
  },
  "Q67131686": {
   "name": "Pete Chiarelli"
@@ -25661,6 +25823,15 @@
    "licence": "CC BY 2.0"
   }
  },
+ "Q717194": {
+  "name": "James D'Arcy",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/James_DArcy_%288008892914%29.jpg/500px-James_DArcy_%288008892914%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:James_DArcy_(8008892914).jpg",
+   "author": "gdcgraphics",
+   "licence": "CC BY-SA 2.0"
+  }
+ },
  "Q7173432": {
   "name": "Peter Craig",
   "photo": {
@@ -25900,6 +26071,9 @@
  },
  "Q722519": {
   "name": "Leonard Goldberg"
+ },
+ "Q7225794": {
+  "name": "Polly Frame"
  },
  "Q72291": {
   "name": "David O. Selznick",

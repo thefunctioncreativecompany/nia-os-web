@@ -9840,6 +9840,157 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "michael",
+   "collection": "explore-all",
+   "title": "Michael",
+   "type": "film",
+   "genres": [
+    "Biography",
+    "Music",
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Antoine Fuqua",
+   "recognition": "Over $1 billion at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Jaafar Jackson plays his uncle, with the early solo-era performances restaged in detail: a study in recreating famous concert footage",
+   "added": "2026-11-15",
+   "imdb_id": "tt11378946",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "mbtgEE6rkxw",
+     "kind": "trailer",
+     "channel": "Lionsgate Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "toy-story-5",
+   "collection": "explore-all",
+   "title": "Toy Story 5",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Family",
+    "Comedy",
+    "Adventure"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Andrew Stanton",
+   "recognition": "Over $1.1 billion at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Pixar sets the toys against a tablet: a story about screens told through the series' handmade, toy-sized world",
+   "added": "2026-11-15",
+   "imdb_id": "tt29355505",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "c51ND9Hdbw0",
+     "kind": "trailer",
+     "channel": "Pixar",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "heart-of-the-beast",
+   "collection": "explore-all",
+   "title": "Heart of the Beast",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "David Ayer",
+   "recognition": "Nearly $190 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "A soldier and his combat dog stranded after a plane crash in the Alaskan wilderness: a survival film carried by an animal performer",
+   "added": "2026-11-15",
+   "imdb_id": "tt7526136",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "2EKBbqy7ICI",
+     "kind": "trailer",
+     "channel": "Paramount Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-super-mario-galaxy-movie",
+   "collection": "explore-all",
+   "title": "The Super Mario Galaxy Movie",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Family",
+    "Comedy",
+    "Adventure",
+    "Fantasy"
+   ],
+   "year": 2026,
+   "countries": [
+    "Japan",
+    "United States"
+   ],
+   "credit": "Michael Jelenic & Aaron Horvath",
+   "recognition": "Over $1 billion at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Illumination and Nintendo take Mario and Luigi to space: a sequel that turns a game's levels into set pieces",
+   "added": "2026-11-15",
+   "imdb_id": "tt28650488",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "aI1mz-al3yQ",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "visionquest",
+   "collection": "explore-all",
+   "title": "VisionQuest",
+   "type": "series",
+   "genres": [
+    "Sci-Fi",
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Terry Matalas",
+   "pair_with": "",
+   "study_note": "A Marvel series built around Paul Bettany's Vision, on the run and questioning what he is",
+   "added": "2026-11-15",
+   "imdb_id": "tt23112594",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "oSVTAUKyrL8",
+     "kind": "trailer",
+     "channel": "Marvel Entertainment",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

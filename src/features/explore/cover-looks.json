@@ -761,6 +761,7 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "heart-of-the-beast": [],
  "heart-of-the-hunter": [
   "warm-palette"
  ],
@@ -965,6 +966,10 @@
  ],
  "men-in-black": [
   "low-key"
+ ],
+ "michael": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "mildred-pierce": [
   "black-and-white"
@@ -1485,6 +1490,9 @@
   "warm-palette",
   "bright-airy"
  ],
+ "the-super-mario-galaxy-movie": [
+  "vivid-colour"
+ ],
  "the-theory-of-everything": [
   "cool-palette"
  ],
@@ -1528,6 +1536,9 @@
  "touki-bouki": [
   "warm-palette"
  ],
+ "toy-story-5": [
+  "vivid-colour"
+ ],
  "toy-story": [
   "vivid-colour",
   "cool-palette"
@@ -1551,6 +1562,11 @@
  "vertigo": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "visionquest": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "waiting-to-exhale": [
   "warm-palette",

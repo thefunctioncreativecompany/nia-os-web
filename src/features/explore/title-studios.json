@@ -1883,5 +1883,33 @@
  "la-bola-negra": {
   "studios": [],
   "tmdb": "movie/1422041"
+ },
+ "michael": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/936075"
+ },
+ "toy-story-5": {
+  "studios": [],
+  "tmdb": "movie/1084244"
+ },
+ "heart-of-the-beast": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/1263337"
+ },
+ "the-super-mario-galaxy-movie": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/1226863"
+ },
+ "visionquest": {
+  "studios": [
+   "marvel"
+  ],
+  "tmdb": "tv/213375"
  }
 }

@@ -8728,6 +8728,39 @@
    }
   ]
  },
+ "heart-of-the-beast": {
+  "qid": "Q131900904",
+  "people": [
+   {
+    "id": "Q35332",
+    "role": "Cast, Producer"
+   },
+   {
+    "id": "Q150482",
+    "role": "Cast"
+   },
+   {
+    "id": "Q61685429",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1091339",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q18350026",
+    "role": "Producer"
+   },
+   {
+    "id": "Q58822718",
+    "role": "Producer"
+   },
+   {
+    "id": "Q926054",
+    "role": "Director of Photography"
+   }
+  ]
+ },
  "heart-of-the-hunter": {
   "qid": "Q124814758",
   "people": [
@@ -12313,6 +12346,91 @@
    {
     "id": "Q3850454",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "michael": {
+  "qid": "Q116677364",
+  "people": [
+   {
+    "id": "Q123693068",
+    "role": "Cast",
+    "character": "Michael Jackson"
+   },
+   {
+    "id": "Q5147723",
+    "role": "Cast",
+    "character": "Joe Jackson"
+   },
+   {
+    "id": "Q272956",
+    "role": "Cast",
+    "character": "Katherine Jackson"
+   },
+   {
+    "id": "Q267330",
+    "role": "Cast",
+    "character": "John Branca"
+   },
+   {
+    "id": "Q33129702",
+    "role": "Cast",
+    "character": "Jackie Jackson"
+   },
+   {
+    "id": "Q23894602",
+    "role": "Cast",
+    "character": "Suzanne de Passe"
+   },
+   {
+    "id": "Q151118",
+    "role": "Cast",
+    "character": "Diana Ross"
+   },
+   {
+    "id": "Q1805906",
+    "role": "Cast",
+    "character": "Berry Gordy"
+   },
+   {
+    "id": "Q1058973",
+    "role": "Cast",
+    "character": "La Toya Jackson"
+   },
+   {
+    "id": "Q3195805",
+    "role": "Cast",
+    "character": "Dick Clark"
+   },
+   {
+    "id": "Q21296927",
+    "role": "Cast",
+    "character": "Quincy Jones"
+   },
+   {
+    "id": "Q648897",
+    "role": "Cast",
+    "character": "Johnnie Cochran"
+   },
+   {
+    "id": "Q465139",
+    "role": "Director"
+   },
+   {
+    "id": "Q384004",
+    "role": "Writer"
+   },
+   {
+    "id": "Q653159",
+    "role": "Producer"
+   },
+   {
+    "id": "Q364017",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1226913",
+    "role": "Director of Photography"
    }
   ]
  },
@@ -23395,6 +23513,35 @@
    }
   ]
  },
+ "the-super-mario-galaxy-movie": {
+  "qid": "Q124806421",
+  "people": [
+   {
+    "id": "Q47492998",
+    "role": "Director"
+   },
+   {
+    "id": "Q5394838",
+    "role": "Director"
+   },
+   {
+    "id": "Q117466114",
+    "role": "Writer"
+   },
+   {
+    "id": "Q43371",
+    "role": "Producer"
+   },
+   {
+    "id": "Q12382",
+    "role": "Producer"
+   },
+   {
+    "id": "Q251144",
+    "role": "Music"
+   }
+  ]
+ },
  "the-theory-of-everything": {
   "qid": "Q15079318",
   "people": [
@@ -24428,6 +24575,27 @@
    }
   ]
  },
+ "toy-story-5": {
+  "qid": "Q113641997",
+  "people": [
+   {
+    "id": "Q328723",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q114913710",
+    "role": "Writer"
+   },
+   {
+    "id": "Q15846027",
+    "role": "Producer"
+   },
+   {
+    "id": "Q318475",
+    "role": "Music"
+   }
+  ]
+ },
  "training-day": {
   "qid": "Q308929",
   "people": [
@@ -24908,6 +25076,87 @@
    {
     "id": "Q234961",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "visionquest": {
+  "qid": "Q126092795",
+  "people": [
+   {
+    "id": "Q242707",
+    "role": "Cast",
+    "character": "Vision"
+   },
+   {
+    "id": "Q296928",
+    "role": "Cast",
+    "character": "Ultron"
+   },
+   {
+    "id": "Q371972",
+    "role": "Cast",
+    "character": "Raza"
+   },
+   {
+    "id": "Q115781248",
+    "role": "Cast",
+    "character": "Tommy Shepherd"
+   },
+   {
+    "id": "Q5357354",
+    "role": "Cast",
+    "character": "Paladin"
+   },
+   {
+    "id": "Q444292",
+    "role": "Cast",
+    "character": "Friday"
+   },
+   {
+    "id": "Q3052376",
+    "role": "Cast",
+    "character": "E.D.I.T.H."
+   },
+   {
+    "id": "Q717194",
+    "role": "Cast",
+    "character": "J.A.R.V.I.S."
+   },
+   {
+    "id": "Q126719649",
+    "role": "Cast",
+    "character": "Lisa Molinari"
+   },
+   {
+    "id": "Q5271532",
+    "role": "Cast",
+    "character": "The Handler"
+   },
+   {
+    "id": "Q7225794",
+    "role": "Cast",
+    "character": "Fiona Guthrie"
+   },
+   {
+    "id": "Q63993432",
+    "role": "Cast",
+    "character": "Jo Carrington"
+   },
+   {
+    "id": "Q64853354",
+    "role": "Director"
+   },
+   {
+    "id": "Q63114170",
+    "role": "Director"
+   },
+   {
+    "id": "Q610764",
+    "role": "Director"
+   },
+   {
+    "id": "Q66724892",
+    "role": "Director of Photography"
    }
   ]
  },
