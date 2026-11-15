@@ -8,6 +8,7 @@ import { sentenceCase } from "@/lib/sentence-case";
 import type { Season, Title, Video } from "@/lib/explore";
 import sources from "./cover-sources.json";
 import stills from "./trailer-stills.json";
+import bestOf from "./best-of-2026.json";
 import raw from "./made-in-africa.json";
 
 type RawVideo = Partial<Video> & Pick<Video, "provider" | "video_id">;
@@ -160,6 +161,15 @@ export const GREATEST_TV_HREF = "/explore/greatest-tv";
 export const HOLIDAY_CLASSICS = raw.categories.find((c) => c.slug === "holiday-classics")!;
 export const holidayClassics: Entry[] = ENTRIES.filter((e) => e.category === "holiday-classics").toSorted((a, b) => (a.title.year ?? 0) - (b.title.year ?? 0));
 export const HOLIDAY_CLASSICS_HREF = "/explore/holiday-classics";
+/** Best of 2026 (Ika, 2026-11-14): the year's top 20, ranked by popularity, box office, festivals and
+ * views on Nia (scripts/build-best-of-2026.mjs, rerun weekly), in rank order. Its titles keep their
+ * own category too. It shows under By category once enough of the 20 are on Explore. */
+export const BEST_OF_2026 = raw.categories.find((c) => c.slug === "best-of-2026")!;
+const BEST = new Map(bestOf.slugs.map((slug, i) => [slug, i]));
+export const bestOf2026: Entry[] = ENTRIES.filter((e) => BEST.has(e.title.slug)).toSorted((a, b) => BEST.get(a.title.slug)! - BEST.get(b.title.slug)!);
+export const inBestOf2026 = (slug: string) => BEST.has(slug);
+export const BEST_OF_2026_HREF = "/explore/best-of-2026";
+export const BEST_OF_2026_MIN = 5;
 
 // Seasonal categories (Ika, 2026-11-11: Explore "should evolve with the context of the times, world
 // events, major holidays… built into the platform"). A category with a `season` ("MM-DD" to
@@ -220,7 +230,9 @@ export const YEAR_RANGE = { min: Math.min(...years), max: Math.max(...years) };
 export const essentialWhy = new Map((raw.titles as RawTitle[]).flatMap((t) => (t.essential ? [[t.slug, t.essential] as const] : [])));
 
 // Each category's View all: its titles, collections and the filter choices they have.
-export type CategoryKey = "made-in-africa" | "hollywood-classics" | "greatest-tv" | "holiday-classics";
+export type CategoryKey = "made-in-africa" | "hollywood-classics" | "greatest-tv" | "holiday-classics" | "best-of-2026";
+/** Categories shown in their own order (a ranking), not shuffled or spread by year. */
+export const RANKED: CategoryKey[] = ["best-of-2026"];
 export type CategoryView = {
   slug: CategoryKey;
   name: string;
@@ -235,7 +247,8 @@ export type CategoryView = {
 };
 function viewOf(slug: CategoryKey, href: string): CategoryView {
   const meta = raw.categories.find((c) => c.slug === slug)!;
-  const entries = slug === "hollywood-classics" ? hollywoodClassics : slug === "greatest-tv" ? greatestTv : slug === "holiday-classics" ? holidayClassics : madeInAfrica;
+  const entries =
+    slug === "hollywood-classics" ? hollywoodClassics : slug === "greatest-tv" ? greatestTv : slug === "holiday-classics" ? holidayClassics : slug === "best-of-2026" ? bestOf2026 : madeInAfrica;
   const yrs = entries.map((e) => e.title.year).filter((y): y is number => y !== null);
   return {
     slug,
@@ -256,6 +269,7 @@ export const categoryViews: Record<CategoryKey, CategoryView> = {
   "hollywood-classics": viewOf("hollywood-classics", HOLLYWOOD_CLASSICS_HREF),
   "greatest-tv": viewOf("greatest-tv", GREATEST_TV_HREF),
   "holiday-classics": viewOf("holiday-classics", HOLIDAY_CLASSICS_HREF),
+  "best-of-2026": viewOf("best-of-2026", BEST_OF_2026_HREF),
 };
 
 /** "Directed by" for films, "Created by" for series. */

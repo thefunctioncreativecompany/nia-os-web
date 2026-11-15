@@ -18,7 +18,7 @@ import { DocMiniature } from "@/features/templates/components/doc-miniature";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
 import { loadTemplateIndex, loadTemplatePreview, type TemplatePreview } from "@/features/templates/actions";
 import { LIBRARY } from "@/features/explore/library";
-import { CATEGORY_NAMES, findEntry } from "@/features/explore/made-in-africa";
+import { BEST_OF_2026, CATEGORY_NAMES, findEntry, inBestOf2026 } from "@/features/explore/made-in-africa";
 import { ALL_TAGS, tagLabel, tagsFor } from "@/features/explore/tags";
 import { exploreAccess } from "@/features/explore/saves";
 import { loadExploreSearchIndex, type ExploreSearchIndex } from "@/features/explore/search-index";
@@ -165,7 +165,7 @@ async function load(): Promise<Result[]> {
           const studios = index?.titleStudios[slug] ?? [];
           // Its collection and category too, so "Christmas" or "Holiday" finds the season's titles.
           const entry = findEntry(slug);
-          const groups = entry ? [entry.collection.name, CATEGORY_NAMES.get(entry.category) ?? ""] : [];
+          const groups = entry ? [entry.collection.name, CATEGORY_NAMES.get(entry.category) ?? "", inBestOf2026(slug) ? BEST_OF_2026.name : ""] : [];
           return [{ ...r, words: [r.words, ...studios, ...groups].join(" ") }];
         })
       : []),

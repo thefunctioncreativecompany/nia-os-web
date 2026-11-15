@@ -7,7 +7,7 @@ import { Clapperboard, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/nia/empty-state";
 import { ChipMenu, FilterChip, RangeChip, ResultCount, SearchField, type YearRange, ChipRow } from "@/components/nia/filter-bar";
-import { categoryViews, essentialWhy, exploreHome, titleHref, typeName, type CategoryKey, type Entry } from "@/features/explore/made-in-africa";
+import { RANKED, categoryViews, essentialWhy, exploreHome, titleHref, typeName, type CategoryKey, type Entry } from "@/features/explore/made-in-africa";
 import { recentFirst, recentViews } from "@/features/explore/views";
 import { tasteScore } from "@/features/explore/match";
 import { isTag, tagLabel, tagText, tagsFor } from "@/features/explore/tags";
@@ -81,8 +81,9 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
     return true;
   });
   const found = collection === ALL ? narrowed : narrowed.filter((e) => e.collection.slug === collection);
-  // This visit's order, which settles ties and is the order when nothing else decides.
-  const order = new Map(shuffled(view.entries, seed).map((e, i) => [e.title.slug, i]));
+  // This visit's order, which settles ties and is the order when nothing else decides; a ranked
+  // category (Best of 2026) keeps its ranking.
+  const order = new Map((RANKED.includes(category) ? view.entries : shuffled(view.entries, seed)).map((e, i) => [e.title.slug, i]));
   const visit = (a: Entry, b: Entry) => order.get(a.title.slug)! - order.get(b.title.slug)!;
   const ranked = found.toSorted((a, b) => {
     if (sort === "title") return a.title.title.localeCompare(b.title.title);
@@ -94,7 +95,7 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
   });
   const sorted = sort === "recent" ? recentFirst(ranked, recent ?? [], (e) => e.title.slug) : ranked;
   const anyFilter = q !== "" || tag !== null || essentials || genre !== ALL || country !== ALL || type !== ALL || years !== null;
-  const grouped = sort === "relevance" && !anyFilter;
+  const grouped = sort === "relevance" && !anyFilter && view.collections.length > 0;
   const groups = grouped
     ? view.collections
         .filter((c) => collection === ALL || c.slug === collection)
