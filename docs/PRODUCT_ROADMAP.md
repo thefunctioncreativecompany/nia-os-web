@@ -1,6 +1,6 @@
 # Nia OS product roadmap
 
-**Updated 2026-11-14.** What's live, what's being built, the rough edges we know about, and what Nia
+**Updated 2026-11-15.** What's live, what's being built, the rough edges we know about, and what Nia
 is built with. For the detail behind each item see [FEEDBACK.md](FEEDBACK.md) (the master list),
 [decisions.md](decisions.md) (why) and CLAUDE.md → Progress (the build plan's checklist).
 
@@ -26,7 +26,7 @@ stack and the counts.
 
 | Item | Status | What's left |
 |------|--------|-------------|
-| Portfolios (beta) | 🔄 Test accounts only | Run `20261116000000_portfolios_delete.sql` (PF1); 75 view templates across 14 kinds, Access step, client links, passcodes, expiry, downloads, favourites; send a project to Explore for review; open to beta users |
+| Portfolios (beta) | 🔄 Test accounts only | 75 view templates across 14 kinds, Access step, client links, passcodes, expiry, downloads, favourites; send a project to Explore for review; open to beta users |
 | Marketplace | 🔄 Designed, prototype only | Not in the app (removed in the 2026-11-01 audit, tag `parked-2026-11-02`). Rent and Buy, listings with pickup dates and a deposit hold, checkout, fleet booking, List your gear, lister dashboard |
 | Cast & crew (4.1) | 🔄 | Link a person to their Nia account; Nia photos in the project row; people's own pages |
 | Templates by group | 🔄 37 of 63 working | Build the rest in Ika's priority order (creators, filmmakers, small studios) |
@@ -55,7 +55,6 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | UX18 | Home Activity repeats share-link on/off lines | ⬜ |
 | UX19 | Person page: "Films" for a series; stray capitals | ⬜ |
 | UX20 | Login hero is a *Sinners (2025)* still: rights? | ⏸ Ika |
-| PF1 | Portfolios beta: deleting a portfolio is refused by the database rules | 🔄 Fixed in code 2026-11-14; live once Ika runs `20261116000000_portfolios_delete.sql` |
 | 1 | Sign-up email: last test sent no email | ⏸ Ika |
 | G1 | Google sign-in shows the Supabase address | ⏸ Ika |
 | DB | `20261110000000_explore_open.sql` not run: only invited people can save Explore titles | ⏸ Ika |
@@ -118,5 +117,5 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | Workflows | 12 (3 per group) |
 | Explore titles in the library | 329 (only titles with a cover show) |
 | Explore press kits | 178 |
-| Database migrations | 41 files (3 waiting to be run) |
+| Database migrations | 41 files (2 waiting to be run) |
 | Automated tests | 139 in 21 files, all passing |
