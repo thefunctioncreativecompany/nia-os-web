@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 // A row that scrolls left and right and stays still otherwise (Ika, 2026-10-21: Explore's Top 10
 // press kits). Swipe, scroll or use the arrows at its left and right edges (wide screens), which
 // move about one screen of cards and hide at either end.
-export function ScrollRow({ label, children, className }: { label: string; children: ReactNode; className?: string }) {
+export function ScrollRow({ label, children, className, arrowTop }: { label: string; children: ReactNode; className?: string; /** Where the arrows sit (CSS top); 40% of the row by default. */ arrowTop?: string }) {
   const row = useRef<HTMLUListElement>(null);
   const [ends, setEnds] = useState({ start: true, end: false });
 
@@ -44,13 +44,13 @@ export function ScrollRow({ label, children, className }: { label: string; child
       >
         {children}
       </ul>
-      <RowArrow side="left" hidden={ends.start} onClick={() => move(-1)} />
-      <RowArrow side="right" hidden={ends.end} onClick={() => move(1)} />
+      <RowArrow side="left" hidden={ends.start} onClick={() => move(-1)} top={arrowTop} />
+      <RowArrow side="right" hidden={ends.end} onClick={() => move(1)} top={arrowTop} />
     </div>
   );
 }
 
-function RowArrow({ side, hidden, onClick }: { side: "left" | "right"; hidden: boolean; onClick: () => void }) {
+function RowArrow({ side, hidden, onClick, top }: { side: "left" | "right"; hidden: boolean; onClick: () => void; top?: string }) {
   const Icon = side === "left" ? ChevronLeft : ChevronRight;
   return (
     <button
@@ -58,6 +58,7 @@ function RowArrow({ side, hidden, onClick }: { side: "left" | "right"; hidden: b
       onClick={onClick}
       disabled={hidden}
       aria-label={side === "left" ? "Scroll left" : "Scroll right"}
+      style={top ? { top } : undefined}
       className={cn(
         "absolute top-[40%] z-10 hidden size-12 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card/95 text-foreground shadow-elevation-2 outline-none transition-[opacity,background-color] duration-fast hover:bg-secondary focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-0 md:flex",
         side === "left" ? "left-2" : "right-2",

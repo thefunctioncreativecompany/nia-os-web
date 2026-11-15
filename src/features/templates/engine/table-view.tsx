@@ -5,12 +5,12 @@ import { Plus, X } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { ScrollRow } from '@/components/nia/scroll-row';
 import type { FieldSpec, TableSection } from '../types';
 import type { PersonRef } from '@/components/nia/assignees';
 import { FieldControl } from './field-controls';
 import { formatMoney } from './format';
-import { AddFromPictures, DropHint, PictureCell, usePictureDrop } from './pictures';
+import { AddFromPictures, DropHint, usePictureDrop } from './pictures';
+import { CardRow } from './card-row';
 import { blankRow, computeCell, editableColumns, fieldKind, fieldLabel, formatField, pictureColumn, shownColumns, tableTotal, type FieldValue, type TableRow } from './sections';
 
 // A table section (TEMPLATE_ENGINE.md §4, build step 7 part 2): a typed control in every cell
@@ -18,9 +18,7 @@ import { blankRow, computeCell, editableColumns, fieldKind, fieldLabel, formatFi
 // screens get a table; phones get one card per row with the column names beside the answers.
 // Detail columns show only with More detail on (their answers are kept). A table with a picture
 // column (a shot list's Reference) takes pictures: Add from pictures, or drop them on it, and
-// each becomes a shot. A `carousel` table (shot lists, Ika 2026-11-15) shows each row as a card
-// in a row that scrolls: the picture large, then the answers; every shot is in it (a document,
-// not a browse row), and printing lays the cards out in rows.
+// each becomes a shot. Such tables (and any marked `carousel`) show as cards: card-row.tsx.
 
 // How much room each kind of column needs, so pickers never squash.
 function width(field: FieldSpec, tall: boolean) {
@@ -112,61 +110,19 @@ export function TableView({ section, rows, onChange, currency = 'USD', detail = 
     return typeof day === 'string' && day ? day : undefined;
   };
 
-  if (section.layout === 'carousel') {
+  // Cards (card-row.tsx): every table with a picture column, and any marked `carousel`.
+  if (section.layout === 'carousel' || picture) {
+    const moveRow = (from: number, to: number) => {
+      if (to < 0 || to >= rows.length || from === to) return;
+      const next = [...rows];
+      const [moved] = next.splice(from, 1);
+      next.splice(to, 0, moved);
+      onChange(next, `move-${crypto.randomUUID()}`);
+    };
     return (
       <div className="relative flex flex-col gap-3" {...(picture ? drop.handlers : {})}>
         {picture && <DropHint over={drop.over} />}
-        <ScrollRow label={section.title} className="items-stretch print:flex-wrap print:overflow-visible">
-          {rows.map((row, r) => {
-            const number = String(r + 1).padStart(2, '0');
-            const name = section.autonumber ? `${section.autonumber.replace(/\s*#$/, '')} ${number}` : number;
-            return (
-              <li key={row.id} aria-label={name} className="flex w-72 shrink-0 snap-start flex-col gap-3 rounded-xl border border-border bg-card p-3 print:break-inside-avoid">
-                <div className="flex items-center justify-between">
-                  <span className="text-small font-bold text-muted-foreground tabular-nums">{name}</span>
-                  <button
-                    type="button"
-                    aria-label={`Remove ${name}`}
-                    onClick={() => removeRow(row.id)}
-                    className="inline-flex size-7 items-center justify-center rounded-full text-muted-foreground outline-none hover:bg-muted/70 hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 print:hidden"
-                  >
-                    <X aria-hidden className="size-3.5" />
-                  </button>
-                </div>
-                {columns.map((c) => {
-                  const label = fieldLabel(c);
-                  const id = `${base}-${r + 1}-${slug(label)}`;
-                  const kind = fieldKind(c);
-                  if (kind === 'image') return <PictureCell key={label} id={id} label={`${name}, ${label}`} value={(row[label] as string) ?? ''} onChange={(next) => setCell(row.id, label, next)} large />;
-                  if (kind === 'check')
-                    return (
-                      <label key={label} htmlFor={id} className="mt-auto flex items-center gap-2 text-small font-bold text-muted-foreground">
-                        <FieldControl id={id} field={c} value={row[label]} onChange={(next) => setCell(row.id, label, next)} compact currency={currency} />
-                        {label}
-                      </label>
-                    );
-                  return (
-                    <div key={label} className="flex min-w-0 flex-col gap-1">
-                      <label htmlFor={id} className="text-caption font-bold text-muted-foreground">
-                        {label}
-                      </label>
-                      <FieldControl id={id} field={c} value={row[label]} onChange={(next) => setCell(row.id, label, next)} compact tall={kind === 'text'} currency={currency} />
-                    </div>
-                  );
-                })}
-              </li>
-            );
-          })}
-          <li className="flex w-40 shrink-0 snap-start print:hidden">
-            <button
-              type="button"
-              onClick={addRow}
-              className="flex w-full flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-border text-small font-semibold text-muted-foreground outline-none hover:border-foreground/40 hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
-            >
-              <Plus aria-hidden className="size-5" /> Add shot
-            </button>
-          </li>
-        </ScrollRow>
+        <CardRow section={section} rows={rows} columns={columns} base={base} currency={currency} setCell={setCell} addRow={addRow} removeRow={removeRow} moveRow={moveRow} />
         {picture && <AddFromPictures onAdd={addPictures} />}
       </div>
     );

@@ -241,17 +241,38 @@ function Chooser({ multiple, onPick, onRemove, close }: { multiple: boolean; onP
 }
 
 /** A table cell holding one picture: its thumbnail, or Add. */
-export function PictureCell({ id, label, value, onChange, large = false }: { id: string; label: string; value: string; onChange: (next: string) => void; /** A card's picture: the card's full width. */ large?: boolean }) {
+export function PictureCell({
+  id,
+  label,
+  value,
+  onChange,
+  fill = false,
+  onShape,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (next: string) => void;
+  /** A card's picture (card-row.tsx): fills the box it's in, which is shaped to the picture. */
+  fill?: boolean;
+  /** The picture's size once loaded, so a card can take its shape. */
+  onShape?: (width: number, height: number) => void;
+}) {
   const pictures = usePictures();
   const [open, setOpen] = useState(false);
   const picture = value ? pictures?.known.get(value) : undefined;
   const thumb = picture ? (
     // eslint-disable-next-line @next/next/no-img-element -- a private file's link that lasts a while
-    <img src={picture.url} alt={picture.name} className="absolute inset-0 size-full object-cover" />
+    <img
+      src={picture.url}
+      alt={picture.name}
+      onLoad={(e) => onShape?.(e.currentTarget.naturalWidth, e.currentTarget.naturalHeight)}
+      className="absolute inset-0 size-full object-cover"
+    />
   ) : (
-    <ImagePlus aria-hidden className={cn(large ? 'size-6' : 'size-4', 'text-muted-foreground print:hidden')} />
+    <ImagePlus aria-hidden className={cn(fill ? 'size-6' : 'size-4', 'text-muted-foreground print:hidden')} />
   );
-  const box = cn('relative flex aspect-video items-center justify-center overflow-hidden bg-muted', large ? 'w-full rounded-lg' : 'w-24 rounded-md');
+  const box = cn('relative flex items-center justify-center overflow-hidden bg-muted', fill ? 'absolute inset-0 size-full rounded-lg' : 'aspect-video w-24 rounded-md');
   if (!pictures || pictures.readOnly) return value ? <span className={box}>{thumb}</span> : <span className="text-nia-placeholder">—</span>;
   return (
     <Popover open={open} onOpenChange={setOpen}>

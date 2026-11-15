@@ -1045,3 +1045,15 @@ onboarding's Import profile and Follow creators describe features removed in the
   and "Got it" (photo). The row ends with an Add shot tile, and the toolbar's Add row reads "Add
   shot". Every shot is in the row (a document, not a browse row, so no ten-item limit). Printing
   lays the cards out in rows; the PDF and other downloads stay a table.
+- (2026-11-15) Reference cards, the general case (Ika: "portrait size cards (similar to what's on
+  explore), with summary detail of the shot below, editable, and reorderable. Horizontal images
+  stay full size with height of portrait image … the general case even for other templates that
+  include adding reference like media assets"). Every table with a picture column now shows as
+  cards (`card-row.tsx`), not only the shot lists. A card is 13rem wide at Explore's poster shape
+  (268:373); a landscape picture keeps its own shape at the same height, so its card is wider
+  (uncropped); on phones a card stops at 85% of the screen. Below the picture, Explore-style (no
+  box): the number, then the row's fields to edit in place. Reorder by dragging the handle beside
+  the number, or Move earlier / later (shown on hover and focus, always on touch screens); each
+  move is its own Undo step. The add button names the item ("Add shot"; from the table's number
+  column). The carousel's arrows can sit where a row asks (`ScrollRow arrowTop`), here at the
+  middle of the pictures.

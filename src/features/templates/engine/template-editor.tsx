@@ -20,7 +20,8 @@ import type { NextTemplate } from '../catalog';
 import type { TemplateSchema } from '../types';
 import { downloadFile, fileName, toMarkdown, toPdf, toPlainText, toWord } from './export';
 import { SectionView } from './section-views';
-import { blankRow, detailFilled, documentCurrency, hasDetail, resolveDocument, type SectionValue, type TableRow } from './sections';
+import { blankRow, detailFilled, documentCurrency, hasDetail, pictureColumn, resolveDocument, type SectionValue, type TableRow } from './sections';
+import { itemName } from './card-row';
 import { PicturesContext, usePictureStore } from './pictures';
 import { useMoreDetail } from './more-detail';
 import { DocumentContext } from './document-context';
@@ -84,8 +85,9 @@ export function TemplateEditor({
   // The toolbar's Add row adds to the template's (first) table.
   const addRowTo = schema.actions.some((a) => a === 'Add Row' || a === 'Add Line Item') ? schema.sections.findIndex((s) => s.type === 'table') : -1;
   const addRowSection = schema.sections[addRowTo];
-  // A shot list's cards: a row is a shot.
-  const addRowLabel = schema.actions.includes('Add Line Item') ? 'Add line item' : addRowSection?.type === 'table' && addRowSection.layout === 'carousel' ? 'Add shot' : 'Add row';
+  // Cards (a table with pictures, or a carousel): a row is a shot, a look… (card-row.tsx).
+  const cards = addRowSection?.type === 'table' && (addRowSection.layout === 'carousel' || !!pictureColumn(addRowSection));
+  const addRowLabel = schema.actions.includes('Add Line Item') ? 'Add line item' : cards ? `Add ${itemName(addRowSection).toLowerCase()}` : 'Add row';
   const addRow = () => {
     const section = schema.sections[addRowTo];
     if (section?.type !== 'table') return;
