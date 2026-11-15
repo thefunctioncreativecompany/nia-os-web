@@ -58,7 +58,6 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | 1 | Sign-up email: last test sent no email | ⏸ Ika |
 | G1 | Google sign-in shows the Supabase address | ⏸ Ika |
 | DB | `20261110000000_explore_open.sql` not run: only invited people can save Explore titles | ⏸ Ika |
-| DB2 | `20261117000000_portfolios_signed_out.sql` not run: signed-out visitors aren't blocked at the door on the portfolio tables (their rules still show them nothing) | ⏸ Ika |
 
 ## Next up
 
@@ -119,5 +118,5 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | Workflows | 12 (3 per group) |
 | Explore titles in the library | 329 (only titles with a cover show) |
 | Explore press kits | 178 |
-| Database migrations | 42 files (3 waiting to be run) |
+| Database migrations | 42 files (2 waiting to be run) |
 | Automated tests | 151 in 24 files, all passing |
