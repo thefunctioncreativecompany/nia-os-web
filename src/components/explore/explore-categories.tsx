@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { ViewAll } from "@/components/nia/view-all";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { CREATORS, CREATORS_HREF } from "@/features/explore/creators";
-import { BEST_OF_2026, BEST_OF_2026_HREF, BEST_OF_2026_MIN, bestOf2026, GREATEST_TV, GREATEST_TV_HREF, HOLIDAY_CLASSICS, HOLIDAY_CLASSICS_HREF, HOLLYWOOD_CLASSICS, HOLLYWOOD_CLASSICS_HREF, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, greatestTv, holidayClassics } from "@/features/explore/made-in-africa";
+import { GREATEST_TV, GREATEST_TV_HREF, HOLIDAY_CLASSICS, HOLIDAY_CLASSICS_HREF, HOLLYWOOD_CLASSICS, HOLLYWOOD_CLASSICS_HREF, MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, greatestTv, holidayClassics } from "@/features/explore/made-in-africa";
 import { CreatorsStrip } from "./creators-strip";
 import { EpkLanes } from "./epk-lanes";
 import { getCategory } from "./explore-data";
@@ -27,12 +27,8 @@ export function CategorySections({ seed, inSeason = [] }: { seed: number; inSeas
   const seasonal: Section[] = inSeason.includes("holiday-classics") && holidayClassics.length
     ? [{ id: "holiday-classics", name: HOLIDAY_CLASSICS.name, href: HOLIDAY_CLASSICS_HREF, row: <CategoryStrip category="holiday-classics" /> }]
     : [];
-  // Best of 2026 (Ika, 2026-11-14) leads once enough of its top 20 are on Explore.
-  const best: Section[] = bestOf2026.length >= BEST_OF_2026_MIN
-    ? [{ id: "best-of-2026", name: BEST_OF_2026.name, href: BEST_OF_2026_HREF, row: <CategoryStrip category="best-of-2026" /> }]
-    : [];
   const sections: Section[] = [
-    ...best,
+    // Best of 2026 sits above Top 10 instead (explore-library.tsx, Ika 2026-11-15).
     ...seasonal,
     { id: "made-in-africa", name: MADE_IN_AFRICA.name, href: MADE_IN_AFRICA_HREF, row: <MadeInAfricaStrip seed={seed} bare /> },
     { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, href: HOLLYWOOD_CLASSICS_HREF, row: <CategoryStrip category="hollywood-classics" /> },

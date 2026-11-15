@@ -7,8 +7,9 @@ import { ChevronRight } from "lucide-react";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
-import { LIBRARY_HREF } from "@/features/explore/made-in-africa";
+import { BEST_OF_2026, BEST_OF_2026_HREF, BEST_OF_2026_MIN, LIBRARY_HREF, bestOf2026 } from "@/features/explore/made-in-africa";
 import { CategorySections } from "./explore-categories";
+import { CategoryStrip } from "./category-strip";
 import type { StudioRow } from "@/features/explore/studios";
 import { StudioLogos } from "./studio-strip";
 import { TopTen } from "./top-ten";
@@ -34,9 +35,25 @@ export function ExploreLibrary({ seed, top, studios, people = [], inSeason = [] 
         </Link>
       </h1>
 
-      {/* Top 10 first, then what's new (Ika, 2026-11-08). Headings carry no count or explaining
+      {/* Best of 2026 leads, above Top 10 (Ika, 2026-11-15), once enough of its twenty are here;
+          it isn't repeated under By category. */}
+      {bestOf2026.length >= BEST_OF_2026_MIN && (
+        <section aria-labelledby="best-of-2026" className="mt-7">
+          <div className="flex items-center justify-between gap-3">
+            <h2 id="best-of-2026" className="text-subtitle font-semibold text-foreground">
+              {BEST_OF_2026.name}
+            </h2>
+            <ViewAll href={BEST_OF_2026_HREF} />
+          </div>
+          <div className="mt-6">
+            <CategoryStrip category="best-of-2026" />
+          </div>
+        </section>
+      )}
+
+      {/* Top 10, then what's new (Ika, 2026-11-08). Headings carry no count or explaining
           line (Ika, 2026-10-30). */}
-      <section aria-labelledby="top-ten" className="mt-7">
+      <section aria-labelledby="top-ten" className="mt-12">
         <h2 id="top-ten" className="text-subtitle font-semibold text-foreground">
           Top 10 on Explore
         </h2>
