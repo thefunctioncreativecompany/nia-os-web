@@ -1,0 +1,111 @@
+{
+ "$comment": "By festival on Explore: written by scripts/build-explore-festivals.mjs. Don't edit by hand; add a festival to the script's list.",
+ "festivals": [
+  {
+   "id": "cannes",
+   "name": "Cannes Film Festival",
+   "logo": false,
+   "slugs": [
+    "timbuktu",
+    "atlantics",
+    "banel-and-adama",
+    "neptune-frost",
+    "on-becoming-a-guinea-fowl",
+    "i-am-not-a-witch",
+    "goodbye-julia",
+    "lingui-the-sacred-bonds",
+    "rafiki",
+    "feathers",
+    "hounds",
+    "four-daughters",
+    "the-mother-of-all-lies",
+    "touki-bouki",
+    "capernaum",
+    "taxi-driver",
+    "apocalypse-now",
+    "pulp-fiction",
+    "a-raisin-in-the-sun",
+    "abouna",
+    "parasite",
+    "the-pianist",
+    "la-bola-negra"
+   ]
+  },
+  {
+   "id": "berlinale",
+   "name": "Berlin International Film Festival",
+   "logo": true,
+   "slugs": [
+    "felicite",
+    "eyimofe",
+    "inxeba",
+    "dahomey",
+    "the-heart-is-a-muscle",
+    "jerusalema",
+    "ancestral-visions-of-the-future",
+    "12-angry-men"
+   ]
+  },
+  {
+   "id": "tiff",
+   "name": "Toronto International Film Festival",
+   "logo": true,
+   "slugs": [
+    "sew-the-winter-to-my-skin",
+    "five-fingers-for-marseilles",
+    "saloum",
+    "la-bola-negra",
+    "tenzing",
+    "obsession"
+   ]
+  },
+  {
+   "id": "sundance",
+   "name": "Sundance Film Festival",
+   "logo": false,
+   "slugs": [
+    "mami-wata",
+    "this-is-not-a-burial",
+    "inxeba",
+    "pumzi",
+    "jeen-yuhs"
+   ]
+  },
+  {
+   "id": "venice",
+   "name": "Venice Film Festival",
+   "logo": true,
+   "slugs": [
+    "seven-samurai",
+    "bugonia",
+    "brokeback-mountain"
+   ]
+  },
+  {
+   "id": "tribeca",
+   "name": "Tribeca Festival",
+   "logo": true,
+   "slugs": [
+    "a-kid-from-coney-island",
+    "benji",
+    "katrina-babies"
+   ]
+  },
+  {
+   "id": "telluride",
+   "name": "Telluride Film Festival",
+   "logo": false,
+   "slugs": [
+    "nickel-boys"
+   ]
+  },
+  {
+   "id": "fespaco",
+   "name": "FESPACO",
+   "logo": false,
+   "slugs": [
+    "felicite"
+   ]
+  }
+ ]
+}

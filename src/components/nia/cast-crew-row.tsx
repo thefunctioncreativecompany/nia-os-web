@@ -54,10 +54,11 @@ export function CastCrewRow({
 }
 
 /** A person in a row. Without an `href` (a shared link's visitors) it's the same look, not a link. */
-export function PersonTile({ person: p, small = false }: { person: Omit<RowPerson, "href"> & { href?: string }; small?: boolean }) {
+/** `fill`: from desktops up the picture fills its tile (rows of ten across, TEN_ACROSS). */
+export function PersonTile({ person: p, small = false, fill = false }: { person: Omit<RowPerson, "href"> & { href?: string }; small?: boolean; fill?: boolean }) {
   const inner = (
     <>
-      <PersonPicture name={p.name} photo={p.photo} className={cn(p.href && "group-sweep", small ? "size-20 sm:size-24" : "size-24 sm:size-28 lg:size-32")} />
+      <PersonPicture name={p.name} photo={p.photo} className={cn(p.href && "group-sweep", small ? "size-20 sm:size-24" : fill ? "size-24 sm:size-28 lg:aspect-square lg:h-auto lg:w-full" : "size-24 sm:size-28 lg:size-32")} />
       <span className="flex flex-col gap-0.5">
         <span className="line-clamp-2 text-sm leading-snug font-semibold text-foreground">{p.name}</span>
         <span className="line-clamp-2 text-small leading-snug text-muted-foreground">{p.role}</span>

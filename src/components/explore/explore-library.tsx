@@ -11,17 +11,20 @@ import { BEST_OF_2026, BEST_OF_2026_HREF, BEST_OF_2026_MIN, LIBRARY_HREF, bestOf
 import { CategorySections } from "./explore-categories";
 import { CategoryStrip } from "./category-strip";
 import type { StudioRow } from "@/features/explore/studios";
-import { StudioLogos } from "./studio-strip";
+import { LogoPlate, StudioLogos } from "./studio-strip";
+import { festivalHref } from "./festival-all";
+import type { FestivalRow } from "@/features/explore/festivals";
 import { TopTen } from "./top-ten";
 import { ROW_MAX } from "@/lib/rows";
 import { PersonTile, type RowPerson } from "@/components/nia/cast-crew-row";
-import { ScrollRow } from "@/components/nia/scroll-row";
+import { ScrollRow, TEN_ACROSS } from "@/components/nia/scroll-row";
+import { cn } from "@/lib/utils";
 
 // Explore, the library: Ika's Claude Design "ExploreLibrary" as designed (layout, motion, images),
 // in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts. The
 // rows under By category come in a new order on each visit (`seed`, Ika 2026-10-22).
 // Recently added was removed for now (Ika, 2026-11-08; git tag parked-2026-11-08-recently-added).
-export function ExploreLibrary({ seed, top, studios, people = [], inSeason = [] }: { seed: number; top: Promise<string[]>; studios: StudioRow[]; people?: RowPerson[]; inSeason?: string[] }) {
+export function ExploreLibrary({ seed, top, studios, people = [], festivals = [], inSeason = [] }: { seed: number; top: Promise<string[]>; studios: StudioRow[]; people?: RowPerson[]; festivals?: FestivalRow[]; inSeason?: string[] }) {
   return (
     <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-page lg:pt-12.5">
       {/* Opens the whole library as one canvas (Ika, 2026-10-21). */}
@@ -92,8 +95,27 @@ export function ExploreLibrary({ seed, top, studios, people = [], inSeason = [] 
           <div className="mt-6">
             <ScrollRow label="Cast and crew">
               {people.map((p) => (
-                <li key={p.key} className="w-28 flex-none snap-start sm:w-32 lg:w-36">
-                  <PersonTile person={p} />
+                <li key={p.key} className={cn("w-28 flex-none snap-start sm:w-32", TEN_ACROSS)}>
+                  <PersonTile person={p} fill />
+                </li>
+              ))}
+            </ScrollRow>
+          </div>
+        </section>
+      )}
+
+      {/* By festival, under By cast & crew (Ika, 2026-11-15): only festivals where titles on Explore
+          screened or won; each logo opens the festival's titles. */}
+      {festivals.length > 0 && (
+        <section aria-labelledby="by-festival" className="mt-12">
+          <h2 id="by-festival" className="text-subtitle font-semibold text-foreground">
+            By festival
+          </h2>
+          <div className="mt-6">
+            <ScrollRow label="Festivals">
+              {festivals.map((f) => (
+                <li key={f.id} className={cn("w-[22%] flex-none snap-start sm:w-[15%] md:w-[11%]", TEN_ACROSS)}>
+                  <LogoPlate href={festivalHref(f.id)} name={f.name} logo={f.logo} count={f.slugs.length} />
                 </li>
               ))}
             </ScrollRow>

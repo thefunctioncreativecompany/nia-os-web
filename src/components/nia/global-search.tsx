@@ -179,6 +179,16 @@ async function load(): Promise<Result[]> {
       href: `/explore/studio/${s.id}`,
       explore: { image: s.logo, aspect: 1 },
     })),
+    // Explore's festivals (2026-11-15), each opening the titles that screened or won there.
+    ...(index?.festivals ?? []).map((f): Result => ({
+      key: `f:${f.id}`,
+      kind: "explore",
+      title: f.name,
+      meta: `Festival · ${f.count} ${f.count === 1 ? "title" : "titles"}`,
+      words: "festival film festival",
+      href: `/explore/festival/${f.id}`,
+      explore: { image: f.logo, aspect: 1 },
+    })),
     ...(index?.people ?? []).map((p): Result => ({
       key: `c:${p.key}`,
       kind: "explore",

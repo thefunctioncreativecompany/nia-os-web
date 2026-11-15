@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "by-festival",
+    date: "2026-11-15",
+    title: "By festival on Explore",
+    body: "Cannes, the Berlinale, Toronto, Sundance, Venice and more: each festival opens the titles on Explore that screened or won there.",
+    href: "/explore/festival/cannes",
+    cta: "Open Cannes",
+    icon: "seal",
+    weight: { production: 0.6, fashion: 0.4, creator: 0.6 },
+  },
+  {
     id: "best-of-2026",
     date: "2026-11-15",
     title: "Best of 2026 on Explore",

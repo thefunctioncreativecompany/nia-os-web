@@ -67,3 +67,7 @@ function RowArrow({ side, hidden, onClick }: { side: "left" | "right"; hidden: b
     </button>
   );
 }
+
+/** From desktops up, ten round tiles fill a row edge to edge (By studio, By cast & crew, By festival;
+ * Ika, 2026-11-15): the row's width less nine gaps, in tenths. Phones keep each row's own widths. */
+export const TEN_ACROSS = "lg:w-[calc((100%-9*0.8125rem)/10)]";
