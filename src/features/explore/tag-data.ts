@@ -452,4 +452,9 @@ export const HAND_TAGS: Record<string, string[]> = {
   "klaus": ["myth", "community", "snow", "friendship", "painterly", "uplifting", "playful", "genre-blend", "streaming", "full-crew", "warm-palette"],
   "jingle-jangle-a-christmas-journey": ["family", "music", "dance", "myth", "joyful", "uplifting", "costume", "set-design", "practical-effects", "music-led", "celebrity", "streaming", "ensemble"],
   "barbie": ["women", "identity", "fashion", "costume", "set-design", "practical-effects", "playful", "darkly-comic", "vivid-colour", "genre-blend", "celebrity", "ensemble", "cinema"],
+  "spider-man-brand-new-day": ["city-streets", "night", "vfx", "youth", "identity", "friendship", "energetic", "bold", "tense", "adaptation", "celebrity", "full-crew", "cinema"],
+  "project-hail-mary": ["future-world", "friendship", "vfx", "practical-effects", "wide-vistas", "adaptation", "tense", "uplifting", "playful", "celebrity", "full-crew", "cinema"],
+  "resident-evil": ["snow", "night", "roads", "rural", "tense", "raw", "gritty", "mysterious", "adaptation", "practical-effects", "full-crew", "cinema"],
+  "obsession": ["love", "youth", "home", "interiors", "night", "tense", "mysterious", "darkly-comic", "intimate", "myth", "small-crew", "cinema"],
+  "la-bola-negra": ["history", "period-setting", "queer", "love", "identity", "poetry", "adaptation", "ensemble", "melancholy", "intimate", "full-crew", "cinema"],
 };

@@ -1858,5 +1858,30 @@
    "heyday"
   ],
   "tmdb": "movie/346698"
+ },
+ "spider-man-brand-new-day": {
+  "studios": [
+   "columbia",
+   "marvel"
+  ],
+  "tmdb": "movie/969681"
+ },
+ "project-hail-mary": {
+  "studios": [],
+  "tmdb": "movie/687163"
+ },
+ "resident-evil": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/1423191"
+ },
+ "obsession": {
+  "studios": [],
+  "tmdb": "movie/1339713"
+ },
+ "la-bola-negra": {
+  "studios": [],
+  "tmdb": "movie/1422041"
  }
 }

@@ -136,16 +136,19 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
           onChange={(e) => setQuery(e.target.value)}
           className="max-w-150"
         />
-        <ChipRow role="group" aria-label="Collections">
-          <FilterChip on={collection === ALL} count={narrowed.length} onClick={() => setCollection(ALL)}>
-            All
-          </FilterChip>
-          {view.collections.map((c) => (
-            <FilterChip key={c.slug} on={collection === c.slug} count={narrowed.filter((e) => e.collection.slug === c.slug).length} onClick={() => setCollection(c.slug)}>
-              {c.name}
+        {/* A category without collections of its own (Best of 2026) has no chips to pick. */}
+        {view.collections.length > 0 && (
+          <ChipRow role="group" aria-label="Collections">
+            <FilterChip on={collection === ALL} count={narrowed.length} onClick={() => setCollection(ALL)}>
+              All
             </FilterChip>
-          ))}
-        </ChipRow>
+            {view.collections.map((c) => (
+              <FilterChip key={c.slug} on={collection === c.slug} count={narrowed.filter((e) => e.collection.slug === c.slug).length} onClick={() => setCollection(c.slug)}>
+                {c.name}
+              </FilterChip>
+            ))}
+          </ChipRow>
+        )}
         <ChipRow>
           {hasEssentials && (
             <FilterChip on={essentials} onClick={() => setEssentials((on) => !on)} count={view.entries.filter((e) => essentialWhy.has(e.title.slug)).length}>

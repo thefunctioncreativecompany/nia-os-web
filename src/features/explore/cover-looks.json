@@ -898,6 +898,10 @@
  "klaus": [
   "warm-palette"
  ],
+ "la-bola-negra": [
+  "warm-palette",
+  "low-key"
+ ],
  "laura": [
   "black-and-white"
  ],
@@ -1019,6 +1023,9 @@
  "notorious": [
   "black-and-white"
  ],
+ "obsession": [
+  "low-key"
+ ],
  "on-becoming-a-guinea-fowl": [
   "vivid-colour",
   "warm-palette"
@@ -1086,6 +1093,10 @@
  "prison-break": [
   "muted-colour"
  ],
+ "project-hail-mary": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "prometheus": [
   "vivid-colour",
   "cool-palette",
@@ -1124,6 +1135,9 @@
  ],
  "rebel-without-a-cause": [
   "warm-palette"
+ ],
+ "resident-evil": [
+  "low-key"
  ],
  "ride-along": [
   "muted-colour"
@@ -1196,6 +1210,11 @@
   "warm-palette"
  ],
  "spider-man-3": [],
+ "spider-man-brand-new-day": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "spider-man-far-from-home": [
   "vivid-colour",
   "cool-palette"

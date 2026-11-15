@@ -1103,6 +1103,10 @@
   "date": "2019-11-08",
   "precision": "day"
  },
+ "la-bola-negra": {
+  "date": "2026-05-21",
+  "precision": "day"
+ },
  "laura": {
   "date": "1944-10-11",
   "precision": "day"
@@ -1239,6 +1243,10 @@
   "date": "1946-01-01",
   "precision": "year"
  },
+ "obsession": {
+  "date": "2025-09-05",
+  "precision": "day"
+ },
  "on-becoming-a-guinea-fowl": {
   "date": "2024-05-16",
   "precision": "day"
@@ -1311,6 +1319,10 @@
   "date": "2005-08-29",
   "precision": "day"
  },
+ "project-hail-mary": {
+  "date": "2026-03-18",
+  "precision": "day"
+ },
  "prometheus": {
   "date": "2012-05-30",
   "precision": "day"
@@ -1353,6 +1365,10 @@
  },
  "rebel-without-a-cause": {
   "date": "1955-10-27",
+  "precision": "day"
+ },
+ "resident-evil": {
+  "date": "2026-09-15",
   "precision": "day"
  },
  "ride-along": {
@@ -1441,6 +1457,10 @@
  },
  "spider-man-3": {
   "date": "2007-05-01",
+  "precision": "day"
+ },
+ "spider-man-brand-new-day": {
+  "date": "2026-07-29",
   "precision": "day"
  },
  "spider-man-far-from-home": {

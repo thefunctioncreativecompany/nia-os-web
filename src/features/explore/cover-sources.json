@@ -1600,5 +1600,30 @@
   "source": "TMDB",
   "tmdb": "movie/346698",
   "image": "https://image.tmdb.org/t/p/original/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
+ },
+ "spider-man-brand-new-day": {
+  "source": "TMDB",
+  "tmdb": "movie/969681",
+  "image": "https://image.tmdb.org/t/p/original/bjiS5ipwxb9JFy3XRRN4OAilSeX.jpg"
+ },
+ "project-hail-mary": {
+  "source": "TMDB",
+  "tmdb": "movie/687163",
+  "image": "https://image.tmdb.org/t/p/original/iOb2fjXLbpJgyQXe46n1WtGCnaa.jpg"
+ },
+ "resident-evil": {
+  "source": "TMDB",
+  "tmdb": "movie/1423191",
+  "image": "https://image.tmdb.org/t/p/original/gAgWJhUSQWCgtKR8170nMkYlBda.jpg"
+ },
+ "obsession": {
+  "source": "TMDB",
+  "tmdb": "movie/1339713",
+  "image": "https://image.tmdb.org/t/p/original/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg"
+ },
+ "la-bola-negra": {
+  "source": "TMDB",
+  "tmdb": "movie/1422041",
+  "image": "https://image.tmdb.org/t/p/original/7HwFQTMghL6HOvzEnXYUvyuZXeh.jpg"
  }
 }

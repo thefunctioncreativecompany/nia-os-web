@@ -9688,6 +9688,158 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "spider-man-brand-new-day",
+   "collection": "explore-all",
+   "title": "Spider-Man: Brand New Day",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Destin Daniel Cretton",
+   "recognition": "Over $2.5 billion at the worldwide box office",
+   "pair_with": "",
+   "study_note": "A street-level reset for the character, shot largely in Glasgow standing in for New York: a study in dressing one city as another",
+   "added": "2026-11-15",
+   "imdb_id": "tt22084616",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "62bIsvRcPv0",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "project-hail-mary",
+   "collection": "explore-all",
+   "title": "Project Hail Mary",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Adventure"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Phil Lord & Christopher Miller",
+   "recognition": "Over $680 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "A two-hander between a lone astronaut and an alien, Rocky, played on set as a practical puppet so the lead had a real scene partner",
+   "added": "2026-11-15",
+   "imdb_id": "tt12042730",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "m08TxIsFTRI",
+     "kind": "trailer",
+     "channel": "Amazon MGM Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "resident-evil",
+   "collection": "explore-all",
+   "title": "Resident Evil",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Sci-Fi",
+    "Adventure"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "Germany",
+    "France"
+   ],
+   "credit": "Zach Cregger",
+   "recognition": "Over $400 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Zach Cregger's take on the game: one medical courier and one night, told as a survival story rather than a franchise reboot",
+   "added": "2026-11-15",
+   "imdb_id": "tt35538033",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "mNd1gb19A-c",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "obsession",
+   "collection": "explore-all",
+   "title": "Obsession",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Curry Barker",
+   "recognition": "Over $520 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "A small horror film from YouTube creator Curry Barker, about a wish that comes true, that grew into one of the year's biggest hits",
+   "added": "2026-11-15",
+   "imdb_id": "tt37287335",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "8BMl7gyOpOE",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "la-bola-negra",
+   "collection": "explore-all",
+   "title": "La Bola Negra",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Historical",
+    "Romance"
+   ],
+   "year": 2026,
+   "countries": [
+    "Spain",
+    "France"
+   ],
+   "credit": "Javier Ambrossi & Javier Calvo",
+   "recognition": "Best Director at the 2026 Cannes Film Festival (shared), in Competition",
+   "pair_with": "",
+   "study_note": "Built from Federico García Lorca's unfinished play: three men in three eras, one story carried across three timelines",
+   "added": "2026-11-15",
+   "imdb_id": "tt35511966",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "lBVxKt0gKDY",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

@@ -11088,6 +11088,80 @@
    }
   ]
  },
+ "la-bola-negra": {
+  "qid": "Q134548431",
+  "people": [
+   {
+    "id": "Q86694039",
+    "role": "Cast"
+   },
+   {
+    "id": "Q57584369",
+    "role": "Cast",
+    "character": "Rafael Rodríguez Rapún"
+   },
+   {
+    "id": "Q109554771",
+    "role": "Cast"
+   },
+   {
+    "id": "Q139784770",
+    "role": "Cast"
+   },
+   {
+    "id": "Q283513",
+    "role": "Cast"
+   },
+   {
+    "id": "Q39666",
+    "role": "Cast"
+   },
+   {
+    "id": "Q372311",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2790121",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16298722",
+    "role": "Cast"
+   },
+   {
+    "id": "Q942636",
+    "role": "Cast"
+   },
+   {
+    "id": "Q118185675",
+    "role": "Cast"
+   },
+   {
+    "id": "Q99989182",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2665604",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q5927386",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q21013685",
+    "role": "Writer"
+   },
+   {
+    "id": "Q113459702",
+    "role": "Editor"
+   },
+   {
+    "id": "Q6103567",
+    "role": "Music"
+   }
+  ]
+ },
  "laura": {
   "qid": "Q976149",
   "people": [
@@ -13271,6 +13345,40 @@
    }
   ]
  },
+ "obsession": {
+  "qid": "Q136163067",
+  "people": [
+   {
+    "id": "Q25932990",
+    "role": "Cast",
+    "character": "Bear"
+   },
+   {
+    "id": "Q106932301",
+    "role": "Cast",
+    "character": "Nikki"
+   },
+   {
+    "id": "Q497851",
+    "role": "Cast",
+    "character": "Carter"
+   },
+   {
+    "id": "Q6173295",
+    "role": "Cast",
+    "character": "Trivia Bar Host"
+   },
+   {
+    "id": "Q140047390",
+    "role": "Cast",
+    "character": "Sarah"
+   },
+   {
+    "id": "Q136345455",
+    "role": "Director, Writer, Editor"
+   }
+  ]
+ },
  "on-becoming-a-guinea-fowl": {
   "qid": "Q125457216",
   "people": [
@@ -14819,6 +14927,103 @@
    }
   ]
  },
+ "project-hail-mary": {
+  "qid": "Q107105860",
+  "people": [
+   {
+    "id": "Q193815",
+    "role": "Cast, Producer",
+    "character": "Ryland Grace"
+   },
+   {
+    "id": "Q70003",
+    "role": "Cast",
+    "character": "Eva Stratt"
+   },
+   {
+    "id": "Q16732590",
+    "role": "Cast",
+    "character": "Olesya Ilyukhina"
+   },
+   {
+    "id": "Q119574595",
+    "role": "Cast",
+    "character": "Martin DuBois"
+   },
+   {
+    "id": "Q312051",
+    "role": "Cast",
+    "character": "Yáo Li-Jie"
+   },
+   {
+    "id": "Q104433160",
+    "role": "Cast",
+    "character": "Annie Shapiro"
+   },
+   {
+    "id": "Q78784225",
+    "role": "Cast",
+    "character": "Xi"
+   },
+   {
+    "id": "Q138773949",
+    "role": "Cast",
+    "character": "Rocky"
+   },
+   {
+    "id": "Q6827165",
+    "role": "Cast"
+   },
+   {
+    "id": "Q111220392",
+    "role": "Cast"
+   },
+   {
+    "id": "Q23035062",
+    "role": "Cast"
+   },
+   {
+    "id": "Q114989516",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3378803",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q13638984",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q922368",
+    "role": "Writer"
+   },
+   {
+    "id": "Q481925",
+    "role": "Producer"
+   },
+   {
+    "id": "Q18590295",
+    "role": "Producer"
+   },
+   {
+    "id": "Q141084616",
+    "role": "Producer"
+   },
+   {
+    "id": "Q17715100",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q5218424",
+    "role": "Music"
+   },
+   {
+    "id": "Q24206616",
+    "role": "Production Designer"
+   }
+  ]
+ },
  "prometheus": {
   "qid": "Q192686",
   "people": [
@@ -15622,6 +15827,63 @@
    {
     "id": "Q1949430",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "resident-evil": {
+  "qid": "Q136565785",
+  "people": [
+   {
+    "id": "Q16156312",
+    "role": "Cast"
+   },
+   {
+    "id": "Q26921822",
+    "role": "Cast"
+   },
+   {
+    "id": "Q63382252",
+    "role": "Cast"
+   },
+   {
+    "id": "Q21197590",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1059231",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6369278",
+    "role": "Cast"
+   },
+   {
+    "id": "Q34344863",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16732059",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3574497",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q70276767",
+    "role": "Writer"
+   },
+   {
+    "id": "Q1990920",
+    "role": "Producer"
+   },
+   {
+    "id": "Q135986284",
+    "role": "Producer"
+   },
+   {
+    "id": "Q902080",
+    "role": "Director of Photography"
    }
   ]
  },
@@ -17197,6 +17459,102 @@
    {
     "id": "Q346384",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "spider-man-brand-new-day": {
+  "qid": "Q113244935",
+  "people": [
+   {
+    "id": "Q2023710",
+    "role": "Cast",
+    "character": "Peter Parker"
+   },
+   {
+    "id": "Q189489",
+    "role": "Cast",
+    "character": "Michelle Jones"
+   },
+   {
+    "id": "Q26213909",
+    "role": "Cast",
+    "character": "Ned Leeds"
+   },
+   {
+    "id": "Q11833191",
+    "role": "Cast",
+    "character": "Jean DeWolff"
+   },
+   {
+    "id": "Q362616",
+    "role": "Cast",
+    "character": "Frank Castle"
+   },
+   {
+    "id": "Q41422",
+    "role": "Cast",
+    "character": "Bruce Banner"
+   },
+   {
+    "id": "Q6832484",
+    "role": "Cast",
+    "character": "Mac Gargan"
+   },
+   {
+    "id": "Q111488758",
+    "role": "Cast",
+    "character": "Bill Metzger"
+   },
+   {
+    "id": "Q47467682",
+    "role": "Cast",
+    "character": "Tombstone"
+   },
+   {
+    "id": "Q114894342",
+    "role": "Cast",
+    "character": "The Boyfriend"
+   },
+   {
+    "id": "Q18390633",
+    "role": "Cast",
+    "character": "Sheila Rivera"
+   },
+   {
+    "id": "Q15972939",
+    "role": "Director"
+   },
+   {
+    "id": "Q5107425",
+    "role": "Writer"
+   },
+   {
+    "id": "Q26268915",
+    "role": "Writer"
+   },
+   {
+    "id": "Q515161",
+    "role": "Producer"
+   },
+   {
+    "id": "Q481925",
+    "role": "Producer"
+   },
+   {
+    "id": "Q545394",
+    "role": "Producer"
+   },
+   {
+    "id": "Q141084616",
+    "role": "Producer"
+   },
+   {
+    "id": "Q28915983",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q155124",
+    "role": "Music"
    }
   ]
  },

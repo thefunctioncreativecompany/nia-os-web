@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "best-of-2026",
+    date: "2026-11-15",
+    title: "Best of 2026 on Explore",
+    body: "The year's standouts in order, ranked by popularity, box office, festivals and what people open on Nia, from The Odyssey to Cannes winner La Bola Negra, each with its press kit.",
+    href: "/explore/best-of-2026",
+    cta: "Open Best of 2026",
+    icon: "seal",
+    weight: { production: 0.6, fashion: 0.5, creator: 0.7 },
+  },
+  {
     id: "project-tabs",
     date: "2026-11-12",
     title: "A new project page",
