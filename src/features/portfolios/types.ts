@@ -13,6 +13,10 @@ export const BACKGROUNDS = [
   { value: "#000000", label: "Black" },
 ] as const;
 
+/** How the cover is framed: the point that stays in view (x, y in %) and the zoom (1 to 3). */
+export type CoverFrame = { x: number; y: number; z: number };
+export const DEFAULT_FRAME: CoverFrame = { x: 50, y: 50, z: 1 };
+
 export type Portfolio = {
   id: string;
   title: string;
@@ -21,6 +25,7 @@ export type Portfolio = {
   template: PortfolioTemplate;
   background: string;
   coverFileId: string | null;
+  coverFrame: CoverFrame;
   publishedAt: string | null;
   updatedAt: string;
 };
@@ -44,9 +49,12 @@ export function portfolioFrom(row: {
   template: string;
   background: string;
   cover_file_id: string | null;
+  cover_frame?: Partial<CoverFrame> | null;
   published_at: string | null;
   updated_at: string;
 }): Portfolio {
+  const f = row.cover_frame ?? {};
+  const clamp = (n: unknown, lo: number, hi: number, d: number) => (typeof n === "number" && Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : d);
   return {
     id: row.id,
     title: row.title,
@@ -55,6 +63,7 @@ export function portfolioFrom(row: {
     template: (TEMPLATES.some((t) => t.value === row.template) ? row.template : "grid") as PortfolioTemplate,
     background: row.background,
     coverFileId: row.cover_file_id,
+    coverFrame: { x: clamp(f.x, 0, 100, 50), y: clamp(f.y, 0, 100, 50), z: clamp(f.z, 1, 3, 1) },
     publishedAt: row.published_at,
     updatedAt: row.updated_at,
   };

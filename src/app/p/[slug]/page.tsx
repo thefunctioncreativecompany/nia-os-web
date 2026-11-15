@@ -1,18 +1,22 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { connection } from "next/server";
 
-import { loadPublic } from "@/features/portfolios/data";
+import { loadPublic, publicTitle } from "@/features/portfolios/data";
 import { PortfolioView } from "@/features/portfolios/portfolio-view";
 
 // A portfolio's public page (beta, PORTFOLIOS_BUILD.md P3, cut down): no Nia bar, like the share
 // page. Published portfolios open for anyone with the link; an unpublished one opens only for people
 // in its workspace, marked as a preview. Files stay private: the server opens each with a link that
 // lasts an hour, only for the final assets of the portfolio's own projects.
-export const metadata: Metadata = {
-  title: "Portfolio",
-  robots: { index: false },
-};
+export async function generateMetadata({ params }: PageProps<"/p/[slug]">): Promise<Metadata> {
+  await connection();
+  const { slug } = await params;
+  const found = await publicTitle(slug);
+  const title = found ? (found.byline ? `${found.title} · ${found.byline}` : found.title) : "Portfolio";
+  return { title, openGraph: { title }, twitter: { card: "summary_large_image", title }, robots: { index: false } };
+}
 
 export default function Page({ params }: PageProps<"/p/[slug]">) {
   return (

@@ -15,7 +15,9 @@ import { BackLink } from "@/components/nia/back-link";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { SectionTabs } from "@/components/nia/section-tabs";
 import { UploadWork } from "./upload-work";
-import { BACKGROUNDS, TEMPLATES, type Portfolio, type PortfolioProject, type PortfolioTemplate } from "./types";
+import { CoverFramer } from "./cover-framer";
+import { PieceOrder } from "./piece-order";
+import { BACKGROUNDS, TEMPLATES, type CoverFrame, type Portfolio, type PortfolioProject, type PortfolioTemplate } from "./types";
 
 type Step = "sequence" | "look" | "details";
 
@@ -33,9 +35,13 @@ export function PortfolioEditor({ initial, initialChosen, projects }: { initial:
   const inOrder = chosen.map((id) => byId.get(id)).filter((p): p is PortfolioProject => Boolean(p));
   const others = projects.filter((p) => !chosen.includes(p.id));
   const pictures = inOrder.flatMap((p) => p.pieces.filter((x) => x.kind === "image"));
+  const coverPiece = pictures.find((x) => x.id === portfolio.coverFileId) ?? pictures[0];
+  // Which project's work is open to put in order.
+  const [ordering, setOrdering] = useState<string | null>(null);
+  const [colour, setColour] = useState(portfolio.background);
   const href = `/p/${portfolio.slug}`;
 
-  const save = async (patch: Partial<Record<"title" | "byline" | "template" | "background" | "cover_file_id" | "published_at" | "deleted_at", string | null>>, next: Partial<Portfolio>) => {
+  const save = async (patch: Partial<Record<"title" | "byline" | "template" | "background" | "cover_file_id" | "published_at" | "deleted_at", string | null>> | { cover_frame: CoverFrame }, next: Partial<Portfolio>) => {
     const before = portfolio;
     setPortfolio((p) => ({ ...p, ...next }));
     const { error } = await supabase.from("portfolios").update({ ...patch, updated_at: new Date().toISOString() }).eq("id", portfolio.id);
@@ -144,12 +150,18 @@ export function PortfolioEditor({ initial, initialChosen, projects }: { initial:
             ) : (
               <ol className="flex flex-col gap-2">
                 {inOrder.map((p, i) => (
-                  <li key={p.id} className="flex items-center gap-3 rounded-xl border border-border bg-card p-2">
+                  <li key={p.id} className="flex flex-col gap-2 rounded-xl border border-border bg-card p-2">
+                    <div className="flex items-center gap-3">
                     <Thumb url={p.pieces[0]?.url} />
                     <span className="min-w-0 flex-1">
                       <span className="block truncate text-sm font-semibold text-foreground">{p.title}</span>
                       <span className="text-small text-muted-foreground">{p.pieces.length} {p.pieces.length === 1 ? "piece" : "pieces"}</span>
                     </span>
+                    {p.pieces.length > 1 && (
+                      <Button variant="ghost" size="compact" aria-expanded={ordering === p.id} onClick={() => setOrdering((o) => (o === p.id ? null : p.id))}>
+                        {ordering === p.id ? "Done" : "Order"}
+                      </Button>
+                    )}
                     <Button variant="ghost" size="icon-sm" aria-label={`Move ${p.title} up`} disabled={i === 0} onClick={() => move(i, -1)}>
                       <ArrowUp />
                     </Button>
@@ -159,6 +171,8 @@ export function PortfolioEditor({ initial, initialChosen, projects }: { initial:
                     <Button variant="ghost" size="icon-sm" aria-label={`Take ${p.title} off the page`} onClick={() => remove(p.id)}>
                       <X />
                     </Button>
+                    </div>
+                    {ordering === p.id && <PieceOrder key={p.id} pieces={p.pieces} onSaved={() => router.refresh()} />}
                   </li>
                 ))}
               </ol>
@@ -202,7 +216,29 @@ export function PortfolioEditor({ initial, initialChosen, projects }: { initial:
           </section>
           <section aria-labelledby="background" className="flex flex-col gap-3">
             <h2 id="background" className="text-subtitle font-semibold text-foreground">Background</h2>
-            <ChoicePills label="Background" options={[...BACKGROUNDS]} value={portfolio.background as (typeof BACKGROUNDS)[number]["value"]} onChange={(v) => void save({ background: v }, { background: v })} />
+            <div className="flex flex-wrap items-center gap-3">
+              <ChoicePills
+                label="Background"
+                options={[...BACKGROUNDS]}
+                value={BACKGROUNDS.some((b) => b.value === portfolio.background) ? (portfolio.background as (typeof BACKGROUNDS)[number]["value"]) : null}
+                onChange={(v) => {
+                  setColour(v);
+                  void save({ background: v }, { background: v });
+                }}
+              />
+              {/* Any colour: picked live, saved when the picker closes. */}
+              <label className="flex h-10 cursor-pointer items-center gap-2 rounded-full border border-border px-3 text-sm font-medium text-foreground focus-within:ring-3 focus-within:ring-ring/50">
+                <input
+                  type="color"
+                  value={colour}
+                  onChange={(e) => setColour(e.target.value)}
+                  onBlur={() => colour !== portfolio.background && void save({ background: colour }, { background: colour })}
+                  className="size-6 cursor-pointer rounded-full border-0 bg-transparent p-0"
+                  aria-label="Background colour"
+                />
+                Colour
+              </label>
+            </div>
           </section>
           <section aria-labelledby="cover" className="flex flex-col gap-3">
             <h2 id="cover" className="text-subtitle font-semibold text-foreground">Cover</h2>
@@ -233,6 +269,9 @@ export function PortfolioEditor({ initial, initialChosen, projects }: { initial:
                   );
                 })}
               </ul>
+            )}
+            {coverPiece && (
+              <CoverFramer key={coverPiece.id} url={coverPiece.url} frame={portfolio.coverFrame} onChange={(f) => void save({ cover_frame: f }, { coverFrame: f })} />
             )}
           </section>
         </div>

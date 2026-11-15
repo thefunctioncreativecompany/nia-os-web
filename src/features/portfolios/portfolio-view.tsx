@@ -24,7 +24,13 @@ export function PortfolioView({ portfolio: p, projects, cover, preview }: { port
       <section aria-label="Cover" className="relative flex h-svh items-end overflow-hidden">
         {cover && (
           // eslint-disable-next-line @next/next/no-img-element -- a private file's link that lasts an hour
-          <img src={cover.url} alt="" className="absolute inset-0 size-full object-cover" />
+          <img
+            src={cover.url}
+            alt=""
+            className="absolute inset-0 size-full object-cover"
+            // Framed as the owner set it (cover-framer.tsx): the point kept in view, and the zoom.
+            style={{ objectPosition: `${p.coverFrame.x}% ${p.coverFrame.y}%`, transform: `scale(${p.coverFrame.z})`, transformOrigin: `${p.coverFrame.x}% ${p.coverFrame.y}%` }}
+          />
         )}
         <span aria-hidden className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
         <div className="relative flex flex-col gap-2 px-6 pb-12 text-white md:px-12 md:pb-16">

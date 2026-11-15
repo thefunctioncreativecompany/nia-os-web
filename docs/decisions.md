@@ -994,3 +994,13 @@ onboarding's Import profile and Follow creators describe features removed in the
   (named after the portfolio unless named), a Folder makes one project per folder inside it; each is a
   Wrapped project with the uploads filed as final assets (small copies made), put on the page; plan
   limits apply as for any new project.
+- (2026-11-15) Portfolios, slice 3: the look and sharing. Look gains any background colour (a picker beside
+  White and Black) and framing the cover (`cover-framer.tsx`: a phone and a large screen side by side,
+  drag or arrow keys to move the picture, Zoom 1 to 3, Reset; the public page and the link preview use
+  it). Sequence gains Order on each project (`piece-order.tsx`: pieces earlier or later, saved on the
+  files as `position`, so every portfolio shows the same order). Link previews (PORTFOLIOS_BUILD.md P8):
+  `/p/[slug]/opengraph-image` draws the cover as framed with the title and name, and the page title is
+  the portfolio's; anything unpublished gets the plain NIA card. Needs
+  `20261115000000_portfolios_look.sql` (cover_frame, project_files.position); until it's run the pages
+  work and framing and order stay at their defaults. The shared Slider takes `thumbLabel` so the handle
+  has a name for screen readers.

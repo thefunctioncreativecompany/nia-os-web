@@ -12,7 +12,8 @@ import { portfolioFrom, type Piece, type Portfolio, type PortfolioProject } from
 // database rules apply; the public page reads with the admin client only after checking the
 // portfolio is published (or that the viewer is in its workspace, to preview it).
 
-const PORTFOLIO_COLUMNS = "id, title, byline, slug, template, background, cover_file_id, published_at, updated_at";
+// Every column ("*"), so the pages keep working before a migration adds one (cover_frame, 2026-11-15).
+const PORTFOLIO_COLUMNS = "*";
 
 /** Whether the signed-in person may use Portfolios: the beta switch and the PORTFOLIOS_BETA_EMAILS list
  * (Ika, 2026-11-14: test accounts only, kept out of the code). */
@@ -24,20 +25,23 @@ export async function canUsePortfolios() {
   return Boolean(user?.email && allowed.includes(user.email.toLowerCase()));
 }
 
-type FileRow = { id: string; project_id: string; name: string; path: string; kind: string; thumb_path: string | null };
+type FileRow = { id: string; project_id: string; name: string; path: string; kind: string; thumb_path: string | null; position?: number | null; created_at: string };
 
-// The final pictures and films of these projects, oldest first (the order they were added in).
+// The final pictures and films of these projects, in the order arranged (`position`, then the order
+// they were added in). "*" so it reads before the position column exists (2026-11-15).
 async function finals(client: SupabaseClient, projectIds: string[]) {
   if (!projectIds.length) return [] as FileRow[];
   const { data } = await client
     .from("project_files")
-    .select("id, project_id, name, path, kind, thumb_path")
+    .select("*")
     .in("project_id", projectIds)
     .eq("tag", "final")
     .in("kind", ["image", "video"])
     .is("deleted_at", null)
     .order("created_at");
-  return (data ?? []) as FileRow[];
+  const rows = (data ?? []) as FileRow[];
+  const at = (f: FileRow) => (typeof f.position === "number" ? f.position : Number.MAX_SAFE_INTEGER);
+  return rows.sort((a, b) => at(a) - at(b) || a.created_at.localeCompare(b.created_at));
 }
 
 // A picture's smaller copy when it has one (the original only for films), through links that stay
@@ -85,7 +89,7 @@ export async function loadPublic(slug: string) {
   await connection();
   const admin = createAdminClient();
   if (!admin) return null;
-  const { data: row } = await admin.from("portfolios").select(`${PORTFOLIO_COLUMNS}, workspace_id`).eq("slug", slug).is("deleted_at", null).maybeSingle();
+  const { data: row } = await admin.from("portfolios").select(PORTFOLIO_COLUMNS).eq("slug", slug).is("deleted_at", null).maybeSingle();
   if (!row) return null;
   let preview = false;
   if (!row.published_at) {
@@ -110,4 +114,34 @@ export async function loadPublic(slug: string) {
     .filter((p) => p.pieces.length > 0);
   const cover = coverFile ? piece(coverFile, urls) : shown[0]?.pieces.find((x) => x.kind === "image") ?? null;
   return { portfolio: portfolioFrom(row), projects: shown, cover, preview };
+}
+
+/** What a link preview may show: a published portfolio's title, name, cover (its smaller copy) and
+ * framing. Null for anything not published, so a preview never shows what the link wouldn't. */
+export async function publicPreview(slug: string) {
+  const admin = createAdminClient();
+  if (!admin) return null;
+  const { data: row } = await admin.from("portfolios").select(PORTFOLIO_COLUMNS).eq("slug", slug).is("deleted_at", null).not("published_at", "is", null).maybeSingle();
+  if (!row) return null;
+  const portfolio = portfolioFrom(row);
+  let file: FileRow | null = null;
+  if (portfolio.coverFileId) {
+    const { data } = await admin.from("project_files").select("*").eq("id", portfolio.coverFileId).is("deleted_at", null).maybeSingle();
+    file = (data as FileRow | null) ?? null;
+  }
+  if (!file) {
+    const { data: links } = await admin.from("portfolio_projects").select("project_id").eq("portfolio_id", portfolio.id).order("position");
+    const first = (await finals(admin, ((links ?? []) as { project_id: string }[]).map((l) => l.project_id))).find((f) => f.kind === "image");
+    file = first ?? null;
+  }
+  const cover = file ? (await signed([file])).get(file.id) || null : null;
+  return { title: portfolio.title, byline: portfolio.byline, cover, frame: portfolio.coverFrame };
+}
+
+/** A published portfolio's title and name, for the page's title in browser tabs and previews. */
+export async function publicTitle(slug: string) {
+  const admin = createAdminClient();
+  if (!admin) return null;
+  const { data } = await admin.from("portfolios").select("title, byline").eq("slug", slug).is("deleted_at", null).not("published_at", "is", null).maybeSingle();
+  return (data as { title: string; byline: string } | null) ?? null;
 }
