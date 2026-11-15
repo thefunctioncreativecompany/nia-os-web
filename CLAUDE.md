@@ -98,7 +98,7 @@ Data:
 
 The full, dated log is [docs/decisions.md](docs/decisions.md): read a feature's entry before
 changing it. The master list of what's shipped, open, fed back and planned is
-[docs/FEEDBACK.md](docs/FEEDBACK.md): log new feedback there first, study it, then build one item at a time. Weekly summaries and side-project notes: [docs/progress-log.md](docs/progress-log.md).
+[docs/FEEDBACK.md](docs/FEEDBACK.md): log new feedback there first, study it, then build one item at a time. Live / in development / rough edges / tech stack: [docs/PRODUCT_ROADMAP.md](docs/PRODUCT_ROADMAP.md); a commit that fixes a rough edge, ships an in-development item or adds an integration or dependency updates it too (Ika, 2026-11-14). Weekly summaries and side-project notes: [docs/progress-log.md](docs/progress-log.md).
 
 - Look: neutral greys, Nia Blue for active states only, dark mode follows the device (Settings →
   General → Appearance overrides it), Geist in sentence case, theme tokens only. Card hover
@@ -334,5 +334,5 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261106000000_project_details_crew.sql`; also `20261028000000_plans.sql`,
 `20261029000000_marketplace_waitlist.sql` and `20261103000000_explore_views.sql` (found run,
 2026-10-28); `20261107000000_security_function_access.sql`, `20261108000000_explore_top.sql` and
-`20261109000000_people.sql`. `20261111000000_link_access_requests.sql` (2026-11-11). `20261111010000_shared_reference_stills.sql` (2026-11-11). `20261112000000_comments.sql` (2026-11-11). Not run: `20261110000000_explore_open.sql` (until it is, only invited people can save titles or add them to projects), `20261030000000_explore_made_in_africa.sql` (Explore reads
+`20261109000000_people.sql`. `20261111000000_link_access_requests.sql` (2026-11-11). `20261111010000_shared_reference_stills.sql` (2026-11-11). `20261112000000_comments.sql` (2026-11-11). `20261114000000_portfolios.sql` and `20261115000000_portfolios_look.sql` (found run, 2026-11-14). Not run: `20261116000000_portfolios_delete.sql` (until it is, deleting a portfolio fails), `20261110000000_explore_open.sql` (until it is, only invited people can save titles or add them to projects), `20261030000000_explore_made_in_africa.sql` (Explore reads
 sample data).

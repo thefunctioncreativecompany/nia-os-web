@@ -41,7 +41,7 @@ export function PortfolioEditor({ initial, initialChosen, projects }: { initial:
   const [colour, setColour] = useState(portfolio.background);
   const href = `/p/${portfolio.slug}`;
 
-  const save = async (patch: Partial<Record<"title" | "byline" | "template" | "background" | "cover_file_id" | "published_at" | "deleted_at", string | null>> | { cover_frame: CoverFrame }, next: Partial<Portfolio>) => {
+  const save = async (patch: Partial<Record<"title" | "byline" | "template" | "background" | "cover_file_id" | "published_at", string | null>> | { cover_frame: CoverFrame }, next: Partial<Portfolio>) => {
     const before = portfolio;
     setPortfolio((p) => ({ ...p, ...next }));
     const { error } = await supabase.from("portfolios").update({ ...patch, updated_at: new Date().toISOString() }).eq("id", portfolio.id);
@@ -96,8 +96,15 @@ export function PortfolioEditor({ initial, initialChosen, projects }: { initial:
     await navigator.clipboard.writeText(`${window.location.origin}${href}`);
     toast.success("Link copied");
   };
+  // Deleting goes through soft_delete_portfolio: the database hides deleted portfolios, so a plain
+  // update that sets deleted_at is refused (20261116000000_portfolios_delete.sql).
   const deletePortfolio = async () => {
-    if (await save({ deleted_at: new Date().toISOString() }, {})) router.push("/projects/portfolios");
+    const { error } = await supabase.rpc("soft_delete_portfolio", { portfolio_id: portfolio.id });
+    if (error) {
+      toast.error("Couldn't delete the portfolio. Try again.");
+      return;
+    }
+    router.push("/projects/portfolios");
   };
 
   return (
