@@ -12,13 +12,15 @@ import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/
 import { Textarea } from "@/components/ui/textarea";
 import { FilterChip } from "@/components/nia/filter-bar";
 import { CREW_ROLES } from "@/lib/projects";
-import { DEPARTMENTS, departmentFor, type DirectoryEntry } from "@/features/crew/directory";
+import { DEPARTMENTS, departmentFor, isCastRole, type DirectoryEntry } from "@/features/crew/directory";
+import { QuickAddPeople } from "@/components/projects/quick-add-people";
 import { addPerson, removeFromProject, updatePerson, type PersonForm } from "@/features/crew/mutations";
 import type { ProductionStatus } from "@/components/nia/status-badge";
 
 // Add person (Figma 967:31635, a pop-up) and Edit profile (967:31816, a drawer): one set of
 // fields for the person (how to reach them, agent, union, bio, their usual week) and their role
 // on this project (cast or crew, department, role, character, episodes or days, status, notes).
+// Adding starts with a line (quick-add-people.tsx, 2026-11-15); More details opens these fields.
 
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const STATUSES: { value: ProductionStatus; label: string }[] = [
@@ -70,15 +72,24 @@ export function PersonEditor({
   open,
   onOpenChange,
   onDone,
+  onProject = [],
 }: {
   projectId: string;
   entry: DirectoryEntry | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onDone: () => void;
+  /** People (directory ids) already on this project. */
+  onProject?: string[];
 }) {
-  const body = <Fields key={entry?.id ?? "new"} projectId={projectId} entry={entry} onCancel={() => onOpenChange(false)} onDone={onDone} />;
+  // Adding: the line first; the full form once More details is chosen, starting from what was typed.
+  const [details, setDetails] = useState<Partial<PersonForm> | null>(null);
+  const openChange = (next: boolean) => {
+    if (!next) setDetails(null);
+    onOpenChange(next);
+  };
   if (entry) {
+    const body = <Fields key={entry.id} projectId={projectId} entry={entry} onCancel={() => onOpenChange(false)} onDone={onDone} />;
     return (
       <Sheet open={open} onOpenChange={onOpenChange}>
         <SheetContent side="right" className="w-full gap-0 overflow-y-auto sm:max-w-lg">
@@ -92,21 +103,30 @@ export function PersonEditor({
     );
   }
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={openChange}>
       <DialogContent className="max-h-[calc(100svh-2rem)] gap-0 overflow-y-auto p-0 sm:max-w-xl">
         <div className="flex flex-col gap-1 p-6 pb-0">
-          <DialogTitle className="text-h3 font-bold">Add person</DialogTitle>
-          <DialogDescription>Who they are on this project, and how to reach them.</DialogDescription>
+          <DialogTitle className="text-h3 font-bold">{details ? "Add person" : "Add people"}</DialogTitle>
+          <DialogDescription className="sr-only">A name and a role to start; the rest can come later.</DialogDescription>
         </div>
-        {body}
+        {details ? (
+          <Fields key="new" projectId={projectId} entry={null} start={details} onCancel={() => openChange(false)} onDone={() => { setDetails(null); onDone(); }} />
+        ) : (
+          <QuickAddPeople projectId={projectId} onProject={onProject} onMoreDetails={setDetails} onClose={() => openChange(false)} />
+        )}
       </DialogContent>
     </Dialog>
   );
 }
 
-function Fields({ projectId, entry, onCancel, onDone }: { projectId: string; entry: DirectoryEntry | null; onCancel: () => void; onDone: () => void }) {
+function Fields({ projectId, entry, start, onCancel, onDone }: { projectId: string; entry: DirectoryEntry | null; start?: Partial<PersonForm>; onCancel: () => void; onDone: () => void }) {
   const id = useId();
-  const [f, setF] = useState<PersonForm>(entry ? fromEntry(entry) : blank);
+  const [f, setF] = useState<PersonForm>(() => {
+    if (entry) return fromEntry(entry);
+    const role = start?.role ?? "";
+    const kind = role && isCastRole(role) ? "cast" : "crew";
+    return { ...blank, ...start, role, kind, department: kind === "crew" && role ? departmentFor(role) : "" };
+  });
   // The department follows the role until it's chosen by hand.
   const [departmentChosen, setDepartmentChosen] = useState(Boolean(entry));
   const [saving, setSaving] = useState(false);

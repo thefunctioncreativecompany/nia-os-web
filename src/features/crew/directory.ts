@@ -50,8 +50,8 @@ const CAST_ROLES = /^(talent|model|actor|actress|cast|lead|supporting|featured|s
 const DEPARTMENT_OF: [RegExp, (typeof DEPARTMENTS)[number]][] = [
   [/director$|assistant director|1st ad|2nd ad|script/i, "Direction"],
   [/producer|production manager|coordinator|client|casting|location/i, "Production"],
-  [/photograph|camera|gaffer|grip|focus|dit|lighting|electric/i, "Camera & lighting"],
-  [/design|art director|set|props|construction/i, "Art & set"],
+  [/photograph|camera|gaffer|grip|focus|\bdit\b|lighting|electric/i, "Camera & lighting"],
+  [/design|art director|\bset\b|props|construction/i, "Art & set"],
   [/stylist|hair|make-up|makeup|wardrobe|costume|groom/i, "Wardrobe, hair & make-up"],
   [/sound|boom|mixer|composer|music/i, "Sound"],
   [/editor|colourist|colorist|vfx|post/i, "Post-production"],
@@ -59,6 +59,27 @@ const DEPARTMENT_OF: [RegExp, (typeof DEPARTMENTS)[number]][] = [
 
 export const departmentFor = (role: string) => DEPARTMENT_OF.find(([re]) => re.test(role))?.[1] ?? "Other";
 export const isCastRole = (role: string) => CAST_ROLES.test(role.trim());
+
+/** Someone added in a line: a name and a role to start; who they are (an existing person in the
+ * workspace, a Nia account, an email) when known. */
+export type QuickPerson = { name: string; role: string; email?: string | null; userId?: string | null; personId?: string | null };
+
+/** Pasted lines, one person each: "Name, Role", "Name – Role" or tab-separated, with an email
+ * anywhere on the line. A line without a role gets "TBC". */
+export function parsePeople(text: string): QuickPerson[] {
+  return text
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .slice(0, 100)
+    .map((line) => {
+      const parts = line.split(/\t|\s+[–—-]\s+|[,;|]/).map((x) => x.trim()).filter(Boolean);
+      const email = parts.find((x) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(x)) ?? null;
+      const rest = parts.filter((x) => x !== email);
+      return { name: rest[0] ?? (email ? email.split("@")[0] : ""), role: rest[1] ?? "", email };
+    })
+    .filter((p) => p.name);
+}
 
 /** Crew grouped by department, in DEPARTMENTS order, empty ones left out. */
 export function byDepartment(entries: DirectoryEntry[]) {

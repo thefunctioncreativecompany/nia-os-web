@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "quick-add-people",
+    date: "2026-11-15",
+    title: "Add your crew in a line",
+    body: "A name and a role are enough to start. Type @username or an email to bring in someone on Nia with their photo, or paste your whole crew list at once.",
+    href: "/projects",
+    cta: "Open a project",
+    icon: "cards",
+    weight: { production: 1, fashion: 0.8, creator: 0.6 },
+  },
+  {
     id: "by-festival",
     date: "2026-11-15",
     title: "By festival on Explore",

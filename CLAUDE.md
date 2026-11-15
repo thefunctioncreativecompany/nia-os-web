@@ -303,8 +303,9 @@ sheets live until issued; crew without accounts for now)
   email in the workspace is reused, not duplicated. Viewers read only (database rules too). The
   project page's Crew & talent is now a round row with "Manage cast & crew"; each change rewrites
   `projects.crew` so the share link stays in step. Tested on localhost (add, edit, status,
-  remove; a viewer can't write). To do: link a person to their Nia account (the old "pick
-  someone on Nia" is gone from the form), Nia photos in the project row, people's own pages.
+  remove; a viewer can't write). 2026-11-15: Add people is a quick add (Who + Role; suggests
+  workspace people and Nia accounts, links the account; paste a list; More details for the full
+  form). To do: Nia photos in the project row, people's own pages.
 
 Navbar (NAVBAR_BUILD.md): N0 decisions logged, Figma frames pending (built from the Claude
 Design boards meanwhile, Ika 2026-11-08). N1–N3 done 2026-11-08: on desktop a 4rem frosted bar

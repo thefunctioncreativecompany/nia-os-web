@@ -1009,3 +1009,18 @@ onboarding's Import profile and Follow creators describe features removed in the
   `20261115000000_portfolios_look.sql` (cover_frame, project_files.position); until it's run the pages
   work and framing and order stay at their defaults. The shared Slider takes `thumbLabel` so the handle
   has a name for screen readers.
+- (2026-11-15) Cast & crew: quick add (Ika: "adding each crew member with full details each time may be
+  time consuming and some of those details may not yet be confirmed … just add name, role, profile
+  picture as a start and or add by @ / email for existing users and pre-filling information").
+  Add people is one line: Who (name, @username or email) and Role. Suggestions as you type: people
+  already in the workspace first, with their last role, then Nia accounts (`find_people`); picking
+  a Nia account links it (`people.user_id`), so their photo and name come from their profile, and
+  their profession fills the role. Everyone starts Pending; cast or crew and the department follow
+  from the role. Paste a list (one per line, name and role, an email anywhere; no role is "TBC").
+  The pop-up stays open for the next person. More details opens the full form with what was typed.
+  Nobody is duplicated: an existing person is reused (picked, the same Nia account, the same email,
+  or the one person in the workspace with exactly that name) and never overwritten; someone already
+  on the project is named in a message. Photos: only a Nia account's own photo for now, initials
+  otherwise (no uploading someone else's photo). Also fixed: "Editor" was filed under Camera &
+  lighting (the DIT rule matched "e-dit-or"); DIT and set now match whole words.
+  (`quick-add-people.tsx`, `quickAdd` in `mutations.ts`, `parsePeople` in `directory.ts`.)

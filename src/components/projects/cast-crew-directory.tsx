@@ -115,7 +115,7 @@ export function CastCrewDirectory({
         {entries.length === 0 ? (
           <EmptyState
             icon={Users}
-            message="No cast or crew added yet. Add the people on this production, with how to reach them."
+            message="No cast or crew yet. A name and a role are enough to start."
             action={
               editable ? (
                 <Button className="mt-2" onClick={() => setEditor({ open: true, entry: null })}>
@@ -256,7 +256,7 @@ export function CastCrewDirectory({
       </div>
 
       {selected && <ProfilePanel entry={selected} editable={editable} status={status(selected)} onEdit={() => setEditor({ open: true, entry: selected })} />}
-      {editable && <PersonEditor projectId={projectId} entry={editor.entry} open={editor.open} onOpenChange={(open) => setEditor((was) => ({ ...was, open }))} onDone={done} />}
+      {editable && <PersonEditor onProject={entries.flatMap((e) => (e.personId ? [e.personId] : []))} projectId={projectId} entry={editor.entry} open={editor.open} onOpenChange={(open) => setEditor((was) => ({ ...was, open }))} onDone={done} />}
     </div>
   );
 }
