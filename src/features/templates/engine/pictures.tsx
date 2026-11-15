@@ -241,7 +241,7 @@ function Chooser({ multiple, onPick, onRemove, close }: { multiple: boolean; onP
 }
 
 /** A table cell holding one picture: its thumbnail, or Add. */
-export function PictureCell({ id, label, value, onChange }: { id: string; label: string; value: string; onChange: (next: string) => void }) {
+export function PictureCell({ id, label, value, onChange, large = false }: { id: string; label: string; value: string; onChange: (next: string) => void; /** A card's picture: the card's full width. */ large?: boolean }) {
   const pictures = usePictures();
   const [open, setOpen] = useState(false);
   const picture = value ? pictures?.known.get(value) : undefined;
@@ -249,9 +249,9 @@ export function PictureCell({ id, label, value, onChange }: { id: string; label:
     // eslint-disable-next-line @next/next/no-img-element -- a private file's link that lasts a while
     <img src={picture.url} alt={picture.name} className="absolute inset-0 size-full object-cover" />
   ) : (
-    <ImagePlus aria-hidden className="size-4 text-muted-foreground print:hidden" />
+    <ImagePlus aria-hidden className={cn(large ? 'size-6' : 'size-4', 'text-muted-foreground print:hidden')} />
   );
-  const box = 'relative flex aspect-video w-24 items-center justify-center overflow-hidden rounded-md bg-muted';
+  const box = cn('relative flex aspect-video items-center justify-center overflow-hidden bg-muted', large ? 'w-full rounded-lg' : 'w-24 rounded-md');
   if (!pictures || pictures.readOnly) return value ? <span className={box}>{thumb}</span> : <span className="text-nia-placeholder">—</span>;
   return (
     <Popover open={open} onOpenChange={setOpen}>

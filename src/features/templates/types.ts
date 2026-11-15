@@ -77,6 +77,8 @@ export type FieldSpec =
 export interface FieldsSection extends SectionBase { type: 'fields'; fields: FieldSpec[]; layout?: 'rows' | 'cards' }
 export interface TableSection extends SectionBase {
   type: 'table'; columns: FieldSpec[]; rows: number; empty?: string; autonumber?: string; tall?: boolean;
+  /** `carousel`: one card per row in a row that scrolls (shot lists, Ika 2026-11-15); downloads stay a table. */
+  layout?: 'carousel';
   computed?: Record<string, [string, string]>; money?: string[]; checkbox?: string[]; total?: { column: string; label: string };
 }
 export interface TextSection extends SectionBase { type: 'text'; placeholder: string }

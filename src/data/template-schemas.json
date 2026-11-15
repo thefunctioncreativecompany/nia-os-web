@@ -1108,7 +1108,8 @@
             }
           ],
           "rows": 6,
-          "autonumber": "Shot #"
+          "autonumber": "Shot #",
+          "layout": "carousel"
         }
       ],
       "figma": {
@@ -3864,7 +3865,8 @@
           "autonumber": "Shot #",
           "checkbox": [
             "Got it"
-          ]
+          ],
+          "layout": "carousel"
         },
         {
           "type": "text",

@@ -83,7 +83,9 @@ export function TemplateEditor({
   const total = schema.sections.length;
   // The toolbar's Add row adds to the template's (first) table.
   const addRowTo = schema.actions.some((a) => a === 'Add Row' || a === 'Add Line Item') ? schema.sections.findIndex((s) => s.type === 'table') : -1;
-  const addRowLabel = schema.actions.includes('Add Line Item') ? 'Add line item' : 'Add row';
+  const addRowSection = schema.sections[addRowTo];
+  // A shot list's cards: a row is a shot.
+  const addRowLabel = schema.actions.includes('Add Line Item') ? 'Add line item' : addRowSection?.type === 'table' && addRowSection.layout === 'carousel' ? 'Add shot' : 'Add row';
   const addRow = () => {
     const section = schema.sections[addRowTo];
     if (section?.type !== 'table') return;

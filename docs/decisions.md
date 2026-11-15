@@ -1039,3 +1039,9 @@ onboarding's Import profile and Follow creators describe features removed in the
   answers. Downloads follow what's shown; the PDF draws the pictures in their cells, Word,
   Markdown and text say "Picture". (`pictures.tsx`, `more-detail.ts`, `shownColumns` in
   `sections.ts`, `export.ts`.)
+- (2026-11-15) Shot lists as a carousel (Ika: "change shot list from table to carousel"). Both shot
+  lists' tables have `layout: "carousel"`: each shot is a card in a row that scrolls (`ScrollRow`):
+  "Shot 01", the reference picture large, Description, then the detail fields with More detail on
+  and "Got it" (photo). The row ends with an Add shot tile, and the toolbar's Add row reads "Add
+  shot". Every shot is in the row (a document, not a browse row, so no ten-item limit). Printing
+  lays the cards out in rows; the PDF and other downloads stay a table.
