@@ -478,6 +478,10 @@
  "back-to-the-future": [
   "vivid-colour"
  ],
+ "backrooms": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "bad-boys": [
   "vivid-colour",
   "warm-palette"
@@ -625,6 +629,10 @@
   "muted-colour",
   "warm-palette",
   "low-key"
+ ],
+ "disclosure-day": [
+  "black-and-white",
+  "bright-airy"
  ],
  "django-unchained": [
   "muted-colour",
@@ -779,6 +787,10 @@
  ],
  "home-alone": [
   "vivid-colour"
+ ],
+ "hoppers": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "hounds": [
   "vivid-colour",
@@ -974,9 +986,16 @@
  "mildred-pierce": [
   "black-and-white"
  ],
+ "minions-and-monsters": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "miracle-on-34th-street": [
   "black-and-white",
   "bright-airy"
+ ],
+ "moana-2026": [
+  "cool-palette"
  ],
  "modern-family": [
   "muted-colour",
@@ -1050,6 +1069,11 @@
   "cool-palette"
  ],
  "oppenheimer": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "other-mommy": [
   "vivid-colour",
   "warm-palette",
   "low-key"
@@ -1305,6 +1329,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "the-body": [
+  "muted-colour",
+  "warm-palette"
+ ],
  "the-bourne-identity": [
   "vivid-colour"
  ],
@@ -1334,6 +1362,10 @@
  "the-deer-hunter": [
   "muted-colour",
   "low-key"
+ ],
+ "the-devil-wears-prada-2": [
+  "muted-colour",
+  "warm-palette"
  ],
  "the-emperor-jones": [
   "vivid-colour",
@@ -1557,6 +1589,9 @@
  ],
  "unseen": [],
  "venom": [
+  "low-key"
+ ],
+ "verity": [
   "low-key"
  ],
  "vertigo": [

@@ -650,6 +650,86 @@
   "cinemaRelease": true,
   "imdb": "tt1630029"
  },
+ "backrooms": {
+  "videos": [
+   {
+    "id": "ARAJJO_h-Zw",
+    "kind": "Official trailer",
+    "title": "Backrooms Trailer #1 (2026)",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "rHJhcVPYnuo",
+    "kind": "Cast interview",
+    "title": "From Youtube Creepypasta to A24 Feature Film | BACKROOMS Cast & Director Interview",
+    "channel": "Dead Meat"
+   },
+   {
+    "id": "IzB40WT6UtI",
+    "kind": "Cast interview",
+    "title": "An Interview with the Backrooms Mastermind - Kane Pixels",
+    "channel": "Wendigang"
+   },
+   {
+    "id": "Wxdozurb0F0",
+    "kind": "Cast interview",
+    "title": "How The Backrooms Cast Made Liminal Horror Feel Human",
+    "channel": "The Back Focus"
+   },
+   {
+    "id": "d5VApeg23l0",
+    "kind": "Filmmaker interview",
+    "title": "Backrooms Interview: Director Kane Parsons, Renate Reinsve & Chiwetel Ejiofor on YouTube Series",
+    "channel": "Collider Interviews"
+   },
+   {
+    "id": "qAHz7FJZfpA",
+    "kind": "Filmmaker interview",
+    "title": "Behind the Backrooms - An On Set Interview w/ Kane Parsons",
+    "channel": "Wendigoon"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Next Best Picture",
+    "title": "\"BACKROOMS\" – Review",
+    "href": "https://nextbestpicture.com/backrooms/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Bulwark",
+    "title": "'Backrooms' Review",
+    "href": "https://www.thebulwark.com/p/backrooms-review",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'Backrooms' Review: Experimental Horror Comes Out of the Margins in Kane Parsons' YouTube-Gone-A24 Head Trip",
+    "href": "https://variety.com/2026/film/reviews/backrooms-review-chiwetel-ejiofor-kane-parsons-1236758845/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Backrooms review – Kane Parsons' icily disturbing horror rewrites the genre rulebook",
+    "href": "https://www.theguardian.com/film/2026/may/27/backrooms-review-kane-parsons-icily-disturbing-horror-rewrites-the-genre-rulebook",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Backrooms' Surpasses $400 Million at Global Box Office",
+    "href": "https://variety.com/2026/film/box-office/backrooms-box-office-milestone-400-million-1236870141/"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Box Office: A24's 'Backrooms' Aims for Record $45 Million-Plus Opening Weekend, Continuing Hot Streak for Low-Budget Horror",
+    "href": "https://variety.com/2026/film/box-office/backrooms-box-office-opening-weekend-projections-a24-record-1236759146/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt26657236"
+ },
  "banel-and-adama": {
   "videos": [
    {
@@ -1641,6 +1721,92 @@
   ],
   "streaming": "Showmax",
   "imdb": "tt13635918"
+ },
+ "disclosure-day": {
+  "videos": [
+   {
+    "id": "icDuEHSxE-w",
+    "kind": "Official trailer",
+    "title": "Disclosure Day | Final Trailer",
+    "channel": "Universal Pictures"
+   },
+   {
+    "id": "UFe6NRgoXCM",
+    "kind": "Teaser",
+    "title": "Disclosure Day | Official Teaser",
+    "channel": "Universal Pictures"
+   },
+   {
+    "id": "Zz94TTkf7dQ",
+    "kind": "Cast interview",
+    "title": "Steven Spielberg vs Disclosure Day Cast (Emily Blunt, Colman Domingo & Josh O'Connor) | Vanity Fair",
+    "channel": "Vanity Fair"
+   },
+   {
+    "id": "fW73jP8RolM",
+    "kind": "Filmmaker interview",
+    "title": "Steven Spielberg talks \"Disclosure Day\" and says aliens \"have been here and they are here\"",
+    "channel": "CBS Mornings"
+   },
+   {
+    "id": "eO3t2z0H7nc",
+    "kind": "Filmmaker interview",
+    "title": "Steven Spielberg: 'Disclosure Day' isn't science fiction | AP interview",
+    "channel": "AP Entertainment"
+   },
+   {
+    "id": "gssG9f5Vnxw",
+    "kind": "Featurette",
+    "title": "Disclosure Day Featurette - Full Disclosure (2026)",
+    "channel": "Rotten Tomatoes Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "'Disclosure Day' Review: Steven Spielberg Wraps New Close Encounters Into a Masterful 70's-Style Thriller That Demands Complex Answers to Otherworldly Mysteries",
+    "href": "https://deadline.com/2026/06/disclosure-day-review-steven-spielberg-close-encounters-1236951336/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Gizmodo",
+    "title": "'Disclosure Day' is an Unforgettable Steven Spielberg Sci-Fi Spectacle",
+    "href": "https://gizmodo.com/disclosure-day-review-steven-spielberg-2000762814",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "IndieWire",
+    "title": "'Disclosure Day' Review: Steven Spielberg Fights Back Against Cynicism in a Giddy Alien Blockbuster About How No One is Alone in the Universe",
+    "href": "https://www.indiewire.com/criticism/movies/disclosure-day-movie-review-steven-spielberg-aliens-1235198997/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Disclosure Day' Review: Emily Blunt, Josh O'Connor, and Colin Firth Lead Steven Spielberg's Spellbinding Return to What He Does Best",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/disclosure-day-review-spielberg-emily-blunt-josh-oconnor-1236615116/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "'Disclosure Day' review – close encounters of a deferred kind in Spielberg's conspiracy spectacular",
+    "href": "https://www.theguardian.com/film/2026/jun/09/disclosure-day-review-close-encounters-of-a-deferred-kind-in-spielbergs-conspiracy-spectacular",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Boxoffice Pro",
+    "title": "Long Range Forecast: Spielberg Returns to the Big Screen with 'Disclosure Day'",
+    "href": "https://www.boxofficepro.com/long-range-forecast-spielberg-returns-to-the-big-screen-with-disclosure-day/"
+   },
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Steven Spielberg Alien Pic 'Disclosure Day' Hopes to Abduct $65M+ Worldwide – Box Office Preview",
+    "href": "https://deadline.com/2026/06/box-office-disclosure-day-projection-1236951773/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt15047880"
  },
  "double-indemnity": {
   "videos": [],
@@ -3161,6 +3327,74 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0104431"
+ },
+ "hoppers": {
+  "videos": [
+   {
+    "id": "7ICvcdxL8E0",
+    "kind": "Cast interview",
+    "title": "Mini Mayor Jerry Interviews the Cast of Hoppers 🦫🦎 | @disneykids",
+    "channel": "Disney Kids"
+   },
+   {
+    "id": "fWs53C9tO2k",
+    "kind": "Cast interview",
+    "title": "The Voice Cast of 'Hoppers' on Their \"Pond Rules\" of Life",
+    "channel": "Fandango"
+   },
+   {
+    "id": "qRlol_UmQ3s",
+    "kind": "Cast interview",
+    "title": "Tiny Mic Interview with the Team Behind Disney and Pixar's \"Hoppers\" (2026)",
+    "channel": "The Walt Disney Family Museum"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Hoppers Review: The Delightful New Pixar Film Is an Out-of-the-Box Critter Comedy That's Like Bambi on Crack",
+    "href": "https://variety.com/2026/film/reviews/hoppers-review-jon-hamm-piper-curda-pixar-1236675932/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Associated Press",
+    "title": "Pixar delivers with sweet, action-packed Hoppers",
+    "href": "https://apnews.com/article/hoppers-movie-review-aca91fd643e57595bf29e433f8419049",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Hoppers Review: Animal Magnetism",
+    "href": "https://www.nytimes.com/2026/03/05/movies/hoppers-review.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "IGN",
+    "title": "Hoppers - Review",
+    "href": "https://sea.ign.com/hoppers/239705/review/hoppers-review",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Hoppers Review: Pixar's Quirky and Caring Romp Is a Funny, Emotional Love Letter to the Environment",
+    "href": "https://deadline.com/2026/03/hoppers-review-pixar-beaver-movie-piper-curda-jon-hamm-1236740940/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Hoppers To Pop $88M WW Debut, Best for Pixar Original Since Coco; The Bride! Eyes $40M WW",
+    "href": "https://deadline.com/2026/03/box-office-hoppers-the-bride-opening-projection-1236743025/"
+   },
+   {
+    "outlet": "Boxoffice Pro",
+    "title": "Hoppers Expected to Lead the Pack in Solid March Weekend",
+    "href": "https://www.boxofficepro.com/weekend-preview-hoppers-expected-to-lead-the-pack-in-solid-march-weekend/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt26443616"
  },
  "hounds": {
   "videos": [],
@@ -4756,6 +4990,92 @@
   "cinemaRelease": true,
   "imdb": "tt0037913"
  },
+ "minions-and-monsters": {
+  "videos": [
+   {
+    "id": "QPd87-dkSyg",
+    "kind": "Official trailer",
+    "title": "Minions & Monsters | Official Trailer (2026)",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "KPM3C1ikdBg",
+    "kind": "Teaser",
+    "title": "Minions & Monsters Teaser - Extended Look (2026)",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "UaH6fShfpuY",
+    "kind": "Cast interview",
+    "title": "Minions & Monsters | Official Cast Announcement",
+    "channel": "Illumination and Universal Pictures"
+   },
+   {
+    "id": "ALhDDUZ2Mto",
+    "kind": "Cast interview",
+    "title": "Zoey Deutch Dressed Up as a Minion for Minions & Monsters, Talks Voicemails for Isabelle (Extended)",
+    "channel": "The Tonight Show Starring Jimmy Fallon"
+   },
+   {
+    "id": "1mOuVrzmH-U",
+    "kind": "Cast interview",
+    "title": "Minions & Monsters | Official Cast Announcement | Jeff Bridges, Jesse Eisenberg",
+    "channel": "Moviefone"
+   },
+   {
+    "id": "soGrC7190Vk",
+    "kind": "Filmmaker interview",
+    "title": "Minions co-creator Pierre Coffin on voicing the Minions and Minions & Monsters | BFI in Conversation",
+    "channel": "BFI"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'Minions & Monsters' Adds Dimension to the 'Despicable Me' Universe",
+    "href": "https://www.thewrap.com/creative-content/movies/minions-and-monsters-review-annecy-despicable-me/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "IGN",
+    "title": "Minions 3 - Review",
+    "href": "https://sea.ign.com/minions-3/244906/minions-monsters-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Minions & Monsters review - Banana-bylon",
+    "href": "https://www.rogerebert.com/reviews/minions-3-monsters-movie-review-2026",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "IndieWire",
+    "title": "'Minions & Monsters' Review: Illumination's Mascots Prove Surprisingly Charming in a Golden Age of Hollywood-Inspired Throwback",
+    "href": "https://www.indiewire.com/criticism/movies/minions-and-monsters-review-illumination-1235202879/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "'Minions & Monsters' Review — 'It will keep the Minion-sized people in your life happy'",
+    "href": "https://www.empireonline.com/movies/reviews/minions-monsters/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Hollywood Reporter",
+    "title": "'Minions & Monsters' Posts Franchise-Low $61M 5-Day Opening",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/minions-3-opening-weekend-box-office-1236636119/"
+   },
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Why 'Minions & Monsters' Is Slipping On A Banana Peel In U.S. With Franchise Low 5-Day Opening Of $64M+ — Saturday AM Update",
+    "href": "https://deadline.com/2026/07/box-office-minions-monsters-1236972754/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt32890033"
+ },
  "miracle-on-34th-street": {
   "videos": [
    {
@@ -4793,6 +5113,92 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0039628"
+ },
+ "moana-2026": {
+  "videos": [
+   {
+    "id": "EEz5xbzYPKI",
+    "kind": "Official trailer",
+    "title": "Moana | Final Trailer | In Theaters July 10",
+    "channel": "Disney"
+   },
+   {
+    "id": "QKYFfYLe5rs",
+    "kind": "Teaser",
+    "title": "Moana | Official Teaser",
+    "channel": "Disney"
+   },
+   {
+    "id": "Hd_GK4wtGZE",
+    "kind": "Cast interview",
+    "title": "Louise Pentland Interviews the Moana Cast & Crew at the Moana Experience in London 🌺🩵 ⁨@DisneyUK⁩",
+    "channel": "Disney UK and Louise Pentland"
+   },
+   {
+    "id": "D-LQxq7PhxU",
+    "kind": "Cast interview",
+    "title": "Dwayne Johnson talks live-action 'Moana'",
+    "channel": "Good Morning America"
+   },
+   {
+    "id": "q4RBRwZQaV0",
+    "kind": "Cast interview",
+    "title": "Dwayne Johnson talks new live-action 'Moana'",
+    "channel": "Good Morning America"
+   },
+   {
+    "id": "0N0db76twqc",
+    "kind": "Cast interview",
+    "title": "Bringing Moana to life: Interview with Dwayne \"The Rock\" Johnson and Catherine Lagaaia",
+    "channel": "Island News"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "IndieWire",
+    "title": "'Moana' Review: Disney's Ultra-Faithful Remake Is Deathly Afraid to Explore Unfamiliar Waters",
+    "href": "https://www.indiewire.com/criticism/movies/moana-review-disney-live-action-remake-1235204036/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Independent",
+    "title": "Moana review – Disney's live-action remake is a waste of everyone's time and talent",
+    "href": "https://www.the-independent.com/arts-entertainment/films/reviews/moana-review-live-action-dwayne-johnson-b3011221.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Consequence",
+    "title": "The Live-Action Moana Is Stuck Between The Rock and a Hard Place: Review",
+    "href": "https://consequence.net/2026/07/moana-live-action-review-dwayne-johnson/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Playlist",
+    "title": "'Moana' Review: Disney's Live-Action Remake Is a Craven, Cynical, Unnecessary Cash Grab",
+    "href": "https://theplaylist.net/moana-review-disney-live-action-remake-dwayne-johnson-catherine-lagaaia-20260708/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "'Moana' Review: It Doesn't Go Far",
+    "href": "https://www.nytimes.com/2026/07/09/movies/moana-review.html",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "‘Moana’ Capsizes With $95M WW Opening; Dwayne Johnson Pic Poised To Lose $100M-$125M: Here’s Why",
+    "href": "https://deadline.com/2026/07/moana-bombs-box-office-1236980125/"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Disney CEO Admits 'Star Wars: The Mandalorian and Grogu' and 'Moana' Underperformed at Box Office but 'Fueled Other Parts of Our Company'",
+    "href": "https://variety.com/2026/film/news/disney-ceo-moana-mandalorian-grogu-box-office-flops-1236828236/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt27419466"
  },
  "modern-family": {
   "videos": [
@@ -5482,6 +5888,98 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt15398776"
+ },
+ "other-mommy": {
+  "videos": [
+   {
+    "id": "-mnTITqqiT0",
+    "kind": "Official trailer",
+    "title": "Other Mommy | Official Trailer 2",
+    "channel": "Universal Pictures"
+   },
+   {
+    "id": "-jyrDEvUe7U",
+    "kind": "Cast interview",
+    "title": "Finding relatability in OTHER MOMMY w/ stars Jessica Chastain & Jay Duplass + Producers",
+    "channel": "Dead Meat"
+   },
+   {
+    "id": "Mzl6WzFbWlo",
+    "kind": "Featurette",
+    "title": "Other Mommy Exclusive Featurette - Fear (2026)",
+    "channel": "Fandango (Stream)"
+   },
+   {
+    "id": "oYNauDFTcDE",
+    "kind": "Featurette",
+    "title": "Other Mommy Featurette - Other Mommy Is... (2026)",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "m4bvst2cKe8",
+    "kind": "Featurette",
+    "title": "Other Mommy Featurette - A New Face of Fear (2026)",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "iPdtFbdU1Nk",
+    "kind": "Featurette",
+    "title": "Making Of OTHER MOMMY (2026) - Best Of Behind The Scenes, Stunts & Special Effects With J. Chastain",
+    "channel": "STREAM WARS"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "Other Mommy Review: Jessica Chastain Is an Iconic Horror Villain",
+    "href": "https://www.thewrap.com/creative-content/movies/other-mommy-review-jessica-chastain/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "IndieWire",
+    "title": "‘Other Mommy’ Review: Jessica Chastain Doubles in Dreamy Horror Film",
+    "href": "https://www.indiewire.com/criticism/movies/other-mommy-review-jessica-chastain-1235220984/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "‘Other Mommy’ Review: Rob Savage’s Lightning-Fast Spookfest",
+    "href": "https://www.slantmagazine.com/film/other-mommy-review-jessica-chastain/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "‘Other Mommy’ Review: Jessica Chastain in Half-Baked Horror",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/other-mommy-review-jessica-chastain-jay-duplass-rob-savage-1236725902/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "'Other Mommy' Review: Parent, Trap",
+    "href": "https://www.nytimes.com/2026/10/09/movies/other-mommy-review.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Other Mommy review – Jessica Chastain's demonic double horror isn't nightmarish enough",
+    "href": "https://www.theguardian.com/film/2026/oct/09/other-mommy-movie-review",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Box Office: 'Other Mommy' Leads In Opening, 'The Social Reckoning' Ghosted",
+    "href": "https://deadline.com/2026/10/box-office-other-mommy-social-reckoning-1237151001/"
+   },
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Jessica Chastain To Star In Rob Savage Horror Film From Atomic Monster & Universal Based On Josh Malerman Novel 'Incidents Around The House'",
+    "href": "https://deadline.com/2025/04/jessica-chastain-rob-saveage-atomic-monster-1236369117/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt36586020"
  },
  "out-of-the-past": {
   "videos": [
@@ -6983,6 +7481,91 @@
   ],
   "imdb": "tt0033406"
  },
+ "the-body": {
+  "videos": [
+   {
+    "id": "-_d87QiAKd8",
+    "kind": "Official trailer",
+    "title": "The Body | Official Trailer | Netflix",
+    "channel": "AfricaOnNetflix"
+   },
+   {
+    "id": "YhBZiBOLcf4",
+    "kind": "Cast interview",
+    "title": "The Body Cast Reacts to the Episode 1 Dance Fantasy | Netflix",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "_hYAs3JReKI",
+    "kind": "Cast interview",
+    "title": "The Body Cast REACTS to Grace Cliffhanger, Anya and Elise's STEAMY Scenes and Season 2 (Exclusive)",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "km4IlHr_-ug",
+    "kind": "Cast interview",
+    "title": "THE BODY Cast Breaks Down CAMPY, 'High Stakes' Catholic-School Horror Show (Exclusive)",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "ixTrQo6o5LE",
+    "kind": "Cast interview",
+    "title": "The Body | Cast Interview: Kristina Bogic, Sara Boustany, Shirley Chen, Geena Meszaros & Sofia Wylie",
+    "channel": "CreepTime"
+   },
+   {
+    "id": "cHSARJeu-fI",
+    "kind": "Cast interview",
+    "title": "‘The Body’ Cast REVEALS What They Stole from Set!!",
+    "channel": "iHeartRadioCA"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "‘The Body’ Review: Netflix’s YA Drama Is A Queer 2000s Romp",
+    "href": "https://variety.com/2026/tv/reviews/the-body-review-netflix-1236943535/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "The Body Review: Netflix’s Devilishly YA Psychodrama",
+    "href": "https://www.thewrap.com/creative-content/reviews/the-body-review-netflix-quinn-shephard/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Body review: Netflix schoolgirl psychodrama feels like “Euphoria” meets “The Devils”",
+    "href": "https://www.rogerebert.com/reviews/the-body-netflix-tv-review-2026",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "The Body review: All the right, spooky moves",
+    "href": "https://www.avclub.com/the-body-review-netflix-quinn-shephard",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "‘The Body’ Review: Netflix’s Catholic School Hysteria Drama",
+    "href": "https://www.hollywoodreporter.com/tv/tv-reviews/the-body-review-netflix-1236751896/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Netflix Orders 'All the Sinners Bleed' Series From Joe Robert Cole and 'The Body' From Quinn Shephard",
+    "href": "https://variety.com/2025/tv/news/netflix-all-the-sinners-bleed-the-body-1236397854/"
+   },
+   {
+    "outlet": "thespec.com",
+    "title": "Dundas school doubles as horror high in 'Carrie' inspired Netflix thriller 'The Body'",
+    "href": "https://www.thespec.com/entertainment/movies/hamilton-movie-tv-production/article_91d03e9f-26ed-5ba2-976e-8174110b6539.html"
+   }
+  ],
+  "imdb": "tt34685692"
+ },
  "the-brave-ones": {
   "videos": [],
   "reviews": [],
@@ -7051,6 +7634,98 @@
    }
   ],
   "imdb": "tt0466040"
+ },
+ "the-devil-wears-prada-2": {
+  "videos": [
+   {
+    "id": "PMd1at7OwiE",
+    "kind": "Official trailer",
+    "title": "The Devil Wears Prada 2 | Final Trailer",
+    "channel": "20th Century Studios"
+   },
+   {
+    "id": "9c-DrMe8o5Q",
+    "kind": "Teaser",
+    "title": "The Devil Wears Prada 2 | Teaser Trailer",
+    "channel": "20th Century Studios"
+   },
+   {
+    "id": "pz3GXcjFQ4o",
+    "kind": "Cast interview",
+    "title": "Mini Nigel and Miranda meet the cast of The Devil Wears Prada 2 👠🎤@DisneyUK",
+    "channel": "Disney UK and 20th Century Studios UK"
+   },
+   {
+    "id": "o-O--kXu9iU",
+    "kind": "Cast interview",
+    "title": "The Cast of ‘The Devil Wears Prada 2’ Reflects on The Original",
+    "channel": "The New York Times"
+   },
+   {
+    "id": "Tmo58ym9Kf4",
+    "kind": "Cast interview",
+    "title": "The Devil Wears Prada 2 Cast Reveal Their Worst Dressed List Stories",
+    "channel": "Hits Radio"
+   },
+   {
+    "id": "O_-D2qP-KVo",
+    "kind": "Filmmaker interview",
+    "title": "The Devil Wears Prada 2 Interview: David Frankel & Aline Brosh McKenna | ScreenSlam",
+    "channel": "ScreenSlam"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Collider",
+    "title": "‘The Devil Wears Prada 2’ Is a Near-Perfect Blend of Nostalgia and Newness",
+    "href": "https://collider.com/the-devil-wears-prada-2-review-anne-hathaway-meryl-streep-emily-blunt/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "‘The Devil Wears Prada 2’ Review: Breezily Diverting Fan Service",
+    "href": "https://variety.com/2026/film/news/the-devil-wears-prada-2-review-1236731918/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "‘The Devil Wears Prada 2’ Review: Meryl Streep, Anne Hathaway Are Back",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/the-devil-wears-prada-2-review-meryl-streep-anne-hathaway-1236579649/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The New Yorker",
+    "title": "“The Devil Wears Prada 2” Gives the Decline of Magazines the Glossy Treatment",
+    "href": "https://www.newyorker.com/2026/05/11/the-devil-wears-prada-2-review",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Atlantic",
+    "title": "Miranda Priestly Hangs Up Her Own Coat Now",
+    "href": "https://www.theatlantic.com/culture/2026/04/the-devil-wears-prada-2-movie-review/686990/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Mercury News",
+    "title": "Review: 'Devil Wears Prada 2' is a threadbare disappointment",
+    "href": "https://www.mercurynews.com/2026/04/29/review-devil-wears-prada-2-is-a-threadbare-disappointment/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Box Office: 'The Devil Wears Prada 2' Dazzles With $77 Million Domestic Debut, Powers to $233 Million Worldwide",
+    "href": "https://variety.com/2026/film/box-office/devil-wears-prada-2-box-office-opening-weekend-michael-1236732410/"
+   },
+   {
+    "outlet": "ScreenRant",
+    "title": "The Devil Wears Prada 2 Has Near Tripled A Box Office Record For The Original Movie",
+    "href": "https://screenrant.com/the-devil-wears-prada-2-opening-box-office-original/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt33612209"
  },
  "the-emperor-jones": {
   "videos": [],
@@ -8391,6 +9066,75 @@
   ],
   "streaming": "Netflix",
   "imdb": "tt26931883"
+ },
+ "verity": {
+  "videos": [
+   {
+    "id": "aDSOC7bP-6I",
+    "kind": "Cast interview",
+    "title": "Verity: Colleen Hoover Hopes Movie Starts NEW Arguments Instead of Settling Book Debate (Exclusive)",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "9bmF0gEBI-Q",
+    "kind": "Cast interview",
+    "title": "Verity Starts Production! Anne Hathaway Sports Iconic RED DRESS on Set",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "kGnO1zzAtCI",
+    "kind": "Cast interview",
+    "title": "Drew Barrymore Tells 'Verity' Cast that a Date Gone Wrong Lead her to 'Wet Hot American Summer'",
+    "channel": "The Drew Barrymore Show"
+   },
+   {
+    "id": "lMRv3AKlayw",
+    "kind": "Cast interview",
+    "title": "VERITY Cast Explain the Raw Performances and Real Scares Behind Their Movie",
+    "channel": "IMDb"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Verity review: Colleen Hoover adaptation is reams of pulpy fun",
+    "href": "https://www.rogerebert.com/reviews/verity-anne-hathaway-dakota-fanning-film-review-2026",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time Out",
+    "title": "Verity review: Anne Hathaway and Dakota Johnson's steamy thriller might tickle your fancy",
+    "href": "https://www.timeout.com/movies/verity-review-2026",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Boston Globe",
+    "title": "'Verity' thrives on its soapy severity",
+    "href": "https://www.bostonglobe.com/2026/09/30/arts/verity-anne-hathaway/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Verity review – Dakota Johnson leaves teethmarks as she goes back to Fifty Shades erotic thriller territory",
+    "href": "https://www.theguardian.com/film/2026/sep/30/verity-review-dakota-johnson-anne-hathaway-josh-hartnett",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Independent",
+    "title": "Verity review – A second-rate copy of The Housemaid that does Anne Hathaway and Dakota Johnson no favours",
+    "href": "https://www.the-independent.com/arts-entertainment/films/reviews/verity-anne-hathaway-dakota-johnson-colleen-hoover-b3058441.html",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "'Verity' Solid $32M Start; 'Digger' At $10M Is Tom Cruise's Lowest Opening In 19 Years – Box Office Update",
+    "href": "https://deadline.com/2026/10/box-office-verity-digger-1237145435/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt32261958"
  },
  "vertigo": {
   "videos": [

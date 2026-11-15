@@ -1650,5 +1650,50 @@
   "source": "TMDB",
   "tmdb": "tv/213375",
   "image": "https://image.tmdb.org/t/p/original/WGyAyBPncfuu8MZhLY9RtfZPM0.jpg"
+ },
+ "backrooms": {
+  "source": "TMDB",
+  "tmdb": "movie/1083381",
+  "image": "https://image.tmdb.org/t/p/original/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg"
+ },
+ "disclosure-day": {
+  "source": "TMDB",
+  "tmdb": "movie/1275779",
+  "image": "https://image.tmdb.org/t/p/original/AnJ8IQJI23hNpYXVNaythu061Ru.jpg"
+ },
+ "verity": {
+  "source": "TMDB",
+  "tmdb": "movie/1283515",
+  "image": "https://image.tmdb.org/t/p/original/rmaNMA1seHqpjtnYKzyynFAr1g8.jpg"
+ },
+ "other-mommy": {
+  "source": "TMDB",
+  "tmdb": "movie/1400837",
+  "image": "https://image.tmdb.org/t/p/original/fGRNCssTRrhYZxNzykGGCoMsAVq.jpg"
+ },
+ "minions-and-monsters": {
+  "source": "TMDB",
+  "tmdb": "movie/1315772",
+  "image": "https://image.tmdb.org/t/p/original/4LwvU9SZc8QQzW1X1FAPhNbXnEU.jpg"
+ },
+ "hoppers": {
+  "source": "TMDB",
+  "tmdb": "movie/1327819",
+  "image": "https://image.tmdb.org/t/p/original/xjtWQ2CL1mpmMNwuU5HeS4Iuwuu.jpg"
+ },
+ "the-devil-wears-prada-2": {
+  "source": "TMDB",
+  "tmdb": "movie/1314481",
+  "image": "https://image.tmdb.org/t/p/original/fCAURTUx3YfsJ8k9I0UamjSILiR.jpg"
+ },
+ "moana-2026": {
+  "source": "TMDB",
+  "tmdb": "movie/1108427",
+  "image": "https://image.tmdb.org/t/p/original/gaet1xQ2nxrG0V1Ep9T20ZMNEIC.jpg"
+ },
+ "the-body": {
+  "source": "TMDB",
+  "tmdb": "tv/291507",
+  "image": "https://image.tmdb.org/t/p/original/u2iDoQmXu86tMhMZSN1EPp0PHKQ.jpg"
  }
 }

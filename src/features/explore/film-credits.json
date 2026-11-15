@@ -2144,6 +2144,71 @@
    }
   ]
  },
+ "backrooms": {
+  "qid": "Q125131076",
+  "people": [
+   {
+    "id": "Q28718257",
+    "role": "Cast",
+    "character": "Mary Kline"
+   },
+   {
+    "id": "Q3273787",
+    "role": "Cast",
+    "character": "Phil"
+   },
+   {
+    "id": "Q368424",
+    "role": "Cast",
+    "character": "Naren Warne"
+   },
+   {
+    "id": "Q124455435",
+    "role": "Cast",
+    "character": "Bobby Franklin"
+   },
+   {
+    "id": "Q115896334",
+    "role": "Cast",
+    "character": "Kathrine Taylor"
+   },
+   {
+    "id": "Q317343",
+    "role": "Cast",
+    "character": "Clark"
+   },
+   {
+    "id": "Q28481231",
+    "role": "Cast",
+    "character": "Pirate Clark"
+   },
+   {
+    "id": "Q3321553",
+    "role": "Cast",
+    "character": "Nora Kline"
+   },
+   {
+    "id": "Q111653356",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q16212750",
+    "role": "Writer"
+   },
+   {
+    "id": "Q323076",
+    "role": "Producer"
+   },
+   {
+    "id": "Q24809064",
+    "role": "Producer"
+   },
+   {
+    "id": "Q108047434",
+    "role": "Producer"
+   }
+  ]
+ },
  "bad-boys": {
   "qid": "Q460379",
   "people": [
@@ -4988,6 +5053,91 @@
    },
    {
     "id": "Q6763645",
+    "role": "Costume Designer"
+   }
+  ]
+ },
+ "disclosure-day": {
+  "qid": "Q126683577",
+  "people": [
+   {
+    "id": "Q193517",
+    "role": "Cast"
+   },
+   {
+    "id": "Q27898655",
+    "role": "Cast"
+   },
+   {
+    "id": "Q162492",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3735288",
+    "role": "Cast"
+   },
+   {
+    "id": "Q5147723",
+    "role": "Cast"
+   },
+   {
+    "id": "Q15542608",
+    "role": "Cast"
+   },
+   {
+    "id": "Q38483333",
+    "role": "Cast"
+   },
+   {
+    "id": "Q44683",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1143627",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3072844",
+    "role": "Cast"
+   },
+   {
+    "id": "Q111969510",
+    "role": "Cast"
+   },
+   {
+    "id": "Q76877",
+    "role": "Cast"
+   },
+   {
+    "id": "Q8877",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q270178",
+    "role": "Writer"
+   },
+   {
+    "id": "Q22074633",
+    "role": "Producer"
+   },
+   {
+    "id": "Q365230",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q55808115",
+    "role": "Editor"
+   },
+   {
+    "id": "Q692550",
+    "role": "Editor"
+   },
+   {
+    "id": "Q131285",
+    "role": "Music"
+   },
+   {
+    "id": "Q7153942",
     "role": "Costume Designer"
    }
   ]
@@ -9222,6 +9372,23 @@
    }
   ]
  },
+ "hoppers": {
+  "qid": "Q128798957",
+  "people": [
+   {
+    "id": "Q27831113",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q22075521",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1351259",
+    "role": "Music"
+   }
+  ]
+ },
  "hounds": {
   "qid": "Q119893109",
   "people": [
@@ -12532,6 +12699,35 @@
    }
   ]
  },
+ "minions-and-monsters": {
+  "qid": "Q127605787",
+  "people": [
+   {
+    "id": "Q3384479",
+    "role": "Director"
+   },
+   {
+    "id": "Q4964545",
+    "role": "Writer"
+   },
+   {
+    "id": "Q43371",
+    "role": "Producer"
+   },
+   {
+    "id": "Q113853236",
+    "role": "Producer"
+   },
+   {
+    "id": "Q15444232",
+    "role": "Editor"
+   },
+   {
+    "id": "Q313540",
+    "role": "Music"
+   }
+  ]
+ },
  "miracle-on-34th-street": {
   "qid": "Q1467214",
   "people": [
@@ -12606,6 +12802,71 @@
    {
     "id": "Q1247808",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "moana-2026": {
+  "qid": "Q118996994",
+  "people": [
+   {
+    "id": "Q10738",
+    "role": "Cast, Producer",
+    "character": "Maui"
+   },
+   {
+    "id": "Q1059037",
+    "role": "Cast",
+    "character": "Chief Tui"
+   },
+   {
+    "id": "Q23879973",
+    "role": "Cast",
+    "character": "Sina"
+   },
+   {
+    "id": "Q434301",
+    "role": "Cast",
+    "character": "Gramma Tala"
+   },
+   {
+    "id": "Q7791435",
+    "role": "Director"
+   },
+   {
+    "id": "Q20995253",
+    "role": "Writer"
+   },
+   {
+    "id": "Q21694269",
+    "role": "Writer"
+   },
+   {
+    "id": "Q19609698",
+    "role": "Producer"
+   },
+   {
+    "id": "Q22673514",
+    "role": "Producer"
+   },
+   {
+    "id": "Q27051216",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1646482",
+    "role": "Producer"
+   },
+   {
+    "id": "Q6174782",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q19650466",
+    "role": "Editor"
+   },
+   {
+    "id": "Q534151",
+    "role": "Music"
    }
   ]
  },
@@ -13913,6 +14174,39 @@
    {
     "id": "Q15919390",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "other-mommy": {
+  "qid": "Q134588273",
+  "people": [
+   {
+    "id": "Q229313",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6166571",
+    "role": "Cast"
+   },
+   {
+    "id": "Q242204",
+    "role": "Cast"
+   },
+   {
+    "id": "Q229137",
+    "role": "Cast"
+   },
+   {
+    "id": "Q122687794",
+    "role": "Cast"
+   },
+   {
+    "id": "Q114835918",
+    "role": "Director"
+   },
+   {
+    "id": "Q108047434",
+    "role": "Producer"
    }
   ]
  },
@@ -19671,6 +19965,55 @@
    }
   ]
  },
+ "the-body": {
+  "qid": "Q131290710",
+  "people": [
+   {
+    "id": "Q202304",
+    "role": "Cast"
+   },
+   {
+    "id": "Q7408805",
+    "role": "Cast"
+   },
+   {
+    "id": "Q309835",
+    "role": "Cast"
+   },
+   {
+    "id": "Q230523",
+    "role": "Cast"
+   },
+   {
+    "id": "Q464744",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2617121",
+    "role": "Cast"
+   },
+   {
+    "id": "Q545634",
+    "role": "Director"
+   },
+   {
+    "id": "Q50413739",
+    "role": "Writer"
+   },
+   {
+    "id": "Q50413737",
+    "role": "Writer"
+   },
+   {
+    "id": "Q135855821",
+    "role": "Producer"
+   },
+   {
+    "id": "Q5236475",
+    "role": "Producer"
+   }
+  ]
+ },
  "the-bourne-identity": {
   "qid": "Q105624",
   "people": [
@@ -20327,6 +20670,75 @@
    },
    {
     "id": "Q730252",
+    "role": "Music"
+   }
+  ]
+ },
+ "the-devil-wears-prada-2": {
+  "qid": "Q134611972",
+  "people": [
+   {
+    "id": "Q36301",
+    "role": "Cast"
+   },
+   {
+    "id": "Q193517",
+    "role": "Cast"
+   },
+   {
+    "id": "Q223117",
+    "role": "Cast"
+   },
+   {
+    "id": "Q241160",
+    "role": "Cast"
+   },
+   {
+    "id": "Q7800474",
+    "role": "Cast"
+   },
+   {
+    "id": "Q55294",
+    "role": "Cast"
+   },
+   {
+    "id": "Q61780311",
+    "role": "Cast"
+   },
+   {
+    "id": "Q188375",
+    "role": "Cast"
+   },
+   {
+    "id": "Q316596",
+    "role": "Cast"
+   },
+   {
+    "id": "Q459925",
+    "role": "Cast"
+   },
+   {
+    "id": "Q91012851",
+    "role": "Cast"
+   },
+   {
+    "id": "Q934964",
+    "role": "Director"
+   },
+   {
+    "id": "Q511934",
+    "role": "Writer"
+   },
+   {
+    "id": "Q459177",
+    "role": "Producer"
+   },
+   {
+    "id": "Q108261",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1513322",
     "role": "Music"
    }
   ]
@@ -24986,6 +25398,59 @@
    },
    {
     "id": "Q1358202",
+    "role": "Music"
+   }
+  ]
+ },
+ "verity": {
+  "qid": "Q131523413",
+  "people": [
+   {
+    "id": "Q36301",
+    "role": "Cast, Producer"
+   },
+   {
+    "id": "Q2315802",
+    "role": "Cast"
+   },
+   {
+    "id": "Q303957",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16204626",
+    "role": "Cast"
+   },
+   {
+    "id": "Q4945491",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2092899",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q7026712",
+    "role": "Writer, Producer"
+   },
+   {
+    "id": "Q2325642",
+    "role": "Producer"
+   },
+   {
+    "id": "Q18348293",
+    "role": "Producer"
+   },
+   {
+    "id": "Q48115351",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q541826",
+    "role": "Editor"
+   },
+   {
+    "id": "Q91573",
     "role": "Music"
    }
   ]

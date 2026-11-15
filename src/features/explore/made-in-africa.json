@@ -9991,6 +9991,275 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "backrooms",
+   "collection": "explore-all",
+   "title": "Backrooms",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Mystery",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "Canada"
+   ],
+   "credit": "Kane Parsons",
+   "recognition": "Over $400 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Kane Parsons made The Backrooms as a web series on YouTube while still a teenager, then directed its feature for A24: a creator's found-footage world scaled up for cinema",
+   "added": "2026-11-15",
+   "imdb_id": "tt26657236",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "0HjdiohVOik",
+     "kind": "trailer",
+     "channel": "A24 and Kane Pixels",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "disclosure-day",
+   "collection": "explore-all",
+   "title": "Disclosure Day",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Steven Spielberg",
+   "recognition": "Nearly $245 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Spielberg returns to the idea of first contact as a conspiracy thriller, told through a whistleblower on the run and a meteorologist seeing things she can't explain",
+   "added": "2026-11-15",
+   "imdb_id": "tt15047880",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "SCYT8vb2siQ",
+     "kind": "trailer",
+     "channel": "Universal Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "verity",
+   "collection": "explore-all",
+   "title": "Verity",
+   "type": "film",
+   "genres": [
+    "Mystery",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Michael Showalter",
+   "recognition": "Nearly $180 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "From Colleen Hoover's novel: a ghostwriter reading a famous author's private notes, a story built on an unreliable manuscript",
+   "added": "2026-11-15",
+   "imdb_id": "tt32261958",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "xdPMKhjMSFs",
+     "kind": "trailer",
+     "channel": "Amazon MGM Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "other-mommy",
+   "collection": "explore-all",
+   "title": "Other Mommy",
+   "type": "film",
+   "genres": [
+    "Horror"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Rob Savage",
+   "recognition": "Over $115 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Rob Savage's horror about a girl drawn to an entity that looks like her own mother: dread built from a familiar face",
+   "added": "2026-11-15",
+   "imdb_id": "tt36586020",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "bEpTgowZ1dI",
+     "kind": "trailer",
+     "channel": "Universal Pictures and Blumhouse",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "minions-and-monsters",
+   "collection": "explore-all",
+   "title": "Minions & Monsters",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Family",
+    "Comedy",
+    "Adventure",
+    "Fantasy"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Pierre Coffin",
+   "recognition": "Over $520 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The Minions in 1920s Hollywood, framed as a silent film: animation that borrows the grammar of early cinema",
+   "added": "2026-11-15",
+   "imdb_id": "tt32890033",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "ZSdOwt-G49w",
+     "kind": "trailer",
+     "channel": "Illumination",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "hoppers",
+   "collection": "explore-all",
+   "title": "Hoppers",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Adventure",
+    "Comedy",
+    "Family",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Daniel Chong",
+   "recognition": "Nearly $390 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Pixar's story of a girl whose mind is hopped into a robotic beaver: the animal world animated from the inside",
+   "added": "2026-11-15",
+   "imdb_id": "tt26443616",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "PypDSyIRRSs",
+     "kind": "trailer",
+     "channel": "Pixar",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-devil-wears-prada-2",
+   "collection": "explore-all",
+   "title": "The Devil Wears Prada 2",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "David Frankel",
+   "recognition": "Over $690 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Runway in a new media landscape, with Milan's shows as a set: wardrobe carries the story again, twenty years on",
+   "added": "2026-11-15",
+   "imdb_id": "tt33612209",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "e9HXmMnUEdE",
+     "kind": "trailer",
+     "channel": "20th Century Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "moana-2026",
+   "collection": "explore-all",
+   "title": "Moana",
+   "type": "film",
+   "genres": [
+    "Family",
+    "Fantasy",
+    "Comedy",
+    "Adventure"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Thomas Kail",
+   "recognition": "Over $320 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Disney remakes its own animated musical in live action, with Dwayne Johnson back as Maui: a study in moving a song-led story from animation to sets",
+   "added": "2026-11-15",
+   "imdb_id": "tt27419466",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "n7f6hlKsxxo",
+     "kind": "trailer",
+     "channel": "Disney",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-body",
+   "collection": "explore-all",
+   "title": "The Body",
+   "type": "series",
+   "genres": [
+    "Mystery",
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Quinn Shephard",
+   "pair_with": "",
+   "study_note": "An all-girls dance squad, a Halloween initiation and Catholic guilt: coming of age told as a ghost story",
+   "added": "2026-11-15",
+   "imdb_id": "tt34685692",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "wl7uj7n7DoY",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

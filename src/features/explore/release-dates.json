@@ -115,6 +115,10 @@
   "date": "1985-07-03",
   "precision": "day"
  },
+ "backrooms": {
+  "date": "2026-05-07",
+  "precision": "day"
+ },
  "bad-boys": {
   "date": "1995-01-01",
   "precision": "year"
@@ -735,6 +739,10 @@
   "date": "1988-01-01",
   "precision": "year"
  },
+ "disclosure-day": {
+  "date": "2026-06-10",
+  "precision": "day"
+ },
  "django-unchained": {
   "date": "2012-12-25",
   "precision": "day"
@@ -979,6 +987,10 @@
   "date": "1992-11-20",
   "precision": "day"
  },
+ "hoppers": {
+  "date": "2026-02-28",
+  "precision": "day"
+ },
  "hounds": {
   "date": "2023-07-01",
   "precision": "day"
@@ -1191,9 +1203,17 @@
   "date": "1945-09-24",
   "precision": "day"
  },
+ "minions-and-monsters": {
+  "date": "2026-06-24",
+  "precision": "day"
+ },
  "miracle-on-34th-street": {
   "date": "1947-01-01",
   "precision": "year"
+ },
+ "moana-2026": {
+  "date": "2026-07-08",
+  "precision": "day"
  },
  "modern-family": {
   "date": "2009-09-23",
@@ -1277,6 +1297,10 @@
  },
  "oppenheimer": {
   "date": "2023-07-20",
+  "precision": "day"
+ },
+ "other-mommy": {
+  "date": "2026-05-08",
   "precision": "day"
  },
  "out-of-africa": {
@@ -1563,6 +1587,10 @@
   "date": "1941-01-01",
   "precision": "year"
  },
+ "the-body": {
+  "date": "2026-03-14",
+  "precision": "day"
+ },
  "the-bourne-identity": {
   "date": "2002-06-06",
   "precision": "day"
@@ -1597,6 +1625,10 @@
  },
  "the-deer-hunter": {
   "date": "1978-12-08",
+  "precision": "day"
+ },
+ "the-devil-wears-prada-2": {
+  "date": "2026-04-20",
   "precision": "day"
  },
  "the-emperor-jones": {
@@ -1845,6 +1877,10 @@
  },
  "venom": {
   "date": "2018-10-04",
+  "precision": "day"
+ },
+ "verity": {
+  "date": "2026-05-15",
   "precision": "day"
  },
  "vertigo": {

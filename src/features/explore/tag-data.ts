@@ -462,4 +462,13 @@ export const HAND_TAGS: Record<string, string[]> = {
   "heart-of-the-beast": ["nature", "snow", "mountains", "wide-vistas", "tense", "raw", "gritty", "uplifting", "practical-effects", "celebrity", "full-crew", "cinema"],
   "the-super-mario-galaxy-movie": ["myth", "future-world", "friendship", "family", "playful", "joyful", "energetic", "bold", "vfx", "adaptation", "celebrity", "full-crew", "cinema"],
   "visionquest": ["future-world", "tech", "identity", "family", "mysterious", "tense", "moody", "vfx", "adaptation", "celebrity", "full-crew", "streaming"],
+  "backrooms": ["interiors", "office", "handheld", "low-key", "mysterious", "tense", "dreamlike", "online-culture", "youth", "adaptation", "genre-blend", "cinema"],
+  "disclosure-day": ["future-world", "city-streets", "rural", "wide-vistas", "politics", "mysterious", "tense", "bold", "vfx", "celebrity", "full-crew", "cinema"],
+  "verity": ["home", "interiors", "women", "love", "mysterious", "tense", "moody", "intimate", "adaptation", "celebrity", "full-crew", "cinema"],
+  "other-mommy": ["home", "interiors", "family", "women", "youth", "night", "low-key", "mysterious", "tense", "adaptation", "full-crew", "cinema"],
+  "minions-and-monsters": ["period-setting", "city-streets", "myth", "playful", "joyful", "energetic", "bold", "genre-blend", "ensemble", "vfx", "full-crew", "cinema"],
+  "hoppers": ["nature", "water", "tech", "youth", "friendship", "playful", "joyful", "uplifting", "vfx", "ensemble", "full-crew", "cinema"],
+  "the-devil-wears-prada-2": ["fashion", "accessories", "magazine", "office", "city-streets", "women", "money", "luxurious", "playful", "bold", "costume", "celebrity", "full-crew", "cinema"],
+  "moana-2026": ["water", "travel", "myth", "youth", "family", "joyful", "uplifting", "bold", "music-led", "costume", "adaptation", "celebrity", "full-crew", "cinema"],
+  "the-body": ["youth", "women", "queer", "dance", "school", "night", "coming-of-age", "mysterious", "tense", "moody", "ensemble", "streaming"],
 };

@@ -1911,5 +1911,54 @@
    "marvel"
   ],
   "tmdb": "tv/213375"
+ },
+ "backrooms": {
+  "studios": [
+   "a24"
+  ],
+  "tmdb": "movie/1083381"
+ },
+ "disclosure-day": {
+  "studios": [
+   "universal",
+   "amblin"
+  ],
+  "tmdb": "movie/1275779"
+ },
+ "verity": {
+  "studios": [],
+  "tmdb": "movie/1283515"
+ },
+ "other-mommy": {
+  "studios": [],
+  "tmdb": "movie/1400837"
+ },
+ "minions-and-monsters": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/1315772"
+ },
+ "hoppers": {
+  "studios": [],
+  "tmdb": "movie/1327819"
+ },
+ "the-devil-wears-prada-2": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/1314481"
+ },
+ "moana-2026": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/1108427"
+ },
+ "the-body": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/291507"
  }
 }
