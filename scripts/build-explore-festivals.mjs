@@ -87,13 +87,16 @@ for (const f of FESTIVALS) {
 
 // ---- Logos: each festival's Wikidata logo (P154), from Commons, on a white plate ----
 fs.mkdirSync("public/explore/festivals", { recursive: true });
-// These show their name instead: Wikidata's "logo" for Sundance and FESPACO is an edition's poster,
-// and Cannes' is a thin banner that can't be read on a round plate.
-const NOT_A_LOGO = new Set(["sundance", "fespaco", "cannes"]);
+// A logo already in public/explore/festivals is kept. Four were picked by hand (Ika, 2026-11-15:
+// "official logos for all"), because Wikidata's was an edition's poster or a banner too thin for a
+// round plate: Cannes, its Palme d'Or palm (Commons, "Palme d'Or gold silhouette.svg"); Sundance,
+// the Sundance Institute logo (Commons); FESPACO, "Logo du FESPACO.jpg" (Commons); Telluride, the
+// wordmark from its own site's 2026 banner, without the edition's dates. Don't refetch these.
+const HAND_PICKED = new Set(["cannes", "sundance", "fespaco", "telluride"]);
 async function logo(f) {
-  if (NOT_A_LOGO.has(f.id)) return false;
   const out = `public/explore/festivals/${f.id}.png`;
   if (fs.existsSync(out)) return true;
+  if (HAND_PICKED.has(f.id)) return false;
   const search = await fetch(`https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&language=en&type=item&limit=3&search=${encodeURIComponent(f.name)}`, { headers: { "User-Agent": UA } }).then((r) => r.json());
   for (const hit of search.search ?? []) {
     const e = await fetch(`https://www.wikidata.org/wiki/Special:EntityData/${hit.id}.json`, { headers: { "User-Agent": UA } }).then((r) => r.json());

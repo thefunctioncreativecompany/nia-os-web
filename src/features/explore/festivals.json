@@ -4,7 +4,7 @@
   {
    "id": "cannes",
    "name": "Cannes Film Festival",
-   "logo": false,
+   "logo": true,
    "slugs": [
     "timbuktu",
     "atlantics",
@@ -62,7 +62,7 @@
   {
    "id": "sundance",
    "name": "Sundance Film Festival",
-   "logo": false,
+   "logo": true,
    "slugs": [
     "mami-wata",
     "this-is-not-a-burial",
@@ -94,7 +94,7 @@
   {
    "id": "telluride",
    "name": "Telluride Film Festival",
-   "logo": false,
+   "logo": true,
    "slugs": [
     "nickel-boys"
    ]
@@ -102,7 +102,7 @@
   {
    "id": "fespaco",
    "name": "FESPACO",
-   "logo": false,
+   "logo": true,
    "slugs": [
     "felicite"
    ]
