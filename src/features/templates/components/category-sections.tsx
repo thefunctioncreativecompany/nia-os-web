@@ -29,37 +29,51 @@ const phaseOf = (t: GalleryTemplate) => (works(t) ? t.stage : COMING_SOON);
 // list: paperwork people find by name. Stored names, so Title Case here.
 const CAROUSELS = new Set(["Strategy & Development", "UGC & Social Content"]);
 
+// Categories shown above Workflows, in this order (Ika, 2026-11-15). Stored names.
+export const TOP_GROUPS = ["UGC & Social Content", "Production Management & Operations"];
+
+// Lists that show only their first few, the rest behind View all (Ika, 2026-11-15: production
+// management "only display first 5-6 and rest in view all").
+const LIST_LIMIT: Record<string, number> = { "Production Management & Operations": 6 };
+
 // Every template once, by category (Ika, 2026-11-13: minimalism wins; the old filmstrip and
 // scrolling-column sections are in git tag parked-2026-11-13-templates). A category is a list
 // (icon, name, phase, what it's for) or a carousel of cards saying the same four things; a
 // carousel shows ROW_MAX and View all opens the whole category as the list. The templates still
-// to come follow as a compact list. Clicking a row or card opens its preview pop-up.
+// to come follow as a compact list. Clicking a row or card opens its preview pop-up. The page shows
+// it twice, around Workflows: the top categories (`soon` off, nothing when empty), then the rest.
 export function CategorySections({
   templates,
   groups,
   total,
   onPreview,
+  soon: withSoon = true,
+  emptyNote = true,
+  className,
 }: {
   templates: GalleryTemplate[];
   groups: string[];
   total: number;
   onPreview: Preview;
+  soon?: boolean;
+  emptyNote?: boolean;
+  className?: string;
 }) {
   // Within a category, the ones that work come first.
   const inGroup = (group: string) =>
     templates.filter((t) => t.status !== "gap" && t.group === group).sort((a, b) => Number(works(b)) - Number(works(a)));
-  const soon = templates.filter((t) => t.status === "gap");
+  const soon = withSoon ? templates.filter((t) => t.status === "gap") : [];
   const sections = groups.map((group) => ({ group, items: inGroup(group) })).filter((s) => s.items.length);
 
-  if (!sections.length && !soon.length) return <p className="px-4 pt-7 text-sm text-muted-foreground md:px-page">No templates here yet.</p>;
+  if (!sections.length && !soon.length) return emptyNote ? <p className="px-4 pt-7 text-sm text-muted-foreground md:px-page">No templates here yet.</p> : null;
 
   return (
-    <div className="flex flex-col gap-16 px-4 pt-12 md:px-page">
+    <div className={cn("flex flex-col gap-16 px-4 pt-12 md:px-page", className)}>
       {sections.map(({ group, items }) =>
         CAROUSELS.has(group) ? (
           <CarouselSection key={group} group={group} items={items} onPreview={onPreview} />
         ) : (
-          <ListSection key={group} group={group} items={items} onPreview={onPreview} />
+          <ListSection key={group} group={group} items={items} limit={LIST_LIMIT[group]} onPreview={onPreview} />
         ),
       )}
       {soon.length > 0 && <SoonSection items={soon} total={total} onPreview={onPreview} />}
@@ -82,14 +96,18 @@ function SectionTitle({ group, count, children }: { group: string; count: number
 
 const tile = "grid place-items-center overflow-hidden";
 
-// A category as a ranked list.
-function ListSection({ group, items, onPreview }: { group: string; items: GalleryTemplate[]; onPreview: Preview }) {
+// A category as a ranked list; with `limit`, the first few and View all for the rest.
+function ListSection({ group, items, limit, onPreview }: { group: string; items: GalleryTemplate[]; limit?: number; onPreview: Preview }) {
+  const [all, setAll] = useState(false);
+  const cut = !all && limit !== undefined && items.length > limit;
   return (
     <section aria-labelledby={sectionId(group)}>
       <div className="mb-3.5">
-        <SectionTitle group={group} count={items.length} />
+        <SectionTitle group={group} count={items.length}>
+          {cut && <ViewAll onClick={() => setAll(true)} />}
+        </SectionTitle>
       </div>
-      <TemplateList items={items} onPreview={onPreview} />
+      <TemplateList items={cut ? items.slice(0, limit) : items} onPreview={onPreview} />
     </section>
   );
 }

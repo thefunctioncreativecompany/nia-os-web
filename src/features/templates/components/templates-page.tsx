@@ -14,7 +14,7 @@ import { TemplateSearch } from "@/features/templates/components/template-search"
 import { PreviewModal, PreviewPanel } from "@/features/templates/components/preview-modal";
 import { useMediaQuery } from "@/hooks/use-pointer";
 import { features } from "@/lib/features";
-import { CategorySections } from "@/features/templates/components/category-sections";
+import { CategorySections, TOP_GROUPS } from "@/features/templates/components/category-sections";
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
 import { MyDrafts } from "@/features/templates/components/my-drafts";
 import { FilterChip, ChipRow } from "@/components/nia/filter-bar";
@@ -24,8 +24,8 @@ import { sentenceCase } from "@/lib/sentence-case";
 const compactGrid = "grid grid-cols-[repeat(auto-fill,minmax(min(100%,15.5rem),1fr))] gap-3.5";
 
 // The Templates page (TEMPLATES_BUILD.md §2, build steps 2–6): title, search with the live
-// template count and suggestions, filters, Workflows, your drafts, then every template once, by
-// category, in one list (Ika, 2026-11-13: "minimalism wins"; Just added, the featured row and
+// template count and suggestions, filters, UGC and Production management, Workflows, your drafts,
+// then the other categories (Ika, 2026-11-15); every template once, by category (Ika, 2026-11-13: "minimalism wins"; Just added, the featured row and
 // Suggested for you are in git tag parked-2026-11-13-templates). What's opened, used and searched
 // is still recorded: New project and Add document suggest from it. The pop-up lives in the
 // address (?preview=D01), so Back closes it.
@@ -147,12 +147,20 @@ export function TemplatesPage({ templates, groups, familyLabels }: { templates: 
         </section>
       ) : (
         <>
+          {/* UGC and Production management first (Ika, 2026-11-15). */}
+          <CategorySections templates={visible} groups={TOP_GROUPS.filter((g) => groups.includes(g))} total={templates.length} soon={false} emptyNote={false} className="pt-7.5" onPreview={(t, list) => openPreview(t, list)} />
           {/* Start from a goal (Ika, 2026-11-10): the person's own group first. */}
-          <WorkflowCards templates={templates} profession={learning.profile.role} className="px-4 pt-7.5 md:px-page" />
+          <WorkflowCards templates={templates} profession={learning.profile.role} className="px-4 pt-16 md:px-page" />
           {/* Documents you started and haven't put in a project (audit #3). */}
           <MyDrafts icons={icons} />
-          {/* Every template once, by category, in one list. */}
-          <CategorySections templates={visible} groups={groups} total={templates.length} onPreview={(t, list) => openPreview(t, list)} />
+          {/* The other categories, then what's coming. */}
+          <CategorySections
+            templates={visible}
+            groups={groups.filter((g) => !TOP_GROUPS.includes(g))}
+            total={templates.length}
+            emptyNote={!visible.some((t) => t.group !== null && TOP_GROUPS.includes(t.group))}
+            onPreview={(t, list) => openPreview(t, list)}
+          />
         </>
       )}
 

@@ -916,6 +916,11 @@ onboarding's Import profile and Follow creators describe features removed in the
   4,573px to 3,539px.
 - (2026-11-14) Template cards back to the earlier look in the carousels (Ika: "revert to the previous card
   design"): a large picture tile, then name, phase and what it's for, no border.
+- (2026-11-15) Templates order (Ika: "move ugc templates and production management templates to above
+  workflows … for production management, only display first 5-6 and rest in view all"): UGC & social
+  content, then Production management & operations (first six, View all opens the rest in place),
+  then Workflows, your drafts, Strategy & development and coming soon (`TOP_GROUPS`, `LIST_LIMIT`
+  in `category-sections.tsx`).
 - (2026-11-14) A/B: a right panel for previews on computers (Ika: "a/b test a right panel open for
   artifacts/documents/template preview", after Claude's artifacts panel). A template's preview docks
   on the right (`PreviewPanel`, width `--preview-panel-w`); the page leaves room for it
