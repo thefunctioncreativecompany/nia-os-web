@@ -682,7 +682,7 @@
         "howTo": [
           "Open the template: it starts as a new draft in your project.",
           "Fill in Template Info: title, page, scene and more.",
-          "Add a row to Camera & Technical Coverage List for each entry, with I/E, Type and Angle.",
+          "Drop your reference pictures on Camera & Technical Coverage List: each becomes a shot, then describe it. Turn on More detail for I/E, Type and Angle.",
           "Download it as a PDF, or save it to the project for the team."
         ],
         "faq": [
@@ -3801,7 +3801,7 @@
         "howTo": [
           "Open the template: it starts as a new draft in your project.",
           "Fill in Shoot Info: project and Client.",
-          "Add a row to Shots for each entry, with Set-up / Look, Description and Framing.",
+          "Drop your reference pictures on Shots: each becomes a shot, then describe it. Turn on More detail for Set-up / Look, Framing and Orientation.",
           "Write the notes.",
           "Download it as a PDF, or save it to the project for the team."
         ],

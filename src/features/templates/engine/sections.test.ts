@@ -116,7 +116,26 @@ describe('tables (step 7 part 2)', () => {
     expect(md).toContain('| File / Take | Description | Length | Comments | Use |');
     expect(md).toContain('| A001_C003 | — | 42 seconds | — | Yes |');
     expect(toPlainText(shot, data)).toContain('1. File / Take: A001_C003 · Description: — · Length: 42 seconds');
-    expect(toMarkdown(getSchema('D06')!, restoreDocument(getSchema('D06')!, [{}, [{ id: 'x', 'I/E': 'EXT' }]]))).toContain('| 01 | EXT |');
+    // Shotlist: Reference and Description first, then the detail columns (2026-11-15).
+    expect(toMarkdown(getSchema('D06')!, restoreDocument(getSchema('D06')!, [{}, [{ id: 'x', 'I/E': 'EXT' }]]))).toContain('| 01 | — | — | EXT |');
+  });
+
+  it('keeps detail columns back until More detail, without losing their answers', async () => {
+    const { toMarkdown } = await import('./export');
+    const { hasDetail, detailFilled, shownColumns, fieldLabel: label } = await import('./sections');
+    const shot = getSchema('D06')!;
+    const table = shot.sections.find((x) => x.type === 'table')!;
+    if (table.type !== 'table') throw new Error('no table');
+    expect(hasDetail(shot)).toBe(true);
+    expect(shownColumns(table, false).map(label)).toEqual(['Reference', 'Description']);
+    const data = restoreDocument(shot, [{}, [{ id: 'x', Reference: '6f1c2b1e-0000-4000-8000-000000000001', Description: 'Doorway, she turns', Angle: 'Low' }]]);
+    expect(detailFilled(shot, data)).toBe(true);
+    const simple = toMarkdown(shot, data, true, { detail: false });
+    expect(simple).toContain('| Shot # | Reference | Description |');
+    expect(simple).toContain('| 01 | Picture | Doorway, she turns |');
+    expect(simple).not.toContain('Low');
+    expect(toMarkdown(shot, data)).toContain('Low');
+    expect(hasDetail(getSchema('D14')!)).toBe(false);
   });
 });
 

@@ -58,6 +58,17 @@ export const canEdit = (schema: TemplateSchema | null): schema is TemplateSchema
 
 export const fieldLabel = (field: FieldSpec) => (typeof field === 'string' ? field : field.label);
 export const fieldKind = (field: FieldSpec): FieldKind => (typeof field === 'string' ? 'text' : field.kind);
+/** A column shown only with More detail on. */
+export const isDetail = (field: FieldSpec) => typeof field !== 'string' && !!field.detail;
+/** The columns to show: all of them, or without the detail ones. Their answers are kept either way. */
+export const shownColumns = (section: TableSection, detail: boolean) => editableColumns(section).filter((c) => detail || !isDetail(c));
+/** Whether a template has columns that wait for More detail. */
+export const hasDetail = (schema: TemplateSchema) => schema.sections.some((s) => s.type === 'table' && s.columns.some(isDetail));
+/** Whether any detail column already has an answer (then More detail starts on). */
+export const detailFilled = (schema: TemplateSchema, data: SectionValue[]) =>
+  schema.sections.some((s, i) => s.type === 'table' && ((data[i] as TableRow[]) ?? []).some((row) => s.columns.some((c) => isDetail(c) && formatField(c, row[fieldLabel(c)]).trim())));
+/** The picture column of a table (a shot list's Reference), if it has one. */
+export const pictureColumn = (section: TableSection) => editableColumns(section).find((c) => fieldKind(c) === 'image');
 const unitsOf = (field: FieldSpec) => (typeof field === 'string' ? undefined : field.units) ?? ['minutes', 'hours', 'days'];
 
 export function blankField(field: FieldSpec): FieldValue {
@@ -105,6 +116,9 @@ type FormatOptions = {
 export function formatField(field: FieldSpec, value: FieldValue | undefined, { datesOnly = false, currency = 'USD', ref }: FormatOptions = {}): string {
   if (value === undefined) return '';
   switch (fieldKind(field)) {
+    // A picture is stored as the project file's id; in words it's just "Picture" (the PDF draws it).
+    case 'image':
+      return typeof value === 'string' && value ? 'Picture' : '';
     case 'time':
       return typeof value === 'string' ? formatClock(value) : '';
     case 'timeRange':

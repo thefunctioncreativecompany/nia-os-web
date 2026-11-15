@@ -14,12 +14,12 @@ import { TableView } from './table-view';
 // field-controls.tsx), and the letter in a grey box, shown with its placeholders filled. When
 // printing, inputs lose their hover and box so only the words show.
 
-type Props = { section: Section; value: SectionValue; onChange: (value: SectionValue, key: string) => void; currency?: string };
+type Props = { section: Section; value: SectionValue; onChange: (value: SectionValue, key: string) => void; currency?: string; /** More detail: tables show their detail columns. */ detail?: boolean };
 
 const box =
   'rounded-xl border-border bg-nia-panel p-6 text-sm leading-normal text-foreground md:text-sm print:border-0 print:bg-transparent print:p-0';
 
-export function SectionView({ section, value, onChange, currency }: Props) {
+export function SectionView({ section, value, onChange, currency, detail = true }: Props) {
   switch (section.type) {
     case 'fields': {
       const fields = value as FieldsValue;
@@ -59,7 +59,7 @@ export function SectionView({ section, value, onChange, currency }: Props) {
       );
     }
     case 'table':
-      return <TableView section={section} rows={value as TableRow[]} onChange={(rows, key) => onChange(rows, key)} currency={currency} />;
+      return <TableView section={section} rows={value as TableRow[]} onChange={(rows, key) => onChange(rows, key)} currency={currency} detail={detail} />;
     case 'checklist':
       return <ChecklistView section={section} value={value as ChecklistValue} onChange={(next, key) => onChange(next, key)} />;
     // Script Breakdown's categories (Figma 840:28209): a written answer per heading, each in a box

@@ -33,7 +33,10 @@ for (const d of defs) {
   const howTo = ["Open the template: it starts as a new draft in your project."];
   for (const s of d.sections.slice(0, 4)) {
     if (s.type === "fields") howTo.push(`Fill in ${s.title}: ${lower(list(s.fields.slice(0, 2).map(label)))}.`);
-    else if (s.type === "table") howTo.push(`Add a row to ${s.title} for each entry, with ${list(s.columns.filter((c) => label(c) !== s.autonumber).slice(0, 3).map(label))}.`);
+    // A table with a picture column (a shot list) starts from pictures; detail columns wait for More detail (2026-11-15).
+    else if (s.type === "table" && s.columns.some((c) => typeof c === "object" && c.kind === "image"))
+      howTo.push(`Drop your reference pictures on ${s.title}: each becomes a shot, then describe it.${s.columns.some((c) => c.detail) ? ` Turn on More detail for ${list(s.columns.filter((c) => c.detail).slice(0, 3).map(label))}.` : ""}`);
+    else if (s.type === "table") howTo.push(`Add a row to ${s.title} for each entry, with ${list(s.columns.filter((c) => label(c) !== s.autonumber && !(typeof c === "object" && c.detail)).slice(0, 3).map(label))}.`);
     else if (s.type === "checklist") howTo.push(`Tick off ${s.title} as you go; add or remove items to fit the job.`);
     else howTo.push(`Write the ${lower(s.title)}.`);
   }

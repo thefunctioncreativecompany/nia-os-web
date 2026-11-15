@@ -52,7 +52,7 @@ export type SectionType = 'fields' | 'table' | 'text' | 'letter' | 'categories' 
 interface SectionBase { type: SectionType; title: string; optional?: boolean; hint?: string }
 /** A field's or column's control (T5): plain text unless the answer has a shape, so it can be
  *  picked rather than typed. `units` for durations; `after` names a date it can't be before. */
-export type FieldKind = 'text' | 'choice' | 'role' | 'people' | 'number' | 'money' | 'time' | 'timeRange' | 'weather' | 'pages' | 'refs' | 'date' | 'dateTimeRange' | 'duration' | 'yesNo' | 'check' | 'phone' | 'email';
+export type FieldKind = 'text' | 'choice' | 'role' | 'people' | 'number' | 'money' | 'time' | 'timeRange' | 'weather' | 'pages' | 'refs' | 'date' | 'dateTimeRange' | 'duration' | 'yesNo' | 'check' | 'phone' | 'email' | 'image';
 export type DurationUnit = 'seconds' | 'minutes' | 'hours' | 'days';
 /** People fields: `single` holds one person; `fills` names columns a picked Nia user fills when blank (e.g. Position ← their role). */
 export type FieldSpec =
@@ -70,6 +70,8 @@ export type FieldSpec =
       after?: string;
       single?: boolean;
       fills?: Record<string, 'role'>;
+      /** Table columns: shown only with More detail on (Ika, 2026-11-15: less to fill in at the start). */
+      detail?: boolean;
     };
 /** `layout: 'cards'` shows each answer as a small card (Call Sheet Locations). */
 export interface FieldsSection extends SectionBase { type: 'fields'; fields: FieldSpec[]; layout?: 'rows' | 'cards' }

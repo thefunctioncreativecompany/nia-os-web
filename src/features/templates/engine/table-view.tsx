@@ -9,17 +9,23 @@ import type { FieldSpec, TableSection } from '../types';
 import type { PersonRef } from '@/components/nia/assignees';
 import { FieldControl } from './field-controls';
 import { formatMoney } from './format';
-import { blankRow, computeCell, editableColumns, fieldKind, fieldLabel, formatField, tableTotal, type FieldValue, type TableRow } from './sections';
+import { AddFromPictures, DropHint, usePictureDrop } from './pictures';
+import { blankRow, computeCell, editableColumns, fieldKind, fieldLabel, formatField, pictureColumn, shownColumns, tableTotal, type FieldValue, type TableRow } from './sections';
 
 // A table section (TEMPLATE_ENGINE.md §4, build step 7 part 2): a typed control in every cell
 // (T5), an automatic number column where the template has one, add and remove rows. Wide
 // screens get a table; phones get one card per row with the column names beside the answers.
+// Detail columns show only with More detail on (their answers are kept). A table with a picture
+// column (a shot list's Reference) takes pictures: Add from pictures, or drop them on it, and
+// each becomes a shot.
 
 // How much room each kind of column needs, so pickers never squash.
 function width(field: FieldSpec, tall: boolean) {
   switch (fieldKind(field)) {
     case 'check':
       return '3.5rem';
+    case 'image':
+      return '7rem';
     case 'number':
       return '6rem';
     case 'money':
@@ -49,8 +55,19 @@ function width(field: FieldSpec, tall: boolean) {
 
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-export function TableView({ section, rows, onChange, currency = 'USD' }: { section: TableSection; rows: TableRow[]; onChange: (rows: TableRow[], key: string) => void; currency?: string }) {
-  const columns = editableColumns(section);
+export function TableView({ section, rows, onChange, currency = 'USD', detail = true }: { section: TableSection; rows: TableRow[]; onChange: (rows: TableRow[], key: string) => void; currency?: string; detail?: boolean }) {
+  const columns = shownColumns(section, detail);
+  // Pictures fill the empty rows first (a new shot list starts with some), then add rows.
+  const picture = pictureColumn(section);
+  const addPictures = (ids: string[]) => {
+    if (!picture) return;
+    const at = fieldLabel(picture);
+    const empty = (r: TableRow) => editableColumns(section).every((c) => !formatField(c, r[fieldLabel(c)]).trim());
+    const queue = [...ids];
+    const next = rows.map((r) => (queue.length && empty(r) ? { ...r, [at]: queue.shift()! } : r));
+    onChange([...next, ...queue.map((id) => ({ ...blankRow(section), [at]: id }))], `pictures-${crypto.randomUUID()}`);
+  };
+  const drop = usePictureDrop(addPictures);
   // Worked-out columns (Extended = Rate × QTY) show their sum and can't be typed over.
   const computed = Object.keys(section.computed ?? {});
   const money = (column: string) => section.money?.includes(column);
@@ -93,7 +110,8 @@ export function TableView({ section, rows, onChange, currency = 'USD' }: { secti
   };
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="relative flex flex-col gap-3" {...(picture ? drop.handlers : {})}>
+      {picture && <DropHint over={drop.over} />}
       <div role="table" aria-label={section.title} className="flex flex-col gap-3 md:gap-0 md:overflow-x-auto md:rounded-xl md:border md:border-border print:overflow-visible">
         <div role="rowgroup" className="hidden md:block">
           <div role="row" className="grid min-w-fit border-b border-border bg-nia-panel" style={{ gridTemplateColumns: template } as CSSProperties}>
@@ -191,9 +209,12 @@ export function TableView({ section, rows, onChange, currency = 'USD' }: { secti
         )}
       </div>
       {rows.length === 0 && section.empty && <p className="text-small text-muted-foreground">{section.empty}</p>}
-      <Button type="button" variant="outline" size="sm" onClick={addRow} className="w-fit print:hidden">
-        <Plus aria-hidden /> Add row
-      </Button>
+      <div className="flex flex-wrap gap-2">
+        <Button type="button" variant="outline" size="sm" onClick={addRow} className="w-fit print:hidden">
+          <Plus aria-hidden /> Add row
+        </Button>
+        {picture && <AddFromPictures onAdd={addPictures} />}
+      </div>
     </div>
   );
 }

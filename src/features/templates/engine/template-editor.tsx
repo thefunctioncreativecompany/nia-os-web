@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { BadgeCheck, Download, Eye, FileText, FileType, FolderCheck, FolderPlus, Plus, Printer, Redo2, Trash2, Undo2 } from 'lucide-react';
+import { BadgeCheck, Download, Eye, FileText, FileType, FolderCheck, FolderPlus, ListPlus, Plus, Printer, Redo2, Trash2, Undo2 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { recordEvent } from '@/lib/product-events';
 import { cn } from '@/lib/utils';
@@ -20,7 +20,9 @@ import type { NextTemplate } from '../catalog';
 import type { TemplateSchema } from '../types';
 import { downloadFile, fileName, toMarkdown, toPdf, toPlainText, toWord } from './export';
 import { SectionView } from './section-views';
-import { blankRow, documentCurrency, resolveDocument, type SectionValue, type TableRow } from './sections';
+import { blankRow, detailFilled, documentCurrency, hasDetail, resolveDocument, type SectionValue, type TableRow } from './sections';
+import { PicturesContext, usePictureStore } from './pictures';
+import { useMoreDetail } from './more-detail';
 import { DocumentContext } from './document-context';
 import { LivePreview } from './live-preview';
 import { SaveToProjectDialog } from './save-to-project';
@@ -67,6 +69,14 @@ export function TemplateEditor({
   const [confirmDelete, setConfirmDelete] = useState(false);
   const doc = useDocument(schema, documentId, initialData, initialPaid, initialProject);
   const [choosing, setChoosing] = useState(false);
+  const askProject = useCallback(() => setChoosing(true), []);
+  const pictures = usePictureStore({ schema, data: doc.data, projectId: doc.project?.id ?? null, readOnly, onAskProject: askProject });
+  // More detail (more-detail.ts): starts on when this document already has detail answers.
+  const withDetail = hasDetail(schema);
+  const [startOn] = useState(() => detailFilled(schema, initialData));
+  const [detail, setDetail] = useMoreDetail(schema.code, startOn);
+  const hiddenAnswers = withDetail && !detail && detailFilled(schema, doc.data);
+  const exportOptions = useMemo(() => ({ detail: !withDetail || detail, pictures: new Map([...pictures.known].map(([id, p]) => [id, p.url])) }), [withDetail, detail, pictures.known]);
   const currency = documentCurrency(schema, doc.data);
   // Letters as they read, with [placeholders] filled from the answers above (T5).
   const shown = resolveDocument(schema, doc.data);
@@ -96,10 +106,10 @@ export function TemplateEditor({
 
   const download = async (kind: 'pdf' | 'md' | 'docx' | 'txt') => {
     try {
-      if (kind === 'pdf') downloadFile(fileName(schema, 'pdf'), await toPdf(schema, doc.data, branded));
-      if (kind === 'md') downloadFile(fileName(schema, 'md'), toMarkdown(schema, doc.data, branded), 'text/markdown;charset=utf-8');
-      if (kind === 'txt') downloadFile(fileName(schema, 'txt'), toPlainText(schema, doc.data, branded));
-      if (kind === 'docx') downloadFile(fileName(schema, 'docx'), await toWord(schema, doc.data, branded));
+      if (kind === 'pdf') downloadFile(fileName(schema, 'pdf'), await toPdf(schema, doc.data, branded, exportOptions));
+      if (kind === 'md') downloadFile(fileName(schema, 'md'), toMarkdown(schema, doc.data, branded, exportOptions), 'text/markdown;charset=utf-8');
+      if (kind === 'txt') downloadFile(fileName(schema, 'txt'), toPlainText(schema, doc.data, branded, exportOptions));
+      if (kind === 'docx') downloadFile(fileName(schema, 'docx'), await toWord(schema, doc.data, branded, exportOptions));
       recordEvent('document_downloaded', { projectId, props: { template: schema.code, format: kind } });
     } catch {
       toast.error("Couldn't make that file. Try again.");
@@ -108,6 +118,7 @@ export function TemplateEditor({
 
   return (
     <DocumentContext.Provider value={{ schema, data: doc.data }}>
+    <PicturesContext.Provider value={pictures}>
     <div className="flex flex-1 flex-wrap">
       <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-7 px-4 pt-10 pb-15 md:pr-10 md:pl-page print:p-0">
         <DocumentHeader
@@ -134,20 +145,36 @@ export function TemplateEditor({
 
         {/* Editing tools as pills, in the platform's filter look (Ika, 2026-10-21); getting the
             document out (downloads and Print) is one menu beside the preview. */}
-        {!readOnly && (
+        {(!readOnly || withDetail) && (
           <div role="toolbar" aria-label="Document tools" className="flex flex-wrap items-center gap-2 print:hidden">
-            <button type="button" onClick={doc.undo} disabled={!doc.canUndo} className={toolPill}>
-              <Undo2 aria-hidden className="size-4" /> Undo
-            </button>
-            <button type="button" onClick={doc.redo} disabled={!doc.canRedo} className={toolPill}>
-              <Redo2 aria-hidden className="size-4" /> Redo
-            </button>
-            {addRowTo >= 0 && (
+            {!readOnly && (
+              <>
+                <button type="button" onClick={doc.undo} disabled={!doc.canUndo} className={toolPill}>
+                  <Undo2 aria-hidden className="size-4" /> Undo
+                </button>
+                <button type="button" onClick={doc.redo} disabled={!doc.canRedo} className={toolPill}>
+                  <Redo2 aria-hidden className="size-4" /> Redo
+                </button>
+              </>
+            )}
+            {addRowTo >= 0 && !readOnly && (
               <button type="button" onClick={addRow} className={toolPill}>
                 <Plus aria-hidden className="size-4" /> {addRowLabel}
               </button>
             )}
-            {schema.actions.includes('Mark Paid') && (
+            {/* The detail columns (angle, move, framing…): hidden until wanted; a dot when some are filled in. */}
+            {withDetail && (
+              <button type="button" aria-pressed={detail} onClick={() => setDetail(!detail)} className={cn(toolPill, detail && 'border-foreground bg-secondary')}>
+                <ListPlus aria-hidden className="size-4" /> More detail
+                {hiddenAnswers && (
+                  <>
+                    <span aria-hidden className="size-1.5 rounded-full bg-nia-blue" />
+                    <span className="sr-only">(some filled in)</span>
+                  </>
+                )}
+              </button>
+            )}
+            {schema.actions.includes('Mark Paid') && !readOnly && (
               <button type="button" aria-pressed={doc.paid} onClick={() => doc.setPaid(!doc.paid)} className={cn(toolPill, doc.paid && 'border-foreground bg-secondary')}>
                 <BadgeCheck aria-hidden className="size-4" /> {doc.paid ? 'Mark unpaid' : 'Mark paid'}
               </button>
@@ -168,6 +195,7 @@ export function TemplateEditor({
               value={shown[index]}
               onChange={(value, key) => doc.update(index, value, `${index}:${key}`)}
               currency={currency}
+              detail={!withDetail || detail}
             />
           </section>
         ))}
@@ -181,7 +209,7 @@ export function TemplateEditor({
       >
         <div className="flex flex-col gap-6 md:sticky md:top-[calc(var(--nav-offset)+1.5rem)]">
           <DocumentPreviewHeader status={doc.paid ? 'Paid' : ready ? 'Ready to export' : 'Draft'} />
-          <LivePreview schema={schema} data={doc.data} branded={branded} />
+          <LivePreview schema={schema} data={doc.data} branded={branded} options={exportOptions} />
           {total < 3 && (
             <p className="-mt-3 text-small text-muted-foreground">
               {doc.filled} of {total} {total === 1 ? 'section' : 'sections'} filled
@@ -298,6 +326,7 @@ export function TemplateEditor({
         </div>
       </aside>
     </div>
+    </PicturesContext.Provider>
     </DocumentContext.Provider>
   );
 }

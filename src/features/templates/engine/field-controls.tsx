@@ -18,6 +18,7 @@ import { createClient } from '@/lib/supabase/client';
 import { TimeWheel, type TimeValue } from '@/components/nia/time-wheel';
 import type { DurationUnit, FieldSpec } from '../types';
 import { useDocumentContext } from './document-context';
+import { PictureCell } from './pictures';
 import { fieldKind, fieldLabel, optionsFromSection, refRows, type FieldValue } from './sections';
 import { formatClock, formatDays, formatPages, isEmail, parseDay, toAmount, toDay, type DateTimeRange, type Duration, type TimeRange, type Weather, type YesNo } from './format';
 
@@ -65,6 +66,8 @@ export function FieldControl({ id, field, value, onChange, compact = false, tall
       );
     case 'role':
       return <RolePicker id={id} label={label} value={value as string} onChange={onChange} />;
+    case 'image':
+      return <PictureCell id={id} label={label} value={(value as string) ?? ''} onChange={onChange} />;
     case 'people':
       return <Assignees id={id} label={label} value={value as PersonRef[]} onChange={onChange} search={findPeople} single={spec?.single} compact={compact} />;
     case 'number':

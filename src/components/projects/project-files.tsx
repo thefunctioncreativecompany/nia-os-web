@@ -142,8 +142,8 @@ async function imagePreview(file: File): Promise<Blob | null> {
 
 /**
  * Uploads one file to a project: the file, a smaller copy of a picture or a first-page picture for a
- * PDF (best effort: a locked PDF just shows its icon), then its record with a tag. Used by the upload box and by the
- * New project form (audit #12). Throws with a readable message if it fails.
+ * PDF (best effort: a locked PDF just shows its icon), then its record with a tag. Used by the upload box, the
+ * New project form (audit #12) and a shot list's pictures. Returns the file's id; throws with a readable message if it fails.
  */
 export async function uploadProjectFile(projectId: string, file: File, token: string, tag: FileTag | "auto" = "auto", onProgress: (p: number) => void = () => {}, key: string = crypto.randomUUID()) {
   const supabase = createClient();
@@ -167,18 +167,24 @@ export async function uploadProjectFile(projectId: string, file: File, token: st
       if (!thumbError) thumb = thumbPath;
     }
   }
-  const { error } = await supabase.from("project_files").insert({
-    project_id: projectId,
-    name: file.name.slice(0, 255),
-    path,
-    mime: file.type,
-    size: file.size,
-    kind,
-    tag: tag === "auto" ? AUTO_TAG[kind] : tag,
-    thumb_path: thumb,
-  });
+  const { data, error } = await supabase
+    .from("project_files")
+    .insert({
+      project_id: projectId,
+      name: file.name.slice(0, 255),
+      path,
+      mime: file.type,
+      size: file.size,
+      kind,
+      tag: tag === "auto" ? AUTO_TAG[kind] : tag,
+      thumb_path: thumb,
+    })
+    .select("id")
+    .single();
   if (error) throw new Error(error.message);
   recordEvent("file_uploaded", { projectId, props: { kind } });
+  // The new file's id (a shot list keeps it in its Reference column).
+  return data.id as string;
 }
 
 export const MAX_UPLOAD_MB = MAX_MB;

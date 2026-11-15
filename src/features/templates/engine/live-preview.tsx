@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 import { pdfPages } from '@/lib/pdf-preview';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { TemplateSchema } from '../types';
-import { toPdf } from './export';
+import { toPdf, type ExportOptions } from './export';
 import type { SectionValue } from './sections';
 
 // How long after the last change the preview redraws.
@@ -21,7 +21,7 @@ const PAGE_PX = 1000;
 // does): the same PDF Download makes, drawn page by page, redrawn a moment after each change. The
 // last pages stay on screen while the next ones draw, so nothing flashes. Its height leaves room
 // for Save and Download below it in the pinned panel on short laptop screens.
-export function LivePreview({ schema, data, branded }: { schema: TemplateSchema; data: SectionValue[]; branded: boolean }) {
+export function LivePreview({ schema, data, branded, options }: { schema: TemplateSchema; data: SectionValue[]; branded: boolean; options?: ExportOptions }) {
   const [pages, setPages] = useState<string[] | null>(null);
   const [updating, setUpdating] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -33,7 +33,7 @@ export function LivePreview({ schema, data, branded }: { schema: TemplateSchema;
     const draw = async () => {
       setUpdating(true);
       try {
-        const blobs = await pdfPages(await toPdf(schema, data, branded), PAGE_PX);
+        const blobs = await pdfPages(await toPdf(schema, data, branded, options), PAGE_PX);
         if (mine !== run.current) return;
         const urls = blobs.map((b) => URL.createObjectURL(b));
         setPages((old) => {
@@ -61,7 +61,7 @@ export function LivePreview({ schema, data, branded }: { schema: TemplateSchema;
     return () => cancelIdleCallback(idle);
     // `pages` only decides the first wait; it mustn't start another redraw.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [schema, data, branded]);
+  }, [schema, data, branded, options]);
 
   // Let go of the page pictures when the editor closes.
   useEffect(() => () => setPages((old) => (old?.forEach((u) => URL.revokeObjectURL(u)), null)), []);

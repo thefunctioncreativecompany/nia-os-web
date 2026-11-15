@@ -1024,3 +1024,18 @@ onboarding's Import profile and Follow creators describe features removed in the
   otherwise (no uploading someone else's photo). Also fixed: "Editor" was filed under Camera &
   lighting (the DIT rule matched "e-dit-or"); DIT and set now match whole words.
   (`quick-add-people.tsx`, `quickAdd` in `mutations.ts`, `parsePeople` in `directory.ts`.)
+- (2026-11-15) Shot lists start from pictures (Ika: "some teams may only have references for shot list, not
+  elaborate camera angles and extra details … less overwhelming for beginners and experienced
+  teams"). Both shot lists (D06 Shotlist, G16 Shot List (Photo)) get a Reference picture column
+  next to Description. Add from pictures (the project's own, references first, or from the
+  computer) or drop pictures on the table: each picture fills an empty row, then adds one. A picture
+  is a project file tagged Reference (it shows in the project's Files); the cell keeps its id, and
+  links come from the server's cached links (`picture-actions.ts`, the smaller copy). Pictures
+  need the document to be in a project; until then the cell offers Save to project.
+  More detail: table columns marked `detail` (Shotlist: I/E, Type, Angle, Move; Photo: Set-up /
+  Look, Framing, Orientation, Light, Talent / Product, Priority) wait for the More detail pill in
+  the toolbar. Their answers are kept when it's off; a blue dot says some are filled in. It's
+  remembered per template on the device, and starts on for a document that already has detail
+  answers. Downloads follow what's shown; the PDF draws the pictures in their cells, Word,
+  Markdown and text say "Picture". (`pictures.tsx`, `more-detail.ts`, `shownColumns` in
+  `sections.ts`, `export.ts`.)

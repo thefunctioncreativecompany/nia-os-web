@@ -1049,13 +1049,19 @@
           "columns": [
             "Shot #",
             {
+              "label": "Reference",
+              "kind": "image"
+            },
+            "Description",
+            {
               "label": "I/E",
               "kind": "choice",
               "options": [
                 "INT",
                 "EXT",
                 "INT/EXT"
-              ]
+              ],
+              "detail": true
             },
             {
               "label": "Type",
@@ -1069,7 +1075,8 @@
                 "Over-the-shoulder",
                 "POV",
                 "Two-shot"
-              ]
+              ],
+              "detail": true
             },
             {
               "label": "Angle",
@@ -1080,7 +1087,8 @@
                 "Low",
                 "Overhead",
                 "Dutch"
-              ]
+              ],
+              "detail": true
             },
             {
               "label": "Move",
@@ -1095,9 +1103,9 @@
                 "Crane",
                 "Steadicam",
                 "Zoom"
-              ]
-            },
-            "Description"
+              ],
+              "detail": true
+            }
           ],
           "rows": 6,
           "autonumber": "Shot #"
@@ -3787,8 +3795,16 @@
           "title": "Shots",
           "columns": [
             "Shot #",
-            "Set-up / Look",
+            {
+              "label": "Reference",
+              "kind": "image"
+            },
             "Description",
+            {
+              "label": "Set-up / Look",
+              "kind": "text",
+              "detail": true
+            },
             {
               "label": "Framing",
               "kind": "choice",
@@ -3801,7 +3817,8 @@
                 "Wide",
                 "Flat lay",
                 "Overhead"
-              ]
+              ],
+              "detail": true
             },
             {
               "label": "Orientation",
@@ -3810,7 +3827,8 @@
                 "Portrait",
                 "Landscape",
                 "Square"
-              ]
+              ],
+              "detail": true
             },
             {
               "label": "Light",
@@ -3820,16 +3838,22 @@
                 "Strobe",
                 "Continuous",
                 "Mixed"
-              ]
+              ],
+              "detail": true
             },
-            "Talent / Product",
+            {
+              "label": "Talent / Product",
+              "kind": "text",
+              "detail": true
+            },
             {
               "label": "Priority",
               "kind": "choice",
               "options": [
                 "Must have",
                 "Nice to have"
-              ]
+              ],
+              "detail": true
             },
             {
               "label": "Got it",

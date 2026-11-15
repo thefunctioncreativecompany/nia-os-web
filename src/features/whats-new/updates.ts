@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "shot-list-from-pictures",
+    date: "2026-11-15",
+    title: "Shot lists from your references",
+    body: "Drop your reference pictures on a shot list and each becomes a shot. Camera details wait under More detail until you need them, and the PDF shows the pictures.",
+    href: "/templates/D06",
+    cta: "Open the shot list",
+    icon: "viewfinder",
+    weight: { production: 0.9, fashion: 1, creator: 0.7 },
+  },
+  {
     id: "quick-add-people",
     date: "2026-11-15",
     title: "Add your crew in a line",
