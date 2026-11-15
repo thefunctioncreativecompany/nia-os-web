@@ -35,7 +35,7 @@ export function StudioLogos({ rows }: { rows: StudioRow[] }) {
   return (
     <ScrollRow label="Studios">
       {rows.map((r) => (
-        <li key={r.id} className="w-[22%] flex-none snap-start sm:w-[15%] md:w-[11%] lg:w-[9%]">
+        <li key={r.id} className="w-[22%] flex-none snap-start sm:w-[15%] md:w-[11%] lg:w-[9%] 2xl:w-[7.5%] 3xl:w-[6%]">
           <StudioLogo row={r} />
         </li>
       ))}

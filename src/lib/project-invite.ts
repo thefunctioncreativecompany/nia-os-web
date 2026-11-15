@@ -1,9 +1,13 @@
 "use server";
 
 import { headers } from "next/headers";
+import { z } from "zod";
 
 import { inviteEmail } from "@/lib/invite-email";
 import { createClient } from "@/lib/supabase/server";
+import { emailAddress, rowId } from "@/lib/schemas";
+
+const inviteInput = z.object({ projectId: rowId, email: emailAddress });
 
 const SITE = "https://app.niatechnologies.co";
 const TRUSTED_ORIGINS = new Set([SITE, "https://nia-os-web-9ahh.vercel.app", "http://localhost:3000"]);
@@ -17,6 +21,8 @@ type Person = { kind: "owner" | "member" | "invite"; user_id: string | null; nam
 export async function sendProjectInvite(projectId: string, email: string): Promise<{ sent: boolean }> {
   const key = process.env.RESEND_API_KEY;
   if (!key) return { sent: false };
+  const input = inviteInput.safeParse({ projectId, email });
+  if (!input.success) return { sent: false };
 
   const supabase = await createClient();
   const {
@@ -25,14 +31,14 @@ export async function sendProjectInvite(projectId: string, email: string): Promi
   if (!user) return { sent: false };
 
   const [{ data: people }, { data: project }] = await Promise.all([
-    supabase.rpc("project_people", { pid: projectId }),
-    supabase.from("projects").select("title").eq("id", projectId).maybeSingle(),
+    supabase.rpc("project_people", { pid: input.data.projectId }),
+    supabase.from("projects").select("title").eq("id", input.data.projectId).maybeSingle(),
   ]);
   const list = (people ?? []) as Person[];
   const owner = list.find((p) => p.kind === "owner");
   if (!owner || owner.user_id !== user.id) return { sent: false };
 
-  const address = email.trim().toLowerCase();
+  const address = input.data.email.toLowerCase();
   const person = list.find((p) => p.kind !== "owner" && p.email.toLowerCase() === address);
   if (!person || (person.role !== "editor" && person.role !== "viewer")) return { sent: false };
 
@@ -47,7 +53,7 @@ export async function sendProjectInvite(projectId: string, email: string): Promi
     role: person.role,
     hasAccount,
     email: address,
-    link: hasAccount ? `${origin}/projects/${projectId}` : `${origin}/sign-up`,
+    link: hasAccount ? `${origin}/projects/${input.data.projectId}` : `${origin}/sign-up`,
   });
 
   const response = await fetch("https://api.resend.com/emails", {

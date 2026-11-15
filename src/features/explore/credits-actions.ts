@@ -1,6 +1,7 @@
 "use server";
 
 import { hasPaidAccess } from "@/lib/plan-server";
+import { exploreSlug } from "@/lib/schemas";
 import { findCreatorFilm } from "./creators";
 import type { Credit } from "./credit-format";
 import { filmCastAndCrew } from "./film-people";
@@ -13,6 +14,8 @@ export type AllCredits = { locked: true } | { locked: false; credits: Credit[] }
 // belong to). Like the other plan limits, it's open to everyone off the live site.
 export async function loadAllCredits(slug: string): Promise<AllCredits> {
   if (!(await hasPaidAccess())) return { locked: true };
-  const creator = findCreatorFilm(slug);
-  return { locked: false, credits: creator ? castAndCrew(creator) : filmCastAndCrew(slug).map(({ wikidata: _w, ...c }) => c) };
+  const parsed = exploreSlug.safeParse(slug);
+  if (!parsed.success) return { locked: false, credits: [] };
+  const creator = findCreatorFilm(parsed.data);
+  return { locked: false, credits: creator ? castAndCrew(creator) : filmCastAndCrew(parsed.data).map(({ wikidata: _w, ...c }) => c) };
 }

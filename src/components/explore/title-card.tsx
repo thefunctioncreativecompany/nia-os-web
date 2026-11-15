@@ -18,8 +18,7 @@ import { sentenceCase } from "@/lib/sentence-case";
 const POSTER = 268 / 373;
 
 /** For a row's cell: a film's card is as tall as the posters beside it, so its cell is wider (or,
- * for a vertical film, narrower) by this much. Cells size themselves as
- * `w-[calc(30%*var(--span,1))]`. */
+ * for a vertical film, narrower) by this much (ROW_CELL in row-cell.ts multiplies by it). */
 export function cardSpan(item: { aspect?: number }): CSSProperties | undefined {
   return item.aspect ? ({ "--span": item.aspect / POSTER } as CSSProperties) : undefined;
 }

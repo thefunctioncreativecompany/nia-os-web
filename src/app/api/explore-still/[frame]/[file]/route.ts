@@ -1,5 +1,4 @@
-import sharp from "sharp";
-
+import { fetchImage, safeSharp } from "@/lib/fetch-image";
 import stills from "@/features/explore/trailer-stills.json";
 
 // A stand-in cover (Ika, 2026-10-31): the frame chosen from a title's official trailer
@@ -14,14 +13,25 @@ const POSTER = 268 / 373;
 
 export async function GET(_request: Request, { params }: { params: Promise<{ frame: string; file: string }> }) {
   const { frame, file } = await params;
-  const still = STILLS[file.replace(/\.jpg$/, "")];
+  const key = file.replace(/\.jpg$/, "");
+  // Own keys only, so "constructor.jpg" never reaches JavaScript's built-ins (security audit, 2026-11-15).
+  const still = Object.hasOwn(STILLS, key) ? STILLS[key] : undefined;
   // `-wide` (Recently added's mosaic): the whole frame, only its black bars cut.
   const wideFrame = frame === `${still?.id}-${still?.size}-wide`;
   if (!still || (frame !== `${still.id}-${still.size}` && !wideFrame)) return new Response("Not found", { status: 404 });
 
-  const r = await fetch(`https://i.ytimg.com/vi/${still.id}/${still.size}.jpg`);
-  if (!r.ok) return new Response("Not found", { status: 404 });
-  const image = sharp(Buffer.from(await r.arrayBuffer()));
+  // A YouTube thumbnail is well under 1 MB; 5 MB is the cap.
+  const picture = await fetchImage(`https://i.ytimg.com/vi/${still.id}/${still.size}.jpg`, { maxBytes: 5 * 1024 * 1024 });
+  if (!picture) return new Response("Not found", { status: 404 });
+  try {
+    return await cut(picture, still, wideFrame);
+  } catch {
+    return new Response("Not found", { status: 404 });
+  }
+}
+
+async function cut(picture: Buffer, still: (typeof STILLS)[string], wideFrame: boolean) {
+  const image = safeSharp(picture);
   const { width = 1280, height = 720 } = await image.metadata();
   // The picture inside its bars (top and bottom, and either side of a 4:3 film).
   const side = still.left ?? 0;

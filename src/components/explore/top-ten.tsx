@@ -4,6 +4,7 @@ import { use } from "react";
 
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { exploreItem } from "@/features/explore/items";
+import { ROW_CELL, ROW_SIZES } from "./row-cell";
 import { ExploreCard, cardSpan } from "./title-card";
 
 // Top 10 on Explore (Ika, 2026-10-31; src/features/explore/top.ts): what people on Nia open, save
@@ -21,11 +22,11 @@ export function TopTen({ top }: { top: Promise<string[]> }) {
       {items.map((item, i) => (
         <li
           key={item.slug}
-          className="relative w-[calc(44%*var(--span,1))] flex-none snap-start sm:w-[calc(30%*var(--span,1))] md:w-[calc(22%*var(--span,1))] lg:w-[calc(18%*var(--span,1))]"
+          className={`relative ${ROW_CELL}`}
           style={cardSpan(item)}
         >
           <span className="sr-only">Number {i + 1}:</span>
-          <ExploreCard item={item} href={item.href()} sizes="(min-width: 64rem) 18vw, (min-width: 40rem) 30vw, 44vw" first={i < 5} />
+          <ExploreCard item={item} href={item.href()} sizes={ROW_SIZES} first={i < 5} />
           <span aria-hidden className="pointer-events-none absolute top-1.5 right-3 text-rank font-bold text-white drop-shadow-md">
             {i + 1}
           </span>

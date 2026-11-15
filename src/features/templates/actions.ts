@@ -1,5 +1,6 @@
 "use server";
 
+import { templateCode } from "@/lib/schemas";
 import { catalog, getSchema, getTemplate } from "./catalog";
 import { relatedTemplates } from "./recommend";
 import { toGallery, type GalleryTemplate } from "./gallery";
@@ -17,7 +18,9 @@ export type TemplatePreview = {
 // doesn't carry every template's About, How to use and FAQ text. The catalogue is
 // public product copy, so no sign-in check is needed.
 export async function loadTemplatePreview(code: string): Promise<TemplatePreview | null> {
-  const template = getTemplate(code);
+  const parsed = templateCode.safeParse(code);
+  if (!parsed.success) return null;
+  const template = getTemplate(parsed.data);
   if (!template) return null;
   const schema = getSchema(template.schema ?? template.code);
   return {

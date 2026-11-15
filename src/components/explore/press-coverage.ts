@@ -233,4 +233,6 @@ PRESS.obsession = PRESS["obsession-series"];
 // cited reviews and official YouTube uploads, then checked by hand (Ika, 2026-10-28).
 const KITS = kits as unknown as Record<string, PressCoverage>;
 
-export const getPress = (id: string): PressCoverage | null => PRESS[id] ?? KITS[id] ?? null;
+// Own keys only, so "constructor" and the like never return JavaScript's built-ins.
+export const getPress = (id: string): PressCoverage | null =>
+  (Object.hasOwn(PRESS, id) ? PRESS[id] : null) ?? (Object.hasOwn(KITS, id) ? KITS[id] : null);

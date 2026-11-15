@@ -58,6 +58,7 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | 1 | Sign-up email: last test sent no email | ⏸ Ika |
 | G1 | Google sign-in shows the Supabase address | ⏸ Ika |
 | DB | `20261110000000_explore_open.sql` not run: only invited people can save Explore titles | ⏸ Ika |
+| DB2 | `20261117000000_portfolios_signed_out.sql` not run: signed-out visitors aren't blocked at the door on the portfolio tables (their rules still show them nothing) | ⏸ Ika |
 
 ## Next up
 
@@ -93,6 +94,7 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | Other UI | Recharts, react-day-picker, d3-time, cmdk, Sonner, Vaul, react-easy-crop |
 | Video | Remotion (template tutorials, demo films); ElevenLabs voice-over (demo films only) |
 | Testing | Vitest; Playwright MCP (headless Chrome checks); ESLint |
+| Security | Zod 4 checks every server action's input (`src/lib/schemas.ts`); pictures downloaded on the server are capped at 50 MB and 100 megapixels, refuse redirects and come only from Nia, its own Supabase project, YouTube thumbnails and Wikimedia Commons (`src/lib/fetch-image.ts`) |
 | AI (planned) | Claude API for the Copilot and agents; not added yet |
 
 ## Integrations and services
@@ -117,5 +119,5 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | Workflows | 12 (3 per group) |
 | Explore titles in the library | 329 (only titles with a cover show) |
 | Explore press kits | 178 |
-| Database migrations | 41 files (2 waiting to be run) |
-| Automated tests | 139 in 21 files, all passing |
+| Database migrations | 42 files (3 waiting to be run) |
+| Automated tests | 151 in 24 files, all passing |

@@ -1,11 +1,13 @@
 "use server";
 
-import sharp from "sharp";
+import { z } from "zod";
 
 import type { Credit } from "@/features/explore/creators";
 import { PRODUCTION_TYPES } from "@/lib/projects";
 import { decodeEntities, parseDescription, parseInstagramLink, readCaption, shapeFromBars, type InstagramLink } from "@/lib/instagram";
 import { referenceSlug } from "@/lib/instagram-references";
+import { fetchImage, safeSharp } from "@/lib/fetch-image";
+import { pastedLink, rowId } from "@/lib/schemas";
 import { getSession } from "@/lib/supabase/session";
 
 // Reads an Instagram post the way link previews do (WhatsApp, Slack), from its public page:
@@ -30,22 +32,17 @@ function meta(html: string, attribute: "name" | "property", key: string) {
   return m ? decodeEntities(m[1]) : null;
 }
 
-async function download(url: string): Promise<Buffer | null> {
-  const response = await fetch(url, { headers: { "User-Agent": PREVIEW_BOT }, signal: AbortSignal.timeout(10_000), cache: "no-store" }).catch(() => null);
-  if (!response?.ok) return null;
-  const host = new URL(response.url).hostname;
-  if (!IMAGE_HOSTS.test(host) || !response.headers.get("content-type")?.startsWith("image/")) return null;
-  const body = Buffer.from(await response.arrayBuffer());
-  return body.length <= MAX_IMAGE ? body : null;
-}
+// Instagram's address redirects to its image servers; the picture is kept only if it came from one.
+const download = (url: string) =>
+  fetchImage(url, { maxBytes: MAX_IMAGE, timeoutMs: 10_000, headers: { "User-Agent": PREVIEW_BOT }, landedOn: (u) => IMAGE_HOSTS.test(u.hostname) });
 
 /** The cover as a JPEG of just the picture (black bars cut off), up to 1280 wide, and its shape. */
 async function coverFrom(image: Buffer): Promise<Post["cover"]> {
   try {
-    const picture = sharp(image).rotate();
+    const picture = safeSharp(image).rotate();
     const { width, height } = await picture.metadata();
     if (!width || !height) return null;
-    const inner = await sharp(image)
+    const inner = await safeSharp(image)
       .rotate()
       .trim({ background: "#000000", threshold: 24 })
       .toBuffer({ resolveWithObject: true })
@@ -98,12 +95,13 @@ export type InstagramDraft = {
 export async function readInstagramPost(input: string): Promise<{ ok: true; draft: InstagramDraft } | { ok: false; error: string; link?: string }> {
   const { user } = await getSession();
   if (!user) return { ok: false, error: "Sign in to add references." };
-  const link = parseInstagramLink(input);
+  const pasted = pastedLink.safeParse(input);
+  const link = pasted.success ? parseInstagramLink(pasted.data) : null;
   if (!link) return { ok: false, error: "That isn't a link to an Instagram post or reel. Copy it from the post's Share or ⋯ menu." };
   const post = await readPost(link);
   if (!post) return { ok: false, error: NOT_SHARED, link: link.link };
   const { title, credits } = readCaption(post.caption, post.account ?? "");
-  const preview = post.cover ? await sharp(post.cover.jpeg).resize({ width: 480, withoutEnlargement: true }).jpeg({ quality: 75 }).toBuffer() : null;
+  const preview = post.cover ? await safeSharp(post.cover.jpeg).resize({ width: 480, withoutEnlargement: true }).jpeg({ quality: 75 }).toBuffer() : null;
   return {
     ok: true,
     draft: {
@@ -120,14 +118,21 @@ export async function readInstagramPost(input: string): Promise<{ ok: true; draf
 
 export type ReferenceInput = { link: string; title: string; productionType: string | null; note: string; credits: Credit[] };
 
-const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 const HANDLE = /^[A-Za-z0-9._]{1,30}$/;
 
-function cleanCredits(credits: unknown): Credit[] | null {
-  if (!Array.isArray(credits) || credits.length > 100) return null;
+// The shape a reference must arrive in; the friendlier checks (title and note lengths) follow.
+const referenceInput = z.object({
+  link: pastedLink,
+  title: z.string().max(500),
+  productionType: z.string().max(80).nullable(),
+  note: z.string().max(5000),
+  credits: z.array(z.object({ role: z.string().max(500), name: z.string().max(500), handle: z.string().max(60).nullish() })).max(100),
+});
+type CreditInput = z.infer<typeof referenceInput>["credits"];
+
+function cleanCredits(credits: CreditInput): Credit[] {
   const out: Credit[] = [];
   for (const c of credits) {
-    if (!c || typeof c.role !== "string" || typeof c.name !== "string") return null;
     const role = c.role.trim().slice(0, 40);
     const name = c.name.trim().slice(0, 200);
     if (!role || !name) continue;
@@ -142,12 +147,14 @@ function cleanCredits(credits: unknown): Credit[] | null {
 export async function addInstagramReference(projectId: string, input: ReferenceInput): Promise<{ ok: true; id: string } | { ok: false; error: string }> {
   const { supabase, user } = await getSession();
   if (!user) return { ok: false, error: "Sign in to add references." };
-  const link = parseInstagramLink(input.link);
-  const title = input.title.trim();
-  const note = input.note.trim();
-  const credits = cleanCredits(input.credits);
-  const productionType = input.productionType && (PRODUCTION_TYPES as readonly string[]).includes(input.productionType) ? input.productionType : null;
-  if (!UUID.test(projectId) || !link || !credits) return { ok: false, error: "Something in this reference didn't read. Paste the link again." };
+  const parsed = z.object({ projectId: rowId, input: referenceInput }).safeParse({ projectId, input });
+  const link = parsed.success ? parseInstagramLink(parsed.data.input.link) : null;
+  if (!parsed.success || !link) return { ok: false, error: "Something in this reference didn't read. Paste the link again." };
+  const fields = parsed.data.input;
+  const title = fields.title.trim();
+  const note = fields.note.trim();
+  const credits = cleanCredits(fields.credits);
+  const productionType = fields.productionType && (PRODUCTION_TYPES as readonly string[]).includes(fields.productionType) ? fields.productionType : null;
   if (!title || title.length > 120) return { ok: false, error: "Give the reference a title (up to 120 characters)." };
   if (note.length > 1000) return { ok: false, error: "Keep the note under 1,000 characters." };
 

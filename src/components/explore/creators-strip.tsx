@@ -6,6 +6,7 @@ import { ScrollRow } from "@/components/nia/scroll-row";
 import { shuffled } from "@/lib/shuffle";
 import { CREATORS, CREATORS_HREF } from "@/features/explore/creators";
 import { creatorItems } from "@/features/explore/items";
+import { ROW_CELL, ROW_SIZES } from "./row-cell";
 import { ExploreCard, cardSpan } from "./title-card";
 
 // Creators on Explore (Ika, 2026-10-21): commercials, fashion films, music videos and shorts by
@@ -35,8 +36,8 @@ export function CreatorsStrip({ seed, bare = false }: { seed: number; bare?: boo
       )}
       <ScrollRow label={CREATORS.name}>
         {shuffled(creatorItems(), seed).slice(0, ROW_MAX).map((item) => (
-          <li key={item.slug} className="w-[calc(44%*var(--span,1))] flex-none snap-start sm:w-[calc(30%*var(--span,1))] md:w-[calc(22%*var(--span,1))] lg:w-[calc(18%*var(--span,1))]" style={cardSpan(item)}>
-            <ExploreCard item={item} href={item.href()} sizes="(min-width: 64rem) 18vw, (min-width: 40rem) 30vw, 44vw" />
+          <li key={item.slug} className={ROW_CELL} style={cardSpan(item)}>
+            <ExploreCard item={item} href={item.href()} sizes={ROW_SIZES} />
           </li>
         ))}
       </ScrollRow>

@@ -94,6 +94,11 @@
   --spacing-page: 1.875rem;
 }
 
+/* Wide desktop screens (1920px and up), so Explore's rows add cards instead of growing them. */
+@theme {
+  --breakpoint-3xl: 120rem;
+}
+
 /* Named text sizes from the Figma text styles (Heading/H1, Body/Small, Caption, Micro/Tag…). */
 @theme {
   --text-h1: 2rem;
