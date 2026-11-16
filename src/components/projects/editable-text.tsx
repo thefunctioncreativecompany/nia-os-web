@@ -1,13 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
+import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
+import { RichText } from "@/lib/rich-text";
+
+// The formatting editor loads only when someone starts editing (rich text, 2026-11-15).
+const RichTextEditor = dynamic(() => import("@/components/nia/rich-text-editor").then((m) => m.RichTextEditor), { ssr: false });
 
 // Text that turns into an input when clicked and saves when you leave it (or press
 // Enter; Escape cancels). Read-only viewers just see the text.
 // `heading` makes it the page's main heading (<h1>) in every state; screen readers then hear
 // the text itself ("Behind the Lens, edit title"), not only "Edit title".
+// `rich` (long text, Ika 2026-11-15): shown formatted (rich-text.tsx), edited with bold, italic,
+// lists and links as you type (rich-text-editor.tsx); stored as Markdown.
 export function EditableText({
   heading = false,
   ...props
@@ -28,6 +36,7 @@ function EditableField({
   emptyText,
   onSave,
   multiline = false,
+  rich = false,
   maxLength,
   readOnly = false,
   className,
@@ -43,6 +52,8 @@ function EditableField({
   emptyText?: string;
   onSave: (next: string) => Promise<void>;
   multiline?: boolean;
+  /** Formatting: bold, italic, lists and links (implies multiline). */
+  rich?: boolean;
   maxLength?: number;
   readOnly?: boolean;
   className?: string;
@@ -53,9 +64,14 @@ function EditableField({
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value);
 
-  const finish = async (save: boolean) => {
+  const finish = async (save: boolean, text = draft) => {
+    const next = text.trim();
+    // Formatting marks count towards the stored length; too long keeps the editor open.
+    if (save && rich && maxLength && next.length > maxLength) {
+      toast.error(`That's too long to save (${next.length} of ${maxLength} characters, formatting included).`);
+      return;
+    }
     setEditing(false);
-    const next = draft.trim();
     if (!save || next === value) {
       setDraft(value);
       return;
@@ -66,6 +82,38 @@ function EditableField({
       setDraft(value);
     }
   };
+
+  if (rich) {
+    if (readOnly) return value ? <RichText value={value} className={cn(className, "px-0")} /> : <p className={cn(className, "px-0 text-muted-foreground")}>{emptyText || placeholder}</p>;
+    if (editing)
+      return (
+        <RichTextEditor
+          value={draft}
+          label={label}
+          placeholder={placeholder}
+          onChange={setDraft}
+          onDone={(save) => void finish(save)}
+          className={cn(className, inputClassName)}
+        />
+      );
+    // The text formatted; a button over it starts editing, and its links sit above the button.
+    return (
+      <div className={cn(className, "group/edit relative w-full rounded-md transition-colors duration-fast hover:bg-muted/70", !value && "text-nia-placeholder", buttonClassName)}>
+        <button
+          type="button"
+          aria-label={`Edit ${label.toLowerCase()}`}
+          onClick={() => {
+            setDraft(value);
+            setEditing(true);
+          }}
+          className="absolute inset-0 cursor-text rounded-md outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+        />
+        <div className="pointer-events-none relative [&_a]:pointer-events-auto [&_a]:relative [&_a]:z-10">
+          {value ? <RichText value={value} /> : <p>{emptyText || placeholder}</p>}
+        </div>
+      </div>
+    );
+  }
 
   // Read-only: no side padding (it only makes room for the hover), so values line up.
   if (readOnly) {

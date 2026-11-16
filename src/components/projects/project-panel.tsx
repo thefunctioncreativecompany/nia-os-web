@@ -9,6 +9,7 @@ import { formatDay } from "@/lib/dates";
 import { sentenceCase } from "@/lib/sentence-case";
 import { Button } from "@/components/ui/button";
 import { PrevNext, SidePanel } from "@/components/nia/side-panel";
+import { RichText } from "@/lib/rich-text";
 
 type Named = Project & { name: string };
 
@@ -86,7 +87,7 @@ export function ProjectPanel({
             )}
           </section>
 
-          {p.description && <p className="text-lead leading-relaxed text-foreground/80">{p.description}</p>}
+          {p.description && <RichText value={p.description} className="text-lead leading-relaxed text-foreground/80" />}
 
           {rows.some(([, v]) => v) && (
             <dl className="flex flex-col gap-3">

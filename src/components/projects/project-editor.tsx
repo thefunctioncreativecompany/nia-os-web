@@ -353,7 +353,7 @@ export function ProjectEditor({
               <section aria-label="About" className="max-w-3xl">
                 <EditableText
                   label="Description"
-                  multiline
+                  rich
                   value={project.description}
                   placeholder="Add a description..."
                   maxLength={2000}
@@ -369,7 +369,7 @@ export function ProjectEditor({
                 </h2>
                 <EditableText
                   label="Notes"
-                  multiline
+                  rich
                   value={project.notes}
                   placeholder="Anything the team should know: access, permits, allergies…"
                   emptyText="—"

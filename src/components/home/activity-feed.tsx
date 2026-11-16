@@ -13,6 +13,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/nia/empty-state";
 import { SwipeActions, SwipeActionsRow } from "@/components/arc/swipe-actions/swipe-actions";
 import { FileText } from "lucide-react";
+import { plainText } from "@/lib/rich-text";
 
 type Note = { id: number; project_id: string | null; kind: "shared" | "activity"; title: string; body: string; read_at: string | null; archived_at: string | null; created_at: string };
 
@@ -124,7 +125,7 @@ export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[];
                   <span className="min-w-0 flex-1">
                     <span className={cn("block truncate text-sm text-foreground", !row.note.read_at && "font-semibold")}>{row.note.title}</span>
                     <span className="block truncate text-small text-muted-foreground">
-                      {row.note.body ? `${row.note.body} · ` : ""}
+                      {row.note.body ? `${plainText(row.note.body)} · ` : ""}
                       {timeAgo(row.note.created_at, now)}
                     </span>
                   </span>

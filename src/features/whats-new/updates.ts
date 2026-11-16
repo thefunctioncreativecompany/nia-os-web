@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "text-formatting-projects",
+    date: "2026-11-15",
+    title: "Bold, lists and links in your notes",
+    body: "A project's description, notes and comments now take bold, italics, bullet and numbered lists and links, shown as you type.",
+    href: "/projects",
+    cta: "Open a project",
+    icon: "memo",
+    weight: { production: 0.8, fashion: 0.7, creator: 0.7 },
+  },
+  {
     id: "shot-list-from-pictures",
     date: "2026-11-15",
     title: "Shot lists from your references",

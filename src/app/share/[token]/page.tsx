@@ -18,6 +18,7 @@ import { ReferenceStill } from "@/components/projects/reference-still";
 import { ROW_MAX } from "@/lib/rows";
 import { exploreItem, type ExploreItem } from "@/features/explore/items";
 import { fileLinks } from "@/lib/file-links";
+import { RichText, plainText } from "@/lib/rich-text";
 
 // The references row's cells, as on the project page; landscape films get wider ones (cardSpan).
 // Smaller than the project page's: wide stills sit beside the posters at their height.
@@ -39,7 +40,8 @@ export async function generateMetadata({ params }: PageProps<"/share/[token]">):
   const { token } = await params;
   const data = await getShared(token);
   if (!data) return { title: "Link off · Nia OS", robots: { index: false, follow: false } };
-  const description = data.description.trim() || `A ${data.production_type ?? "production"} shared from Nia OS.`;
+  // Link previews get the words without formatting marks.
+  const description = plainText(data.description).trim() || `A ${data.production_type ?? "production"} shared from Nia OS.`;
   // No cover yet: the NIA wordmark card stands in.
   const images = [
     data.cover_url
@@ -170,7 +172,7 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
           {data.owner_name ? ` · Shared by ${data.owner_name}` : ""}
         </p>
         <h1 className="text-h2 font-semibold tracking-tight text-foreground">{data.title || "Untitled project"}</h1>
-        {data.description && <p className="text-lead whitespace-pre-line text-muted-foreground">{data.description}</p>}
+        {data.description && <RichText value={data.description} className="text-lead text-muted-foreground" />}
       </div>
       <section aria-labelledby="shared-info" className="flex flex-col gap-4">
         <h2 id="shared-info" className="text-subtitle font-semibold text-foreground">
@@ -180,7 +182,7 @@ async function SharedProject({ params }: Pick<PageProps<"/share/[token]">, "para
           {details.map(([label, value]) => (
             <div key={label} className="flex gap-4">
               <dt className="w-[120px] shrink-0 leading-[1.4] font-bold text-muted-foreground">{label}</dt>
-              <dd className="leading-normal font-medium whitespace-pre-line text-foreground">{value || "—"}</dd>
+              <dd className="leading-normal font-medium whitespace-pre-line text-foreground">{label === "Notes" && value ? <RichText value={value} className="whitespace-normal" /> : value || "—"}</dd>
             </div>
           ))}
         </dl>

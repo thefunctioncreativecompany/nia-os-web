@@ -1066,3 +1066,15 @@ onboarding's Import profile and Follow creators describe features removed in the
   (`project_references.position` and `note`). Drag and Move are shared (`drag-reorder.tsx`).
   Migration `20261118000000_project_references_arrange.sql`; notes and arranging stay hidden until
   their columns exist.
+- (2026-11-15) Text formatting, step 1: the project page (Ika: "build text formatting features (ie bold,
+  italics, bulleting, numbering, italicize, add link etc) wherever there's text inputs (excluding … date
+  pickers and other non text input areas)"; she chose formatting that shows while typing, project page
+  first). Long text only; names, titles, dates, numbers, emails and lists to paste stay plain. Tiptap
+  3.32.2 (pinned) with its Markdown extension: bold, italic, bullet and numbered lists, links (web and
+  email only), ⌘B / ⌘I / ⌘K, "- " and "1. " start lists. Stored as Markdown in the same columns, so
+  earlier plain text reads the same and nothing migrates. The editor loads only when someone starts
+  editing (`rich-text-editor.tsx`, next/dynamic); everywhere else the text is drawn by `rich-text.tsx`
+  as React elements (never HTML from the text). Clean text (`plainText`) for link previews, search,
+  cards and notifications. Done: a project's Description and Notes, the New project and Edit details
+  forms, comments, the share page and the side panel. Next: templates (text sections, letters,
+  downloads), then people, references and settings.

@@ -5,6 +5,7 @@ import { projectMeta, type Project } from "@/lib/projects";
 import { Card } from "@/components/arc/card/card";
 import { Button } from "@/components/ui/button";
 import { sentenceCase } from "@/lib/sentence-case";
+import { plainText } from "@/lib/rich-text";
 
 export type LinkShared = { id: string; title: string; description: string; coverUrl: string | null; productionType: string | null; stage: string; token: string; ownerName: string };
 
@@ -20,7 +21,7 @@ export function SharedProjects({ projects, linked = [], now }: { projects: Proje
           <Card
             key={p.id}
             title={p.title || "Untitled project"}
-            description={p.description || undefined}
+            description={plainText(p.description) || undefined}
             media={
               <div className="relative aspect-[19/10] w-full bg-muted">
                 {p.coverUrl && <Image src={p.coverUrl} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />}
@@ -39,7 +40,7 @@ export function SharedProjects({ projects, linked = [], now }: { projects: Proje
           <Card
             key={`link-${p.id}`}
             title={p.title || "Untitled project"}
-            description={p.description || undefined}
+            description={plainText(p.description) || undefined}
             media={
               <div className="relative aspect-[19/10] w-full bg-muted">
                 {p.coverUrl && <Image src={p.coverUrl} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />}

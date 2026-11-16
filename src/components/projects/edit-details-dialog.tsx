@@ -6,7 +6,6 @@ import { toast } from "sonner";
 
 import { PRODUCTION_TYPES, STAGES, type Project } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -24,13 +23,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import {
   fieldClassName,
   fieldLabelClassName,
   selectTriggerClassName,
 } from "@/components/projects/project-form";
 import { sentenceCase } from "@/lib/sentence-case";
+import { RichTextField } from "@/components/nia/rich-text-field";
 
 // "Edit Project Details" from Project Actions: the fields that aren't edited in place.
 export function EditDetailsDialog({ project, children }: { project: Project; children: React.ReactNode }) {
@@ -95,16 +94,8 @@ export function EditDetailsDialog({ project, children }: { project: Project; chi
             />
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor="edit-description" className={fieldLabelClassName}>
-              Description
-            </Label>
-            <Textarea
-              id="edit-description"
-              maxLength={2000}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              className={cn(fieldClassName, "field-sizing-fixed h-24 min-h-24 resize-none")}
-            />
+            <span className={fieldLabelClassName}>Description</span>
+            <RichTextField label="Description" value={description} onChange={setDescription} />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="flex flex-col gap-2">

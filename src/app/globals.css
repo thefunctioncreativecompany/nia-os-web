@@ -941,3 +941,12 @@
     }
   }
 }
+
+/* The formatting editor's placeholder (rich-text-editor.tsx): shown in the empty first line. */
+.rich-text-editor p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--color-nia-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}

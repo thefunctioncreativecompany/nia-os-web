@@ -4,7 +4,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronDown, Ellipsis } from "lucide-react";
 import { toast } from "sonner";
 
+import dynamic from "next/dynamic";
+
 import { cn, getInitials } from "@/lib/utils";
+import { RichText } from "@/lib/rich-text";
 import { timeAgo } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { currentUser } from "@/lib/supabase/current-user";
@@ -35,6 +38,12 @@ type Row = {
 type Me = { name: string; email: string; avatar: string | null };
 
 const MAX = 2000;
+
+// The formatting editor, loaded when someone starts writing a comment.
+const CommentEditor = dynamic(() => import("@/components/nia/rich-text-editor").then((m) => m.RichTextEditor), {
+  ssr: false,
+  loading: () => <div aria-hidden className="h-9 border-b border-nia-blue" />,
+});
 
 export function Comments({ subject, className }: { subject: CommentsSubject; className?: string }) {
   const pid = "projectId" in subject ? subject.projectId : null;
@@ -240,7 +249,7 @@ function Comment({
             }}
           />
         ) : (
-          <p className="text-sm leading-relaxed break-words whitespace-pre-line text-foreground">{c.body}</p>
+          <RichText value={c.body} className="text-sm leading-relaxed text-foreground" />
         )}
         {!editing && (
           <div className="-ml-3 flex items-center gap-1">
@@ -293,6 +302,8 @@ function Composer({
   const [words, setWords] = useState(initial);
   const [active, setActive] = useState(autoFocus);
   const [busy, setBusy] = useState(false);
+  // A new editor after each send, so it starts empty.
+  const [round, setRound] = useState(0);
   const field = useRef<HTMLTextAreaElement>(null);
 
   // Grow with the words.
@@ -310,6 +321,7 @@ function Composer({
     setBusy(false);
     if (ok) {
       setWords("");
+      setRound((n) => n + 1);
       setActive(Boolean(onCancel));
     }
   };
@@ -328,6 +340,21 @@ function Composer({
         </Avatar>
       )}
       <div className="flex min-w-0 flex-1 flex-col gap-2">
+        {/* Formatting (2026-11-15): the plain box until it's used, then the editor in its place. */}
+        {active ? (
+          <CommentEditor
+            key={round}
+            variant="comment"
+            autoFocus
+            value={words}
+            label={placeholder.replace("…", "")}
+            placeholder={placeholder}
+            maxLength={MAX}
+            onChange={setWords}
+            onSubmit={() => void send()}
+            onCancel={cancel}
+          />
+        ) : (
         <textarea
           ref={field}
           rows={1}
@@ -347,6 +374,7 @@ function Composer({
           }}
           className="w-full resize-none overflow-hidden border-0 border-b border-border bg-transparent px-0 py-1.5 text-sm text-foreground outline-none placeholder:text-muted-foreground focus:border-nia-blue"
         />
+        )}
         {active && (
           <div className="flex items-center justify-end gap-2">
             <Button type="button" variant="ghost" size="compact" onClick={cancel}>

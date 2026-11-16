@@ -15,7 +15,6 @@ import { createClient } from "@/lib/supabase/client";
 import { recordEvent } from "@/lib/product-events";
 import { myPlan, projectLimitReached } from "@/lib/plan-client";
 import { FREE_LIMITS, isLimited } from "@/lib/plans";
-import { cn } from "@/lib/utils";
 import { useCoverCropper } from "@/components/projects/use-cover-cropper";
 import { MAX_UPLOAD_MB, UPLOAD_ACCEPT, uploadProjectFile } from "@/components/projects/project-files";
 import { Button } from "@/components/ui/button";
@@ -29,8 +28,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import { sentenceCase } from "@/lib/sentence-case";
+import { RichTextField } from "@/components/nia/rich-text-field";
 
 export const fieldLabelClassName = "text-small leading-normal font-bold text-muted-foreground";
 export const fieldClassName =
@@ -205,17 +204,8 @@ export function ProjectForm() {
       </div>
 
       <div className="flex flex-col gap-2">
-        <Label htmlFor="project-description" className={fieldLabelClassName}>
-          Description
-        </Label>
-        <Textarea
-          id="project-description"
-          maxLength={2000}
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Brief summary of the production..."
-          className={cn(fieldClassName, "field-sizing-fixed h-20 min-h-20 resize-none")}
-        />
+        <span className={fieldLabelClassName}>Description</span>
+        <RichTextField label="Description" value={description} onChange={setDescription} placeholder="Brief summary of the production..." />
       </div>
 
       <div className="flex flex-col gap-2">

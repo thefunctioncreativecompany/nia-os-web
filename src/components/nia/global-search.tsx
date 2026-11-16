@@ -24,6 +24,7 @@ import { exploreAccess } from "@/features/explore/saves";
 import { loadExploreSearchIndex, type ExploreSearchIndex } from "@/features/explore/search-index";
 import { ICPS, WORKFLOWS } from "@/features/workflows/workflows";
 import { servedSized } from "@/lib/served-sized";
+import { plainText } from "@/lib/rich-text";
 
 type Kind = "project" | "document" | "file" | "template" | "explore";
 type Filter = "all" | Kind;
@@ -619,7 +620,7 @@ function Preview({ result: r, now, onOpen }: { result: Result; now: number; onOp
           </>
         )}
       </dl>
-      {r.project?.description && <p className="line-clamp-4 text-sm leading-relaxed text-muted-foreground">{r.project.description}</p>}
+      {r.project?.description && <p className="line-clamp-4 text-sm leading-relaxed text-muted-foreground">{plainText(r.project.description)}</p>}
 
       <Button onClick={onOpen} className="w-fit">
         {label}

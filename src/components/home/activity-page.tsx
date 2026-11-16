@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EmptyState } from "@/components/nia/empty-state";
 import { FilterChip, ResultCount, ChipRow } from "@/components/nia/filter-bar";
+import { plainText } from "@/lib/rich-text";
 
 type Kind = "projects" | "documents" | "files" | "sharing";
 
@@ -77,7 +78,7 @@ function fromActivity(item: ActivityItem): Entry {
 }
 
 function fromNote(note: Note): Entry {
-  const text = `${note.title} ${note.body}`;
+  const text = `${note.title} ${plainText(note.body ?? "")}`;
   return {
     key: `n${note.id}`,
     at: note.created_at,
@@ -89,7 +90,7 @@ function fromNote(note: Note): Entry {
     line: (
       <>
         <span className={cn(!note.read_at && "font-semibold")}>{note.title}</span>
-        {note.body && <span className="block text-small text-muted-foreground">{note.body}</span>}
+        {note.body && <span className="block text-small text-muted-foreground">{plainText(note.body)}</span>}
       </>
     ),
     unread: !note.read_at,
