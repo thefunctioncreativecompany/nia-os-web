@@ -1078,3 +1078,14 @@ onboarding's Import profile and Follow creators describe features removed in the
   cards and notifications. Done: a project's Description and Notes, the New project and Edit details
   forms, comments, the share page and the side panel. Next: templates (text sections, letters,
   downloads), then people, references and settings.
+- (2026-11-15) Key milestones on a project (Ika: "add a key milestones tab under notes on projects, where
+  users/teams can add key milestones/objectives and actions, with a date picker … for now i want to be
+  able to just add action items from meetings, discussions etc"; later a fuller project management view
+  with views, databases, Kanban and boards). A section under Notes on the Overview
+  (`project-milestones.tsx`): one line to add an Action or a Milestone, its words and an optional date
+  (Enter adds and keeps the line ready). Open items by date, overdue in red, milestones flagged; tick
+  to fold under Done; edit words in place (Escape cancels) and change the date. Editors change them,
+  viewers read (database rules too). Table `project_milestones` (kind, title, due_on, done_at,
+  position), removed through `remove_project_milestone`;
+  `20261119000000_project_milestones.sql`. Not in global search yet (its file has another session's
+  edits open): add it there next.

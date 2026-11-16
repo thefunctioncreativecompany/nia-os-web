@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "project-milestones",
+    date: "2026-11-15",
+    title: "Key milestones and actions",
+    body: "Note the actions from a meeting and the milestones that matter, each with a date, on the project's Overview. Tick them off as they're done.",
+    href: "/projects",
+    cta: "Open a project",
+    icon: "calendar",
+    weight: { production: 1, fashion: 0.7, creator: 0.6 },
+  },
+  {
     id: "text-formatting-projects",
     date: "2026-11-15",
     title: "Bold, lists and links in your notes",

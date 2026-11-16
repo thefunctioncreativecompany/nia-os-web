@@ -28,6 +28,7 @@ import { PROJECT_PANEL_ID, ProjectTabs, isProjectTab, type ProjectTabId } from "
 import { sentenceCase } from "@/lib/sentence-case";
 import { ReferenceCards, type ReferencePicture } from "@/components/projects/reference-cards";
 import { ROW_MAX } from "@/lib/rows";
+import { ProjectMilestones } from "@/components/projects/project-milestones";
 
 // Storage path of a cover URL, if it's in this project's folder (so it can be removed).
 function coverPath(url: string | null, projectId: string) {
@@ -379,6 +380,8 @@ export function ProjectEditor({
                   className="text-sm leading-relaxed text-foreground/80"
                 />
               </section>
+              {/* Key milestones and actions, under Notes (Ika, 2026-11-15). */}
+              <ProjectMilestones projectId={project.id} canEdit={canEdit} />
               <section aria-labelledby="overview-references" className="flex flex-col gap-4">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <h2 id="overview-references" className="text-subtitle font-semibold text-foreground">
