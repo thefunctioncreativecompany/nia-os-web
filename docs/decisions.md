@@ -1057,3 +1057,12 @@ onboarding's Import profile and Follow creators describe features removed in the
   move is its own Undo step. The add button names the item ("Add shot"; from the table's number
   column). The carousel's arrows can sit where a row asks (`ScrollRow arrowTop`), here at the
   middle of the pictures.
+- (2026-11-15) The project's references as cards (Ika: "same with references section on overview").
+  The Overview's References (the reference pictures) is now the template cards' row
+  (`reference-cards.tsx`, sizes from `poster-cards.ts`): poster-shaped, a wider picture whole at the
+  same height, its name and a note under each, drag or Move earlier / later (saved on
+  `project_files.position`, as final assets are), ten with View all. The References tab's Explore
+  titles and Instagram posts keep Explore's cards and get the same handle, Move and Remove, and a note
+  (`project_references.position` and `note`). Drag and Move are shared (`drag-reorder.tsx`).
+  Migration `20261118000000_project_references_arrange.sql`; notes and arranging stay hidden until
+  their columns exist.

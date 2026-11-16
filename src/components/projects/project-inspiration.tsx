@@ -9,6 +9,9 @@ import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { NotYet } from "@/components/nia/not-yet";
 import { ScrollRow } from "@/components/nia/scroll-row";
+import { CARD_TOOLS, CardButton, DragHandle, MoveButtons, useDragReorder } from "@/components/nia/drag-reorder";
+import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
 import { SaveToCollection } from "@/components/explore/save-controls";
 import { ExploreCard, cardSpan } from "@/components/explore/title-card";
 import { TmdbCredit } from "@/components/explore/tmdb-credit";
@@ -28,7 +31,19 @@ const sizes = "(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw";
 // Explore titles that match its genres and production type, each one tap from being a reference.
 // Explore is there to inspire the work, so it sits with the project's files. References also take
 // Instagram links pasted by the team (Ika, 2026-10-22), private to the project, newest first with
-// the Explore titles.
+// the Explore titles. Arranged by the team (Ika, 2026-11-15, like a template's reference cards):
+// drag a card or use Move earlier / later, and each has a note below to write in
+// (`project_references.position` and `note`, 20261118000000_project_references_arrange.sql;
+// until it's run, newest first and nothing saves).
+
+type Arranged = { position: number | null; note: string | null };
+
+/** Each reference's place and note; null if the order column isn't there yet (then neither shows). */
+async function loadArrangement(projectId: string) {
+  const { data, error } = await createClient().from("project_references").select("id, position, note").eq("project_id", projectId).is("deleted_at", null);
+  if (error) return null;
+  return new Map((data as ({ id: string } & Arranged)[]).map((r) => [r.id, { position: r.position, note: r.note }]));
+}
 export function ProjectInspiration({
   projectId,
   signals,
@@ -48,6 +63,9 @@ export function ProjectInspiration({
   const [access, setAccess] = useState<boolean | null>(null);
   // What this person tends to open, save and add, which nudges the order (match.ts).
   const [taste, setTaste] = useState<Taste | undefined>(undefined);
+  const [arranged, setArranged] = useState<Map<string, Arranged>>(new Map());
+  // Arranging needs its migration (position, note); until then the row stays newest first.
+  const [arrangeOn, setArrangeOn] = useState(false);
 
   const load = async () => {
     const db = createClient();
@@ -55,6 +73,9 @@ export function ProjectInspiration({
     if (result.ready) setRefs(result.data);
     else setProblem(result.error);
     if (list) setPosts(list);
+    const map = await loadArrangement(projectId);
+    setArrangeOn(!!map);
+    setArranged(map ?? new Map());
   };
   useEffect(() => {
     let live = true;
@@ -68,6 +89,11 @@ export function ProjectInspiration({
       (list) => live && setPosts(list),
       () => live && (setPosts([]), setPostsOff(true)),
     );
+    void loadArrangement(projectId).then((map) => {
+      if (!live) return;
+      setArrangeOn(!!map);
+      setArranged(map ?? new Map());
+    });
     void exploreAccess(db).then((yes) => {
       if (!live) return;
       setAccess(yes);
@@ -94,23 +120,76 @@ export function ProjectInspiration({
   const held = new Set((refs ?? []).map((r) => r.slug));
   const suggestions = suggestItemsForProject(signals, held, [...held], taste);
   const matched = signals.genres.trim() !== "" || !!signals.productionType || !!signals.description?.trim();
-  // Explore titles and pasted posts in one row, newest first.
+  // Explore titles and pasted posts in one row: in the team's order, then newest first.
+  const placeOf = (id: string) => arranged.get(id)?.position ?? Number.MAX_SAFE_INTEGER;
   const row =
     refs && posts
       ? [
           ...refs.flatMap((r) => {
             const entry = exploreItem(r.slug);
-            return entry ? [{ at: r.createdAt, explore: { ref: r, entry } }] : [];
+            return entry ? [{ id: r.id, at: r.createdAt, explore: { ref: r, entry } }] : [];
           }),
-          ...posts.map((post) => ({ at: post.createdAt, post })),
-        ].toSorted((a, b) => b.at.localeCompare(a.at))
+          ...posts.map((post) => ({ id: post.id, at: post.createdAt, post })),
+        ].toSorted((a, b) => placeOf(a.id) - placeOf(b.id) || b.at.localeCompare(a.at))
       : null;
-  const removeButton = (ref: { id: string }, title: string) =>
-    canEdit && (
-      <Button variant="ghost" size="compact" aria-label={`Remove ${title} from references`} onClick={() => void remove(ref, title)}>
-        <X aria-hidden /> Remove
-      </Button>
+
+  // Moving a card saves every card's place (positions 0, 1, 2…).
+  const move = async (from: number, to: number) => {
+    if (!row || to < 0 || to >= row.length || from === to) return;
+    const ids = row.map((x) => x.id);
+    const [moved] = ids.splice(from, 1);
+    ids.splice(to, 0, moved);
+    const before = arranged;
+    setArranged(new Map(ids.map((id, position) => [id, { position, note: arranged.get(id)?.note ?? null }])));
+    const db = createClient();
+    const results = await Promise.all(ids.map((id, position) => db.from("project_references").update({ position }).eq("id", id)));
+    if (results.some((r) => r.error)) {
+      setArranged(before);
+      toast.error("Couldn't save the order. Try again.");
+    }
+  };
+  const drag = useDragReorder((from, to) => void move(from, to));
+  const saveNote = async (id: string, note: string) => {
+    const next = note.trim().slice(0, 1000) || null;
+    if ((arranged.get(id)?.note ?? null) === next) return;
+    const { error } = await createClient().from("project_references").update({ note: next }).eq("id", id);
+    if (error) return void toast.error("Couldn't save the note. Try again.");
+    setArranged((was) => new Map(was).set(id, { position: was.get(id)?.position ?? null, note: next }));
+  };
+  const tools = (ref: { id: string }, title: string, i: number) =>
+    canEdit && row && !arrangeOn ? (
+      <CardButton label={`Remove ${title} from references`} onClick={() => void remove(ref, title)}>
+        <X aria-hidden className="size-3.5" />
+      </CardButton>
+    ) : canEdit && row ? (
+      <div className="flex w-full items-center gap-1">
+        <DragHandle name={title} {...drag.handle(i)} />
+        <span className={cn(CARD_TOOLS, "ml-auto")}>
+          <MoveButtons name={title} i={i} count={row.length} onMove={(a, b) => void move(a, b)} />
+          <CardButton label={`Remove ${title} from references`} onClick={() => void remove(ref, title)}>
+            <X aria-hidden className="size-3.5" />
+          </CardButton>
+        </span>
+      </div>
+    ) : null;
+  // `saved`: the note loaded with an Instagram reference, shown until the arrangement loads.
+  const note = (id: string, title: string, saved?: string | null) => {
+    if (!arrangeOn) return null;
+    const text = (arranged.has(id) ? arranged.get(id)?.note : saved) ?? "";
+    if (!canEdit) return text ? <p className="text-small text-muted-foreground">{text}</p> : null;
+    return (
+      <Textarea
+        key={`${id}-${text}`}
+        aria-label={`Note on ${title}`}
+        defaultValue={text}
+        placeholder="Add a note"
+        rows={2}
+        maxLength={1000}
+        onBlur={(e) => void saveNote(id, e.target.value)}
+        className="min-h-14 resize-none border-transparent bg-transparent px-1 text-small shadow-none hover:bg-muted/50 focus-visible:bg-background"
+      />
     );
+  };
 
   return (
     <div className="flex flex-col gap-10">
@@ -139,15 +218,17 @@ export function ProjectInspiration({
                   : "Paste a link above to add your first reference."}
           </p>
         ) : row ? (
-          <ScrollRow label="References">
-            {row.map((item) =>
+          <ScrollRow label="References" className="items-start">
+            {row.map((item, i) =>
               "post" in item ? (
-                <li key={item.post.id} className={cell} style={referenceSpan(item.post)}>
-                  <InstagramReferenceCard projectId={projectId} reference={item.post} actions={removeButton(item.post, item.post.title)} />
+                <li key={item.id} className={cn(cell, "group/card flex flex-col gap-1 rounded-lg", drag.state(i))} style={referenceSpan(item.post)} {...(canEdit && arrangeOn ? drag.target(i) : {})}>
+                  <InstagramReferenceCard projectId={projectId} reference={item.post} actions={tools(item.post, item.post.title, i)} />
+                  {note(item.id, item.post.title, item.post.note)}
                 </li>
               ) : (
-                <li key={item.explore.ref.id} className={cell} style={cardSpan(item.explore.entry)}>
-                  <ExploreCard item={item.explore.entry} href={item.explore.entry.href()} sizes={sizes} actions={removeButton(item.explore.ref, item.explore.entry.title)} />
+                <li key={item.id} className={cn(cell, "group/card flex flex-col gap-1 rounded-lg", drag.state(i))} style={cardSpan(item.explore.entry)} {...(canEdit && arrangeOn ? drag.target(i) : {})}>
+                  <ExploreCard item={item.explore.entry} href={item.explore.entry.href()} sizes={sizes} actions={tools(item.explore.ref, item.explore.entry.title, i)} />
+                  {note(item.id, item.explore.entry.title)}
                 </li>
               ),
             )}

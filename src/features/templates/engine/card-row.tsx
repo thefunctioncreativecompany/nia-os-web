@@ -1,10 +1,12 @@
 'use client';
 
-import { useState, type CSSProperties } from 'react';
-import { ArrowLeft, ArrowRight, GripVertical, Plus, X } from 'lucide-react';
+import { useState } from 'react';
+import { Plus, X } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { ScrollRow } from '@/components/nia/scroll-row';
+import { CARD_TOOLS, CardButton, DragHandle, MoveButtons, useDragReorder } from '@/components/nia/drag-reorder';
+import { POSTER, POSTER_ARROWS, POSTER_CARD, posterSpan } from '@/components/nia/poster-cards';
 import type { FieldSpec, TableSection } from '../types';
 import { FieldControl } from './field-controls';
 import { PictureCell, usePictures } from './pictures';
@@ -19,9 +21,6 @@ import { fieldKind, fieldLabel, type FieldValue, type TableRow } from './section
 // by its handle to move it, or use Move earlier / later. Every row is in it (a document, not a
 // browse row); printing lays the cards out in rows; downloads stay a table.
 
-/** Explore's poster shape (title-card.tsx). */
-const POSTER = 268 / 373;
-const DRAG_TYPE = 'application/x-nia-card';
 
 /** "Shot #" → "Shot"; the word for one row ("shot", "look"). */
 export const itemName = (section: TableSection) => (section.autonumber ? section.autonumber.replace(/\s*#\s*$/, '').trim() : '') || 'Item';
@@ -46,45 +45,25 @@ export function CardRow({ section, rows, columns, base, currency, setCell, addRo
   const noun = itemName(section);
   // Each picture's shape once it has loaded (landscape cards widen to show it whole).
   const [shapes, setShapes] = useState<Record<string, number>>({});
-  const [dragging, setDragging] = useState<number | null>(null);
-  const [over, setOver] = useState<number | null>(null);
+  const drag = useDragReorder(moveRow);
   const picture = columns.find((c) => fieldKind(c) === 'image');
   const rest = columns.filter((c) => c !== picture);
 
   return (
     // The arrows sit at the middle of the pictures (half a poster's height, plus the row's padding).
-    <ScrollRow label={section.title} arrowTop={`calc(0.5rem + 13rem / ${POSTER} / 2)`} className="items-start gap-4 print:flex-wrap print:overflow-visible">
+    <ScrollRow label={section.title} arrowTop={POSTER_ARROWS} className="items-start gap-4 print:flex-wrap print:overflow-visible">
       {rows.map((row, r) => {
         const number = String(r + 1).padStart(2, '0');
         const name = `${noun} ${number}`;
         const id = picture ? (row[fieldLabel(picture)] as string) || '' : '';
         const shape = Math.max(POSTER, (id && shapes[id]) || POSTER);
-        const isDragging = dragging === r;
         return (
           <li
             key={row.id}
             aria-label={name}
-            style={{ '--span': shape / POSTER } as CSSProperties}
-            className={cn(
-              // On phones a wide picture's card stops at 85% of the screen (its picture shrinks to fit).
-              'group/card flex w-[calc(13rem*var(--span,1))] max-w-[85vw] shrink-0 snap-start flex-col gap-2.5 rounded-xl transition-opacity duration-fast print:break-inside-avoid',
-              isDragging && 'opacity-40',
-              over === r && dragging !== null && dragging !== r && 'ring-3 ring-nia-blue/60 ring-offset-4 ring-offset-background',
-            )}
-            onDragOver={(e) => {
-              if (dragging === null || ![...e.dataTransfer.types].includes(DRAG_TYPE)) return;
-              e.preventDefault();
-              setOver(r);
-            }}
-            onDragLeave={() => setOver((o) => (o === r ? null : o))}
-            onDrop={(e) => {
-              if (dragging === null || ![...e.dataTransfer.types].includes(DRAG_TYPE)) return;
-              e.preventDefault();
-              e.stopPropagation();
-              if (dragging !== r) moveRow(dragging, r);
-              setDragging(null);
-              setOver(null);
-            }}
+            style={posterSpan(shape)}
+            className={cn(POSTER_CARD, drag.state(r))}
+            {...(editable ? drag.target(r) : {})}
           >
             {picture ? (
               <div className="relative w-full" style={{ aspectRatio: shape }}>
@@ -100,34 +79,11 @@ export function CardRow({ section, rows, columns, base, currency, setCell, addRo
             ) : null}
 
             <div className="flex items-center gap-1">
-              {editable && (
-                <span
-                  aria-hidden
-                  draggable
-                  title={`Drag to move ${name}`}
-                  onDragStart={(e) => {
-                    e.dataTransfer.setData(DRAG_TYPE, String(r));
-                    e.dataTransfer.effectAllowed = 'move';
-                    setDragging(r);
-                  }}
-                  onDragEnd={() => {
-                    setDragging(null);
-                    setOver(null);
-                  }}
-                  className="-ml-1 inline-flex size-7 cursor-grab items-center justify-center rounded-full text-muted-foreground hover:bg-muted/70 hover:text-foreground active:cursor-grabbing print:hidden"
-                >
-                  <GripVertical className="size-3.5" />
-                </span>
-              )}
+              {editable && <DragHandle name={name} {...drag.handle(r)} />}
               <span className="min-w-0 flex-1 text-small font-bold text-foreground tabular-nums">{name}</span>
               {editable && (
-                <span className="flex items-center opacity-0 transition-opacity duration-fast group-focus-within/card:opacity-100 group-hover/card:opacity-100 pointer-coarse:opacity-100 print:hidden">
-                  <CardButton label={`Move ${name} earlier`} disabled={r === 0} onClick={() => moveRow(r, r - 1)}>
-                    <ArrowLeft aria-hidden className="size-3.5" />
-                  </CardButton>
-                  <CardButton label={`Move ${name} later`} disabled={r === rows.length - 1} onClick={() => moveRow(r, r + 1)}>
-                    <ArrowRight aria-hidden className="size-3.5" />
-                  </CardButton>
+                <span className={CARD_TOOLS}>
+                  <MoveButtons name={name} i={r} count={rows.length} onMove={moveRow} />
                   <CardButton label={`Remove ${name}`} onClick={() => removeRow(row.id)}>
                     <X aria-hidden className="size-3.5" />
                   </CardButton>
@@ -170,19 +126,5 @@ export function CardRow({ section, rows, columns, base, currency, setCell, addRo
         </li>
       )}
     </ScrollRow>
-  );
-}
-
-function CardButton({ label, disabled, onClick, children }: { label: string; disabled?: boolean; onClick: () => void; children: React.ReactNode }) {
-  return (
-    <button
-      type="button"
-      aria-label={label}
-      disabled={disabled}
-      onClick={onClick}
-      className="inline-flex size-7 items-center justify-center rounded-full text-muted-foreground outline-none hover:bg-muted/70 hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 disabled:opacity-30"
-    >
-      {children}
-    </button>
   );
 }

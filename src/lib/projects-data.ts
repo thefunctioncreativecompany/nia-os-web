@@ -153,14 +153,21 @@ export async function listProjectDocuments(projectId: string): Promise<ProjectDo
 
 export type FileKind = "image" | "document" | "audio" | "video";
 export type FileTag = "reference" | "raw" | "wip" | "final" | "brief";
-export type ProjectFile = { id: string; name: string; path: string; mime: string; size: number; kind: FileKind; tag: FileTag | null; createdAt: string; url: string | null; thumbUrl: string | null };
+export type ProjectFile = {
+  id: string; name: string; path: string; mime: string; size: number; kind: FileKind; tag: FileTag | null; createdAt: string; url: string | null; thumbUrl: string | null;
+  /** The order the team arranged (final assets, references); null: newest first. */
+  position: number | null;
+  /** A line about it (a reference's note, 2026-11-15); null until written; undefined before its migration. */
+  note?: string | null;
+};
 
 /** Files uploaded to this project, each with a link that works for an hour (the bucket is private). */
 export async function listProjectFiles(projectId: string): Promise<ProjectFile[]> {
   const { supabase } = await requireUser();
   const { data, error } = await supabase
     .from("project_files")
-    .select("id, name, path, mime, size, kind, tag, thumb_path, created_at")
+    // Every column, so it reads before a migration adds one (note, 20261118000000).
+    .select("*")
     .eq("project_id", projectId)
     .is("deleted_at", null)
     .order("created_at", { ascending: false });
@@ -178,5 +185,7 @@ export async function listProjectFiles(projectId: string): Promise<ProjectFile[]
     createdAt: f.created_at,
     url: urls.get(f.path) ?? null,
     thumbUrl: f.thumb_path ? urls.get(f.thumb_path) ?? null : null,
+    position: typeof f.position === "number" ? f.position : null,
+    note: "note" in f ? (typeof f.note === "string" ? f.note : null) : undefined,
   }));
 }

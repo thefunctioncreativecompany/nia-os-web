@@ -26,6 +26,8 @@ import { useCoverCropper } from "@/components/projects/use-cover-cropper";
 import { BackLink } from "@/components/nia/back-link";
 import { PROJECT_PANEL_ID, ProjectTabs, isProjectTab, type ProjectTabId } from "@/components/projects/project-tabs";
 import { sentenceCase } from "@/lib/sentence-case";
+import { ReferenceCards, type ReferencePicture } from "@/components/projects/reference-cards";
+import { ROW_MAX } from "@/lib/rows";
 
 // Storage path of a cover URL, if it's in this project's folder (so it can be removed).
 function coverPath(url: string | null, projectId: string) {
@@ -125,7 +127,7 @@ export function ProjectEditor({
   /** Beside each tab's name. */
   counts: Partial<Record<ProjectTabId, number>>;
   /** Stills tagged Reference, newest first, for Overview's References. */
-  referencePreview: { id: string; name: string; url: string }[];
+  referencePreview: ReferencePicture[];
   /** Files tagged final, under the description. */
   finals?: React.ReactNode;
   /** The Documents tab. */
@@ -384,23 +386,8 @@ export function ProjectEditor({
                   </h2>
                   <ViewAll onClick={() => setTab("references")}>{counts.references ? "View all" : canEdit ? "Add references" : "View all"}</ViewAll>
                 </div>
-                {referencePreview.length > 0 && (
-                  <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                    {referencePreview.slice(0, 3).map((r, i) => (
-                      <li key={r.id} className={cn(i === 2 && "hidden sm:block")}>
-                        <button
-                          type="button"
-                          aria-label={`${r.name}, open References`}
-                          onClick={() => setTab("references")}
-                          className="relative block aspect-video w-full overflow-hidden rounded-xl bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-                        >
-                          {/* eslint-disable-next-line @next/next/no-img-element -- private files use short-lived links, which the image optimiser would cache */}
-                          <img src={r.url} alt="" loading="lazy" className="absolute inset-0 size-full object-cover transition-transform duration-base ease-out hover:scale-[1.02] motion-reduce:transition-none" />
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                {/* Cards like a template's references (reference-cards.tsx): ten here, the rest under View all. */}
+                {referencePreview.length > 0 && <ReferenceCards pictures={referencePreview.slice(0, ROW_MAX)} canEdit={canEdit} onOpen={() => setTab("references")} />}
               </section>
             </div>
 

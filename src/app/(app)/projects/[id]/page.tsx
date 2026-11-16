@@ -60,7 +60,12 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
   ]);
   const canEdit = role !== "viewer";
   // Stills tagged Reference (newest first, as listed): Overview shows three, the tab counts them all.
-  const stills = files.flatMap((f) => (f.kind === "image" && f.tag === "reference" && (f.thumbUrl ?? f.url) ? [{ id: f.id, name: f.name, url: (f.thumbUrl ?? f.url)! }] : []));
+  // Reference pictures in the team's order (then newest first), with their notes (reference-cards.tsx).
+  const at = (f: { position: number | null }) => f.position ?? Number.MAX_SAFE_INTEGER;
+  const stills = files
+    .filter((f) => f.kind === "image" && f.tag === "reference" && (f.thumbUrl ?? f.url))
+    .toSorted((a, b) => at(a) - at(b) || b.createdAt.localeCompare(a.createdAt))
+    .map((f) => ({ id: f.id, name: f.name, url: (f.thumbUrl ?? f.url)!, note: f.note ?? null, notes: f.note !== undefined }));
 
   return (
     <>
