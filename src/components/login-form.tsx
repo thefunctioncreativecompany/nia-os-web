@@ -11,6 +11,7 @@ import { parseAccounts, remember, switchTo } from '@/lib/accounts'
 import { AccountChoices } from '@/components/auth/account-choices'
 import { AuthForm } from '@/components/auth/auth-form'
 import { AuthInput, AuthPasswordInput } from '@/components/auth/auth-input'
+import { START_PAGE } from '@/lib/start-page'
 
 const noChange = () => () => {}
 const accountsSnapshot = () => {
@@ -57,7 +58,7 @@ export function LoginForm() {
       remember(data.session)
       // Send them back where they were going, if a protected page sent them here.
       const next = new URLSearchParams(window.location.search).get('next')
-      router.push(safeNextPath(next, '/home'))
+      router.push(safeNextPath(next, START_PAGE))
     } catch (error: unknown) {
       setError(error instanceof Error ? friendlyAuthError(error.message) : 'Something went wrong. Try again.')
       setIsLoading(false)
@@ -71,7 +72,7 @@ export function LoginForm() {
   const adding = useSyncExternalStore(noChange, () => new URLSearchParams(window.location.search).has('add'), () => false)
   const continueAs = async (id: string) => {
     setIsLoading(true)
-    if ((await switchTo(createClient(), id)) === 'ok') { router.push('/home'); router.refresh(); return }
+    if ((await switchTo(createClient(), id)) === 'ok') { router.push(START_PAGE); router.refresh(); return }
     setIsLoading(false)
     setError('That account was signed out. Log in to it again below.')
   }

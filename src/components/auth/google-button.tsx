@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { safeNextPath } from "@/lib/safe-next-path";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
+import { START_PAGE } from "@/lib/start-page";
 
 // Signs in with Google through Supabase. Google sends the user back to
 // /auth/confirm, which finishes signing in and forwards them on.
@@ -17,7 +18,7 @@ export function GoogleButton() {
     setIsLoading(true);
     const next = safeNextPath(
       new URLSearchParams(window.location.search).get("next"),
-      "/home",
+      START_PAGE,
     );
     const { error } = await createClient().auth.signInWithOAuth({
       provider: "google",

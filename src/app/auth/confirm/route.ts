@@ -4,6 +4,7 @@ import { type NextRequest } from 'next/server'
 
 import { safeNextPath } from '@/lib/safe-next-path'
 import { createClient } from '@/lib/supabase/server'
+import { START_PAGE } from '@/lib/start-page'
 
 // Email links (sign-up confirmation, password reset) and Google sign-in land here.
 // Supports both link styles:
@@ -16,7 +17,7 @@ export async function GET(request: NextRequest) {
   const type = searchParams.get('type') as EmailOtpType | null
   const _next = searchParams.get('next')
   // Only allow redirects within this site.
-  const next = safeNextPath(_next, '/home', origin)
+  const next = safeNextPath(_next, START_PAGE, origin)
 
   // Supabase sends people back with an error when a link is expired or used.
   const linkError = searchParams.get('error_description')

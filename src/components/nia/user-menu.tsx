@@ -11,6 +11,7 @@ import { forget, keepRemembering, parseAccounts, remember, switchTo } from "@/li
 import { UserMenu as ArcUserMenu } from "@/components/arc/user-menu/user-menu";
 import { openFeedback } from "@/components/nia/feedback";
 import { Skeleton } from "@/components/ui/skeleton";
+import { START_PAGE } from "@/lib/start-page";
 
 const subscribe = (fn: () => void) => {
   window.addEventListener("storage", fn);
@@ -40,7 +41,7 @@ export function UserMenu({ user }: { user: CurrentUser }) {
   const switchAccount = async (id: string, name: string) => {
     const result = await switchTo(createClient(), id);
     if (result === "expired") return void toast.error(`${name} was signed out. Log in to add it again.`);
-    router.push("/home");
+    router.push(START_PAGE);
     router.refresh();
   };
 

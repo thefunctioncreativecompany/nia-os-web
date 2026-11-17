@@ -1,6 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import type { JwtPayload } from "@supabase/supabase-js";
 import { NextResponse, type NextRequest } from "next/server";
+import { START_PAGE } from "@/lib/start-page";
 
 // Pages that only signed-in users can open.
 const PROTECTED_PATHS = ["/home", "/projects", "/templates", "/explore", "/settings", "/onboarding"];
@@ -60,7 +61,7 @@ export async function updateSession(request: NextRequest) {
   // The bare domain has no page of its own: send people to the right place.
   if (pathname === "/") {
     if (!data?.claims) return redirectTo("/login");
-    return redirectTo((await isOnboarded(supabase, data.claims)) ? "/home" : "/onboarding/source");
+    return redirectTo((await isOnboarded(supabase, data.claims)) ? START_PAGE : "/onboarding/source");
   }
 
   if (!data?.claims && matches(pathname, PROTECTED_PATHS)) {
