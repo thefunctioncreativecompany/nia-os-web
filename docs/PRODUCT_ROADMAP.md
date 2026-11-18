@@ -1,6 +1,6 @@
 # Nia OS product roadmap
 
-**Updated 2026-11-15.** What's live, what's being built, the rough edges we know about, and what Nia
+**Updated 2026-11-18.** What's live, what's being built, the rough edges we know about, and what Nia
 is built with. For the detail behind each item see [FEEDBACK.md](FEEDBACK.md) (the master list),
 [decisions.md](decisions.md) (why) and CLAUDE.md → Progress (the build plan's checklist).
 
@@ -55,6 +55,9 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | UX18 | Home Activity repeats share-link on/off lines | ⬜ |
 | UX19 | Person page: "Films" for a series; stray capitals | ⬜ |
 | UX20 | Login hero is a *Sinners (2025)* still: rights? | ⏸ Ika |
+| FB3 | Template preview: the list on the left gets squeezed and workflow names overlap (Alvin) | ⬜ |
+| FB4 | Sign-up role page: Content creator looks already picked (Alvin) | ⬜ |
+| FB13 | Onboarding images are fashion shoots; one set of production photography instead (Inbar) | ⏸ Ika picks the photos |
 | 1 | Sign-up email: last test sent no email | ⏸ Ika |
 | G1 | Google sign-in shows the Supabase address | ⏸ Ika |
 | DB | `20261110000000_explore_open.sql` not run: only invited people can save Explore titles | ⏸ Ika |
@@ -67,7 +70,12 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
    version history (B16) and live co-editing (B17).
 3. Milestone 5: Copilot (AI proposes, the producer decides).
 4. Beta pilot with the three groups.
-5. Later: applying for work (briefs, castings, festivals, grants) with your profile and portfolio;
+5. A new person's first minute (feedback 2026-11-18, FB2, FB14, FB16; Ika's decision on Home
+   first): the role picked at onboarding fills an empty Home with that group's workflows; fewer
+   onboarding questions; template thumbnails that show the template (FB15).
+6. Explore's study page, one design (EX6 with FB6–FB10): stills and colour strip at the top,
+   tags you can tap, production notes before box office, checked camera and lighting details.
+7. Later: applying for work (briefs, castings, festivals, grants) with your profile and portfolio;
    a PR workspace (press kits, junkets, talent rosters, media lists, coverage); a brand kit (B18);
    Explore open before sign-up (B1), weekly new titles, "Start a project from this".
 
@@ -78,6 +86,20 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | Spaces | Designed (24 screens) | Projects become Spaces: next up, what needs you, phases, schedule, crew and documents |
 | Nia AI | Designed | Paste a brief, get a Space; spots the films a brief names and adds them as references (BR1, BR2) |
 | Agents | Planned | Model-agnostic agents for the legwork: call sheets, clashes, hand-offs; each one proposes |
+| Meeting notes | Idea (Joshua, FB1) | Records a call (Google Meet first, then Teams and Zoom): summary, actions and deliverables as a proposal; notes shared with guests without Nia. Waits for the Copilot |
+| Recreate this look | Idea (Alvin, FB9) | From an Explore title, a shot list and mood board proposed into your project |
+| Template looks | Idea (Inbar, FB18) | A few designed versions of each template (background, fonts); needs a decision on document fonts |
+| Community profile | Idea (Inbar, FB19) | A profile for networking and collaboration, started inside Settings |
+
+## What testers say
+
+From beta testers, November 2026 (full list and permissions: [FEEDBACK.md](FEEDBACK.md) → 2026-11-18).
+
+- "Wow bro! It's quick and efficient!" — Paballo Mavundla, actor (South Africa)
+- "I saw the explore page🥺 its literally so so cool hey" — Mbalenhle Banda
+- "A seamless start! So excited bro!" — Joshua
+- "I doubt I'll be needing Notion!" — Joshua
+- "The workflows by role are exactly what I was hoping for." — Alvin
 
 ---
 

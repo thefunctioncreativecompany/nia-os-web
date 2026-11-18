@@ -1,6 +1,6 @@
 # Nia master list
 
-**Updated 2026-11-08.** The one place for what's shipped, what's open, feedback and future features.
+**Updated 2026-11-18.** The one place for what's shipped, what's open, feedback and future features.
 Each item runs as its own fix, one at a time (below). Elsewhere, and kept there:
 
 - Why each decision was made: [decisions.md](decisions.md).
@@ -18,6 +18,80 @@ Status: ⬜ logged, not started · 🔍 being studied · 🔄 in progress · ✅
 3. Check: desktop and phone width, refresh, two test accounts where data is involved, no console errors.
 4. Ika runs any SQL or Supabase dashboard step.
 5. Commit, push, check the live site, update this list (and BUILD_PLAN.md if it maps to a step).
+
+---
+
+## 00. Logged 2026-11-18: beta testers, Joshua's idea, Alvin's second review, Inbar's design review
+
+Nothing here is built yet unless marked. Sources: messages from beta testers (Paballo, Mbalenhle,
+Joshua, Alvin) and Ika's call with Inbar on 2026-11-16 (Gemini notes, checked against what's in
+the app).
+
+### What testers say (social proof)
+
+Kept word for word. Ask each person before their name goes on the site, a deck or social posts.
+
+- "Wow bro! It's quick and efficient!" — Paballo Mavundla, actor (South Africa)
+- "I saw the explore page🥺 its literally so so cool hey" — Mbalenhle Banda
+- "Genuis" … "1000938392827292628291910273649473020101 percent! its very cool" — Mbalenhle Banda
+- "A seamless start! So excited bro!" … "Again… Im so proud brother!!!" — Joshua
+- "I doubt I'll be needing Notion!" — Joshua
+- "I read the roadmap and I'm honestly impressed. You took my notes seriously and moved fast …
+  The workflows by role are exactly what I was hoping for. Seeing Plan a client photoshoot under
+  Photographers made it click for me, and the Shot List (Photo) with the How to use it steps is
+  really clean." — Alvin
+
+### A. Joshua: a meeting companion
+
+| # | What | Today | Implications | Size |
+|---|------|-------|--------------|------|
+| FB1 | **Meeting notes companion**: records a call and gives a summary, actions (plan of action) and deliverables; share the notes with guests who don't use Nia yet; Google Meet first, then Teams and Zoom; maybe FaceTime and WhatsApp calls | Nothing. "Start from a brief" (record a voice note → an AI draft project) is designed, not built | Needs the Copilot (Milestone 5): the summary arrives as a proposal card, and actions become tasks or documents only on Apply. Recording consent (everyone on the call told; POPIA and GDPR). Meet, Teams and Zoom need a meeting bot service or each platform's own recording and transcript access; FaceTime and WhatsApp have no way in for other apps, so they're out. Sharing with guests can reuse the view-only link. Shares transcription with "Start from a brief" and BR1 | L |
+
+### B. Alvin's second review (after reading the roadmap)
+
+Checked Home, Projects, Templates and one Explore title page.
+
+| # | What | Today | Implications | Size |
+|---|------|-------|--------------|------|
+| FB2 | **Home feels empty for a new person**: show the workflows for the role they picked, as the first step | Home is Recent projects and Activity only; workflows were moved off Home to Templates on 2026-11-10 (Ika: "too much on the home page"). Home already knows the person's group (`groupFor`) | Reverses Ika's 2026-11-10 call, so it needs her decision. A light way: only while someone has no projects, Home's empty state shows their group's three workflows (detail on demand, gone once they start). Inbar asked for the same (FB16) | S |
+| FB3 | **Template preview: the list on the left gets squeezed and workflow names overlap** | Bug, not yet reproduced | Check the preview pop-up at laptop and tablet widths; names wrap or cut off with an ellipsis | S |
+| FB4 | **Sign-up role page: Content creator looks already picked**; make Photographer a main button | Onboarding's profession step | A choice nobody made must not look chosen (rule: prevent mistakes). Check the first option's look; show the four groups as equal choices | S |
+| FB5 | Own web address instead of vercel.app | ✅ `app.niatechnologies.co` is live (the old vercel.app address still works) | Share the new address from now on (testers, emails, the deck) | — |
+| FB6 | **Explore title, What to study: a few stills and the colour strip at the top** | Titles have palettes, and press-kit titles have stills; not at the top of the page | Part of EX6 (production details index): one design for the study section | S–M |
+| FB7 | **Tags you can tap** to find titles with the same look | Tags can't be tapped to find similar titles | A tag opens Explore filtered by it. Builds on EX5 (AI tagging) and Search by look | S |
+| FB8 | **Production notes above the box office numbers** | Box office numbers come before the production notes | Reorder in EX6's design | S |
+| FB9 | **"Recreate this look"**: builds a shot list and mood board in their project from a title | "Add to project" adds the title as a reference; E1 ("Start a project from this") waits for the Copilot | An AI proposal (Apply / Modify / Dismiss) into the chosen project: a shot list from the press kit and stills, references as the mood board. Ties to E1, BR2 and B3. Alvin: "AI gives facts, but Nia can help people use them" | M–L |
+| FB10 | **Real, checked details on cameras and lighting** | Press kits list crew and some production notes; camera and lighting aren't consistent | Fields in EX6 with a source for each; never guessed (Explore's "link, never copy" and credits rules) | M |
+| FB11 | **Tips from real crew in the comments** on Explore titles | Comments exist on projects only | Comments on titles, with who wrote them and their role; needs moderation and a rule on who can post (Explore is curation). Ika's decision first | M |
+| FB12 | "It still takes us back to posting some already done stuff": show finished work made with Nia | — | Same as B4 (example projects) | — |
+
+### C. Inbar's design review (call, 2026-11-16)
+
+Inbar saw Nia as a production operations platform for creators and small studios, with Explore as
+an inspiration and study library, not distribution.
+
+| # | What | Today | Implications | Size |
+|---|------|-------|--------------|------|
+| FB13 | **Onboarding images are fashion shoots**: use one consistent set of production photography (on set, crew at work) | The onboarding images are fashion shoots | Ika picks a set from her own work (rule: imagery from the user's own work; people only with consent). Also settles UX20 (the *Sinners* still) | S |
+| FB14 | **Fewer onboarding questions**, and the answers should change what you get | 5 screens ("Step N of 4"); the role picks your group for the tour and What's new, but nothing you can see changes | Cut to what Nia uses (name, role, workspace) and make the role visible straight away (FB2, B6). Item 7 and B8 overlap | S–M |
+| FB15 | **Template thumbnails show the template, not a gradient** | Gradient covers; the miniature preview has waited on Figma since 0.4 | A small drawing of each template's real layout (columns, headings). Design first (Claude Design, then Figma) | M |
+| FB16 | **Home shows starting points**: templates or example projects | See FB2 | Same decision as FB2; example projects are B4 | — |
+| FB17 | **Exports carry Nia's branding with no team logo option** | Downloads say "Generated by Nia" | Already D2 and B18 (brand kit, Pro) | — |
+| FB18 | **Template looks**: background and font choices, and several versions of each template with distinct designs, without losing what makes them work | One look per template, Geist | Touches the fonts rule (Geist only is for the interface; documents may differ): Ika's dated decision first. A few designed looks per template beat free styling (minimalism). Ties to B18's brand kit | M–L |
+| FB19 | **Community profile**: start it inside Settings for a gradual rollout; for networking and collaboration | Person pages for film people; Portfolios beta (test accounts); Settings → Profile | Design first; decide how it relates to Portfolios and B15 (adding crew by Nia username) | M |
+| FB20 | **Brand work (research, not a build)**: map direct and indirect competitors; a mood board (colour, where content sits, positioning); movie poster typography; production companies' websites; ideas from the physical world (cinemas, film festivals) | Brand rules set 2026-10-31 (greys, Nia Blue, Geist) | Ika's tasks. Any change to the brand rules gets a dated entry in decisions.md before code | ⏸ |
+
+### How these connect (study notes)
+
+- **Two reviewers, one point: a new person needs a starting point.** Alvin (FB2) and Inbar (FB16)
+  both want Home to show where to begin, and Inbar (FB14) says onboarding answers don't change
+  anything visible. One change answers all three: the role chosen at onboarding fills an empty
+  Home with that group's workflows. It needs Ika to revisit the 2026-11-10 Home decision.
+- **Explore's study page is one design, not six fixes.** FB6–FB10 all belong in EX6 (the
+  production details index). FB9 ("Recreate this look") is the answer to "why not just ask an AI".
+- **Quick fixes first:** FB3 (preview overlap) and FB4 (role page looks pre-picked) are small bugs
+  people hit on day one.
+- **Biggest new idea:** FB1 (meeting companion) waits for the Copilot; record it, don't start it.
 
 ---
 
