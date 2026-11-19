@@ -105,6 +105,13 @@ an inspiration and study library, not distribution.
 | FB19 | **Community profile**: start it inside Settings for a gradual rollout; for networking and collaboration | Person pages for film people; Portfolios beta (test accounts); Settings → Profile | Design first; decide how it relates to Portfolios and B15 (adding crew by Nia username) | M |
 | FB20 | **Brand work (research, not a build)**: map direct and indirect competitors; a mood board (colour, where content sits, positioning); movie poster typography; production companies' websites; ideas from the physical world (cinemas, film festivals) | Brand rules set 2026-10-31 (greys, Nia Blue, Geist) | Ika's tasks. Any change to the brand rules gets a dated entry in decisions.md before code | ⏸ |
 
+### D. Ika on Explore search (2026-11-19)
+
+| # | What | Today | Implications | Size |
+|---|------|-------|--------------|------|
+| FB21 | **Searching a name shows the person's profile**, not only the titles they're in ("zendaya" showed five films and no Zendaya) | ✅ 2026-11-19. People, studios and festivals are matched by name on the server (`findExploreNames`, 4,110 people) and shown as themselves: in the list as you type, a People row, and Best match when the search is that name | Global search (navbar) still offers only people with three or more credits (`featuredPeople(3)`); it could use the same lookup | M |
+| FB22 | **Best match, executed better** | ✅ 2026-11-19. Was the first result even when several tied (The Odyssey for "zendaya", by taste). Now (`pickBest`, name-search.ts): a title named exactly what was typed wins wherever it ranked; else a name that's the whole search and fits better than any other; else a title clearly ahead; when many fit alike ("golden hour", "tom"), nothing is crowned. A person leads with "Titles with …" in billing order, "as MJ" under each; Best match sits first in the list as you type, so Enter opens it | Two entries for The Odyssey (`the-odyssey`, `film-the-odyssey`) in the credits data; only one shows on Explore | M |
+
 ### How these connect (study notes)
 
 - **Two reviewers, one point: a new person needs a starting point.** Alvin (FB2) and Inbar (FB16)

@@ -1190,3 +1190,8 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-19) The navbar's +: a small menu under the button (Blank project, From template, as grey
   pills like Get started with), not the full Create new project pop-up. From template opens
   Templates. Phones and tablets too. Other New project buttons keep the pop-up for now.
+- (2026-11-19) Explore search finds names (Ika: "display crew/cast profile when searching their
+  name"; "Best match … could be executed better"). People, studios and festivals are results in
+  their own right (list as you type, a People row, Best match). Best match only when one stands
+  out (name-search.ts `pickBest`): an exact title anywhere in the list, else a name that's the
+  whole search with no equal, else a clear leader; otherwise none.

@@ -95,3 +95,37 @@ export function featuredPeople(min = 3, limit = Infinity) {
     .slice(0, limit)
     .map(({ p, n }) => ({ key: p.key, name: p.name, role: p.roles[0] ?? "", href: `/explore/person/${encodeURIComponent(p.key)}`, photo: p.photo?.src ?? null, credits: n }));
 }
+
+export type PersonSearchEntry = { key: string; name: string; role: string; href: string; photo: string | null; count: number };
+
+/** Everyone credited on Explore, for Explore search (name-search.ts): their main role, their page,
+ * their photo and how many things they're credited on. */
+let searchEntries: PersonSearchEntry[] | null = null;
+export function peopleForSearch(): PersonSearchEntry[] {
+  searchEntries ??= [...allPeople().values()].map((p) => ({
+    key: p.key,
+    name: p.name,
+    role: p.roles[0] ?? "",
+    href: `/explore/person/${encodeURIComponent(p.key)}`,
+    photo: p.photo?.src ?? null,
+    count: new Set(p.films.map((f) => f.slug)).size,
+  }));
+  return searchEntries;
+}
+
+/** What someone did on each thing they're credited on, top billing first: "as MJ" for cast with a
+ * character, else their roles ("Director"). `billing` is their place in that title's row. */
+export function creditsOf(key: string): { slug: string; label: string; billing: number }[] {
+  const person = findPerson(key);
+  if (!person) return [];
+  return [...new Set(person.films.map((f) => f.slug))]
+    .flatMap((slug) => {
+      const row = allRows().get(slug) ?? [];
+      const at = row.findIndex((m) => m.key === person.key);
+      if (at < 0) return [];
+      const m = row[at];
+      const label = m.department === "Cast" && m.role && !/^(cast|actor|actress)$/i.test(m.role) ? `as ${m.role}` : m.roles.map((r) => (r === "Cast" ? "Actor" : r)).join(", ");
+      return [{ slug, label, billing: at }];
+    })
+    .toSorted((a, b) => a.billing - b.billing);
+}
