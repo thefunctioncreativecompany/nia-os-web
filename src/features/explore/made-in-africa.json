@@ -10260,6 +10260,306 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "ramayana-rise-of-a-legend",
+   "collection": "explore-all",
+   "title": "Ramayana: Rise of a Legend",
+   "type": "film",
+   "genres": [
+    "Fantasy",
+    "Action",
+    "Adventure"
+   ],
+   "year": 2026,
+   "countries": [
+    "India",
+    "United Kingdom"
+   ],
+   "credit": "Nitesh Tiwari",
+   "recognition": "Nearly $148 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The Ramayana as a two-part epic for the cinema: a prince's marriage and exile staged at blockbuster scale, an ancient myth retold for a global audience",
+   "added": "2026-11-19",
+   "imdb_id": "tt27988879",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "74nF-FWAS6M",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "godzilla-minus-zero",
+   "collection": "explore-all",
+   "title": "Godzilla Minus Zero",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Horror",
+    "Action"
+   ],
+   "year": 2026,
+   "countries": [
+    "Japan"
+   ],
+   "credit": "Takashi Yamazaki",
+   "recognition": "Over $104 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Takashi Yamazaki follows Godzilla Minus One, which won the Oscar for its visual effects, two years on: post-war Japan rebuilding when a new threat strikes",
+   "added": "2026-11-19",
+   "imdb_id": "tt34384661",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Pu0pH5BuCPM",
+     "kind": "trailer",
+     "channel": "GODZILLA OFFICIAL by TOHO",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "12-12-12",
+   "collection": "explore-all",
+   "title": "12 12 12",
+   "type": "series",
+   "genres": [
+    "Action",
+    "Crime",
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "United Kingdom",
+    "Canada"
+   ],
+   "credit": "Dudi Appleton & Jim Keeble",
+   "pair_with": "",
+   "study_note": "A heist told across three timelines (12 months to plan, 12 hours to pull off, 12 days to get away): structure itself as the suspense",
+   "added": "2026-11-19",
+   "imdb_id": "tt32375763",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "pWdt8WMCqnc",
+     "kind": "trailer",
+     "channel": "Apple TV",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "insidious-out-of-the-further",
+   "collection": "explore-all",
+   "title": "Insidious: Out of the Further",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Jacob Chase",
+   "recognition": "Over $171 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The Insidious series reworked around a new lead: a young mother in her childhood home who can bring what lives in The Further back into the real world",
+   "added": "2026-11-19",
+   "imdb_id": "tt32393988",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "jxU8FU3o75A",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "hope",
+   "collection": "explore-all",
+   "title": "Hope",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Mystery",
+    "Action"
+   ],
+   "year": 2026,
+   "countries": [
+    "South Korea"
+   ],
+   "credit": "Na Hong-jin",
+   "recognition": "Selected for the Cannes and Toronto film festivals",
+   "pair_with": "",
+   "study_note": "Na Hong-jin's first film since The Wailing: a creature mystery in a remote harbour village, where what the police first believe plants the seed of disaster",
+   "added": "2026-11-19",
+   "imdb_id": "tt27369017",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "R5jcEBVBEbQ",
+     "kind": "trailer",
+     "channel": "NEON",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-end-of-oak-street",
+   "collection": "explore-all",
+   "title": "The End of Oak Street",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Mystery",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "David Robert Mitchell",
+   "recognition": "Over $120 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "David Robert Mitchell (It Follows) lifts a whole suburban street out of the world: a family's survival story built on one strange premise",
+   "added": "2026-11-19",
+   "imdb_id": "tt27165187",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "3oB9AxspVow",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "scary-movie",
+   "collection": "explore-all",
+   "title": "Scary Movie",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Horror"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Michael Tiddes",
+   "recognition": "Over $231 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The spoof series returns 26 years on with its original cast: parody as a way of reading a quarter-century of horror films",
+   "added": "2026-11-19",
+   "imdb_id": "tt32093575",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "cGgWAHXuTKc",
+     "kind": "trailer",
+     "channel": "Paramount Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "marshals",
+   "collection": "explore-all",
+   "title": "Marshals",
+   "type": "series",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Action"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Spencer Hudnut",
+   "pair_with": "",
+   "study_note": "A Yellowstone story: Kayce Dutton joins the U.S. Marshals, carrying the ranch drama's Montana landscapes into a crime series",
+   "added": "2026-11-19",
+   "imdb_id": "tt36849871",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "s5WxYvJeAOY",
+     "kind": "trailer",
+     "channel": "NEON NZ",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "clayface",
+   "collection": "explore-all",
+   "title": "Clayface",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Thriller",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "James Watkins",
+   "recognition": "Over $121 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "A DC villain's origin told as body horror: a Gotham street kid turned film star, disfigured, then remade by an experimental treatment",
+   "added": "2026-11-19",
+   "imdb_id": "tt34890576",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "OGO4Mqvo3jI",
+     "kind": "trailer",
+     "channel": "DC",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "wild-horse-nine",
+   "collection": "explore-all",
+   "title": "Wild Horse Nine",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Crime",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Martin McDonagh",
+   "recognition": "Selected for the Venice and Toronto film festivals",
+   "pair_with": "",
+   "study_note": "Martin McDonagh sends two CIA agents to Easter Island just before Chile's 1973 coup: dark comedy set against real history",
+   "added": "2026-11-19",
+   "imdb_id": "tt15799564",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "kqxuamKxRTo",
+     "kind": "trailer",
+     "channel": "SearchlightPictures",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

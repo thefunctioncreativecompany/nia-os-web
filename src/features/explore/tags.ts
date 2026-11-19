@@ -240,8 +240,13 @@ function derived(slug: string): string[] {
   const entry = findEntry(slug);
   if (!entry) return [];
   const t = entry.title;
-  return [KIND[t.type], ...t.countries.map((c) => REGIONS[c]), era(t.year), t.recognition ? "award-winner" : null].filter((x): x is string => !!x);
+  // "Awards and festivals" only for a recognition line that names one; box office figures aren't awards.
+  const honoured = t.recognition && AWARD_WORDS.test(t.recognition);
+  return [KIND[t.type], ...t.countries.map((c) => REGIONS[c]), era(t.year), honoured ? "award-winner" : null].filter((x): x is string => !!x);
 }
+
+/** Words in a recognition line that mean an award, a nomination or a festival selection. */
+const AWARD_WORDS = /award|prize|oscar|emmy|bafta|golden (globe|bear|lion|palm)|palme|nominat|festival|cannes|berlinale|venice|sundance|toronto|tiff|fespaco|won |winner|best (film|picture|director|actor|actress|series)/i;
 
 const cache = new Map<string, string[]>();
 /** An item's tags, hand-written first, then measured and worked out; each once. */

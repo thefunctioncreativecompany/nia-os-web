@@ -88,6 +88,51 @@
    }
   ]
  },
+ "12-12-12": {
+  "qid": "Q134719215",
+  "people": [
+   {
+    "id": "Q511554",
+    "role": "Cast"
+   },
+   {
+    "id": "Q976022",
+    "role": "Cast"
+   },
+   {
+    "id": "Q30110185",
+    "role": "Cast"
+   },
+   {
+    "id": "Q21197590",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16420426",
+    "role": "Cast"
+   },
+   {
+    "id": "Q107500640",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2802510",
+    "role": "Cast"
+   },
+   {
+    "id": "Q5311758",
+    "role": "Creator"
+   },
+   {
+    "id": "Q6196035",
+    "role": "Creator"
+   },
+   {
+    "id": "Q2067792",
+    "role": "Director"
+   }
+  ]
+ },
  "12-angry-men": {
   "qid": "Q2345",
   "people": [
@@ -4598,6 +4643,52 @@
    }
   ]
  },
+ "clayface": {
+  "qid": "Q131460936",
+  "people": [
+   {
+    "id": "Q36697214",
+    "role": "Cast",
+    "character": "Clayface"
+   },
+   {
+    "id": "Q47456743",
+    "role": "Cast"
+   },
+   {
+    "id": "Q360426",
+    "role": "Cast"
+   },
+   {
+    "id": "Q45647",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2057920",
+    "role": "Director"
+   },
+   {
+    "id": "Q19668417",
+    "role": "Writer"
+   },
+   {
+    "id": "Q1371315",
+    "role": "Writer"
+   },
+   {
+    "id": "Q717015",
+    "role": "Producer"
+   },
+   {
+    "id": "Q21809907",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q974800",
+    "role": "Editor"
+   }
+  ]
+ },
  "coming-2-america": {
   "qid": "Q64069446",
   "people": [
@@ -7765,6 +7856,75 @@
    }
   ]
  },
+ "godzilla-minus-zero": {
+  "qid": "Q136700760",
+  "people": [
+   {
+    "id": "Q1041546",
+    "role": "Cast"
+   },
+   {
+    "id": "Q11284289",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3108327",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1189115",
+    "role": "Cast"
+   },
+   {
+    "id": "Q253900",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1050102",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1052140",
+    "role": "Cast"
+   },
+   {
+    "id": "Q11422725",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1060139",
+    "role": "Cast"
+   },
+   {
+    "id": "Q20041273",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1052320",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q16264125",
+    "role": "Producer"
+   },
+   {
+    "id": "Q110212013",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1797629",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q11454127",
+    "role": "Editor"
+   },
+   {
+    "id": "Q1351571",
+    "role": "Music"
+   }
+  ]
+ },
  "gone-with-the-wind": {
   "qid": "Q2875",
   "people": [
@@ -9372,6 +9532,62 @@
    }
   ]
  },
+ "hope": {
+  "qid": "Q117429496",
+  "people": [
+   {
+    "id": "Q491333",
+    "role": "Cast",
+    "character": "고범석"
+   },
+   {
+    "id": "Q130894",
+    "role": "Cast",
+    "character": "고성기"
+   },
+   {
+    "id": "Q28699137",
+    "role": "Cast",
+    "character": "임성애"
+   },
+   {
+    "id": "Q57147",
+    "role": "Cast"
+   },
+   {
+    "id": "Q439314",
+    "role": "Cast"
+   },
+   {
+    "id": "Q26997598",
+    "role": "Cast"
+   },
+   {
+    "id": "Q47166832",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16174686",
+    "role": "Cast"
+   },
+   {
+    "id": "Q20444069",
+    "role": "Cast"
+   },
+   {
+    "id": "Q490406",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q61057522",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q2413003",
+    "role": "Music"
+   }
+  ]
+ },
  "hoppers": {
   "qid": "Q128798957",
   "people": [
@@ -10260,6 +10476,71 @@
    {
     "id": "Q585823",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "insidious-out-of-the-further": {
+  "qid": "Q136311783",
+  "people": [
+   {
+    "id": "Q62505213",
+    "role": "Cast"
+   },
+   {
+    "id": "Q449822",
+    "role": "Cast"
+   },
+   {
+    "id": "Q100295554",
+    "role": "Cast"
+   },
+   {
+    "id": "Q19896733",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1433961",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3218688",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3157528",
+    "role": "Director"
+   },
+   {
+    "id": "Q3703231",
+    "role": "Writer"
+   },
+   {
+    "id": "Q13449900",
+    "role": "Producer"
+   },
+   {
+    "id": "Q716282",
+    "role": "Producer"
+   },
+   {
+    "id": "Q108047434",
+    "role": "Producer"
+   },
+   {
+    "id": "Q471215",
+    "role": "Producer"
+   },
+   {
+    "id": "Q126745096",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q17742192",
+    "role": "Editor"
+   },
+   {
+    "id": "Q14566086",
+    "role": "Music"
    }
   ]
  },
@@ -12143,6 +12424,15 @@
    {
     "id": "Q16745438",
     "role": "Cast, Director"
+   }
+  ]
+ },
+ "marshals": {
+  "qid": "Q134416903",
+  "people": [
+   {
+    "id": "Q1060344",
+    "role": "Cast"
    }
   ]
  },
@@ -15872,6 +16162,27 @@
    }
   ]
  },
+ "ramayana-rise-of-a-legend": {
+  "qid": "Q135196186",
+  "people": [
+   {
+    "id": "Q20081051",
+    "role": "Cast"
+   },
+   {
+    "id": "Q15721444",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16908467",
+    "role": "Director"
+   },
+   {
+    "id": "Q118213271",
+    "role": "Writer"
+   }
+  ]
+ },
  "ray": {
   "qid": "Q797242",
   "people": [
@@ -16901,6 +17212,76 @@
    {
     "id": "Q2057248",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "scary-movie": {
+  "qid": "Q131450198",
+  "people": [
+   {
+    "id": "Q310785",
+    "role": "Cast, Writer, Producer",
+    "character": "Shorty Meeks"
+   },
+   {
+    "id": "Q370102",
+    "role": "Cast, Writer, Producer",
+    "character": "Ray Wilkins"
+   },
+   {
+    "id": "Q4491",
+    "role": "Cast",
+    "character": "Cindy Campbell"
+   },
+   {
+    "id": "Q235141",
+    "role": "Cast",
+    "character": "Brenda Meeks"
+   },
+   {
+    "id": "Q185122",
+    "role": "Cast"
+   },
+   {
+    "id": "Q4293",
+    "role": "Cast",
+    "character": "Bobby Prinze"
+   },
+   {
+    "id": "Q73930",
+    "role": "Cast"
+   },
+   {
+    "id": "Q456178",
+    "role": "Cast"
+   },
+   {
+    "id": "Q377424",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6986264",
+    "role": "Cast"
+   },
+   {
+    "id": "Q313918",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1158726",
+    "role": "Cast"
+   },
+   {
+    "id": "Q21066677",
+    "role": "Director"
+   },
+   {
+    "id": "Q72978545",
+    "role": "Writer, Producer"
+   },
+   {
+    "id": "Q323201",
+    "role": "Writer, Producer"
    }
   ]
  },
@@ -20789,6 +21170,99 @@
    {
     "id": "Q1610333",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "the-end-of-oak-street": {
+  "qid": "Q124804916",
+  "people": [
+   {
+    "id": "Q36301",
+    "role": "Cast",
+    "character": "Denise Platt"
+   },
+   {
+    "id": "Q165518",
+    "role": "Cast",
+    "character": "Greg Platt"
+   },
+   {
+    "id": "Q62871834",
+    "role": "Cast",
+    "character": "Audrey Platt"
+   },
+   {
+    "id": "Q63349125",
+    "role": "Cast",
+    "character": "Brian Platt"
+   },
+   {
+    "id": "Q141016023",
+    "role": "Cast",
+    "character": "Jeannette Christiansen"
+   },
+   {
+    "id": "Q12200303",
+    "role": "Cast",
+    "character": "Mel Jacobs"
+   },
+   {
+    "id": "Q131560482",
+    "role": "Cast",
+    "character": "Kaden Tucker"
+   },
+   {
+    "id": "Q2854337",
+    "role": "Cast",
+    "character": "Mrs. Huddleston"
+   },
+   {
+    "id": "Q273166",
+    "role": "Cast",
+    "character": "Mrs. Valcourt"
+   },
+   {
+    "id": "Q122887577",
+    "role": "Cast",
+    "character": "Zachary"
+   },
+   {
+    "id": "Q56161918",
+    "role": "Cast",
+    "character": "Buddy #1"
+   },
+   {
+    "id": "Q111974117",
+    "role": "Cast",
+    "character": "Buddy #2"
+   },
+   {
+    "id": "Q19815594",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q188137",
+    "role": "Producer"
+   },
+   {
+    "id": "Q72975408",
+    "role": "Producer"
+   },
+   {
+    "id": "Q20866737",
+    "role": "Producer"
+   },
+   {
+    "id": "Q62570965",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q132529101",
+    "role": "Editor"
+   },
+   {
+    "id": "Q155124",
+    "role": "Music"
    }
   ]
  },
@@ -25871,6 +26345,94 @@
    {
     "id": "Q234961",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "wild-horse-nine": {
+  "qid": "Q133341572",
+  "people": [
+   {
+    "id": "Q316446",
+    "role": "Cast",
+    "character": "Lee"
+   },
+   {
+    "id": "Q172261",
+    "role": "Cast",
+    "character": "Chris"
+   },
+   {
+    "id": "Q104061",
+    "role": "Cast",
+    "character": "MJ"
+   },
+   {
+    "id": "Q204586",
+    "role": "Cast",
+    "character": "Marge"
+   },
+   {
+    "id": "Q20888373",
+    "role": "Cast",
+    "character": "Monica"
+   },
+   {
+    "id": "Q184805",
+    "role": "Cast",
+    "character": "Jim"
+   },
+   {
+    "id": "Q5661221",
+    "role": "Cast",
+    "character": "Alicia"
+   },
+   {
+    "id": "Q4306829",
+    "role": "Cast",
+    "character": "Priest"
+   },
+   {
+    "id": "Q124333158",
+    "role": "Cast",
+    "character": "Chilean Officer"
+   },
+   {
+    "id": "Q20676942",
+    "role": "Cast",
+    "character": "English Man"
+   },
+   {
+    "id": "Q115515172",
+    "role": "Cast",
+    "character": "Victor Jara"
+   },
+   {
+    "id": "Q372394",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q934624",
+    "role": "Producer"
+   },
+   {
+    "id": "Q40664045",
+    "role": "Producer"
+   },
+   {
+    "id": "Q95671067",
+    "role": "Producer"
+   },
+   {
+    "id": "Q4885518",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q38402819",
+    "role": "Editor"
+   },
+   {
+    "id": "Q374754",
+    "role": "Music"
    }
   ]
  },

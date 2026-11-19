@@ -1695,5 +1695,55 @@
   "source": "TMDB",
   "tmdb": "tv/291507",
   "image": "https://image.tmdb.org/t/p/original/u2iDoQmXu86tMhMZSN1EPp0PHKQ.jpg"
+ },
+ "ramayana-rise-of-a-legend": {
+  "source": "TMDB",
+  "tmdb": "movie/656908",
+  "image": "https://image.tmdb.org/t/p/original/vBQ7wks68OhJKlb3RnXSl2yXBXK.jpg"
+ },
+ "godzilla-minus-zero": {
+  "source": "TMDB",
+  "tmdb": "movie/1381071",
+  "image": "https://image.tmdb.org/t/p/original/hSmIJluOJmTWvJs4d7kHRxjc8s8.jpg"
+ },
+ "12-12-12": {
+  "source": "TMDB",
+  "tmdb": "tv/254630",
+  "image": "https://image.tmdb.org/t/p/original/8q6BvFQuKM1Rud4E9NQDaMGy9EL.jpg"
+ },
+ "insidious-out-of-the-further": {
+  "source": "TMDB",
+  "tmdb": "movie/1291595",
+  "image": "https://image.tmdb.org/t/p/original/4tTrW9dXCByS5wt2pXVWb58zNjz.jpg"
+ },
+ "hope": {
+  "source": "TMDB",
+  "tmdb": "movie/1058424",
+  "image": "https://image.tmdb.org/t/p/original/6VY1ZKgpsc8CfGsQcCGiYEgHdH0.jpg"
+ },
+ "the-end-of-oak-street": {
+  "source": "TMDB",
+  "tmdb": "movie/1101383",
+  "image": "https://image.tmdb.org/t/p/original/7DmtuAK5gYGlMFA45Oxkl1bEpIC.jpg"
+ },
+ "scary-movie": {
+  "source": "TMDB",
+  "tmdb": "movie/1273221",
+  "image": "https://image.tmdb.org/t/p/original/znHT8peERZRWG1ME3r0Db0EV8k8.jpg"
+ },
+ "marshals": {
+  "source": "TMDB",
+  "tmdb": "tv/290856",
+  "image": "https://image.tmdb.org/t/p/original/zV1MRb6eqx6Uj3NSXquZFfz75pa.jpg"
+ },
+ "clayface": {
+  "source": "TMDB",
+  "tmdb": "movie/1400940",
+  "image": "https://image.tmdb.org/t/p/original/9l1NuFjel2j89hiuiJbsxfblqjy.jpg"
+ },
+ "wild-horse-nine": {
+  "source": "TMDB",
+  "tmdb": "movie/891621",
+  "image": "https://image.tmdb.org/t/p/original/dNJFRtVg3xLQ7dbNIQ55cmmIniD.jpg"
  }
 }

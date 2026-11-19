@@ -1,4 +1,41 @@
 {
+ "12-12-12": {
+  "videos": [
+   {
+    "id": "pWdt8WMCqnc",
+    "kind": "Official trailer",
+    "title": "12 12 12 — Official Trailer | Apple TV",
+    "channel": "Apple TV"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Tom's Guide",
+    "title": "'12 12 12' review: Apple TV heist thriller with Jamie Dornan and Anthony Mackie (mostly) succeeds",
+    "href": "https://www.tomsguide.com/entertainment/apple-tv/12-12-12-review-a-gimmicky-apple-tv-heist-thriller-with-jamie-dornan-and-anthony-mackie-that-mostly-succeeds",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "JoBlo",
+    "title": "12 12 12 TV Review: Anthony Mackie and Jamie Dornan execute a heist across Europe and three time periods",
+    "href": "https://www.joblo.com/?p=956172",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Anthony Mackie-Jamie Dornan Heist Drama Lands at Apple",
+    "href": "https://www.hollywoodreporter.com/tv/tv-news/anthony-mackie-jamie-dornan-heist-drama-12-12-12-apple-1235900365/"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Anthony Mackie, Jamie Dornan Heist Series 12 12 12 Casts Jack Kesy",
+    "href": "https://variety.com/2025/tv/news/anthony-mackie-jamie-dornan-heist-series-12-12-12-jack-kesy-1236375925/"
+   }
+  ],
+  "imdb": "tt32375763"
+ },
  "12-angry-men": {
   "videos": [
    {
@@ -1611,6 +1648,45 @@
   "cinemaRelease": true,
   "imdb": "tt0021749"
  },
+ "clayface": {
+  "videos": [
+   {
+    "id": "OGO4Mqvo3jI",
+    "kind": "Official trailer",
+    "title": "Clayface | Official Trailer",
+    "channel": "DC"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Clayface review: DC blockbuster never takes an interesting shape",
+    "href": "https://www.rogerebert.com/reviews/clayface-dc-movie-review-2026",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Screen Daily",
+    "title": "Clayface review: the Batman villain gets an edgy spin-off in James Watkins' gory, predictable body horror",
+    "href": "https://www.screendaily.com/reviews/clayface-review-the-batman-villain-gets-an-edgy-spin-off-in-james-watkins-gory-predictable-body-horror/5221662.article",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "/Film",
+    "title": "Clayface Review: DC's Gory Villain Spin-Off Movie Is Shapeless",
+    "href": "https://www.slashfilm.com/2293090/clayface-2026-movie-review/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "South China Morning Post",
+    "title": "Clayface review: DC spin-off delivers grisly, vengeance-fuelled body horror thriller",
+    "href": "https://www.scmp.com/lifestyle/entertainment/article/3371568/clayface-review-dc-spin-delivers-grisly-vengeance-fuelled-body-horror-thriller",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt34890576"
+ },
  "dahomey": {
   "videos": [
    {
@@ -2350,6 +2426,55 @@
     "href": "https://mg.co.za/friday/2025-03-19-a-sprint-for-opportunities/"
    }
   ]
+ },
+ "godzilla-minus-zero": {
+  "videos": [
+   {
+    "id": "Pu0pH5BuCPM",
+    "kind": "Official trailer",
+    "title": "GODZILLA MINUS ZERO | Official Trailer 3 - NOW PLAYING",
+    "channel": "GODZILLA OFFICIAL by TOHO"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Godzilla Minus Zero Review: Monster Movie Genius Takashi Yamazaki Returns With a Crackling Kaiju Epic Every Bit as Exciting as Its Predecessor",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/godzilla-minus-zero-review-takashi-yamazaki-1236712678/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Godzilla Minus Zero review – spectacular Japanese action continues franchise's winning streak",
+    "href": "https://www.theguardian.com/film/2026/sep/26/godzilla-minus-zero-review-new-york-film-festival",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Inverse",
+    "title": "Godzilla Minus Zero Review: A Worthy Followup To The Best Godzilla Movie Of The Decade",
+    "href": "https://www.inverse.com/entertainment/godzilla-minus-zero-review",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "Godzilla Minus Zero Review: One of the Great Godzilla Sequels, but Not One of the Great Godzilla Films",
+    "href": "https://www.thewrap.com/creative-content/reviews/godzilla-minus-zero-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Johnny Depp’s Ebenezer Richer Abroad At $42M WW; Ramayana Nears $150M WW; Godzilla Minus Zero Roars Past $100M WW; Wildwood $70M – Global Box Office",
+    "href": "https://deadline.com/2026/11/box-office-global-ebenezer-ramayana-godzilla-minus-zero-1237224479/"
+   },
+   {
+    "outlet": "Eiga.com",
+    "title": "「ゴジラ－0.0」初日興行収入\"実写映画歴代1位\"を記録！興収100億円超を狙える大ヒットスタートに : 映画ニュース",
+    "href": "https://eiga.com/news/20261104/15/"
+   }
+  ],
+  "imdb": "tt34384661"
  },
  "gone-with-the-wind": {
   "videos": [
@@ -3328,6 +3453,44 @@
   "cinemaRelease": true,
   "imdb": "tt0104431"
  },
+ "hope": {
+  "videos": [
+   {
+    "id": "R5jcEBVBEbQ",
+    "kind": "Official trailer",
+    "title": "HOPE - Official Trailer - In Theaters September 9",
+    "channel": "NEON"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "BBC",
+    "title": "Hope review: This 'wild South Korean blockbuster' is '2026's must-see monster movie' ★★★★☆",
+    "href": "https://www.bbc.com/culture/article/20260519-hope-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "El Periódico de Catalunya",
+    "title": "Crítica de 'Hope': un cruce excesivo y apabullante de thriller de persecuciones, comedia, cine de monstruos y ciencia ficción",
+    "href": "https://www.elperiodico.com/es/ocio-y-cultura/20261029/critica-hope-cruce-excesivo-apabullante-135879843",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Korea Box Office: Na Hong-Jin’s ‘Hope’ Rules With 66% Market Share",
+    "href": "https://variety.com/2026/film/box-office/korea-box-office-na-hong-jin-hope-1236816346/"
+   },
+   {
+    "outlet": "Mandatory",
+    "title": "Michael Fassbender’s New Alien Movie Success Is Only Behind Parasite",
+    "href": "https://www.mandatory.com/news/1855319-michael-fassbender-hope-box-office-parasite"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt27369017"
+ },
  "hoppers": {
   "videos": [
    {
@@ -3748,6 +3911,56 @@
    }
   ],
   "imdb": "tt0025301"
+ },
+ "insidious-out-of-the-further": {
+  "videos": [
+   {
+    "id": "jxU8FU3o75A",
+    "kind": "Official trailer",
+    "title": "INSIDIOUS: OUT OF THE FURTHER - Official Trailer (4K)",
+    "channel": "Sony Pictures Entertainment"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Empire",
+    "title": "Insidious: Out Of The Further Review",
+    "href": "https://www.empireonline.com/movies/reviews/insidious-out-of-the-further/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "'Insidious: Out of the Further' Review: Horror Franchise Shows Its Teeth, but Lacks Some Bite",
+    "href": "https://www.thewrap.com/creative-content/movies/insidious-out-of-the-further-review",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "/Film",
+    "title": "Insidious: Out Of The Further Review: The Sixth Entry Supplies A Simple Story But Scream-Worthy Scares",
+    "href": "https://www.slashfilm.com/2239851/insidious-out-of-the-further-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "TechRadar",
+    "title": "Insidious: Out of the Further review: the new horror movie is the franchise's scariest yet, but that doesn't mean it's good",
+    "href": "https://techradar.com/streaming/entertainment/insidious-out-of-the-further-review-the-new-horror-movie-is-the-franchises-scariest-yet-but-that-doesnt-mean-its-good",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Sony Double Feature At The B.O.: ‘Spider-Man: Brand New Day’ $39M, ‘Insidious 6’ $25M+ Opening – Sunday AM Update",
+    "href": "https://deadline.com/2026/08/box-office-insidious-out-of-the-further-brand-new-day-1237047405/"
+   },
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Sony Dates New Insidious Movie For Summer 2025",
+    "href": "https://deadline.com/2024/05/new-insidious-movie-release-date-set-sony-pictures-1235920112/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt32393988"
  },
  "inumber-number": {
   "videos": [],
@@ -4804,6 +5017,56 @@
   ],
   "articles": [],
   "streaming": "Netflix"
+ },
+ "marshals": {
+  "videos": [
+   {
+    "id": "s5WxYvJeAOY",
+    "kind": "Official trailer",
+    "title": "Marshals: A Yellowstone Story | Official Trailer | NEON NZ",
+    "channel": "NEON NZ"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "'Yellowstone' Spinoff 'Marshals' Turns Taylor Sheridan Franchise Into a Workmanlike CBS Procedural: TV Review",
+    "href": "https://variety.com/2026/tv/reviews/marshals-review-yellowstone-spinoff-cbs-1236672925/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Marshals' Review: CBS' Yellowstone Spinoff",
+    "href": "https://hollywoodreporter.com/tv/tv-reviews/marshals-review-cbs-yellowstone-luke-grimes-1236516313",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "'Marshals' Review: 'Yellowstone' Spinoff Brings Luke Grimes Back for a Simpler CBS Sidequest",
+    "href": "https://www.thewrap.com/creative-content/reviews/marshals-review-yellowstone-spinoff-luke-grimes-kayce/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "TVLine",
+    "title": "Marshals Review: CBS' Yellowstone Spinoff Is A Prestige Procedural With A Dash Of Dutton",
+    "href": "https://www.tvline.com/2107140/marshals-review-yellowstone-spinoff-cbs-kayce-dutton/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Daily Beast",
+    "title": "CBS Turns 'Yellowstone' Into an Embarrassing 'NCIS' Ripoff",
+    "href": "https://www.thedailybeast.com/obsessed/marshals-review-cbs-turns-yellowstone-into-an-embarrassing-ncis-ripoff",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "TV Ratings: Marshals Rides to Big Premiere on CBS",
+    "href": "https://www.hollywoodreporter.com/tv/tv-news/marshals-premiere-ratings-cbs-1236520913/"
+   }
+  ],
+  "imdb": "tt36849871"
  },
  "matilda": {
   "videos": [
@@ -6431,6 +6694,37 @@
   "cinemaRelease": true,
   "imdb": "tt8286894"
  },
+ "ramayana-rise-of-a-legend": {
+  "videos": [
+   {
+    "id": "74nF-FWAS6M",
+    "kind": "Official trailer",
+    "title": "RAMAYANA - Official Trailer (English)",
+    "channel": "Sony Pictures Entertainment"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Ramayana: Rise of a Legend",
+    "href": "https://www.rogerebert.com/?p=278213",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Outlook India",
+    "title": "Ramayana: Rise Of A Legend Review: Nitesh Tiwari's Spectacle Of Gods And Demons Loses The Soul Of The Epic",
+    "href": "https://www.outlookindia.com/art-entertainment/movie-review/ramayana-rise-of-a-legend-review-nitesh-tiwaris-spectacle-of-gods-and-demons-loses-the-soul-of-the-epic",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Khaleej Times",
+    "title": "'Ramayana' review: Ranbir Kapoor, Yash's epic sets new benchmark for Indian cinema",
+    "href": "https://www.khaleejtimes.com/entertainment/ramayana-part-1-review-ranbir-kapoor-yash-sai-pallavi",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": []
+ },
  "rear-window": {
   "videos": [
    {
@@ -6731,6 +7025,68 @@
   "articles": [],
   "streaming": "Netflix",
   "imdb": "tt19671142"
+ },
+ "scary-movie": {
+  "videos": [
+   {
+    "id": "cGgWAHXuTKc",
+    "kind": "Official trailer",
+    "title": "Scary Movie | Final Trailer (2026 Movie) - Marlon Wayans, Shawn Wayans, Anna Faris, Regina Hall",
+    "channel": "Paramount Pictures"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Scary Movie Review: The Sixth Scary Movie Has a Few Choice Gags, but Mostly It's So Meta It's Meh",
+    "href": "https://variety.com/2026/film/reviews/scary-movie-review-anna-faris-marlon-wayans-1236765785/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Scary Movie Review: The Wayans Brothers' Slasher Spoof Franchise Should Have Been Left for Dead",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/scary-movie-review-wayans-brothers-anna-faris-regina-hall-1236613591/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Scary Movie review – spoof comedy returns but maybe it should have stayed in the 2000s",
+    "href": "https://www.theguardian.com/film/2026/jun/04/scary-movie-review",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Scary Movie review: The Wayans brothers' horror spoof requel isn't exactly a Scream",
+    "href": "https://www.empireonline.com/movies/reviews/scary-movie-2026/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "IndieWire",
+    "title": "Scary Movie Review: Not Even the Wayans Can Make Horror Satire Great Again at Paramount",
+    "href": "https://www.indiewire.com/criticism/movies/scary-movie-6-review-1235198058/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Scary Movie",
+    "href": "https://www.rogerebert.com/reviews/scary-movie-6-anna-faris-movie-review-2026",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Box Office: Scary Movie Battles Backrooms for No. 1 With $45 Million-Plus Debut, Masters of the Universe Targets $33 Million Start",
+    "href": "https://variety.com/2026/film/box-office/scary-movie-box-office-scary-opening-weekend-masters-of-the-universe-1236764859/"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Box Office: Scary Movie Makes $7.7 Million in Previews, Masters of the Universe at $4.4 Million",
+    "href": "https://variety.com/2026/film/box-office/box-office-scary-movie-masters-of-universe-1236767709/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt32093575"
  },
  "seriously-single": {
   "videos": [],
@@ -7753,6 +8109,68 @@
    }
   ],
   "imdb": "tt0023985"
+ },
+ "the-end-of-oak-street": {
+  "videos": [
+   {
+    "id": "3oB9AxspVow",
+    "kind": "Official trailer",
+    "title": "The End of Oak Street | Official Trailer",
+    "channel": "Warner Bros."
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The End of Oak Street review: The end of the world has never been more fun",
+    "href": "https://www.rogerebert.com/reviews/the-end-of-oak-street-anne-hathaway-ewan-mcgregor-film-review-2026",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Associated Press",
+    "title": "Movie Review: 'The End of Oak Street' is a gonzo good time",
+    "href": "https://apnews.com/article/end-of-oak-street-movie-review-580777f9f45d34c2775cffb1316fad6b",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Independent",
+    "title": "The End of Oak Street review - Anne Hathaway's dinosaur blockbuster is better than any of the Jurassic World films",
+    "href": "https://www.the-independent.com/arts-entertainment/films/reviews/end-of-oak-street-review-cast-anne-hathaway-b3031868.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'The End of Oak Street' Review: Anne Hathaway and Ewan McGregor in Ersatz '80s Amblin Nostalgia That's Fun as Far as High-End Trash Goes",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/the-end-of-oak-street-review-anne-hathaway-ewan-mcgregor-1236671653/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Wife finds a way in the Spielberg-poached dino-mayhem of 'The End of Oak Street'",
+    "href": "https://www.latimes.com/entertainment-arts/movies/story/2026-08-12/end-of-oak-street-review-anne-hathaway-ewan-mcgregor-maisy-stella-david-robert-mitchell",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "The End of Oak Street review – suburban dino-survival romp is more turkey than T-rex",
+    "href": "https://www.theguardian.com/film/2026/aug/12/the-end-of-oak-street-review-suburban-dino-survival-romp-is-more-turkey-than-t-rex",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Will Tom Cruise’s ‘Digger’ Continue Warner Bros.’ Dismal Box Office Year?",
+    "href": "https://variety.com/2026/film/box-office/digger-tom-cruise-warner-bros-box-office-1236878000/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "Box Office: 'Spider: Brand New Day' No. 1 $71M, 'End of Oak Street' $21M",
+    "href": "https://deadline.com/2026/08/box-office-spider-man-the-end-of-oak-street-1237033458/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt27165187"
  },
  "the-general": {
   "videos": [],
@@ -9353,5 +9771,55 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0047673"
+ },
+ "wild-horse-nine": {
+  "videos": [
+   {
+    "id": "kqxuamKxRTo",
+    "kind": "Official trailer",
+    "title": "WILD HORSE NINE | Official Trailer | Searchlight Pictures",
+    "channel": "SearchlightPictures"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "IndieWire",
+    "title": "'Wild Horse Nine' Review: Martin McDonagh's Prickly but Unconvincing CIA Satire Recasts 'In Bruges' as the Stuff of a Classic Western",
+    "href": "https://www.indiewire.com/criticism/movies/wild-horse-nine-movie-review-1235213912/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'Wild Horse Nine' Review: John Malkovich and Sam Rockwell Are a Perfectly Paired Double Act in Martin McDonagh's Melancholy Seventies Caper",
+    "href": "https://variety.com/2026/film/reviews/wild-horse-nine-review-1236849978/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "ScreenDaily",
+    "title": "'Wild Horse Nine' review: John Malkovich and Sam Rockwell command Martin McDonagh's potent 1970s character study",
+    "href": "https://www.screendaily.com/reviews/wild-horse-nine-review-john-malkovich-and-sam-rockwell-command-martin-mcdonaghs-potent-1970s-character-study/5219987.article",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Wild Horse Nine' Review: John Malkovich and Sam Rockwell Make a Perfect Pair in Martin McDonagh's Poignant, Blood-Dipped Buddy Comedy",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/wild-horse-nine-review-john-malkovich-sam-rockwell-mcdonagh-1236689345/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Box Office: 'Godzilla Minus Zero' Roars Toward Record Opening",
+    "href": "https://deadline.com/2026/11/box-office-godzilla-minus-zero-cat-in-the-hat-1237215161/"
+   },
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "John Malkovich & Mark Ruffalo Join Sam Rockwell In Martin McDonagh's 'Wild Horse Nine' At Searchlight",
+    "href": "https://deadline.com/2025/02/john-malkovich-mark-ruffalo-sam-rockwell-martin-mcdonagh-wild-horse-nine-1236279122/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt15799564"
  }
 }

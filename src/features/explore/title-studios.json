@@ -215,6 +215,7 @@
  },
  "inumber-number-jozi-gold": {
   "studios": [
+   "quizzical",
    "netflix"
   ],
   "tmdb": "movie/1129956"
@@ -1960,5 +1961,51 @@
    "netflix"
   ],
   "tmdb": "tv/291507"
+ },
+ "ramayana-rise-of-a-legend": {
+  "studios": [],
+  "tmdb": "movie/656908"
+ },
+ "godzilla-minus-zero": {
+  "studios": [],
+  "tmdb": "movie/1381071"
+ },
+ "12-12-12": {
+  "studios": [
+   "anonymous-content"
+  ],
+  "tmdb": "tv/254630"
+ },
+ "insidious-out-of-the-further": {
+  "studios": [],
+  "tmdb": "movie/1291595"
+ },
+ "hope": {
+  "studios": [],
+  "tmdb": "movie/1058424"
+ },
+ "the-end-of-oak-street": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/1101383"
+ },
+ "scary-movie": {
+  "studios": [
+   "miramax"
+  ],
+  "tmdb": "movie/1273221"
+ },
+ "marshals": {
+  "studios": [],
+  "tmdb": "tv/290856"
+ },
+ "clayface": {
+  "studios": [],
+  "tmdb": "movie/1400940"
+ },
+ "wild-horse-nine": {
+  "studios": [],
+  "tmdb": "movie/891621"
  }
 }

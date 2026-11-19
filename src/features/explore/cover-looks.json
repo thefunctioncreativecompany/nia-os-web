@@ -367,6 +367,10 @@
   "vivid-colour",
   "low-key"
  ],
+ "12-12-12": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "12-angry-men": [
   "black-and-white",
   "bright-airy"
@@ -602,6 +606,9 @@
  "city-lights": [
   "black-and-white"
  ],
+ "clayface": [
+  "low-key"
+ ],
  "coming-2-america": [
   "vivid-colour",
   "warm-palette"
@@ -631,7 +638,7 @@
   "low-key"
  ],
  "disclosure-day": [
-  "black-and-white",
+  "muted-colour",
   "bright-airy"
  ],
  "django-unchained": [
@@ -722,6 +729,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "godzilla-minus-zero": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "gone-with-the-wind": [
   "warm-palette"
  ],
@@ -788,6 +799,9 @@
  "home-alone": [
   "vivid-colour"
  ],
+ "hope": [
+  "cool-palette"
+ ],
  "hoppers": [
   "vivid-colour",
   "warm-palette"
@@ -847,6 +861,11 @@
  ],
  "inglourious-basterds": [
   "warm-palette"
+ ],
+ "insidious-out-of-the-further": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
  ],
  "interstellar": [],
  "inumber-number-jozi-gold": [
@@ -963,6 +982,10 @@
  ],
  "marked": [
   "muted-colour"
+ ],
+ "marshals": [
+  "vivid-colour",
+  "low-key"
  ],
  "martin": [
   "vivid-colour",
@@ -1150,6 +1173,11 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "ramayana-rise-of-a-legend": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "ray": [
   "vivid-colour",
   "cool-palette",
@@ -1197,6 +1225,10 @@
  "scarface": [
   "muted-colour",
   "warm-palette"
+ ],
+ "scary-movie": [
+  "vivid-colour",
+  "cool-palette"
  ],
  "seriously-single": [
   "vivid-colour",
@@ -1371,6 +1403,7 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "the-end-of-oak-street": [],
  "the-fast-and-the-furious-tokyo-drift": [
   "muted-colour"
  ],
@@ -1612,6 +1645,11 @@
   "warm-palette"
  ],
  "white-christmas": [
+  "warm-palette",
+  "bright-airy"
+ ],
+ "wild-horse-nine": [
+  "muted-colour",
   "warm-palette",
   "bright-airy"
  ],

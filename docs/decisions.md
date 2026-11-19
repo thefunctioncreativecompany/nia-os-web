@@ -1209,3 +1209,16 @@ onboarding's Import profile and Follow creators describe features removed in the
 - (2026-11-19) Best of 2026 becomes the year's top 100 (Ika: "top 100"): build-best-of-2026.mjs
   reads more of TMDB (six pages by popularity and by gross, four of critics' favourites) and keeps
   100. The 20 already on Explore stay live; 80 wait in `toAdd` for the full pipeline.
+- (2026-11-19) Best of 2026, batch 4 of the top 100 (ranks 16–30 not yet on Explore): Ramayana:
+  Rise of a Legend, Godzilla Minus Zero, 12 12 12, Insidious: Out of the Further, Hope, The End of
+  Oak Street, Scary Movie, Marshals, Clayface, Wild Horse Nine; 30 of 100 live. YouTube refuses
+  this Mac's command-line connections (youtube-nocookie.com answers), so trailers now come from
+  TMDB's list of each title's official videos (`scripts/tmdb-trailers.mjs`, which also corrects an
+  IMDb id when Wikipedia's search found another film: 12 12 12 had matched 12 Monkeys) and are
+  checked through the privacy-enhanced player (`scripts/check-trailers.mjs`: embeddable, and the
+  posting channel; an age-restricted one falls back to the next official trailer). Posters checked
+  on a contact sheet (`scripts/contact-sheet.mjs`). Press kits: reviews from Wikipedia, corrected
+  by hand (verdicts that didn't match the critic, sentences copied from another review, broken
+  outlet names), and filled from edited publications where fewer than two; press videos wait for
+  YouTube search to work again. Also: the "Awards and festivals" tag came from any recognition
+  line, so box-office figures counted as awards; it now needs an award, prize or festival named.

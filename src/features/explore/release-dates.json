@@ -3,6 +3,10 @@
   "date": "2009-11-11",
   "precision": "day"
  },
+ "12-12-12": {
+  "date": "2026-11-13",
+  "precision": "day"
+ },
  "12-angry-men": {
   "date": "1957-04-10",
   "precision": "day"
@@ -241,6 +245,10 @@
  },
  "city-lights": {
   "date": "1931-01-30",
+  "precision": "day"
+ },
+ "clayface": {
+  "date": "2026-10-13",
   "precision": "day"
  },
  "coming-2-america": {
@@ -907,6 +915,10 @@
   "date": "2025-01-01",
   "precision": "year"
  },
+ "godzilla-minus-zero": {
+  "date": "2026-09-26",
+  "precision": "day"
+ },
  "gone-with-the-wind": {
   "date": "1939-01-01",
   "precision": "year"
@@ -987,6 +999,10 @@
   "date": "1992-11-20",
   "precision": "day"
  },
+ "hope": {
+  "date": "2026-05-17",
+  "precision": "day"
+ },
  "hoppers": {
   "date": "2026-02-28",
   "precision": "day"
@@ -1041,6 +1057,10 @@
  },
  "inglourious-basterds": {
   "date": "2009-05-20",
+  "precision": "day"
+ },
+ "insidious-out-of-the-further": {
+  "date": "2026-08-18",
   "precision": "day"
  },
  "interstellar": {
@@ -1177,6 +1197,10 @@
  },
  "marked": {
   "date": "2025-01-01",
+  "precision": "year"
+ },
+ "marshals": {
+  "date": "2026-01-01",
   "precision": "year"
  },
  "martin": {
@@ -1383,6 +1407,10 @@
   "date": "2018-01-01",
   "precision": "year"
  },
+ "ramayana-rise-of-a-legend": {
+  "date": "2026-11-08",
+  "precision": "day"
+ },
  "ray": {
   "date": "2004-01-01",
   "precision": "year"
@@ -1434,6 +1462,10 @@
  "scarface": {
   "date": "1983-01-01",
   "precision": "year"
+ },
+ "scary-movie": {
+  "date": "2026-06-04",
+  "precision": "day"
  },
  "seriously-single": {
   "date": "2020-01-01",
@@ -1634,6 +1666,10 @@
  "the-emperor-jones": {
   "date": "1933-01-01",
   "precision": "year"
+ },
+ "the-end-of-oak-street": {
+  "date": "2026-08-09",
+  "precision": "day"
  },
  "the-fast-and-the-furious": {
   "date": "2001-06-22",
@@ -1901,6 +1937,10 @@
  },
  "white-christmas": {
   "date": "1954-10-14",
+  "precision": "day"
+ },
+ "wild-horse-nine": {
+  "date": "2026-09-03",
   "precision": "day"
  },
  "x-men": {
