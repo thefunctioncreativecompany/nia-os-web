@@ -1104,3 +1104,12 @@ onboarding's Import profile and Follow creators describe features removed in the
   beauty and lifestyle; Music and performance; Creator and social), from fashion films and branded
   content to studio genres; every earlier genre kept. Picked with one multi-select (search, the
   groups, up to 5) in Details and the new project form, not a wall of pills. Not in Figma yet.
+- (2026-11-19) Meetings step 3, Schedule a Google Meet (Ika: "go with step 3"; docs/MEETINGS_SPEC.md).
+  Nia's own Google connection, separate from signing in with Google, asking for two permissions only
+  (`calendar.events.owned`, `calendar.freebusy`) so Nia can't read anyone's other events. The refresh key
+  is encrypted with `GOOGLE_TOKEN_KEY` and kept in `google_connections`, which only the server reads
+  (`20261122000000_google_calendar.sql`, run). The meeting is saved before Google is asked, so the
+  database's editors-only rule decides who can book; a failed booking removes it again. Who's busy is
+  shown before booking ("Book anyway"), not reported after. Changes made later in Google Calendar aren't
+  followed yet. Built from existing parts (dialog, date and time fields, multi-select, recipient
+  input); not in Figma yet.

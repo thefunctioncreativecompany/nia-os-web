@@ -33,7 +33,7 @@ stack and the counts.
 | Desktop navbar | 🔄 N1–N3 done | N4 "Try" ideas, N5 gallery and fallbacks, N6 full check; Figma frames |
 | Explore catalogue | 🔄 | Studio-catalogue titles 2–3 at a time, each with a press kit; AI tagging from a fixed list (EX5) |
 | PostHog activation | 🔄 Installed, session replay on | First recordings on the live site; Replay Vision scanners start then |
-| Meetings (step 2 of 4) | 🔄 Step 1 live (Overview → Meetings); step 2 (suggested changes) built, off until an `ANTHROPIC_API_KEY` is added (no paid services yet) | Add the key; then Schedule a Google Meet (3), Gemini notes arriving by themselves (4). `docs/MEETINGS_SPEC.md` |
+| Meetings (step 3 of 4) | 🔄 Step 1 live (Overview → Meetings); step 2 (suggested changes) built, off until an `ANTHROPIC_API_KEY` is added (no paid services yet); step 3 (Schedule a Google Meet: Calendar event, Meet link, invites, who's busy) built 2026-11-19, on wherever the three Google settings are set | Ika books a real meeting; Home's Upcoming schedule; add the key for step 2; then Gemini notes arriving by themselves (4). `docs/MEETINGS_SPEC.md` |
 | Onboarding (1.4) | 🔄 | "How did you hear about us" as an optional tap; "What you can do" as slides (waits on Figma) |
 
 ## Known rough edges
@@ -87,7 +87,7 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | Spaces | Designed (24 screens) | Projects become Spaces: next up, what needs you, phases, schedule, crew and documents |
 | Nia AI | Designed | Paste a brief, get a Space; spots the films a brief names and adds them as references (BR1, BR2) |
 | Agents | Planned | Model-agnostic agents for the legwork: call sheets, clashes, hand-offs; each one proposes |
-| Meeting notes | Step 1 live (Joshua, FB1) | Overview → Meetings: notes from any notetaker now; then proposals on Apply, Google Meet scheduling and Gemini notes (`docs/MEETINGS_SPEC.md`) |
+| Meeting notes | Step 1 live, Google Meet booking built (Joshua, FB1) | Overview → Meetings: notes from any notetaker now; then proposals on Apply, Google Meet scheduling and Gemini notes (`docs/MEETINGS_SPEC.md`) |
 | Recreate this look | Idea (Alvin, FB9) | From an Explore title, a shot list and mood board proposed into your project |
 | Template looks | Idea (Inbar, FB18) | A few designed versions of each template (background, fonts); needs a decision on document fonts |
 | Community profile | Idea (Inbar, FB19) | A profile for networking and collaboration, started inside Settings |
@@ -124,7 +124,7 @@ From beta testers, November 2026 (full list and permissions: [FEEDBACK.md](FEEDB
 | Service | Used for | Status |
 |---------|----------|--------|
 | Supabase | Database, sign-in, files, live updates | Live |
-| Google | Sign in with Google | Live |
+| Google | Sign in with Google; Calendar and Meet for booking production meetings (`src/lib/google.ts`, its own "Nia calendar" client; free) | Sign-in live; Calendar in Google's Testing mode (test users only) until Google verifies the app |
 | Resend | Auth emails and project invites | Live |
 | PostHog | Product analytics, session replay | Live, waiting on first recordings |
 | TMDB | Explore posters and credits (free API during the private beta) | Beta; commercial licence before charging |

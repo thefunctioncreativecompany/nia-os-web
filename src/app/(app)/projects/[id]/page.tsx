@@ -11,6 +11,7 @@ import { ProjectEditor } from "@/components/projects/project-editor";
 import { ProjectLive } from "@/components/projects/project-live";
 import { ProjectDocuments } from "@/components/projects/project-documents";
 import { ProjectMeetings } from "@/components/projects/project-meetings";
+import { googleConfigured } from "@/lib/google";
 import { ProjectFiles, ProjectFinalAssets } from "@/components/projects/project-files";
 import { ProjectInspiration } from "@/components/projects/project-inspiration-lazy";
 import { Comments } from "@/components/nia/comments";
@@ -74,8 +75,9 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
     .map((f) => ({ id: f.id, name: f.name, url: (f.thumbUrl ?? f.url)!, note: f.note ?? null, notes: f.note !== undefined }));
 
   // Meetings sit under Details on Overview, for editors only (Ika, 2026-11-18: notes are often
-  // personal). Suggested changes need ANTHROPIC_API_KEY; until it's set they show as not yet.
-  const meetingsSection = canEdit ? <ProjectMeetings projectId={id} meetings={meetings} aiReady={!!process.env.ANTHROPIC_API_KEY} /> : null;
+  // personal). Suggested changes need ANTHROPIC_API_KEY and booking Google Meet needs the Google
+  // settings (lib/google.ts); until they're set, each shows as not yet.
+  const meetingsSection = canEdit ? <ProjectMeetings projectId={id} meetings={meetings} aiReady={!!process.env.ANTHROPIC_API_KEY} googleReady={googleConfigured()} /> : null;
 
   return (
     <>

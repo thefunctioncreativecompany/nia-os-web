@@ -1,6 +1,6 @@
 # Meetings: Google Meet, Gemini notes and uploaded notes (future build)
 
-Outlined 2026-11-18 with Ika. Step 1 live 2026-11-18 (`20261120000000_meetings.sql` run; 14 access checks with two accounts pass). Step 2 built 2026-11-18 and switched off: `20261121000000_meeting_proposals.sql` is run, but there's no `ANTHROPIC_API_KEY` yet (Ika, 2026-11-18: nothing paid for now). Until the key is set, the Changes tab shows "Suggest changes" greyed out with a not-yet note; adding the key in `.env.local` and Vercel switches it on, nothing else. Grows FB1 (Joshua's meeting companion) in
+Outlined 2026-11-18 with Ika. Step 1 live 2026-11-18 (`20261120000000_meetings.sql` run; 14 access checks with two accounts pass). Step 2 built 2026-11-18 and switched off: `20261121000000_meeting_proposals.sql` is run, but there's no `ANTHROPIC_API_KEY` yet (Ika, 2026-11-18: nothing paid for now). Until the key is set, the Changes tab shows "Suggest changes" greyed out with a not-yet note; adding the key in `.env.local` and Vercel switches it on, nothing else. Step 3 built 2026-11-19 (`20261122000000_google_calendar.sql` run; Google Cloud client "Nia calendar" set up by Ika; the real sign-in to Google still to be tried by Ika). Grows FB1 (Joshua's meeting companion) in
 [FEEDBACK.md](FEEDBACK.md). Before building: Ika agrees this outline and the open questions at
 the end, each screen is designed (Claude Design, then Figma), and each part runs as its own step.
 
@@ -136,6 +136,33 @@ headings); the first one is the title.
 - **Apply** makes the ticked ones (`apply.ts`) and marks them applied; **Dismiss** sets the rest
   aside. Action and milestone words can be changed before applying (Modify).
 - **Privacy:** the notes go to Anthropic's API to be read. Anthropic doesn't train on API data.
+
+## Step 3 as built (2026-11-19)
+
+- **Connect, once:** *Add meeting → Schedule a Google Meet* opens a pop-up. The first time it has
+  one button, **Connect Google Calendar**: Nia's own Google connection (`/api/google/connect` and
+  `/callback`, `src/lib/google.ts`), separate from signing in with Google. It asks for two
+  permissions only: create events on calendars the person owns (`calendar.events.owned`) and see
+  when people are busy (`calendar.freebusy`). Google's refresh key is encrypted (AES-256-GCM with
+  `GOOGLE_TOKEN_KEY`) before it's stored in `google_connections`, which no browser can read.
+  Disconnect (in the pop-up) takes the access back at Google too.
+- **Book:** title, date, start, length (15 minutes to 2 hours), guests from the project's cast and
+  crew with an email or typed emails, an optional agenda. While it's filled in, Nia checks who's
+  busy then (organiser and guests whose calendars Google shows) and says so; the button becomes
+  "Book anyway". A time that has passed can't be booked.
+- **What happens:** the meeting is saved first (the database rules check the person can edit the
+  project), then Google creates the Calendar event with a Meet link and emails the invites. If
+  Google fails, the half-made meeting is removed. The list shows a video icon and the time; the
+  panel shows the date and time and **Join Google Meet**. Moving the meeting is done in Google
+  Calendar (Nia doesn't follow changes there yet).
+- **Switched off until set:** without `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` and
+  `GOOGLE_TOKEN_KEY` (in `.env.local` and Vercel; the same key in both, changing it disconnects
+  everyone), *Schedule a Google Meet* is greyed out with a not-yet note.
+- **Google's review:** while the "Nia calendar" app is in Testing, only the test users Ika adds
+  (up to 100) can connect, and they see "Google hasn't verified this app". Calendar permissions
+  are "sensitive", so Google verifies the app before it's open to everyone.
+- **Still to do:** Home's Upcoming schedule showing booked meetings; following changes made in
+  Google Calendar.
 
 ## Data (one migration per part, explained to Ika before she runs it)
 

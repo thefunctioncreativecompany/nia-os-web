@@ -14,6 +14,10 @@ export type MeetingRow = {
   sourceApp: string | null;
   attendees: string[];
   createdAt: string;
+  /** Booked through Google (step 3): when it starts and ends, and its Meet link; else null. */
+  startsAt: string | null;
+  endsAt: string | null;
+  meetLink: string | null;
 };
 
 /** A meeting opened in the panel. */
@@ -26,9 +30,9 @@ export type Meeting = MeetingRow & {
   proposals: Proposal[] | null;
 };
 
-export const MEETING_LIST_COLUMNS = "id, title, held_on, source_app, attendees, created_at";
+export const MEETING_LIST_COLUMNS = "id, title, held_on, source_app, attendees, created_at, starts_at, ends_at, meet_link";
 
-type ListRow = { id: string; title: string; held_on: string | null; source_app: string | null; attendees: unknown; created_at: string };
+type ListRow = { id: string; title: string; held_on: string | null; source_app: string | null; attendees: unknown; created_at: string; starts_at: string | null; ends_at: string | null; meet_link: string | null };
 
 const names = (attendees: unknown) =>
   Array.isArray(attendees) ? attendees.flatMap((a) => (a && typeof a === "object" && typeof (a as { name?: unknown }).name === "string" ? [(a as { name: string }).name] : [])) : [];
@@ -40,6 +44,9 @@ export const toMeetingRow = (m: ListRow): MeetingRow => ({
   sourceApp: m.source_app,
   attendees: names(m.attendees),
   createdAt: m.created_at,
+  startsAt: m.starts_at,
+  endsAt: m.ends_at,
+  meetLink: m.meet_link,
 });
 
 /** Who was there, briefly: "Thandi, Sam and 2 others". */

@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { RotateCcw, Trash2, Users } from "lucide-react";
+import { CalendarDays, RotateCcw, Trash2, Users, Video } from "lucide-react";
 import { toast } from "sonner";
 
-import { parseDay, toDay } from "@/lib/dates";
+import { formatDay, parseDay, toDay } from "@/lib/dates";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ConfirmDialog } from "@/components/nia/confirm-dialog";
@@ -15,6 +15,7 @@ import { SectionTabs } from "@/components/nia/section-tabs";
 import { PrevNext, SidePanel } from "@/components/nia/side-panel";
 import { EditableText } from "@/components/projects/editable-text";
 import { MeetingChanges } from "@/components/projects/meeting-changes";
+import { meetingTime } from "@/components/projects/project-meetings";
 import { loadMeeting, peopleText, removeMeeting, updateMeeting, type Meeting, type MeetingRow } from "@/features/meetings/data";
 import { clock } from "@/features/meetings/parse";
 
@@ -150,19 +151,34 @@ export function MeetingPanel({
               className="-mx-2 px-2 text-h2 font-semibold tracking-tight text-foreground"
             />
             <div className="flex flex-wrap items-center gap-2">
-              <DateField
-                value={row.heldOn ? parseDay(row.heldOn) : undefined}
-                onChange={(d) => void save({ held_on: d ? toDay(d) : null }).catch(() => {})}
-                placeholder="Add a date"
-                className="h-8 w-auto gap-2 rounded-full px-3 text-small"
-              />
+              {row.startsAt ? (
+                // Booked through Google: its day and time follow the Calendar event (move it there).
+                <span className="inline-flex h-8 items-center gap-1.5 rounded-full border border-border px-3 text-small text-foreground" suppressHydrationWarning>
+                  <CalendarDays aria-hidden className="size-4 text-muted-foreground" />
+                  {[row.heldOn && formatDay(row.heldOn), meetingTime(row)].filter(Boolean).join(" · ")}
+                </span>
+              ) : (
+                <DateField
+                  value={row.heldOn ? parseDay(row.heldOn) : undefined}
+                  onChange={(d) => void save({ held_on: d ? toDay(d) : null }).catch(() => {})}
+                  placeholder="Add a date"
+                  className="h-8 w-auto gap-2 rounded-full px-3 text-small"
+                />
+              )}
               {people && (
                 <span className="inline-flex h-8 items-center gap-1.5 rounded-full border border-border px-3 text-small text-foreground">
                   <Users aria-hidden className="size-4 text-muted-foreground" />
                   {people}
                 </span>
               )}
-              {row.sourceApp && <span className="inline-flex h-8 items-center rounded-full bg-muted px-3 text-small text-muted-foreground">From {row.sourceApp}</span>}
+              {row.sourceApp && !row.meetLink && <span className="inline-flex h-8 items-center rounded-full bg-muted px-3 text-small text-muted-foreground">From {row.sourceApp}</span>}
+              {row.meetLink && (
+                <Button asChild variant="secondary" size="compact">
+                  <a href={row.meetLink} target="_blank" rel="noopener noreferrer">
+                    <Video aria-hidden /> Join Google Meet
+                  </a>
+                </Button>
+              )}
             </div>
 
             <SectionTabs tabs={tabs} value={tab} onChange={setTab} label="Meeting" panelId={PANEL_ID} end={savedAt ? <SavedIndicator savedAt={savedAt} /> : null} />
