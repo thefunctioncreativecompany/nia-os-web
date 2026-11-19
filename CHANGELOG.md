@@ -5,6 +5,7 @@ Newest first. The full story of each change is in its commit and in docs/decisio
 
 ## Recent Changes
 
+- 2026-11-18 · `feature/explore-templates-marketplace` → `main` · Meetings outlined as a future build (Google Calendar + Meet + Gemini notes, uploads from any notetaker, under Documents → Meetings, AI proposals on Apply); FB1 points to it. Files: `docs/MEETINGS_SPEC.md` (new), `docs/FEEDBACK.md`, `CHANGELOG.md`.
 - 2026-11-18 · `feature/explore-templates-marketplace` → `main` · Feedback from beta testers (quotes kept word for word), Joshua's meeting-notes idea, Alvin's second review and Inbar's design review logged as FB1–FB20; roadmap gets the new rough edges, two Next up items, four ideas and What testers say. Files: `docs/FEEDBACK.md`, `docs/PRODUCT_ROADMAP.md`, `CHANGELOG.md`.
 - 2026-11-17 · `main` · The app opens on the Explore all canvas (Babson WIN Lab demo): the bare domain, log in, Google, email links and account switching land on `/explore/all`; Home stays a tab. One setting, `START_PAGE`. Files: `src/lib/start-page.ts`, `src/lib/supabase/proxy.ts`, `src/components/{login-form,auth/google-button,nia/user-menu}.tsx`, `src/app/auth/confirm/route.ts`.
 - 2026-11-15 · `feature/explore-templates-marketplace` → `main` · `20261117000000_portfolios_signed_out.sql` run: signed-out visitors refused on both portfolio tables, members and published pages unaffected (checked). Files: `CLAUDE.md`, `docs/PRODUCT_ROADMAP.md`, `CHANGELOG.md`.

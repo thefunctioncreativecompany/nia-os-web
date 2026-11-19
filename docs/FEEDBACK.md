@@ -45,7 +45,7 @@ Kept word for word. Ask each person before their name goes on the site, a deck o
 
 | # | What | Today | Implications | Size |
 |---|------|-------|--------------|------|
-| FB1 | **Meeting notes companion**: records a call and gives a summary, actions (plan of action) and deliverables; share the notes with guests who don't use Nia yet; Google Meet first, then Teams and Zoom; maybe FaceTime and WhatsApp calls | Nothing. "Start from a brief" (record a voice note → an AI draft project) is designed, not built | Needs the Copilot (Milestone 5): the summary arrives as a proposal card, and actions become tasks or documents only on Apply. Recording consent (everyone on the call told; POPIA and GDPR). Meet, Teams and Zoom need a meeting bot service or each platform's own recording and transcript access; FaceTime and WhatsApp have no way in for other apps, so they're out. Sharing with guests can reuse the view-only link. Shares transcription with "Start from a brief" and BR1 | L |
+| FB1 | **Meeting notes companion**: records a call and gives a summary, actions (plan of action) and deliverables; share the notes with guests who don't use Nia yet; Google Meet first, then Teams and Zoom; maybe FaceTime and WhatsApp calls | Nothing. "Start from a brief" (record a voice note → an AI draft project) is designed, not built | Needs the Copilot (Milestone 5): the summary arrives as a proposal card, and actions become tasks or documents only on Apply. Recording consent (everyone on the call told; POPIA and GDPR). Meet, Teams and Zoom need a meeting bot service or each platform's own recording and transcript access; FaceTime and WhatsApp have no way in for other apps, so they're out. Sharing with guests can reuse the view-only link. Shares transcription with "Start from a brief" and BR1. 🔍 2026-11-18: outlined in [MEETINGS_SPEC.md](MEETINGS_SPEC.md) (Google Calendar + Meet + Gemini notes, uploads from any notetaker, under Documents → Meetings, proposals on Apply) | L |
 
 ### B. Alvin's second review (after reading the roadmap)
 
@@ -231,6 +231,9 @@ private: holds press contacts) and the Claude Design canvases. Built items are l
 **Designed or partly built**
 - Start from a brief (Home: type, attach or record; an "AI draft" project with sources; Apply /
   Modify / Dismiss). Designed; needs Copilot, transcription, a drafts table, a per-plan limit.
+- Cross-modal search and brief-to-project (2026-11-15): search Explore by mood or a dropped still,
+  "You may also like" by look, a Brief proposes a workflow and references. Gemini embeddings in
+  pgvector. Spec with Nia's real names: `docs/CROSS_MODAL_SEARCH_SPEC.md`; 5 open questions.
 - One production profile + "Projects like this had": on branch `feature/core-features`, not merged.
 - Explore new-for-you notifications and title suggestions: design rows A–E, waiting for a pick.
 - Recently added, rethought: removed 2026-11-08, tag `parked-2026-11-08-recently-added`.
