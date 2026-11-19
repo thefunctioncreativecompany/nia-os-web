@@ -32,6 +32,7 @@ export function TitleCard({
   sizes,
   first = false,
   actions,
+  media,
 }: {
   entry: Entry;
   href: string;
@@ -39,6 +40,9 @@ export function TitleCard({
   first?: boolean;
   /** Buttons under the card (Add to project, Remove), kept outside its link. */
   actions?: React.ReactNode;
+  /** Drawn over the cover, inside its frame (the hover trailer); the frame then takes its shape
+   * from the row cell's `--span`, so it widens with the cell and keeps its height. */
+  media?: React.ReactNode;
 }) {
   const { title, grain } = entry;
   const { image, aspect } = titleCover(title.slug);
@@ -54,6 +58,7 @@ export function TitleCard({
       sizes={sizes}
       first={first}
       actions={actions}
+      media={media}
     />
   );
 }
@@ -106,6 +111,7 @@ function PosterCard({
   first,
   actions,
   note,
+  media,
 }: {
   href: string;
   title: string;
@@ -119,15 +125,17 @@ function PosterCard({
   first: boolean;
   actions?: React.ReactNode;
   note?: string;
+  media?: React.ReactNode;
 }) {
   const card = (
     <Link href={href} aria-label={label} className="group flex w-full flex-col gap-2 rounded-lg text-left text-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
       <span
+        data-frame
         className={cn(
           "relative block overflow-hidden rounded-lg transition-[transform,box-shadow] duration-lift ease-glide group-hover:-translate-y-1 group-hover:shadow-card-hover group-focus-visible:-translate-y-1 motion-reduce:translate-y-0!",
           image ? "bg-muted" : grain,
         )}
-        style={{ aspectRatio: aspect ?? POSTER }}
+        style={{ aspectRatio: media === undefined ? (aspect ?? POSTER) : `calc(${POSTER} * var(--span))` }}
       >
         {image ? (
           <SettleImage
@@ -148,6 +156,7 @@ function PosterCard({
             {title}
           </span>
         )}
+        {media}
         {badge && <span className="absolute top-2.5 left-2.5 rounded-full bg-card/90 px-2.5 py-1 text-micro font-semibold text-foreground">{sentenceCase(badge)}</span>}
       </span>
       <span className="truncate text-lead font-semibold">{title}</span>

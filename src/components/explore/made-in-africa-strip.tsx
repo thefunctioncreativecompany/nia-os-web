@@ -4,8 +4,8 @@ import { ROW_MAX } from "@/lib/rows";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { shuffled } from "@/lib/shuffle";
 import { MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, madeInAfrica, titleHref } from "@/features/explore/made-in-africa";
-import { ROW_CELL, ROW_SIZES } from "./row-cell";
-import { TitleCard, entrySpan } from "./title-card";
+import { ROW_SIZES } from "./row-cell";
+import { TrailerCell } from "./trailer-cell";
 import { TmdbCredit } from "./tmdb-credit";
 
 // How many titles the row shows; View all has the rest (Ika, 2026-10-21).
@@ -37,9 +37,7 @@ export function MadeInAfricaStrip({ seed, bare = false }: { seed: number; bare?:
       )}
       <ScrollRow label={MADE_IN_AFRICA.name}>
         {shuffled(madeInAfrica, seed).slice(0, SHOWN).map((e) => (
-          <li key={e.title.slug} className={ROW_CELL} style={entrySpan(e)}>
-            <TitleCard entry={e} href={titleHref(e.title.slug)} sizes={ROW_SIZES} />
-          </li>
+          <TrailerCell key={e.title.slug} entry={e} href={titleHref(e.title.slug)} sizes={ROW_SIZES} />
         ))}
       </ScrollRow>
     </section>

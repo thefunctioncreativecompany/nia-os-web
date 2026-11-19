@@ -1130,3 +1130,19 @@ onboarding's Import profile and Follow creators describe features removed in the
   (`20261123000000_portfolios_own_work.sql`) and again on the public page and its link preview
   (`src/features/portfolios/data.ts`), which also show only portfolios made by someone on
   `PORTFOLIOS_BETA_EMAILS` while Portfolios is in beta.
+- (2026-11-19) Trailers play on hover in Explore's rows (VE2 in FEEDBACK.md; Ika: the poster opens
+  into the wide trailer and the other covers move aside, with sound, one at a time). Resting on a
+  poster ~450ms widens its cell to a 16:9 frame at the same height (`--span` animated, registered
+  from code because the CSS build drops its `@property`); the trailer's still fades in, then
+  YouTube's privacy-enhanced player, sized to the final frame from the start so it never resizes
+  (Safari showed white gaps when it did). Sound: it starts muted (always allowed), then turns the
+  sound on; if the browser pauses it for that (no click on the page yet, Safari), it goes back to
+  muted and keeps playing. Moving to the next card hands over in 150ms: one shrinks as the other
+  grows at the same pace, so the card under the pointer stays under it and the rest of the row
+  stays still (measured: no frame off target); leaving waits 250ms, then the player fades and the
+  frame closes. Near the right edge it grows to the left (the row scrolls along) and scrolls back on
+  close. Native pointer listeners: React's leave event didn't arrive once the player was in the
+  card. YouTube's Required Minimum Functionality: playback starts only once the player shows, one
+  at a time, nothing drawn over it, at least 200 × 200 (about 615 × 346 on a desktop). Their
+  rule against mouseovers applies to hovering their player; here the hover is on Nia's card before
+  the player exists. Desktop pointers only, off under reduced motion and a data saver.

@@ -31,10 +31,14 @@ keep their flow, and their visual interest comes from the user's own work.
   glide, project cards 400ms ease-out; once; reduced motion shows it still). Explore's rows and
   galleries, Explore all (the view you arrive at, not tiles panned to later) and project cards on
   Home and Projects (`SettleImage`).
-- **VE2. Silent trailer on Explore.** Not started; Ika to choose: a featured title at the top that
-  plays its official trailer muted once, desktop only, then rests on its still (needs a design
-  first), and/or a muted preview on hovering a wide trailer card. Check YouTube's embed rules on
-  autoplay first; load the player only after the page is ready.
+- **VE2. Trailer on hover in Explore's rows.** Built 2026-11-19 (Ika: the poster turns into the
+  wide trailer, the other covers moving aside; then "poor execution: refine the open/close, sound
+  should play, only one open at a time"). Resting on a poster for about half a second opens it
+  into a 16:9 frame at the same height (the trailer's still fades in, then YouTube's player),
+  with sound where the browser allows it, else muted. Moving to the next card hands over (one
+  shrinks as the other grows, so nothing under the pointer moves); leaving the row closes it;
+  near the right edge it grows to the left. Best of 2026 and the category rows
+  (`trailer-cell.tsx`). Desktop only; off under reduced motion and a data saver.
 - **VE3. Calm visuals in the flow screens.** Not started; need Figma: the project's cover as a
   soft backdrop behind the project page's title, template cards showing the document itself.
 
