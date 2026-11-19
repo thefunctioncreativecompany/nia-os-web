@@ -1745,5 +1745,55 @@
   "source": "TMDB",
   "tmdb": "movie/891621",
   "image": "https://image.tmdb.org/t/p/original/dNJFRtVg3xLQ7dbNIQ55cmmIniD.jpg"
+ },
+ "supergirl": {
+  "source": "TMDB",
+  "tmdb": "movie/1081003",
+  "image": "https://image.tmdb.org/t/p/original/uhzRnTW4DM13UQBvZP3eVNzQTuz.jpg"
+ },
+ "the-mandalorian-and-grogu": {
+  "source": "TMDB",
+  "tmdb": "movie/1228710",
+  "image": "https://image.tmdb.org/t/p/original/uwMKWjcNID0D9jjplsjkQS2OrB4.jpg"
+ },
+ "street-fighter": {
+  "source": "TMDB",
+  "tmdb": "movie/1153576",
+  "image": "https://image.tmdb.org/t/p/original/ccxdepKqORLwccbzvO4eAGkN0IC.jpg"
+ },
+ "coyote-vs-acme": {
+  "source": "TMDB",
+  "tmdb": "movie/1204680",
+  "image": "https://image.tmdb.org/t/p/original/kYDCl2y0VPvhT5eYWbMRInPoB03.jpg"
+ },
+ "mortal-kombat-ii": {
+  "source": "TMDB",
+  "tmdb": "movie/931285",
+  "image": "https://image.tmdb.org/t/p/original/hwRdDFIhaEmpRgoki805YvyyjZf.jpg"
+ },
+ "you-can-see-everything": {
+  "source": "TMDB",
+  "tmdb": "movie/1765072",
+  "image": "https://image.tmdb.org/t/p/original/mVh3qkw2NUFxWWyF0G1hg2Wh0K5.jpg"
+ },
+ "colony": {
+  "source": "TMDB",
+  "tmdb": "movie/1375646",
+  "image": "https://image.tmdb.org/t/p/original/enz3WLx5QU1FUyhXZld04QWIc6N.jpg"
+ },
+ "ebenezer": {
+  "source": "TMDB",
+  "tmdb": "movie/1567605",
+  "image": "https://image.tmdb.org/t/p/original/6H2N59jJW1hZEzn2ZdrMvJw5vNI.jpg"
+ },
+ "nocturne": {
+  "source": "TMDB",
+  "tmdb": "tv/292741",
+  "image": "https://image.tmdb.org/t/p/original/nyvXVcPnHEwVmqCdzjjCsu1jqhm.jpg"
+ },
+ "wildwood": {
+  "source": "TMDB",
+  "tmdb": "movie/791523",
+  "image": "https://image.tmdb.org/t/p/original/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg"
  }
 }

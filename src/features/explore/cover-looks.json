@@ -609,6 +609,9 @@
  "clayface": [
   "low-key"
  ],
+ "colony": [
+  "cool-palette"
+ ],
  "coming-2-america": [
   "vivid-colour",
   "warm-palette"
@@ -616,6 +619,10 @@
  "coming-to-america": [
   "vivid-colour",
   "cool-palette"
+ ],
+ "coyote-vs-acme": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "crazy-rich-asians": [
   "vivid-colour"
@@ -662,6 +669,11 @@
  "e-t-the-extra-terrestrial": [
   "vivid-colour",
   "cool-palette"
+ ],
+ "ebenezer": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "elf": [
   "cool-palette",
@@ -1038,6 +1050,10 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "mortal-kombat-ii": [
+  "vivid-colour",
+  "low-key"
+ ],
  "mr-smith-goes-to-washington": [
   "vivid-colour",
   "warm-palette"
@@ -1060,6 +1076,9 @@
  ],
  "nickel-boys": [
   "vivid-colour",
+  "warm-palette"
+ ],
+ "nocturne": [
   "warm-palette"
  ],
  "north-by-northwest": [
@@ -1311,11 +1330,19 @@
   "warm-palette",
   "low-key"
  ],
+ "street-fighter": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "sunrise": [
   "warm-palette"
  ],
  "sunset-boulevard": [
   "black-and-white"
+ ],
+ "supergirl": [
+  "vivid-colour",
+  "cool-palette"
  ],
  "taxi-driver": [
   "vivid-colour",
@@ -1493,6 +1520,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "the-mandalorian-and-grogu": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "the-martian": [
   "warm-palette"
  ],
@@ -1653,7 +1684,13 @@
   "warm-palette",
   "bright-airy"
  ],
+ "wildwood": [
+  "cool-palette"
+ ],
  "x-men": [
   "muted-colour"
+ ],
+ "you-can-see-everything": [
+  "warm-palette"
  ]
 }

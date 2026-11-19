@@ -2007,5 +2007,55 @@
  "wild-horse-nine": {
   "studios": [],
   "tmdb": "movie/891621"
+ },
+ "supergirl": {
+  "studios": [],
+  "tmdb": "movie/1081003"
+ },
+ "the-mandalorian-and-grogu": {
+  "studios": [
+   "lucasfilm"
+  ],
+  "tmdb": "movie/1228710"
+ },
+ "street-fighter": {
+  "studios": [],
+  "tmdb": "movie/1153576"
+ },
+ "coyote-vs-acme": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/1204680"
+ },
+ "mortal-kombat-ii": {
+  "studios": [
+   "new-line"
+  ],
+  "tmdb": "movie/931285"
+ },
+ "you-can-see-everything": {
+  "studios": [
+   "a24"
+  ],
+  "tmdb": "movie/1765072"
+ },
+ "colony": {
+  "studios": [],
+  "tmdb": "movie/1375646"
+ },
+ "ebenezer": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/1567605"
+ },
+ "nocturne": {
+  "studios": [],
+  "tmdb": "tv/292741"
+ },
+ "wildwood": {
+  "studios": [],
+  "tmdb": "movie/791523"
  }
 }

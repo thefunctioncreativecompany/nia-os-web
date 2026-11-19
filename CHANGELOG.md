@@ -5,6 +5,7 @@ Newest first. The full story of each change is in its commit and in docs/decisio
 
 ## Recent Changes
 
+- 2026-11-19 · `feature/explore-templates-marketplace` · Best of 2026 batch 5 (10 titles, 40 of 100 live). Files: `src/features/explore/*` data, `public/explore/made-in-africa/*.jpg`, `scripts/check-trailers.mjs`, docs.
 - 2026-11-19 · `feature/explore-templates-marketplace` → `main` · `npm run lint` checks the CLAUDE.md Design rules (idea from Meta's Astryx); `scripts/out/` no longer linted. Files: `lint/nia-design-rules.mjs` (+ test, new), `eslint.config.mjs`, `CLAUDE.md`, `docs/FEEDBACK.md`, `CHANGELOG.md`.
 - 2026-11-19 · `feature/explore-templates-marketplace` · Best of 2026 batch 4 (10 titles, 30 of 100 live), trailers from TMDB checked through youtube-nocookie, contact sheets; awards tag only for awards and festivals. Files: `src/features/explore/*` data, `public/explore/made-in-africa/*.jpg`, `scripts/{tmdb-trailers,check-trailers,contact-sheet}.mjs`, docs.
 - 2026-11-19 · `feature/explore-templates-marketplace` → `main` · The top bar search finds Explore's people with the same lookup as Explore search (all 4,110, not only those with three or more credits); a person's titles follow them in billing order. Files: `src/components/nia/global-search.tsx`, `src/features/explore/search-index.ts`, `docs/FEEDBACK.md`, `CHANGELOG.md`.

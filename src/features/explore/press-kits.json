@@ -1687,6 +1687,94 @@
   "cinemaRelease": true,
   "imdb": "tt34890576"
  },
+ "colony": {
+  "videos": [
+   {
+    "id": "LW6dpj1uCK8",
+    "kind": "Official trailer",
+    "title": "COLONY - International Trailer | Directed by Yeon Sang-ho | In Theaters August 28",
+    "channel": "Well Go USA Entertainment"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Dread Central",
+    "title": "‘Colony’ Review: Ferocious, Terrifying, and a New Zombie Classic! [Cannes]",
+    "href": "https://www.dreadcentral.com/reviews/574710/colony-ferocious-terrifying-and-a-new-zombie-classic-cannes-2026-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Screen International",
+    "title": "‘Colony’ review: ‘Train To Busan’ director Yeon Sang-ho returns with fun, forgettable zombie horror",
+    "href": "https://www.screendaily.com/reviews/colony-review-train-to-busan-director-yeon-sang-ho-returns-with-fun-forgettable-zombie-horror/5216949.article",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "IndieWire",
+    "title": "‘Colony’ Review: Yeon Sang-ho’s Latest Zombie Saga Paints Civilizational Collapse with Too Broad a Brush",
+    "href": "https://www.indiewire.com/criticism/movies/colony-review-yeon-sang-ho-1235194485/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "‘Gun-Che (Colony)’ Review: This Zombie Actioner Could Make a Great Video Game, But Is a Disappointing Film",
+    "href": "https://www.thewrap.com/creative-content/movies/cannes-2026-gun-che-colony-review/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Korean Film Council",
+    "title": "KOFIC, KOBIS (Korean Box Office Information System) The Box office: Korean films of 2026",
+    "href": "http://www.koreanfilm.or.kr/eng/news/boxOffice_Yearly.jsp?mode=BOXOFFICE_YEAR&selectDt=2026&category=ALL&country=K"
+   },
+   {
+    "outlet": "The Straits Times",
+    "title": "Zombie flick Colony from Train To Busan director is gruesome fun, even if it lacks emotional bite",
+    "href": "https://www.straitstimes.com/life/entertainment/zombie-flick-colony-from-train-to-busan-director-is-gruesome-fun-even-if-it-lacks-emotional-bite"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt34385135"
+ },
+ "coyote-vs-acme": {
+  "videos": [
+   {
+    "id": "H-43VeYGiPM",
+    "kind": "Official trailer",
+    "title": "Coyote vs. ACME | Official Trailer",
+    "channel": "Coyote vs. Acme"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Coyote vs. Acme",
+    "href": "https://www.rogerebert.com/reviews/coyote-vs-acme-looney-tunes-will-forte-john-cena-film-review-2026",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "'Coyote vs. Acme' Review: A Daffy Corporate Comedy",
+    "href": "https://www.nytimes.com/2026/08/27/movies/coyote-vs-acme-review.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "TheWrap",
+    "title": "From Cancellation to Resurrection (With a Side of Ketchup): How 'Coyote vs. Acme' Bounced Back",
+    "href": "https://www.thewrap.com/creative-content/movies/coyote-vs-acme-resurrection-making-of/"
+   },
+   {
+    "outlet": "MovieWeb",
+    "title": "Coyote vs. Acme Star Shares New Images & Gratitude for Support From Fans",
+    "href": "https://movieweb.com/coyote-vs-acme-eric-bauza-images-release-demand/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1756855"
+ },
  "dahomey": {
   "videos": [
    {
@@ -1913,6 +2001,62 @@
    }
   ],
   "imdb": "tt0036775"
+ },
+ "ebenezer": {
+  "videos": [
+   {
+    "id": "l_Ozo1xUgbU",
+    "kind": "Official trailer",
+    "title": "Ebenezer | Official Trailer 2 (2026 Movie) - Johnny Depp, Ian McKellen, Rupert Grint, Sam Claflin",
+    "channel": "Paramount Pictures"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "IndieWire",
+    "title": "'Ebenezer' Review: Johnny Depp Is Absolutely Insufferable in a Dull and Dreary Christmas Carol",
+    "href": "https://www.indiewire.com/criticism/movies/ebenezer-movie-review-johnny-depp-1235227014/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "Johnny Depp turns 'A Christmas Carol' into joyless horror",
+    "href": "https://www.sfchronicle.com/entertainment/movies-tv/article/johnny-depp-ebenezer-review-22521859.php",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "'Ebenezer' Review: Holiday Humbug",
+    "href": "https://www.nytimes.com/2026/11/12/movies/ebenezer-review-johnny-depp.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Dread Central",
+    "title": "'Ebenezer' Review – A Cold Retelling of a Heartwarming Classic",
+    "href": "https://www.dreadcentral.com/reviews/597514/ebenezer-review-a-cold-retelling-of-a-heartwarming-classic/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "ScreenDaily",
+    "title": "'Ebenezer' review: Johnny Depp is a cartoonish Scrooge in Ti West's underwhelming, unnecessary Dickens adaptation",
+    "href": "https://www.screendaily.com/reviews/ebenezer-review-johnny-depp-is-a-cartoonish-scrooge-in-ti-wests-underwhelming-unnecessary-dickens-adaptation/5222254.article",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Hollywood Reporter",
+    "title": "Johnny Depp's 'Ebenezer' Unearths $1.5M in Box Office Previews",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/johnny-depp-ebenezer-comeback-box-office-previews-rob-bank-1236754682/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "Johnny Depp Pic 'Ebenezer' Hoping For $20M+ U.S. – Saturday AM Box Office Update",
+    "href": "https://deadline.com/2026/11/box-office-ebenezer-1237222749/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt38773219"
  },
  "elf": {
   "videos": [
@@ -5578,6 +5722,56 @@
   "cinemaRelease": true,
   "imdb": "tt0027977"
  },
+ "mortal-kombat-ii": {
+  "videos": [
+   {
+    "id": "b24oG7qCwp4",
+    "kind": "Official trailer",
+    "title": "Mortal Kombat II | Official Trailer II",
+    "channel": "Warner Bros."
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "'Mortal Kombat II' Review: Eye-Popping Pyrotechnics",
+    "href": "https://www.nytimes.com/2026/05/07/movies/mortal-kombat-ii-review.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Mortal Kombat II",
+    "href": "https://www.rogerebert.com/reviews/mortal-kombat-ii-karl-urban-movie-review-2026",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "New York Post",
+    "title": "'Mortal Kombat II' review: Sorry sequel is a migraine of nonstop fights and idiot characters",
+    "href": "https://nypost.com/2026/05/06/entertainment/mortal-kombat-ii-review-sorry-sequel-is-a-migraine-of-non-stop-fights-and-idiot-characters/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Mortal Kombat II review – junky game-to-movie sequel offers more of the same",
+    "href": "https://www.theguardian.com/film/2026/may/06/mortal-kombat-ii-review-film",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Will Tom Cruise's 'Digger' Continue Warner Bros.' Dismal Box Office Year?",
+    "href": "https://variety.com/2026/film/box-office/digger-tom-cruise-warner-bros-box-office-1236878000/"
+   },
+   {
+    "outlet": "ComicBookMovie.com",
+    "title": "Mortal Kombat II's So-So CinemaScore Revealed As Box Office Battle With The Devil Wears Prada 2 Heats Up",
+    "href": "https://comicbookmovie.com/video-games/mortal-kombat/mortal-kombat-iis-so-so-cinemascore-revealed-as-box-office-battle-with-the-devil-wears-prada-2-heats-up-a227741"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt17490712"
+ },
  "mr-smith-goes-to-washington": {
   "videos": [],
   "reviews": [
@@ -5811,6 +6005,50 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt23055660"
+ },
+ "nocturne": {
+  "videos": [
+   {
+    "id": "AaEy1f2Dgys",
+    "kind": "Official trailer",
+    "title": "Nocturne — Official Trailer | Apple TV",
+    "channel": "Apple TV"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The A.V. Club",
+    "title": "Apple TV delivers a knockout thriller in Nocturne",
+    "href": "https://www.avclub.com/apple-tv-delivers-a-knockout-thriller-in-nocturne",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Daily Beast",
+    "title": "Terrifying Emmy Winner Makes Thrilling New Show a Must-See",
+    "href": "https://www.thedailybeast.com/obsessed/nocturne-terrifying-emmy-winner-makes-thrilling-new-show-a-must-see",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "JoBlo",
+    "title": "Nocturne TV Review: A trio of solid performances are wasted in this convoluted crime drama",
+    "href": "https://www.joblo.com/nocturne-tv-review/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Nightly",
+    "title": "Nocturne on Apple TV: a handsome crime thriller that colours within the lines",
+    "href": "https://thenightly.com.au/culture/tv/nocturne-on-apple-tv-a-handsome-crime-thriller-thats-colours-within-the-lines-c-23084579",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Liev Schreiber, Zazie Beetz & Stephen Graham To Lead New Apple Series Based On Lars Kepler Novels",
+    "href": "https://deadline.com/2025/05/apple-adaptation-show-lars-kepler-liev-screiber-zazie-beetz-1236413851/"
+   }
+  ],
+  "imdb": "tt26598805"
  },
  "north-by-northwest": {
   "videos": [
@@ -7559,6 +7797,62 @@
   "cinemaRelease": true,
   "imdb": "tt0036391"
  },
+ "street-fighter": {
+  "videos": [
+   {
+    "id": "Xt4X4FvXk2A",
+    "kind": "Official trailer",
+    "title": "Street Fighter | Official Trailer (2026 Movie)",
+    "channel": "Paramount Pictures"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "'Street Fighter' Review: Choose Your Fighter",
+    "href": "https://www.nytimes.com/2026/10/15/movies/street-fighter-review.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Street Fighter' Review: Noah Centineo Stars in a Video Game Adaptation That Pummels You With Fan Service and (Too Few) New Moves",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/street-fighter-review-noah-centineo-1236730035/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'Street Fighter' Review: Video Game Fighter Film Knocks Itself Unconscious",
+    "href": "https://variety.com/2026/film/news/street-fighter-review-1236912948/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Polygon",
+    "title": "Street Fighter is an incoherent, irredeemable mess",
+    "href": "https://www.polygon.com/street-fighter-2026-review/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Associated Press",
+    "title": "Movie Review: 'Street Fighter' is a campy '90s nostalgia ride and a complete mess",
+    "href": "https://apnews.com/article/street-fighter-movie-review-12e3981dc13cdf4e36033ff84c2f6df9",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Box Office: 'Street Fighter' Aims for $30 Million Opening, 'You Can See Everything' Could Score $8 Million Start",
+    "href": "https://variety.com/2026/film/box-office/street-fighter-box-office-opening-weekend-projections-1236910614/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "'Clayface' Scares Off Elizabeth Holmes & Nathan Fielder From No. 1 With $24M; But 'You Can See Everything' Still Widely Seen With Near Epic $20M – Update",
+    "href": "https://deadline.com/2026/10/box-office-clayface-you-can-see-everything-1237171500/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt27419420"
+ },
  "sunrise": {
   "videos": [],
   "reviews": [
@@ -7640,6 +7934,45 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0043014"
+ },
+ "supergirl": {
+  "videos": [
+   {
+    "id": "s1-pfiVMKAs",
+    "kind": "Official trailer",
+    "title": "Supergirl | Official Trailer",
+    "channel": "DC"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Little White Lies",
+    "title": "Supergirl review – a mid-field superhero affair",
+    "href": "https://lwlies.com/reviews/supergirl",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Arab News",
+    "title": "Review: 'Supergirl' shines brightest when Milly Alcock is on screen",
+    "href": "https://www.arabnews.com/node/2648778/lifestyle",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Telegraph (India)",
+    "title": "Milly Alcock brings in verve and vibe, but Supergirl is too derivative to make an impact",
+    "href": "https://t2online.in/screen/hollywood/review--mily-alcock-brings-in-verve-and-vibe--but-supergirl-is-too-derivative-to-make-an-impact/2005948",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Panavision",
+    "title": "Supergirl",
+    "href": "https://en-gb.panavision.com/highlights/credits/credits-detail/supergirl"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt8814476"
  },
  "tenzing": {
   "videos": [
@@ -8408,6 +8741,39 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt0033870"
+ },
+ "the-mandalorian-and-grogu": {
+  "videos": [
+   {
+    "id": "IHWlvwu8t1w",
+    "kind": "Official trailer",
+    "title": "The Mandalorian and Grogu | Official Trailer | In Theaters May 22",
+    "channel": "Star Wars"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Next Best Picture",
+    "title": "\"The Mandalorian and Grogu\" – Review",
+    "href": "https://nextbestpicture.com/the-mandalorian-and-grogu/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Radio Times",
+    "title": "The Mandalorian & Grogu review: Star Wars at its most pulpy and throwaway",
+    "href": "https://www.radiotimes.com/movies/scifi/the-mandalorian-and-grogu-review/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Los Angeles Times en Español",
+    "title": "El Mandalorian se apoya en Grogu para sacar adelante una película entretenida, pero poco memorable",
+    "href": "https://www.latimes.com/espanol/entretenimiento/articulo/2026-05-21/el-mandalorian-se-apoya-en-grogu-para-sacar-adelante-una-pelicula-entretenida-pero-poco-memorable"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt30825738"
  },
  "the-mother-of-all-lies": {
   "videos": [
@@ -9821,5 +10187,110 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt15799564"
+ },
+ "wildwood": {
+  "videos": [
+   {
+    "id": "dtr5JL1zkiM",
+    "kind": "Official trailer",
+    "title": "Wildwood – Official Trailer | In Theatres Now",
+    "channel": "LAIKA Studios"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "‘Wildwood’ Review: Laika’s Ambitious Stop-Motion Epic Is Both a Technical and Emotional Triumph",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/wildwood-review-laika-travis-knight-1236726335/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Wildwood Review",
+    "href": "https://www.empireonline.com/movies/reviews/wildwood/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "‘Wildwood’ Review: A Magical, Stop-Motion Adventure",
+    "href": "https://www.nytimes.com/2026/10/22/movies/wildwood-review.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time Out Worldwide",
+    "title": "Wildwood review: Laika’s epic fantasy adventure is exhilaratingly brilliant",
+    "href": "https://www.timeout.com/movies/wildwood-review-2026",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Wildwood review: Laika is back with a gorgeous fairy tale",
+    "href": "https://www.rogerebert.com/reviews/wildwood-laika-studios-stop-motion-animation-film-review-2026",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Will 'You Can See Everything' Beat DC's 'Clayface' at the Box Office?",
+    "href": "https://variety.com/2026/film/box-office/you-can-see-everything-could-beat-clayface-box-office-1236917465/"
+   },
+   {
+    "outlet": "FilmHounds",
+    "title": "Wildwood (London Film Festival 2026) — Laika's Magnum Opus",
+    "href": "https://filmhounds.co.uk/2026/10/11/wildwood-london-film-festival-2026/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt2056785"
+ },
+ "you-can-see-everything": {
+  "videos": [
+   {
+    "id": "IEx8D1Wb__U",
+    "kind": "Official trailer",
+    "title": "YOU CAN SEE EVERYTHING | Official Trailer",
+    "channel": "VVS Films"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Guardian",
+    "title": "You Can See Everything review – Nathan Fielder's Elizabeth Holmes doc is a modern masterpiece of deceit",
+    "href": "https://www.theguardian.com/film/2026/oct/01/you-can-see-everything-movie-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Daily Beast",
+    "title": "The Year's Best Film Is This All-Time Great Mind-Melter",
+    "href": "https://www.thedailybeast.com/obsessed/you-can-see-everything-nathan-fielders-elizabeth-holmes-movie-is-the-years-best-film",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Vulture",
+    "title": "Nathan Fielder Has Made the Movie of the Year",
+    "href": "https://www.vulture.com/article/nathan-fielder-has-made-the-movie-of-the-year.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Box Office: ‘You Can See Everything’ Stuns With $15 Million Debut, ‘Street Fighter’ Leads With $31 Million",
+    "href": "https://variety.com/2026/film/box-office/you-can-see-everything-box-office-nathan-fielder-elizabeth-holmes-huge-start-1236915640/"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "‘Clayface’ Rolls to $24M Box Office Opening as ‘You Can See Everything’ Shines in Second Weekend",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/clayface-box-office-you-can-see-everything-wildwood-1236739530/"
+   },
+   {
+    "outlet": "Wired",
+    "title": "Nathan Fielder Tells Us Everything",
+    "href": "https://www.wired.com/story/nathan-fielder-tells-us-everything/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt45368240"
  }
 }

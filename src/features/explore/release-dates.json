@@ -251,12 +251,20 @@
   "date": "2026-10-13",
   "precision": "day"
  },
+ "colony": {
+  "date": "2026-05-15",
+  "precision": "day"
+ },
  "coming-2-america": {
   "date": "2021-03-05",
   "precision": "day"
  },
  "coming-to-america": {
   "date": "1988-06-29",
+  "precision": "day"
+ },
+ "coyote-vs-acme": {
+  "date": "2026-07-25",
   "precision": "day"
  },
  "crazy-rich-asians": {
@@ -771,6 +779,10 @@
   "date": "1982-05-26",
   "precision": "day"
  },
+ "ebenezer": {
+  "date": "2026-11-12",
+  "precision": "day"
+ },
  "elf": {
   "date": "2003-01-01",
   "precision": "year"
@@ -1259,6 +1271,10 @@
   "date": "2016-09-02",
   "precision": "day"
  },
+ "mortal-kombat-ii": {
+  "date": "2026-04-27",
+  "precision": "day"
+ },
  "mr-smith-goes-to-washington": {
   "date": "1939-10-19",
   "precision": "day"
@@ -1285,6 +1301,10 @@
  },
  "nickel-boys": {
   "date": "2024-08-30",
+  "precision": "day"
+ },
+ "nocturne": {
+  "date": "2026-10-30",
   "precision": "day"
  },
  "north-by-northwest": {
@@ -1563,6 +1583,10 @@
   "date": "2016-01-01",
   "precision": "year"
  },
+ "street-fighter": {
+  "date": "2026-10-12",
+  "precision": "day"
+ },
  "sunrise": {
   "date": "1927-09-23",
   "precision": "day"
@@ -1570,6 +1594,10 @@
  "sunset-boulevard": {
   "date": "1950-01-01",
   "precision": "year"
+ },
+ "supergirl": {
+  "date": "2026-06-22",
+  "precision": "day"
  },
  "taxi-driver": {
   "date": "1976-02-08",
@@ -1763,6 +1791,10 @@
   "date": "1941-01-01",
   "precision": "year"
  },
+ "the-mandalorian-and-grogu": {
+  "date": "2026-05-14",
+  "precision": "day"
+ },
  "the-martian": {
   "date": "2015-10-01",
   "precision": "day"
@@ -1943,8 +1975,16 @@
   "date": "2026-09-03",
   "precision": "day"
  },
+ "wildwood": {
+  "date": "2026-10-22",
+  "precision": "day"
+ },
  "x-men": {
   "date": "2000-07-13",
+  "precision": "day"
+ },
+ "you-can-see-everything": {
+  "date": "2026-09-06",
   "precision": "day"
  }
 }

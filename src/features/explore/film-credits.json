@@ -4689,6 +4689,47 @@
    }
   ]
  },
+ "colony": {
+  "qid": "Q134285034",
+  "people": [
+   {
+    "id": "Q253626",
+    "role": "Cast"
+   },
+   {
+    "id": "Q28700273",
+    "role": "Cast"
+   },
+   {
+    "id": "Q625128",
+    "role": "Cast"
+   },
+   {
+    "id": "Q493278",
+    "role": "Cast"
+   },
+   {
+    "id": "Q107109045",
+    "role": "Cast"
+   },
+   {
+    "id": "Q257468",
+    "role": "Cast"
+   },
+   {
+    "id": "Q19947205",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q2964330",
+    "role": "Writer"
+   },
+   {
+    "id": "Q104710334",
+    "role": "Director of Photography"
+   }
+  ]
+ },
  "coming-2-america": {
   "qid": "Q64069446",
   "people": [
@@ -4838,6 +4879,90 @@
    },
    {
     "id": "Q497759",
+    "role": "Music"
+   }
+  ]
+ },
+ "coyote-vs-acme": {
+  "qid": "Q106392679",
+  "people": [
+   {
+    "id": "Q44437",
+    "role": "Cast",
+    "character": "Buddy Crane"
+   },
+   {
+    "id": "Q24250404",
+    "role": "Cast",
+    "character": "Paige Avery"
+   },
+   {
+    "id": "Q1319744",
+    "role": "Cast",
+    "character": "Kevin Avery"
+   },
+   {
+    "id": "Q12200303",
+    "role": "Cast"
+   },
+   {
+    "id": "Q15619235",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6774445",
+    "role": "Cast"
+   },
+   {
+    "id": "Q347395",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16241504",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16106026",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3558573",
+    "role": "Cast"
+   },
+   {
+    "id": "Q19720623",
+    "role": "Director"
+   },
+   {
+    "id": "Q717015",
+    "role": "Writer, Producer"
+   },
+   {
+    "id": "Q21064531",
+    "role": "Writer"
+   },
+   {
+    "id": "Q66425482",
+    "role": "Writer"
+   },
+   {
+    "id": "Q5112210",
+    "role": "Producer"
+   },
+   {
+    "id": "Q141487057",
+    "role": "Producer"
+   },
+   {
+    "id": "Q15732459",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q95286355",
+    "role": "Editor"
+   },
+   {
+    "id": "Q15104233",
     "role": "Music"
    }
   ]
@@ -5639,6 +5764,68 @@
    },
    {
     "id": "Q131285",
+    "role": "Music"
+   }
+  ]
+ },
+ "ebenezer": {
+  "qid": "Q136650058",
+  "people": [
+   {
+    "id": "Q37175",
+    "role": "Cast",
+    "character": "Ebenezer Scrooge"
+   },
+   {
+    "id": "Q289545",
+    "role": "Cast",
+    "character": "Ghost of Christmas Past"
+   },
+   {
+    "id": "Q111488758",
+    "role": "Cast",
+    "character": "Ghost of Christmas Present"
+   },
+   {
+    "id": "Q170510",
+    "role": "Cast",
+    "character": "Jacob Marley"
+   },
+   {
+    "id": "Q19190",
+    "role": "Cast",
+    "character": "Bob Cratchit"
+   },
+   {
+    "id": "Q16738674",
+    "role": "Cast"
+   },
+   {
+    "id": "Q366833",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16733027",
+    "role": "Cast"
+   },
+   {
+    "id": "Q22683508",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3527989",
+    "role": "Director, Editor"
+   },
+   {
+    "id": "Q136665063",
+    "role": "Writer"
+   },
+   {
+    "id": "Q106219917",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1345338",
     "role": "Music"
    }
   ]
@@ -13504,6 +13691,98 @@
    }
   ]
  },
+ "mortal-kombat-ii": {
+  "qid": "Q117830073",
+  "people": [
+   {
+    "id": "Q132430",
+    "role": "Cast",
+    "character": "Johnny Cage"
+   },
+   {
+    "id": "Q61118887",
+    "role": "Cast",
+    "character": "Kitana"
+   },
+   {
+    "id": "Q4275861",
+    "role": "Cast",
+    "character": "Sonya Blade"
+   },
+   {
+    "id": "Q11685650",
+    "role": "Cast",
+    "character": "Kano"
+   },
+   {
+    "id": "Q21290349",
+    "role": "Cast",
+    "character": "Liu Kang"
+   },
+   {
+    "id": "Q981809",
+    "role": "Cast",
+    "character": "Jax"
+   },
+   {
+    "id": "Q58680736",
+    "role": "Cast",
+    "character": "Jade"
+   },
+   {
+    "id": "Q27244661",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1093867",
+    "role": "Cast",
+    "character": "Quan Chi"
+   },
+   {
+    "id": "Q938855",
+    "role": "Cast",
+    "character": "Shang Tsung"
+   },
+   {
+    "id": "Q379824",
+    "role": "Cast",
+    "character": "Raiden"
+   },
+   {
+    "id": "Q3459336",
+    "role": "Cast",
+    "character": "Sub-Zero"
+   },
+   {
+    "id": "Q67171585",
+    "role": "Director"
+   },
+   {
+    "id": "Q21064531",
+    "role": "Writer"
+   },
+   {
+    "id": "Q19878370",
+    "role": "Producer"
+   },
+   {
+    "id": "Q108047434",
+    "role": "Producer"
+   },
+   {
+    "id": "Q202836",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q17127581",
+    "role": "Editor"
+   },
+   {
+    "id": "Q6056440",
+    "role": "Music"
+   }
+  ]
+ },
  "mr-smith-goes-to-washington": {
   "qid": "Q866120",
   "people": [
@@ -13844,6 +14123,26 @@
    {
     "id": "Q116960057",
     "role": "Director of Photography"
+   }
+  ]
+ },
+ "nocturne": {
+  "qid": "Q140607658",
+  "people": [
+   {
+    "id": "Q442547",
+    "role": "Cast",
+    "character": "Jurek Walter"
+   },
+   {
+    "id": "Q26997611",
+    "role": "Cast",
+    "character": "Saga Bauer"
+   },
+   {
+    "id": "Q298368",
+    "role": "Cast",
+    "character": "Jonah Lynn"
    }
   ]
  },
@@ -19216,6 +19515,82 @@
    }
   ]
  },
+ "street-fighter": {
+  "qid": "Q130345436",
+  "people": [
+   {
+    "id": "Q72219204",
+    "role": "Cast",
+    "character": "Ryu"
+   },
+   {
+    "id": "Q3877574",
+    "role": "Cast",
+    "character": "Ken Masters"
+   },
+   {
+    "id": "Q117281953",
+    "role": "Cast",
+    "character": "Chun-Li"
+   },
+   {
+    "id": "Q299222",
+    "role": "Cast",
+    "character": "Guile"
+   },
+   {
+    "id": "Q64729746",
+    "role": "Cast",
+    "character": "Vega"
+   },
+   {
+    "id": "Q315271",
+    "role": "Cast",
+    "character": "Blanka"
+   },
+   {
+    "id": "Q3557842",
+    "role": "Cast",
+    "character": "Dhalsim"
+   },
+   {
+    "id": "Q65031068",
+    "role": "Cast",
+    "character": "Zangief"
+   },
+   {
+    "id": "Q1997769",
+    "role": "Cast",
+    "character": "E. Honda"
+   },
+   {
+    "id": "Q16203767",
+    "role": "Cast",
+    "character": "M. Bison"
+   },
+   {
+    "id": "Q275971",
+    "role": "Cast",
+    "character": "Akuma"
+   },
+   {
+    "id": "Q63546532",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q106520157",
+    "role": "Writer"
+   },
+   {
+    "id": "Q23877023",
+    "role": "Writer"
+   },
+   {
+    "id": "Q114876760",
+    "role": "Writer"
+   }
+  ]
+ },
  "sunrise": {
   "qid": "Q431093",
   "people": [
@@ -19389,6 +19764,85 @@
    {
     "id": "Q234961",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "supergirl": {
+  "qid": "Q116921951",
+  "people": [
+   {
+    "id": "Q108816955",
+    "role": "Cast",
+    "character": "Kara Zor-El"
+   },
+   {
+    "id": "Q427019",
+    "role": "Cast"
+   },
+   {
+    "id": "Q124961812",
+    "role": "Cast",
+    "character": "Ruthye Marye Knoll"
+   },
+   {
+    "id": "Q356086",
+    "role": "Cast",
+    "character": "Zor-El"
+   },
+   {
+    "id": "Q518960",
+    "role": "Cast",
+    "character": "Alura In-Ze"
+   },
+   {
+    "id": "Q315271",
+    "role": "Cast",
+    "character": "Lobo"
+   },
+   {
+    "id": "Q5443860",
+    "role": "Cast"
+   },
+   {
+    "id": "Q20856314",
+    "role": "Cast"
+   },
+   {
+    "id": "Q70954450",
+    "role": "Cast",
+    "character": "Superman"
+   },
+   {
+    "id": "Q3696452",
+    "role": "Director"
+   },
+   {
+    "id": "Q24174948",
+    "role": "Writer"
+   },
+   {
+    "id": "Q717015",
+    "role": "Producer"
+   },
+   {
+    "id": "Q7176746",
+    "role": "Producer"
+   },
+   {
+    "id": "Q21809907",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q7688112",
+    "role": "Editor"
+   },
+   {
+    "id": "Q29583272",
+    "role": "Music"
+   },
+   {
+    "id": "Q27237388",
+    "role": "Production Designer"
    }
   ]
  },
@@ -23056,6 +23510,56 @@
    }
   ]
  },
+ "the-mandalorian-and-grogu": {
+  "qid": "Q124246549",
+  "people": [
+   {
+    "id": "Q14752155",
+    "role": "Cast",
+    "character": "Din Djarin"
+   },
+   {
+    "id": "Q102124",
+    "role": "Cast",
+    "character": "Colonel Ward"
+   },
+   {
+    "id": "Q15069893",
+    "role": "Cast",
+    "character": "Janu Coin"
+   },
+   {
+    "id": "Q1557707",
+    "role": "Cast",
+    "character": "Hogsbreth"
+   },
+   {
+    "id": "Q5712216",
+    "role": "Cast",
+    "character": "Barro"
+   },
+   {
+    "id": "Q295964",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q2559261",
+    "role": "Writer"
+   },
+   {
+    "id": "Q237207",
+    "role": "Producer"
+   },
+   {
+    "id": "Q536964",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1358202",
+    "role": "Music"
+   }
+  ]
+ },
  "the-martian": {
   "qid": "Q18547944",
   "people": [
@@ -26436,6 +26940,31 @@
    }
   ]
  },
+ "wildwood": {
+  "qid": "Q123058740",
+  "people": [
+   {
+    "id": "Q7836302",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q2964669",
+    "role": "Writer"
+   },
+   {
+    "id": "Q28530075",
+    "role": "Producer"
+   },
+   {
+    "id": "Q49020",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q360399",
+    "role": "Music"
+   }
+  ]
+ },
  "x-men": {
   "qid": "Q106182",
   "people": [
@@ -26536,6 +27065,39 @@
    {
     "id": "Q3263796",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "you-can-see-everything": {
+  "qid": "Q141336617",
+  "people": [
+   {
+    "id": "Q17503525",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16207915",
+    "role": "Cast, Director, Producer"
+   },
+   {
+    "id": "Q5111829",
+    "role": "Cast"
+   },
+   {
+    "id": "Q27040203",
+    "role": "Director, Producer"
+   },
+   {
+    "id": "Q141379901",
+    "role": "Producer"
+   },
+   {
+    "id": "Q141379956",
+    "role": "Producer"
+   },
+   {
+    "id": "Q141380007",
+    "role": "Producer"
    }
   ]
  }

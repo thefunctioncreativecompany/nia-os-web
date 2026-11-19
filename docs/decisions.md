@@ -1222,3 +1222,9 @@ onboarding's Import profile and Follow creators describe features removed in the
   outlet names), and filled from edited publications where fewer than two; press videos wait for
   YouTube search to work again. Also: the "Awards and festivals" tag came from any recognition
   line, so box-office figures counted as awards; it now needs an award, prize or festival named.
+- (2026-11-19) Best of 2026, batch 5: Supergirl, The Mandalorian and Grogu, Street Fighter, Coyote
+  vs. Acme, Mortal Kombat II, You Can See Everything, Colony, Ebenezer, Nocturne, Wildwood; 40 of
+  100 live. Press kits corrected by hand as before (box-office reports and a filmmakers' tribute
+  taken out of reviews, verdicts matched to what each critic wrote); Supergirl and Nocturne filled
+  from edited publications. You Can See Everything has no box-office line: TMDB's $91 million for
+  a documentary looked unreliable. check-trailers.mjs now reads escaped characters in titles.

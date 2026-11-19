@@ -10560,6 +10560,304 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "supergirl",
+   "collection": "explore-all",
+   "title": "Supergirl",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Craig Gillespie",
+   "recognition": "Over $126 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Kara Zor-El's interstellar journey of vengeance and justice, directed by Craig Gillespie (I, Tonya): a superhero film led by a reluctant hero",
+   "added": "2026-11-19",
+   "imdb_id": "tt8814476",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "s1-pfiVMKAs",
+     "kind": "trailer",
+     "channel": "DC",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-mandalorian-and-grogu",
+   "collection": "explore-all",
+   "title": "The Mandalorian and Grogu",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Jon Favreau",
+   "recognition": "Over $345 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The Mandalorian moves from a streaming series to the cinema: Din Djarin and Grogu in a Star Wars film directed by the show's creator, Jon Favreau",
+   "added": "2026-11-19",
+   "imdb_id": "tt30825738",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "IHWlvwu8t1w",
+     "kind": "trailer",
+     "channel": "Star Wars",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "street-fighter",
+   "collection": "explore-all",
+   "title": "Street Fighter",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Fantasy"
+   ],
+   "year": 2026,
+   "countries": [
+    "Japan",
+    "United States"
+   ],
+   "credit": "Kitao Sakurai",
+   "recognition": "Over $100 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The fighting game as a 1993-set tournament film: Ryu and Ken thrown back into combat when Chun-Li recruits them, with a conspiracy behind the brawl",
+   "added": "2026-11-19",
+   "imdb_id": "tt27419420",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Xt4X4FvXk2A",
+     "kind": "trailer",
+     "channel": "Paramount Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "coyote-vs-acme",
+   "collection": "explore-all",
+   "title": "Coyote vs. Acme",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Adventure",
+    "Family",
+    "Animation"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Dave Green",
+   "recognition": "Over $101 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Wile E. Coyote sues the Acme Corporation: live action and animation together in a courtroom comedy built from a cartoon's oldest running gag",
+   "added": "2026-11-19",
+   "imdb_id": "tt1756855",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "H-43VeYGiPM",
+     "kind": "trailer",
+     "channel": "Coyote vs. Acme",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "mortal-kombat-ii",
+   "collection": "explore-all",
+   "title": "Mortal Kombat II",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Fantasy",
+    "Adventure"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Simon McQuoid",
+   "recognition": "Over $129 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The video-game sequel adds Johnny Cage to a no-holds-barred tournament against Shao Kahn: fight choreography and gore as the main event",
+   "added": "2026-11-19",
+   "imdb_id": "tt17490712",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "b24oG7qCwp4",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "you-can-see-everything",
+   "collection": "explore-all",
+   "title": "You Can See Everything",
+   "type": "documentary",
+   "genres": [
+    "Documentary"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Nathan Fielder & Lance Oppenheim",
+   "pair_with": "",
+   "study_note": "Elizabeth Holmes invites a film crew to follow her for the 34 days before prison: a portrait that turns into a three-year study of what a camera can and can't reveal",
+   "added": "2026-11-19",
+   "imdb_id": "tt45368240",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "IEx8D1Wb__U",
+     "kind": "trailer",
+     "channel": "VVS Films",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "colony",
+   "collection": "explore-all",
+   "title": "Colony",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Action",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "South Korea"
+   ],
+   "credit": "Yeon Sang-ho",
+   "recognition": "Selected for the Cannes Film Festival",
+   "pair_with": "",
+   "study_note": "Yeon Sang-ho (Train to Busan) seals a biotech conference after a fast-mutating virus gets out: survival horror inside one locked building",
+   "added": "2026-11-19",
+   "imdb_id": "tt34385135",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "LW6dpj1uCK8",
+     "kind": "trailer",
+     "channel": "Well Go USA Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "ebenezer",
+   "collection": "explore-all",
+   "title": "Ebenezer",
+   "type": "film",
+   "genres": [
+    "Fantasy",
+    "Comedy"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Ti West",
+   "recognition": "Over $42 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Ti West's A Christmas Carol, with Johnny Depp as Scrooge: Dickens's Victorian London as a gothic ghost story about a second chance",
+   "added": "2026-11-19",
+   "imdb_id": "tt38773219",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "l_Ozo1xUgbU",
+     "kind": "trailer",
+     "channel": "Paramount Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "nocturne",
+   "collection": "explore-all",
+   "title": "Nocturne",
+   "type": "series",
+   "genres": [
+    "Crime",
+    "Drama",
+    "Mystery"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Rowan Joffé",
+   "pair_with": "",
+   "study_note": "Lars Kepler's crime novels moved to small-town Pennsylvania: a detective races to find a serial killer's last missing victim while his protégé goes undercover",
+   "added": "2026-11-19",
+   "imdb_id": "tt26598805",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "AaEy1f2Dgys",
+     "kind": "trailer",
+     "channel": "Apple TV",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "wildwood",
+   "collection": "explore-all",
+   "title": "Wildwood",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Animation",
+    "Drama",
+    "Fantasy"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Travis Knight",
+   "recognition": "Over $67 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "LAIKA's stop-motion adaptation of Colin Meloy's novel: two children in an enchanted forest near Portland, Oregon, out to rescue a baby brother taken by crows",
+   "added": "2026-11-19",
+   "imdb_id": "tt2056785",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "dtr5JL1zkiM",
+     "kind": "trailer",
+     "channel": "LAIKA Studios",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

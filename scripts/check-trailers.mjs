@@ -20,8 +20,10 @@ async function check(id) {
   const html = await r.text();
   const status = html.match(/previewPlayabilityStatus\\":\{\\"status\\":\\"([A-Z_]+)/)?.[1] ?? "UNKNOWN";
   const reason = html.match(/previewPlayabilityStatus\\":\{\\"status\\":\\"[A-Z_]+\\",\\"reason\\":\\"([^\\]+)/)?.[1];
-  const channel = html.match(/ExpandedRenderer\\":\{\\"title\\":\{\\"runs\\":\[\{\\"text\\":\\"([^\\]+)/)?.[1] ?? null;
-  const title = html.match(/\\"title\\":\{\\"runs\\":\[\{\\"text\\":\\"([^\\]+)/)?.[1] ?? null;
+  // Text inside the page's escaped JSON: up to the closing \", with escapes like \u0027 (') decoded.
+  const text = (m) => (m ? JSON.parse(`"${m}"`) : null);
+  const channel = text(html.match(/ExpandedRenderer\\":\{\\"title\\":\{\\"runs\\":\[\{\\"text\\":\\"((?:[^\\]|\\u[0-9a-fA-F]{4}|\\[^"])*?)\\"/)?.[1]);
+  const title = text(html.match(/\\"title\\":\{\\"runs\\":\[\{\\"text\\":\\"((?:[^\\]|\\u[0-9a-fA-F]{4}|\\[^"])*?)\\"/)?.[1]);
   return { ok: status === "OK", reason: status === "OK" ? null : (reason ?? status), channel, title };
 }
 
