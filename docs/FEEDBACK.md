@@ -21,6 +21,23 @@ Status: ⬜ logged, not started · 🔍 being studied · 🔄 in progress · ✅
 
 ---
 
+## 000. Logged 2026-11-18: Ika, more visual life where it helps, calm where people work
+
+Explore is for inspiration, so it can be richer; Home, Projects and Templates stay calm so people
+keep their flow, and their visual interest comes from the user's own work.
+
+- **VE1. Covers settle in.** Built 2026-11-18, smoothed 2026-11-19 (Ika: "very jerky"): each
+  cover waits slightly enlarged and eases into its frame once its picture is ready (Explore 600ms
+  glide, project cards 400ms ease-out; once; reduced motion shows it still). Explore's rows and
+  galleries, Explore all (the view you arrive at, not tiles panned to later) and project cards on
+  Home and Projects (`SettleImage`).
+- **VE2. Silent trailer on Explore.** Not started; Ika to choose: a featured title at the top that
+  plays its official trailer muted once, desktop only, then rests on its still (needs a design
+  first), and/or a muted preview on hovering a wide trailer card. Check YouTube's embed rules on
+  autoplay first; load the player only after the page is ready.
+- **VE3. Calm visuals in the flow screens.** Not started; need Figma: the project's cover as a
+  soft backdrop behind the project page's title, template cards showing the document itself.
+
 ## 00. Logged 2026-11-18: beta testers, Joshua's idea, Alvin's second review, Inbar's design review
 
 Nothing here is built yet unless marked. Sources: messages from beta testers (Paballo, Mbalenhle,

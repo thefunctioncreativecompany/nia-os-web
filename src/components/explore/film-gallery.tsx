@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { SettleImage } from "@/components/nia/settle-image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -51,7 +51,8 @@ export function GalleryCard({ item, href, aspect, first, actions, note }: { item
           style={{ aspectRatio: aspect }}
         >
           {item.image ? (
-            <Image
+            <SettleImage
+              glide
               src={item.image}
               unoptimized={servedSized(item.image)}
               alt=""

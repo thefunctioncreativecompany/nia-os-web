@@ -1,4 +1,5 @@
-import Image, { type StaticImageData } from "next/image";
+import type { StaticImageData } from "next/image";
+import { SettleImage } from "@/components/nia/settle-image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -53,7 +54,7 @@ export function ProjectCard({
         )}
       >
         {cover && (
-          <Image
+          <SettleImage
             src={cover}
             alt=""
             fill

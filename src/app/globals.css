@@ -869,6 +869,34 @@
   @keyframes explore-lane-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
 }
 
+/* Covers settle as they arrive (Ika, 2026-11-18; SettleImage): Explore, Explore all and the
+   project cards. A cover waits slightly enlarged, so one already on screen never jumps up first;
+   once drawn it eases back (a picture that arrives later also fades in). Once per picture, inside
+   its frame. `transform` so Safari runs it off the main thread too. Explore uses its own glide
+   timing; project cards the standard slow ease-out. Off under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  img[data-cover] {
+    transform: scale(1.06);
+  }
+  img[data-cover][data-settled] {
+    transform: none;
+    animation: cover-settle var(--duration-slow) var(--ease-out) both;
+  }
+  img[data-cover="glide"][data-settled] {
+    animation-duration: var(--duration-lift);
+    animation-timing-function: var(--ease-glide);
+  }
+  img[data-cover][data-settled][data-fresh] {
+    animation-name: cover-arrive;
+  }
+  @keyframes cover-settle {
+    from { transform: scale(1.06); }
+  }
+  @keyframes cover-arrive {
+    from { transform: scale(1.06); opacity: 0; }
+  }
+}
+
 /* Marketplace animations (Ika's Claude Design "MarketplaceSoon", 2026-10-20; looping motion
    allowed as for Explore, Ika 2026-10-20). Reduced motion stops it. */
 @theme {

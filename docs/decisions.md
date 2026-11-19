@@ -1104,6 +1104,16 @@ onboarding's Import profile and Follow creators describe features removed in the
   beauty and lifestyle; Music and performance; Creator and social), from fashion films and branded
   content to studio genres; every earlier genre kept. Picked with one multi-select (search, the
   groups, up to 5) in Details and the new project form, not a wall of pills. Not in Figma yet.
+- (2026-11-18) Covers settle in (Ika: more visual life in Explore, calm in the flow screens; VE1 in
+  FEEDBACK.md). A cover waits 6% larger inside its frame and, once its picture is loaded and
+  decoded, eases back (`SettleImage`, `cover-settle` / `cover-arrive` in globals.css); a picture
+  that arrives after the page is ready also fades in. Explore's cards, galleries and Explore all use
+  Explore's glide timing (600ms, `ease-glide`); project cards on Home and Projects the standard
+  400ms ease-out. Explore all settles only the view you arrive at (tiles panned to after 2 seconds
+  just appear). Once per picture, clipped by its frame, off under reduced motion. First version
+  was jerky (Ika, 2026-11-19): covers already on screen jumped up before settling and the motion
+  started before the picture could be drawn; fixed by waiting enlarged from the server, starting
+  after `decode()`, and animating `transform` (measured: 60 frames a second, none dropped).
 - (2026-11-19) Meetings step 3, Schedule a Google Meet (Ika: "go with step 3"; docs/MEETINGS_SPEC.md).
   Nia's own Google connection, separate from signing in with Google, asking for two permissions only
   (`calendar.events.owned`, `calendar.freebusy`) so Nia can't read anyone's other events. The refresh key

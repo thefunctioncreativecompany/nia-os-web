@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useReducedMotion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
@@ -15,6 +14,7 @@ import type { CategoryItem } from "./explore-data";
 import { ExploreAllViews } from "./explore-all-views";
 import { PressKitPreview } from "./press-kit-preview";
 import { BackLink } from "@/components/nia/back-link";
+import { SettleImage } from "@/components/nia/settle-image";
 import { servedSized } from "@/lib/served-sized";
 
 const noChange = () => () => {};
@@ -83,6 +83,12 @@ export function LibraryCanvas() {
   const drag = useRef<{ id: number; x: number; y: number; moved: boolean; t: number; vx: number; vy: number } | null>(null);
   const glide = useRef(0);
   const suppressClick = useRef(false);
+  // The view you arrive at settles in (Ika, 2026-11-18); tiles you pan to later just appear.
+  const [arriving, setArriving] = useState(true);
+  useEffect(() => {
+    const t = setTimeout(() => setArriving(false), 2000);
+    return () => clearTimeout(t);
+  }, []);
 
   // Which columns and rows are on screen, with a poster to spare on every side.
   const apply = useCallback(() => {
@@ -228,7 +234,7 @@ export function LibraryCanvas() {
     >
       <div ref={plane} className="absolute top-0 left-0 will-change-transform">
         {cells.map(({ key, item, x, y, h }) => (
-          <Tile key={key} item={item} x={x} y={y} w={tileW} h={h} isNew={isNewOn(item.added, day)} onFilm={(filmId) => setOpen({ filmId })} />
+          <Tile key={key} item={item} x={x} y={y} w={tileW} h={h} isNew={isNewOn(item.added, day)} settle={arriving} onFilm={(filmId) => setOpen({ filmId })} />
         ))}
       </div>
 
@@ -304,7 +310,7 @@ function Ambience() {
 }
 
 // One tile on the canvas, at its shape: a title page link, or a button that opens the film's pop-up.
-function Tile({ item, x, y, w, h, isNew, onFilm }: { item: LibraryItem; x: number; y: number; w: number; h: number; isNew: boolean; onFilm: (filmId: string) => void }) {
+function Tile({ item, x, y, w, h, isNew, settle, onFilm }: { item: LibraryItem; x: number; y: number; w: number; h: number; isNew: boolean; settle: boolean; onFilm: (filmId: string) => void }) {
   const className = cn(
     "group absolute overflow-hidden rounded-lg text-left text-foreground shadow-card outline-none transition-[scale,box-shadow] duration-lift ease-glide hover:z-[3] hover:scale-104 hover:shadow-card-hover focus-visible:z-[3] focus-visible:scale-104 focus-visible:shadow-card-hover focus-visible:ring-3 focus-visible:ring-ring/50 motion-reduce:hover:scale-100 motion-reduce:focus-visible:scale-100",
     item.image ? "bg-muted" : item.grain,
@@ -313,7 +319,7 @@ function Tile({ item, x, y, w, h, isNew, onFilm }: { item: LibraryItem; x: numbe
   const body = (
     <>
       {item.image ? (
-        <Image src={item.image} unoptimized={servedSized(item.image)} alt="" fill sizes={`${w}px`} loading="eager" draggable={false} className="pointer-events-none object-cover" />
+        <SettleImage settle={settle} glide src={item.image} unoptimized={servedSized(item.image)} alt="" fill sizes={`${w}px`} loading="eager" draggable={false} className="pointer-events-none object-cover" />
       ) : (
         <span aria-hidden className="absolute inset-x-0 bottom-0 p-3 text-lead leading-tight font-bold">
           {item.title}

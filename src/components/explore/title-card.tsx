@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import Image from "next/image";
+import { SettleImage } from "@/components/nia/settle-image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -130,7 +130,8 @@ function PosterCard({
         style={{ aspectRatio: aspect ?? POSTER }}
       >
         {image ? (
-          <Image
+          <SettleImage
+            glide
             src={image}
             unoptimized={servedSized(image)}
             alt=""
