@@ -36,6 +36,10 @@ const inspirationSignals = (p: Project): ProjectSignals => ({
   frames: p.deliverables.map((d) => d.frame),
 });
 
+// Server actions on this page may take a while: reading a meeting's notes for suggested changes
+// (features/meetings/propose.ts) waits on Claude, up to a minute or two for a long transcript.
+export const maxDuration = 300;
+
 export const metadata: Metadata = {
   title: "Project · Nia OS",
 };
@@ -69,13 +73,9 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
     .toSorted((a, b) => at(a) - at(b) || b.createdAt.localeCompare(a.createdAt))
     .map((f) => ({ id: f.id, name: f.name, url: (f.thumbUrl ?? f.url)!, note: f.note ?? null, notes: f.note !== undefined }));
 
-  // Meetings sit under the documents, for editors only (Ika, 2026-11-18: notes are often personal).
-  const documentsTab = (
-    <div className="flex flex-col gap-12">
-      <ProjectDocuments projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} isOwner={role === "owner"} userId={userId} now={now} />
-      {canEdit && <ProjectMeetings projectId={id} meetings={meetings} />}
-    </div>
-  );
+  // Meetings sit under Details on Overview, for editors only (Ika, 2026-11-18: notes are often
+  // personal). Suggested changes need ANTHROPIC_API_KEY; until it's set they show as not yet.
+  const meetingsSection = canEdit ? <ProjectMeetings projectId={id} meetings={meetings} aiReady={!!process.env.ANTHROPIC_API_KEY} /> : null;
 
   return (
     <>
@@ -84,9 +84,10 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
         project={project}
         role={role}
         canEdit={canEdit}
-        counts={{ crew: project.crew.length, documents: documents.length + (canEdit ? meetings.length : 0), references: stills.length + extras.references, comments: extras.comments }}
+        counts={{ crew: project.crew.length, documents: documents.length, references: stills.length + extras.references, comments: extras.comments }}
         referencePreview={stills}
-        documents={documentsTab}
+        documents={<ProjectDocuments projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} isOwner={role === "owner"} userId={userId} now={now} />}
+        meetings={meetingsSection}
         finals={<ProjectFinalAssets files={files} canEdit={canEdit} now={now} />}
         files={<ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />}
         inspiration={<ProjectInspiration projectId={id} signals={inspirationSignals(project)} canEdit={canEdit} />}

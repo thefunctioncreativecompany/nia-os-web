@@ -1,4 +1,5 @@
 import { formatDay, parseDay } from "@/lib/dates";
+import { sentenceCase } from "@/lib/sentence-case";
 
 // Shared by the project screens on the server and in the browser.
 
@@ -29,34 +30,58 @@ export const PRODUCTION_TYPES = [
   "Stage Production",
 ] as const;
 
-// Figma "Genre Selector Dropdown".
-export const GENRES = [
-  "Drama",
-  "Action",
-  "Comedy",
-  "Documentary",
-  "Horror",
-  "Thriller",
-  "Romance",
-  "Sci-Fi",
-  "Animation",
-  "Musical",
-  // Added (Ika, 2026-10-23). Genres are free text in the database, so these need no migration.
-  "Crime",
-  "Mystery",
-  "Fantasy",
-  "Adventure",
-  "Historical",
-  "Biography",
-  "Family",
-  "Coming of Age",
-  "Experimental",
-  "Fashion",
-  "Lifestyle",
-  "Sports",
-  "Music",
-  "Faith",
+// Genres, one list for the whole platform (Ika, 2026-11-18: "comprehensive and consistent …
+// covering content type genres (ie fashion films, branded content etc) to more serious large
+// studio production genres"): projects (the new project form, Details, the Projects filter),
+// Explore's titles and its genre filter all use these words. Stored in Title Case and shown through
+// `sentenceCase`. Genres are free text in the database (projects.genres, up to 200 characters, so
+// a project takes at most MAX_GENRES), so adding one needs no migration; renaming one does (saved
+// projects and Explore titles keep the old word). Every genre used before 2026-11-18 is kept.
+export const GENRE_GROUPS = [
+  {
+    label: "Film and TV",
+    genres: [
+      "Drama", "Comedy", "Action", "Adventure", "Thriller", "Crime", "Mystery", "Horror", "Sci-Fi", "Fantasy",
+      "Romance", "Romantic Comedy", "Dark Comedy", "Satire", "Family", "Animation", "Musical", "Historical",
+      "Biography", "War", "Western", "Coming of Age", "Superhero", "Psychological", "Experimental",
+    ],
+  },
+  {
+    label: "Documentary and factual",
+    genres: ["Documentary", "Docuseries", "True Crime", "Nature and Wildlife", "Travel", "Food", "Reality", "Interview", "Current Affairs", "Educational", "Sports", "Faith"],
+  },
+  {
+    label: "Brand and commercial",
+    genres: ["Branded Content", "Brand Story", "Product", "Corporate", "Explainer", "Testimonial"],
+  },
+  {
+    label: "Fashion, beauty and lifestyle",
+    genres: ["Fashion", "Fashion Film", "Editorial", "Beauty", "Lifestyle", "Wellness"],
+  },
+  {
+    label: "Music and performance",
+    genres: ["Music", "Performance", "Dance", "Concert", "Stand-up", "Theatre"],
+  },
+  {
+    label: "Creator and social",
+    genres: ["Vlog", "Behind the Scenes", "Tutorial", "Get Ready With Me", "Day in the Life", "Review"],
+  },
 ] as const;
+
+export const GENRES = GENRE_GROUPS.flatMap((g) => g.genres);
+export type Genre = (typeof GENRES)[number];
+/** The most genres one project takes (they're saved together in 200 characters). */
+export const MAX_GENRES = 5;
+
+/** The genre picker's options, under their groups; genres saved before that aren't on the list
+ * any more stay pickable under "Other". */
+export const genreOptions = (saved: string[] = []) => [
+  ...GENRE_GROUPS.flatMap((g) => g.genres.map((genre) => ({ value: genre as string, label: sentenceCase(genre), group: g.label }))),
+  ...saved.filter((g) => !(GENRES as readonly string[]).includes(g)).map((g) => ({ value: g, label: sentenceCase(g), group: "Other" })),
+];
+
+/** A project's saved genres ("Drama, Thriller") as a list. */
+export const genreList = (genres: string) => genres.split(",").map((g) => g.trim()).filter(Boolean);
 
 export const STAGES = [
   "Development",

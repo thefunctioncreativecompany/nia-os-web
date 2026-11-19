@@ -33,7 +33,7 @@ stack and the counts.
 | Desktop navbar | 🔄 N1–N3 done | N4 "Try" ideas, N5 gallery and fallbacks, N6 full check; Figma frames |
 | Explore catalogue | 🔄 | Studio-catalogue titles 2–3 at a time, each with a press kit; AI tagging from a fixed list (EX5) |
 | PostHog activation | 🔄 Installed, session replay on | First recordings on the live site; Replay Vision scanners start then |
-| Meetings (step 1 of 4) | 🔄 Step 1 live: notes from any notetaker under Documents | AI proposals on Apply (2), Schedule a Google Meet (3), Gemini notes arriving by themselves (4). `docs/MEETINGS_SPEC.md` |
+| Meetings (step 2 of 4) | 🔄 Step 1 live (Overview → Meetings); step 2 (suggested changes) built, off until an `ANTHROPIC_API_KEY` is added (no paid services yet) | Add the key; then Schedule a Google Meet (3), Gemini notes arriving by themselves (4). `docs/MEETINGS_SPEC.md` |
 | Onboarding (1.4) | 🔄 | "How did you hear about us" as an optional tap; "What you can do" as slides (waits on Figma) |
 
 ## Known rough edges
@@ -87,7 +87,7 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | Spaces | Designed (24 screens) | Projects become Spaces: next up, what needs you, phases, schedule, crew and documents |
 | Nia AI | Designed | Paste a brief, get a Space; spots the films a brief names and adds them as references (BR1, BR2) |
 | Agents | Planned | Model-agnostic agents for the legwork: call sheets, clashes, hand-offs; each one proposes |
-| Meeting notes | Step 1 live (Joshua, FB1) | Documents → Meetings: notes from any notetaker now; then proposals on Apply, Google Meet scheduling and Gemini notes (`docs/MEETINGS_SPEC.md`) |
+| Meeting notes | Step 1 live (Joshua, FB1) | Overview → Meetings: notes from any notetaker now; then proposals on Apply, Google Meet scheduling and Gemini notes (`docs/MEETINGS_SPEC.md`) |
 | Recreate this look | Idea (Alvin, FB9) | From an Explore title, a shot list and mood board proposed into your project |
 | Template looks | Idea (Inbar, FB18) | A few designed versions of each template (background, fonts); needs a decision on document fonts |
 | Community profile | Idea (Inbar, FB19) | A profile for networking and collaboration, started inside Settings |
@@ -117,7 +117,7 @@ From beta testers, November 2026 (full list and permissions: [FEEDBACK.md](FEEDB
 | Video | Remotion (template tutorials, demo films); ElevenLabs voice-over (demo films only) |
 | Testing | Vitest; Playwright MCP (headless Chrome checks); ESLint |
 | Security | Zod 4 checks every server action's input (`src/lib/schemas.ts`); pictures downloaded on the server are capped at 50 MB and 100 megapixels, refuse redirects and come only from Nia, its own Supabase project, YouTube thumbnails and Wikimedia Commons (`src/lib/fetch-image.ts`) |
-| AI (planned) | Claude API for the Copilot and agents; not added yet |
+| AI | Claude API (`@anthropic-ai/sdk`, `claude-opus-5-5`, structured output, the API's own fallback model when a request is declined) for a meeting's suggested changes (`src/features/meetings/propose.ts`); the Copilot and agents later |
 
 ## Integrations and services
 

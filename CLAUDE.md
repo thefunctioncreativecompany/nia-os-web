@@ -286,7 +286,7 @@ Next week (from 2026-11-02, in order; agree each with Ika first)
    dark mode tokens, card hover.
 5. Explore: rerun cast & crew and press kits as titles are added; the 17 titles with no
    credits; the 289 studio-catalogue titles (posters from TMDB's free API during the private beta; commercial licence before charging).
-6. Small: genre pills "More genres" fold; Nia photos in the project page's crew row.
+6. Small: Nia photos in the project page's crew row.
 
 Milestone 4 — Shoot day (plan agreed 2026-11-01: People → Locations → Shoot days & schedule →
 documents fill themselves → Shoot Day screen → Home goes live; one directory per workspace; call
@@ -335,5 +335,5 @@ Migrations run so far: `20261018000000_profiles_settings_workspaces.sql`,
 `20261106000000_project_details_crew.sql`; also `20261028000000_plans.sql`,
 `20261029000000_marketplace_waitlist.sql` and `20261103000000_explore_views.sql` (found run,
 2026-10-28); `20261107000000_security_function_access.sql`, `20261108000000_explore_top.sql` and
-`20261109000000_people.sql`. `20261111000000_link_access_requests.sql` (2026-11-11). `20261111010000_shared_reference_stills.sql` (2026-11-11). `20261112000000_comments.sql` (2026-11-11). `20261114000000_portfolios.sql` and `20261115000000_portfolios_look.sql` (found run, 2026-11-14). `20261116000000_portfolios_delete.sql` and `20261117000000_portfolios_signed_out.sql` (2026-11-15). `20261118000000_project_references_arrange.sql` and `20261119000000_project_milestones.sql` (2026-11-15). `20261120000000_meetings.sql` (2026-11-18). Not run: `20261110000000_explore_open.sql` (until it is, only invited people can save titles or add them to projects), `20261030000000_explore_made_in_africa.sql` (Explore reads
+`20261109000000_people.sql`. `20261111000000_link_access_requests.sql` (2026-11-11). `20261111010000_shared_reference_stills.sql` (2026-11-11). `20261112000000_comments.sql` (2026-11-11). `20261114000000_portfolios.sql` and `20261115000000_portfolios_look.sql` (found run, 2026-11-14). `20261116000000_portfolios_delete.sql` and `20261117000000_portfolios_signed_out.sql` (2026-11-15). `20261118000000_project_references_arrange.sql` and `20261119000000_project_milestones.sql` (2026-11-15). `20261120000000_meetings.sql` and `20261121000000_meeting_proposals.sql` (2026-11-18). Not run: `20261110000000_explore_open.sql` (until it is, only invited people can save titles or add them to projects), `20261030000000_explore_made_in_africa.sql` (Explore reads
 sample data).

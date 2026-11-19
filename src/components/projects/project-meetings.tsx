@@ -15,12 +15,12 @@ const MeetingPanel = dynamic(() => import("./meeting-panel").then((m) => m.Meeti
 
 export const meetingMeta = (m: MeetingRow) => [m.heldOn && formatDay(m.heldOn), m.sourceApp, peopleText(m.attendees)].filter(Boolean).join(" · ");
 
-// Meetings under the project's documents (docs/MEETINGS_SPEC.md, step 1; Ika 2026-11-18): notes
+// Meetings under the project's Details on Overview (docs/MEETINGS_SPEC.md, step 1; Ika 2026-11-18): notes
 // from production meetings, added from any notetaker's export or pasted. Opening one shows its
 // summary and transcript in the right panel (like the template preview), named in the address
 // (?meeting=…) so a search result or a link opens it. Only editors get here (the page leaves it
 // out for viewers; the database rules agree).
-export function ProjectMeetings({ projectId, meetings: initial }: { projectId: string; meetings: MeetingRow[] }) {
+export function ProjectMeetings({ projectId, meetings: initial, aiReady }: { projectId: string; meetings: MeetingRow[]; /** Suggested changes are switched on (ANTHROPIC_API_KEY). */ aiReady: boolean }) {
   const params = useSearchParams();
   const [meetings, setMeetings] = useState(() => initial.toSorted(byNewest));
   const [adding, setAdding] = useState(false);
@@ -33,6 +33,8 @@ export function ProjectMeetings({ projectId, meetings: initial }: { projectId: s
     setOpenId(asked);
   }
   const open = meetings.find((m) => m.id === openId) ?? null;
+  // The meeting just added reads its notes for suggested changes straight away.
+  const [justAdded, setJustAdded] = useState<string | null>(null);
 
   const show = (id: string | null) => {
     setOpenId(id);
@@ -55,7 +57,7 @@ export function ProjectMeetings({ projectId, meetings: initial }: { projectId: s
       {meetings.length === 0 ? (
         <p className="text-small text-muted-foreground">Add notes from a production meeting: a file from Otter, Fireflies, Granola, Gemini, Zoom or Teams, or paste them.</p>
       ) : (
-        <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <ul className="flex flex-col gap-2">
           {meetings.map((m) => (
             <li key={m.id}>
               <button
@@ -82,13 +84,17 @@ export function ProjectMeetings({ projectId, meetings: initial }: { projectId: s
         onOpenChange={setAdding}
         onAdded={(m) => {
           setMeetings((list) => [m, ...list].toSorted(byNewest));
+          if (aiReady) setJustAdded(m.id);
           show(m.id);
         }}
       />
       {open && (
         <MeetingPanel
           key={open.id}
+          projectId={projectId}
           meeting={open}
+          autoPropose={open.id === justAdded}
+          aiReady={aiReady}
           list={meetings}
           onNavigate={(m) => show(m.id)}
           onClose={() => show(null)}

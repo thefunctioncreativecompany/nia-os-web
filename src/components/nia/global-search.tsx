@@ -126,7 +126,7 @@ async function load(): Promise<Result[]> {
       };
     }),
     // Meetings sit with the documents, found by their title and who was there; they open in the
-    // project's Documents tab, in the right panel.
+    // project's Overview, in the right panel.
     ...(meetings.data ?? []).map((m): Result => {
       const project = m.project as unknown as Ref;
       const people = Array.isArray(m.attendees) ? (m.attendees as { name?: string }[]).map((a) => a.name ?? "").join(" ") : "";
@@ -136,7 +136,7 @@ async function load(): Promise<Result[]> {
         title: m.title,
         meta: ["Meeting", project?.title || "Untitled project"].join(" · "),
         words: `meeting notes ${m.source_app ?? ""} ${people}`,
-        href: project ? `/projects/${project.id}?tab=documents&meeting=${m.id}` : "/projects",
+        href: project ? `/projects/${project.id}?meeting=${m.id}` : "/projects",
         at: m.created_at,
         meeting: true,
       };

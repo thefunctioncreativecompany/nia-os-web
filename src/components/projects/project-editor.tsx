@@ -7,12 +7,12 @@ import { Camera, Crop } from "lucide-react";
 import { toast } from "sonner";
 
 import { checkCoverFile } from "@/lib/images";
-import { GENRES, shootDatesText, typeDetails, type Project, type ProjectRole } from "@/lib/projects";
+import { MAX_GENRES, genreOptions, shootDatesText, typeDetails, type Project, type ProjectRole } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ChoicePills } from "@/components/nia/choice-pills";
+import { MultiSelect } from "@/components/nia/multi-select";
 import { SavedIndicator } from "@/components/nia/saved-indicator";
 import { ViewAll } from "@/components/nia/view-all";
 import { Button } from "@/components/ui/button";
@@ -117,6 +117,7 @@ export function ProjectEditor({
   referencePreview,
   finals,
   documents,
+  meetings,
   files,
   inspiration,
   comments,
@@ -133,6 +134,8 @@ export function ProjectEditor({
   finals?: React.ReactNode;
   /** The Documents tab. */
   documents: React.ReactNode;
+  /** Meetings, under Details on Overview (Ika, 2026-11-18); editors only. */
+  meetings?: React.ReactNode;
   /** The References tab: Files & references, then Explore references and suggestions. */
   files: React.ReactNode;
   inspiration?: React.ReactNode;
@@ -434,14 +437,17 @@ export function ProjectEditor({
                 {row(
                   genres.length > 1 ? "Genres" : "Genre",
                   canEdit ? (
-                    <ChoicePills
+                    // One picker (Ika, 2026-11-18: "one multi-select toggle, don't display all of them
+                    // at once"): the chosen genres show, the full grouped list opens on tap.
+                    <MultiSelect
                       label="Genres"
-                      value={null}
-                      selected={genres}
-                      // Several genres: tapping one adds or removes it.
-                      onChange={(g) => void save("genres", "genres", (genres.includes(g) ? genres.filter((x) => x !== g) : [...genres, g]).join(", ")).catch(() => {})}
-                      options={[...new Set([...genres, ...GENRES])].map((g) => ({ value: g, label: sentenceCase(g) }))}
-                      className="gap-1.5 [&>button]:px-3 [&>button]:py-1 [&>button]:text-small"
+                      variant="inline"
+                      placeholder="Add genres"
+                      value={genres}
+                      max={MAX_GENRES}
+                      maxChips={MAX_GENRES}
+                      onChange={(next) => void save("genres", "genres", next.join(", ")).catch(() => {})}
+                      options={genreOptions(genres)}
                     />
                   ) : (
                     readValues(genres.map(sentenceCase))
@@ -452,6 +458,7 @@ export function ProjectEditor({
                 {extras.includes("publication") && text("Publication", "publication", "publication", "Where it's published", 120)}
                 {canEdit && row("Budget", <BudgetField projectId={project.id} onSaved={() => setSavedAt(Date.now())} />)}
               </dl>
+              {meetings && <div className="pt-6">{meetings}</div>}
             </aside>
           </div>
         )}

@@ -14,10 +14,11 @@ import { SearchInput } from "@/components/nia/search-input";
 import { SectionTabs } from "@/components/nia/section-tabs";
 import { PrevNext, SidePanel } from "@/components/nia/side-panel";
 import { EditableText } from "@/components/projects/editable-text";
+import { MeetingChanges } from "@/components/projects/meeting-changes";
 import { loadMeeting, peopleText, removeMeeting, updateMeeting, type Meeting, type MeetingRow } from "@/features/meetings/data";
 import { clock } from "@/features/meetings/parse";
 
-type Tab = "summary" | "transcript";
+type Tab = "summary" | "transcript" | "changes";
 const PANEL_ID = "meeting-panel-body";
 
 // A meeting in the right panel (docs/MEETINGS_SPEC.md, step 1), like the template preview: the
@@ -25,14 +26,22 @@ const PANEL_ID = "meeting-panel-body";
 // original a tap away) and the Transcript (the record: read-only, with a find box). Previous /
 // next and the arrow keys step through the project's meetings. Full width on phones and tablets.
 export function MeetingPanel({
+  projectId,
   meeting: row,
+  autoPropose = false,
+  aiReady,
   list,
   onNavigate,
   onClose,
   onChange,
   onRemoved,
 }: {
+  projectId: string;
   meeting: MeetingRow;
+  /** A meeting just added: open on Changes and read the notes for suggestions straight away. */
+  autoPropose?: boolean;
+  /** Suggested changes are switched on. */
+  aiReady: boolean;
   list: MeetingRow[];
   onNavigate: (meeting: MeetingRow) => void;
   onClose: () => void;
@@ -41,7 +50,7 @@ export function MeetingPanel({
 }) {
   const [meeting, setMeeting] = useState<Meeting | null>(null);
   const [failed, setFailed] = useState(false);
-  const [tab, setTab] = useState<Tab>("summary");
+  const [tab, setTab] = useState<Tab>(autoPropose ? "changes" : "summary");
   const [find, setFind] = useState("");
   const [savedAt, setSavedAt] = useState<number>();
 
@@ -90,7 +99,12 @@ export function MeetingPanel({
   }, [meeting, find]);
 
   const hasTranscript = (meeting?.transcript.length ?? 0) > 0;
-  const tabs: { id: Tab; label: string; count?: number }[] = [{ id: "summary", label: "Summary" }, ...(hasTranscript ? [{ id: "transcript" as const, label: "Transcript", count: meeting!.transcript.length }] : [])];
+  const waiting = meeting?.proposals?.filter((p) => p.status === "proposed").length ?? 0;
+  const tabs: { id: Tab; label: string; count?: number }[] = [
+    { id: "summary", label: "Summary" },
+    ...(hasTranscript ? [{ id: "transcript" as const, label: "Transcript", count: meeting!.transcript.length }] : []),
+    { id: "changes", label: "Changes", count: waiting },
+  ];
   const people = peopleText(row.attendees);
 
   return (
@@ -163,6 +177,15 @@ export function MeetingPanel({
                   <Skeleton className="h-4 w-5/6" />
                   <Skeleton className="h-4 w-3/4" />
                 </div>
+              ) : tab === "changes" ? (
+                <MeetingChanges
+                  projectId={projectId}
+                  meetingId={row.id}
+                  proposals={meeting.proposals}
+                  auto={autoPropose}
+                  ready={aiReady}
+                  onChange={(proposals) => setMeeting((m) => (m ? { ...m, proposals } : m))}
+                />
               ) : tab === "summary" ? (
                 <div className="flex flex-col gap-3">
                   <EditableText

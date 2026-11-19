@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/client";
 import type { TranscriptLine } from "@/features/meetings/parse";
+import { readProposals, type Proposal } from "@/features/meetings/proposals";
 
 // Meetings on a project (docs/MEETINGS_SPEC.md, step 1; table `meetings`,
 // 20261120000000_meetings.sql). Only people who can edit the project see them (Ika, 2026-11-18).
@@ -16,7 +17,14 @@ export type MeetingRow = {
 };
 
 /** A meeting opened in the panel. */
-export type Meeting = MeetingRow & { summary: string; originalSummary: string; transcript: TranscriptLine[]; fileName: string | null };
+export type Meeting = MeetingRow & {
+  summary: string;
+  originalSummary: string;
+  transcript: TranscriptLine[];
+  fileName: string | null;
+  /** Suggested changes (step 2); null until Nia has read the notes. */
+  proposals: Proposal[] | null;
+};
 
 export const MEETING_LIST_COLUMNS = "id, title, held_on, source_app, attendees, created_at";
 
@@ -47,7 +55,8 @@ export const byNewest = (a: MeetingRow, b: MeetingRow) => (b.heldOn ?? "").local
 export async function loadMeeting(id: string): Promise<Meeting> {
   const { data, error } = await createClient()
     .from("meetings")
-    .select(`${MEETING_LIST_COLUMNS}, summary, original_summary, transcript, file_name`)
+    // Every column, so it opens before 20261121000000_meeting_proposals.sql adds the suggestions.
+    .select("*")
     .eq("id", id)
     .single();
   if (error) throw new Error(error.message);
@@ -57,6 +66,7 @@ export async function loadMeeting(id: string): Promise<Meeting> {
     originalSummary: data.original_summary,
     transcript: Array.isArray(data.transcript) ? (data.transcript as TranscriptLine[]) : [],
     fileName: data.file_name,
+    proposals: readProposals(data.proposals),
   };
 }
 

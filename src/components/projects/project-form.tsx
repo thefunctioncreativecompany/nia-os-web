@@ -8,7 +8,7 @@ import { Camera, Link2, Upload, X } from "lucide-react";
 import { toast } from "sonner";
 
 import { checkCoverFile, shrinkImage } from "@/lib/images";
-import { GENRES, PRODUCTION_TYPES } from "@/lib/projects";
+import { MAX_GENRES, PRODUCTION_TYPES, genreOptions } from "@/lib/projects";
 import { parseInstagramLink } from "@/lib/instagram";
 import { addInstagramReference, readInstagramPost } from "@/lib/instagram-post";
 import { createClient } from "@/lib/supabase/client";
@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { openUpgrade } from "@/components/nia/upgrade-dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { MultiSelect } from "@/components/nia/multi-select";
 import {
   Select,
   SelectContent,
@@ -66,7 +67,7 @@ export function ProjectForm() {
   const [description, setDescription] = useState("");
   // No genre until one is chosen (beta walkthrough, 2026-10-31: Drama by default mislabelled
   // photo shoots and commercials).
-  const [genre, setGenre] = useState<string>("");
+  const [genres, setGenres] = useState<string[]>([]);
   const [productionType, setProductionType] = useState<string>("Film");
   const [cover, setCover] = useState<{ file: File; url: string } | null>(null);
   const [isSaving, setIsSaving] = useState(false);
@@ -127,7 +128,7 @@ export function ProjectForm() {
           workspace_id: workspaceId,
           title: title.trim(),
           description: description.trim(),
-          genres: genre,
+          genres: genres.join(", "),
           production_type: productionType,
         })
         .select("id")
@@ -251,21 +252,8 @@ export function ProjectForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
-          <Label htmlFor="project-genre" className={fieldLabelClassName}>
-            Genre
-          </Label>
-          <Select value={genre || undefined} onValueChange={setGenre}>
-            <SelectTrigger id="project-genre" className={selectTriggerClassName}>
-              <SelectValue placeholder="Choose (optional)" />
-            </SelectTrigger>
-            <SelectContent position="popper">
-              {GENRES.map((option) => (
-                <SelectItem key={option} value={option}>
-                  {sentenceCase(option)}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <span className={fieldLabelClassName}>Genres</span>
+          <MultiSelect label="Genres" placeholder="Choose (optional)" value={genres} onChange={setGenres} max={MAX_GENRES} options={genreOptions()} className={selectTriggerClassName} />
         </div>
         <div className="flex flex-col gap-2">
           <Label htmlFor="project-type" className={fieldLabelClassName}>

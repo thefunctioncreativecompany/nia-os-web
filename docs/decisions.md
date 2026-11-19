@@ -1096,3 +1096,11 @@ onboarding's Import profile and Follow creators describe features removed in the
   reconciled into Figma afterwards; meetings are for project editors only (notes are often
   personal); everything is free in the beta; the "AI draft" marker becomes a Nia Blue tint chip
   (gold is banned). Not in Figma yet.
+- (2026-11-18) Meetings move to Overview, under the Details card (were under Documents). Step 2
+  (Claude's suggested changes) stays built but off: no `ANTHROPIC_API_KEY` while nothing is paid
+  for; the Changes tab shows it as not yet.
+- (2026-11-18) Genres: one list for the whole platform (`GENRE_GROUPS` in `src/lib/projects.ts`),
+  61 genres in six groups (Film and TV; Documentary and factual; Brand and commercial; Fashion,
+  beauty and lifestyle; Music and performance; Creator and social), from fashion films and branded
+  content to studio genres; every earlier genre kept. Picked with one multi-select (search, the
+  groups, up to 5) in Details and the new project form, not a wall of pills. Not in Figma yet.

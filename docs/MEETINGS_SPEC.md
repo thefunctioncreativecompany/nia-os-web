@@ -1,6 +1,6 @@
 # Meetings: Google Meet, Gemini notes and uploaded notes (future build)
 
-Outlined 2026-11-18 with Ika. Step 1 live 2026-11-18 (`20261120000000_meetings.sql` run; 14 access checks with two accounts pass). Grows FB1 (Joshua's meeting companion) in
+Outlined 2026-11-18 with Ika. Step 1 live 2026-11-18 (`20261120000000_meetings.sql` run; 14 access checks with two accounts pass). Step 2 built 2026-11-18 and switched off: `20261121000000_meeting_proposals.sql` is run, but there's no `ANTHROPIC_API_KEY` yet (Ika, 2026-11-18: nothing paid for now). Until the key is set, the Changes tab shows "Suggest changes" greyed out with a not-yet note; adding the key in `.env.local` and Vercel switches it on, nothing else. Grows FB1 (Joshua's meeting companion) in
 [FEEDBACK.md](FEEDBACK.md). Before building: Ika agrees this outline and the open questions at
 the end, each screen is designed (Claude Design, then Figma), and each part runs as its own step.
 
@@ -19,8 +19,8 @@ locations, documents). Nothing changes until the producer presses Apply.
 
 ## Where it lives
 
-- **Project → Documents tab → Meetings**, a section below the project's documents, newest
-  first. Each row: title, date and time, attendee avatars, where the notes came from (Gemini,
+- **Project → Overview → Meetings**, under the Details card (Ika, 2026-11-18; first built under
+  Documents), newest first. Each row: title, date and time, attendee avatars, where the notes came from (Gemini,
   Otter, Uploaded…), and a status (`Scheduled`, `Waiting for notes`, `Notes ready`,
   `Changes to review`). The section heading carries one grey button, **Add meeting**, with two
   choices: *Schedule a Google Meet* and *Upload notes*.
@@ -119,6 +119,24 @@ headings); the first one is the title.
 - **Matching.** Meetings booked from Nia know their project. Gemini notes from meetings booked
   outside Nia are not pulled in (later: "Import a past meeting" from Calendar).
 
+## Step 2 as built (2026-11-18)
+
+- **When:** a meeting just added opens on Changes and Nia reads it straight away; older meetings
+  have a "Suggest changes" button. "Suggest again" reads them afresh.
+- **How:** a server action (`src/features/meetings/propose.ts`) reads the meeting, the project's
+  details, milestones and cast and crew as the signed-in editor, and asks Claude
+  (`claude-opus-5-5`, effort medium) for an answer in a fixed shape (structured output). Every
+  suggestion is checked (`proposals.ts`): no title, no name, a date that isn't a day or a detail
+  that's already the same are dropped. The notes are treated as material, never as instructions.
+- **What it fills today:** actions and milestones (with dates), people for the cast and crew
+  (through the quick add, reusing someone already in the workspace), and six project details
+  (client, agency, logline, first and last shoot day, due). Documents and locations wait.
+- **Where they're kept:** `meetings.proposals` (a list with each suggestion's status), not a
+  separate table: they belong to the meeting.
+- **Apply** makes the ticked ones (`apply.ts`) and marks them applied; **Dismiss** sets the rest
+  aside. Action and milestone words can be changed before applying (Modify).
+- **Privacy:** the notes go to Anthropic's API to be read. Anthropic doesn't train on API data.
+
 ## Data (one migration per part, explained to Ika before she runs it)
 
 - `meetings`: project, workspace, title, starts and ends at, source (`google_meet` or `upload`),
@@ -126,8 +144,9 @@ headings); the first one is the title.
   person), summary (rich text), original summary, transcript (speaker, time, text), notes Doc
   link, original file path, status, created by, timestamps, `deleted_at`. Rules: editors of the
   project only.
-- `meeting_proposals`: meeting, where it lands, what it changes (before and after), the quote,
-  status (`proposed`, `applied`, `dismissed`), who applied it and when.
+- `meetings.proposals` (step 2, instead of a separate table): each suggestion's kind, what it
+  changes (before and after for project details), the quote and its status (`proposed`,
+  `applied`, `dismissed`); `meetings.proposals_at`.
 - `google_connections`: the person, the granted permissions and the encrypted refresh key.
   Server only: no browser can read it.
 
