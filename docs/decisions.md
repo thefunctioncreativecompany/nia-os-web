@@ -1150,7 +1150,9 @@ onboarding's Import profile and Follow creators describe features removed in the
   project, Meeting, Explore, Collection, Templates, as grey pills (one line to swipe on phones).
   Brings quick ways in back to Home after the 2026-11-10 cut, as one row, not a section. Meeting
   asks which project (only ones you can edit), then opens its Google Meet booking, or adding notes
-  until Google Calendar is set up (`?schedule=1`, `?notes=1`). Not in Figma yet.
+  until Google Calendar is set up (`?schedule=1`, `?notes=1`). Not in Figma yet. Home's Recent
+  projects drops the dashed New project tile (one way to do each thing) and shows five projects;
+  the Projects page keeps it.
 - (2026-11-19) Explore search (Ika: "search bar and filters linked to production detail tagging for
   easier searching, structure similar to templates search"; "consider the user feedback"). On the
   Explore page under Explore all: a search box with the top five as you type (Best match first,

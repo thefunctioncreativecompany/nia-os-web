@@ -5,17 +5,20 @@ import { cn } from "@/lib/utils";
 import { ProjectCard } from "@/components/nia/project-card";
 import { NewProjectDialog } from "@/components/projects/new-project-dialog";
 
-// "My Projects" grid (Figma 778:2458): a dashed New project tile, then project cards.
+// "My Projects" grid (Figma 778:2458): a dashed New project tile, then project cards. Home leaves
+// the tile out (`newTile={false}`; Ika, 2026-11-19): its Get started with row has New project.
 export function ProjectGrid({
   projects,
   now,
   compact = false,
+  newTile = true,
   onOpen,
   className,
 }: {
   projects: Project[];
   now: number;
   compact?: boolean;
+  newTile?: boolean;
   onOpen?: (project: Project) => void;
   className?: string;
 }) {
@@ -29,18 +32,20 @@ export function ProjectGrid({
         className,
       )}
     >
-      <NewProjectDialog>
-        <button
-          type="button"
-          className={cn(
-            "flex aspect-[19/10] flex-col items-center justify-center gap-2 border-[1.5px] border-dashed border-border text-nia-placeholder outline-none transition-colors duration-fast hover:bg-muted hover:text-muted-foreground focus-visible:ring-3 focus-visible:ring-ring/50",
-            compact ? "rounded-lg" : "rounded-xl",
-          )}
-        >
-          <Plus aria-hidden className={compact ? "size-6" : "size-9"} strokeWidth={1} />
-          <span className={cn("leading-normal font-semibold", compact ? "text-meta" : "text-sm")}>New project</span>
-        </button>
-      </NewProjectDialog>
+      {newTile && (
+        <NewProjectDialog>
+          <button
+            type="button"
+            className={cn(
+              "flex aspect-[19/10] flex-col items-center justify-center gap-2 border-[1.5px] border-dashed border-border text-nia-placeholder outline-none transition-colors duration-fast hover:bg-muted hover:text-muted-foreground focus-visible:ring-3 focus-visible:ring-ring/50",
+              compact ? "rounded-lg" : "rounded-xl",
+            )}
+          >
+            <Plus aria-hidden className={compact ? "size-6" : "size-9"} strokeWidth={1} />
+            <span className={cn("leading-normal font-semibold", compact ? "text-meta" : "text-sm")}>New project</span>
+          </button>
+        </NewProjectDialog>
+      )}
       {projects.map((project) => (
         <ProjectCard
           key={project.id}

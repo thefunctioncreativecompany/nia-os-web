@@ -93,8 +93,9 @@ function BodySkeleton() {
   );
 }
 
-// The four most recent projects, read once per visit by the greeting and Recent projects.
-const recentProjects = cache(() => listProjects(undefined, 4));
+// The five most recent projects (a full row on a wide screen now the New project tile is off
+// Home), read once per visit by the greeting and Recent projects.
+const recentProjects = cache(() => listProjects(undefined, 5));
 
 // "Welcome back" once someone has a project; before that they're new (beta walkthrough,
 // 2026-10-31: a brand-new account was greeted "Welcome back").
@@ -125,7 +126,7 @@ async function RecentProjects() {
       />
     );
   }
-  return <ProjectGrid projects={projects} now={now} compact />;
+  return <ProjectGrid projects={projects} now={now} compact newTile={false} />;
 }
 
 async function RecentActivity() {
