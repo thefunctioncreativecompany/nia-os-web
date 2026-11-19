@@ -138,14 +138,14 @@ export function EditDetailsDialog({ project, children }: { project: Project; chi
               type="button"
               variant="outline"
               onClick={() => setOpen(false)}
-              className="h-auto rounded-lg px-6 py-3 text-lead font-semibold"
+              className="h-auto px-6 py-3 text-lead font-semibold"
             >
               Cancel
             </Button>
             <Button
               type="submit"
               disabled={isSaving || !title.trim()}
-              className="h-auto rounded-lg px-6 py-3 text-lead font-semibold"
+              className="h-auto px-6 py-3 text-lead font-semibold"
             >
               {isSaving ? "Saving…" : "Save changes"}
             </Button>

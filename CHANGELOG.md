@@ -5,6 +5,7 @@ Newest first. The full story of each change is in its commit and in docs/decisio
 
 ## Recent Changes
 
+- 2026-11-19 · `feature/explore-templates-marketplace` → `main` · Nine buttons back to pills (Delete project, Edit details, Create project, template editor's Remove, scroll-tab arrows, Download PDF); Delete project is the red button without the blue halo; lint now fails on a button shape and shows a class's variants. Files: `src/components/{nia/document-header,nia/scroll-tabs,projects/delete-project-dialog,projects/edit-details-dialog,projects/project-form}.tsx`, `src/features/templates/engine/template-editor.tsx`, `lint/nia-design-rules.mjs` (+ test), `docs/FEEDBACK.md`, `CHANGELOG.md`.
 - 2026-11-19 · `feature/explore-templates-marketplace` · Best of 2026 batch 5 (10 titles, 40 of 100 live). Files: `src/features/explore/*` data, `public/explore/made-in-africa/*.jpg`, `scripts/check-trailers.mjs`, docs.
 - 2026-11-19 · `feature/explore-templates-marketplace` → `main` · `npm run lint` checks the CLAUDE.md Design rules (idea from Meta's Astryx); `scripts/out/` no longer linted. Files: `lint/nia-design-rules.mjs` (+ test, new), `eslint.config.mjs`, `CLAUDE.md`, `docs/FEEDBACK.md`, `CHANGELOG.md`.
 - 2026-11-19 · `feature/explore-templates-marketplace` · Best of 2026 batch 4 (10 titles, 30 of 100 live), trailers from TMDB checked through youtube-nocookie, contact sheets; awards tag only for awards and festivals. Files: `src/features/explore/*` data, `public/explore/made-in-africa/*.jpg`, `scripts/{tmdb-trailers,check-trailers,contact-sheet}.mjs`, docs.

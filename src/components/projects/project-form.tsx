@@ -378,7 +378,7 @@ export function ProjectForm() {
         <Button
           type="submit"
           disabled={isSaving || !title.trim()}
-          className="h-auto rounded-lg px-6 py-3 text-lead font-semibold"
+          className="h-auto px-6 py-3 text-lead font-semibold"
         >
           {uploading ? `${uploading.what} ${uploading.done + 1} of ${uploading.of}…` : isSaving ? "Creating…" : "Create project"}
         </Button>

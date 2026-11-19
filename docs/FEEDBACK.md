@@ -162,8 +162,8 @@ Ika asked how github.com/meta/astryx could help without replacing what we have. 
 
 | # | What | Status |
 |---|------|--------|
-| AX1 | **Design rules checked automatically.** `npm run lint` checks the CLAUDE.md Design rules (`lint/nia-design-rules.mjs`, 25 tests): no masonry, Geist only and sentence case fail lint; pixel values, raw colours, button shapes and heading styles warn until cleaned up. Not run: the `/dev/components` gallery | ✅ 2026-11-19 |
-| AX1a | Its first run found 9 buttons with their pill shape overridden (`rounded-lg`/`rounded-md`): document header, scroll-tab arrows, Delete project, Edit details, project form, template editor | ⬜ |
+| AX1 | **Design rules checked automatically.** `npm run lint` checks the CLAUDE.md Design rules (`lint/nia-design-rules.mjs`, 26 tests): no masonry, Geist only, sentence case and button shapes fail lint; pixel values, raw colours and heading styles warn until cleaned up. Not run: the `/dev/components` gallery | ✅ 2026-11-19 |
+| AX1a | Its first run found 9 buttons with their pill shape overridden (`rounded-lg`/`rounded-md`): document header, scroll-tab arrows, Delete project, Edit details, project form, template editor | ✅ 2026-11-19: all pills; Delete project uses the red `danger` button (it was the blue one painted red, with a blue halo). `DownloadPdfButton` (`document-header.tsx`) is used nowhere: delete with PA8 |
 | AX1b | 67 pixel values in pages (46 have an exact theme size, named in the warning), 1 raw colour (profile photo overlay) and the PA5 titles plus one `font-extrabold` (template miniature) | ⬜ as each screen is next touched |
 | AX2 | Astryx's ready-made layouts (table with a floating bar for changing many rows, filter tabs, step-by-step form with a review step, chat with citations) as references in Claude Design before Figma: cast & crew bulk changes, shoot days, Copilot | ⬜ when those steps start |
 | AX3 | Check our own controls (`FilterChip`, `ChipMenu`, `SearchField`) against Astryx's written accessibility contracts (keyboard, screen reader) | ⬜ |

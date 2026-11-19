@@ -65,15 +65,16 @@ export function DeleteProjectDialog({
             type="button"
             variant="outline"
             onClick={() => setOpen(false)}
-            className="h-auto rounded-lg p-3 text-small font-bold"
+            className="h-auto p-3 text-small font-bold"
           >
             Cancel
           </Button>
           <Button
             type="button"
+            variant="danger"
             disabled={isDeleting}
             onClick={remove}
-            className="h-auto rounded-lg bg-nia-danger p-3 text-small font-bold text-background hover:bg-nia-danger/85"
+            className="h-auto p-3 text-small font-bold"
           >
             {isDeleting ? "Deleting…" : "Delete project"}
           </Button>

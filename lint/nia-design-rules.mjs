@@ -48,8 +48,10 @@ function classRule({ description, pattern, message, where, hint }) {
       return eachString(context, (node, text) => {
         if (where && !where(context, node)) return;
         for (const match of text.matchAll(pattern)) {
-          const cls = match[0];
-          const tip = hint?.(cls);
+          // The variants in front (`sm:`, `hover:`), so the message shows the whole class.
+          const variants = /\S*$/.exec(text.slice(0, match.index))[0];
+          const tip = hint?.(match[0], variants);
+          const cls = variants + match[0];
           context.report({ node, messageId: "broken", data: { cls, hint: tip ? ` (${tip})` : "" } });
         }
       });
@@ -64,17 +66,17 @@ const SPACING =
 const TEXT = { 32: "text-h1", 28: "text-h2", 24: "text-h3", 22: "text-subtitle", 15: "text-lead", 14: "text-sm", 13: "text-small", 12: "text-caption", 11: "text-micro", 10: "text-meta", 9: "text-tiny" };
 const RADIUS = { 6: "sm", 8: "md", 12: "lg", 16: "xl", 22: "2xl" };
 
-function pxHint(cls) {
+function pxHint(cls, variants) {
   const m = /^(-?[\w-]+?)-\[(\d+(?:\.\d+)?)px\]$/.exec(cls);
   if (!m) return null;
   const [, prefix, n] = m;
   const px = Number(n);
   if (SPACING.test(prefix) && Number.isInteger(px)) {
-    return `${prefix}-${px === 1 ? "px" : px / 4} is the same size`;
+    return `${variants}${prefix}-${px === 1 ? "px" : px / 4} is the same size`;
   }
-  if (prefix === "text" && TEXT[px]) return `the theme size for ${px}px is ${TEXT[px]}`;
+  if (prefix === "text" && TEXT[px]) return `the theme size for ${px}px is ${variants}${TEXT[px]}`;
   const r = /^(rounded(?:-[trblse]{1,2})?)$/.exec(prefix);
-  if (r && RADIUS[px]) return `${r[1]}-${RADIUS[px]} is the same`;
+  if (r && RADIUS[px]) return `${variants}${r[1]}-${RADIUS[px]} is the same`;
   return null;
 }
 
@@ -162,8 +164,8 @@ export const niaDesignRules = [
       "nia/no-masonry": "error",
       "nia/geist-only": "error",
       "nia/sentence-case": "error",
+      "nia/button-pill": "error",
       "nia/no-raw-color": "warn",
-      "nia/button-pill": "warn",
       "nia/heading-style": "warn",
       "nia/no-raw-px": "warn",
       "no-restricted-imports": [

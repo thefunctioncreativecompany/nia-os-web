@@ -89,7 +89,7 @@ export function DownloadPdfButton({
     <Button
       type="button"
       variant="outline"
-      className={cn("h-auto gap-2 rounded-lg p-3 text-small font-semibold", className)}
+      className={cn("h-auto gap-2 p-3 text-small font-semibold", className)}
       {...props}
     >
       <Download aria-hidden />

@@ -27,7 +27,7 @@ export function ScrollTabs({
 
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      <Button variant="outline" size="icon-xs" aria-label="Scroll back" onClick={() => scroll(-1)} className="shrink-0 rounded-md">
+      <Button variant="outline" size="icon-xs" aria-label="Scroll back" onClick={() => scroll(-1)} className="shrink-0">
         <ArrowLeft />
       </Button>
       <div ref={track} role="group" aria-label={label} className="flex min-w-0 flex-1 gap-2 overflow-x-auto py-0.5 [scrollbar-width:none]">
@@ -50,7 +50,7 @@ export function ScrollTabs({
           );
         })}
       </div>
-      <Button variant="outline" size="icon-xs" aria-label="Scroll forward" onClick={() => scroll(1)} className="shrink-0 rounded-md">
+      <Button variant="outline" size="icon-xs" aria-label="Scroll forward" onClick={() => scroll(1)} className="shrink-0">
         <ArrowRight />
       </Button>
     </div>

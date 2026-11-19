@@ -25,11 +25,18 @@ tester.run("no-raw-px", rules["no-raw-px"], {
     {
       code: `<p className={cn("md:text-[13px]", ok && "h-[1px]")} />`,
       errors: [
-        { message: "Nia rule: no pixel values in pages, use a theme size instead of text-[13px] (the theme size for 13px is text-small)." },
+        { message: "Nia rule: no pixel values in pages, use a theme size instead of md:text-[13px] (the theme size for 13px is md:text-small)." },
         { message: "Nia rule: no pixel values in pages, use a theme size instead of h-[1px] (h-px is the same size)." },
       ],
     },
     { code: "const grid = `grid-cols-[240px_1fr] ${x}`;", errors: broken() },
+    {
+      code: `<div className="max-w-[420px] sm:max-w-[420px]" />`,
+      errors: [
+        { message: "Nia rule: no pixel values in pages, use a theme size instead of max-w-[420px] (max-w-105 is the same size)." },
+        { message: "Nia rule: no pixel values in pages, use a theme size instead of sm:max-w-[420px] (sm:max-w-105 is the same size)." },
+      ],
+    },
   ],
 });
 

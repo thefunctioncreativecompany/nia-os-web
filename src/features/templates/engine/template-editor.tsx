@@ -244,7 +244,7 @@ export function TemplateEditor({
                 <Button
                   variant="ghost"
                   size="compact"
-                  className="rounded-lg text-muted-foreground"
+                  className="text-muted-foreground"
                   onClick={async () => {
                     const was = doc.project;
                     if (await doc.fileTo(null)) toast.success(`Removed from ${was?.title}. It stays in your drafts.`);
