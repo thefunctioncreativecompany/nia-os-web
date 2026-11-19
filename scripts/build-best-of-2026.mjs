@@ -53,7 +53,8 @@ const add = (kind, r) => {
   const title = kind === "movie" ? r.title : r.name;
   found.set(`${kind}:${r.id}`, { kind, id: r.id, title, date, slug: slugify(title), popularity: r.popularity, votes: r.vote_count });
 };
-for (const page of [1, 2, 3]) {
+// Enough pages for a fair top 100 (Ika, 2026-11-19: "top 100").
+for (const page of [1, 2, 3, 4, 5, 6]) {
   for (const sort of ["popularity.desc", "revenue.desc"]) {
     const m = await tmdb(`/discover/movie?primary_release_year=${YEAR}&sort_by=${sort}&page=${page}&include_adult=false`);
     m?.results.forEach((r) => add("movie", r));
@@ -62,7 +63,7 @@ for (const page of [1, 2, 3]) {
   s?.results.forEach((r) => add("tv", r));
 }
 // Critics' and audiences' favourites, so smaller films aren't drowned out by the blockbusters.
-for (const page of [1, 2]) {
+for (const page of [1, 2, 3, 4]) {
   const m = await tmdb(`/discover/movie?primary_release_year=${YEAR}&sort_by=vote_average.desc&vote_count.gte=150&page=${page}&include_adult=false`);
   m?.results.forEach((r) => add("movie", r));
 }
@@ -171,8 +172,9 @@ for (const c of candidates) {
 candidates.sort((a, b) => b.score - a.score);
 
 // ---- Write ----
-// The category is the year's top 20; the ones not on Explore yet are the next titles to add.
-const TOP = 20;
+// The category is the year's top 100 (Ika, 2026-11-19; top 20 until then); the ones not on Explore
+// yet are the next titles to add.
+const TOP = 100;
 const live = (slug) => onExplore.has(slug) && covers.has(slug);
 const top = candidates.slice(0, TOP);
 const ranked = top.filter((c) => live(c.slug)).map((c) => c.slug);
@@ -184,5 +186,5 @@ fs.writeFileSync(
   JSON.stringify(candidates.map(({ kind, title, date, slug, score, popularity, votes, revenue, festivals, festivalNames, views, imdb, language, genres }) => ({ slug, title, kind, date, score, onExplore: live(slug), popularity: Math.round(popularity), votes, revenue, festivals, festivalNames, views, imdb, language, genres })), null, 1),
 );
 console.log(`${candidates.length} candidates; top ${TOP}: ${ranked.length} on Explore (${ranked.join(", ")}), ${toAdd.length} to add`);
-console.log("Top 30:");
-for (const c of candidates.slice(0, 30)) console.log(`${c.score.toFixed(3)}  ${live(c.slug) ? "on Explore " : "to add     "} ${c.title} (${c.kind}, ${c.date}) box ${c.revenue ?? "-"} fest ${c.festivals} [${c.festivalNames.join(", ")}] views ${c.views}`);
+console.log(`Top ${TOP}:`);
+for (const c of candidates.slice(0, TOP)) console.log(`${c.score.toFixed(3)}  ${live(c.slug) ? "on Explore " : "to add     "} ${c.title} (${c.kind}, ${c.date}) box ${c.revenue ?? "-"} fest ${c.festivals} [${c.festivalNames.join(", ")}] views ${c.views}`);

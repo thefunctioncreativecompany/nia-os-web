@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { connection } from "next/server";
 
 import { ExploreLibrary } from "@/components/explore/explore-library";
-import { newSeed } from "@/lib/shuffle";
+import { newSeed, seedFor, shuffled } from "@/lib/shuffle";
 import { loadTopTen } from "@/features/explore/top-server";
 import { studioRows } from "@/features/explore/studios";
 import { festivalRows } from "@/features/explore/festivals";
@@ -30,5 +30,7 @@ export default function Page() {
 async function Shuffled() {
   await connection();
   // The Top 10 is read without waiting: only its own section waits for it.
-  return <ExploreLibrary seed={newSeed()} top={loadTopTen()} studios={studioRows()} people={featuredPeople(3, ROW_MAX)} festivals={festivalRows().slice(0, ROW_MAX)} inSeason={seasonOf(new Date().toISOString().slice(0, 10)).inSeason} searchCount={ITEMS.length} />;
+  const seed = newSeed();
+  // Each visit shows a different ten studios, people and festivals (Ika, 2026-11-19), like the rows.
+  return <ExploreLibrary seed={seed} top={loadTopTen()} studios={shuffled(studioRows(), seedFor(seed, "studios"))} people={shuffled(featuredPeople(3), seedFor(seed, "people")).slice(0, ROW_MAX)} festivals={shuffled(festivalRows(), seedFor(seed, "festivals")).slice(0, ROW_MAX)} inSeason={seasonOf(new Date().toISOString().slice(0, 10)).inSeason} searchCount={ITEMS.length} />;
 }

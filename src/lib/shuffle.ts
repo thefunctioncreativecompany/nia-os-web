@@ -23,3 +23,18 @@ export function shuffled<T>(items: readonly T[], seed: number): T[] {
   }
   return out;
 }
+
+/** A seed for one row, so rows drawn from the same visit's seed don't all pick alike. */
+export function seedFor(seed: number, key: string): number {
+  let h = seed >>> 0;
+  for (let i = 0; i < key.length; i++) h = Math.imul(h ^ key.charCodeAt(i), 0x01000193) >>> 0;
+  return h;
+}
+
+/** `count` of `items` chosen by `seed`, kept in their own order (a rank, a release order), so a row
+ * shows different things on each visit and still reads in order (Ika, 2026-11-19). */
+export function pick<T>(items: readonly T[], seed: number, count: number): T[] {
+  if (items.length <= count) return [...items];
+  const chosen = new Set(shuffled(items, seed).slice(0, count));
+  return items.filter((item) => chosen.has(item));
+}

@@ -52,7 +52,7 @@ export function ExploreLibrary({ seed, top, studios, people = [], festivals = []
             <ViewAll href={BEST_OF_2026_HREF} />
           </div>
           <div className="mt-6">
-            <CategoryStrip category="best-of-2026" />
+            <CategoryStrip category="best-of-2026" seed={seed} />
           </div>
         </section>
       )}

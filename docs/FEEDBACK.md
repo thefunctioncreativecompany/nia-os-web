@@ -42,8 +42,15 @@ keep their flow, and their visual interest comes from the user's own work.
   2026-11-19 on every row of titles on Explore (Top 10, Creators' films on YouTube too); the
   rank and the film-type label hide while it plays. Sound: browsers only allow it after a click
   on the page (Chrome); Safari keeps it muted unless the site is allowed to auto-play.
-- **VE3. Calm visuals in the flow screens.** Not started; need Figma: the project's cover as a
-  soft backdrop behind the project page's title, template cards showing the document itself.
+- **VE3. Calm visuals in the flow screens.** Project page: built 2026-11-19 on computers (Ika:
+  "now the project page cover backdrop"): a soft, blurred wash of the project's cover behind the
+  header, from under the top bar to the tabs (same picture as the thumbnail, no second download;
+  faint enough for the title's contrast in light and dark). Not in Figma yet. Still to do:
+  template cards showing the document itself (needs Figma).
+- **VE4. Explore home is different on each visit.** Built 2026-11-19 (Ika: "randomize what's
+  displayed on explore home on each load"): every row of titles shows a different ten each
+  visit, kept in the row's own order (rank for Best of 2026, release order for the classics);
+  By studio, By cast & crew and By festival show a different ten too. Top 10 stays ranked.
 
 ## 00. Logged 2026-11-18: beta testers, Joshua's idea, Alvin's second review, Inbar's design review
 

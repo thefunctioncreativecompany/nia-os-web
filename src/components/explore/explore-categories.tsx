@@ -25,15 +25,15 @@ export function CategorySections({ seed, inSeason = [] }: { seed: number; inSeas
   const epk = getCategory("epk");
   // In season (made-in-africa.ts, seasonOf): a seasonal category leads the list; out of season it isn't listed.
   const seasonal: Section[] = inSeason.includes("holiday-classics") && holidayClassics.length
-    ? [{ id: "holiday-classics", name: HOLIDAY_CLASSICS.name, href: HOLIDAY_CLASSICS_HREF, row: <CategoryStrip category="holiday-classics" /> }]
+    ? [{ id: "holiday-classics", name: HOLIDAY_CLASSICS.name, href: HOLIDAY_CLASSICS_HREF, row: <CategoryStrip category="holiday-classics" seed={seed} /> }]
     : [];
   const sections: Section[] = [
     // Best of 2026 sits above Top 10 instead (explore-library.tsx, Ika 2026-11-15).
     ...seasonal,
     { id: "made-in-africa", name: MADE_IN_AFRICA.name, href: MADE_IN_AFRICA_HREF, row: <MadeInAfricaStrip seed={seed} bare /> },
-    { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, href: HOLLYWOOD_CLASSICS_HREF, row: <CategoryStrip category="hollywood-classics" /> },
+    { id: "hollywood-classics", name: HOLLYWOOD_CLASSICS.name, href: HOLLYWOOD_CLASSICS_HREF, row: <CategoryStrip category="hollywood-classics" seed={seed} /> },
     // Greatest TV (approved 2026-10-30) shows once a title in it has a cover.
-    ...(greatestTv.length ? [{ id: "greatest-tv", name: GREATEST_TV.name, href: GREATEST_TV_HREF, row: <CategoryStrip category="greatest-tv" /> }] : []),
+    ...(greatestTv.length ? [{ id: "greatest-tv", name: GREATEST_TV.name, href: GREATEST_TV_HREF, row: <CategoryStrip category="greatest-tv" seed={seed} /> }] : []),
     { id: "creators", name: CREATORS.name, href: CREATORS_HREF, row: <CreatorsStrip seed={seed} bare /> },
     // By studio moved under Top 10 (Ika, 2026-11-10; explore-library.tsx).
     { id: "epk", name: epk.title, row: <EpkLanes category={epk} bare /> },

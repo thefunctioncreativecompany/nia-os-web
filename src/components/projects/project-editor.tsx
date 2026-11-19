@@ -296,11 +296,20 @@ export function ProjectEditor({
       <section
         aria-label="Cover"
         className={cn(
-          "group relative -mx-4 flex flex-col justify-end overflow-hidden md:-mx-page",
+          "group relative isolate -mx-4 flex flex-col justify-end overflow-hidden md:-mx-page",
           "lg:mx-0 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-end lg:gap-x-10 lg:gap-y-10 lg:overflow-visible lg:bg-transparent lg:pt-10 lg:pb-8 xl:gap-x-16",
           onCover ? "min-h-104 bg-muted sm:aspect-[16/9] sm:min-h-0 lg:aspect-auto" : "min-h-80 bg-nia-panel pt-20 lg:min-h-0",
         )}
       >
+        {/* On computers, a soft wash of the cover behind the header, from under the top bar to the
+            tabs (Ika, 2026-11-19; VE3): the project's own picture sets the page's mood. The same
+            picture and sizes as the thumbnail, so the browser reuses it instead of downloading
+            another. Faint enough that the title keeps its contrast in light and dark. */}
+        {project.coverUrl && (
+          <div aria-hidden className="pointer-events-none absolute -inset-x-page -top-(--nav-h) bottom-0 -z-10 hidden overflow-hidden [mask-image:linear-gradient(to_bottom,black_45%,transparent)] lg:block">
+            <Image src={project.coverUrl} alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="scale-125 object-cover opacity-35 blur-3xl saturate-150 dark:opacity-25" />
+          </div>
+        )}
         {/* The picture: behind everything on phones and tablets, a rounded thumbnail on computers. */}
         <div className={cn("absolute inset-0 lg:relative lg:inset-auto lg:row-start-2 lg:aspect-[19/10] lg:overflow-hidden lg:rounded-3xl", onCover ? "lg:bg-muted" : "lg:bg-nia-panel")}>
           {project.coverUrl && (

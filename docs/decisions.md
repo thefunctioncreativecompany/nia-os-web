@@ -1195,3 +1195,17 @@ onboarding's Import profile and Follow creators describe features removed in the
   their own right (list as you type, a People row, Best match). Best match only when one stands
   out (name-search.ts `pickBest`): an exact title anywhere in the list, else a name that's the
   whole search with no equal, else a clear leader; otherwise none.
+- (2026-11-19) Project page cover backdrop (VE3; Ika: "now the project page cover backdrop"): on
+  computers, a soft wash of the cover behind the header, from under the frosted top bar to the
+  tabs, fading out at the bottom (blur, 35% in light, 25% in dark). It uses the thumbnail's own
+  picture and sizes, so the browser reuses it: no second download from Supabase. Phones and
+  tablets keep their full-width cover. Built without a Figma frame; add to the Figma reconcile.
+- (2026-11-19) Explore home differs on each visit (VE4; Ika: "randomize what's displayed on
+  explore home on each load"): `pick` (src/lib/shuffle.ts) chooses each row's ten from the visit's
+  seed (`seedFor` per row) and keeps them in the row's own order, so Best of 2026 shows ten of its
+  hundred in rank order and the classics still read as history. By studio, By cast & crew (from
+  everyone with three or more credits) and By festival show a different ten too. `spread`
+  (rows.ts) is gone with it. Top 10 keeps its ranking.
+- (2026-11-19) Best of 2026 becomes the year's top 100 (Ika: "top 100"): build-best-of-2026.mjs
+  reads more of TMDB (six pages by popularity and by gross, four of critics' favourites) and keeps
+  100. The 20 already on Explore stay live; 80 wait in `toAdd` for the full pipeline.
