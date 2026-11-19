@@ -49,29 +49,31 @@ export async function pdfFirstPage(file: Blob, width = 640): Promise<Blob | null
   }
 }
 
-// The words of a PDF, a line per line of text and a blank line between pages (meeting notes
-// exported from a notetaker). Throws if the PDF can't be read.
-export async function pdfText(file: Blob): Promise<string> {
+// The pieces of text on each page of a PDF and where they sit (meeting notes exported from a
+// notetaker; features/meetings/pdf-layout.ts puts them back into notes). Throws if the PDF can't be read.
+export async function pdfPieces(file: Blob): Promise<{ str: string; x: number; y: number; w: number; size: number }[][]> {
   const lib = await pdfjs();
   const task = lib.getDocument({ data: new Uint8Array(await file.arrayBuffer()) });
   try {
     const pdf = await task.promise;
-    const pages: string[] = [];
+    const pages: { str: string; x: number; y: number; w: number; size: number }[][] = [];
     for (let n = 1; n <= pdf.numPages; n++) {
       // Read chunk by chunk: getTextContent() loops over a stream with `for await`, which Safari
       // doesn't support ("undefined is not a function … of readableStream").
       const reader = (await pdf.getPage(n)).streamTextContent().getReader();
-      let text = "";
+      const pieces: { str: string; x: number; y: number; w: number; size: number }[] = [];
       for (;;) {
         const { done, value } = await reader.read();
         if (done) break;
         for (const item of (value as { items: unknown[] }).items) {
-          if (item && typeof item === "object" && "str" in item) text += (item as { str: string }).str + ((item as { hasEOL?: boolean }).hasEOL ? "\n" : "");
+          if (!item || typeof item !== "object" || !("str" in item) || !("transform" in item)) continue;
+          const { str, transform: t, width } = item as { str: string; transform: number[]; width: number };
+          pieces.push({ str, x: t[4], y: t[5], w: width, size: Math.hypot(t[2], t[3]) || 10 });
         }
       }
-      pages.push(text);
+      pages.push(pieces);
     }
-    return pages.join("\n\n");
+    return pages;
   } finally {
     void task.destroy();
   }

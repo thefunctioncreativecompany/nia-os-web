@@ -37,9 +37,14 @@ was there (from the transcript's speakers), where the notes came from, and the M
 the meeting is upcoming (step 3). The bin removes the meeting (soft delete). Below, three tabs
 (`SectionTabs`):
 
-1. **Summary.** The AI summary (Gemini's, or the uploaded one), in the rich-text editor the
-   project page already uses: bullets, bold, italic, links. Editable, saves as you leave it, with
-   the saved tick. "Restore original" brings back what arrived.
+1. **Summary.** The AI summary (Gemini's, or the uploaded one), always open for typing like a
+   document (Ika, 2026-11-19; `meeting-summary.tsx`): section headings, bullets, bold, italic,
+   links. Click a point and change it, Enter for the next, Tab to nest; saved a moment after
+   typing stops, with the saved tick. "Restore original" brings back what arrived.
+   **Action items** (the points under "Action items", "Next steps", "To do"…, with the day each
+   mentions, counted from the meeting's day) sit above the notes with **Add to milestones**; a
+   flag beside any point sends that one as an action or a milestone, with a date. Nothing is added
+   twice, and Overview's Key milestones show them straight away. No AI needed.
 2. **Transcript.** Speaker, time and words, with a find box. Read-only (it's the record). Shown
    only when one exists.
 3. **Changes.** The proposal: what Nia suggests from these notes, grouped by where it goes (see
@@ -136,6 +141,16 @@ headings); the first one is the title.
 - **Apply** makes the ticked ones (`apply.ts`) and marks them applied; **Dismiss** sets the rest
   aside. Action and milestone words can be changed before applying (Modify).
 - **Privacy:** the notes go to Anthropic's API to be read. Anthropic doesn't train on API data.
+
+## Reading uploaded files (2026-11-19)
+
+- **PDFs** are read by where each piece of text sits (`pdf-layout.ts`): wrapped lines join back
+  into their paragraph, bigger text becomes a heading, bullets (written or drawn) and indented
+  items become list points, page numbers and running headers are left out.
+- **Section names** written as plain lines ("Action items", "Suggested next steps:") or whole
+  bold lines become headings; to-do boxes ("[ ]", "☐") become points.
+- **Starting from Home:** Get started with → Meeting asks which project (recent active ones you
+  can edit) and offers **Start a new project** under them, named in place.
 
 ## Step 3 as built (2026-11-19)
 

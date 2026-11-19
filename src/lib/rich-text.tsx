@@ -5,15 +5,17 @@ import { cn } from "@/lib/utils";
 // Formatted text (Ika, 2026-11-15: "text formatting features (ie bold, italics, bulleting,
 // numbering, … add link)"): long text is stored as Markdown, the small part of it the editor makes
 // (rich-text-editor.tsx): paragraphs, **bold**, *italic*, "- " bullets, "1. " numbers (nested by
-// two spaces) and [links](https://…). Text written before is plain and reads the same.
+// two spaces) and [links](https://…); meeting notes also have section headings ("### ", Ika
+// 2026-11-19). Text written before is plain and reads the same.
 // Shown here as React elements, never as HTML from the text, so nothing in it can run; links go
 // only to http(s) and mailto addresses.
 
 type Item = { text: string; children: Block[] };
-type Block = { kind: "p"; lines: string[] } | { kind: "ul" | "ol"; start: number; items: Item[] };
+export type Block = { kind: "p"; lines: string[] } | { kind: "h"; text: string } | { kind: "ul" | "ol"; start: number; items: Item[] };
 
 const BULLET = /^(\s*)[-*+]\s+(.*)$/;
 const NUMBER = /^(\s*)(\d+)[.)]\s+(.*)$/;
+const HEADING = /^\s{0,3}#{1,6}\s+(.+?)\s*#*$/;
 const indentOf = (line: string) => line.match(/^\s*/)![0].replace(/\t/g, "  ").length;
 
 /** The text's blocks: paragraphs (blank lines between) and lists. */
@@ -28,6 +30,12 @@ function parseLines(lines: string[], from: number, to: number, base: number): Bl
   while (i < to) {
     const line = lines[i];
     if (!line.trim()) {
+      i++;
+      continue;
+    }
+    const heading = line.match(HEADING);
+    if (heading) {
+      blocks.push({ kind: "h", text: heading[1] });
       i++;
       continue;
     }
@@ -72,7 +80,7 @@ function parseLines(lines: string[], from: number, to: number, base: number): Bl
     }
     // A paragraph: lines until a blank line or a list.
     const para: string[] = [];
-    while (i < to && lines[i].trim() && !BULLET.test(lines[i]) && !NUMBER.test(lines[i])) {
+    while (i < to && lines[i].trim() && !BULLET.test(lines[i]) && !NUMBER.test(lines[i]) && !HEADING.test(lines[i])) {
       para.push(lines[i].replace(/\s+$/, "").replace(/\\$/, "").trim());
       i++;
     }
@@ -166,6 +174,12 @@ function findClose(text: string, from: number, mark: string) {
 function renderBlocks(blocks: Block[], key: string): ReactNode {
   return blocks.map((b, i) => {
     const k = `${key}-${i}`;
+    if (b.kind === "h")
+      return (
+        <h3 key={k} className="pt-2 text-lead font-semibold text-foreground first:pt-0">
+          {inline(b.text, k)}
+        </h3>
+      );
     if (b.kind === "p")
       return (
         <p key={k}>
@@ -206,6 +220,6 @@ export function plainText(value: string) {
       .replace(/(^|[^\w*])[*_](?!\s)(.+?)(?<!\s)[*_](?=[^\w*]|$)/g, "$1$2")
       .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
   const flat = (blocks: Block[]): string[] =>
-    blocks.flatMap((b) => (b.kind === "p" ? [b.lines.map(words).join(" ")] : b.items.flatMap((item) => [words(item.text), ...flat(item.children)])));
+    blocks.flatMap((b) => (b.kind === "h" ? [words(b.text)] : b.kind === "p" ? [b.lines.map(words).join(" ")] : b.items.flatMap((item) => [words(item.text), ...flat(item.children)])));
   return flat(parseBlocks(value)).join(" · ");
 }

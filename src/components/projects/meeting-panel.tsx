@@ -15,6 +15,7 @@ import { SectionTabs } from "@/components/nia/section-tabs";
 import { PrevNext, SidePanel } from "@/components/nia/side-panel";
 import { EditableText } from "@/components/projects/editable-text";
 import { MeetingChanges } from "@/components/projects/meeting-changes";
+import { MeetingSummary } from "@/components/projects/meeting-summary";
 import { meetingTime } from "@/components/projects/project-meetings";
 import { loadMeeting, peopleText, removeMeeting, updateMeeting, type Meeting, type MeetingRow } from "@/features/meetings/data";
 import { clock } from "@/features/meetings/parse";
@@ -23,8 +24,8 @@ type Tab = "summary" | "transcript" | "changes";
 const PANEL_ID = "meeting-panel-body";
 
 // A meeting in the right panel (docs/MEETINGS_SPEC.md, step 1), like the template preview: the
-// title, the day and who was there, then the Summary (editable, saved as you leave it, with the
-// original a tap away) and the Transcript (the record: read-only, with a find box). Previous /
+// title, the day and who was there, then the Summary (always open for typing, with its action items
+// and a flag to send any point to Key milestones, meeting-summary.tsx; the original a tap away) and the Transcript (the record: read-only, with a find box). Previous /
 // next and the arrow keys step through the project's meetings. Full width on phones and tablets.
 export function MeetingPanel({
   projectId,
@@ -51,9 +52,12 @@ export function MeetingPanel({
 }) {
   const [meeting, setMeeting] = useState<Meeting | null>(null);
   const [failed, setFailed] = useState(false);
-  const [tab, setTab] = useState<Tab>(autoPropose ? "changes" : "summary");
+  // Just added: straight to the suggestions when they're switched on, else the notes.
+  const [tab, setTab] = useState<Tab>(autoPropose && aiReady ? "changes" : "summary");
   const [find, setFind] = useState("");
   const [savedAt, setSavedAt] = useState<number>();
+  // Restore original starts the notes afresh.
+  const [restored, setRestored] = useState(0);
 
   useEffect(() => {
     let live = true;
@@ -204,17 +208,25 @@ export function MeetingPanel({
                 />
               ) : tab === "summary" ? (
                 <div className="flex flex-col gap-3">
-                  <EditableText
-                    rich
+                  <MeetingSummary
+                    key={restored}
+                    projectId={projectId}
+                    heldOn={row.heldOn}
                     value={meeting.summary}
-                    label="Summary"
-                    placeholder={hasTranscript ? "No summary came with these notes. Click to write one." : "Click to write a summary."}
-                    maxLength={100000}
+                    placeholder={hasTranscript ? "No summary came with these notes. Write one here." : "Write the meeting's notes here."}
                     onSave={(summary) => save({ summary })}
-                    className="-mx-2 px-2 py-1 text-sm leading-relaxed text-foreground"
                   />
                   {meeting.originalSummary && meeting.summary !== meeting.originalSummary && (
-                    <Button variant="ghost" size="compact" className="w-fit" onClick={() => void save({ summary: meeting.originalSummary }).catch(() => {})}>
+                    <Button
+                      variant="ghost"
+                      size="compact"
+                      className="w-fit"
+                      onClick={() =>
+                        void save({ summary: meeting.originalSummary })
+                          .then(() => setRestored((n) => n + 1))
+                          .catch(() => {})
+                      }
+                    >
                       <RotateCcw aria-hidden /> Restore original
                     </Button>
                   )}

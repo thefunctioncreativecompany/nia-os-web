@@ -5,7 +5,7 @@ import { EditorContent, useEditor, useEditorState } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { Markdown } from "@tiptap/markdown";
 import Placeholder from "@tiptap/extension-placeholder";
-import { Bold, Italic, Link2, List, ListOrdered } from "lucide-react";
+import { Bold, Heading3, Italic, Link2, List, ListOrdered } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -15,6 +15,8 @@ import { cn } from "@/lib/utils";
 // rich-text.tsx shows: paragraphs, bold, italic, bullet and numbered lists, links. The toolbar
 // keeps focus in the text, so using it doesn't count as leaving; the link goes in a line inside.
 // Keys: ⌘B, ⌘I, ⌘K (link), "- " or "1. " starts a list, Tab nests it, Escape cancels, ⌘Enter saves.
+// `document` (meeting notes, Ika 2026-11-19): always open for typing, like a document, with section
+// headings ("### ") when `headings` is on; the owner saves as it changes.
 
 const SAFE = /^(https?:\/\/|mailto:)/i;
 
@@ -30,6 +32,7 @@ export function RichTextEditor({
   onSubmit,
   onCancel,
   maxLength,
+  headings = false,
 }: {
   value: string;
   label: string;
@@ -40,7 +43,7 @@ export function RichTextEditor({
   className?: string;
   /** `inline`: click-to-edit text (focused, saves on leaving, Escape cancels). `field`: a form's box.
    * `comment`: a field with an underline (comments). */
-  variant?: "inline" | "field" | "comment";
+  variant?: "inline" | "field" | "comment" | "document";
   /** Fields: start focused. */
   autoFocus?: boolean;
   /** Fields: ⌘Enter (a comment's Send). */
@@ -49,6 +52,8 @@ export function RichTextEditor({
   onCancel?: () => void;
   /** Longest it may be, formatting included; typing past it is undone. */
   maxLength?: number;
+  /** Section headings ("### "), with a button in the toolbar. */
+  headings?: boolean;
 }) {
   const inline = variant === "inline";
   const wrapper = useRef<HTMLDivElement>(null);
@@ -62,7 +67,7 @@ export function RichTextEditor({
     autofocus: inline || autoFocus ? "end" : false,
     extensions: [
       StarterKit.configure({
-        heading: false,
+        heading: headings ? { levels: [3] } : false,
         blockquote: false,
         code: false,
         codeBlock: false,
@@ -81,7 +86,7 @@ export function RichTextEditor({
         "aria-label": label,
         "aria-multiline": "true",
         role: "textbox",
-        class: cn("rich-text-editor outline-none flex flex-col gap-2 [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:pl-5 [&_ol]:pl-5 [&_li_p]:my-0 [&_a]:underline [&_a]:underline-offset-2", variant === "comment" ? "min-h-6" : "min-h-16"),
+        class: cn("rich-text-editor outline-none flex flex-col gap-2 [&_h3]:pt-2 [&_h3]:text-lead [&_h3]:font-semibold [&_h3:first-child]:pt-0 [&_ul]:list-disc [&_ol]:list-decimal [&_ul]:pl-5 [&_ol]:pl-5 [&_li_p]:my-0 [&_a]:underline [&_a]:underline-offset-2", variant === "comment" ? "min-h-6" : "min-h-16"),
       },
       handleKeyDown: (_view, event) => {
         if (event.key === "Escape") {
@@ -117,6 +122,7 @@ export function RichTextEditor({
   const state = useEditorState({
     editor,
     selector: ({ editor: e }) => ({
+      heading: !!e?.isActive("heading"),
       bold: !!e?.isActive("bold"),
       italic: !!e?.isActive("italic"),
       bullets: !!e?.isActive("bulletList"),
@@ -168,19 +174,22 @@ export function RichTextEditor({
       ref={wrapper}
       onBlur={(e) => {
         // Leaving the whole box (not moving to its toolbar or link line) saves.
-        if (inline && !wrapper.current?.contains(e.relatedTarget as Node | null)) keys.current.done(true);
+        if ((inline || variant === "document") && !wrapper.current?.contains(e.relatedTarget as Node | null)) keys.current.done(true);
       }}
       className={cn(
         "flex flex-col gap-2",
         inline
           ? "rounded-md ring-2 ring-ring/40 ring-offset-4 ring-offset-background"
-          : variant === "comment"
+          : variant === "document"
+            ? ""
+            : variant === "comment"
             ? "border-b border-border py-1.5 text-sm focus-within:border-nia-blue"
-            : "rounded-lg border border-input px-3 py-2 transition-[box-shadow,border-color] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50",
+              : "rounded-lg border border-input px-3 py-2 transition-[box-shadow,border-color] focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50",
         className,
       )}
     >
       <div role="toolbar" aria-label={`Format ${label.toLowerCase()}`} className="-ml-1 flex flex-wrap items-center gap-0.5">
+        {headings && tool("Section heading", state?.heading ?? false, () => editor?.chain().focus().toggleHeading({ level: 3 }).run(), Heading3)}
         {tool("Bold (⌘B)", state?.bold ?? false, () => editor?.chain().focus().toggleBold().run(), Bold)}
         {tool("Italic (⌘I)", state?.italic ?? false, () => editor?.chain().focus().toggleItalic().run(), Italic)}
         {tool("Bullet list", state?.bullets ?? false, () => editor?.chain().focus().toggleBulletList().run(), List)}

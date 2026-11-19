@@ -1,6 +1,6 @@
 // The words of a meeting-notes file, in the browser (docs/MEETINGS_SPEC.md, step 1): text,
 // Markdown and subtitles as they are, Word through mammoth (its headings, lists, bold and links
-// kept as Markdown), PDFs through pdf.js. The file itself isn't uploaded; parse.ts reads the words.
+// kept as Markdown), PDFs through pdf.js, laid out again by pdf-layout.ts. The file itself isn't uploaded; parse.ts reads the words.
 
 export const NOTES_ACCEPT = ".txt,.md,.markdown,.docx,.pdf,.vtt,.srt";
 export const NOTES_MAX_BYTES = 10 * 1024 * 1024;
@@ -21,8 +21,8 @@ export async function readNotesFile(file: File): Promise<string> {
     return htmlToMarkdown(value);
   }
   if (ext === "pdf") {
-    const { pdfText } = await import("@/lib/pdf-preview");
-    return pdfText(file);
+    const [{ pdfPieces }, { layoutToMarkdown }] = await Promise.all([import("@/lib/pdf-preview"), import("./pdf-layout")]);
+    return layoutToMarkdown(await pdfPieces(file));
   }
   throw new Error("Nia reads .txt, .md, .docx, .pdf, .vtt and .srt notes. Export them in one of those, or paste them.");
 }

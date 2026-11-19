@@ -167,34 +167,48 @@ function parseTranscript(text: string): { lines: TranscriptLine[]; isTranscript:
   return { lines: kept, isTranscript };
 }
 
-// The summary in the editor's Markdown: the first heading becomes the title, other headings bold
-// lines, bullets from Word, PDFs and notetakers ("•", "◦", "–") the editor's "- ".
+// Section names notetakers write as a plain line ("Action items", "Next steps:"): read as headings.
+const SECTION =
+  /^(summary|overview|outline|details|notes|agenda|attendees|participants|decisions?|key (points|takeaways|decisions)|takeaways|highlights|topics|chapters|keywords|questions|(suggested )?next steps|action items|actions|to-?dos?|follow[- ]?ups?|tasks)$/i;
+
+// The summary in the editor's Markdown: the first heading becomes the title, other headings
+// sections ("### "), bullets from Word, PDFs and notetakers ("•", "◦", "–") the editor's "- ",
+// and to-do boxes ("[ ]", "☐") plain points (they're sent to milestones from the panel).
 function toSummary(text: string): { title: string; summary: string } {
   let title = "";
   const out: string[] = [];
-  for (const raw of text.split("\n")) {
+  const rows = text.split("\n");
+  rows.forEach((raw, i) => {
     const line = raw.replace(/\s+$/, "");
-    const heading = line.match(/^\s*#{1,6}\s+(.+?)\s*#*$/);
-    if (heading) {
-      const words = heading[1].replace(/^\*\*(.+)\*\*$/, "$1").trim();
-      if (!title && !out.some((l) => l.trim())) title = words;
-      else out.push("", `**${words}**`);
-      continue;
+    const marked = line.match(/^\s*#{1,6}\s+(.+?)\s*#*$/)?.[1];
+    const words = (marked ?? line).trim().replace(/^(\*\*|__)(.+)\1:?$/, "$2").replace(/:$/, "").trim();
+    // A heading: marked with "#", a whole line in bold, or a section's name on its own line.
+    const bold = /^(\*\*|__)[^*_]+\1:?$/.test(line.trim()) && line.trim().length <= 90;
+    const nextFilled = rows.slice(i + 1).find((r) => r.trim()) ?? "";
+    if (marked || (bold && nextFilled) || (SECTION.test(words) && !/^\s*[-*•]/.test(line))) {
+      if (!title && !out.some((l) => l.trim()) && marked) title = words;
+      else out.push("", `### ${words}`, "");
+      return;
     }
-    const bullet = line.match(/^(\s*)[•●▪■◦○–·]\s*(.*)$/);
+    const bullet = line.match(/^(\s*)(?:[•●▪■◦○–·]|[-*](?=\s))\s*(?:\[[ xX]?\]\s*|[☐☑✓]\s*)?(.*)$/);
     if (bullet) {
       const nested = bullet[1].length > 0 || /^[◦○]/.test(line.trim());
       out.push(`${nested ? "  " : ""}- ${bullet[2]}`);
-      continue;
+      return;
+    }
+    const box = line.match(/^\s*(?:\[[ xX]?\]|[☐☑])\s+(.*)$/);
+    if (box) {
+      out.push(`- ${box[1]}`);
+      return;
     }
     out.push(line);
-  }
+  });
   let summary = out.join("\n").replace(/\n{3,}/g, "\n\n").trim();
-  // No heading: a short first line that isn't a list item reads as the title.
+  // No heading: a short first line that isn't a list item or a section reads as the title.
   if (!title) {
     const [first, ...rest] = summary.split("\n");
     const plain = first?.replace(/^\*\*(.+)\*\*$/, "$1").trim() ?? "";
-    if (plain && plain.length <= 80 && !/^[-*\d]/.test(plain) && rest.join("").trim()) {
+    if (plain && plain.length <= 80 && !/^[-*\d#]/.test(plain) && rest.join("").trim()) {
       title = plain;
       summary = rest.join("\n").trim();
     }

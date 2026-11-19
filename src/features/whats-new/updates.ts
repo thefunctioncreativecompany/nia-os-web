@@ -42,9 +42,9 @@ export const UPDATES: Update[] = [
   },
   {
     id: "meetings",
-    date: "2026-11-18",
+    date: "2026-11-19",
     title: "Meeting notes on your projects",
-    body: "Add notes from a production meeting, from Otter, Fireflies, Granola, Gemini, Zoom or Teams, to a project's Overview. Read the summary and transcript side by side with your work, and edit the summary.",
+    body: "Add notes from a production meeting, from Otter, Fireflies, Granola, Gemini, Zoom or Teams, to a project's Overview, with their sections and bullets kept. Change any point by typing, and send the action items to Key milestones in one tap.",
     href: "/projects",
     cta: "Open a project",
     icon: "memo",

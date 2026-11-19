@@ -1228,3 +1228,13 @@ onboarding's Import profile and Follow creators describe features removed in the
   taken out of reviews, verdicts matched to what each critic wrote); Supergirl and Nocturne filled
   from edited publications. You Can See Everything has no box-office line: TMDB's $91 million for
   a documentary looked unreliable. check-trailers.mjs now reads escaped characters in titles.
+- (2026-11-19) Meeting notes, easier to act on (Ika: formatting of uploaded documents off, easier
+  changes to meeting points, an easier way to send action items to milestones, start a new project
+  when a meeting has none). PDFs are laid out again from where their text sits (`pdf-layout.ts`);
+  headings are real sections ("### ", shown by rich-text.tsx, made by the editor's Section heading
+  for meeting notes only). The summary is always open for typing (no click-to-edit) and saves a
+  moment after typing stops. Action items are found without the AI (points under action headings)
+  and sent to Key milestones in one go, or any point by its flag; same words are never added twice.
+  Starting a project for a meeting lives in Home's Meeting picker (built by another session the same
+  day), not a second way in from the + menu (one way to do each thing). A just-added meeting opens on
+  its notes while suggestions are off.

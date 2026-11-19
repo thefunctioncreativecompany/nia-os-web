@@ -87,7 +87,7 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | Spaces | Designed (24 screens) | Projects become Spaces: next up, what needs you, phases, schedule, crew and documents |
 | Nia AI | Designed | Paste a brief, get a Space; spots the films a brief names and adds them as references (BR1, BR2) |
 | Agents | Planned | Model-agnostic agents for the legwork: call sheets, clashes, hand-offs; each one proposes |
-| Meeting notes | Step 1 live, Google Meet booking built (Joshua, FB1) | Overview → Meetings: notes from any notetaker now; then proposals on Apply, Google Meet scheduling and Gemini notes (`docs/MEETINGS_SPEC.md`) |
+| Meeting notes | Step 1 live (uploaded notes keep their structure; action items to Key milestones in one tap), Google Meet booking built (Joshua, FB1) | Overview → Meetings: notes from any notetaker now; then proposals on Apply, Google Meet scheduling and Gemini notes (`docs/MEETINGS_SPEC.md`) |
 | Recreate this look | Idea (Alvin, FB9) | From an Explore title, a shot list and mood board proposed into your project |
 | Template looks | Idea (Inbar, FB18) | A few designed versions of each template (background, fonts); needs a decision on document fonts |
 | Community profile | Idea (Inbar, FB19) | A profile for networking and collaboration, started inside Settings |

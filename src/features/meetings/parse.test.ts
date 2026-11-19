@@ -11,7 +11,7 @@ describe("meeting notes", () => {
     expect(notes.title).toBe("Recce: Maboneng rooftop");
     expect(notes.heldOn).toBe("2026-11-18");
     expect(notes.summary).not.toContain("Nov 18, 2026");
-    expect(notes.summary.startsWith("**Locations**")).toBe(true);
+    expect(notes.summary.startsWith("### Locations")).toBe(true);
     expect(notes.summary).toContain("- Rooftop works for golden hour");
     expect(notes.summary).toContain("  - Needs a permit");
     expect(notes.transcript).toEqual([]);

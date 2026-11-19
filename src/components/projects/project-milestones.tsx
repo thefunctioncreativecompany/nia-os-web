@@ -12,6 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/nia/lazy-calendar";
 import { NotYet } from "@/components/nia/not-yet";
+import { MILESTONES_CHANGED } from "@/features/meetings/to-milestones";
 
 // Key milestones and actions on a project (Ika, 2026-11-15: "add key milestones/objectives and
 // actions, with a date picker … for now i want to be able to just add action items from meetings,
@@ -45,6 +46,13 @@ export function ProjectMilestones({ projectId, canEdit }: { projectId: string; c
   const [off, setOff] = useState(false);
   const [showDone, setShowDone] = useState(false);
   const [today] = useState(() => toDay(new Date()));
+  // Points sent from a meeting's notes (to-milestones.ts) show here straight away.
+  const [version, setVersion] = useState(0);
+  useEffect(() => {
+    const changed = (e: Event) => (e as CustomEvent<string>).detail === projectId && setVersion((v) => v + 1);
+    window.addEventListener(MILESTONES_CHANGED, changed);
+    return () => window.removeEventListener(MILESTONES_CHANGED, changed);
+  }, [projectId]);
 
   useEffect(() => {
     let live = true;
@@ -61,7 +69,7 @@ export function ProjectMilestones({ projectId, canEdit }: { projectId: string; c
     return () => {
       live = false;
     };
-  }, [projectId]);
+  }, [projectId, version]);
 
   const change = async (item: Item, patch: Partial<Pick<Item, "kind" | "title" | "due_on" | "done_at">>) => {
     const before = items;
@@ -268,7 +276,7 @@ function Row({ item, today, canEdit, onChange, onRemove }: { item: Item; today: 
 }
 
 /** The date: "Pick date", or the day ("Today", "Nov 21"), red when it's passed and not done. */
-function DuePicker({ value, onChange, label, today = toDay(new Date()), overdue = false }: { value: string; onChange: (next: string) => void; label: string; today?: string; overdue?: boolean }) {
+export function DuePicker({ value, onChange, label, today = toDay(new Date()), overdue = false }: { value: string; onChange: (next: string) => void; label: string; today?: string; overdue?: boolean }) {
   const [open, setOpen] = useState(false);
   const day = parseDay(value);
   return (

@@ -58,14 +58,15 @@ async function editableProjects(templateCode: string, templateName: string): Pro
     });
 }
 
-async function createProject(title: string): Promise<DocumentProject | 'limit' | null> {
+/** A new project in the person's workspace, named only (the rest is filled in later); 'limit' on a full free plan. */
+export async function createProject(title: string, from = 'document'): Promise<DocumentProject | 'limit' | null> {
   const supabase = createClient();
   const { data: workspaceId, error: wsError } = await supabase.rpc('my_workspace_id');
   if (wsError) return null;
   if (await projectLimitReached(supabase, workspaceId)) return 'limit';
   const { data, error } = await supabase.from('projects').insert({ workspace_id: workspaceId, title, description: '' }).select('id, title').single();
   if (error) return null;
-  recordEvent('project_created', { projectId: data.id, props: { from: 'document' } });
+  recordEvent('project_created', { projectId: data.id, props: { from } });
   return { id: data.id, title: data.title };
 }
 
