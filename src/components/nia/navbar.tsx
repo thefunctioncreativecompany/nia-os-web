@@ -10,7 +10,7 @@ import { useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { playSound } from "@/lib/sounds";
 import { Button } from "@/components/ui/button";
-import { NewProjectDialog } from "@/components/projects/new-project-dialog";
+import { NewProjectMenu } from "@/components/projects/new-project-menu";
 import { NavSearch } from "@/components/nia/nav-search";
 import { MagnifyingDock } from "@/components/nia/magnifying-dock";
 import {
@@ -54,23 +54,24 @@ export function Navbar({ user }: { user: React.ReactNode }) {
           <CurrentNavTabs />
         </Suspense>
         {/* Phones and tablets: the tabs move to the dock at the bottom, and starting a new
-            project takes their place: a round silver-glass +. */}
-        <NewProjectDialog>
+            project takes their place: a round silver-glass +. The + opens a small menu (Ika,
+            2026-11-19), not the full Create new project pop-up. */}
+        <NewProjectMenu align="start">
           <Button type="button" variant="ghost" size="icon" aria-label="New project" className="glass-silver size-10 shrink-0 rounded-full text-foreground lg:hidden">
             <Plus aria-hidden className="size-5" />
           </Button>
-        </NewProjectDialog>
+        </NewProjectMenu>
 
         <div className="flex items-center max-lg:min-w-0 max-lg:flex-1 lg:gap-2.5">
           <NavSearch />
           <Tooltip>
-            <NewProjectDialog>
+            <NewProjectMenu>
               <TooltipTrigger asChild>
                 <Button type="button" variant="outline" size="icon" aria-label="New project" className="size-10 shrink-0 rounded-full bg-background/95 max-lg:hidden">
                   <Plus aria-hidden className="size-4.5" />
                 </Button>
               </TooltipTrigger>
-            </NewProjectDialog>
+            </NewProjectMenu>
             <TooltipContent>New project</TooltipContent>
           </Tooltip>
         </div>

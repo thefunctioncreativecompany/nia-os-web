@@ -1187,3 +1187,6 @@ onboarding's Import profile and Follow creators describe features removed in the
   denial of service gone with express) and vitest 3.2.7. Still open, dev tools only: vitest/tinypool
   (critical, fixed only in vitest 4, a major upgrade) and five moderate ones. None are in the
   live site. 187 tests pass.
+- (2026-11-19) The navbar's +: a small menu under the button (Blank project, From template, as grey
+  pills like Get started with), not the full Create new project pop-up. From template opens
+  Templates. Phones and tablets too. Other New project buttons keep the pop-up for now.
