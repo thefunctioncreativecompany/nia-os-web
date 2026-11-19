@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 
-import { countProjectPeople, countProjectTabExtras, getProject, listActivity, listProjectDocuments, listProjectFiles } from "@/lib/projects-data";
+import { countProjectPeople, countProjectTabExtras, getProject, listActivity, listProjectDocuments, listProjectFiles, listProjectMeetings } from "@/lib/projects-data";
 import { timeAgo } from "@/lib/projects";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ActivityList } from "@/components/projects/activity-list";
@@ -10,6 +10,7 @@ import { DeleteProjectDialog } from "@/components/projects/delete-project-dialog
 import { ProjectEditor } from "@/components/projects/project-editor";
 import { ProjectLive } from "@/components/projects/project-live";
 import { ProjectDocuments } from "@/components/projects/project-documents";
+import { ProjectMeetings } from "@/components/projects/project-meetings";
 import { ProjectFiles, ProjectFinalAssets } from "@/components/projects/project-files";
 import { ProjectInspiration } from "@/components/projects/project-inspiration-lazy";
 import { Comments } from "@/components/nia/comments";
@@ -50,13 +51,14 @@ export default function Page({ params }: PageProps<"/projects/[id]">) {
 
 async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params">) {
   const { id } = await params;
-  const [{ project, role, now, userId }, activity, people, documents, files, extras] = await Promise.all([
+  const [{ project, role, now, userId }, activity, people, documents, files, extras, meetings] = await Promise.all([
     getProject(id),
     listActivity({ projectId: id, limit: 8 }),
     countProjectPeople(id),
     listProjectDocuments(id),
     listProjectFiles(id),
     countProjectTabExtras(id),
+    listProjectMeetings(id),
   ]);
   const canEdit = role !== "viewer";
   // Stills tagged Reference (newest first, as listed): Overview shows three, the tab counts them all.
@@ -67,6 +69,14 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
     .toSorted((a, b) => at(a) - at(b) || b.createdAt.localeCompare(a.createdAt))
     .map((f) => ({ id: f.id, name: f.name, url: (f.thumbUrl ?? f.url)!, note: f.note ?? null, notes: f.note !== undefined }));
 
+  // Meetings sit under the documents, for editors only (Ika, 2026-11-18: notes are often personal).
+  const documentsTab = (
+    <div className="flex flex-col gap-12">
+      <ProjectDocuments projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} isOwner={role === "owner"} userId={userId} now={now} />
+      {canEdit && <ProjectMeetings projectId={id} meetings={meetings} />}
+    </div>
+  );
+
   return (
     <>
       <ProjectLive projectId={id} />
@@ -74,9 +84,9 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
         project={project}
         role={role}
         canEdit={canEdit}
-        counts={{ crew: project.crew.length, documents: documents.length, references: stills.length + extras.references, comments: extras.comments }}
+        counts={{ crew: project.crew.length, documents: documents.length + (canEdit ? meetings.length : 0), references: stills.length + extras.references, comments: extras.comments }}
         referencePreview={stills}
-        documents={<ProjectDocuments projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} isOwner={role === "owner"} userId={userId} now={now} />}
+        documents={documentsTab}
         finals={<ProjectFinalAssets files={files} canEdit={canEdit} now={now} />}
         files={<ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />}
         inspiration={<ProjectInspiration projectId={id} signals={inspirationSignals(project)} canEdit={canEdit} />}

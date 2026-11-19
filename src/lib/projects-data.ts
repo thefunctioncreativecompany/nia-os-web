@@ -11,6 +11,7 @@ import {
 } from "@/lib/projects";
 import { getSession } from "@/lib/supabase/session";
 import { fileLinks } from "@/lib/file-links";
+import { MEETING_LIST_COLUMNS, toMeetingRow, type MeetingRow } from "@/features/meetings/data";
 
 // Loaders for the project screens and Home. They read cookies, so call them inside
 // <Suspense>. Row Level Security limits every query to projects the user can access.
@@ -149,6 +150,26 @@ export async function listProjectDocuments(projectId: string): Promise<ProjectDo
     .order("updated_at", { ascending: false });
   if (error) throw new Error(`Couldn't load this project's documents: ${error.message}`);
   return data.map((d) => ({ id: d.id, templateCode: d.template_code, title: d.title, status: d.status, updatedAt: d.updated_at, createdBy: d.created_by }));
+}
+
+/** A project's meetings (newest first; docs/MEETINGS_SPEC.md). Only editors get any (the database
+ * rules); none until 20261120000000_meetings.sql is run. */
+export async function listProjectMeetings(projectId: string): Promise<MeetingRow[]> {
+  const { supabase } = await requireUser();
+  const { data, error } = await supabase
+    .from("meetings")
+    .select(MEETING_LIST_COLUMNS)
+    .eq("project_id", projectId)
+    .is("deleted_at", null)
+    .order("held_on", { ascending: false, nullsFirst: false })
+    .order("created_at", { ascending: false })
+    .limit(200);
+  if (error) {
+    // Before the migration the table isn't there: no meetings yet.
+    if (error.code === "42P01" || error.code === "PGRST205") return [];
+    throw new Error(`Couldn't load this project's meetings: ${error.message}`);
+  }
+  return data.map(toMeetingRow);
 }
 
 export type FileKind = "image" | "document" | "audio" | "video";

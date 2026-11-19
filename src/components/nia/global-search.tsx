@@ -43,6 +43,8 @@ type Result = {
   file?: { kind: "image" | "document" | "audio" | "video"; path: string; thumb: string | null; tag: string | null; size: number };
   template?: { code: string; icon: string; ready: boolean };
   explore?: { image: string | null; aspect?: number };
+  /** Meeting notes (they open in their project). */
+  meeting?: boolean;
   /** A workflow: the documents it sets up. */
   workflow?: { documents: string[] };
   /** Explore's tags (tags.ts), for searching by tag. */
@@ -85,12 +87,14 @@ let cache: Loaded | null = null;
 async function load(): Promise<Result[]> {
   if (cache && Date.now() - cache.at < FRESH_MS) return cache.results;
   const supabase = createClient();
-  const [projects, documents, files, templates, explore] = await Promise.all([
+  const [projects, documents, files, templates, explore, meetings] = await Promise.all([
     supabase.from("projects").select("id, title, production_type, stage, director, genres, description, cover_url, updated_at, client, crew").is("deleted_at", null).order("updated_at", { ascending: false }).limit(300),
     supabase.from("documents").select("id, template_code, title, status, updated_at, project:projects(id, title)").is("deleted_at", null).order("updated_at", { ascending: false }).limit(300),
     supabase.from("project_files").select("id, name, kind, tag, size, path, thumb_path, created_at, project:projects(id, title)").is("deleted_at", null).order("created_at", { ascending: false }).limit(300),
     loadTemplateIndex().catch(() => []),
     exploreAccess(supabase).catch(() => false),
+    // Meetings (docs/MEETINGS_SPEC.md): only the editors of a project get any; none before the migration.
+    supabase.from("meetings").select("id, title, held_on, source_app, attendees, created_at, project:projects(id, title)").is("deleted_at", null).order("created_at", { ascending: false }).limit(300),
   ]);
   // Studios, cast & crew and each title's studios, only for people with Explore.
   const index: ExploreSearchIndex | null = explore ? await loadExploreSearchIndex().catch(() => null) : null;
@@ -119,6 +123,22 @@ async function load(): Promise<Result[]> {
         href: `/templates/${d.template_code}?doc=${d.id}`,
         at: d.updated_at,
         document: { code: d.template_code, status: d.status },
+      };
+    }),
+    // Meetings sit with the documents, found by their title and who was there; they open in the
+    // project's Documents tab, in the right panel.
+    ...(meetings.data ?? []).map((m): Result => {
+      const project = m.project as unknown as Ref;
+      const people = Array.isArray(m.attendees) ? (m.attendees as { name?: string }[]).map((a) => a.name ?? "").join(" ") : "";
+      return {
+        key: `m:${m.id}`,
+        kind: "document",
+        title: m.title,
+        meta: ["Meeting", project?.title || "Untitled project"].join(" · "),
+        words: `meeting notes ${m.source_app ?? ""} ${people}`,
+        href: project ? `/projects/${project.id}?tab=documents&meeting=${m.id}` : "/projects",
+        at: m.created_at,
+        meeting: true,
       };
     }),
     ...(files.data ?? []).map((f): Result => {
@@ -544,7 +564,7 @@ function Preview({ result: r, now, onOpen }: { result: Result; now: number; onOp
   const picture = useFilePicture(r.file);
   const code = r.document?.code ?? r.template?.code ?? null;
   const miniature = useMiniature(code);
-  const label = { project: "Open project", document: "Open document", file: "Open in project", template: r.workflow ? "Start workflow" : r.template?.ready ? "Use template" : "Preview template", explore: "Open" }[r.kind];
+  const label = { project: "Open project", document: r.meeting ? "Open meeting" : "Open document", file: "Open in project", template: r.workflow ? "Start workflow" : r.template?.ready ? "Use template" : "Preview template", explore: "Open" }[r.kind];
 
   return (
     <div className="flex flex-col gap-5">

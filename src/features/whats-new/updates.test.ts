@@ -21,7 +21,7 @@ describe("what's new", () => {
   });
 
   it("leads with what matters to the group", () => {
-    expect(whatsNew("2026-10-01T00:00:00Z", "production")[0].id).toBe("project-milestones");
+    expect(whatsNew("2026-10-01T00:00:00Z", "production")[0].id).toBe("meetings");
     expect(whatsNew("2026-10-01T00:00:00Z", "creator")[0].id).toBe("creator-templates");
     expect(whatsNew("2026-10-01T00:00:00Z", "fashion")[0].id).toBe("shot-list-from-pictures");
   });

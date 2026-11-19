@@ -1,6 +1,6 @@
 # Meetings: Google Meet, Gemini notes and uploaded notes (future build)
 
-Outlined 2026-11-18 with Ika; not started. Grows FB1 (Joshua's meeting companion) in
+Outlined 2026-11-18 with Ika. Step 1 live 2026-11-18 (`20261120000000_meetings.sql` run; 14 access checks with two accounts pass). Grows FB1 (Joshua's meeting companion) in
 [FEEDBACK.md](FEEDBACK.md). Before building: Ika agrees this outline and the open questions at
 the end, each screen is designed (Claude Design, then Figma), and each part runs as its own step.
 
@@ -27,18 +27,19 @@ locations, documents). Nothing changes until the producer presses Apply.
 - **Opening a meeting** opens the right-hand `SidePanel` (the same panel as the template
   preview: Escape closes it, Expand fills the page, the list stays in reach so the next meeting
   swaps in). Phones get a full-screen page, as the template preview does.
-- **Global search** finds meetings by title, by the people in them and by words in the notes
-  (rule: search keeps up with the data).
+- **Global search** finds meetings by title, the people in them and the notetaker, in the
+  Documents group (rule: search keeps up with the data). Words inside the notes: later.
 
 ## The meeting panel
 
-Top: the meeting title (editable inline), then a row of chips: date and time, people (count and
-avatars), source, and the Meet link while the meeting is upcoming. Below, three tabs
+Top: the meeting title (editable inline), then a row of chips: the date (tap to change), who
+was there (from the transcript's speakers), where the notes came from, and the Meet link while
+the meeting is upcoming (step 3). The bin removes the meeting (soft delete). Below, three tabs
 (`SectionTabs`):
 
 1. **Summary.** The AI summary (Gemini's, or the uploaded one), in the rich-text editor the
-   project page already uses: headings, bullets, bold, links. Editable, autosaves with the
-   saved tick. "Restore original" brings back what arrived.
+   project page already uses: bullets, bold, italic, links. Editable, saves as you leave it, with
+   the saved tick. "Restore original" brings back what arrived.
 2. **Transcript.** Speaker, time and words, with a find box. Read-only (it's the record). Shown
    only when one exists.
 3. **Changes.** The proposal: what Nia suggests from these notes, grouped by where it goes (see
@@ -78,7 +79,9 @@ showing the before and after on that line.
 from the file when it says them). Formats: `.txt`, `.md`, `.docx`, `.pdf` (notes and summaries)
 and `.vtt` / `.srt` (transcripts with times). That covers the exports from Otter, Fireflies,
 Granola, Zoom, Teams and Gemini. Nia splits what it can into summary and transcript, then
-drafts the proposal. The original file is kept, private, on the meeting.
+drafts the proposal. Only the words are kept (the file stays on the person's computer; its
+name is noted). Headings in the notes become bold lines (the project's text editor has no
+headings); the first one is the title.
 
 ## What's possible today (checked 2026-11-18)
 
@@ -141,11 +144,12 @@ drafts the proposal. The original file is kept, private, on the meeting.
 5. Later: import past meetings from Calendar, instant arrival through Pub/Sub, audio upload,
    "Ask about this meeting" (Copilot), sharing the notes with guests who aren't on Nia.
 
-## Open questions for Ika
+## Decided (Ika, 2026-11-18)
 
-1. **The "AI draft" marker.** The rules say gold, but gold is banned from the interface since
-   2026-10-31. Suggest a Nia Blue tint chip reading "AI draft".
-2. **Who sees meetings.** Suggest editors only (not viewers, not share links).
-3. **Plans.** Uploads free; AI proposals and Google scheduling on Pro? Or everything free in
-   the beta.
-4. **Step 1 first?** Suggest yes: it works for every tester today, whatever their Google plan.
+1. **Design:** step 1 is built from Nia's existing parts (the documents list, the template
+   preview's side panel, the project text editor, tabs), checked on localhost, then reconciled
+   into Figma.
+2. **Who sees meetings:** editors only (not viewers, not share links).
+3. **Plans:** everything free during the beta; Free and Pro are decided before charging.
+4. **The "AI draft" marker (step 2):** a Nia Blue tint chip reading "AI draft" (gold is banned).
+5. **Order:** step 1 first.

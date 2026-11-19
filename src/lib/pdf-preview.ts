@@ -48,3 +48,21 @@ export async function pdfFirstPage(file: Blob, width = 640): Promise<Blob | null
     return null;
   }
 }
+
+// The words of a PDF, a line per line of text and a blank line between pages (meeting notes
+// exported from a notetaker). Throws if the PDF can't be read.
+export async function pdfText(file: Blob): Promise<string> {
+  const lib = await pdfjs();
+  const task = lib.getDocument({ data: new Uint8Array(await file.arrayBuffer()) });
+  try {
+    const pdf = await task.promise;
+    const pages: string[] = [];
+    for (let n = 1; n <= pdf.numPages; n++) {
+      const content = await (await pdf.getPage(n)).getTextContent();
+      pages.push(content.items.map((item) => ("str" in item ? item.str + (item.hasEOL ? "\n" : "") : "")).join(""));
+    }
+    return pages.join("\n\n");
+  } finally {
+    void task.destroy();
+  }
+}

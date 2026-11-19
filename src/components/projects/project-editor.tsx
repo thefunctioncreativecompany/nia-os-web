@@ -150,6 +150,12 @@ export function ProjectEditor({
   const params = useSearchParams();
   const asked = params.get("tab");
   const [tab, setTabState] = useState<ProjectTabId>(isProjectTab(asked) ? asked : "overview");
+  // A link to another tab of this same project (a search result) changes the address, not the page.
+  const [seenTab, setSeenTab] = useState(asked);
+  if (asked !== seenTab) {
+    setSeenTab(asked);
+    setTabState(isProjectTab(asked) ? asked : "overview");
+  }
   const setTab = (next: ProjectTabId) => {
     setTabState(next);
     const url = new URL(window.location.href);
@@ -262,7 +268,8 @@ export function ProjectEditor({
   );
 
   return (
-    <div className="flex flex-1 flex-col gap-8 px-4 pb-15 md:px-page">
+    // Leaves room for a meeting open in the right panel on computers (meeting-panel.tsx).
+    <div className="flex flex-1 flex-col gap-8 px-4 pb-15 md:px-page lg:in-data-[preview-panel=open]:pr-(--preview-panel-w)">
       <input
         ref={inputRef}
         type="file"

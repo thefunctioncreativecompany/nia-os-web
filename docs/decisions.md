@@ -1089,3 +1089,10 @@ onboarding's Import profile and Follow creators describe features removed in the
   position), removed through `remove_project_milestone`;
   `20261119000000_project_milestones.sql`. Not in global search yet (its file has another session's
   edits open): add it there next.
+- (2026-11-18) Meetings (docs/MEETINGS_SPEC.md): Google's own tools (Calendar, Meet, Gemini notes)
+  rather than Granola, whose API only reads notes made in Granola's app and needs its Business plan.
+  Meetings live under Documents → Meetings and open in the right panel like the template preview;
+  notes from any notetaker can be uploaded or pasted. Step 1 is built from existing parts and
+  reconciled into Figma afterwards; meetings are for project editors only (notes are often
+  personal); everything is free in the beta; the "AI draft" marker becomes a Nia Blue tint chip
+  (gold is banned). Not in Figma yet.
