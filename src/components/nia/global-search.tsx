@@ -21,7 +21,8 @@ import { LIBRARY } from "@/features/explore/library";
 import { BEST_OF_2026, CATEGORY_NAMES, findEntry, inBestOf2026 } from "@/features/explore/made-in-africa";
 import { ALL_TAGS, tagLabel, tagsFor } from "@/features/explore/tags";
 import { exploreAccess } from "@/features/explore/saves";
-import { loadExploreSearchIndex, type ExploreSearchIndex } from "@/features/explore/search-index";
+import { findExploreNames, loadExploreSearchIndex, type ExploreSearchIndex, type NameHit } from "@/features/explore/search-index";
+import { nameLeads, type NameMatch } from "@/features/explore/name-search";
 import { ICPS, WORKFLOWS } from "@/features/workflows/workflows";
 import { servedSized } from "@/lib/served-sized";
 import { plainText } from "@/lib/rich-text";
@@ -49,6 +50,10 @@ type Result = {
   workflow?: { documents: string[] };
   /** Explore's tags (tags.ts), for searching by tag. */
   tags?: string[];
+  /** An Explore title's slug, so a person's titles can come with them. */
+  slug?: string;
+  /** A person found by the name lookup (findExploreNames), and how their name met the search. */
+  name?: NameMatch;
 };
 
 const GROUPS: { kind: Kind; label: string; Icon: LucideIcon }[] = [
@@ -210,15 +215,7 @@ async function load(): Promise<Result[]> {
       href: `/explore/festival/${f.id}`,
       explore: { image: f.logo, aspect: 1 },
     })),
-    ...(index?.people ?? []).map((p): Result => ({
-      key: `c:${p.key}`,
-      kind: "explore",
-      title: p.name,
-      meta: `${p.role} · ${p.credits} on Explore`,
-      words: `cast crew ${p.role}`,
-      href: p.href,
-      explore: { image: p.photo, aspect: 1 },
-    })),
+    // Explore's cast & crew come from the name lookup as people type (personResults), all of them.
   ];
   cache = { at: Date.now(), results };
   return results;
@@ -226,10 +223,30 @@ async function load(): Promise<Result[]> {
 
 // An Explore title's tags are words that find it, and can be searched on their own.
 function exploreResult(key: string, title: string, meta: string, href: string, explore: Result["explore"]): Result {
-  const slug = key.startsWith("t:") ? key.slice(2) : key.startsWith("c:") ? `creator-${key.slice(2)}` : key;
+  const slug = key.startsWith("t:") ? key.slice(2) : key.startsWith("c:") ? `creator-${key.slice(2)}` : key.startsWith("f:") ? `film-${key.slice(2)}` : key;
   const tags = tagsFor(slug);
-  return { key: `e:${key}`, kind: "explore", title, meta, words: tags.map(tagLabel).join(" "), href, explore, tags };
+  return { key: `e:${key}`, kind: "explore", title, meta, words: tags.map(tagLabel).join(" "), href, explore, tags, slug };
 }
+
+// People on Explore from the name lookup (2026-11-19, Ika: "use the same lookup in the top bar
+// search"), the same one Explore search asks: everyone credited, not only those with three or
+// more credits, ranked the same way. Studios and festivals are already in the lists.
+function personResults(hits: NameHit[]): Result[] {
+  return hits
+    .filter((h) => h.kind === "person")
+    .map((h) => ({
+      key: `c:${h.key}`,
+      kind: "explore",
+      title: h.name,
+      meta: [h.role, `${h.count} ${h.count === 1 ? "title" : "titles"} on Explore`].filter(Boolean).join(" · "),
+      words: "",
+      href: h.href,
+      explore: { image: h.photo, aspect: 1 },
+      name: h.match,
+    }));
+}
+// A person ranks with titles: their whole name above a title starting with it, part of it below.
+const NAME_SCORE: Record<NameMatch, number> = { exact: 6, words: 5, prefix: 2.5 };
 
 
 /** Forgets the lists, so the next search reads them again (after a project is made or renamed). */
@@ -261,6 +278,25 @@ export function GlobalSearch({ open, onOpenChange, idea = null }: { open: boolea
   const deferred = useDeferredValue(query);
   const list = useRef<HTMLDivElement>(null);
   const [now, setNow] = useState(0);
+  // People named in the search, asked of the server a beat after typing stops (Explore only).
+  const [named, setNamed] = useState<{ q: string; hits: NameHit[] } | null>(null);
+  const canExplore = (results ?? []).some((r) => r.kind === "explore");
+  useEffect(() => {
+    const q = deferred.trim();
+    if (!open || !canExplore || q.length < 2) return;
+    let live = true;
+    const wait = window.setTimeout(() => {
+      findExploreNames(q).then(
+        (hits) => live && setNamed({ q, hits }),
+        () => {},
+      );
+    }, 120);
+    return () => {
+      live = false;
+      window.clearTimeout(wait);
+    };
+  }, [open, canExplore, deferred]);
+  const names = named && named.q === deferred.trim() ? named.hits : null;
 
   useEffect(() => {
     if (!open) return;
@@ -282,11 +318,16 @@ export function GlobalSearch({ open, onOpenChange, idea = null }: { open: boolea
     const find = (words: string[]) => {
       const counts: Record<Kind, number> = { project: 0, document: 0, file: 0, template: 0, explore: 0 };
       const byKind = new Map<Kind, { r: Result; s: number }[]>();
-      for (const r of results ?? []) {
+      // The people found by name, and when the search is one person's name, their titles with them.
+      const people = names && words.length ? personResults(names) : [];
+      const lead = names && nameLeads(names) && names[0].kind === "person" ? names[0] : null;
+      // Their titles in billing order (lead roles first), just under them.
+      const theirs = new Map(lead?.titles.map((t, i) => [t.slug, i]) ?? []);
+      for (const r of [...(results ?? []), ...people]) {
         if (tag && !r.tags?.includes(tag)) continue;
         // With nothing typed, every result counts; All lists the recent projects, documents and
         // files (or everything with the tag), and a group's own filter lists everything in it.
-        const s = words.length ? score(r, words) : 1;
+        const s = !words.length ? 1 : r.name ? NAME_SCORE[r.name] : score(r, words) || (r.slug && theirs.has(r.slug) ? 2.5 - theirs.get(r.slug)! / 100 : 0);
         if (!s) continue;
         counts[r.kind] += 1;
         if (!words.length && filter === "all" && !r.at && !tag) continue;
@@ -311,7 +352,7 @@ export function GlobalSearch({ open, onOpenChange, idea = null }: { open: boolea
     return { ...first, words: typed, corrected: null };
     // `typed` comes from `deferred`.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [results, deferred, filter, tag, exact, vocab]);
+  }, [results, deferred, filter, tag, exact, vocab, names]);
   const hasExplore = (results ?? []).some((r) => r.kind === "explore");
   const tagIdOf = (label: string) => ALL_TAGS.find((id) => tagLabel(id) === label) ?? null;
 

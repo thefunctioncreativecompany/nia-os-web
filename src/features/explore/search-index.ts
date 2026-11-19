@@ -1,6 +1,6 @@
 "use server";
 
-import { creditsOf, featuredPeople, peopleForSearch } from "./people-index";
+import { creditsOf, peopleForSearch } from "./people-index";
 import { rankNames, type NameMatch } from "./name-search";
 import { itemFor } from "./search-data";
 import { filmCreditSlugs, filmCredits, filmPerson } from "./film-people";
@@ -9,16 +9,15 @@ import { studioRows } from "./studios";
 
 export type ExploreSearchIndex = {
   studios: { id: string; name: string; group: string; logo: string | null; count: number }[];
-  people: { key: string; name: string; role: string; href: string; photo: string | null; credits: number }[];
   festivals: { id: string; name: string; logo: string | null; count: number }[];
   /** Each title's studio names, so "Netflix" or "A24" finds their titles. */
   titleStudios: Record<string, string[]>;
 };
 
 // What global search needs from Explore beyond its titles (Ika, 2026-11-11: "every time we change
-// the platform's data, improve search to consider it"): the studios, the cast & crew with three or
-// more credits, and which studios made each title. Worked out on the server from Explore's curated
-// data (nothing private), and fetched when search first opens.
+// the platform's data, improve search to consider it"): the studios, the festivals, and which
+// studios made each title. Worked out on the server from Explore's curated data (nothing private),
+// and fetched when search first opens. People come from findExploreNames as people type (2026-11-19).
 export async function loadExploreSearchIndex(): Promise<ExploreSearchIndex> {
   const rows = studioRows();
   const titleStudios: Record<string, string[]> = {};
@@ -29,7 +28,6 @@ export async function loadExploreSearchIndex(): Promise<ExploreSearchIndex> {
   return {
     studios: rows.map((r) => ({ id: r.id, name: r.name, group: r.group, logo: r.logo, count: r.slugs.length })),
     festivals: festivals.map((f) => ({ id: f.id, name: f.name, logo: f.logo, count: f.slugs.length })),
-    people: featuredPeople(3),
     titleStudios,
   };
 }
