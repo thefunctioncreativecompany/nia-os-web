@@ -15,6 +15,8 @@ import { WelcomeTourLoader } from "@/components/home/welcome-tour-loader";
 import { GROUP_LABEL, groupFor, whatsNew } from "@/features/whats-new/updates";
 import { hasExploreAccess } from "@/lib/explore-access";
 import { ProjectGrid } from "@/components/projects/project-grid";
+import { GetStarted } from "@/components/home/get-started";
+import { googleConfigured } from "@/lib/google";
 
 export const metadata: Metadata = {
   title: "Home · Nia OS",
@@ -31,6 +33,10 @@ export default function Page() {
         <Suspense fallback={<Skeleton className="h-10 w-72" />}>
           <Welcome />
         </Suspense>
+        {/* Quick ways in, under the welcome (Ika, 2026-11-19). */}
+        <div className="mt-6 w-full">
+          <GetStarted googleReady={googleConfigured()} />
+        </div>
       </header>
 
       {/* The announcement and everything under it arrive together, so nothing below jumps down

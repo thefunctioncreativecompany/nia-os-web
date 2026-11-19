@@ -1146,3 +1146,8 @@ onboarding's Import profile and Follow creators describe features removed in the
   at a time, nothing drawn over it, at least 200 × 200 (about 615 × 346 on a desktop). Their
   rule against mouseovers applies to hovering their player; here the hover is on Nia's card before
   the player exists. Desktop pointers only, off under reduced motion and a data saver.
+- (2026-11-19) Home: a "Get started with" row under the welcome (Ika, after Notion's row): New
+  project, Meeting, Explore, Collection, Templates, as grey pills (one line to swipe on phones).
+  Brings quick ways in back to Home after the 2026-11-10 cut, as one row, not a section. Meeting
+  asks which project (only ones you can edit), then opens its Google Meet booking, or adding notes
+  until Google Calendar is set up (`?schedule=1`, `?notes=1`). Not in Figma yet.

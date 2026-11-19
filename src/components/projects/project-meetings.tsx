@@ -53,7 +53,8 @@ export function ProjectMeetings({
 }) {
   const params = useSearchParams();
   const [meetings, setMeetings] = useState(() => initial.toSorted(byNewest));
-  const [adding, setAdding] = useState(false);
+  // Asked to add notes (?notes=1, from Home's Get started with): the notes pop-up starts open.
+  const [adding, setAdding] = useState(() => !!params.get("notes"));
   // Back from Google, or asked to book: the booking pop-up starts open.
   const [scheduling, setScheduling] = useState(() => googleReady && (!!params.get("schedule") || params.get("google") === "connected"));
 
@@ -63,11 +64,13 @@ export function ProjectMeetings({
     const url = new URL(window.location.href);
     const result = url.searchParams.get("google");
     const schedule = url.searchParams.get("schedule");
-    if (!result && !schedule) return;
+    const notes = url.searchParams.get("notes");
+    if (!result && !schedule && !notes) return;
     if (result === "connected") toast.success("Google Calendar connected");
     else if (result && GOOGLE_RESULT[result]) toast.error(GOOGLE_RESULT[result]);
     url.searchParams.delete("google");
     url.searchParams.delete("schedule");
+    url.searchParams.delete("notes");
     window.history.replaceState(window.history.state, "", url);
   }, []);
   const asked = params.get("meeting");
