@@ -215,6 +215,10 @@
   "date": "1954-10-05",
   "precision": "day"
  },
+ "carrie": {
+  "date": "2026-10-07",
+  "precision": "day"
+ },
  "casablanca": {
   "date": "1942-11-26",
   "precision": "day"
@@ -891,6 +895,10 @@
   "date": "1933-01-01",
   "precision": "year"
  },
+ "forgotten-island": {
+  "date": "2026-04-15",
+  "precision": "day"
+ },
  "four-daughters": {
   "date": "2023-05-19",
   "precision": "day"
@@ -1107,6 +1115,10 @@
   "date": "1946-12-20",
   "precision": "day"
  },
+ "jailer-2": {
+  "date": "2026-10-15",
+  "precision": "day"
+ },
  "jaws": {
   "date": "1975-06-20",
   "precision": "day"
@@ -1155,6 +1167,10 @@
   "date": "2026-05-21",
   "precision": "day"
  },
+ "lanterns": {
+  "date": "2026-08-16",
+  "precision": "day"
+ },
  "laura": {
   "date": "1944-10-11",
   "precision": "day"
@@ -1162,6 +1178,10 @@
  "lawrence-of-arabia": {
   "date": "1962-01-01",
   "precision": "year"
+ },
+ "lee-cronins-the-mummy": {
+  "date": "2026-04-09",
+  "precision": "day"
  },
  "lie-to-me": {
   "date": "2009-01-21",
@@ -1221,6 +1241,10 @@
  },
  "mary-poppins": {
   "date": "1964-08-27",
+  "precision": "day"
+ },
+ "masters-of-the-universe": {
+  "date": "2026-05-18",
   "precision": "day"
  },
  "matilda": {
@@ -1487,6 +1511,14 @@
   "date": "2026-06-04",
   "precision": "day"
  },
+ "scream-7": {
+  "date": "2026-02-25",
+  "precision": "day"
+ },
+ "send-help": {
+  "date": "2026-01-29",
+  "precision": "day"
+ },
  "seriously-single": {
   "date": "2020-01-01",
   "precision": "year"
@@ -1691,6 +1723,10 @@
   "date": "2026-04-20",
   "precision": "day"
  },
+ "the-drama": {
+  "date": "2026-03-17",
+  "precision": "day"
+ },
  "the-emperor-jones": {
   "date": "1933-01-01",
   "precision": "year"
@@ -1849,6 +1885,10 @@
  },
  "the-shawshank-redemption": {
   "date": "1994-09-10",
+  "precision": "day"
+ },
+ "the-sheep-detectives": {
+  "date": "2026-05-07",
   "precision": "day"
  },
  "the-shop-around-the-corner": {

@@ -10858,6 +10858,311 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "masters-of-the-universe",
+   "collection": "explore-all",
+   "title": "Masters of the Universe",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Fantasy",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Travis Knight",
+   "recognition": "Over $113 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The 1980s toy line as a live-action fantasy epic: Prince Adam returns to Eternia after 15 years to find it under Skeletor's rule",
+   "added": "2026-11-19",
+   "imdb_id": "tt0427340",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "X21JsHLHnY8",
+     "kind": "trailer",
+     "channel": "Amazon MGM Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-drama",
+   "collection": "explore-all",
+   "title": "The Drama",
+   "type": "film",
+   "genres": [
+    "Romance",
+    "Comedy",
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Kristoffer Borgli",
+   "recognition": "Over $134 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Kristoffer Borgli (Dream Scenario) sends an engaged couple's wedding week off the rails, with Zendaya and Robert Pattinson: a romantic comedy turned provocation",
+   "added": "2026-11-19",
+   "imdb_id": "tt33071426",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "6zmKcUa4Xxk",
+     "kind": "trailer",
+     "channel": "A24",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "lee-cronins-the-mummy",
+   "collection": "explore-all",
+   "title": "Lee Cronin's The Mummy",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Mystery"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "Ireland"
+   ],
+   "credit": "Lee Cronin",
+   "recognition": "Over $90 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Lee Cronin (Evil Dead Rise) remakes the Mummy as family horror: a journalist's daughter comes home eight years after vanishing in the desert",
+   "added": "2026-11-19",
+   "imdb_id": "tt32612507",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "XJ0uv-phsDk",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "forgotten-island",
+   "collection": "explore-all",
+   "title": "Forgotten Island",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Adventure",
+    "Fantasy",
+    "Comedy",
+    "Family"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Januel Mercado & Joel Crawford",
+   "recognition": "Over $78 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "An animated adventure drawn from Filipino myth: two best friends on the island of Nakali, where the price of going home is their memories of each other",
+   "added": "2026-11-19",
+   "imdb_id": "tt36583977",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "a8RHqN93qfo",
+     "kind": "trailer",
+     "channel": "Universal Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "scream-7",
+   "collection": "explore-all",
+   "title": "Scream 7",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Mystery",
+    "Crime"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Kevin Williamson",
+   "recognition": "Over $213 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Kevin Williamson, who wrote the first Scream, directs the seventh: Sidney Prescott returns as a new Ghostface comes for her daughter",
+   "added": "2026-11-19",
+   "imdb_id": "tt27047903",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "UJrghaPJ0RY",
+     "kind": "trailer",
+     "channel": "Paramount Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-sheep-detectives",
+   "collection": "explore-all",
+   "title": "The Sheep Detectives",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Comedy",
+    "Crime",
+    "Family",
+    "Mystery"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Kyle Balda",
+   "recognition": "Over $131 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "From Leonie Swann's novel Three Bags Full: a shepherd reads detective stories to his flock, and when something strange happens on the farm the sheep become the detectives",
+   "added": "2026-11-19",
+   "imdb_id": "tt32565993",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "826SRt1CFbg",
+     "kind": "trailer",
+     "channel": "Amazon MGM Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "send-help",
+   "collection": "explore-all",
+   "title": "Send Help",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Thriller",
+    "Comedy"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Sam Raimi",
+   "recognition": "Over $94 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Sam Raimi strands two colleagues on a desert island after a plane crash: survival horror as an office power struggle turned upside down",
+   "added": "2026-11-19",
+   "imdb_id": "tt8036976",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "R4wiXj9NmEE",
+     "kind": "trailer",
+     "channel": "20th Century Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "lanterns",
+   "collection": "explore-all",
+   "title": "Lanterns",
+   "type": "series",
+   "genres": [
+    "Drama",
+    "Mystery",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Damon Lindelof, Chris Mundy & Tom King",
+   "pair_with": "",
+   "study_note": "Two Green Lanterns investigate a murder in the American heartland: a superhero series made as a small-town detective story",
+   "added": "2026-11-19",
+   "imdb_id": "tt26545992",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "7UIBOsuUwc4",
+     "kind": "trailer",
+     "channel": "HBO Max",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "carrie",
+   "collection": "explore-all",
+   "title": "Carrie",
+   "type": "series",
+   "genres": [
+    "Mystery",
+    "Drama",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "Canada"
+   ],
+   "credit": "Mike Flanagan",
+   "recognition": "Selected for the Toronto International Film Festival",
+   "pair_with": "",
+   "study_note": "Mike Flanagan's Carrie for the social-media age: Stephen King's outcast faces a viral bullying scandal as her telekinesis wakes",
+   "added": "2026-11-19",
+   "imdb_id": "tt11540908",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "jkUw2nh6fT0",
+     "kind": "trailer",
+     "channel": "Prime Video",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "jailer-2",
+   "collection": "explore-all",
+   "title": "Jailer 2",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Comedy",
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "India"
+   ],
+   "credit": "Nelson Dilipkumar",
+   "recognition": "Over $85 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Rajinikanth returns as retired jailer Muthuvel Pandian, undercover as a driver against a smuggling syndicate: a Tamil star vehicle built on set pieces",
+   "added": "2026-11-19",
+   "imdb_id": "tt33318732",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "3vkHWYL2JmA",
+     "kind": "trailer",
+     "channel": "Prime Video India",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

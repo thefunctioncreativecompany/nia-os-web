@@ -3902,6 +3902,24 @@
    }
   ]
  },
+ "carrie": {
+  "qid": "Q133852728",
+  "people": [
+   {
+    "id": "Q48835545",
+    "role": "Cast",
+    "character": "Carrie White"
+   },
+   {
+    "id": "Q141543925",
+    "role": "Cast"
+   },
+   {
+    "id": "Q19668417",
+    "role": "Director"
+   }
+  ]
+ },
  "casablanca": {
   "qid": "Q132689",
   "people": [
@@ -7496,6 +7514,19 @@
    {
     "id": "Q589834",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "forgotten-island": {
+  "qid": "Q138335503",
+  "people": [
+   {
+    "id": "Q47483950",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q138787958",
+    "role": "Director, Writer"
    }
   ]
  },
@@ -11253,6 +11284,75 @@
    }
   ]
  },
+ "jailer-2": {
+  "qid": "Q133255153",
+  "people": [
+   {
+    "id": "Q60068",
+    "role": "Cast",
+    "character": "Tiger Muthuvel Pandian"
+   },
+   {
+    "id": "Q159166",
+    "role": "Cast",
+    "character": "Kantha"
+   },
+   {
+    "id": "Q233619",
+    "role": "Cast",
+    "character": "Roddy"
+   },
+   {
+    "id": "Q13564588",
+    "role": "Cast",
+    "character": "Dileep"
+   },
+   {
+    "id": "Q7387554",
+    "role": "Cast",
+    "character": "Bodhi Kalpak"
+   },
+   {
+    "id": "Q3520429",
+    "role": "Cast",
+    "character": "Viji Pandian"
+   },
+   {
+    "id": "Q2050534",
+    "role": "Cast",
+    "character": "Micheal"
+   },
+   {
+    "id": "Q379604",
+    "role": "Cast",
+    "character": "Chakri Kalpak, Bodhi's father"
+   },
+   {
+    "id": "Q21933878",
+    "role": "Cast",
+    "character": "Vimal, a taxi driver"
+   },
+   {
+    "id": "Q107404642",
+    "role": "Cast",
+    "character": "Swetha Pandian, Muthuvel's daughter-in-law"
+   },
+   {
+    "id": "Q134487656",
+    "role": "Cast",
+    "character": "Rithvik \"Rithu\" Pandian, Muthuvel's grandson"
+   },
+   {
+    "id": "Q27734983",
+    "role": "Cast",
+    "character": "Ved Kalpak, Bodhi's brother"
+   },
+   {
+    "id": "Q63698985",
+    "role": "Director"
+   }
+  ]
+ },
  "jaws": {
   "qid": "Q189505",
   "people": [
@@ -11830,6 +11930,54 @@
    }
   ]
  },
+ "lanterns": {
+  "qid": "Q110556821",
+  "people": [
+   {
+    "id": "Q359604",
+    "role": "Cast",
+    "character": "Hal Jordan"
+   },
+   {
+    "id": "Q106828532",
+    "role": "Cast",
+    "character": "John Stewart"
+   },
+   {
+    "id": "Q342549",
+    "role": "Cast",
+    "character": "Guy Gardner"
+   },
+   {
+    "id": "Q712437",
+    "role": "Cast"
+   },
+   {
+    "id": "Q12060833",
+    "role": "Cast"
+   },
+   {
+    "id": "Q230383",
+    "role": "Cast"
+   },
+   {
+    "id": "Q223281",
+    "role": "Cast"
+   },
+   {
+    "id": "Q431362",
+    "role": "Cast"
+   },
+   {
+    "id": "Q382210",
+    "role": "Cast"
+   },
+   {
+    "id": "Q108417210",
+    "role": "Music"
+   }
+  ]
+ },
  "laura": {
   "qid": "Q976149",
   "people": [
@@ -12029,6 +12177,55 @@
    {
     "id": "Q2089199",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "lee-cronins-the-mummy": {
+  "qid": "Q133505340",
+  "people": [
+   {
+    "id": "Q2791895",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16298544",
+    "role": "Cast"
+   },
+   {
+    "id": "Q56855918",
+    "role": "Cast"
+   },
+   {
+    "id": "Q97319251",
+    "role": "Cast"
+   },
+   {
+    "id": "Q104609585",
+    "role": "Cast"
+   },
+   {
+    "id": "Q55215630",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q13449900",
+    "role": "Producer"
+   },
+   {
+    "id": "Q108047434",
+    "role": "Producer"
+   },
+   {
+    "id": "Q126745096",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q122820000",
+    "role": "Editor"
+   },
+   {
+    "id": "Q7609965",
+    "role": "Music"
    }
   ]
  },
@@ -12790,6 +12987,121 @@
    {
     "id": "Q3104387",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "masters-of-the-universe": {
+  "qid": "Q112040381",
+  "people": [
+   {
+    "id": "Q90902600",
+    "role": "Cast",
+    "character": "He-Man"
+   },
+   {
+    "id": "Q28659500",
+    "role": "Cast",
+    "character": "Teela"
+   },
+   {
+    "id": "Q342604",
+    "role": "Cast",
+    "character": "Man-At-Arms"
+   },
+   {
+    "id": "Q484523",
+    "role": "Cast",
+    "character": "Skeletor"
+   },
+   {
+    "id": "Q235328",
+    "role": "Cast",
+    "character": "Evil-Lyn"
+   },
+   {
+    "id": "Q131523253",
+    "role": "Cast",
+    "character": "Trap Jaw"
+   },
+   {
+    "id": "Q5638484",
+    "role": "Cast"
+   },
+   {
+    "id": "Q131523290",
+    "role": "Cast",
+    "character": "Tri-Klops"
+   },
+   {
+    "id": "Q231091",
+    "role": "Cast",
+    "character": "Sorceress of Castle Grayskull"
+   },
+   {
+    "id": "Q19788544",
+    "role": "Cast"
+   },
+   {
+    "id": "Q360528",
+    "role": "Cast",
+    "character": "King Randor"
+   },
+   {
+    "id": "Q441078",
+    "role": "Cast",
+    "character": "Queen Marlena"
+   },
+   {
+    "id": "Q7836302",
+    "role": "Director"
+   },
+   {
+    "id": "Q2964669",
+    "role": "Writer"
+   },
+   {
+    "id": "Q68302796",
+    "role": "Writer"
+   },
+   {
+    "id": "Q68302346",
+    "role": "Writer"
+   },
+   {
+    "id": "Q963032",
+    "role": "Writer"
+   },
+   {
+    "id": "Q28492396",
+    "role": "Producer"
+   },
+   {
+    "id": "Q7482626",
+    "role": "Producer"
+   },
+   {
+    "id": "Q72952520",
+    "role": "Producer"
+   },
+   {
+    "id": "Q7340855",
+    "role": "Producer"
+   },
+   {
+    "id": "Q16208256",
+    "role": "Producer"
+   },
+   {
+    "id": "Q15507934",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q2062049",
+    "role": "Editor"
+   },
+   {
+    "id": "Q5218424",
+    "role": "Music"
    }
   ]
  },
@@ -17584,6 +17896,142 @@
    }
   ]
  },
+ "scream-7": {
+  "qid": "Q124758309",
+  "people": [
+   {
+    "id": "Q193482",
+    "role": "Cast",
+    "character": "Sidney Prescott"
+   },
+   {
+    "id": "Q64000332",
+    "role": "Cast",
+    "character": "Tatum Evans"
+   },
+   {
+    "id": "Q311993",
+    "role": "Cast",
+    "character": "Mark Evans"
+   },
+   {
+    "id": "Q58912",
+    "role": "Cast",
+    "character": "Gale Weathers"
+   },
+   {
+    "id": "Q24266627",
+    "role": "Cast",
+    "character": "Mindy Meeks-Martin"
+   },
+   {
+    "id": "Q47015205",
+    "role": "Cast",
+    "character": "Chad Meeks-Martin"
+   },
+   {
+    "id": "Q1150316",
+    "role": "Cast",
+    "character": "Jessica Bowden"
+   },
+   {
+    "id": "Q112243292",
+    "role": "Cast",
+    "character": "Ben Brown"
+   },
+   {
+    "id": "Q29086",
+    "role": "Cast",
+    "character": "Stu Macher"
+   },
+   {
+    "id": "Q3124543",
+    "role": "Cast"
+   },
+   {
+    "id": "Q383064",
+    "role": "Cast",
+    "character": "Marco Davis"
+   },
+   {
+    "id": "Q123983571",
+    "role": "Cast"
+   },
+   {
+    "id": "Q360642",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q110551211",
+    "role": "Writer"
+   },
+   {
+    "id": "Q919049",
+    "role": "Producer"
+   },
+   {
+    "id": "Q21094977",
+    "role": "Editor"
+   },
+   {
+    "id": "Q465754",
+    "role": "Music"
+   }
+  ]
+ },
+ "send-help": {
+  "qid": "Q132200341",
+  "people": [
+   {
+    "id": "Q190386",
+    "role": "Cast"
+   },
+   {
+    "id": "Q20685076",
+    "role": "Cast"
+   },
+   {
+    "id": "Q714458",
+    "role": "Cast"
+   },
+   {
+    "id": "Q350208",
+    "role": "Cast"
+   },
+   {
+    "id": "Q350732",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16138475",
+    "role": "Cast"
+   },
+   {
+    "id": "Q275402",
+    "role": "Director"
+   },
+   {
+    "id": "Q26460510",
+    "role": "Writer"
+   },
+   {
+    "id": "Q30327831",
+    "role": "Writer"
+   },
+   {
+    "id": "Q795025",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q888156",
+    "role": "Editor"
+   },
+   {
+    "id": "Q193338",
+    "role": "Music"
+   }
+  ]
+ },
  "seriously-single": {
   "qid": "Q98079320",
   "people": [
@@ -21578,6 +22026,39 @@
    }
   ]
  },
+ "the-drama": {
+  "qid": "Q130590402",
+  "people": [
+   {
+    "id": "Q36767",
+    "role": "Cast"
+   },
+   {
+    "id": "Q189489",
+    "role": "Cast"
+   },
+   {
+    "id": "Q40550981",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16726249",
+    "role": "Cast"
+   },
+   {
+    "id": "Q24045561",
+    "role": "Cast"
+   },
+   {
+    "id": "Q118504431",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q54864392",
+    "role": "Producer"
+   }
+  ]
+ },
  "the-emperor-jones": {
   "qid": "Q1394119",
   "people": [
@@ -24637,6 +25118,87 @@
    {
     "id": "Q1331257",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "the-sheep-detectives": {
+  "qid": "Q126405648",
+  "people": [
+   {
+    "id": "Q129591",
+    "role": "Cast"
+   },
+   {
+    "id": "Q168724",
+    "role": "Cast"
+   },
+   {
+    "id": "Q714133",
+    "role": "Cast"
+   },
+   {
+    "id": "Q90902600",
+    "role": "Cast"
+   },
+   {
+    "id": "Q60489296",
+    "role": "Cast"
+   },
+   {
+    "id": "Q38195662",
+    "role": "Cast"
+   },
+   {
+    "id": "Q7827837",
+    "role": "Cast"
+   },
+   {
+    "id": "Q27601640",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1126128",
+    "role": "Cast"
+   },
+   {
+    "id": "Q20684688",
+    "role": "Cast"
+   },
+   {
+    "id": "Q23547",
+    "role": "Cast"
+   },
+   {
+    "id": "Q232072",
+    "role": "Cast"
+   },
+   {
+    "id": "Q20666333",
+    "role": "Director"
+   },
+   {
+    "id": "Q1138605",
+    "role": "Writer"
+   },
+   {
+    "id": "Q1473065",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1351291",
+    "role": "Producer"
+   },
+   {
+    "id": "Q22278959",
+    "role": "Editor"
+   },
+   {
+    "id": "Q974615",
+    "role": "Editor"
+   },
+   {
+    "id": "Q462109",
+    "role": "Music"
    }
   ]
  },

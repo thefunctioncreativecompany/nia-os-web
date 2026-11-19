@@ -1795,5 +1795,55 @@
   "source": "TMDB",
   "tmdb": "movie/791523",
   "image": "https://image.tmdb.org/t/p/original/snFM00mpNAfUzUtkdEW0uDEvXA0.jpg"
+ },
+ "masters-of-the-universe": {
+  "source": "TMDB",
+  "tmdb": "movie/454639",
+  "image": "https://image.tmdb.org/t/p/original/oRuyGUHdoaQxWP3SDfafGkStxTC.jpg"
+ },
+ "the-drama": {
+  "source": "TMDB",
+  "tmdb": "movie/1325734",
+  "image": "https://image.tmdb.org/t/p/original/rnIOUhzwJDfgQakx8EjoNyItKgs.jpg"
+ },
+ "lee-cronins-the-mummy": {
+  "source": "TMDB",
+  "tmdb": "movie/1304313",
+  "image": "https://image.tmdb.org/t/p/original/1q308iixueCU4pFtSYugNOevtNx.jpg"
+ },
+ "forgotten-island": {
+  "source": "TMDB",
+  "tmdb": "movie/1465063",
+  "image": "https://image.tmdb.org/t/p/original/myd1K3gefdNAWFsGNRDdMeiK9Qg.jpg"
+ },
+ "scream-7": {
+  "source": "TMDB",
+  "tmdb": "movie/1159559",
+  "image": "https://image.tmdb.org/t/p/original/jjyuk0edLiW8vOSnlfwWCCLpbh5.jpg"
+ },
+ "the-sheep-detectives": {
+  "source": "TMDB",
+  "tmdb": "movie/1301421",
+  "image": "https://image.tmdb.org/t/p/original/iKy5460GdsoknM8ppmGlJbKxAKa.jpg"
+ },
+ "send-help": {
+  "source": "TMDB",
+  "tmdb": "movie/1198994",
+  "image": "https://image.tmdb.org/t/p/original/zbJWVHOtj3ljBzWgL1P8pxP03Up.jpg"
+ },
+ "lanterns": {
+  "source": "TMDB",
+  "tmdb": "tv/95350",
+  "image": "https://image.tmdb.org/t/p/original/rb94rKVIzLyfWufIN7WqLvadBDH.jpg"
+ },
+ "carrie": {
+  "source": "TMDB",
+  "tmdb": "tv/288673",
+  "image": "https://image.tmdb.org/t/p/original/6mUMquPQBFJGqTACS3Azkwwrx8d.jpg"
+ },
+ "jailer-2": {
+  "source": "TMDB",
+  "tmdb": "movie/1234139",
+  "image": "https://image.tmdb.org/t/p/original/upwdEyhhYZ7pT2hD535fr2MGfpx.jpg"
  }
 }

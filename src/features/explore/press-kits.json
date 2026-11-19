@@ -1374,6 +1374,60 @@
   ],
   "imdb": "tt8267604"
  },
+ "carrie": {
+  "videos": [
+   {
+    "id": "jkUw2nh6fT0",
+    "kind": "Official trailer",
+    "title": "Carrie – Official Trailer | Prime Video",
+    "channel": "Prime Video"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Screen Rant",
+    "title": "Carrie TV Review: Mike Flanagan's Greatest Stephen King Adaptation Is Here",
+    "href": "https://screenrant.com/carrie-tv-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time",
+    "title": "Mike Flanagan's Timely Carrie Is the First Worthwhile Adaptation in 50 Years",
+    "href": "https://time.com/article/2026/10/01/carrie-mike-flanagan-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "‘Carrie’ Review: Mike Flanagan Capably Expands Stephen King's Horror Classic for Amazon, but Did It Really Need Expanding?",
+    "href": "https://www.hollywoodreporter.com/tv/tv-reviews/carrie-review-mike-flanagan-amazon-stephen-king-1236717805/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Times",
+    "title": "Carrie review — this series is a horrifying tale for our times",
+    "href": "https://www.thetimes.com/culture/tv-radio/article/carrie-review-amazon-prime-video-jv500kwrj",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Collider",
+    "title": "Mike Flanagan's 'Carrie' Is a Riveting Remix and Risky Expansion of Stephen King's Classic Novel <nowiki>",
+    "href": "https://collider.com/carrie-2026-review-mike-flanagan-prime-video/"
+   },
+   {
+    "outlet": "The Atlantic",
+    "title": "'Carrie,' With Kid Gloves",
+    "href": "https://www.theatlantic.com/culture/2026/10/carrie-tv-show-review-mike-flanagan-stephen-king/688914/"
+   },
+   {
+    "outlet": "BBC",
+    "title": "Why a new TV version of horror classic Carrie is already annoying people",
+    "href": "https://www.bbc.com/culture/article/20261001-why-a-new-tv-version-of-horror-classic-carrie-is-already-annoying-people"
+   }
+  ],
+  "imdb": "tt11540908"
+ },
  "casablanca": {
   "videos": [
    {
@@ -2396,6 +2450,49 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0024028"
+ },
+ "forgotten-island": {
+  "videos": [
+   {
+    "id": "a8RHqN93qfo",
+    "kind": "Official trailer",
+    "title": "FORGOTTEN ISLAND | Official Trailer",
+    "channel": "Universal Pictures"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'Forgotten Island' Review: A Joyful Noise That Occasionally Bleeds Into Cacophony",
+    "href": "https://www.thewrap.com/creative-content/movies/forgotten-island-review/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Forgotten Island review: The \"Puss in Boots\" team delivers another animated winner",
+    "href": "https://www.rogerebert.com/reviews/forgotten-island-animated-film-review-2026",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Avengers: Endgame Encore' Could Top Box Office, Brad Pitt's 'Heart of the Beast' and Robert Pattinson's 'Primetime' Vie for No. 3",
+    "href": "https://variety.com/2026/film/box-office/avengers-endgame-box-office-rerelease-projections-resident-evil-primetime-1236872333/"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Avengers: Endgame' Snapping Up $26M at Box Office Amid Crowded Weekend",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/avengers-endgame-encore-box-office-primetime-heart-beast-1236712502/"
+   },
+   {
+    "outlet": "ABS-CBN News",
+    "title": "Lea Salonga sees Forgotten Island as a win despite box-office performance",
+    "href": "https://www.abs-cbn.com/entertainment/showbiz/movies-series/2026/10/12/lea-salonga-sees-forgotten-island-as-a-win-despite-box-office-performance-2050"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt36583977"
  },
  "four-daughters": {
   "videos": [
@@ -4284,6 +4381,67 @@
   "cinemaRelease": true,
   "imdb": "tt0038650"
  },
+ "jailer-2": {
+  "videos": [
+   {
+    "id": "3vkHWYL2JmA",
+    "kind": "Official trailer",
+    "title": "Jailer 2 - Watch Now | Rajinikanth, Mohanlal, Shivrajkumar, Vidya Balan, Hrithik Roshan, SJ Suryah",
+    "channel": "Prime Video India"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "NDTV",
+    "title": "Jailer 2 Review: A Solid Commercial Entertainer Thanks To Superstar Rajinikanth",
+    "href": "https://www.ndtv.com/entertainment/jailer-2-review-a-solid-commercial-entertainer-thanks-to-superstar-rajinikanth-3-5-stars-12188670/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "DT Next",
+    "title": "'Jailer 2' film review: Nelson delivers a laugh-filled spectacle for Superstar Rajinikanth fans",
+    "href": "https://www.dtnext.in/story/entertainment/cinema/jailer-2-film-review-nelson-delivers-a-laugh-filled-spectacle-for-superstar-rajinikanth-fans",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Hindustan Times",
+    "title": "Jailer 2 movie review: 75-year-old Rajinikanth aura farms for 3 hours in a Nelson Dilipkumar film and it is all fans need sometimes",
+    "href": "https://www.hindustantimes.com/entertainment/tamil-cinema/jailer-2-movie-review-75-year-old-rajinikanth-aura-farms-for-3-hours-in-a-nelson-dilipkumar-film-and-it-is-all-fans-need-sometimes-101792042345652.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Times of India",
+    "title": "Jailer 2 Movie Review: Rajinikanth, Nelson deliver a satisfying sequel",
+    "href": "https://timesofindia.indiatimes.com/entertainment/tamil/movie-reviews/jailer-2/movie-review/134961587.cms",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "India Today",
+    "title": "Jailer 2 review: Rajinikanth's swagger and Nelson's humour strike gold again",
+    "href": "https://www.indiatoday.in/movies/reviews/story/jailer-2-movie-review-rajinikanth-swagger-and-nelsons-humour-strike-gold-again-3017726-2026-10-15",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Rediff.com",
+    "title": "Jailer 2 Review: Rajinikanth Fanboy Fun With Flawed Villains",
+    "href": "https://www.rediff.com/movies/review/jailer-2-review-rajinikanth-fanboy-fun-with-flawed-villains/20261015.htm",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "NDTV",
+    "title": "Ranabaali Advance Bookings Raise Concern As Jailer 2 Dominates Box Office Buzz",
+    "href": "https://www.ndtv.com/entertainment/ranabaali-advance-bookings-raise-concern-as-jailer-2-dominates-box-office-buzz-12190632"
+   },
+   {
+    "outlet": "Hindustan Times",
+    "title": "Jailer 2 box office collection day 4: Rajinikanth film records bumper opening weekend, inches closer to  ₹200 crore",
+    "href": "https://www.hindustantimes.com/entertainment/tamil-cinema/jailer-2-box-office-collection-day-4-rajinikanth-film-scores-bumper-sunday-crosses-190-crore-nelson-dilipkumar-101792331950024.html"
+   }
+  ],
+  "imdb": "tt33318732"
+ },
  "jaws": {
   "videos": [
    {
@@ -4784,6 +4942,50 @@
   ],
   "imdb": "tt35511966"
  },
+ "lanterns": {
+  "videos": [
+   {
+    "id": "7UIBOsuUwc4",
+    "kind": "Official trailer",
+    "title": "Lanterns | Official Trailer | HBO Max",
+    "channel": "HBO Max"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TVLine",
+    "title": "Lanterns Review: HBO's Superhero Drama Adds Grit And Wit To The Genre, But Gets Lost In Comic Book Lore",
+    "href": "https://tvline.com/2236789/lanterns-review-hbo-dc-comics-kyle-chandler/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Inverse",
+    "title": "Lanterns review",
+    "href": "https://www.inverse.com/entertainment/lanterns-review-hbo",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "'Lanterns' Review: Kyle Chandler and Aaron Pierre's Superhero Show Is More 'True Detective' Than DC, and That's OK",
+    "href": "https://www.thewrap.com/creative-content/reviews/lanterns-review-hbo-kyle-chandler-aaron-pierre/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Tom's Guide",
+    "title": "'Lanterns' premiere review: Rumors of James Gunn's demise have been greatly exaggerated — this is must-watch HBO",
+    "href": "https://www.tomsguide.com/entertainment/hbo-max/lanterns-premiere-review-rumors-of-james-gunns-demise-have-been-greatly-exaggerated-this-is-must-watch-hbo",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Lanterns' Season 2 Won't Be Greenlit Until the Writers' Room 'Comes Up With a Worthy Successor to a Great First Season'",
+    "href": "https://variety.com/2026/tv/news/lanterns-season-2-greenlit-writers-room-1236908603/"
+   }
+  ],
+  "imdb": "tt26545992"
+ },
  "laura": {
   "videos": [
    {
@@ -4866,6 +5068,37 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0056172"
+ },
+ "lee-cronins-the-mummy": {
+  "videos": [
+   {
+    "id": "XJ0uv-phsDk",
+    "kind": "Official trailer",
+    "title": "Lee Cronin's The Mummy | Official Trailer",
+    "channel": "Warner Bros."
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Little White Lies",
+    "title": "Lee Cronin's The Mummy review – rotten to the core",
+    "href": "https://lwlies.com/reviews/lee-cronins-the-mummy",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Lee Cronin's The Mummy",
+    "href": "https://www.rogerebert.com/reviews/lee-cronins-the-mummy-movie-review-2026",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Fangoria",
+    "title": "Lee Cronin's The Mummy Review: A Gory, Giddy Ride Wrapped in Classic Monster Branding",
+    "href": "https://www.fangoria.com/lee-cronins-the-mummy-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": []
  },
  "lilies-of-the-field": {
   "videos": [],
@@ -5211,6 +5444,50 @@
    }
   ],
   "imdb": "tt36849871"
+ },
+ "masters-of-the-universe": {
+  "videos": [
+   {
+    "id": "X21JsHLHnY8",
+    "kind": "Official trailer",
+    "title": "Masters of The Universe – Official Trailer",
+    "channel": "Amazon MGM Studios"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "IGN",
+    "title": "Masters of the Universe Review",
+    "href": "https://www.ign.com/articles/masters-of-the-universe-2026-he-man-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Irish Times",
+    "title": "Masters of the Universe review: All solid good fun. All professionally honed. A minor miracle",
+    "href": "https://www.irishtimes.com/culture/film/review/2026/06/02/masters-of-the-universe-review-all-solid-good-fun-all-professionally-honed-a-minor-miracle/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "'Masters of the Universe' is the He-Man fans have been waiting for",
+    "href": "https://www.sfchronicle.com/entertainment/movies-tv/article/masters-universe-he-man-review-22279403.php",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Box Office: 'Scary Movie' Battles 'Backrooms' for No. 1 With $45 Million-Plus Debut, 'Masters of the Universe' Targets $33 Million Start",
+    "href": "https://variety.com/2026/film/box-office/scary-movie-box-office-scary-opening-weekend-masters-of-the-universe-1236764859"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Box Office: 'Scary Movie' Makes $7.7 Million in Previews, 'Masters of the Universe' at $4.4 million",
+    "href": "https://variety.com/2026/film/box-office/box-office-scary-movie-masters-of-universe-1236767709"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0427340"
  },
  "matilda": {
   "videos": [
@@ -7326,6 +7603,106 @@
   "cinemaRelease": true,
   "imdb": "tt32093575"
  },
+ "scream-7": {
+  "videos": [
+   {
+    "id": "UJrghaPJ0RY",
+    "kind": "Official trailer",
+    "title": "Scream 7 | Official Trailer (2026 Movie) – Neve Campbell, Courteney Cox",
+    "channel": "Paramount Pictures"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Guardian",
+    "title": "Scream 7 review – nostalgic slasher sequel settles for solid over seminal",
+    "href": "https://www.theguardian.com/film/2026/feb/26/scream-7-review-neve-campbell",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "Scream 7 Review: Franchise Goes Back to Basics in Competent, Uninspired Sequel",
+    "href": "https://www.thewrap.com/creative-content/movies/scream-7-review-neve-campbell/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Scream 7 review: What's your favorite stupid movie?",
+    "href": "https://www.rogerebert.com/reviews/scream-7-neve-campbell-movie-review-2026",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Scream 7 Shouting To Mid $30Ms Opening At U.S. Box Office – Early Look",
+    "href": "https://deadline.com/2026/02/scream-7-box-office-projection-1236710167/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "Scream 7 To Yell $60M In Global Debut, Second-Best Start For 30-Year Old Horror Franchise – Box Office",
+    "href": "https://deadline.com/2026/02/scream-7-box-office-opening-1236734856/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt27047903"
+ },
+ "send-help": {
+  "videos": [
+   {
+    "id": "R4wiXj9NmEE",
+    "kind": "Official trailer",
+    "title": "Send Help | Official Trailer | In Theaters Jan 30",
+    "channel": "20th Century Studios"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "IndieWire",
+    "title": "'Send Help' Review: Sam Raimi Manages the Hell Out of Rachel McAdams' Best Comedy Since 'Mean Girls'",
+    "href": "https://www.indiewire.com/criticism/movies/send-help-review-rachel-mcadams-sam-raimi-1235175473/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "'Send Help' review: Rachel McAdams saves Sam Raimi's grisly 'Survivor' riff",
+    "href": "https://www.sfchronicle.com/entertainment/movies-tv/article/send-help-review-21311558.php",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Send Help' Review: Rachel McAdams and Dylan O'Brien Face Off in Sam Raimi's Rivetingly Bonkers Survival Thriller",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/send-help-review-rachel-mcadams-dylan-obrien-sam-raimi-1236481704/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "'Send Help' Review: Rachel McAdams Turns The Tables on Boss Dylan O'Brien in Sam Raimi's Delicious Genre-Bending Dark Comic Thriller",
+    "href": "https://deadline.com/2026/01/send-help-review-rachel-mcadams-dylan-obrien-sam-raimi-1236696378/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "'Send Help': Rachel McAdams Shines in Sam Raimi's Gritty Tale of Survival and Power Dynamics",
+    "href": "https://www.thewrap.com/creative-content/reviews/send-help-review-sam-raimi-rachel-mcadams-dylan-obrien/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Box Office: Sam Raimi's 'Send Help' Targets $15 Million Debut, 'Melania' Doc Aims for $3 Million Against $40 Million Price Tag",
+    "href": "https://variety.com/2026/film/box-office/send-help-melania-doc-box-office-opening-weekend-projections-1236643287/"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Box Office: Sam Raimi's 'Send Help' Makes $2.2 Million in Previews",
+    "href": "https://variety.com/2026/film/box-office/box-office-send-help-previews-1236645810/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt8036976"
+ },
  "seriously-single": {
   "videos": [],
   "reviews": [
@@ -8416,6 +8793,62 @@
   "cinemaRelease": true,
   "imdb": "tt33612209"
  },
+ "the-drama": {
+  "videos": [
+   {
+    "id": "6zmKcUa4Xxk",
+    "kind": "Official trailer",
+    "title": "The Drama | Official Trailer HD | A24",
+    "channel": "A24"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "The Drama Review: Zendaya and Robert Pattinson Are Amazing, but the Film's Dark Secret Is Almost Too Unsettling",
+    "href": "https://www.thewrap.com/creative-content/reviews/the-drama-review-zendaya-robert-pattinson/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "Review: Zendaya commands The Drama, a provocative film built to spark debate",
+    "href": "https://www.sfchronicle.com/entertainment/movies-tv/article/zendaya-the-drama-review-22095188.php",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "BFI",
+    "title": "The Drama review: to have and to scold",
+    "href": "https://www.bfi.org.uk/sight-and-sound/reviews/drama-slyly-funny-psychological-drama-neat-rom-com-disguise",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Awards Radar",
+    "title": "Film Review: The Drama Has a Game Zendaya and Robert Pattinson But Can't Sustain the Comedic Momentum",
+    "href": "https://awardsradar.com/2026/03/31/film-review-the-drama-has-a-game-zendaya-and-robert-pattinson-but-cant-sustain-the-comedic-momentum/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "‘The Drama’ Review: Complications Arise For Zendaya’s And Robert Pattinson’s Perfect Wedding In Kristoffer Borgli’s Smart And Tart Anti-Romcom",
+    "href": "https://deadline.com/2026/03/the-drama-review-zendaya-robert-pattinson-wedding-problems-1236769484/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Super Mario Galaxy Movie Dashing to $188M+ 5-Day; Zendaya & Robert Pattinson's The Drama Eyes $13M – Box Office Update",
+    "href": "https://deadline.com/2026/04/box-office-super-mario-galaxy-movie-1236771415"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Box Office: Super Mario Galaxy Movie Scores $68 Million in Second Weekend, 'You, Me and Tuscany' Opens to $8 Million",
+    "href": "https://variety.com/2026/film/box-office/box-office-super-mario-galaxy-movie-scores-second-weekend-you-me-tuscany-opening-1236719765/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt33071426"
+ },
  "the-emperor-jones": {
   "videos": [],
   "reviews": [],
@@ -9193,6 +9626,50 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt0049730"
+ },
+ "the-sheep-detectives": {
+  "videos": [
+   {
+    "id": "826SRt1CFbg",
+    "kind": "Official trailer",
+    "title": "The Sheep Detectives | Official Trailer 2",
+    "channel": "Amazon MGM Studios"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Globe and Mail",
+    "title": "What's the verdict on The Sheep Detectives? Not baaaad at all",
+    "href": "https://www.theglobeandmail.com/culture/film-and-tv/film/article-the-sheep-detectives-film-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "The Sheep Detectives review: Baa-rmy murder-mystery is tonally confused, but a yarn worth telling",
+    "href": "https://www.empireonline.com/movies/reviews/the-sheep-detectives/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'The Sheep Detectives' Review: Wholesomely Offbeat Family Comedy Has Bags Full of Charm",
+    "href": "https://variety.com/2026/film/reviews/the-sheep-detectives-review-1236731034/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Box Office: 'Mortal Kombat II' Aims for $40 Million-Plus Debut, Battles 'Devil Wears Prada 2' for No. 1",
+    "href": "https://variety.com/2026/film/box-office/box-office-mortal-kombat-2-opening-weekend-projections-devil-wears-prada-2-1236738575/"
+   },
+   {
+    "outlet": "The Atlantic",
+    "title": "The Private Eyes That Made Me Cry",
+    "href": "https://www.theatlantic.com/culture/2026/05/the-sheep-detectives-movie-review/687273/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt32565993"
  },
  "the-shop-around-the-corner": {
   "videos": [

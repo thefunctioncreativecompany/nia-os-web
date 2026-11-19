@@ -557,6 +557,10 @@
   "bright-airy"
  ],
  "brokeback-mountain": [],
+ "buddy": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "bugonia": [
   "vivid-colour",
   "warm-palette"
@@ -575,6 +579,9 @@
  "carmen-jones": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "carrie": [
+  "vivid-colour"
  ],
  "casablanca": [
   "black-and-white"
@@ -631,6 +638,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "crystal-lake": [
+  "warm-palette",
+  "low-key"
+ ],
  "dahomey": [
   "vivid-colour",
   "warm-palette",
@@ -682,6 +693,11 @@
  "eternal-sunshine-of-the-spotless-mind": [
   "cool-palette"
  ],
+ "evil-dead-burn": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "eyimofe": [
   "warm-palette",
   "low-key"
@@ -710,6 +726,7 @@
   "warm-palette",
   "bright-airy"
  ],
+ "forgotten-island": [],
  "four-daughters": [
   "vivid-colour",
   "cool-palette",
@@ -906,6 +923,9 @@
   "warm-palette",
   "bright-airy"
  ],
+ "jailer-2": [
+  "low-key"
+ ],
  "jaws": [
   "cool-palette"
  ],
@@ -946,6 +966,9 @@
   "warm-palette",
   "low-key"
  ],
+ "lanterns": [
+  "warm-palette"
+ ],
  "laura": [
   "black-and-white"
  ],
@@ -953,6 +976,11 @@
   "muted-colour",
   "warm-palette",
   "bright-airy"
+ ],
+ "lee-cronins-the-mummy": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "lie-to-me": [],
  "life-of-pi": [
@@ -1007,6 +1035,7 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "masters-of-the-universe": [],
  "matilda": [
   "vivid-colour",
   "warm-palette"
@@ -1058,6 +1087,9 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "mutiny": [
+  "muted-colour"
+ ],
  "nanny-mcphee": [
   "vivid-colour",
   "cool-palette"
@@ -1092,6 +1124,7 @@
  "obsession": [
   "low-key"
  ],
+ "off-campus": [],
  "on-becoming-a-guinea-fowl": [
   "vivid-colour",
   "warm-palette"
@@ -1160,6 +1193,9 @@
  "predator": [
   "warm-palette",
   "low-key"
+ ],
+ "primetime": [
+  "cool-palette"
  ],
  "prison-break": [
   "muted-colour"
@@ -1249,6 +1285,16 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "scream-7": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "send-help": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "seriously-single": [
   "vivid-colour",
   "warm-palette"
@@ -1266,6 +1312,9 @@
   "vivid-colour",
   "warm-palette",
   "low-key"
+ ],
+ "shelter": [
+  "warm-palette"
  ],
  "shutter-island": [
   "vivid-colour",
@@ -1406,6 +1455,10 @@
  "the-burial-of-kojo": [
   "cool-palette"
  ],
+ "the-cat-in-the-hat": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "the-curious-case-of-benjamin-button": [
   "vivid-colour",
   "warm-palette"
@@ -1424,6 +1477,10 @@
  ],
  "the-devil-wears-prada-2": [
   "muted-colour",
+  "warm-palette"
+ ],
+ "the-dog-stars": [],
+ "the-drama": [
   "warm-palette"
  ],
  "the-emperor-jones": [
@@ -1573,6 +1630,10 @@
   "warm-palette",
   "low-key"
  ],
+ "the-sheep-detectives": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "the-shop-around-the-corner": [
   "black-and-white",
   "bright-airy"
@@ -1686,6 +1747,10 @@
  ],
  "wildwood": [
   "cool-palette"
+ ],
+ "wuthering-heights": [
+  "vivid-colour",
+  "low-key"
  ],
  "x-men": [
   "muted-colour"

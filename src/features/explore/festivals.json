@@ -34,6 +34,22 @@
    ]
   },
   {
+   "id": "tiff",
+   "name": "Toronto International Film Festival",
+   "logo": true,
+   "slugs": [
+    "sew-the-winter-to-my-skin",
+    "five-fingers-for-marseilles",
+    "saloum",
+    "carrie",
+    "la-bola-negra",
+    "tenzing",
+    "wild-horse-nine",
+    "hope",
+    "obsession"
+   ]
+  },
+  {
    "id": "berlinale",
    "name": "Berlin International Film Festival",
    "logo": true,
@@ -46,21 +62,6 @@
     "jerusalema",
     "ancestral-visions-of-the-future",
     "12-angry-men"
-   ]
-  },
-  {
-   "id": "tiff",
-   "name": "Toronto International Film Festival",
-   "logo": true,
-   "slugs": [
-    "sew-the-winter-to-my-skin",
-    "five-fingers-for-marseilles",
-    "saloum",
-    "la-bola-negra",
-    "tenzing",
-    "wild-horse-nine",
-    "hope",
-    "obsession"
    ]
   },
   {

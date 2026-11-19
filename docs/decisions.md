@@ -1238,3 +1238,8 @@ onboarding's Import profile and Follow creators describe features removed in the
   Starting a project for a meeting lives in Home's Meeting picker (built by another session the same
   day), not a second way in from the + menu (one way to do each thing). A just-added meeting opens on
   its notes while suggestions are off.
+- (2026-11-19) Best of 2026, batch 6: Masters of the Universe, The Drama, Lee Cronin's The Mummy,
+  Forgotten Island, Scream 7, The Sheep Detectives, Send Help, Lanterns, Carrie, Jailer 2; 50 of
+  100 live. Press kits corrected by hand (an opinion piece, streaming news, a soundtrack list and
+  box-office reports taken out of reviews); The Mummy and Lanterns filled from edited
+  publications. check-trailers.mjs reads quotes inside titles ("Wuthering Heights").

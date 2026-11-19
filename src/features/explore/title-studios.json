@@ -2057,5 +2057,55 @@
  "wildwood": {
   "studios": [],
   "tmdb": "movie/791523"
+ },
+ "masters-of-the-universe": {
+  "studios": [],
+  "tmdb": "movie/454639"
+ },
+ "the-drama": {
+  "studios": [
+   "a24"
+  ],
+  "tmdb": "movie/1325734"
+ },
+ "lee-cronins-the-mummy": {
+  "studios": [
+   "new-line"
+  ],
+  "tmdb": "movie/1304313"
+ },
+ "forgotten-island": {
+  "studios": [],
+  "tmdb": "movie/1465063"
+ },
+ "scream-7": {
+  "studios": [
+   "paramount"
+  ],
+  "tmdb": "movie/1159559"
+ },
+ "the-sheep-detectives": {
+  "studios": [
+   "working-title"
+  ],
+  "tmdb": "movie/1301421"
+ },
+ "send-help": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/1198994"
+ },
+ "lanterns": {
+  "studios": [],
+  "tmdb": "tv/95350"
+ },
+ "carrie": {
+  "studios": [],
+  "tmdb": "tv/288673"
+ },
+ "jailer-2": {
+  "studios": [],
+  "tmdb": "movie/1234139"
  }
 }
