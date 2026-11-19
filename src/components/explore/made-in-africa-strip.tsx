@@ -3,8 +3,8 @@ import { ViewAll } from "@/components/nia/view-all";
 import { ROW_MAX } from "@/lib/rows";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { shuffled } from "@/lib/shuffle";
-import { MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, madeInAfrica, titleHref } from "@/features/explore/made-in-africa";
-import { ROW_SIZES } from "./row-cell";
+import { MADE_IN_AFRICA, MADE_IN_AFRICA_HREF, madeInAfrica } from "@/features/explore/made-in-africa";
+import { exploreItem } from "@/features/explore/items";
 import { TrailerCell } from "./trailer-cell";
 import { TmdbCredit } from "./tmdb-credit";
 
@@ -37,7 +37,7 @@ export function MadeInAfricaStrip({ seed, bare = false }: { seed: number; bare?:
       )}
       <ScrollRow label={MADE_IN_AFRICA.name}>
         {shuffled(madeInAfrica, seed).slice(0, SHOWN).map((e) => (
-          <TrailerCell key={e.title.slug} entry={e} href={titleHref(e.title.slug)} sizes={ROW_SIZES} />
+          <TrailerCell key={e.title.slug} item={exploreItem(e.title.slug)!} />
         ))}
       </ScrollRow>
     </section>

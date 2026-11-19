@@ -38,7 +38,10 @@ keep their flow, and their visual interest comes from the user's own work.
   with sound where the browser allows it, else muted. Moving to the next card hands over (one
   shrinks as the other grows, so nothing under the pointer moves); leaving the row closes it;
   near the right edge it grows to the left. Best of 2026 and the category rows
-  (`trailer-cell.tsx`). Desktop only; off under reduced motion and a data saver.
+  (`trailer-cell.tsx`). Desktop only; off under reduced motion and a data saver. Since
+  2026-11-19 on every row of titles on Explore (Top 10, Creators' films on YouTube too); the
+  rank and the film-type label hide while it plays. Sound: browsers only allow it after a click
+  on the page (Chrome); Safari keeps it muted unless the site is allowed to auto-play.
 - **VE3. Calm visuals in the flow screens.** Not started; need Figma: the project's cover as a
   soft backdrop behind the project page's title, template cards showing the document itself.
 

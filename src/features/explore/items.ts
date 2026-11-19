@@ -5,7 +5,8 @@ import { findEntry, metaLine, titleCover, titleHref } from "./made-in-africa";
 import { rankForProject, type ProjectSignals, type Taste } from "./match";
 import { getFilm } from "@/components/explore/explore-data";
 import { filmHref, getFilmDetails } from "@/components/explore/film-details";
-import { creatorFilms, creatorHref, creatorImage, creatorYear, findCreatorFilm, leadCredit } from "./creators";
+import { creatorFilms, creatorHref, creatorImage, creatorYear, findCreatorFilm, leadCredit, onYouTube } from "./creators";
+import { primaryVideo } from "@/lib/explore";
 
 export type ExploreItem = {
   slug: string;
@@ -75,6 +76,20 @@ export function exploreItem(slug: string): ExploreItem | null {
     aspect: film.aspect,
     href: (from) => creatorHref(film, from),
   };
+}
+
+/** The YouTube video an item's card plays on hover in Explore's rows (trailer-cell.tsx): a title's
+ * main trailer, a press-kit film's official video, a creator's film when it's on YouTube. Films on
+ * Instagram have none (Instagram's player can't be started and stopped from the page). */
+export function hoverVideoId(slug: string): string | null {
+  if (slug.startsWith("film-")) return getFilmDetails(slug.slice(5))?.video?.id ?? null;
+  const entry = findEntry(slug);
+  if (entry) {
+    const video = primaryVideo(entry.title.videos);
+    return video?.provider === "youtube" ? video.video_id : null;
+  }
+  const film = findCreatorFilm(slug);
+  return film && onYouTube(film) ? film.code : null;
 }
 
 export const creatorItems = (): ExploreItem[] => creatorFilms.map((f) => exploreItem(f.slug)!);

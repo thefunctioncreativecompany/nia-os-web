@@ -71,6 +71,7 @@ export function ExploreCard({
   first = false,
   actions,
   note,
+  media,
 }: {
   item: ExploreItem;
   href: string;
@@ -79,6 +80,8 @@ export function ExploreCard({
   actions?: React.ReactNode;
   /** A short line under the credit: why it was suggested. */
   note?: string;
+  /** As TitleCard's `media` (the hover trailer). */
+  media?: React.ReactNode;
 }) {
   return (
     <PosterCard
@@ -94,6 +97,7 @@ export function ExploreCard({
       sizes={sizes}
       first={first}
       actions={actions}
+      media={media}
     />
   );
 }
@@ -157,7 +161,7 @@ function PosterCard({
           </span>
         )}
         {media}
-        {badge && <span className="absolute top-2.5 left-2.5 rounded-full bg-card/90 px-2.5 py-1 text-micro font-semibold text-foreground">{sentenceCase(badge)}</span>}
+        {badge && <span className="absolute top-2.5 left-2.5 rounded-full transition-opacity duration-fast [[data-open]_&]:opacity-0 bg-card/90 px-2.5 py-1 text-micro font-semibold text-foreground">{sentenceCase(badge)}</span>}
       </span>
       <span className="truncate text-lead font-semibold">{title}</span>
       <span className="-mt-1.5 truncate text-small text-muted-foreground">{credit}</span>

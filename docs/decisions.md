@@ -1168,3 +1168,22 @@ onboarding's Import profile and Follow creators describe features removed in the
   Loads on first use. A tag under Production notes now opens these results across all of Explore
   (Alvin, FB7), so the View all pages' `?tag=` handling was removed. Files:
   `src/features/explore/search{,-data}.ts`, `src/components/explore/explore-search.tsx`.
+- (2026-11-19) Hover trailers on every row of titles on Explore (Ika: "add same animation to other
+  titles on explore home"): Top 10 and Creators as well as Best of 2026 and the categories, through
+  one `TrailerCell` for any Explore item (`hoverVideoId` in items.ts: a title's main trailer, a
+  press-kit film's official video, a creator's film on YouTube; Instagram films and portrait films
+  don't play, the latter being narrower than YouTube's 200px). A landscape card plays at its own
+  shape; a poster opens to 16:9. The Top 10 rank and the "Short film" label hide while it plays
+  (nothing may cover YouTube's player). Sound (Ika: "why are the trailers not playing with sound"):
+  browsers allow sound only after the person has clicked on the page; hovering never counts.
+  Chrome then plays it with sound; Safari blocks sound in an embedded player unless the site is
+  set to "Allow All Auto-Play" (Safari › Settings for This Website), so there it stays muted.
+  The player is now asked to report back until it answers (it could miss the first request, so
+  the sound was never turned on), and the captions YouTube adds to a muted start are removed once
+  the sound is on.
+- (2026-11-19) Security: Next.js 16.4.2 → 16.4.6 (GHSA-mfr8-8qww-v76h, GHSA-vc7v-qv4w-wrv8:
+  "use cache" results could leak across root params; moderate) with eslint-config-next to match,
+  and `npm audit fix` without --force: shadcn's CLI moved to its newer MCP packages (body-parser's
+  denial of service gone with express) and vitest 3.2.7. Still open, dev tools only: vitest/tinypool
+  (critical, fixed only in vitest 4, a major upgrade) and five moderate ones. None are in the
+  live site. 187 tests pass.

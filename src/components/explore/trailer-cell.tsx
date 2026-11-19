@@ -1,23 +1,26 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import { primaryVideo } from "@/lib/explore";
+import type { Video } from "@/lib/explore";
 import { servedSized } from "@/lib/served-sized";
-import { wideCoverFor, type Entry } from "@/features/explore/made-in-africa";
-import { ROW_CELL } from "./row-cell";
-import { TitleCard, entrySpan } from "./title-card";
+import { wideCoverFor } from "@/features/explore/made-in-africa";
+import { hoverVideoId, type ExploreItem } from "@/features/explore/items";
+import { ROW_CELL, ROW_SIZES } from "./row-cell";
+import { ExploreCard, cardSpan } from "./title-card";
 import { VideoThumbnail } from "./video-thumbnail";
 
-// A title in an Explore row whose trailer plays when the pointer rests on it (Ika, 2026-11-19).
-// Opening: the poster's cell widens to a 16:9 frame at the same height while the covers beside it
+// A card in an Explore row whose trailer plays when the pointer rests on it (Ika, 2026-11-19; every
+// row of titles on Explore since the same day). Opening: a poster's cell widens to a 16:9 frame at the same height while the covers beside it
 // slide aside, the trailer's own still fading in over the poster like a curtain drawn open; then
 // YouTube's player fades in and plays, with sound where the browser allows it (it starts muted,
 // which every browser allows, then turns the sound on; if the browser refuses, it stays muted).
 // Closing: the player fades out, the frame narrows back and the poster returns. Only one is open
-// at a time. Near the row's right edge it grows to the left instead, so it stays in view. Desktop
+// at a time. Near the row's right edge it grows to the left instead, so it stays in view. A
+// landscape card (a trailer still, a creator's film) plays in place at its own shape; portrait
+// films don't play (narrower than YouTube's 200px minimum), nor do films on Instagram. Desktop
 // pointers only; never under reduced motion or a data saver. YouTube's rules (Required Minimum
 // Functionality): playback starts only once the player shows, one player at a time, nothing drawn
 // over it, at least 200 × 200 (a desktop row card opens to about 620 × 350).
@@ -59,12 +62,29 @@ function command(frame: HTMLIFrameElement | null, func: string, args: unknown[] 
   frame?.contentWindow?.postMessage(JSON.stringify({ event: "command", func, args }), "*");
 }
 
-export function TrailerCell({ entry, href, sizes }: { entry: Entry; href: string; sizes: string }) {
-  const video = primaryVideo(entry.title.videos);
-  const id = video?.provider === "youtube" ? video.video_id : null;
-  const slug = entry.title.slug;
-  const base = Number((entrySpan(entry) as Record<string, number> | undefined)?.["--span"] ?? 1);
+export function TrailerCell({
+  item,
+  first = false,
+  className,
+  before,
+  children,
+}: {
+  item: ExploreItem;
+  first?: boolean;
+  className?: string;
+  /** Read before the card (the Top 10's "Number 1:"). */
+  before?: ReactNode;
+  /** Drawn over the card (the Top 10's rank); hide it under `[[data-open]_&]` while the trailer
+   * shows, since nothing may cover YouTube's player. */
+  children?: ReactNode;
+}) {
+  const slug = item.slug;
+  const base = item.aspect ? item.aspect / POSTER : 1;
+  // A poster opens out to 16:9; a landscape card plays at its own shape; a portrait one doesn't.
+  const target = item.aspect ? base : WIDE;
+  const id = !item.aspect || item.aspect >= 1 ? hoverVideoId(slug) : null;
   const still = wideCoverFor(slug);
+  const thumb: Video | null = id ? { provider: "youtube", video_id: id, kind: "trailer", label: null, channel: null, is_official: true, is_primary: true, season_id: null } : null;
 
   const cell = useRef<HTMLLIElement>(null);
   const frame = useRef<HTMLIFrameElement>(null);
@@ -112,7 +132,7 @@ export function TrailerCell({ entry, href, sizes }: { entry: Entry; href: string
       isOpen = true;
       window.dispatchEvent(new CustomEvent(OPENED, { detail: { slug, row } }));
       const height = li.querySelector<HTMLElement>("[data-frame]")?.offsetHeight ?? 0;
-      const width = Math.round((height * 16) / 9);
+      const width = Math.round(height * POSTER * target);
       right = !handOff && li.getBoundingClientRect().left + width > row.getBoundingClientRect().right - 8;
       li.dataset.open = "";
       setBox({ width, right });
@@ -122,7 +142,7 @@ export function TrailerCell({ entry, href, sizes }: { entry: Entry; href: string
         if (right) track();
       });
       window.clearTimeout(stage);
-      stage = window.setTimeout(() => setPlayer("loading"), base >= WIDE ? 200 : OPEN_MS);
+      stage = window.setTimeout(() => setPlayer("loading"), target === base ? 200 : OPEN_MS);
       document.addEventListener("pointermove", outside);
     };
 
@@ -186,15 +206,24 @@ export function TrailerCell({ entry, href, sizes }: { entry: Entry; href: string
       window.clearTimeout(stage);
       cancelAnimationFrame(follow);
     };
-  }, [id, slug, base]);
+  }, [id, slug, target, base]);
 
   // YouTube's player reports its state once it's listened to: turn the sound on as it starts
   // (back to muted if the browser pauses it for that), and close when the trailer ends.
   useEffect(() => {
     if (player === "off") return;
     let unmutedAt = 0;
+    // The player only reports once it has heard "listening", and can miss a word sent while it's
+    // still starting: keep saying it until it answers (as YouTube's own iframe API does).
+    let heard = false;
+    let tries = 0;
+    const listen = window.setInterval(() => {
+      if (heard || ++tries > 40) return window.clearInterval(listen);
+      frame.current?.contentWindow?.postMessage(JSON.stringify({ event: "listening", id: slug, channel: "widget" }), "*");
+    }, 250);
     const onMessage = (e: MessageEvent) => {
       if (e.source !== frame.current?.contentWindow || typeof e.data !== "string") return;
+      heard = true;
       let state: number | undefined;
       try {
         const data = JSON.parse(e.data) as { event?: string; info?: number | { playerState?: number } | null };
@@ -206,6 +235,9 @@ export function TrailerCell({ entry, href, sizes }: { entry: Entry; href: string
         unmutedAt = performance.now();
         command(frame.current, "unMute");
         command(frame.current, "setVolume", [100]);
+        // YouTube turns captions on for a video that starts muted; with the sound on they aren't needed.
+        command(frame.current, "unloadModule", ["captions"]);
+        command(frame.current, "unloadModule", ["cc"]);
       } else if (state === 2 && unmutedAt && performance.now() - unmutedAt < 1500) {
         command(frame.current, "mute");
         command(frame.current, "playVideo");
@@ -214,8 +246,13 @@ export function TrailerCell({ entry, href, sizes }: { entry: Entry; href: string
       }
     };
     window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
-  }, [player]);
+    return () => {
+      window.clearInterval(listen);
+      window.removeEventListener("message", onMessage);
+    };
+    // Once per player: "loading" → "shown" mustn't start over.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [player === "off", slug]);
 
   const media =
     id && box ? (
@@ -228,13 +265,13 @@ export function TrailerCell({ entry, href, sizes }: { entry: Entry; href: string
         {still ? (
           <Image src={still.image} unoptimized={servedSized(still.image)} alt="" fill sizes={`${box.width}px`} className="object-cover" />
         ) : (
-          video && <VideoThumbnail key={id} video={video} sizes={`${box.width}px`} />
+          thumb && <VideoThumbnail key={id} video={thumb} sizes={`${box.width}px`} />
         )}
         {player !== "off" && (
           <iframe
             ref={frame}
-            title={`${entry.title.title}, trailer`}
-            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`}
+            title={`${item.title}, trailer`}
+            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&disablekb=1&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`}
             allow="autoplay; encrypted-media"
             tabIndex={-1}
             onLoad={() => {
@@ -249,8 +286,14 @@ export function TrailerCell({ entry, href, sizes }: { entry: Entry; href: string
     ) : null;
 
   return (
-    <li ref={cell} className={cn(ROW_CELL, "duration-lift ease-glide [transition-property:--span]")} style={{ "--span": open ? Math.max(base, WIDE) : base } as CSSProperties}>
-      <TitleCard entry={entry} href={href} sizes={sizes} media={media} />
+    <li
+      ref={cell}
+      className={cn(ROW_CELL, "duration-lift ease-glide [transition-property:--span]", className)}
+      style={(id ? { "--span": open ? target : base } : cardSpan(item)) as CSSProperties}
+    >
+      {before}
+      <ExploreCard item={item} href={item.href()} sizes={ROW_SIZES} first={first} media={id ? media : undefined} />
+      {children}
     </li>
   );
 }

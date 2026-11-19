@@ -6,8 +6,7 @@ import { ScrollRow } from "@/components/nia/scroll-row";
 import { shuffled } from "@/lib/shuffle";
 import { CREATORS, CREATORS_HREF } from "@/features/explore/creators";
 import { creatorItems } from "@/features/explore/items";
-import { ROW_CELL, ROW_SIZES } from "./row-cell";
-import { ExploreCard, cardSpan } from "./title-card";
+import { TrailerCell } from "./trailer-cell";
 
 // Creators on Explore (Ika, 2026-10-21): commercials, fashion films, music videos and shorts by
 // independent creators and studios, in one still row under By category (after Made in Africa, Ika
@@ -36,9 +35,7 @@ export function CreatorsStrip({ seed, bare = false }: { seed: number; bare?: boo
       )}
       <ScrollRow label={CREATORS.name}>
         {shuffled(creatorItems(), seed).slice(0, ROW_MAX).map((item) => (
-          <li key={item.slug} className={ROW_CELL} style={cardSpan(item)}>
-            <ExploreCard item={item} href={item.href()} sizes={ROW_SIZES} />
-          </li>
+          <TrailerCell key={item.slug} item={item} />
         ))}
       </ScrollRow>
     </section>

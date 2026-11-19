@@ -1,7 +1,7 @@
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { ROW_MAX, spread } from "@/lib/rows";
-import { RANKED, categoryViews, titleHref, type CategoryKey } from "@/features/explore/made-in-africa";
-import { ROW_SIZES } from "./row-cell";
+import { RANKED, categoryViews, type CategoryKey } from "@/features/explore/made-in-africa";
+import { exploreItem } from "@/features/explore/items";
 import { TrailerCell } from "./trailer-cell";
 
 // A category's row under By category on Explore (Hollywood Classics since 2026-10-29, Greatest TV
@@ -14,7 +14,7 @@ export function CategoryStrip({ category }: { category: CategoryKey }) {
     <section aria-label={view.name}>
       <ScrollRow label={view.name}>
         {(RANKED.includes(category) ? view.entries.slice(0, ROW_MAX) : spread(view.entries)).map((e) => (
-          <TrailerCell key={e.title.slug} entry={e} href={titleHref(e.title.slug)} sizes={ROW_SIZES} />
+          <TrailerCell key={e.title.slug} item={exploreItem(e.title.slug)!} />
         ))}
       </ScrollRow>
     </section>

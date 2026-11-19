@@ -4,8 +4,7 @@ import { use } from "react";
 
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { exploreItem } from "@/features/explore/items";
-import { ROW_CELL, ROW_SIZES } from "./row-cell";
-import { ExploreCard, cardSpan } from "./title-card";
+import { TrailerCell } from "./trailer-cell";
 
 // Top 10 on Explore (Ika, 2026-10-31; src/features/explore/top.ts): what people on Nia open, save
 // and add to projects most, ranked again on every visit. Laid out like the Top 10 press kits (Ika,
@@ -20,17 +19,12 @@ export function TopTen({ top }: { top: Promise<string[]> }) {
   return (
     <ScrollRow label="Top 10 on Explore">
       {items.map((item, i) => (
-        <li
-          key={item.slug}
-          className={`relative ${ROW_CELL}`}
-          style={cardSpan(item)}
-        >
-          <span className="sr-only">Number {i + 1}:</span>
-          <ExploreCard item={item} href={item.href()} sizes={ROW_SIZES} first={i < 5} />
-          <span aria-hidden className="pointer-events-none absolute top-1.5 right-3 text-rank font-bold text-white drop-shadow-md">
+        <TrailerCell key={item.slug} item={item} first={i < 5} className="relative" before={<span className="sr-only">Number {i + 1}:</span>}>
+          {/* Hidden while the trailer plays: nothing may cover YouTube's player. */}
+          <span aria-hidden className="pointer-events-none absolute top-1.5 right-3 text-rank font-bold text-white drop-shadow-md transition-opacity duration-fast [[data-open]_&]:opacity-0">
             {i + 1}
           </span>
-        </li>
+        </TrailerCell>
       ))}
     </ScrollRow>
   );
