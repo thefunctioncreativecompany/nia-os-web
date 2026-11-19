@@ -1123,3 +1123,10 @@ onboarding's Import profile and Follow creators describe features removed in the
   shown before booking ("Book anyway"), not reported after. Changes made later in Google Calendar aren't
   followed yet. Built from existing parts (dialog, date and time fields, multi-select, recipient
   input); not in Figma yet.
+- (2026-11-18) Portfolios show only the workspace's own work (platform audit, PA1–PA3 in
+  FEEDBACK.md; Ika: "go"). A project goes on a portfolio only if it's in the portfolio's workspace,
+  and the cover comes only from that work; being shared on someone else's project (even as Can
+  edit) isn't enough, since publishing makes it public. Enforced in the database
+  (`20261123000000_portfolios_own_work.sql`) and again on the public page and its link preview
+  (`src/features/portfolios/data.ts`), which also show only portfolios made by someone on
+  `PORTFOLIOS_BETA_EMAILS` while Portfolios is in beta.

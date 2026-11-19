@@ -21,8 +21,32 @@ export async function canUsePortfolios() {
   if (!features.portfoliosBeta) return false;
   await connection();
   const { user } = await getSession();
+  return inBeta(user?.email);
+}
+
+const inBeta = (email: string | null | undefined) => {
   const allowed = (process.env.PORTFOLIOS_BETA_EMAILS ?? "").split(",").map((e) => e.trim().toLowerCase()).filter(Boolean);
-  return Boolean(user?.email && allowed.includes(user.email.toLowerCase()));
+  return Boolean(email && allowed.includes(email.toLowerCase()));
+};
+
+// The database lets anyone signed in make a portfolio, so the public page checks that whoever made
+// it is in the beta (platform audit 2026-11-18, PA3). Goes when Portfolios opens to everyone.
+async function madeInBeta(admin: SupabaseClient, ownerId: string) {
+  if (!features.portfoliosBeta) return false;
+  const { data } = await admin.auth.admin.getUserById(ownerId);
+  return inBeta(data.user?.email);
+}
+
+// A portfolio's projects that belong to its own workspace, in its order (PA1: never another
+// team's work, even if a link to one was added before 20261123000000_portfolios_own_work.sql).
+async function ownProjects(admin: SupabaseClient, portfolioId: string, workspaceId: string) {
+  const { data: links } = await admin.from("portfolio_projects").select("project_id, position").eq("portfolio_id", portfolioId).order("position");
+  const ids = ((links ?? []) as { project_id: string }[]).map((l) => l.project_id);
+  const { data: projects } = ids.length
+    ? await admin.from("projects").select("id, title").in("id", ids).eq("workspace_id", workspaceId).is("deleted_at", null)
+    : { data: [] };
+  const byId = new Map(((projects ?? []) as { id: string; title: string }[]).map((p) => [p.id, p]));
+  return ids.flatMap((id) => byId.get(id) ?? []);
 }
 
 type FileRow = { id: string; project_id: string; name: string; path: string; kind: string; thumb_path: string | null; position?: number | null; created_at: string };
@@ -72,7 +96,8 @@ export async function loadEditor(id: string) {
   if (!row) return null;
   const [{ data: links }, { data: projects }] = await Promise.all([
     supabase.from("portfolio_projects").select("project_id, position").eq("portfolio_id", id).order("position"),
-    supabase.from("projects").select("id, title").is("deleted_at", null).order("updated_at", { ascending: false }),
+    // Only the portfolio's own workspace's projects (the database refuses others).
+    supabase.from("projects").select("id, title").eq("workspace_id", row.workspace_id).is("deleted_at", null).order("updated_at", { ascending: false }),
   ]);
   const all = (projects ?? []) as { id: string; title: string }[];
   const files = await finals(supabase, all.map((p) => p.id));
@@ -90,7 +115,7 @@ export async function loadPublic(slug: string) {
   const admin = createAdminClient();
   if (!admin) return null;
   const { data: row } = await admin.from("portfolios").select(PORTFOLIO_COLUMNS).eq("slug", slug).is("deleted_at", null).maybeSingle();
-  if (!row) return null;
+  if (!row || !(await madeInBeta(admin, row.owner_id))) return null;
   let preview = false;
   if (!row.published_at) {
     // Not published: only people in its workspace see it, as a preview.
@@ -100,16 +125,11 @@ export async function loadPublic(slug: string) {
     if (!mine) return null;
     preview = true;
   }
-  const { data: links } = await admin.from("portfolio_projects").select("project_id, position").eq("portfolio_id", row.id).order("position");
-  const ids = ((links ?? []) as { project_id: string }[]).map((l) => l.project_id);
-  const { data: projects } = ids.length ? await admin.from("projects").select("id, title").in("id", ids).is("deleted_at", null) : { data: [] };
-  const files = await finals(admin, ids);
+  const projects = await ownProjects(admin, row.id, row.workspace_id);
+  const files = await finals(admin, projects.map((p) => p.id));
   const coverFile = row.cover_file_id ? files.find((f) => f.id === row.cover_file_id) ?? null : null;
   const urls = await signed(files);
-  const byId = new Map(((projects ?? []) as { id: string; title: string }[]).map((p) => [p.id, p]));
-  const shown: PortfolioProject[] = ids
-    .map((pid) => byId.get(pid))
-    .filter((p): p is { id: string; title: string } => Boolean(p))
+  const shown: PortfolioProject[] = projects
     .map((p) => ({ id: p.id, title: p.title || "Untitled project", pieces: files.filter((f) => f.project_id === p.id).map((f) => piece(f, urls)) }))
     .filter((p) => p.pieces.length > 0);
   const cover = coverFile ? piece(coverFile, urls) : shown[0]?.pieces.find((x) => x.kind === "image") ?? null;
@@ -122,18 +142,16 @@ export async function publicPreview(slug: string) {
   const admin = createAdminClient();
   if (!admin) return null;
   const { data: row } = await admin.from("portfolios").select(PORTFOLIO_COLUMNS).eq("slug", slug).is("deleted_at", null).not("published_at", "is", null).maybeSingle();
-  if (!row) return null;
+  if (!row || !(await madeInBeta(admin, row.owner_id))) return null;
   const portfolio = portfolioFrom(row);
-  let file: FileRow | null = null;
-  if (portfolio.coverFileId) {
-    const { data } = await admin.from("project_files").select("*").eq("id", portfolio.coverFileId).is("deleted_at", null).maybeSingle();
-    file = (data as FileRow | null) ?? null;
-  }
-  if (!file) {
-    const { data: links } = await admin.from("portfolio_projects").select("project_id").eq("portfolio_id", portfolio.id).order("position");
-    const first = (await finals(admin, ((links ?? []) as { project_id: string }[]).map((l) => l.project_id))).find((f) => f.kind === "image");
-    file = first ?? null;
-  }
+  // The cover only from the work the page itself shows (PA2), as loadPublic does: the chosen
+  // cover, or else the first picture of the first project.
+  const projects = await ownProjects(admin, row.id, row.workspace_id);
+  const files = await finals(admin, projects.map((p) => p.id));
+  const file =
+    (portfolio.coverFileId ? files.find((f) => f.id === portfolio.coverFileId) : undefined) ??
+    projects.map((p) => files.find((f) => f.project_id === p.id && f.kind === "image")).find(Boolean) ??
+    null;
   const cover = file ? (await signed([file])).get(file.id) || null : null;
   return { title: portfolio.title, byline: portfolio.byline, cover, frame: portfolio.coverFrame };
 }
@@ -142,6 +160,8 @@ export async function publicPreview(slug: string) {
 export async function publicTitle(slug: string) {
   const admin = createAdminClient();
   if (!admin) return null;
-  const { data } = await admin.from("portfolios").select("title, byline").eq("slug", slug).is("deleted_at", null).not("published_at", "is", null).maybeSingle();
-  return (data as { title: string; byline: string } | null) ?? null;
+  const { data } = await admin.from("portfolios").select("title, byline, owner_id").eq("slug", slug).is("deleted_at", null).not("published_at", "is", null).maybeSingle();
+  const row = data as { title: string; byline: string; owner_id: string } | null;
+  if (!row || !(await madeInBeta(admin, row.owner_id))) return null;
+  return { title: row.title, byline: row.byline };
 }

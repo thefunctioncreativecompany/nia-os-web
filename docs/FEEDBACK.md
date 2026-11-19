@@ -112,6 +112,28 @@ an inspiration and study library, not distribution.
 
 ---
 
+## 0a. Logged 2026-11-18: platform audit (the code)
+
+Read-only pass over `src/` and `supabase/migrations/`: access rules, server actions, bugs, the
+CLAUDE.md rules, unused code and speed. The 2026-11-12 audit's open items (below) still stand and
+aren't repeated. Fine: TypeScript and lint clean, 168 tests pass; all 39 tables have access rules
+on, every behind-the-scenes database function is locked to Nia's own schema, and only the share
+link's functions open to signed-out visitors; the image routes, invite email and Instagram reader
+take only what they should; no `motion/react`, masonry, hex colours or stray `cn` imports; no
+database reads waiting on each other that could run together; global search loads on first use.
+
+| # | What | Status |
+|---|------|--------|
+| PA1 | **Portfolios can publish someone else's work.** Adding a project to a portfolio only asks "can they see it" (`20261114000000_portfolios.sql`, "Workspace members add portfolio projects"), so a person shared on a project as Can view can put it in their own portfolio, publish, and its final pictures and films appear on the public `/p/…` page (read with the admin key) | 🔄 2026-11-18: the public page and editor use only the portfolio's own workspace's projects; `20261123000000_portfolios_own_work.sql` (database rule) not yet in effect: on 2026-11-19 a Can view collaborator could still add the project (two test accounts); run it again. No portfolio had another team's work |
+| PA2 | **Portfolio link preview can show any project picture.** `cover_file_id` isn't checked against the portfolio's projects; the page itself checks (`loadPublic`), the preview picture doesn't (`publicPreview`, `src/features/portfolios/data.ts`) | 🔄 2026-11-18: the preview picks its cover from the page's own work; the same migration checks covers (not yet in effect, see PA1) |
+| PA3 | Portfolios beta list (`PORTFOLIOS_BETA_EMAILS`) is checked in the app only: any signed-in account can make and publish a portfolio straight through the database | ✅ 2026-11-18: the public page, its title and preview show only portfolios made by someone on the list |
+| PA4 | Meetings step 1 shows nothing on the live site until `20261120000000_meetings.sql` is run (the app copes without it) | ✅ run 2026-11-18 |
+| PA5 | Titles off the heading standard: template preview pop-up (`preview-modal.tsx:168`) and press kit pop-up (`press-kit-preview.tsx:85`) use `text-display`; Timeline's phone note uses `text-h3` (`timeline-locked.tsx:12`) | ⬜ |
+| PA6 | Navbar's desktop edge is 24px (`lg:px-6`, from NAVBAR_BUILD.md) and pages are 30px (`md:px-page`), so the logo and page content don't line up; the spec predates the 2026-11-12 page-edge rule | ⏸ Ika decides |
+| PA7 | Cast & crew profile with no email: the greyed-out Email button is blue; the working one is grey | ⬜ |
+| PA8 | Unused: `MarqueeColumns` and `ScrubFilmstrip` (`src/components/nia`, nothing imports them since 2026-10-23) and the package `@radix-ui/react-switch` (`radix-ui` covers it) | ⬜ delete (tag first) |
+| PA9 | Switches that are always on (`exploreUnlocked`, `previewPanel`, `portfoliosBeta` in `src/lib/features.ts`) keep their "off" code; CLAUDE.md still names `features.onboardingExtrasShown`, which is gone | ⬜ |
+
 ## 0. Logged 2026-11-12: UI/UX audit of the live site
 
 Headless Chrome, 47 views (desktop, phone, tablet, dark), test account 2. Screenshots stay local in
