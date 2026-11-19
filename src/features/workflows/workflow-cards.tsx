@@ -33,7 +33,7 @@ export function WorkflowCards({ templates, profession, headingId = "workflows", 
   const [starting, setStarting] = useState<Workflow | null>(null);
 
   return (
-    <section aria-labelledby={headingId} className={cn("flex flex-col gap-5", className)}>
+    <section aria-labelledby={headingId} className={cn("@container flex flex-col gap-5", className)}>
       <h2 id={headingId} className={headingClassName}>
         Workflows
       </h2>
@@ -44,7 +44,8 @@ export function WorkflowCards({ templates, profession, headingId = "workflows", 
           </FilterChip>
         ))}
       </ChipRow>
-      <ul className="grid gap-4 sm:grid-cols-3">
+      {/* Three across only when they fit beside a docked preview too (FB3): sized by the section, not the screen. */}
+      <ul className="grid gap-4 @xl:grid-cols-3">
         {WORKFLOWS.filter((w) => w.icp === icp).map((w) => {
           const steps = w.templates.flatMap((code) => templates.find((t) => t.code === code) ?? []);
           return (

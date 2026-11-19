@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Calendar, Camera, Check, Clipboard, Film, Search, Smartphone, Video, type LucideIcon } from "lucide-react";
+import { Aperture, Calendar, Camera, Check, Film, Search, Smartphone, Video, type LucideIcon } from "lucide-react";
 
 import { COMMON_PROFESSIONS, PROFESSION_SECTORS } from "@/lib/onboarding";
 import { createClient } from "@/lib/supabase/client";
@@ -12,15 +12,16 @@ import { useStepSubmit } from "@/components/onboarding/use-step-submit";
 const ICONS: Record<(typeof COMMON_PROFESSIONS)[number], LucideIcon> = {
   Producer: Calendar,
   Director: Video,
-  "Director of Photography": Camera,
-  "Editor (Film / Video)": Film,
+  Photographer: Camera,
   "Content Creator / Influencer": Smartphone,
-  "Production Assistant": Clipboard,
+  "Director of Photography": Aperture,
+  "Editor (Film / Video)": Film,
 };
 
 // Your profession (Fix 6): the most common roles as tiles, then every role by sector in a
 // scrollable list with a filter. One choice across both; it also tells "Suggested for you"
-// which templates to start with.
+// which templates to start with. Nothing is chosen until someone taps, and a chosen role is Nia
+// Blue with a tick, so it can't be mistaken for the grey a tile turns under the mouse (FB4).
 export function ProfessionForm({ userId, initial }: { userId: string; initial: string | null }) {
   const [profession, setProfession] = useState(initial);
   const [filter, setFilter] = useState("");
@@ -60,16 +61,16 @@ export function ProfessionForm({ userId, initial }: { userId: string; initial: s
                   onClick={() => setProfession(option)}
                   className={cn(
                     "flex min-h-14 min-w-0 items-center gap-2 rounded-lg border p-2.5 text-left outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50 sm:gap-3 sm:p-3",
-                    selected ? "border-primary bg-muted ring-1 ring-primary" : "border-border bg-card hover:bg-muted",
+                    selected ? "border-nia-blue bg-nia-blue/10 ring-1 ring-nia-blue" : "border-border bg-card hover:border-foreground/30",
                   )}
                 >
                   <span
                     className={cn(
                       "flex size-7 shrink-0 items-center justify-center rounded-full sm:size-8",
-                      selected ? "bg-primary text-primary-foreground" : "bg-border text-foreground",
+                      selected ? "bg-nia-blue text-nia-blue-foreground" : "bg-border text-foreground",
                     )}
                   >
-                    <Icon aria-hidden className="size-3.5 sm:size-4" />
+                    {selected ? <Check aria-hidden className="size-3.5 sm:size-4" /> : <Icon aria-hidden className="size-3.5 sm:size-4" />}
                   </span>
                   <span
                     className={cn(
@@ -119,7 +120,7 @@ export function ProfessionForm({ userId, initial }: { userId: string; initial: s
                         )}
                       >
                         {role}
-                        {selected && <Check aria-hidden className="size-4 shrink-0" />}
+                        {selected && <Check aria-hidden className="size-4 shrink-0 text-nia-blue" />}
                       </button>
                     );
                   })}

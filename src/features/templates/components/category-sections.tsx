@@ -67,8 +67,11 @@ export function CategorySections({
 
   if (!sections.length && !soon.length) return emptyNote ? <p className="px-4 pt-7 text-sm text-muted-foreground md:px-page">No templates here yet.</p> : null;
 
+  // Sized by its own width, not the screen's (container queries; FEEDBACK FB3, Alvin 2026-11-18): with the
+  // preview docked on the right, the list keeps about half the page, and the full table's fixed
+  // columns ran into each other. Narrow, a row is the phone one: icon, name, phase.
   return (
-    <div className={cn("flex flex-col gap-16 px-4 pt-12 md:px-page", className)}>
+    <div className={cn("@container flex flex-col gap-16 px-4 pt-12 md:px-page", className)}>
       {sections.map(({ group, items }) =>
         CAROUSELS.has(group) ? (
           <CarouselSection key={group} group={group} items={items} onPreview={onPreview} />
@@ -166,7 +169,7 @@ function TemplateList({ items, onPreview }: { items: GalleryTemplate[]; onPrevie
         </span>
       )}
       header={
-        <div aria-hidden className="flex gap-4.5 border-b border-border px-2 py-2.5 text-micro font-semibold text-muted-foreground max-md:hidden">
+        <div aria-hidden className="flex gap-4.5 border-b border-border px-2 py-2.5 text-micro font-semibold text-muted-foreground @max-4xl:hidden">
           <span className="w-11" />
           <span className="w-70">Template</span>
           <span className="w-32.5">Phase</span>
@@ -180,14 +183,14 @@ function TemplateList({ items, onPreview }: { items: GalleryTemplate[]; onPrevie
           <span className={cn(tile, "size-11 flex-none rounded-lg", grainFor(t.code))}>
             <FlatIcon name={t.icon} className="size-5 stroke-[1.6] text-current" />
           </span>
-          <span className="min-w-0 flex-1 truncate text-lead font-bold tracking-tight transition-transform duration-glide ease-glide group-hover/row:translate-x-3 group-focus-visible/row:translate-x-3 motion-reduce:translate-x-0! md:w-70 md:flex-none md:text-xl">
+          <span className="min-w-0 flex-1 truncate text-lead font-bold tracking-tight transition-transform duration-glide ease-glide group-hover/row:translate-x-3 group-focus-visible/row:translate-x-3 motion-reduce:translate-x-0! @2xl:w-70 @2xl:flex-none @2xl:text-xl">
             {t.name}
           </span>
-          <span className="flex-none md:w-32.5">
+          <span className="flex-none @2xl:w-32.5">
             <span className={cn("inline-flex h-6.5 items-center rounded-full px-2.5 text-caption font-medium", PHASE[phaseOf(t)])}>{phaseOf(t)}</span>
           </span>
-          <span className="min-w-0 flex-1 truncate text-sm text-muted-foreground max-md:hidden">{t.preview}</span>
-          <span className="inline-flex w-32.5 flex-none items-center justify-end gap-1.5 text-small font-semibold opacity-0 transition-opacity duration-base group-hover/row:opacity-100 group-focus-visible/row:opacity-100 max-md:hidden">
+          <span className="min-w-0 flex-1 truncate text-sm text-muted-foreground @max-4xl:hidden">{t.preview}</span>
+          <span className="inline-flex w-32.5 flex-none items-center justify-end gap-1.5 text-small font-semibold opacity-0 transition-opacity duration-base group-hover/row:opacity-100 group-focus-visible/row:opacity-100 @max-4xl:hidden">
             {works(t) ? "Use template" : "Notify me"}
             <ArrowRight aria-hidden className="size-3.25" strokeWidth={2} />
           </span>
@@ -217,7 +220,7 @@ function SoonSection({ items, total, onPreview }: { items: GalleryTemplate[]; to
             <FlatIcon name={t.icon} className="size-13 stroke-[1.3] text-current" />
           </span>
         )}
-        className="grid gap-x-8 border-t border-border sm:grid-cols-2 lg:grid-cols-3"
+        className="grid gap-x-8 border-t border-border @xl:grid-cols-2 @4xl:grid-cols-3"
         rowClassName="min-h-14 gap-3.5 border-b border-secondary"
         renderRow={(t, i) => (
           <>

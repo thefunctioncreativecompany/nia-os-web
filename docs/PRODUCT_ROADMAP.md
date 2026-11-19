@@ -56,8 +56,8 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | UX18 | Home Activity repeats share-link on/off lines | ⬜ |
 | UX19 | Person page: "Films" for a series; stray capitals | ⬜ |
 | UX20 | Login hero is a *Sinners (2025)* still: rights? | ⏸ Ika |
-| FB3 | Template preview: the list on the left gets squeezed and workflow names overlap (Alvin) | ⬜ |
-| FB4 | Sign-up role page: Content creator looks already picked (Alvin) | ⬜ |
+| FB3 | Template preview: the list on the left gets squeezed and workflow names overlap (Alvin) | ✅ 2026-11-19 |
+| FB4 | Sign-up role page: Content creator looks already picked (Alvin) | ✅ 2026-11-19, Photographer a main tile |
 | FB13 | Onboarding images are fashion shoots; one set of production photography instead (Inbar) | ⏸ Ika picks the photos |
 | 1 | Sign-up email: last test sent no email | ⏸ Ika |
 | G1 | Google sign-in shows the Supabase address | ⏸ Ika |

@@ -74,14 +74,16 @@ export const PROFESSION_SECTORS: { sector: string; roles: string[] }[] = [
   },
 ];
 
-// The most common roles, shown first as tiles (junior roles included).
+// The most common roles, shown first as tiles: each of the four groups Nia is for has one
+// (FEEDBACK FB4, Alvin 2026-11-18: Photographer was only in the long list). Production Assistant
+// is in the list below.
 export const COMMON_PROFESSIONS = [
   "Producer",
   "Director",
+  "Photographer",
+  "Content Creator / Influencer",
   "Director of Photography",
   "Editor (Film / Video)",
-  "Content Creator / Influencer",
-  "Production Assistant",
 ] as const;
 
 export const USERNAME_PATTERN = /^[a-z0-9._]{3,30}$/;
