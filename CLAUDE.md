@@ -169,6 +169,9 @@ changing it. The master list of what's shipped, open, fed back and planned is
   the clock: pass `today` on prerendered pages. `<CommandDialog>` needs a `<Command>` inside.
 - Looping motion is allowed only for "still working" indicators (spinner, loading dots), and they stop
   under reduced motion.
+- `npm run lint` checks the Design rules (`lint/nia-design-rules.mjs`): run it before handing work
+  over. Errors are rules the code fully follows; warnings are older slips, fixed when that screen
+  is next touched (its message names the theme value to use).
 
 ## Progress
 

@@ -155,6 +155,20 @@ database reads waiting on each other that could run together; global search load
 | PA8 | Unused: `MarqueeColumns` and `ScrubFilmstrip` (`src/components/nia`, nothing imports them since 2026-10-23) and the package `@radix-ui/react-switch` (`radix-ui` covers it) | ⬜ delete (tag first) |
 | PA9 | Switches that are always on (`exploreUnlocked`, `previewPanel`, `portfoliosBeta` in `src/lib/features.ts`) keep their "off" code; CLAUDE.md still names `features.onboardingExtrasShown`, which is gone | ⬜ |
 
+## 0b. Logged 2026-11-19: ideas from Astryx (Meta's open-source design system)
+
+Ika asked how github.com/meta/astryx could help without replacing what we have. We keep shadcn,
+`src/components/nia` and Figma; Astryx is a reference, not a package we install.
+
+| # | What | Status |
+|---|------|--------|
+| AX1 | **Design rules checked automatically.** `npm run lint` checks the CLAUDE.md Design rules (`lint/nia-design-rules.mjs`, 25 tests): no masonry, Geist only and sentence case fail lint; pixel values, raw colours, button shapes and heading styles warn until cleaned up. Not run: the `/dev/components` gallery | ✅ 2026-11-19 |
+| AX1a | Its first run found 9 buttons with their pill shape overridden (`rounded-lg`/`rounded-md`): document header, scroll-tab arrows, Delete project, Edit details, project form, template editor | ⬜ |
+| AX1b | 67 pixel values in pages (46 have an exact theme size, named in the warning), 1 raw colour (profile photo overlay) and the PA5 titles plus one `font-extrabold` (template miniature) | ⬜ as each screen is next touched |
+| AX2 | Astryx's ready-made layouts (table with a floating bar for changing many rows, filter tabs, step-by-step form with a review step, chat with citations) as references in Claude Design before Figma: cast & crew bulk changes, shoot days, Copilot | ⬜ when those steps start |
+| AX3 | Check our own controls (`FilterChip`, `ChipMenu`, `SearchField`) against Astryx's written accessibility contracts (keyboard, screen reader) | ⬜ |
+| AX4 | Score how well a fresh AI assistant follows CLAUDE.md on 10 Nia screen tasks, like Astryx's "vibe tests", to see which rules don't get through | ⬜ later, optional |
+
 ## 0. Logged 2026-11-12: UI/UX audit of the live site
 
 Headless Chrome, 47 views (desktop, phone, tablet, dark), test account 2. Screenshots stay local in

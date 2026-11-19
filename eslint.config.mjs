@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import { niaDesignRules } from "./lint/nia-design-rules.mjs";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -14,6 +15,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Remotion films: their own project, packages and type check.
     "video/**",
+    // Scripts' local output (git-ignored).
+    "scripts/out/**",
   ]),
   // Leaving a field out by naming it with _ (const { id: _id, ...rest } = row) is intended.
   {
@@ -21,6 +24,8 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_", ignoreRestSiblings: true }],
     },
   },
+  // Nia's design rules from CLAUDE.md (lint/nia-design-rules.mjs).
+  ...niaDesignRules,
 ]);
 
 export default eslintConfig;
