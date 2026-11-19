@@ -107,7 +107,7 @@ export function CreatorsAll({ seed }: { seed: number }) {
 
       <div className="mt-8 flex flex-col gap-4">
         <SearchField
-          label="Search Creators"
+          label="Search creators"
           placeholder="Search films, brands, directors, crew..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}

@@ -82,7 +82,7 @@ export function EditDetailsDialog({ project, children }: { project: Project; chi
         <form onSubmit={save} className="flex flex-col gap-7">
           <div className="flex flex-col gap-2">
             <Label htmlFor="edit-name" className={fieldLabelClassName}>
-              Project Name
+              Project name
             </Label>
             <Input
               id="edit-name"
@@ -100,7 +100,7 @@ export function EditDetailsDialog({ project, children }: { project: Project; chi
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="flex flex-col gap-2">
               <Label htmlFor="edit-type" className={fieldLabelClassName}>
-                Production Type
+                Production type
               </Label>
               <Select value={productionType} onValueChange={setProductionType}>
                 <SelectTrigger id="edit-type" className={selectTriggerClassName}>
