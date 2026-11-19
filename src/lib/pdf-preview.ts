@@ -58,8 +58,18 @@ export async function pdfText(file: Blob): Promise<string> {
     const pdf = await task.promise;
     const pages: string[] = [];
     for (let n = 1; n <= pdf.numPages; n++) {
-      const content = await (await pdf.getPage(n)).getTextContent();
-      pages.push(content.items.map((item) => ("str" in item ? item.str + (item.hasEOL ? "\n" : "") : "")).join(""));
+      // Read chunk by chunk: getTextContent() loops over a stream with `for await`, which Safari
+      // doesn't support ("undefined is not a function … of readableStream").
+      const reader = (await pdf.getPage(n)).streamTextContent().getReader();
+      let text = "";
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        for (const item of (value as { items: unknown[] }).items) {
+          if (item && typeof item === "object" && "str" in item) text += (item as { str: string }).str + ((item as { hasEOL?: boolean }).hasEOL ? "\n" : "");
+        }
+      }
+      pages.push(text);
     }
     return pages.join("\n\n");
   } finally {
