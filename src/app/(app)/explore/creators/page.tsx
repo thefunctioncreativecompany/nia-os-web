@@ -12,17 +12,15 @@ export const metadata: Metadata = {
 // View all from Explore's Creators row: every creator's film, with search, in a new order on each
 // visit (Ika, 2026-10-22).
 // The order is picked per request, inside a boundary so the rest of the page isn't held up.
-export default function Page({ searchParams }: PageProps<"/explore/creators">) {
+export default function Page() {
   return (
     <Suspense fallback={null}>
-      <Shuffled searchParams={searchParams} />
+      <Shuffled />
     </Suspense>
   );
 }
 
-// `?tag=` comes from a tag on a film's page and narrows the list to it.
-async function Shuffled({ searchParams }: Pick<PageProps<"/explore/creators">, "searchParams">) {
+async function Shuffled() {
   await connection();
-  const { tag } = await searchParams;
-  return <CreatorsAll seed={newSeed()} tag={typeof tag === "string" ? tag : undefined} />;
+  return <CreatorsAll seed={newSeed()} />;
 }

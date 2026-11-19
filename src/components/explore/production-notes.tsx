@@ -4,8 +4,9 @@ import { groupedTags } from "@/features/explore/tags";
 
 // "Production notes" on a title's or creator film's page (Ika, 2026-10-28): its tags by group
 // (look, camera, setting, subject, mood, how it was made, what it was made for). Each tag opens
-// View all narrowed to it, to find more made the same way.
-export function ProductionNotes({ slug, listHref }: { slug: string; listHref: string }) {
+// Explore search narrowed to it, across all of Explore, to find more made the same way (Alvin,
+// FB7, 2026-11-19; it used to narrow only the title's own View all).
+export function ProductionNotes({ slug }: { slug: string }) {
   const groups = groupedTags(slug);
   if (!groups.length) return null;
   return (
@@ -21,7 +22,7 @@ export function ProductionNotes({ slug, listHref }: { slug: string; listHref: st
               {g.tags.map((t) => (
                 <Link
                   key={t.id}
-                  href={`${listHref}?tag=${t.id}`}
+                  href={`/explore?tag=${t.id}`}
                   className="rounded-full bg-secondary px-3 py-1 text-small text-foreground/80 outline-none transition-colors duration-fast hover:bg-accent hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
                 >
                   {t.label}

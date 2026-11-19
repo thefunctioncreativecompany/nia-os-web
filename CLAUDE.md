@@ -283,7 +283,7 @@ Next week (from 2026-11-02, in order; agree each with Ika first)
    then shoot days and the schedule.
 4. Figma reconcile (growing): welcome tour and What's new, Send feedback, global search,
    project Details, Cast & crew directory, Explore Cast & Crew row and View all, person pages,
-   dark mode tokens, card hover.
+   dark mode tokens, card hover, Explore search.
 5. Explore: rerun cast & crew and press kits as titles are added; the 17 titles with no
    credits; the 289 studio-catalogue titles (posters from TMDB's free API during the private beta; commercial licence before charging).
 6. Small: Nia photos in the project page's crew row.

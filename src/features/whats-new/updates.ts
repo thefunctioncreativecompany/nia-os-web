@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "explore-search",
+    date: "2026-11-19",
+    title: "Search Explore by how it was made",
+    body: "Search Explore by title, director, cast, look, camera, setting or mood, from Zendaya to golden hour, and narrow it with filters. Tap a tag on any title to find more made the same way.",
+    href: "/explore",
+    cta: "Search Explore",
+    icon: "magnifier",
+    weight: { production: 0.7, fashion: 0.9, creator: 0.9 },
+  },
+  {
     id: "meetings",
     date: "2026-11-18",
     title: "Meeting notes on your projects",

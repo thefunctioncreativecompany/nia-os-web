@@ -19,7 +19,7 @@ stack and the counts.
 | Cast & crew | One directory per workspace: cast table, crew by department, profiles, statuses, add and edit people |
 | Templates | 37 working templates in one list by category; editor with autosave, Undo/Redo; downloads as PDF, Word, Markdown and .txt; tutorials |
 | Workflows | 12 guided workflows, three for each group (creators, filmmakers, photographers, small studios) |
-| Explore | Curated films and series with press kits, cast and crew, palettes and release dates; categories incl. Made in Africa, Hollywood classics and Best of 2026; timeline on desktop; open to everyone signed in |
+| Explore | Curated films and series with press kits, cast and crew, palettes and release dates; categories incl. Made in Africa, Hollywood classics and Best of 2026; search with production-detail filters (Look, Camera, Setting, Mood); timeline on desktop; open to everyone signed in |
 | Everywhere | Global search, Home, welcome tour and What's new, Send feedback, dark mode, switch between accounts, Settings (Profile, General), Plans (Free, Starter, Creator, Pro; no payments yet) |
 
 ## In development

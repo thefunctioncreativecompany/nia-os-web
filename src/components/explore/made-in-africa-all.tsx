@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { Clapperboard, X } from "lucide-react";
+import { Clapperboard } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/nia/empty-state";
@@ -10,7 +10,7 @@ import { ChipMenu, FilterChip, RangeChip, ResultCount, SearchField, type YearRan
 import { RANKED, categoryViews, essentialWhy, exploreHome, titleHref, typeName, type CategoryKey, type Entry } from "@/features/explore/made-in-africa";
 import { recentFirst, recentViews } from "@/features/explore/views";
 import { tasteScore } from "@/features/explore/match";
-import { isTag, tagLabel, tagText, tagsFor } from "@/features/explore/tags";
+import { tagText } from "@/features/explore/tags";
 import { useTaste } from "./use-taste";
 import { shuffled } from "@/lib/shuffle";
 import { TitleCard } from "./title-card";
@@ -43,15 +43,13 @@ function relevance(e: Entry, q: string) {
 // narrowed and Relevance chosen, titles sit in their collections; otherwise one grid. Titles come
 // in a new order on each visit (`seed`), and Recently viewed brings back the ones this person
 // opened, most recent first (Ika, 2026-10-22).
-export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-africa" }: { seed: number; tag?: string; category?: CategoryKey }) {
+export function MadeInAfricaAll({ seed, category = "made-in-africa" }: { seed: number; category?: CategoryKey }) {
   // Made in Africa or Hollywood Classics: the same page, its own titles and choices.
   const view = categoryViews[category];
   // Hollywood Classics' essentials: the films to know when starting out (Ika, 2026-10-29).
   const [essentials, setEssentials] = useState(false);
   const hasEssentials = view.entries.some((e) => essentialWhy.has(e.title.slug));
   const [query, setQuery] = useState("");
-  // A tag from a title's page (`?tag=`), shown as a chip that clears it.
-  const [tag, setTag] = useState<string | null>(initialTag && isTag(initialTag) ? initialTag : null);
   const forYou = useTaste();
   const [collection, setCollection] = useState<string>(ALL);
   const [genre, setGenre] = useState<string>(ALL);
@@ -72,7 +70,6 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
   const narrowed = view.entries.filter((e) => {
     const t = e.title;
     if (q && relevance(e, q) === 0) return false;
-    if (tag && !tagsFor(t.slug).includes(tag)) return false;
     if (essentials && !essentialWhy.has(t.slug)) return false;
     if (genre !== ALL && !t.genres.includes(genre)) return false;
     if (country !== ALL && !t.countries.includes(country)) return false;
@@ -94,7 +91,7 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
     return (q ? relevance(b, q) - relevance(a, q) : 0) || visit(a, b);
   });
   const sorted = sort === "recent" ? recentFirst(ranked, recent ?? [], (e) => e.title.slug) : ranked;
-  const anyFilter = q !== "" || tag !== null || essentials || genre !== ALL || country !== ALL || type !== ALL || years !== null;
+  const anyFilter = q !== "" || essentials || genre !== ALL || country !== ALL || type !== ALL || years !== null;
   const grouped = sort === "relevance" && !anyFilter && view.collections.length > 0;
   const groups = grouped
     ? view.collections
@@ -104,7 +101,6 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
     : [{ id: "results", name: null, description: null, items: sorted }];
   const clear = () => {
     setQuery("");
-    setTag(null);
     setEssentials(false);
     setCollection(ALL);
     setGenre(ALL);
@@ -153,11 +149,6 @@ export function MadeInAfricaAll({ seed, tag: initialTag, category = "made-in-afr
           {hasEssentials && (
             <FilterChip on={essentials} onClick={() => setEssentials((on) => !on)} count={view.entries.filter((e) => essentialWhy.has(e.title.slug)).length}>
               Essentials
-            </FilterChip>
-          )}
-          {tag && (
-            <FilterChip on onClick={() => setTag(null)} aria-label={`Remove the ${tagLabel(tag)} tag`}>
-              {tagLabel(tag)} <X aria-hidden className="size-3.5" />
             </FilterChip>
           )}
           <ChipMenu label="Genre" value={genre} defaultValue={ALL} options={[all("All"), ...view.genres.map((g) => ({ value: g, label: sentenceCase(g) }))]} onChange={setGenre} />

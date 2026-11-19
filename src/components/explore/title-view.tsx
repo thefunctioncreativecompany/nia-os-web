@@ -214,7 +214,7 @@ export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }:
             )}
           </section>
 
-          <ProductionNotes slug={title.slug} listHref={view.href} />
+          <ProductionNotes slug={title.slug} />
         </div>
       </div>
 

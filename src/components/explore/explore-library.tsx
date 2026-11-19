@@ -15,6 +15,7 @@ import { LogoPlate, StudioLogos } from "./studio-strip";
 import { festivalHref } from "./festival-all";
 import type { FestivalRow } from "@/features/explore/festivals";
 import { TopTen } from "./top-ten";
+import { ExploreSearch } from "./explore-search";
 import { ROW_MAX } from "@/lib/rows";
 import { PersonTile, type RowPerson } from "@/components/nia/cast-crew-row";
 import { ScrollRow, TEN_ACROSS } from "@/components/nia/scroll-row";
@@ -24,7 +25,7 @@ import { cn } from "@/lib/utils";
 // in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts. The
 // rows under By category come in a new order on each visit (`seed`, Ika 2026-10-22).
 // Recently added was removed for now (Ika, 2026-11-08; git tag parked-2026-11-08-recently-added).
-export function ExploreLibrary({ seed, top, studios, people = [], festivals = [], inSeason = [] }: { seed: number; top: Promise<string[]>; studios: StudioRow[]; people?: RowPerson[]; festivals?: FestivalRow[]; inSeason?: string[] }) {
+export function ExploreLibrary({ seed, top, studios, people = [], festivals = [], inSeason = [], searchCount }: { seed: number; top: Promise<string[]>; studios: StudioRow[]; people?: RowPerson[]; festivals?: FestivalRow[]; inSeason?: string[]; searchCount: number }) {
   return (
     <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-page lg:pt-12.5">
       {/* Opens the whole library as one canvas (Ika, 2026-10-21). */}
@@ -38,6 +39,8 @@ export function ExploreLibrary({ seed, top, studios, people = [], festivals = []
         </Link>
       </h1>
 
+      {/* Search and production-detail filters (Ika, 2026-11-19); results take the rows' place. */}
+      <ExploreSearch count={searchCount}>
       {/* Best of 2026 leads, above Top 10 (Ika, 2026-11-15), once enough of its twenty are here;
           it isn't repeated under By category. */}
       {bestOf2026.length >= BEST_OF_2026_MIN && (
@@ -125,6 +128,7 @@ export function ExploreLibrary({ seed, top, studios, people = [], festivals = []
 
       {/* Every category under a heading that shows or hides it (Ika, 2026-10-29). */}
       <CategorySections seed={seed} inSeason={inSeason} />
+      </ExploreSearch>
     </div>
   );
 }

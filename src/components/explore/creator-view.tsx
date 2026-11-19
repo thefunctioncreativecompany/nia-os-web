@@ -189,7 +189,7 @@ export function CreatorView({ film }: { film: CreatorFilm }) {
             </div>
           </section>
 
-          <ProductionNotes slug={film.slug} listHref={CREATORS_HREF} />
+          <ProductionNotes slug={film.slug} />
 
           {/* People are in Cast & Crew below; the companies credited stay here. */}
           {companies(film).length > 0 && (

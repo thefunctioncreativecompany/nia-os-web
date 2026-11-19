@@ -12,17 +12,15 @@ export const metadata: Metadata = {
 // View all for Hollywood Classics (Ika, 2026-10-29): every title, by collection, with an Essentials
 // filter; the same page as Made in Africa's View all, in a new order on each visit.
 // The order is picked per request, inside a boundary so the rest of the page isn't held up.
-export default function Page({ searchParams }: PageProps<"/explore/hollywood-classics">) {
+export default function Page() {
   return (
     <Suspense fallback={null}>
-      <Shuffled searchParams={searchParams} />
+      <Shuffled />
     </Suspense>
   );
 }
 
-// `?tag=` comes from a tag on a film's page and narrows the list to it.
-async function Shuffled({ searchParams }: Pick<PageProps<"/explore/hollywood-classics">, "searchParams">) {
+async function Shuffled() {
   await connection();
-  const { tag } = await searchParams;
-  return <MadeInAfricaAll seed={newSeed()} tag={typeof tag === "string" ? tag : undefined} category="hollywood-classics" />;
+  return <MadeInAfricaAll seed={newSeed()} category="hollywood-classics" />;
 }

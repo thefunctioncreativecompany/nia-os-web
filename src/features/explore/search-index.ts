@@ -1,6 +1,7 @@
 "use server";
 
 import { featuredPeople } from "./people-index";
+import { filmCreditSlugs, filmCredits, filmPerson } from "./film-people";
 import { festivalRows } from "./festivals";
 import { studioRows } from "./studios";
 
@@ -29,4 +30,15 @@ export async function loadExploreSearchIndex(): Promise<ExploreSearchIndex> {
     people: featuredPeople(3),
     titleStudios,
   };
+}
+
+/** Each title's cast and crew names (slug → names), for Explore search (2026-11-19: "zendaya" found
+ * nothing). Large, so it's its own request, made only when Explore search is first used. */
+export async function loadExploreCastCrew(): Promise<Record<string, string[]>> {
+  const out: Record<string, string[]> = {};
+  for (const slug of filmCreditSlugs()) {
+    const names = filmCredits(slug).flatMap((r) => filmPerson(r.id)?.name ?? []);
+    if (names.length) out[slug] = [...new Set(names)];
+  }
+  return out;
 }

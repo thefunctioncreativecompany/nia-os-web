@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Clapperboard, X } from "lucide-react";
+import { Clapperboard } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/nia/empty-state";
@@ -11,7 +11,7 @@ import { exploreItem } from "@/features/explore/items";
 import { exploreHome } from "@/features/explore/paths";
 import { recentFirst, recentViews } from "@/features/explore/views";
 import { tasteScore } from "@/features/explore/match";
-import { isTag, tagLabel, tagText, tagsFor } from "@/features/explore/tags";
+import { tagText } from "@/features/explore/tags";
 import { useTaste } from "./use-taste";
 import { shuffled } from "@/lib/shuffle";
 import { CreatorCredit } from "./creators-strip";
@@ -46,10 +46,8 @@ function relevance(f: CreatorFilm, q: string) {
 // Sort. Films sit in a gallery at their true shape, tagged with their type and frame. Relevance
 // without a search is a new order on each visit (`seed`); Recently viewed brings back the films
 // this person opened, most recent first (Ika, 2026-10-22).
-export function CreatorsAll({ seed, tag: initialTag }: { seed: number; tag?: string }) {
+export function CreatorsAll({ seed }: { seed: number }) {
   const [query, setQuery] = useState("");
-  // A tag from a film's page (`?tag=`), shown as a chip that clears it.
-  const [tag, setTag] = useState<string | null>(initialTag && isTag(initialTag) ? initialTag : null);
   const forYou = useTaste();
   const [type, setType] = useState<string>(ALL);
   const [country, setCountry] = useState<string>(ALL);
@@ -67,7 +65,6 @@ export function CreatorsAll({ seed, tag: initialTag }: { seed: number; tag?: str
   // Everything but the type, so each type chip can say how many it would show.
   const narrowed = creatorFilms.filter((f) => {
     if (q && relevance(f, q) === 0) return false;
-    if (tag && !tagsFor(f.slug).includes(tag)) return false;
     if (country !== ALL && f.country !== country) return false;
     const year = creatorYear(f);
     if (years && (year < years.from || year > years.to)) return false;
@@ -85,10 +82,9 @@ export function CreatorsAll({ seed, tag: initialTag }: { seed: number; tag?: str
     return (q ? relevance(b, q) - relevance(a, q) : 0) || visit(a, b);
   });
   const sorted = sort === "recent" ? recentFirst(ranked, recent ?? [], (f) => f.slug) : ranked;
-  const anyFilter = q !== "" || tag !== null || type !== ALL || country !== ALL || years !== null;
+  const anyFilter = q !== "" || type !== ALL || country !== ALL || years !== null;
   const clear = () => {
     setQuery("");
-    setTag(null);
     setType(ALL);
     setCountry(ALL);
     setYears(null);
@@ -128,11 +124,6 @@ export function CreatorsAll({ seed, tag: initialTag }: { seed: number; tag?: str
           ))}
         </ChipRow>
         <ChipRow>
-          {tag && (
-            <FilterChip on onClick={() => setTag(null)} aria-label={`Remove the ${tagLabel(tag)} tag`}>
-              {tagLabel(tag)} <X aria-hidden className="size-3.5" />
-            </FilterChip>
-          )}
           <ChipMenu label="Country" value={country} defaultValue={ALL} options={[all("All"), ...COUNTRIES.map((c) => ({ value: c, label: c }))]} onChange={setCountry} />
           <RangeChip label="Year" min={YEARS.min} max={YEARS.max} value={years} onChange={setYears} />
           {anyFilter && (

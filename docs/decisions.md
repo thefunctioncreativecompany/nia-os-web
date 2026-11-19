@@ -1151,3 +1151,18 @@ onboarding's Import profile and Follow creators describe features removed in the
   Brings quick ways in back to Home after the 2026-11-10 cut, as one row, not a section. Meeting
   asks which project (only ones you can edit), then opens its Google Meet booking, or adding notes
   until Google Calendar is set up (`?schedule=1`, `?notes=1`). Not in Figma yet.
+- (2026-11-19) Explore search (Ika: "search bar and filters linked to production detail tagging for
+  easier searching, structure similar to templates search"; "consider the user feedback"). On the
+  Explore page under Explore all: a search box with the top five as you type (Best match first,
+  with the production details it matched), four filter menus (Look, Camera, Setting, Mood; the
+  other tag groups are found by typing), and results in place of the rows (Best match, then Also
+  relevant, in the film gallery), with Clear. Searches titles, who made them, their cast and crew
+  (loaded from the server on first use, about 96 KB; Ika's "zendaya" found nothing before),
+  studios, festivals, collection, type, year, country and every production tag; a tag or a
+  person named in full is one match ("tom holland" is his films, not any Tom and any Holland);
+  everyday words reach their tag ("35mm" is Shot on film). In the address (?q=, ?look=…), so Back
+  undoes each step and searches can be shared. Each menu offers only what fits the search and the
+  other choices (prevent dead ends). The person's taste (role, opens, saves) breaks ties (B6).
+  Loads on first use. A tag under Production notes now opens these results across all of Explore
+  (Alvin, FB7), so the View all pages' `?tag=` handling was removed. Files:
+  `src/features/explore/search{,-data}.ts`, `src/components/explore/explore-search.tsx`.

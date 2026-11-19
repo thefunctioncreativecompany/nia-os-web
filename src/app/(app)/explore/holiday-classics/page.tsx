@@ -12,17 +12,15 @@ export const metadata: Metadata = {
 // View all for Holiday classics (Ika, 2026-11-11): Christmas films and holiday specials, by
 // collection; the same page as the other categories' View all, in a new order on each visit.
 // The order is picked per request, inside a boundary so the rest of the page isn't held up.
-export default function Page({ searchParams }: PageProps<"/explore/holiday-classics">) {
+export default function Page() {
   return (
     <Suspense fallback={null}>
-      <Shuffled searchParams={searchParams} />
+      <Shuffled />
     </Suspense>
   );
 }
 
-// `?tag=` comes from a tag on a film's page and narrows the list to it.
-async function Shuffled({ searchParams }: Pick<PageProps<"/explore/holiday-classics">, "searchParams">) {
+async function Shuffled() {
   await connection();
-  const { tag } = await searchParams;
-  return <MadeInAfricaAll seed={newSeed()} tag={typeof tag === "string" ? tag : undefined} category="holiday-classics" />;
+  return <MadeInAfricaAll seed={newSeed()} category="holiday-classics" />;
 }

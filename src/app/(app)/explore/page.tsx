@@ -10,6 +10,7 @@ import { festivalRows } from "@/features/explore/festivals";
 import { featuredPeople } from "@/features/explore/people-index";
 import { ROW_MAX } from "@/lib/rows";
 import { seasonOf } from "@/features/explore/made-in-africa";
+import { ITEMS } from "@/features/explore/search-data";
 
 export const metadata: Metadata = {
   title: "Explore · Nia OS",
@@ -29,5 +30,5 @@ export default function Page() {
 async function Shuffled() {
   await connection();
   // The Top 10 is read without waiting: only its own section waits for it.
-  return <ExploreLibrary seed={newSeed()} top={loadTopTen()} studios={studioRows()} people={featuredPeople(3, ROW_MAX)} festivals={festivalRows().slice(0, ROW_MAX)} inSeason={seasonOf(new Date().toISOString().slice(0, 10)).inSeason} />;
+  return <ExploreLibrary seed={newSeed()} top={loadTopTen()} studios={studioRows()} people={featuredPeople(3, ROW_MAX)} festivals={festivalRows().slice(0, ROW_MAX)} inSeason={seasonOf(new Date().toISOString().slice(0, 10)).inSeason} searchCount={ITEMS.length} />;
 }
