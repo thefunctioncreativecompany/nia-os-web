@@ -25,7 +25,7 @@ import { bookMeet, clashes, disconnectGoogle, googleStatus, type GoogleStatus } 
 const LENGTHS = [15, 30, 45, 60, 90, 120];
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-type Person = { name: string; role: string; email: string };
+type Person = { id: string; name: string; role: string; kind: string; email: string | null };
 
 /** The start as a Date in the person's own time zone. */
 function startOf(day: Date, t: TimeValue) {
@@ -37,7 +37,8 @@ const lengthText = (m: number) => (m < 60 ? `${m} minutes` : m === 60 ? "1 hour"
 
 // Schedule a Google Meet (docs/MEETINGS_SPEC.md, step 3): connect Google Calendar once (inside
 // this pop-up), then book a production meeting: title, day, start, length and who's invited (the
-// project's cast and crew with an email, or any email). Before booking, Nia checks who's busy then
+// project's whole cast and crew, asking for an email where one's missing and keeping it on their
+// profile; or any email). Before booking, Nia checks who's busy then
 // and says so (rule: prevent mistakes, not report them); the button becomes "Book anyway". Google
 // creates the event with a Meet link and emails the invites.
 export function ScheduleMeetDialog({
@@ -54,7 +55,9 @@ export function ScheduleMeetDialog({
   const id = useId();
   const [status, setStatus] = useState<GoogleStatus | null>(null);
   const [people, setPeople] = useState<Person[]>([]);
-  const [title, setTitle] = useState("Production meeting");
+  // Empty with the suggestion greyed out and the cursor waiting (Ika, 2026-11-19); booked as
+  // "Production meeting" if nothing is typed.
+  const [title, setTitle] = useState("");
   const [day, setDay] = useState<Date | undefined>(() => {
     const d = new Date();
     d.setDate(d.getDate() + 1);
@@ -63,6 +66,8 @@ export function ScheduleMeetDialog({
   const [time, setTime] = useState<TimeValue>({ hour: 10, minute: 0, period: "AM" });
   const [length, setLength] = useState(30);
   const [crew, setCrew] = useState<string[]>([]);
+  // Emails typed for picked people who had none, by person.
+  const [typed, setTyped] = useState<Record<string, string>>({});
   const [others, setOthers] = useState<string[]>([]);
   const [note, setNote] = useState("");
   const [busyNow, setBusyNow] = useState<string[] | null>(null);
@@ -70,34 +75,43 @@ export function ScheduleMeetDialog({
   const pathname = usePathname();
   const [saving, setSaving] = useState(false);
 
-  // The connection and the project's people with an email, when the pop-up opens.
+  // The connection and the project's cast and crew (as in Crew & talent), when the pop-up opens.
   useEffect(() => {
     if (!open) return;
     let live = true;
     googleStatus().then((s) => live && setStatus(s));
     createClient()
       .from("cast_crew")
-      .select("role, person:people(name, email)")
+      .select("role, kind, person:people(id, name, email)")
       .eq("project_id", projectId)
       .is("deleted_at", null)
+      .order("position")
       .then(({ data }) => {
         if (!live) return;
         const list = (data ?? []).flatMap((r) => {
-          const p = r.person as unknown as { name: string; email: string | null } | null;
-          return p?.email ? [{ name: p.name, role: r.role as string, email: p.email }] : [];
+          const p = r.person as unknown as { id: string; name: string; email: string | null } | null;
+          return p ? [{ id: p.id, name: p.name, role: r.role as string, kind: r.kind as string, email: p.email }] : [];
         });
-        setPeople(list.filter((p, i) => list.findIndex((x) => x.email === p.email) === i));
+        // Someone with two roles is listed once.
+        setPeople(list.filter((p, i) => list.findIndex((x) => x.id === p.id) === i));
       });
     return () => {
       live = false;
     };
   }, [open, projectId]);
 
+  const picked = crew.flatMap((id) => people.filter((p) => p.id === id));
+  // Picked people with no email yet: their email is asked for here.
+  const needEmail = picked.filter((p) => !p.email);
+  const missing = needEmail.filter((p) => !EMAIL.test((typed[p.id] ?? "").trim()));
   const badEmails = others.filter((e) => !EMAIL.test(e));
-  const guests = useMemo(
-    () => [...crew.map((email) => ({ email, name: people.find((p) => p.email === email)?.name ?? "" })), ...others.filter((e) => EMAIL.test(e) && !crew.includes(e)).map((email) => ({ email, name: "" }))],
-    [crew, others, people],
-  );
+  const guests = useMemo(() => {
+    const fromCrew = picked.map((p) => ({ email: (p.email ?? typed[p.id] ?? "").trim(), name: p.name })).filter((g) => EMAIL.test(g.email));
+    const seen = new Set(fromCrew.map((g) => g.email.toLowerCase()));
+    return [...fromCrew, ...others.filter((e) => EMAIL.test(e) && !seen.has(e.toLowerCase())).map((email) => ({ email, name: "" }))];
+    // `picked` follows crew and people.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [crew, people, typed, others]);
   const start = day ? startOf(day, time) : null;
   const end = start ? new Date(start.getTime() + length * 60_000) : null;
 
@@ -124,12 +138,12 @@ export function ScheduleMeetDialog({
 
   const book = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!start || !end || !day || !title.trim() || badEmails.length) return;
+    if (!start || !end || !day || badEmails.length || missing.length) return;
     setSaving(true);
     try {
       const result = await bookMeet({
         projectId,
-        title: title.trim(),
+        title: title.trim() || "Production meeting",
         day: toDay(day),
         start: start.toISOString(),
         end: end.toISOString(),
@@ -144,6 +158,9 @@ export function ScheduleMeetDialog({
         return;
       }
       toast.success(guests.length ? `${result.meeting.title} booked: invites sent` : `${result.meeting.title} booked`);
+      // Emails typed here are kept on each person's profile, for next time.
+      const db = createClient();
+      await Promise.all(needEmail.map((p) => db.from("people").update({ email: typed[p.id].trim() }).eq("id", p.id)));
       onBooked(result.meeting);
       onOpenChange(false);
     } finally {
@@ -177,7 +194,7 @@ export function ScheduleMeetDialog({
               <Label htmlFor={`${id}-title`} className={fieldLabelClassName}>
                 Title
               </Label>
-              <Input id={`${id}-title`} required maxLength={200} value={title} onChange={(e) => setTitle(e.target.value)} className={fieldClassName} />
+              <Input id={`${id}-title`} autoFocus maxLength={200} placeholder="Production meeting" value={title} onChange={(e) => setTitle(e.target.value)} className={fieldClassName} />
             </div>
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="flex flex-col gap-2">
@@ -213,7 +230,29 @@ export function ScheduleMeetDialog({
             {people.length > 0 && (
               <div className="flex flex-col gap-2">
                 <span className={fieldLabelClassName}>From the cast and crew</span>
-                <MultiSelect label="Cast and crew" placeholder="Choose people" value={crew} onChange={setCrew} maxChips={4} options={people.map((p) => ({ value: p.email, label: `${p.name} · ${p.role}` }))} />
+                <MultiSelect
+                  label="Cast and crew"
+                  placeholder="Choose people"
+                  value={crew}
+                  onChange={setCrew}
+                  maxChips={4}
+                  options={people.map((p) => ({ value: p.id, label: `${p.name} · ${p.role}`, group: p.kind === "cast" ? "Cast" : "Crew" }))}
+                />
+                {needEmail.map((p) => (
+                  <div key={p.id} className="flex flex-col gap-1">
+                    <Label htmlFor={`${id}-email-${p.id}`} className="text-caption text-muted-foreground">
+                      {p.name}&apos;s email
+                    </Label>
+                    <Input
+                      id={`${id}-email-${p.id}`}
+                      type="email"
+                      placeholder="name@example.com"
+                      value={typed[p.id] ?? ""}
+                      onChange={(e) => setTyped((t) => ({ ...t, [p.id]: e.target.value }))}
+                      className={fieldClassName}
+                    />
+                  </div>
+                ))}
               </div>
             )}
             <div className="flex flex-col gap-2">
@@ -255,7 +294,7 @@ export function ScheduleMeetDialog({
                 <Button type="button" variant="ghost" onClick={() => onOpenChange(false)}>
                   Cancel
                 </Button>
-                <Button type="submit" disabled={saving || !day || !title.trim() || badEmails.length > 0 || past}>
+                <Button type="submit" disabled={saving || !day || badEmails.length > 0 || missing.length > 0 || past}>
                   {saving ? "Booking…" : busyNames.length ? "Book anyway" : "Book meeting"}
                 </Button>
               </span>

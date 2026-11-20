@@ -161,8 +161,9 @@ headings); the first one is the title.
   when people are busy (`calendar.freebusy`). Google's refresh key is encrypted (AES-256-GCM with
   `GOOGLE_TOKEN_KEY`) before it's stored in `google_connections`, which no browser can read.
   Disconnect (in the pop-up) takes the access back at Google too.
-- **Book:** title, date, start, length (15 minutes to 2 hours), guests from the project's cast and
-  crew with an email or typed emails, an optional agenda. While it's filled in, Nia checks who's
+- **Book:** title, date, start, length (15 minutes to 2 hours), guests from the project's whole cast and
+  crew (anyone without an email is asked for one, kept on their profile) or typed emails, an optional
+  agenda. The title waits empty with "Production meeting" greyed out, the cursor in it. While it's filled in, Nia checks who's
   busy then (organiser and guests whose calendars Google shows) and says so; the button becomes
   "Book anyway". A time that has passed can't be booked.
 - **What happens:** the meeting is saved first (the database rules check the person can edit the
