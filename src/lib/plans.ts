@@ -25,7 +25,7 @@ export type Plan = {
 
 // What every paid plan adds over Free.
 const PAID = [
-  { title: "Unlimited projects", detail: "No cap on projects in your workspace." },
+  // "Unlimited projects" was here; Free has no project cap now (Ika, 2026-11-20).
   { title: "Unlimited documents", detail: "As many documents as a project needs, several of the same kind." },
   { title: "Your whole team", detail: "Invite as many collaborators as the production needs." },
   { title: "Your branding on exports", detail: "Download PDFs and Word files without the Nia footer." },
@@ -44,7 +44,7 @@ export const PLANS: Plan[] = [
     studio: "Rate card",
     bestFor: "Trying Nia",
     features: [
-      { title: "Up to 5 projects", detail: "Each with up to 5 documents, one of each kind." },
+      { title: "Unlimited projects", detail: "Each with up to 5 documents, one of each kind." },
       { title: "Three collaborators per project", detail: "Share a project with up to three other people." },
       { title: "Uploads up to 25 MB", detail: "Stills, documents and voice memos." },
       { title: "100 AI credits, once", detail: "Enough to try what Nia's AI can do." },
@@ -114,7 +114,8 @@ export const money = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`
 // The free plan's limits. They apply on the live site only, so they don't get in the way while
 // building on localhost (Ika, 2026-10-20). The document limits are also kept by the database.
 export const FREE_LIMITS = {
-  projects: 5,
+  // No project cap on Free (was 5; Ika, 2026-11-20). Set a number to bring a cap back.
+  projects: Infinity,
   documentsPerProject: 5,
   // Raised from 1 to 3 (Ika, 2026-11-11).
   collaboratorsPerProject: 3,

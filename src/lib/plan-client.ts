@@ -37,7 +37,7 @@ export async function workspacePlans(supabase: SupabaseClient, ids: string[]): P
 
 /** Whether a free workspace already has its most projects (live site only). */
 export async function projectLimitReached(supabase: SupabaseClient, workspaceId: string | null | undefined) {
-  if (!limitsOn || !workspaceId) return false;
+  if (!limitsOn || !workspaceId || !Number.isFinite(FREE_LIMITS.projects)) return false;
   if (!isLimited(await workspacePlan(supabase, workspaceId))) return false;
   const { count } = await supabase.from("projects").select("id", { count: "exact", head: true }).eq("workspace_id", workspaceId).is("deleted_at", null);
   return (count ?? 0) >= FREE_LIMITS.projects;

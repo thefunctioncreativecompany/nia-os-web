@@ -1262,3 +1262,8 @@ onboarding's Import profile and Follow creators describe features removed in the
   check-trailers.mjs decodes characters YouTube escapes twice (&). Batch 10: YouTube's search gave
   Runner a different film's trailer (The Runner) and WAR a Netflix documentary's; both replaced by
   the official ones (Angel Studios, Sky).
+- (2026-11-20) Free workspaces have unlimited projects (Ika: "change #projects created to unlimited
+  on trial period"). FREE_LIMITS.projects is Infinity, so projectLimitReached never stops a new
+  project; the Free card and the Plans comparison say "Unlimited", and "Unlimited projects" left the
+  paid plans' list. Documents per project (5), collaborators (3) and uploads (25 MB) are unchanged.
+  Setting a number in FREE_LIMITS.projects brings a cap back.

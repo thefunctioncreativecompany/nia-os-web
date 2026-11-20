@@ -116,7 +116,7 @@ export function ProjectForm() {
       const supabase = createClient();
       const { data: workspaceId, error: workspaceError } = await supabase.rpc("my_workspace_id");
       if (workspaceError) throw workspaceError;
-      // Free workspaces hold up to 5 projects (live site only): offer the upgrade instead.
+      // Free workspaces hold up to FREE_LIMITS.projects projects (live site only; unlimited since 2026-11-20): offer the upgrade instead.
       if (await projectLimitReached(supabase, workspaceId)) {
         setIsSaving(false);
         openUpgrade("projects");

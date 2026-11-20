@@ -191,7 +191,7 @@ function Comparison({ billing }: { billing: Billing }) {
       label: billing === "annual" ? "Price a month, paid yearly" : "Price a month",
       values: (p) => (billing === "annual" ? (p.annual !== null ? money(p.annual) : p.id === "free" ? "$0" : "Annual contract") : `${money(p.monthly)}${p.id === "enterprise" ? " a seat" : ""}`),
     },
-    { label: "Projects", values: (p) => (p.id === "free" ? `Up to ${FREE_LIMITS.projects}` : "Unlimited") },
+    { label: "Projects", values: (p) => (p.id === "free" && Number.isFinite(FREE_LIMITS.projects) ? `Up to ${FREE_LIMITS.projects}` : "Unlimited") },
     { label: "Documents per project", values: (p) => (p.id === "free" ? `${FREE_LIMITS.documentsPerProject}, one of each` : "Unlimited") },
     { label: "Collaborators per project", values: (p) => (p.id === "free" ? String(FREE_LIMITS.collaboratorsPerProject) : "Unlimited") },
     { label: "Uploads", values: (p) => (p.id === "free" ? `Up to ${FREE_LIMITS.uploadMb} MB` : `Up to ${PAID_UPLOAD_MB} MB`) },
