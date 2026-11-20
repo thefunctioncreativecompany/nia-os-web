@@ -41,6 +41,16 @@ export const UPDATES: Update[] = [
     weight: { production: 0.7, fashion: 0.9, creator: 0.9 },
   },
   {
+    id: "google-meet",
+    date: "2026-11-19",
+    title: "Book a Google Meet from a project",
+    body: "Book a production meeting from a project's Meetings: Nia creates the Google Calendar event with a Meet link and sends the invites, and tells you who's busy before you book.",
+    href: "/projects",
+    cta: "Open a project",
+    icon: "calendar",
+    weight: { production: 0.95, fashion: 0.6, creator: 0.6 },
+  },
+  {
     id: "meetings",
     date: "2026-11-19",
     title: "Meeting notes on your projects",
