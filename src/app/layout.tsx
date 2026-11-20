@@ -10,6 +10,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://app.niatechnologies.co"),
   title: "Nia OS",
   description: "The operating system for creative production.",
+  // The share picture is opengraph-image.jpg next to this file (X uses it too).
+  openGraph: {
+    title: "Nia OS",
+    description: "The operating system for creative production.",
+    siteName: "Nia OS",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
