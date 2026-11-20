@@ -101,8 +101,9 @@ function fromNote(note: Note): Entry {
 // All activity, full screen (Ika, 2026-10-20; after uiarc's changelog feed): what's for you and
 // everything else from your projects, as on Home but complete. Filter by kind, a month bar that
 // follows the scroll and jumps to a month, rows grouped by month that open to show the exact time
-// and a way into the project. "Home" goes back.
-export function ActivityPage({ items }: { items: ActivityItem[] }) {
+// and a way into the project. "Home" goes back. In Home's right panel (Ika, 2026-11-19), `scroller`
+// is the panel's scrolling area: the month bar follows it, and the panel carries the title.
+export function ActivityPage({ items, scroller }: { items: ActivityItem[]; scroller?: React.RefObject<HTMLElement | null> }) {
   const reduce = useReducedMotion() ?? false;
   const [notes, setNotes] = useState<Note[] | null>(null);
   const [filters, setFilters] = useState<Kind[]>([]);
@@ -145,14 +146,17 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
   }, [visible]);
   const current = groups.find((g) => g.key === active) ?? groups[0];
 
-  // The month bar follows the page as it scrolls.
+  // Where the scrolling area starts: the page under the top bar, or the panel's top.
+  const topOf = () => (scroller?.current ? scroller.current.getBoundingClientRect().top : navOffset());
+  // The month bar follows the page (or the panel) as it scrolls.
   useEffect(() => {
+    const area: HTMLElement | Window = scroller?.current ?? window;
     const sync = () => {
       frame.current = 0;
       let key = groups[0]?.key ?? "";
       for (const g of groups) {
         const el = groupRefs.current.get(g.key);
-        if (el && el.getBoundingClientRect().top <= 180 + navOffset()) key = g.key;
+        if (el && el.getBoundingClientRect().top <= 180 + topOf()) key = g.key;
       }
       setActive(key);
     };
@@ -160,16 +164,22 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
       if (!frame.current) frame.current = requestAnimationFrame(sync);
     };
     sync();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    area.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       cancelAnimationFrame(frame.current);
-      window.removeEventListener("scroll", onScroll);
+      area.removeEventListener("scroll", onScroll);
     };
-  }, [groups]);
+    // topOf reads the same scroller each time.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [groups, scroller]);
 
   const jumpTo = (key: string) => {
     const el = groupRefs.current.get(key);
-    if (el) window.scrollTo({ top: window.scrollY + el.getBoundingClientRect().top - 150 - navOffset(), behavior: reduce ? "auto" : "smooth" });
+    if (!el) return;
+    const behavior = reduce ? "auto" : "smooth";
+    const area = scroller?.current;
+    if (area) area.scrollTo({ top: area.scrollTop + el.getBoundingClientRect().top - topOf() - 80, behavior });
+    else window.scrollTo({ top: window.scrollY + el.getBoundingClientRect().top - 150 - navOffset(), behavior });
   };
   const toggleFilter = (kind: Kind) => setFilters((f) => (f.includes(kind) ? f.filter((k) => k !== kind) : [...f, kind]));
   const toggle = (entry: Entry) => {
@@ -183,15 +193,21 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
   const ease: Transition = { duration: reduce ? 0 : DURATION.base, ease: [...EASE_OUT] };
 
   return (
-    <div className="flex w-full max-w-200 flex-col px-4 pt-8 pb-24 md:px-page">
-      <Button variant="ghost" size="compact" asChild className="-ml-2.5 w-fit text-muted-foreground">
-        <Link href="/home">
-          <ArrowLeft aria-hidden /> Home
-        </Link>
-      </Button>
-      <header className="mt-4 flex flex-col gap-1">
-        <h1 className="text-h2 font-semibold tracking-tight text-foreground">Activity</h1>
-      </header>
+    <div className={cn("flex w-full flex-col", scroller ? "px-6 pt-6 pb-14 xl:px-9.5" : "max-w-200 px-4 pt-8 pb-24 md:px-page")}>
+      {scroller ? (
+        <h2 className="text-h2 font-semibold tracking-tight text-foreground">Activity</h2>
+      ) : (
+        <>
+          <Button variant="ghost" size="compact" asChild className="-ml-2.5 w-fit text-muted-foreground">
+            <Link href="/home">
+              <ArrowLeft aria-hidden /> Home
+            </Link>
+          </Button>
+          <header className="mt-4 flex flex-col gap-1">
+            <h1 className="text-h2 font-semibold tracking-tight text-foreground">Activity</h1>
+          </header>
+        </>
+      )}
 
       {entries === null ? (
         <Skeleton className="mt-8 h-96 rounded-xl" />
@@ -222,7 +238,12 @@ export function ActivityPage({ items }: { items: ActivityItem[] }) {
           </div>
 
           {/* The month bar: where you are, and a way to jump. Sticks to the top while scrolling. */}
-          <div className="sticky top-(--nav-offset) z-10 -mx-4 mt-5 flex items-center justify-between gap-4 border-b border-border bg-card/90 px-4 py-3 backdrop-blur md:-mx-page md:px-page">
+          <div
+            className={cn(
+              "sticky z-10 mt-5 flex items-center justify-between gap-4 border-b border-border bg-card/90 py-3 backdrop-blur",
+              scroller ? "top-0 -mx-6 px-6 xl:-mx-9.5 xl:px-9.5" : "top-(--nav-offset) -mx-4 px-4 md:-mx-page md:px-page",
+            )}
+          >
             <span aria-hidden className="truncate text-lead font-semibold text-foreground">
               {current?.label ?? "No updates"}
               {current && <span className="ml-2 text-small font-normal text-muted-foreground">{current.entries.length} {current.entries.length === 1 ? "update" : "updates"}</span>}

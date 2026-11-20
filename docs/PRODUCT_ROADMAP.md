@@ -33,7 +33,7 @@ stack and the counts.
 | Desktop navbar | 🔄 N1–N3 done | N4 "Try" ideas, N5 gallery and fallbacks, N6 full check; Figma frames |
 | Explore catalogue | 🔄 | Studio-catalogue titles 2–3 at a time, each with a press kit; AI tagging from a fixed list (EX5) |
 | PostHog activation | 🔄 Installed, session replay on | First recordings on the live site; Replay Vision scanners start then |
-| Meetings (step 3 of 4) | 🔄 Step 1 live (Overview → Meetings); step 2 (suggested changes) built, off until an `ANTHROPIC_API_KEY` is added (no paid services yet); step 3 (Schedule a Google Meet: Calendar event, Meet link, invites, who's busy) live 2026-11-19 | Home's Upcoming schedule; add the key for step 2; then Gemini notes arriving by themselves (4). `docs/MEETINGS_SPEC.md` |
+| Meetings (step 3 of 4) | 🔄 Step 1 live (Overview → Meetings); step 2 (suggested changes) built, off until an `ANTHROPIC_API_KEY` is added (no paid services yet); step 3 (Schedule a Google Meet: Calendar event, Meet link, invites, who's busy) live 2026-11-19, booked meetings on Home's Upcoming schedule | Add the key for step 2; then Gemini notes arriving by themselves (4). `docs/MEETINGS_SPEC.md` |
 | Onboarding (1.4) | 🔄 | "How did you hear about us" as an optional tap; "What you can do" as slides (waits on Figma) |
 
 ## Known rough edges

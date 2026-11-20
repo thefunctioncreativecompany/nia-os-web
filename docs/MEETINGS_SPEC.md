@@ -177,7 +177,8 @@ headings); the first one is the title.
 - **Google's review:** while the "Nia calendar" app is in Testing, only the test users Ika adds
   (up to 100) can connect, and they see "Google hasn't verified this app". Calendar permissions
   are "sensitive", so Google verifies the app before it's open to everyone.
-- **Still to do:** Home's Upcoming schedule showing booked meetings; following changes made in
+- **Home's Upcoming schedule** (2026-11-19) lists booked meetings with shoot days, Join on the day.
+- **Still to do:** following changes made in
   Google Calendar.
 
 ## Data (one migration per part, explained to Ika before she runs it)

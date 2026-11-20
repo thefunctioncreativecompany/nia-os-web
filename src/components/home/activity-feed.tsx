@@ -2,6 +2,7 @@
 import { ViewAll } from "@/components/nia/view-all";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { Archive, MailOpen } from "lucide-react";
 
@@ -14,6 +15,10 @@ import { EmptyState } from "@/components/nia/empty-state";
 import { SwipeActions, SwipeActionsRow } from "@/components/arc/swipe-actions/swipe-actions";
 import { FileText } from "lucide-react";
 import { plainText } from "@/lib/rich-text";
+import { setHomePanel, useHomePanel } from "@/components/home/home-panel";
+
+// View all opens in the right panel (Ika, 2026-11-19); its list loads only then.
+const ActivityPanel = dynamic(() => import("@/components/home/activity-panel").then((m) => m.ActivityPanel), { ssr: false });
 
 type Note = { id: number; project_id: string | null; kind: "shared" | "activity"; title: string; body: string; read_at: string | null; archived_at: string | null; created_at: string };
 
@@ -36,6 +41,7 @@ export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[];
   const router = useRouter();
   const [notes, setNotes] = useState<Note[] | null>(null);
   const [now, setNow] = useState(serverNow);
+  const panel = useHomePanel();
 
   useEffect(() => {
     const supabase = createClient();
@@ -97,7 +103,7 @@ export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[];
           Activity
         </h2>
         {unread > 0 && <span className="rounded-full bg-nia-blue/15 px-2 py-0.5 text-micro font-bold text-foreground">{unread} new</span>}
-        <ViewAll href="/home/activity" className="ml-auto" />
+        <ViewAll onClick={() => setHomePanel("activity")} className="ml-auto" />
       </div>
       {rows.length === 0 ? (
         <EmptyState icon={FileText} message="No activity yet. Your projects' updates will appear here." />
@@ -139,6 +145,7 @@ export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[];
           )}
         </SwipeActions>
       )}
+      {panel === "activity" && <ActivityPanel onClose={() => setHomePanel(null)} />}
     </section>
   );
 }

@@ -41,6 +41,16 @@ export const UPDATES: Update[] = [
     weight: { production: 0.7, fashion: 0.9, creator: 0.9 },
   },
   {
+    id: "upcoming-schedule",
+    date: "2026-11-19",
+    title: "Your upcoming schedule on Home",
+    body: "Booked meetings and shoot days from all your projects in one list on Home, soonest first, with Join on the day of a meeting. View all opens the rest beside the page, and so does Activity.",
+    href: "/home",
+    cta: "Open Home",
+    icon: "calendar",
+    weight: { production: 0.9, fashion: 0.7, creator: 0.6 },
+  },
+  {
     id: "google-meet",
     date: "2026-11-19",
     title: "Book a Google Meet from a project",

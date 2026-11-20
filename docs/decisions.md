@@ -1248,3 +1248,8 @@ onboarding's Import profile and Follow creators describe features removed in the
   both columns instead of stopping halfway, with the linked references (Explore titles, Instagram
   posts) first and pictures filling the row to ten; Key milestones show the first five open ones,
   the rest behind "N more". The Looks field (NumberField) is gone with it.
+- (2026-11-19) Home's Upcoming schedule is back (Ika: "show booked meetings and productions"): booked
+  Google Meet meetings and projects' shoot days in one list, soonest first, six on Home, the rest under
+  View all; Join on the day of a meeting; hidden when nothing is coming up. Drawn in the person's own
+  time zone. View all for Activity and Upcoming schedule opens in the right panel, one at a time
+  (Ika: "can open on right panel"), so the /home/activity page is gone (only Home linked to it).

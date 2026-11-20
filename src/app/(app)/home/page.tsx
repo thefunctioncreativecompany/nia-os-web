@@ -17,6 +17,8 @@ import { hasExploreAccess } from "@/lib/explore-access";
 import { ProjectGrid } from "@/components/projects/project-grid";
 import { GetStarted } from "@/components/home/get-started";
 import { googleConfigured } from "@/lib/google";
+import { UpcomingSchedule } from "@/components/home/upcoming-schedule";
+import { listUpcoming } from "@/features/schedule/upcoming";
 
 export const metadata: Metadata = {
   title: "Home · Nia OS",
@@ -25,7 +27,8 @@ export const metadata: Metadata = {
 // Home (Figma 872:42636 empty, 872:42800 active), without the old stat cards.
 export default function Page() {
   return (
-    <div className="flex flex-col gap-12 px-4 pt-12 pb-15 md:px-page">
+    // Leaves room for Activity or Upcoming schedule open in the right panel on computers.
+    <div className="flex flex-col gap-12 px-4 pt-12 pb-15 md:px-page lg:in-data-[preview-panel=open]:pr-(--preview-panel-w)">
       <Suspense fallback={null}>
         <Tour />
       </Suspense>
@@ -60,10 +63,15 @@ async function Tour() {
 
 // Recent projects and Activity (the new-templates card is off Home since 2026-11-11, Ika; git tag
 // parked-2026-11-11-new-templates-notice; new templates keep their "New" tag on Templates) (Workflows live on the Templates page; off Home for now, Ika 2026-11-10): Home was cut to these on 2026-11-10 (Ika: "too much on the home page");
-// Start from a template, Upcoming schedule and Quick actions are in git tag parked-2026-11-10-home.
+// Start from a template and Quick actions are in git tag parked-2026-11-10-home. Upcoming schedule
+// is back with real data (Ika, 2026-11-19): booked meetings and shoot days, first, hidden when empty.
 async function HomeBody() {
   return (
     <>
+      <Suspense fallback={null}>
+        <Upcoming />
+      </Suspense>
+
       <section aria-labelledby="recent-projects" className="flex flex-col gap-5">
         {/* View all beside the heading, as on Activity, Explore and the project page (Ika, 2026-11-12). */}
         <div className="flex items-center gap-2">
@@ -127,6 +135,10 @@ async function RecentProjects() {
     );
   }
   return <ProjectGrid projects={projects} now={now} compact newTile={false} />;
+}
+
+async function Upcoming() {
+  return <UpcomingSchedule items={await listUpcoming()} />;
 }
 
 async function RecentActivity() {
