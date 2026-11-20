@@ -1253,3 +1253,12 @@ onboarding's Import profile and Follow creators describe features removed in the
   View all; Join on the day of a meeting; hidden when nothing is coming up. Drawn in the person's own
   time zone. View all for Activity and Upcoming schedule opens in the right panel, one at a time
   (Ika: "can open on right panel"), so the /home/activity page is gone (only Home linked to it).
+- (2026-11-20) Best of 2026, batch 7: The Cat in the Hat, Primetime, Off Campus, Mutiny, Buddy,
+  Wuthering Heights, The Dog Stars, Shelter, Evil Dead Burn, Crystal Lake; 60 of 100 live. YouTube
+  answers this Mac again, so press kits have interviews and featurettes once more (checked by hand:
+  a video attacking Primetime's director, a cinema chain's promo and a film clip filed as an
+  interview were taken out; each kit leads with the title's own checked trailer). Reviews corrected
+  as before; The Cat in the Hat, Mutiny, Buddy and Shelter filled from edited publications.
+  check-trailers.mjs decodes characters YouTube escapes twice (&). Batch 10: YouTube's search gave
+  Runner a different film's trailer (The Runner) and WAR a Netflix documentary's; both replaced by
+  the official ones (Angel Studios, Sky).

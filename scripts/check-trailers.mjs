@@ -22,7 +22,8 @@ async function check(id) {
   const reason = html.match(/previewPlayabilityStatus\\":\{\\"status\\":\\"[A-Z_]+\\",\\"reason\\":\\"([^\\]+)/)?.[1];
   // Text inside the page's escaped JSON: up to the closing \", with escapes like \u0027 (') and a
   // quote inside the text (\\\") decoded.
-  const text = (m) => (m ? JSON.parse(`"${m.replaceAll('\\\\\\"', '\\"')}"`) : null);
+  // Some characters come escaped twice (& as \\u0026): decode what the first pass leaves.
+  const text = (m) => (m ? JSON.parse(`"${m.replaceAll('\\\\\\"', '\\"')}"`)?.replace(/\\u([0-9a-fA-F]{4})/g, (_, h) => String.fromCharCode(parseInt(h, 16))) : null);
   const channel = text(html.match(/ExpandedRenderer\\":\{\\"title\\":\{\\"runs\\":\[\{\\"text\\":\\"((?:\\\\\\"|[^\\]|\\u[0-9a-fA-F]{4}|\\[^"])*?)\\"/)?.[1]);
   const title = text(html.match(/\\"title\\":\{\\"runs\\":\[\{\\"text\\":\\"((?:\\\\\\"|[^\\]|\\u[0-9a-fA-F]{4}|\\[^"])*?)\\"/)?.[1]);
   return { ok: status === "OK", reason: status === "OK" ? null : (reason ?? status), channel, title };

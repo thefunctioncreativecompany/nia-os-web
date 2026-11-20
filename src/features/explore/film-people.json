@@ -242,6 +242,9 @@
  "Q103813807": {
   "name": "Jesse Suntele"
  },
+ "Q103819183": {
+  "name": "Ella Bright"
+ },
  "Q103826914": {
   "name": "J.O. Taylor"
  },
@@ -449,6 +452,9 @@
  "Q105063548": {
   "name": "Karen Baldwin"
  },
+ "Q105093905": {
+  "name": "Raphael Margules"
+ },
  "Q1051160": {
   "name": "Cathy Schulman"
  },
@@ -533,6 +539,9 @@
    "licence": "Public domain"
   }
  },
+ "Q105755598": {
+  "name": "Celine Held"
+ },
  "Q105882056": {
   "name": "Bukky Bakray",
   "photo": {
@@ -541,6 +550,9 @@
    "author": "WelcomeScreenUK",
    "licence": "CC BY 3.0"
   }
+ },
+ "Q105887703": {
+  "name": "Logan George"
  },
  "Q1058973": {
   "name": "Jessica Sula",
@@ -604,6 +616,9 @@
    "author": "Iva2b",
    "licence": "CC BY-SA 3.0"
   }
+ },
+ "Q106152859": {
+  "name": "Josey McNamara"
  },
  "Q106175": {
   "name": "John Cusack",
@@ -764,6 +779,9 @@
    "licence": "Public domain"
   }
  },
+ "Q107008980": {
+  "name": "Martin Ahlgren"
+ },
  "Q1070698": {
   "name": "Chester Conklin",
   "photo": {
@@ -784,6 +802,9 @@
  },
  "Q107168952": {
   "name": "Anne Ross"
+ },
+ "Q107192437": {
+  "name": "Lisa Robison"
  },
  "Q107249": {
   "name": "Tony Shalhoub",
@@ -941,6 +962,9 @@
    "licence": "Public domain"
   }
  },
+ "Q108372336": {
+  "name": "Josh Heuston"
+ },
  "Q108417210": {
   "name": "Stephanie Economou",
   "photo": {
@@ -1082,6 +1106,18 @@
    "licence": "CC BY-SA 4.0"
   }
  },
+ "Q109408139": {
+  "name": "Belmont Cameli",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Belmont_Cameli_by_Gage_Skidmore.jpg/500px-Belmont_Cameli_by_Gage_Skidmore.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Belmont_Cameli_by_Gage_Skidmore.jpg",
+   "author": "Gage Skidmore",
+   "licence": "CC BY-SA 3.0"
+  }
+ },
+ "Q1094826": {
+  "name": "Claire Simpson"
+ },
  "Q109497158": {
   "name": "Diego Mustapha Ngarade"
  },
@@ -1145,6 +1181,9 @@
    "licence": "CC BY-SA 4.0"
   }
  },
+ "Q109974650": {
+  "name": "Jared Stern"
+ },
  "Q1100524": {
   "name": "Doug Richardson"
  },
@@ -1195,6 +1234,9 @@
    "author": "Elena Ternovaja",
    "licence": "CC BY-SA 3.0"
   }
+ },
+ "Q110735703": {
+  "name": "Sam Bailey"
  },
  "Q110781532": {
   "name": "Makgotso M"
@@ -1376,6 +1418,21 @@
  "Q111974117": {
   "name": "Pilot Bunch"
  },
+ "Q111976143": {
+  "name": "Alison Oliver"
+ },
+ "Q112144155": {
+  "name": "Hunter Doohan",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Hunter_Doohan_in_2026-2.png/500px-Hunter_Doohan_in_2026-2.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Hunter_Doohan_in_2026-2.png",
+   "author": "Lucas Pelizaro",
+   "licence": "CC BY 4.0"
+  }
+ },
+ "Q112174929": {
+  "name": "Jalen Thomas Brooks"
+ },
  "Q112243292": {
   "name": "Sam Rechner"
  },
@@ -1402,6 +1459,15 @@
  },
  "Q112682839": {
   "name": "Bonko Khoza"
+ },
+ "Q112700153": {
+  "name": "Dan Molina",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Dan_Molina_2026.jpg/500px-Dan_Molina_2026.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Dan_Molina_2026.jpg",
+   "author": "TaurusEmerald",
+   "licence": "CC BY-SA 4.0"
+  }
  },
  "Q11284289": {
   "name": "Minami Hamabe",
@@ -1925,6 +1991,9 @@
  "Q1173825": {
   "name": "David Brenner"
  },
+ "Q1173861": {
+  "name": "David Buckley"
+ },
  "Q117415": {
   "name": "Josh Stewart",
   "photo": {
@@ -2117,6 +2186,15 @@
  "Q1190263": {
   "name": "Kristoffer Joner"
  },
+ "Q1190692": {
+  "name": "Skyler Gisondo",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Skyler_Gisondo_as_Jimmy_Olsen_%2853817355126%29_%28cropped%29.jpg/500px-Skyler_Gisondo_as_Jimmy_Olsen_%2853817355126%29_%28cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Skyler_Gisondo_as_Jimmy_Olsen_(53817355126)_(cropped).jpg",
+   "author": "Erik Drost",
+   "licence": "CC BY 2.0"
+  }
+ },
  "Q1192220": {
   "name": "Hal C. Kern",
   "photo": {
@@ -2143,6 +2221,9 @@
    "author": "Kevin Payravi",
    "licence": "CC BY-SA 4.0"
   }
+ },
+ "Q119576566": {
+  "name": "Jonathan Shores"
  },
  "Q1196052": {
   "name": "Russell Simpson",
@@ -2270,6 +2351,9 @@
  "Q122946445": {
   "name": "Patricia Amira"
  },
+ "Q122947127": {
+  "name": "Daniela Mazzucato"
+ },
  "Q1229499": {
   "name": "Hal Pereira"
  },
@@ -2315,6 +2399,18 @@
    "licence": "CC BY-SA 3.0"
   }
  },
+ "Q123371488": {
+  "name": "Sébastien Vaniček"
+ },
+ "Q123486791": {
+  "name": "William Catlett",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/William_Catlett_on_the_red_carpet_at_SIFF_2025.jpg/500px-William_Catlett_on_the_red_carpet_at_SIFF_2025.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:William_Catlett_on_the_red_carpet_at_SIFF_2025.jpg",
+   "author": "Joe Peacock",
+   "licence": "CC BY-SA 4.0"
+  }
+ },
  "Q123517270": {
   "name": "Aël Dallier Vega"
  },
@@ -2346,6 +2442,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Rachel_BostonPF2012.jpg",
    "author": "Genevieve",
    "licence": "CC BY 2.0"
+  }
+ },
+ "Q123740694": {
+  "name": "Khobe Clarke",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Khobe_Clarke_at_Vulture_Festival_2024.jpg/500px-Khobe_Clarke_at_Vulture_Festival_2024.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Khobe_Clarke_at_Vulture_Festival_2024.jpg",
+   "author": "Kevin Paul",
+   "licence": "CC BY 4.0"
   }
  },
  "Q123745": {
@@ -2636,6 +2741,15 @@
    "licence": "CC BY-SA 3.0"
   }
  },
+ "Q1285062": {
+  "name": "Steve Howey",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Steve_Howey_by_Gage_Skidmore.jpg/500px-Steve_Howey_by_Gage_Skidmore.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Steve_Howey_by_Gage_Skidmore.jpg",
+   "author": "Gage Skidmore",
+   "licence": "CC BY-SA 3.0"
+  }
+ },
  "Q128746": {
   "name": "Irving Berlin",
   "photo": {
@@ -2686,6 +2800,9 @@
    "author": "James Hargis Connelly",
    "licence": "Public domain"
   }
+ },
+ "Q129282898": {
+  "name": "Zach Kuperstein"
  },
  "Q1292944": {
   "name": "Paul Valentine",
@@ -2758,6 +2875,9 @@
    "author": "Quejaytee",
    "licence": "CC BY 4.0"
   }
+ },
+ "Q129978689": {
+  "name": "David Bolen"
  },
  "Q130217068": {
   "name": "Jane Ruhm"
@@ -3029,6 +3149,15 @@
  "Q1332872": {
   "name": "Greg Ellis"
  },
+ "Q133289448": {
+  "name": "Owen Cooper",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Owen_Cooper_at_BAFTA_2026_02_%28cropped%29.jpg/500px-Owen_Cooper_at_BAFTA_2026_02_%28cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Owen_Cooper_at_BAFTA_2026_02_(cropped).jpg",
+   "author": "JaceMerlyn",
+   "licence": "CC BY-SA 4.0"
+  }
+ },
  "Q133313": {
   "name": "Jake Gyllenhaal",
   "photo": {
@@ -3074,6 +3203,15 @@
    "licence": "CC BY 3.0"
   }
  },
+ "Q1336149": {
+  "name": "Rob Tapert",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Lawless_13_%2828461569318%29.jpg/500px-Lawless_13_%2828461569318%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Lawless_13_(28461569318).jpg",
+   "author": "GabboT",
+   "licence": "CC BY-SA 2.0"
+  }
+ },
  "Q133631": {
   "name": "Gloria Katz"
  },
@@ -3106,6 +3244,9 @@
    "author": "PhilipRomanoPhoto",
    "licence": "CC BY-SA 4.0"
   }
+ },
+ "Q134008220": {
+  "name": "Tyler Davidson"
  },
  "Q1340156": {
   "name": "Wendell Corey",
@@ -3434,6 +3575,9 @@
  "Q1356510": {
   "name": "Ernest Dickerson"
  },
+ "Q135654618": {
+  "name": "Ajon Singh"
+ },
  "Q1358070": {
   "name": "Jeff Cronenweth"
  },
@@ -3598,6 +3742,9 @@
    "author": "Philippe Halsman",
    "licence": "Public domain"
   }
+ },
+ "Q136660021": {
+  "name": "Eric Rahill"
  },
  "Q1366644": {
   "name": "Zhenwei Wang"
@@ -3796,6 +3943,9 @@
    "author": "THE 1 SECOND FILM",
    "licence": "CC BY-SA 2.0"
   }
+ },
+ "Q137843197": {
+  "name": "Bodhi Rae Breathnach"
  },
  "Q1378858": {
   "name": "Ben Alexander",
@@ -4046,6 +4196,39 @@
    "licence": "CC BY-SA 4.0"
   }
  },
+ "Q139814272": {
+  "name": "Liv Coron"
+ },
+ "Q139814309": {
+  "name": "Louisa Levy"
+ },
+ "Q139814341": {
+  "name": "Cheech Manohar"
+ },
+ "Q139814353": {
+  "name": "Emmy St. Pierre"
+ },
+ "Q139814369": {
+  "name": "Nick Bragg"
+ },
+ "Q139814378": {
+  "name": "Ian Deitchman"
+ },
+ "Q139814385": {
+  "name": "Kristin Rusk Robinson"
+ },
+ "Q139827317": {
+  "name": "Stephen Kalyn"
+ },
+ "Q1398367": {
+  "name": "Alex Winter",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Alex_Winter_at_37th_Annual_Global_Fraud_Conference_July%2C_13%2C_2026_003.jpg/500px-Alex_Winter_at_37th_Annual_Global_Fraud_Conference_July%2C_13%2C_2026_003.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Alex_Winter_at_37th_Annual_Global_Fraud_Conference_July,_13,_2026_003.jpg",
+   "author": "John Manard",
+   "licence": "CC BY-SA 4.0"
+  }
+ },
  "Q139906": {
   "name": "Zack Ward",
   "photo": {
@@ -4112,6 +4295,15 @@
  "Q141084616": {
   "name": "Rachel O'Connor"
  },
+ "Q141214543": {
+  "name": "Madison Skyy Polan",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Madison_Skyy_Polan.png/500px-Madison_Skyy_Polan.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Madison_Skyy_Polan.png",
+   "author": "Rocky Polan",
+   "licence": "CC0"
+  }
+ },
  "Q141379901": {
   "name": "Tatiana Bears"
  },
@@ -4132,6 +4324,9 @@
    "author": "Gabriel Hutchinson",
    "licence": "CC BY-SA 4.0"
   }
+ },
+ "Q141568274": {
+  "name": "Giosuè Greco"
  },
  "Q141619": {
   "name": "Tyra Ferrell"
@@ -4631,6 +4826,9 @@
    "licence": "CC BY-SA 3.0 nl"
   }
  },
+ "Q15436991": {
+  "name": "Matthew Newman"
+ },
  "Q154390": {
   "name": "Ricardo Costa",
   "photo": {
@@ -5108,6 +5306,15 @@
    "licence": "CC BY 3.0"
   }
  },
+ "Q16065110": {
+  "name": "Roland Møller",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Roland_M%C3%B8ller_%2821473605619%29.jpg/500px-Roland_M%C3%B8ller_%2821473605619%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Roland_M%C3%B8ller_(21473605619).jpg",
+   "author": "Gordon Correll",
+   "licence": "CC BY-SA 2.0"
+  }
+ },
  "Q1606794": {
   "name": "Henry Grace"
  },
@@ -5229,6 +5436,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Ismael_Cruz_C%C3%B3rdova_at_San_Diego_Comic_Con_2026.jpg",
    "author": "Kevin Paul",
    "licence": "CC BY 4.0"
+  }
+ },
+ "Q16207879": {
+  "name": "Emerald Fennell",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Emerald_Fennell%2C_2023_%281%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Emerald_Fennell,_2023_(1).jpg",
+   "author": "Margaret Gardiner",
+   "licence": "CC BY 3.0"
   }
  },
  "Q16207915": {
@@ -5517,6 +5733,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Pat_Hingle_(4443330082_724d5a94a0_z).jpg",
    "author": "General Electric",
    "licence": "Public domain"
+  }
+ },
+ "Q16528588": {
+  "name": "Arnas Fedaravičius",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Arnas_Fedaravicius_2023.jpg/500px-Arnas_Fedaravicius_2023.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Arnas_Fedaravicius_2023.jpg",
+   "author": "German Film &amp; Comic Con",
+   "licence": "CC BY 3.0"
   }
  },
  "Q1652953": {
@@ -5987,6 +6212,15 @@
  "Q1699554": {
   "name": "Vanja Cernjul"
  },
+ "Q169963": {
+  "name": "Jason Statham",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Jason_Statham_2018.jpg/500px-Jason_Statham_2018.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Jason_Statham_2018.jpg",
+   "author": "MTV International",
+   "licence": "CC BY 3.0"
+  }
+ },
  "Q1700581": {
   "name": "John J. Mescall",
   "photo": {
@@ -6112,6 +6346,9 @@
  },
  "Q1708464": {
   "name": "Colin Wilson"
+ },
+ "Q17088184": {
+  "name": "Silver Tree"
  },
  "Q1712232": {
   "name": "Peter Bull"
@@ -6286,6 +6523,15 @@
  },
  "Q17372908": {
   "name": "Rick Jaffa"
+ },
+ "Q17380672": {
+  "name": "Margaret Qualley",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Margaret_Qualley_at_the_2025_Cannes_Film_Festival_01.jpg/500px-Margaret_Qualley_at_the_2025_Cannes_Film_Festival_01.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Margaret_Qualley_at_the_2025_Cannes_Film_Festival_01.jpg",
+   "author": "Gabriel Hutchinson",
+   "licence": "CC BY-SA 4.0"
+  }
  },
  "Q1740222": {
   "name": "Kevin Misher"
@@ -7271,6 +7517,9 @@
  "Q1878909": {
   "name": "Lynzee Klingman"
  },
+ "Q18811838": {
+  "name": "Alessandro Carloni"
+ },
  "Q188137": {
   "name": "J. J. Abrams",
   "photo": {
@@ -8003,6 +8252,9 @@
    "licence": "CC BY-SA 4.0"
   }
  },
+ "Q19895767": {
+  "name": "Michael Lennox"
+ },
  "Q1989592": {
   "name": "Nigel Phelps"
  },
@@ -8060,6 +8312,15 @@
    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Yeon_Sang-ho_at_2025_Toronto_International_Film_Festival_5.jpg/500px-Yeon_Sang-ho_at_2025_Toronto_International_Film_Festival_5.jpg",
    "page": "https://commons.wikimedia.org/wiki/File:Yeon_Sang-ho_at_2025_Toronto_International_Film_Festival_5.jpg",
    "author": "John Sears",
+   "licence": "CC BY-SA 4.0"
+  }
+ },
+ "Q19955870": {
+  "name": "Florent Bernard",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Florent_Bernard_%C3%A0_Rouen.jpg/500px-Florent_Bernard_%C3%A0_Rouen.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Florent_Bernard_%C3%A0_Rouen.jpg",
+   "author": "Oscourt",
    "licence": "CC BY-SA 4.0"
   }
  },
@@ -8467,6 +8728,9 @@
    "author": "Trailer screenshot",
    "licence": "Public domain"
   }
+ },
+ "Q2040299": {
+  "name": "Jamie King"
  },
  "Q2042628": {
   "name": "Owen Marks"
@@ -9491,6 +9755,9 @@
  "Q2162645": {
   "name": "Roland Anderson"
  },
+ "Q21634616": {
+  "name": "Peter Heller"
+ },
  "Q21649422": {
   "name": "Dele Odule",
   "photo": {
@@ -9766,6 +10033,9 @@
    "author": "Dick Thomas Johnson from Tokyo, Japan",
    "licence": "CC BY 2.0"
   }
+ },
+ "Q22074641": {
+  "name": "Brendan Galvin"
  },
  "Q220751": {
   "name": "Bryan Singer",
@@ -10368,6 +10638,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Slim_Summerville_1925-1945.jpg",
    "author": "Los Angeles Daily News",
    "licence": "CC BY 4.0"
+  }
+ },
+ "Q229487": {
+  "name": "Allison Janney",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/6/68/Allison-Janney_in_2014.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Allison-Janney_in_2014.jpg",
+   "author": "VailFilmFest",
+   "licence": "CC BY-SA 4.0"
   }
  },
  "Q229535": {
@@ -11384,6 +11663,15 @@
  "Q23675246": {
   "name": "Ejike Asiegbu"
  },
+ "Q23697700": {
+  "name": "Ric Roman Waugh",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ric_Roman_Waugh.png/500px-Ric_Roman_Waugh.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Ric_Roman_Waugh.png",
+   "author": "Bfdrange",
+   "licence": "CC BY 4.0"
+  }
+ },
  "Q237053": {
   "name": "Isabelle Fuhrman",
   "photo": {
@@ -12125,6 +12413,15 @@
  "Q24883311": {
   "name": "Sadiq Daba"
  },
+ "Q24883319": {
+  "name": "Phoebe Bridgers",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/BoygeniusKingstonEarly240823_%2829_of_45%29_%2853138924957%29_Cropped.jpg/500px-BoygeniusKingstonEarly240823_%2829_of_45%29_%2853138924957%29_Cropped.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:BoygeniusKingstonEarly240823_(29_of_45)_(53138924957)_Cropped.jpg",
+   "author": "Raph_PH",
+   "licence": "CC BY 2.0"
+  }
+ },
  "Q249718": {
   "name": "Samuel A. Taylor"
  },
@@ -12476,6 +12773,15 @@
  "Q258156": {
   "name": "Colleen Atwood"
  },
+ "Q258220": {
+  "name": "Annabelle Wallis",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Annabelle_Wallis_%2834704885721%29_%282%29.jpg/500px-Annabelle_Wallis_%2834704885721%29_%282%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Annabelle_Wallis_(34704885721)_(2).jpg",
+   "author": "Eva Rinaldi from Sydney Australia",
+   "licence": "CC BY-SA 2.0"
+  }
+ },
  "Q25871": {
   "name": "Michael Wilson"
  },
@@ -12739,6 +13045,15 @@
  },
  "Q26292195": {
   "name": "Bridget Masinga"
+ },
+ "Q2631586": {
+  "name": "Martin Clunes",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/MartinClunes.jpg/500px-MartinClunes.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:MartinClunes.jpg",
+   "author": "Dr. Blofeld at English Wikipedia",
+   "licence": "CC BY-SA 3.0"
+  }
  },
  "Q2632033": {
   "name": "Fumio Hayasaka",
@@ -13913,6 +14228,9 @@
    "licence": "Public domain"
   }
  },
+ "Q28015821": {
+  "name": "Brandon Scott"
+ },
  "Q28020099": {
   "name": "Leigh Folsom Boyd"
  },
@@ -13962,6 +14280,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Judi_Dench_at_the_BAFTAs_2007_(cropped).jpg",
    "author": "Caroline Bonarde Ucci at https://www.flickr.com/photos/caroline_bonarde/",
    "licence": "CC BY 3.0"
+  }
+ },
+ "Q28062336": {
+  "name": "Julia Sarah Stone",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Julia_Sarah_Stone_The_Drop_%28cropped%29.jpg/500px-Julia_Sarah_Stone_The_Drop_%28cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Julia_Sarah_Stone_The_Drop_(cropped).jpg",
+   "author": "GabboT",
+   "licence": "CC BY-SA 2.0"
   }
  },
  "Q28065172": {
@@ -14176,6 +14503,15 @@
  },
  "Q28530075": {
   "name": "Arianne Sutner"
+ },
+ "Q28531045": {
+  "name": "Fred Berger",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Fred_Berger_at_the_2024_Toronto_International_Film_Festival_2.jpg/500px-Fred_Berger_at_the_2024_Toronto_International_Film_Festival_2.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Fred_Berger_at_the_2024_Toronto_International_Film_Festival_2.jpg",
+   "author": "Kevin Payravi",
+   "licence": "CC BY-SA 4.0"
+  }
  },
  "Q28534248": {
   "name": "Adele Romanski",
@@ -15100,6 +15436,9 @@
  },
  "Q3018583": {
   "name": "David Parfitt"
+ },
+ "Q3018722": {
+  "name": "David Rosenbloom"
  },
  "Q3018955": {
   "name": "David Wasco"
@@ -18188,6 +18527,15 @@
    "licence": "CC BY-SA 4.0"
   }
  },
+ "Q3491566": {
+  "name": "Souheila Yacoub",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Souheila_yacoub_2021_2.jpg/500px-Souheila_yacoub_2021_2.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Souheila_yacoub_2021_2.jpg",
+   "author": "Quinzaine des Réalisateurs",
+   "licence": "CC BY 3.0"
+  }
+ },
  "Q349339": {
   "name": "Doug Liman",
   "photo": {
@@ -19682,6 +20030,9 @@
  "Q373128": {
   "name": "Bill Walsh"
  },
+ "Q373395": {
+  "name": "Adrian Lester"
+ },
  "Q373500": {
   "name": "Bruce Cabot",
   "photo": {
@@ -20360,6 +20711,9 @@
    "licence": "CC BY-SA 3.0"
   }
  },
+ "Q3929913": {
+  "name": "Ramon Tikaram"
+ },
  "Q3930208": {
   "name": "Raphaël Coleman"
  },
@@ -20670,6 +21024,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Jodie_Foster_in_Baltimore_(cropped).jpg",
    "author": "John Mathew Smith &amp; www.celebrity-photos.com from Laurel Maryland, USA",
    "licence": "CC BY-SA 2.0"
+  }
+ },
+ "Q41396": {
+  "name": "Josh Brolin",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Josh_Brolin_TIFF_2025_%28cropped%29.jpg/500px-Josh_Brolin_TIFF_2025_%28cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Josh_Brolin_TIFF_2025_(cropped).jpg",
+   "author": "Max Surprenant",
+   "licence": "CC BY 4.0"
   }
  },
  "Q41422": {
@@ -21310,6 +21673,15 @@
  },
  "Q439979": {
   "name": "Robinne Lee"
+ },
+ "Q440189": {
+  "name": "Merritt Wever",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Merritt_Wever_2010.jpg/500px-Merritt_Wever_2010.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Merritt_Wever_2010.jpg",
+   "author": "Thomas Attila Lewis from Pittsfield, MA, USA",
+   "licence": "CC BY 2.0"
+  }
  },
  "Q440313": {
   "name": "Milena Canonero",
@@ -22958,6 +23330,9 @@
  "Q47498337": {
   "name": "Edward H. Hamm Jr."
  },
+ "Q47536762": {
+  "name": "Luciane Buchanan"
+ },
  "Q4754805": {
   "name": "André Holland",
   "photo": {
@@ -23660,6 +24035,9 @@
  "Q506304": {
   "name": "D. M. Marshman, Jr."
  },
+ "Q5066387": {
+  "name": "Chad Willett"
+ },
  "Q5066520": {
   "name": "Chadwick Boseman",
   "photo": {
@@ -23788,6 +24166,15 @@
  },
  "Q51052714": {
   "name": "Bert Haines"
+ },
+ "Q5105657": {
+  "name": "Casper Kelly",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/6/65/Fantastic_fest11_%28cropped2%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Fantastic_fest11_(cropped2).jpg",
+   "author": "Happy Green Giraffe",
+   "licence": "CC0"
+  }
  },
  "Q510713": {
   "name": "Alec Mapa",
@@ -24449,6 +24836,15 @@
    "licence": "CC BY-SA 4.0"
   }
  },
+ "Q523153": {
+  "name": "Jonathan Lipnicki",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/8/8b/JonathanLipnickiByPhilKonstantinPublicDomain.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:JonathanLipnickiByPhilKonstantinPublicDomain.jpg",
+   "author": "Phil Konstantin",
+   "licence": "Public domain"
+  }
+ },
  "Q5233216": {
   "name": "David E. Talbert"
  },
@@ -24806,6 +25202,9 @@
  "Q5345162": {
   "name": "Edward S. Feldman"
  },
+ "Q535018": {
+  "name": "Jean-François Richet"
+ },
  "Q535273": {
   "name": "Senta Moses"
  },
@@ -24826,6 +25225,9 @@
    "author": "David Shankbone",
    "licence": "CC BY-SA 3.0"
   }
+ },
+ "Q5364664": {
+  "name": "Elle Kennedy"
  },
  "Q53651": {
   "name": "Josh Lucas",
@@ -24901,6 +25303,15 @@
  },
  "Q5388490": {
   "name": "Erik Bergquist"
+ },
+ "Q53909401": {
+  "name": "Jacob Elordi",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/JacobElordi-TIFF2025-01_%28cropped_2%29.png/500px-JacobElordi-TIFF2025-01_%28cropped_2%29.png",
+   "page": "https://commons.wikimedia.org/wiki/File:JacobElordi-TIFF2025-01_(cropped_2).png",
+   "author": "JoshPopov",
+   "licence": "CC BY 4.0"
+  }
  },
  "Q539170": {
   "name": "Ned Sparks",
@@ -25490,6 +25901,9 @@
  "Q55597362": {
   "name": "Jean-Christophe Hym"
  },
+ "Q5562776": {
+  "name": "Scott Aversano"
+ },
  "Q5563216": {
   "name": "Gino Corrado",
   "photo": {
@@ -25967,6 +26381,15 @@
  "Q579550": {
   "name": "Peter Biziou"
  },
+ "Q579571": {
+  "name": "Daniel Mays",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Daniel_Mays.png/500px-Daniel_Mays.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Daniel_Mays.png",
+   "author": "Soccer Aid for UNICEF",
+   "licence": "CC BY 3.0"
+  }
+ },
  "Q580587": {
   "name": "Brock Peters",
   "photo": {
@@ -26327,6 +26750,9 @@
    "licence": "CC BY 2.0"
   }
  },
+ "Q60736582": {
+  "name": "George Pullar"
+ },
  "Q6074798": {
   "name": "Irving Shulman"
  },
@@ -26348,6 +26774,15 @@
    "licence": "Public domain"
   }
  },
+ "Q608628": {
+  "name": "Lorne Balfe",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Lorne_Balfe.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Lorne_Balfe.jpg",
+   "author": "International Labour Organization",
+   "licence": "CC BY 2.0"
+  }
+ },
  "Q608709": {
   "name": "Harry Lennix",
   "photo": {
@@ -26359,6 +26794,9 @@
  },
  "Q60922953": {
   "name": "Yorgos Mavropsaridis"
+ },
+ "Q6092676": {
+  "name": "Linus Sandgren"
  },
  "Q60929726": {
   "name": "Patrick J. Don Vito"
@@ -26399,6 +26837,9 @@
    "licence": "CC BY-SA 4.0"
   }
  },
+ "Q6104038": {
+  "name": "J. D. Lifshitz"
+ },
  "Q6105016": {
   "name": "J. C. Nugent",
   "photo": {
@@ -26416,6 +26857,9 @@
    "author": "KAFA",
    "licence": "CC BY 3.0"
   }
+ },
+ "Q6106672": {
+  "name": "J. P. Davis"
  },
  "Q6106988": {
   "name": "J. Rosamond Johnson",
@@ -26765,6 +27209,15 @@
    "licence": "CC BY-SA 2.0"
   }
  },
+ "Q62267079": {
+  "name": "Jason Wong",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/British_actor_Jason_Wong.jpg/500px-British_actor_Jason_Wong.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:British_actor_Jason_Wong.jpg",
+   "author": "Kevin Wong",
+   "licence": "CC BY-SA 4.0"
+  }
+ },
  "Q6229433": {
   "name": "John Dighton"
  },
@@ -27014,6 +27467,24 @@
  "Q63740752": {
   "name": "Vaughn Lucas"
  },
+ "Q6382703": {
+  "name": "Keegan-Michael Key",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Keegan-Michael_Key_%2849550965587%29_%28cropped%29.jpg/500px-Keegan-Michael_Key_%2849550965587%29_%28cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Keegan-Michael_Key_(49550965587)_(cropped).jpg",
+   "author": "Gage Skidmore from Surprise, AZ, United States of America",
+   "licence": "CC BY-SA 2.0"
+  }
+ },
+ "Q6382705": {
+  "name": "Keegan DeWitt",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Keegan_DeWitt_2014.jpg/500px-Keegan_DeWitt_2014.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Keegan_DeWitt_2014.jpg",
+   "author": "Nan Palmero",
+   "licence": "CC BY 2.0"
+  }
+ },
  "Q6386180": {
   "name": "Kelly Marcel"
  },
@@ -27085,6 +27556,9 @@
  },
  "Q64167579": {
   "name": "Olivier Demangel"
+ },
+ "Q64216382": {
+  "name": "Mika Abdalla"
  },
  "Q642196": {
   "name": "William A. Horning"
@@ -27206,6 +27680,9 @@
    "licence": "CC0"
   }
  },
+ "Q65548333": {
+  "name": "Josh Ethier"
+ },
  "Q65548506": {
   "name": "Jimmie Fails"
  },
@@ -27214,6 +27691,9 @@
  },
  "Q6557253": {
   "name": "Pilar Savone"
+ },
+ "Q65589471": {
+  "name": "Quyen Tran"
  },
  "Q655911": {
   "name": "James Basevi"
@@ -27338,6 +27818,9 @@
    "licence": "Public domain"
   }
  },
+ "Q6755435": {
+  "name": "Marc Butan"
+ },
  "Q675776": {
   "name": "Arliss Howard"
  },
@@ -27382,6 +27865,15 @@
  },
  "Q6789004": {
   "name": "Matt Manfredi"
+ },
+ "Q6790916": {
+  "name": "Matthew Maher",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Matthew_Maher_by_Gage_Skidmore.jpg/500px-Matthew_Maher_by_Gage_Skidmore.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Matthew_Maher_by_Gage_Skidmore.jpg",
+   "author": "Gage Skidmore",
+   "licence": "CC BY-SA 3.0"
+  }
  },
  "Q679110": {
   "name": "Joshua Leonard",
@@ -27433,6 +27925,9 @@
    "author": "Hugo van Gelderen / Anefo",
    "licence": "CC BY-SA 3.0 nl"
   }
+ },
+ "Q6835480": {
+  "name": "Michael Yezerski"
  },
  "Q683785": {
   "name": "Rick McCallum",
@@ -28259,6 +28754,9 @@
  "Q719684": {
   "name": "Ranald MacDougall"
  },
+ "Q71977385": {
+  "name": "Charlene Akuamoah"
+ },
  "Q720068": {
   "name": "Allen Daviau",
   "photo": {
@@ -28949,6 +29447,9 @@
    "licence": "Public domain"
   }
  },
+ "Q7440839": {
+  "name": "Sean Bridgers"
+ },
  "Q744166": {
   "name": "Jenny Slate",
   "photo": {
@@ -29030,6 +29531,15 @@
    "licence": "CC BY-SA 3.0"
   }
  },
+ "Q7491731": {
+  "name": "Shazad Latif",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Shazad_Latif_SDCC_2017.jpg/500px-Shazad_Latif_SDCC_2017.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Shazad_Latif_SDCC_2017.jpg",
+   "author": "vagueonthehow",
+   "licence": "CC BY 2.0"
+  }
+ },
  "Q749735": {
   "name": "Larry Gates",
   "photo": {
@@ -29047,6 +29557,9 @@
    "author": "Unknown author",
    "licence": "Public domain"
   }
+ },
+ "Q75031199": {
+  "name": "Colin Hoult"
  },
  "Q75079": {
   "name": "Chris Columbus",
@@ -29069,6 +29582,15 @@
    "licence": "Public domain"
   }
  },
+ "Q75168191": {
+  "name": "Erica Rivinoja",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Erica_Rivinoja_by_Gage_Skidmore.jpg/500px-Erica_Rivinoja_by_Gage_Skidmore.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Erica_Rivinoja_by_Gage_Skidmore.jpg",
+   "author": "Gage Skidmore",
+   "licence": "CC BY-SA 3.0"
+  }
+ },
  "Q7518913": {
   "name": "Simon Hansen"
  },
@@ -29083,6 +29605,9 @@
  },
  "Q7522261": {
   "name": "Sindi Dl"
+ },
+ "Q75732852": {
+  "name": "Ewan Mitchell"
  },
  "Q75830666": {
   "name": "Sev Ohanian",
@@ -29100,6 +29625,15 @@
    "page": "https://commons.wikimedia.org/wiki/File:Stanley_Adams_in_High_School_Big_Shot.jpg",
    "author": "film screenshot (Sparta Prod.)",
    "licence": "Public domain"
+  }
+ },
+ "Q76081666": {
+  "name": "Erik Messerschmidt",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Erik_Messerschmidt_%2853254290192%29_%28cropped%29.jpg/500px-Erik_Messerschmidt_%2853254290192%29_%28cropped%29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Erik_Messerschmidt_(53254290192)_(cropped).jpg",
+   "author": "Raph_PH",
+   "licence": "CC BY 2.0"
   }
  },
  "Q7609965": {
@@ -29131,6 +29665,9 @@
  },
  "Q7615021": {
   "name": "Steven Markovitz"
+ },
+ "Q76163023": {
+  "name": "Anthony Willis"
  },
  "Q7626779": {
   "name": "Stuart M. Besser"
@@ -29230,6 +29767,9 @@
    "author": "LucaFazPhoto",
    "licence": "CC BY-SA 4.0"
   }
+ },
+ "Q7682451": {
+  "name": "Tandi Wright"
  },
  "Q76877": {
   "name": "Elizabeth Marvel",
@@ -29800,6 +30340,15 @@
  },
  "Q8451565": {
   "name": "Robert Wade"
+ },
+ "Q84598780": {
+  "name": "Antonio Cipriano",
+  "photo": {
+   "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Antonio_Cipriano_2019_JLP.jpg/500px-Antonio_Cipriano_2019_JLP.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Antonio_Cipriano_2019_JLP.jpg",
+   "author": "HM2021",
+   "licence": "CC BY-SA 4.0"
+  }
  },
  "Q84650": {
   "name": "Franz Planer",
@@ -30958,6 +31507,9 @@
    "author": "Richard Berg",
    "licence": "CC BY 3.0"
   }
+ },
+ "Q95225649": {
+  "name": "Marcus Trumpp"
  },
  "Q952428": {
   "name": "David Newman"

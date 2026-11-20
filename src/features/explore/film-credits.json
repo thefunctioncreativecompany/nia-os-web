@@ -3523,6 +3523,67 @@
    }
   ]
  },
+ "buddy": {
+  "qid": "Q137356269",
+  "people": [
+   {
+    "id": "Q5186320",
+    "role": "Cast"
+   },
+   {
+    "id": "Q277978",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6382703",
+    "role": "Cast"
+   },
+   {
+    "id": "Q41449",
+    "role": "Cast"
+   },
+   {
+    "id": "Q374065",
+    "role": "Cast"
+   },
+   {
+    "id": "Q141214543",
+    "role": "Cast"
+   },
+   {
+    "id": "Q5105657",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q2040299",
+    "role": "Writer"
+   },
+   {
+    "id": "Q6104038",
+    "role": "Producer"
+   },
+   {
+    "id": "Q105093905",
+    "role": "Producer"
+   },
+   {
+    "id": "Q134008220",
+    "role": "Producer"
+   },
+   {
+    "id": "Q129282898",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q65548333",
+    "role": "Editor"
+   },
+   {
+    "id": "Q6835480",
+    "role": "Music"
+   }
+  ]
+ },
  "bugonia": {
   "qid": "Q125971387",
   "people": [
@@ -5159,6 +5220,40 @@
    }
   ]
  },
+ "crystal-lake": {
+  "qid": "Q135166893",
+  "people": [
+   {
+    "id": "Q234204",
+    "role": "Cast",
+    "character": "Pamela Voorhees"
+   },
+   {
+    "id": "Q123486791",
+    "role": "Cast"
+   },
+   {
+    "id": "Q19895767",
+    "role": "Director"
+   },
+   {
+    "id": "Q105755598",
+    "role": "Director"
+   },
+   {
+    "id": "Q105887703",
+    "role": "Director"
+   },
+   {
+    "id": "Q65589471",
+    "role": "Director"
+   },
+   {
+    "id": "Q141568274",
+    "role": "Music"
+   }
+  ]
+ },
  "dahomey": {
   "qid": "Q124319816",
   "people": [
@@ -6014,6 +6109,47 @@
    {
     "id": "Q107676380",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "evil-dead-burn": {
+  "qid": "Q132731331",
+  "people": [
+   {
+    "id": "Q3491566",
+    "role": "Cast"
+   },
+   {
+    "id": "Q112144155",
+    "role": "Cast"
+   },
+   {
+    "id": "Q47536762",
+    "role": "Cast"
+   },
+   {
+    "id": "Q7682451",
+    "role": "Cast"
+   },
+   {
+    "id": "Q60736582",
+    "role": "Cast"
+   },
+   {
+    "id": "Q123371488",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q19955870",
+    "role": "Writer"
+   },
+   {
+    "id": "Q275402",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1336149",
+    "role": "Producer"
    }
   ]
  },
@@ -14172,6 +14308,63 @@
    }
   ]
  },
+ "mutiny": {
+  "qid": "Q125878994",
+  "people": [
+   {
+    "id": "Q169963",
+    "role": "Cast, Producer"
+   },
+   {
+    "id": "Q258220",
+    "role": "Cast"
+   },
+   {
+    "id": "Q62267079",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16065110",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16528588",
+    "role": "Cast"
+   },
+   {
+    "id": "Q373395",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3929913",
+    "role": "Cast"
+   },
+   {
+    "id": "Q535018",
+    "role": "Director"
+   },
+   {
+    "id": "Q6106672",
+    "role": "Writer"
+   },
+   {
+    "id": "Q6755435",
+    "role": "Producer"
+   },
+   {
+    "id": "Q22074641",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q3018722",
+    "role": "Editor"
+   },
+   {
+    "id": "Q95225649",
+    "role": "Music"
+   }
+  ]
+ },
  "nanny-mcphee": {
   "qid": "Q523249",
   "people": [
@@ -14656,6 +14849,119 @@
    {
     "id": "Q136345455",
     "role": "Director, Writer, Editor"
+   }
+  ]
+ },
+ "off-campus": {
+  "qid": "Q138862091",
+  "people": [
+   {
+    "id": "Q103819183",
+    "role": "Cast"
+   },
+   {
+    "id": "Q109408139",
+    "role": "Cast"
+   },
+   {
+    "id": "Q64216382",
+    "role": "Cast"
+   },
+   {
+    "id": "Q139827317",
+    "role": "Cast"
+   },
+   {
+    "id": "Q84598780",
+    "role": "Cast"
+   },
+   {
+    "id": "Q112174929",
+    "role": "Cast"
+   },
+   {
+    "id": "Q108372336",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1285062",
+    "role": "Cast"
+   },
+   {
+    "id": "Q123740694",
+    "role": "Cast"
+   },
+   {
+    "id": "Q28062336",
+    "role": "Cast"
+   },
+   {
+    "id": "Q5066387",
+    "role": "Cast"
+   },
+   {
+    "id": "Q28015821",
+    "role": "Cast"
+   },
+   {
+    "id": "Q110735703",
+    "role": "Director"
+   },
+   {
+    "id": "Q17088184",
+    "role": "Director"
+   },
+   {
+    "id": "Q5364664",
+    "role": "Writer, Producer"
+   },
+   {
+    "id": "Q139814272",
+    "role": "Writer"
+   },
+   {
+    "id": "Q139814309",
+    "role": "Writer"
+   },
+   {
+    "id": "Q139814341",
+    "role": "Writer"
+   },
+   {
+    "id": "Q139814353",
+    "role": "Writer"
+   },
+   {
+    "id": "Q139814369",
+    "role": "Writer"
+   },
+   {
+    "id": "Q139814378",
+    "role": "Writer"
+   },
+   {
+    "id": "Q139814385",
+    "role": "Writer"
+   },
+   {
+    "id": "Q119576566",
+    "role": "Producer"
+   },
+   {
+    "id": "Q75031199",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q107192437",
+    "role": "Editor"
+   },
+   {
+    "id": "Q6382705",
+    "role": "Music"
+   },
+   {
+    "id": "Q71977385",
+    "role": "Costume Designer"
    }
   ]
  },
@@ -16156,6 +16462,80 @@
    {
     "id": "Q313537",
     "role": "Music"
+   }
+  ]
+ },
+ "primetime": {
+  "qid": "Q133273688",
+  "people": [
+   {
+    "id": "Q36767",
+    "role": "Cast, Producer",
+    "character": "Chris Hansen"
+   },
+   {
+    "id": "Q24883319",
+    "role": "Cast"
+   },
+   {
+    "id": "Q440189",
+    "role": "Cast"
+   },
+   {
+    "id": "Q7440839",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1190692",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6790916",
+    "role": "Cast"
+   },
+   {
+    "id": "Q4491",
+    "role": "Cast"
+   },
+   {
+    "id": "Q523153",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1139685",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16237562",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1398367",
+    "role": "Cast"
+   },
+   {
+    "id": "Q136660021",
+    "role": "Cast"
+   },
+   {
+    "id": "Q27040203",
+    "role": "Director"
+   },
+   {
+    "id": "Q135654618",
+    "role": "Writer"
+   },
+   {
+    "id": "Q54864392",
+    "role": "Producer"
+   },
+   {
+    "id": "Q28531045",
+    "role": "Producer"
+   },
+   {
+    "id": "Q129978689",
+    "role": "Director of Photography"
    }
   ]
  },
@@ -18287,6 +18667,47 @@
    {
     "id": "Q289952",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "shelter": {
+  "qid": "Q133448995",
+  "people": [
+   {
+    "id": "Q169963",
+    "role": "Cast, Producer"
+   },
+   {
+    "id": "Q207179",
+    "role": "Cast"
+   },
+   {
+    "id": "Q47456743",
+    "role": "Cast"
+   },
+   {
+    "id": "Q579571",
+    "role": "Cast"
+   },
+   {
+    "id": "Q137843197",
+    "role": "Cast"
+   },
+   {
+    "id": "Q23697700",
+    "role": "Director"
+   },
+   {
+    "id": "Q107008980",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q15436991",
+    "role": "Editor"
+   },
+   {
+    "id": "Q1173861",
+    "role": "Music"
    }
   ]
  },
@@ -21575,6 +21996,35 @@
    }
   ]
  },
+ "the-cat-in-the-hat": {
+  "qid": "Q122932991",
+  "people": [
+   {
+    "id": "Q75168191",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q18811838",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q122947127",
+    "role": "Producer"
+   },
+   {
+    "id": "Q109974650",
+    "role": "Producer"
+   },
+   {
+    "id": "Q112700153",
+    "role": "Editor"
+   },
+   {
+    "id": "Q608628",
+    "role": "Music"
+   }
+  ]
+ },
  "the-college-dropout-video-anthology": {
   "qid": "Q7726753",
   "people": []
@@ -22022,6 +22472,63 @@
    },
    {
     "id": "Q1513322",
+    "role": "Music"
+   }
+  ]
+ },
+ "the-dog-stars": {
+  "qid": "Q132256832",
+  "people": [
+   {
+    "id": "Q53909401",
+    "role": "Cast"
+   },
+   {
+    "id": "Q17380672",
+    "role": "Cast"
+   },
+   {
+    "id": "Q41396",
+    "role": "Cast"
+   },
+   {
+    "id": "Q223745",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3329808",
+    "role": "Cast"
+   },
+   {
+    "id": "Q229487",
+    "role": "Cast"
+   },
+   {
+    "id": "Q56005",
+    "role": "Director"
+   },
+   {
+    "id": "Q6768454",
+    "role": "Writer"
+   },
+   {
+    "id": "Q5562776",
+    "role": "Producer"
+   },
+   {
+    "id": "Q21634616",
+    "role": "Producer"
+   },
+   {
+    "id": "Q76081666",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q1094826",
+    "role": "Editor"
+   },
+   {
+    "id": "Q314623",
     "role": "Music"
    }
   ]
@@ -27523,6 +28030,63 @@
    },
    {
     "id": "Q360399",
+    "role": "Music"
+   }
+  ]
+ },
+ "wuthering-heights": {
+  "qid": "Q130393881",
+  "people": [
+   {
+    "id": "Q1924847",
+    "role": "Cast, Producer"
+   },
+   {
+    "id": "Q53909401",
+    "role": "Cast"
+   },
+   {
+    "id": "Q133289448",
+    "role": "Cast"
+   },
+   {
+    "id": "Q7491731",
+    "role": "Cast"
+   },
+   {
+    "id": "Q38195662",
+    "role": "Cast"
+   },
+   {
+    "id": "Q111976143",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2631586",
+    "role": "Cast"
+   },
+   {
+    "id": "Q75732852",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16207879",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q29222955",
+    "role": "Producer"
+   },
+   {
+    "id": "Q106152859",
+    "role": "Producer"
+   },
+   {
+    "id": "Q6092676",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q76163023",
     "role": "Music"
    }
   ]

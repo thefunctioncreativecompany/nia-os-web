@@ -2107,5 +2107,55 @@
  "jailer-2": {
   "studios": [],
   "tmdb": "movie/1234139"
+ },
+ "the-cat-in-the-hat": {
+  "studios": [],
+  "tmdb": "movie/1117898"
+ },
+ "primetime": {
+  "studios": [
+   "a24"
+  ],
+  "tmdb": "movie/1375441"
+ },
+ "off-campus": {
+  "studios": [],
+  "tmdb": "tv/273240"
+ },
+ "mutiny": {
+  "studios": [],
+  "tmdb": "movie/1288445"
+ },
+ "buddy": {
+  "studios": [],
+  "tmdb": "movie/1514026"
+ },
+ "wuthering-heights": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/1316092"
+ },
+ "the-dog-stars": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/1384216"
+ },
+ "shelter": {
+  "studios": [],
+  "tmdb": "movie/1290821"
+ },
+ "evil-dead-burn": {
+  "studios": [
+   "new-line"
+  ],
+  "tmdb": "movie/1212763"
+ },
+ "crystal-lake": {
+  "studios": [
+   "a24"
+  ],
+  "tmdb": "tv/213562"
  }
 }

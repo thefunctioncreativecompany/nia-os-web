@@ -195,6 +195,10 @@
   "date": "2005-09-02",
   "precision": "day"
  },
+ "buddy": {
+  "date": "2026-01-22",
+  "precision": "day"
+ },
  "bugonia": {
   "date": "2025-08-28",
   "precision": "day"
@@ -775,6 +779,10 @@
   "date": "2000-01-01",
   "precision": "year"
  },
+ "crystal-lake": {
+  "date": "2026-10-15",
+  "precision": "day"
+ },
  "dahomey": {
   "date": "2024-01-01",
   "precision": "year"
@@ -821,6 +829,10 @@
  },
  "eternal-sunshine-of-the-spotless-mind": {
   "date": "2004-03-09",
+  "precision": "day"
+ },
+ "evil-dead-burn": {
+  "date": "2026-07-09",
   "precision": "day"
  },
  "eyimofe": {
@@ -1335,6 +1347,10 @@
   "date": "2015-01-01",
   "precision": "year"
  },
+ "mutiny": {
+  "date": "2026-08-21",
+  "precision": "day"
+ },
  "nanny-mcphee": {
   "date": "2005-01-01",
   "precision": "year"
@@ -1369,6 +1385,10 @@
  },
  "obsession": {
   "date": "2025-09-05",
+  "precision": "day"
+ },
+ "off-campus": {
+  "date": "2026-05-13",
   "precision": "day"
  },
  "on-becoming-a-guinea-fowl": {
@@ -1441,6 +1461,10 @@
  },
  "predator": {
   "date": "1987-06-12",
+  "precision": "day"
+ },
+ "primetime": {
+  "date": "2026-09-05",
   "precision": "day"
  },
  "prison-break": {
@@ -1569,6 +1593,10 @@
  },
  "shakespeare-in-love": {
   "date": "1998-12-11",
+  "precision": "day"
+ },
+ "shelter": {
+  "date": "2026-01-29",
   "precision": "day"
  },
  "shutter-island": {
@@ -1727,6 +1755,10 @@
   "date": "2018-01-01",
   "precision": "year"
  },
+ "the-cat-in-the-hat": {
+  "date": "2026-10-25",
+  "precision": "day"
+ },
  "the-college-dropout-video-anthology": {
   "date": "2005-03-22",
   "precision": "day"
@@ -1749,6 +1781,10 @@
  },
  "the-devil-wears-prada-2": {
   "date": "2026-04-20",
+  "precision": "day"
+ },
+ "the-dog-stars": {
+  "date": "2026-08-26",
   "precision": "day"
  },
  "the-drama": {
@@ -2045,6 +2081,10 @@
  },
  "wildwood": {
   "date": "2026-10-22",
+  "precision": "day"
+ },
+ "wuthering-heights": {
+  "date": "2026-02-12",
   "precision": "day"
  },
  "x-men": {

@@ -42,6 +42,7 @@
     "five-fingers-for-marseilles",
     "saloum",
     "carrie",
+    "crystal-lake",
     "la-bola-negra",
     "tenzing",
     "wild-horse-nine",
@@ -65,6 +66,18 @@
    ]
   },
   {
+   "id": "venice",
+   "name": "Venice Film Festival",
+   "logo": true,
+   "slugs": [
+    "seven-samurai",
+    "bugonia",
+    "brokeback-mountain",
+    "wild-horse-nine",
+    "primetime"
+   ]
+  },
+  {
    "id": "sundance",
    "name": "Sundance Film Festival",
    "logo": true,
@@ -74,17 +87,6 @@
     "inxeba",
     "pumzi",
     "jeen-yuhs"
-   ]
-  },
-  {
-   "id": "venice",
-   "name": "Venice Film Festival",
-   "logo": true,
-   "slugs": [
-    "seven-samurai",
-    "bugonia",
-    "brokeback-mountain",
-    "wild-horse-nine"
    ]
   },
   {

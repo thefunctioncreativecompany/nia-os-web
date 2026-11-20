@@ -405,6 +405,11 @@
   "muted-colour",
   "bright-airy"
  ],
+ "28-years-later-the-bone-temple": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "a-beautiful-mind": [
   "warm-palette",
   "low-key"
@@ -420,6 +425,7 @@
   "warm-palette",
   "low-key"
  ],
+ "a-knight-of-the-seven-kingdoms": [],
  "a-raisin-in-the-sun": [
   "black-and-white",
   "bright-airy"
@@ -649,6 +655,9 @@
  "crazy-rich-asians": [
   "vivid-colour"
  ],
+ "crime-101": [
+  "muted-colour"
+ ],
  "crouching-tiger-hidden-dragon": [
   "vivid-colour",
   "warm-palette"
@@ -756,6 +765,9 @@
  "get-out": [
   "muted-colour"
  ],
+ "ghost-soldier": [
+  "warm-palette"
+ ],
  "gilda": [],
  "girlfriends": [
   "muted-colour"
@@ -770,6 +782,10 @@
   "bright-airy"
  ],
  "go": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "goat": [
   "vivid-colour",
   "warm-palette"
  ],
@@ -1205,6 +1221,11 @@
   "warm-palette",
   "bright-airy"
  ],
+ "practical-magic-2": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "predator": [
   "warm-palette",
   "low-key"
@@ -1309,6 +1330,9 @@
   "vivid-colour",
   "warm-palette",
   "low-key"
+ ],
+ "sense-and-sensibility": [
+  "warm-palette"
  ],
  "seriously-single": [
   "vivid-colour",
@@ -1680,6 +1704,9 @@
   "warm-palette",
   "low-key"
  ],
+ "the-wrecking-crew": [
+  "warm-palette"
+ ],
  "this-is-not-a-burial": [
   "vivid-colour",
   "cool-palette",
@@ -1751,10 +1778,16 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "whalefall": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
+ ],
  "white-christmas": [
   "warm-palette",
   "bright-airy"
  ],
+ "wicker": [],
  "wild-horse-nine": [
   "muted-colour",
   "warm-palette",

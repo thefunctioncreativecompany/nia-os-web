@@ -1845,5 +1845,55 @@
   "source": "TMDB",
   "tmdb": "movie/1234139",
   "image": "https://image.tmdb.org/t/p/original/upwdEyhhYZ7pT2hD535fr2MGfpx.jpg"
+ },
+ "the-cat-in-the-hat": {
+  "source": "TMDB",
+  "tmdb": "movie/1117898",
+  "image": "https://image.tmdb.org/t/p/original/mWN6knIVJ2o7eGwSm7mOgSCwNUc.jpg"
+ },
+ "primetime": {
+  "source": "TMDB",
+  "tmdb": "movie/1375441",
+  "image": "https://image.tmdb.org/t/p/original/lmrulvLbmaejTix1YaMxo1oGhH1.jpg"
+ },
+ "off-campus": {
+  "source": "TMDB",
+  "tmdb": "tv/273240",
+  "image": "https://image.tmdb.org/t/p/original/tcPc5ZMBO4y2BtCJMe3o2nwZb2B.jpg"
+ },
+ "mutiny": {
+  "source": "TMDB",
+  "tmdb": "movie/1288445",
+  "image": "https://image.tmdb.org/t/p/original/pu2VxGlpGwffOx292w18b1tv96j.jpg"
+ },
+ "buddy": {
+  "source": "TMDB",
+  "tmdb": "movie/1514026",
+  "image": "https://image.tmdb.org/t/p/original/1BdZbNvl1SfrrX8J9X5tQzN6Ivu.jpg"
+ },
+ "wuthering-heights": {
+  "source": "TMDB",
+  "tmdb": "movie/1316092",
+  "image": "https://image.tmdb.org/t/p/original/ywRO5dyE8RyyXJd6cvd69jLZeic.jpg"
+ },
+ "the-dog-stars": {
+  "source": "TMDB",
+  "tmdb": "movie/1384216",
+  "image": "https://image.tmdb.org/t/p/original/5O616X9vmRzQdB68PHzBewPittd.jpg"
+ },
+ "shelter": {
+  "source": "TMDB",
+  "tmdb": "movie/1290821",
+  "image": "https://image.tmdb.org/t/p/original/cv7DeQQ7TOozPoTCBdNJIvWKhU1.jpg"
+ },
+ "evil-dead-burn": {
+  "source": "TMDB",
+  "tmdb": "movie/1212763",
+  "image": "https://image.tmdb.org/t/p/original/uRxrNXQWkHoENm3nwVOZDYSCx2F.jpg"
+ },
+ "crystal-lake": {
+  "source": "TMDB",
+  "tmdb": "tv/213562",
+  "image": "https://image.tmdb.org/t/p/original/3ENhExiD2fcjk5FX0AcAXcvLu9N.jpg"
  }
 }

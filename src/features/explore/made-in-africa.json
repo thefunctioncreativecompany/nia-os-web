@@ -11163,6 +11163,305 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "the-cat-in-the-hat",
+   "collection": "explore-all",
+   "title": "The Cat in the Hat",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Fantasy",
+    "Adventure",
+    "Family",
+    "Comedy"
+   ],
+   "year": 2026,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Erica Rivinoja & Alessandro Carloni",
+   "recognition": "Over $55 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Dr. Seuss's Cat as an animated agent of chaos, on a mission to cheer up two siblings settling into a new town",
+   "added": "2026-11-19",
+   "imdb_id": "tt2321555",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "HT5JAp5z0-o",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "primetime",
+   "collection": "explore-all",
+   "title": "Primetime",
+   "type": "film",
+   "genres": [
+    "Thriller",
+    "Drama",
+    "Crime"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Lance Oppenheim",
+   "recognition": "Selected for the Venice International Film Festival",
+   "pair_with": "",
+   "study_note": "Lance Oppenheim's drama about To Catch a Predator's host in 2006: a true story of television turning justice into a performance",
+   "added": "2026-11-19",
+   "imdb_id": "tt34206385",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "C0NZa01qTRU",
+     "kind": "trailer",
+     "channel": "A24",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "off-campus",
+   "collection": "explore-all",
+   "title": "Off Campus",
+   "type": "series",
+   "genres": [
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Louisa Levy",
+   "pair_with": "",
+   "study_note": "Elle Kennedy's college romance novels as a series: a tutoring deal with the hockey captain turns into the real thing",
+   "added": "2026-11-19",
+   "imdb_id": "tt33546863",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "wAozjf2frxw",
+     "kind": "trailer",
+     "channel": "Prime Video",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "mutiny",
+   "collection": "explore-all",
+   "title": "Mutiny",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Jean-François Richet",
+   "recognition": "Over $30 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Jason Statham, framed for his boss's murder, takes on a cargo ship alone: an action thriller built on close-quarters fights",
+   "added": "2026-11-19",
+   "imdb_id": "tt32338669",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "MPyXlWTZ32E",
+     "kind": "trailer",
+     "channel": "Lionsgate Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "buddy",
+   "collection": "explore-all",
+   "title": "Buddy",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Comedy",
+    "Fantasy"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "Israel"
+   ],
+   "credit": "Casper Kelly",
+   "recognition": "Nearly $27 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Casper Kelly (Too Many Cooks) turns a children's TV show into horror: when one child won't play along, the smiling unicorn host turns",
+   "added": "2026-11-19",
+   "imdb_id": "tt37281055",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "yjWnpBRWNeE",
+     "kind": "trailer",
+     "channel": "Vertigo Releasing",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "wuthering-heights",
+   "collection": "explore-all",
+   "title": "Wuthering Heights",
+   "type": "film",
+   "genres": [
+    "Romance",
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Emerald Fennell",
+   "recognition": "Over $241 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Emerald Fennell's Wuthering Heights, with Margot Robbie and Jacob Elordi: Emily Brontë's moors as an overheated, stylised romance",
+   "added": "2026-11-19",
+   "imdb_id": "tt32897959",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "3fLCdIYShEQ",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-dog-stars",
+   "collection": "explore-all",
+   "title": "The Dog Stars",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Ridley Scott",
+   "recognition": "Over $39 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Ridley Scott adapts Peter Heller's novel: after a pandemic, a pilot living in a Colorado hangar follows a radio signal in his old Cessna",
+   "added": "2026-11-19",
+   "imdb_id": "tt21285562",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "-xSxaE1ClEE",
+     "kind": "trailer",
+     "channel": "20th Century Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "shelter",
+   "collection": "explore-all",
+   "title": "Shelter",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Crime",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Ric Roman Waugh",
+   "recognition": "Nearly $54 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Jason Statham as a recluse on a remote island who rescues a girl from a storm, then has to protect her from his own past",
+   "added": "2026-11-19",
+   "imdb_id": "tt32357218",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "auHiLFjaIc0",
+     "kind": "trailer",
+     "channel": "Black Bear ",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "evil-dead-burn",
+   "collection": "explore-all",
+   "title": "Evil Dead Burn",
+   "type": "film",
+   "genres": [
+    "Horror"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Sébastien Vaniček",
+   "recognition": "Over $71 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Sébastien Vaniček (Infested) takes the Evil Dead series into a widow's grieving in-laws: possession inside one family home",
+   "added": "2026-11-19",
+   "imdb_id": "tt31170389",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "TnHby2cxJzs",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "crystal-lake",
+   "collection": "explore-all",
+   "title": "Crystal Lake",
+   "type": "series",
+   "genres": [
+    "Drama",
+    "Mystery"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Brad Caleb Kane",
+   "recognition": "Selected for the Toronto International Film Festival",
+   "pair_with": "",
+   "study_note": "A Friday the 13th prequel: Pam Voorhees a year after her son Jason drowned, as two strangers start digging into her past",
+   "added": "2026-11-19",
+   "imdb_id": "tt23148340",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Rs49eRHFD9c",
+     "kind": "trailer",
+     "channel": "Peacock",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

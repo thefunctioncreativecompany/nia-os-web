@@ -1206,6 +1206,80 @@
   "cinemaRelease": true,
   "imdb": "tt0029947"
  },
+ "buddy": {
+  "videos": [
+   {
+    "id": "yjWnpBRWNeE",
+    "kind": "Official trailer",
+    "title": "You can't be brave unless you're scared...",
+    "channel": "Vertigo Releasing"
+   },
+   {
+    "id": "PBi3hxQL-HY",
+    "kind": "Cast interview",
+    "title": "'Buddy' Stars Cristin Milioti & More Reveal Scariest Filming Experiences | THR Studio at Park City",
+    "channel": "The Hollywood Reporter"
+   },
+   {
+    "id": "QahE5Po8W4Y",
+    "kind": "Cast interview",
+    "title": "BUDDY: Full Interview with Filmmaker & Cast | Sundance Film Festival 2026",
+    "channel": "IndieWire"
+   },
+   {
+    "id": "r1bQwP-tIkk",
+    "kind": "Filmmaker interview",
+    "title": "Making a mascot horror children's show that feels authentic | BUDDY Director Casper Kelly Interview",
+    "channel": "Dead Meat"
+   },
+   {
+    "id": "gKOts8h169U",
+    "kind": "Featurette",
+    "title": "Making Of BUDDY (2026) - Best Of Behind The Scenes, Practical Puppetry Effects, Sets & Suit Design",
+    "channel": "STREAM WARS"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The A.V. Club",
+    "title": "Buddy review",
+    "href": "https://www.avclub.com/buddy-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Screen Daily",
+    "title": "Buddy review: A kids' TV show takes a deadly turn in smart, fresh horror comedy",
+    "href": "https://www.screendaily.com/reviews/buddy-review-a-kids-tv-show-takes-a-deadly-turn-in-smart-fresh-horror-comedy/5212990.article",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "'Buddy' Review: Cristin Milioti Can't Save Repetitive Horror Comedy",
+    "href": "https://www.thewrap.com/creative-content/movies/buddy-review-cristin-milioti-horror-comedy/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Bloody Disgusting",
+    "title": "Buddy Sundance review: Casper Kelly's mascot horror satire is an absurd delight",
+    "href": "https://bloody-disgusting.com/reviews/3930737/buddy-sundance-review-casper-kellys-mascot-horror-satire-is-an-absurd-delight/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "‘Buddy’ Busts Out, Scares Up No. 6 Spot, Sets Record For Roadside Attractions, Saban – Specialty Box Office",
+    "href": "https://deadline.com/2026/08/indie-film-box-office-buddy-r-rated-horror-comedy-busts-out-1237062910/"
+   },
+   {
+    "outlet": "Forbes",
+    "title": "Horror Comedy 'Buddy' Hops To Streaming This Week After Achieving Rare Box Office Feat",
+    "href": "https://www.forbes.com/sites/timlammers/2026/10/12/horror-comedy-buddy-hops-to-streaming-this-week-after-achieving-rare-box-office-feat/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt37281055"
+ },
  "bugonia": {
   "videos": [
    {
@@ -1829,6 +1903,62 @@
   "cinemaRelease": true,
   "imdb": "tt1756855"
  },
+ "crystal-lake": {
+  "videos": [
+   {
+    "id": "Rs49eRHFD9c",
+    "kind": "Official trailer",
+    "title": "Crystal Lake | Official Trailer | Peacock Original",
+    "channel": "Peacock"
+   },
+   {
+    "id": "3lZ2ZenuCGc",
+    "kind": "Teaser",
+    "title": "Crystal Lake | Official Teaser | Peacock Original",
+    "channel": "Peacock"
+   },
+   {
+    "id": "fsIkY53aZcc",
+    "kind": "Cast interview",
+    "title": "Crystal Lake Cast REACTS to Filming on OG 'Friday the 13th' Set (Exclusive)",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "ctbUzM-f2q8",
+    "kind": "Cast interview",
+    "title": "Crystal Lake Cast Pick Their Favorite Jason Kills! New York Comic Con 2026",
+    "channel": "Comicbook.com"
+   },
+   {
+    "id": "daGzoOp4jGM",
+    "kind": "Cast interview",
+    "title": "'Crystal Lake' cast on expanding the 'Friday the 13th' universe with new TV series | Interview",
+    "channel": "Etalk"
+   },
+   {
+    "id": "7Xcvxc2koz4",
+    "kind": "Cast interview",
+    "title": "Linda Cardellini Talks Stepping Into Horror in ‘Crystal Lake’",
+    "channel": "TODAY"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The AU Review",
+    "title": "Series Review: Crystal Lake is a gloriously gruesome and ambitious resurrection of the Friday the 13th franchise",
+    "href": "https://www.theaureview.com/watch/series-review-crystal-lake",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Crystal Lake review – Friday the 13th gets unnecessary expansion in gory and goofy series",
+    "href": "https://www.theguardian.com/tv-and-radio/2026/oct/15/crystal-lake-review-friday-the-13th-series",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "imdb": "tt23148340"
+ },
  "dahomey": {
   "videos": [
    {
@@ -2185,6 +2315,69 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0319343"
+ },
+ "evil-dead-burn": {
+  "videos": [
+   {
+    "id": "TnHby2cxJzs",
+    "kind": "Official trailer",
+    "title": "Evil Dead Burn | Official Trailer",
+    "channel": "Warner Bros."
+   },
+   {
+    "id": "YYkUkyfjUKg",
+    "kind": "Teaser",
+    "title": "Evil Dead Burn | Date Announce Teaser",
+    "channel": "Warner Bros. and StudiocanalUK"
+   },
+   {
+    "id": "zqS4EemhKPo",
+    "kind": "Cast interview",
+    "title": "\"It's All About the Eyes\" Director Sébastien Vaniček & the 'Evil Dead Burn' Cast on \"Deadite\" Acting",
+    "channel": "Fandango and Warner Bros."
+   },
+   {
+    "id": "ExyLlnEcBXU",
+    "kind": "Cast interview",
+    "title": "Evil Dead Burn Interview: Luciane Buchanan Talks Backbends, Hot Wax & A WILD Fake Body Twist",
+    "channel": "Collider Ladies Night"
+   },
+   {
+    "id": "Ue7UW0ioSMU",
+    "kind": "Cast interview",
+    "title": "Evil Dead Burn: Star of Next Sequel, Luciane Buchanan, Teases Script and Filming",
+    "channel": "Collider Interviews"
+   },
+   {
+    "id": "0hDdKkmhAAI",
+    "kind": "Cast interview",
+    "title": "EVIL DEAD BURN | Exclusive Cast Interview",
+    "channel": "AMC Theatres"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "IndieWire",
+    "title": "'Evil Dead Burn' Review: Sébastien Vaniček Directs the Single Strangest Deadite Movie to Date",
+    "href": "https://www.indiewire.com/criticism/movies/evil-dead-burn-film-review-sebastien-vanicek-1235204025/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'Evil Dead Burn' Review: Effective Piece of Gross-Out Guignol",
+    "href": "https://variety.com/2026/film/reviews/evil-dead-burn-review-1236802737/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Evil Dead Burn review: Vicious sequel gets lost in the woods",
+    "href": "https://www.rogerebert.com/reviews/evil-dead-burn-horror-film-review-2026",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt31170389"
  },
  "eyimofe": {
   "videos": [
@@ -6104,6 +6297,81 @@
   ],
   "imdb": "nm0000738"
  },
+ "mutiny": {
+  "videos": [
+   {
+    "id": "MPyXlWTZ32E",
+    "kind": "Official trailer",
+    "title": "Mutiny (2026) Official Trailer 2 - Jason Statham",
+    "channel": "Lionsgate Movies"
+   },
+   {
+    "id": "SCqzcdiVwqM",
+    "kind": "Cast interview",
+    "title": "Mutiny (2026) interview with star Annabelle Wallis | Rogers tv",
+    "channel": "Rogers tv"
+   },
+   {
+    "id": "MXEbyDvqliQ",
+    "kind": "Featurette",
+    "title": "Mutiny (2026) Special Feature 'Behind The Scenes' - Jason Statham",
+    "channel": "Lionsgate Movies"
+   },
+   {
+    "id": "U4nZO4DeUxc",
+    "kind": "Featurette",
+    "title": "MUTINY Behind The Scenes (2026) 4K",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   },
+   {
+    "id": "RxMG7tLOJUg",
+    "kind": "Featurette",
+    "title": "MUTINY Featurette - \"Big Reveal\" (2026) 4K",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   },
+   {
+    "id": "u3MaWF6I2ck",
+    "kind": "Featurette",
+    "title": "MUTINY Featurette - \"New Look\" (2026) 4K",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "/Film",
+    "title": "Mutiny Review: A Quintessential Jason Statham Punch-Up",
+    "href": "https://slashfilm.com/2237940/mutiny-review-jason-statham-movie/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time Out",
+    "title": "Mutiny review",
+    "href": "https://www.timeout.com/movies/mutiny-review-2026",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Tom's Guide",
+    "title": "Mutiny review: I wanted to love Jason Statham's new action thriller, but it fails him",
+    "href": "https://www.tomsguide.com/entertainment/movies/mutiny-review-i-wanted-to-love-jason-stathams-new-action-thriller-but-it-fails-him",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Film Threat",
+    "title": "Mutiny",
+    "href": "https://filmthreat.com/reviews/mutiny/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Jason Statham Teams with Plane Director Jean-Francois Richet & MadRiver for Action-Thriller Mutiny, Lionsgate Pre-Buys North America Before Veterans Launches Hot Project at Cannes Market",
+    "href": "https://deadline.com/2024/05/jason-statham-plane-director-jean-francois-richet-movie-mutiny-lionsgate-1235911659/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt32338669"
+ },
  "nanny-mcphee": {
   "videos": [],
   "reviews": [],
@@ -6492,6 +6760,91 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt37287335"
+ },
+ "off-campus": {
+  "videos": [
+   {
+    "id": "wAozjf2frxw",
+    "kind": "Official trailer",
+    "title": "Off Campus S1 - Official Trailer | Prime Video",
+    "channel": "Prime Video"
+   },
+   {
+    "id": "r_u0B820a04",
+    "kind": "Cast interview",
+    "title": "Off Campus Cast Plays O Canada! | Off Campus | Prime Video",
+    "channel": "Prime Video Canada"
+   },
+   {
+    "id": "AB9kLjdSeVU",
+    "kind": "Cast interview",
+    "title": "Off Campus Cast Ask Rapid-Fire Questions | Off the Cuff | Vogue",
+    "channel": "Vogue"
+   },
+   {
+    "id": "l25VwzGQhvo",
+    "kind": "Cast interview",
+    "title": "\"Off Campus\" Co-Stars Test How Well They Know Each Other",
+    "channel": "BuzzFeed Celeb"
+   },
+   {
+    "id": "sfg7VKvlktk",
+    "kind": "Cast interview",
+    "title": "OFF CAMPUS Cast Reveals Their Favorite Scenes Of Season 1 With Ella Bright & Belomont Cameli | Prime",
+    "channel": "STREAM WARS"
+   },
+   {
+    "id": "URSjPZz4Qu8",
+    "kind": "Cast interview",
+    "title": "'Off Campus' Cast Plays Truth or Dare | Teen Vogue",
+    "channel": "Teen Vogue"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Prime Video’s YA Romance 'Off Campus' Is a Perfectly Predictable Delight: TV Review",
+    "href": "https://variety.com/2026/tv/reviews/off-campus-review-prime-video-1236741630/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "TVGuide.com",
+    "title": "Off Campus Review: Romance Fans Will Love This Fake-Dating Drama About a College Hockey Star",
+    "href": "https://www.tvguide.com/news/off-campus-review-hockey-romance-prime-video/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Off Campus review – hot fun for fans of bums, boobs, hockey and Heated Rivalry",
+    "href": "https://www.theguardian.com/tv-and-radio/2026/may/13/off-campus-review-hot-fun-for-fans-of-bums-boobs-hockey-and-heated-rivalry",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Off Campus' Review: Amazon's Hockey Romance Is No 'Heated Rivalry,' and That’s Mostly OK",
+    "href": "https://www.hollywoodreporter.com/tv/tv-reviews/off-campus-review-amazon-hockey-1236593481/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "Prime Video's smutty hockey romance Off Campus isn't playing dirty enough",
+    "href": "https://www.avclub.com/prime-video-off-campus-elle-kennedy-amazon",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Off Campus' Is the Third Most-Watched Amazon Prime Video Series Debut of All Time",
+    "href": "https://variety.com/2026/tv/news/off-campus-ratings-amazon-prime-video-1236759095/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "'Off Campus' TV Series Based On Elle Kennedy's Books Ordered By Prime Video",
+    "href": "https://deadline.com/2024/10/off-campus-tv-series-elle-kennedys-books-prime-video-1236103731/"
+   }
+  ],
+  "imdb": "tt33546863"
  },
  "on-becoming-a-guinea-fowl": {
   "videos": [
@@ -6893,6 +7246,87 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0053182"
+ },
+ "primetime": {
+  "videos": [
+   {
+    "id": "C0NZa01qTRU",
+    "kind": "Official trailer",
+    "title": "Primetime | Official Trailer 2 HD | A24",
+    "channel": "A24"
+   },
+   {
+    "id": "Yrfrf53ttYY",
+    "kind": "Teaser",
+    "title": "Primetime | Official Teaser HD | A24",
+    "channel": "A24"
+   },
+   {
+    "id": "yaDDprhSU58",
+    "kind": "Cast interview",
+    "title": "Why the Primetime Cast Had No Idea What the Finished Crime Thriller Would Look Like",
+    "channel": "Collider Interviews"
+   },
+   {
+    "id": "T_LlVfSgzMo",
+    "kind": "Filmmaker interview",
+    "title": "\"How Does a Man Become a Meme?\" Director Lance Oppenheim on Developing 'Primetime'",
+    "channel": "Rotten Tomatoes Trailers and Fandango"
+   },
+   {
+    "id": "SgYIVYAfzEM",
+    "kind": "Featurette",
+    "title": "Primetime | Production Diary | Behind the Scenes | A24",
+    "channel": "A24"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Review: An Unhinged Robert Pattinson Is Ready for 'Primetime'",
+    "href": "https://www.nytimes.com/2026/09/24/movies/primetime-review-robert-pattinson.html?eafs_enabled=false",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Primetime' Review: You Might Feel the Need to Shower After Watching Robert Pattinson as 'To Catch a Predator' Host Chris Hansen",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/primetime-review-robert-pattinson-chris-hansen-1236691706/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Times",
+    "title": "Robert Pattinson as a villain? This is the best film of his career",
+    "href": "https://www.thetimes.com/culture/film/article/primetime-wicker-review-robert-pattinson-has-learnt-an-important-lesson-villains-get-all-the-best-lines-cpcjnlwp9",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'Primetime' Review: Robert Pattinson Leads a Dazzling Cast in a Lurid Horror-Movie Portrait of a 'Predator'-Hunter's Predatory Instinct",
+    "href": "https://variety.com/2026/film/reviews/primetime-review-robert-pattinson-1236846988/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "IndieWire",
+    "title": "'Primetime' Review: Robert Pattinson Is Even Creepier Than IRL Chris Hansen in a Bleakly Invigorating 'To Catch a Predator' Thriller",
+    "href": "https://www.indiewire.com/criticism/movies/a24-primetime-movie-review-robert-pattinson-chris-hansen-1235215068/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Daily Beast",
+    "title": "How ‘Primetime’ Gets ‘To Catch a Predator’ All Wrong",
+    "href": "https://www.thedailybeast.com/obsessed/primetime-robert-pattinsons-chris-hansen-gets-to-catch-a-predator-all-wrong/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Robert Pattinson’s Star Power and Gen Z: 5 Reasons ‘Primetime’ Became a Breakout Box Office Hit",
+    "href": "https://variety.com/2026/film/box-office/primetime-box-office-robert-pattinson-star-power-1236876947/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt34206385"
  },
  "project-hail-mary": {
   "videos": [
@@ -7865,6 +8299,75 @@
   "streaming": "Showmax",
   "imdb": "tt18747550"
  },
+ "shelter": {
+  "videos": [
+   {
+    "id": "auHiLFjaIc0",
+    "kind": "Official trailer",
+    "title": "Shelter | Official Trailer | Only In Theaters January 30",
+    "channel": "Black Bear "
+   },
+   {
+    "id": "rNKJ2Mf8Bac",
+    "kind": "Cast interview",
+    "title": "'Shelter' star Jason Statham is a 'softie' who can fight",
+    "channel": "AP Archive"
+   },
+   {
+    "id": "2THc1pM-QRc",
+    "kind": "Cast interview",
+    "title": "Bodhi Rae Breathnach interview at Shelter premiere",
+    "channel": "The Upcoming"
+   },
+   {
+    "id": "ygY_FoQGAQY",
+    "kind": "Cast interview",
+    "title": "Jason Statham interview at Shelter premiere",
+    "channel": "The Upcoming"
+   },
+   {
+    "id": "GfZVGCsyOAc",
+    "kind": "Filmmaker interview",
+    "title": "Jason Statham's Shelter Director Ric Roman Waugh Breaks Down Filming Action and Film's Influences",
+    "channel": "Collider Interviews"
+   },
+   {
+    "id": "pPK7TXakk30",
+    "kind": "Filmmaker interview",
+    "title": "Ric Roman Waugh & Bodhi Rae Breathnach interview on Shelter: Statham’s softer side & anti-hero",
+    "channel": "The Upcoming"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Little White Lies",
+    "title": "Shelter review",
+    "href": "https://lwlies.com/reviews/shelter",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Shelter",
+    "href": "https://www.rogerebert.com/reviews/shelter-film-review-2026",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "JoBlo",
+    "title": "Shelter Review: Jason Statham protects a young girl in this old-school throwback of an action film",
+    "href": "https://www.joblo.com/shelter-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Associated Press",
+    "title": "Movie Review: Jason Statham sticks close to formula as a lethal former spy",
+    "href": "https://www.washingtontimes.com/news/2026/jan/28/movie-review-jason-statham-sticks-close-formula-lethal-former-spy/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt32357218"
+ },
  "silverton-siege": {
   "videos": [
    {
@@ -8682,6 +9185,69 @@
   "streaming": "Netflix",
   "imdb": "tt7497366"
  },
+ "the-cat-in-the-hat": {
+  "videos": [
+   {
+    "id": "HT5JAp5z0-o",
+    "kind": "Official trailer",
+    "title": "The Cat in the Hat | Official Trailer 3",
+    "channel": "Warner Bros."
+   },
+   {
+    "id": "DJcc9A04u5E",
+    "kind": "Cast interview",
+    "title": "The Cat In The Hat cast talks Magic & Mischief",
+    "channel": "Review Nation"
+   },
+   {
+    "id": "HW6kk_oh8Tk",
+    "kind": "Cast interview",
+    "title": "The Cat In The Hat Cast Talk Finding The Balance With Fart Joke! - Exclusive Cast Interview",
+    "channel": "Comicbook.com"
+   },
+   {
+    "id": "-dLL3Dam98M",
+    "kind": "Cast interview",
+    "title": "THE CAT IN THE HAT Interview ft. Bill Hader, America Ferrera, Xochitl Gomez",
+    "channel": "AMC Theatres"
+   },
+   {
+    "id": "wS1WG23WLeA",
+    "kind": "Featurette",
+    "title": "THE CAT IN THE HAT Behind The Scenes #2 (2026) 4K",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'The Cat in the Hat' Review: Warner Bros. Waters Down Dr. Seuss' Ode to Anarchy",
+    "href": "https://www.thewrap.com/creative-content/movies/the-cat-in-the-hat-review-dr-seuss-bill-hader/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Cat in the Hat",
+    "href": "https://www.rogerebert.com/?p=278214",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Boston Globe",
+    "title": "Why is The Cat in the Hat in this movie?",
+    "href": "https://www.bostonglobe.com/2026/11/03/arts/cat-in-the-hat-review/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "East Idaho News",
+    "title": "Review: Bill Hader makes 'The Cat in the Hat' fun again",
+    "href": "https://www.eastidahonews.com/?p=882049",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt2321555"
+ },
  "the-college-dropout-video-anthology": {
   "videos": [
    {
@@ -8792,6 +9358,69 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt33612209"
+ },
+ "the-dog-stars": {
+  "videos": [
+   {
+    "id": "-xSxaE1ClEE",
+    "kind": "Official trailer",
+    "title": "The Dog Stars | Official Trailer | In Theaters August 28",
+    "channel": "20th Century Studios"
+   },
+   {
+    "id": "ZhNVhkAQM9k",
+    "kind": "Cast interview",
+    "title": "\"I'm In Good Hands\" Ridley Scott, Jacob Elordi & 'The Dog Stars' Cast on the Film's Heart",
+    "channel": "Fandango and 2 more"
+   },
+   {
+    "id": "SiSkT8IgcK0",
+    "kind": "Cast interview",
+    "title": "Jacob Elordi and Margaret Qualley on Why Apocalypse Movies Hit Different Right Now | The Dog Stars",
+    "channel": "Collider Interviews"
+   },
+   {
+    "id": "8gWg3PLsH40",
+    "kind": "Cast interview",
+    "title": "Jacob Elordi & ‘The Dog Stars’ Cast on Joining Ridley Scott’s 50-Year Legacy, From ‘Alien’ to Today",
+    "channel": "Entertainment Weekly"
+   },
+   {
+    "id": "5Ds8TaV3gug",
+    "kind": "Cast interview",
+    "title": "THE DOG STARS Cast Praise Ridley Scott's 'Electric' and 'Experimental' Set",
+    "channel": "IMDb"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "The Dog Stars Review: Jacob Elordi's Sensitive Survivalist Can't Sustain a Dreary Dystopian Adventure",
+    "href": "https://variety.com/2026/film/reviews/the-dog-stars-review-jacob-elordi-1236839483/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Dog Stars",
+    "href": "https://www.rogerebert.com/reviews/the-dog-stars-jacob-elordi-josh-brolin-margaret-qualley-ridley-scott-film-review-2026",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "The Dog Stars Review: Jacob Elordi and Margaret Qualley in Ridley Scott’s Subdued but Pleasingly Soulful Dystopian Western",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/the-dog-stars-review-jacob-elordi-ridley-scott-1236680319/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Film Stories",
+    "title": "Ridley Scott Says He's Directing a Mystery Sci-fi Film",
+    "href": "https://filmstories.co.uk/news/ridley-scott-says-hes-directing-a-mystery-sci-fi-film-exclusive/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt21285562"
  },
  "the-drama": {
   "videos": [
@@ -10720,6 +11349,75 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt2056785"
+ },
+ "wuthering-heights": {
+  "videos": [
+   {
+    "id": "3fLCdIYShEQ",
+    "kind": "Official trailer",
+    "title": "\"Wuthering Heights\" | Official Trailer",
+    "channel": "Warner Bros."
+   },
+   {
+    "id": "ID0rqEWrN44",
+    "kind": "Teaser",
+    "title": "\"Wuthering Heights\" | Official Teaser",
+    "channel": "Warner Bros."
+   },
+   {
+    "id": "25mRRdNhMrw",
+    "kind": "Cast interview",
+    "title": "Emerald Fennell Addresses Casting Jacob Elordi as Heathcliff in 'Wuthering Heights'",
+    "channel": "The Hollywood Reporter"
+   },
+   {
+    "id": "OJZkTLg-_F8",
+    "kind": "Cast interview",
+    "title": "Margot Robbie, Jacob Elordi, & the Cast of ‘Wuthering Heights’ on Love That Destroys Everything",
+    "channel": "Fandango"
+   },
+   {
+    "id": "WD3vluuGIiA",
+    "kind": "Cast interview",
+    "title": "Margot Robbie discusses Wuthering Heights' most intimate scenes with Emerald Fennel",
+    "channel": "Esquire UK"
+   },
+   {
+    "id": "8xCFgeWNe88",
+    "kind": "Cast interview",
+    "title": "Margot Robbie Talks Filming Steamy ‘Wuthering Heights’ Scenes w/ Jacob Elordi",
+    "channel": "Access Hollywood"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Atlantic",
+    "title": "An Erotically Untamed Take on 'Wuthering Heights'",
+    "href": "https://www.theatlantic.com/culture/2026/02/wuthering-heights-movie-review-emerald-fennell/685938/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "'Wuthering Heights' review: too hot, too greedy adaptation guarantees bad dreams in the night",
+    "href": "https://www.theguardian.com/film/2026/feb/09/wuthering-heights-review-emerald-fennell-margot-robbie-jacob-elordi",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Globe and Mail",
+    "title": "Garish and silly 'Wuthering Heights' strands Margot Robbie and Jacob Elordi on the moors forevermore",
+    "href": "https://www.theglobeandmail.com/culture/film-and-tv/film/article-wuthering-heights-margot-robbie-jacob-elordi/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Wuthering Heights' to Heat Up Box Office With $50 Million-Plus Debut",
+    "href": "https://variety.com/2026/film/box-office/wuthering-heights-box-office-opening-weekend-projections-1236658090/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt32897959"
  },
  "you-can-see-everything": {
   "videos": [
