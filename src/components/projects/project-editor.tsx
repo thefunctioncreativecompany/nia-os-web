@@ -7,7 +7,7 @@ import { Camera, Crop } from "lucide-react";
 import { toast } from "sonner";
 
 import { checkCoverFile } from "@/lib/images";
-import { MAX_GENRES, genreOptions, shootDatesText, typeDetails, type Project, type ProjectRole } from "@/lib/projects";
+import { MAX_GENRES, PRODUCTION_TYPES, genreOptions, shootDatesText, typeDetails, type ProductionType, type Project, type ProjectRole } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
@@ -20,7 +20,7 @@ import { EditDetailsDialog } from "@/components/projects/edit-details-dialog";
 import { ShareProjectDialog } from "@/components/projects/share-project-dialog";
 import { EditableDate } from "@/components/projects/editable-date";
 import { EditableText } from "@/components/projects/editable-text";
-import { BudgetField, CrewSection, DeliverablesField, NumberField, ShootDatesField } from "@/components/projects/project-details";
+import { BudgetField, CrewSection, DeliverablesField, ShootDatesField } from "@/components/projects/project-details";
 import { uploadCover } from "@/components/projects/project-form";
 import { useCoverCropper } from "@/components/projects/use-cover-cropper";
 import { BackLink } from "@/components/nia/back-link";
@@ -29,6 +29,7 @@ import { sentenceCase } from "@/lib/sentence-case";
 import { ReferenceCards, type ReferencePicture } from "@/components/projects/reference-cards";
 import { ROW_MAX } from "@/lib/rows";
 import { ProjectMilestones } from "@/components/projects/project-milestones";
+import { useLinkedReferences } from "@/components/projects/use-linked-references";
 
 // Storage path of a cover URL, if it's in this project's folder (so it can be removed).
 function coverPath(url: string | null, projectId: string) {
@@ -107,7 +108,8 @@ function DurationField({ value, readOnly, onSave }: { value: string; readOnly: b
 // page board, "Cover hero with section tabs", built as drawn): the cover across the page with the
 // title, Edit details and Share project on it; tabs under it (Overview, Crew & talent, Documents,
 // References, Comments, Activity, kept in the address as ?tab=). Overview: the description, final
-// assets, notes and three references on the left, the details in a card on the right.
+// assets, notes and Key milestones on the left, the details and meetings in a card on the right,
+// then the references across the whole page.
 // Every change saves on its own, with the SavedIndicator.
 export function ProjectEditor({
   project: initial,
@@ -217,6 +219,8 @@ export function ProjectEditor({
 
   const cropper = useCoverCropper((file) => changeCover(file));
   const genres = toList(project.genres);
+  // Linked references (Explore titles, Instagram posts) lead the Overview row; pictures fill the rest.
+  const linked = useLinkedReferences(project.id)?.slice(0, ROW_MAX) ?? null;
   const coverButton =
     "flex items-center gap-2 rounded-full bg-card/90 px-4 py-2 text-small font-semibold text-foreground shadow-sm outline-none transition-opacity duration-fast focus-visible:ring-3 focus-visible:ring-ring/50 md:opacity-0 md:group-hover:opacity-100 md:focus-visible:opacity-100";
   const readValues = (values: string[]) => (
@@ -401,16 +405,6 @@ export function ProjectEditor({
               </section>
               {/* Key milestones and actions, under Notes (Ika, 2026-11-15). */}
               <ProjectMilestones projectId={project.id} canEdit={canEdit} />
-              <section aria-labelledby="overview-references" className="flex flex-col gap-4">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <h2 id="overview-references" className="text-subtitle font-semibold text-foreground">
-                    References {counts.references ? <span className="text-micro font-normal text-muted-foreground">{counts.references}</span> : null}
-                  </h2>
-                  <ViewAll onClick={() => setTab("references")}>{counts.references ? "View all" : canEdit ? "Add references" : "View all"}</ViewAll>
-                </div>
-                {/* Cards like a template's references (reference-cards.tsx): ten here, the rest under View all. */}
-                {referencePreview.length > 0 && <ReferenceCards pictures={referencePreview.slice(0, ROW_MAX)} canEdit={canEdit} onOpen={() => setTab("references")} />}
-              </section>
             </div>
 
             {/* Right: the details, in a card. Every value still edits in place. */}
@@ -440,9 +434,27 @@ export function ProjectEditor({
                 )}
                 {row("Deliverables", <DeliverablesField value={project.deliverables} readOnly={!canEdit} onSave={(next) => save("deliverables", "deliverables", next)} />)}
                 {!stills && row("Duration", <DurationField value={project.duration} readOnly={!canEdit} onSave={(next) => save("duration", "duration", next)} />)}
-                {extras.includes("looks") && row("Looks", <NumberField label="Looks" value={project.looks} readOnly={!canEdit} onSave={(next) => save("looks", "looks", next)} />)}
+                {/* Production type in place of Looks and Agency (Ika, 2026-11-19). */}
+                {row(
+                  "Type",
+                  canEdit ? (
+                    <Select value={project.productionType ?? undefined} onValueChange={(next) => void save("production_type", "productionType", next as ProductionType).catch(() => {})}>
+                      <SelectTrigger aria-label="Production type" className="h-8 w-auto border-transparent px-1.5 text-sm font-medium text-foreground shadow-none hover:bg-muted/70">
+                        <SelectValue placeholder="Choose a type" />
+                      </SelectTrigger>
+                      <SelectContent position="popper">
+                        {PRODUCTION_TYPES.map((option) => (
+                          <SelectItem key={option} value={option}>
+                            {sentenceCase(option)}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  ) : (
+                    readValues(project.productionType ? [sentenceCase(project.productionType)] : [])
+                  ),
+                )}
                 {text("Client", "client", "client", "Who it's for", 120)}
-                {text("Agency", "agency", "agency", "Who commissioned it", 120)}
                 {row(
                   genres.length > 1 ? "Genres" : "Genre",
                   canEdit ? (
@@ -469,6 +481,19 @@ export function ProjectEditor({
               </dl>
               {meetings && <div className="pt-6">{meetings}</div>}
             </aside>
+            {/* References across the whole page, under both columns (Ika, 2026-11-19: "fill page
+                length instead of cutting midway"). Ten here, the rest under View all. */}
+            <section aria-labelledby="overview-references" className="flex flex-col gap-4 lg:col-span-2">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <h2 id="overview-references" className="text-subtitle font-semibold text-foreground">
+                  References {counts.references ? <span className="text-micro font-normal text-muted-foreground">{counts.references}</span> : null}
+                </h2>
+                <ViewAll onClick={() => setTab("references")}>{counts.references ? "View all" : canEdit ? "Add references" : "View all"}</ViewAll>
+              </div>
+              {linked && (referencePreview.length > 0 || linked.length > 0) && (
+                <ReferenceCards pictures={referencePreview.slice(0, Math.max(0, ROW_MAX - linked.length))} linked={linked} canEdit={canEdit} onOpen={() => setTab("references")} />
+              )}
+            </section>
           </div>
         )}
         {tab === "crew" && <CrewSection crew={project.crew} canEdit={canEdit} directoryHref={`/projects/${project.id}/crew`} />}

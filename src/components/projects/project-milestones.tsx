@@ -38,6 +38,9 @@ function dueLabel(day: string, today: string) {
   return date.toLocaleDateString("en-US", { month: "short", day: "numeric", ...(sameYear ? {} : { year: "numeric" }) });
 }
 
+/** Open ones shown before "N more". */
+const FIRST = 5;
+
 // Open ones by date (no date last), then the order they were added in.
 const byDue = (a: Item, b: Item) => (a.due_on ?? "9999").localeCompare(b.due_on ?? "9999") || a.created_at.localeCompare(b.created_at);
 
@@ -45,6 +48,8 @@ export function ProjectMilestones({ projectId, canEdit }: { projectId: string; c
   const [items, setItems] = useState<Item[] | null>(null);
   const [off, setOff] = useState(false);
   const [showDone, setShowDone] = useState(false);
+  // The first five open ones; the rest a tap away (Ika, 2026-11-19).
+  const [showAll, setShowAll] = useState(false);
   const [today] = useState(() => toDay(new Date()));
   // Points sent from a meeting's notes (to-milestones.ts) show here straight away.
   const [version, setVersion] = useState(0);
@@ -105,11 +110,23 @@ export function ProjectMilestones({ projectId, canEdit }: { projectId: string; c
           {canEdit && <AddLine projectId={projectId} onAdded={(item) => setItems((was) => [...(was ?? []), item])} />}
           {open.length === 0 && done.length === 0 && !canEdit && <p className="text-sm text-muted-foreground">—</p>}
           {open.length > 0 && (
-            <ul aria-label="Open milestones and actions" className="flex flex-col">
-              {open.map((item) => (
+            <ul id="milestones-open" aria-label="Open milestones and actions" className="flex flex-col">
+              {(showAll ? open : open.slice(0, FIRST)).map((item) => (
                 <Row key={item.id} item={item} today={today} canEdit={canEdit} onChange={(patch) => void change(item, patch)} onRemove={() => void remove(item)} />
               ))}
             </ul>
+          )}
+          {open.length > FIRST && (
+            <button
+              type="button"
+              aria-expanded={showAll}
+              aria-controls="milestones-open"
+              onClick={() => setShowAll((s) => !s)}
+              className="flex w-fit items-center gap-1 rounded-full px-1 py-1 text-small font-semibold text-muted-foreground outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+            >
+              <ChevronDown aria-hidden className={cn("size-4 transition-transform duration-fast", showAll && "rotate-180")} />
+              {showAll ? "Show fewer" : `${open.length - FIRST} more`}
+            </button>
           )}
           {done.length > 0 && (
             <div className="flex flex-col">

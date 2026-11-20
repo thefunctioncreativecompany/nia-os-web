@@ -9,18 +9,21 @@ import { Textarea } from "@/components/ui/textarea";
 import { ScrollRow } from "@/components/nia/scroll-row";
 import { CARD_TOOLS, DragHandle, MoveButtons, useDragReorder } from "@/components/nia/drag-reorder";
 import { POSTER, POSTER_ARROWS, POSTER_CARD, posterSpan } from "@/components/nia/poster-cards";
+import type { LinkedPicture } from "@/components/projects/use-linked-references";
 
 // The project Overview's references (Ika, 2026-11-15: "same with references section on overview",
 // as a template's reference cards): the reference pictures as cards in a row that scrolls, portrait
 // at Explore's poster shape, a landscape picture whole at the same height. Under each, its name and
 // a note to write in; drag a card or use Move earlier / later. The order and notes are saved on the
 // files (`project_files.position`, `note`; 20261118000000_project_references_arrange.sql: until
-// it's run, notes don't save). Opening a picture goes to the References tab.
+// it's run, notes don't save). Opening a picture goes to the References tab. The references the
+// project links to (Explore titles, Instagram posts; Ika, 2026-11-19) come first, arranged and
+// noted on the References tab.
 
 /** `notes`: whether notes can be kept yet (their migration has run). */
 export type ReferencePicture = { id: string; name: string; url: string; note: string | null; notes?: boolean };
 
-export function ReferenceCards({ pictures, canEdit, onOpen }: { pictures: ReferencePicture[]; canEdit: boolean; onOpen: () => void }) {
+export function ReferenceCards({ pictures, linked = [], canEdit, onOpen }: { pictures: ReferencePicture[]; linked?: LinkedPicture[]; canEdit: boolean; onOpen: () => void }) {
   const [order, setOrder] = useState(pictures);
   const [shapes, setShapes] = useState<Record<string, number>>({});
   // A new list from the server (an upload, a refresh) replaces the local one.
@@ -56,6 +59,35 @@ export function ReferenceCards({ pictures, canEdit, onOpen }: { pictures: Refere
 
   return (
     <ScrollRow label="References" arrowTop={POSTER_ARROWS} className="items-start gap-4">
+      {linked.map((l) => (
+        <li key={l.id} style={posterSpan(shapes[l.id])} className={POSTER_CARD}>
+          <button
+            type="button"
+            aria-label={`${l.name}, open References`}
+            onClick={onOpen}
+            className="relative block w-full overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+            style={{ aspectRatio: Math.max(POSTER, shapes[l.id] || POSTER) }}
+          >
+            {l.url && (
+              // eslint-disable-next-line @next/next/no-img-element -- posters from Explore and covers on private links
+              <img
+                src={l.url}
+                alt=""
+                loading="lazy"
+                onLoad={(e) => {
+                  const shape = e.currentTarget.naturalWidth / e.currentTarget.naturalHeight;
+                  setShapes((was) => (was[l.id] === shape ? was : { ...was, [l.id]: shape }));
+                }}
+                className="absolute inset-0 size-full object-cover transition-transform duration-base ease-out hover:scale-[1.02] motion-reduce:transition-none"
+              />
+            )}
+          </button>
+          <span className="truncate px-1 text-small font-semibold text-foreground" title={l.name}>
+            {l.name}
+          </span>
+          {l.note && <p className="px-1 text-small text-muted-foreground">{l.note}</p>}
+        </li>
+      ))}
       {order.map((p, i) => (
         <li key={p.id} style={posterSpan(shapes[p.id])} className={cn(POSTER_CARD, drag.state(i))} {...(canEdit ? drag.target(i) : {})}>
           <button

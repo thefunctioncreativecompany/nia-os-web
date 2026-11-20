@@ -153,31 +153,6 @@ export function DeliverablesField({ value, readOnly, onSave }: { value: Delivera
   );
 }
 
-export function NumberField({ label, value, readOnly, onSave }: { label: string; value: number | null; readOnly: boolean; onSave: (next: number | null) => Promise<void> }) {
-  const [text, setText] = useState(value === null ? "" : String(value));
-  const [seen, setSeen] = useState(value);
-  if (value !== seen) {
-    setSeen(value);
-    setText(value === null ? "" : String(value));
-  }
-  if (readOnly) return <span className={cn("block pt-1.5", quiet)}>{value ?? "—"}</span>;
-  return (
-    <Input
-      aria-label={label}
-      inputMode="numeric"
-      value={text}
-      placeholder="—"
-      onChange={(e) => setText(e.target.value.replace(/\D/g, "").slice(0, 3))}
-      onBlur={() => {
-        const next = text ? Number(text) : null;
-        if (next !== value) void onSave(next).catch(() => {});
-      }}
-      onKeyDown={(e) => e.key === "Enter" && (e.target as HTMLInputElement).blur()}
-      className={cn(fieldLook, "w-16 tabular-nums")}
-    />
-  );
-}
-
 // The Invoice's currencies, so a project and its documents agree.
 const CURRENCIES = ["USD", "EUR", "GBP", "ZAR", "CAD", "AUD"] as const;
 

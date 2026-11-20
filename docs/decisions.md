@@ -1243,3 +1243,8 @@ onboarding's Import profile and Follow creators describe features removed in the
   100 live. Press kits corrected by hand (an opinion piece, streaming news, a soundtrack list and
   box-office reports taken out of reviews); The Mummy and Lanterns filled from edited
   publications. check-trailers.mjs reads quotes inside titles ("Wuthering Heights").
+- (2026-11-19) Project Overview tidied (Ika): Details drops Looks and Agency (the data stays) and
+  gets the production type, picked in place ("Type"); References run across the whole page under
+  both columns instead of stopping halfway, with the linked references (Explore titles, Instagram
+  posts) first and pictures filling the row to ten; Key milestones show the first five open ones,
+  the rest behind "N more". The Looks field (NumberField) is gone with it.
