@@ -1,5 +1,6 @@
 import { formatDay, parseDay } from "@/lib/dates";
 import { sentenceCase } from "@/lib/sentence-case";
+import type { ProjectFile } from "@/lib/projects-data";
 
 // Shared by the project screens on the server and in the browser.
 
@@ -324,3 +325,6 @@ export function describeActivity(item: Pick<ActivityItem, "action" | "detail" | 
       return { verb: "changed", object: project };
   }
 }
+
+/** Uploaded files that belong in Documents too: documents tagged Brief & paperwork (UB1, 2026-11-21). */
+export const isUploadedDocument = (f: Pick<ProjectFile, "kind" | "tag">) => f.kind === "document" && f.tag === "brief";

@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 
 import { countProjectPeople, countProjectTabExtras, getProject, listActivity, listProjectDocuments, listProjectFiles, listProjectMeetings } from "@/lib/projects-data";
-import { timeAgo } from "@/lib/projects";
+import { isUploadedDocument, timeAgo } from "@/lib/projects";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ActivityList } from "@/components/projects/activity-list";
 import { Button } from "@/components/ui/button";
@@ -86,9 +86,9 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
         project={project}
         role={role}
         canEdit={canEdit}
-        counts={{ crew: project.crew.length, documents: documents.length, references: stills.length + extras.references, comments: extras.comments }}
+        counts={{ crew: project.crew.length, documents: documents.length + files.filter(isUploadedDocument).length, references: stills.length + extras.references, comments: extras.comments }}
         referencePreview={stills}
-        documents={<ProjectDocuments projectId={id} documents={documents} icons={ICONS} canEdit={canEdit} isOwner={role === "owner"} userId={userId} now={now} />}
+        documents={<ProjectDocuments projectId={id} documents={documents} uploads={files} icons={ICONS} canEdit={canEdit} isOwner={role === "owner"} userId={userId} now={now} />}
         meetings={meetingsSection}
         finals={<ProjectFinalAssets files={files} canEdit={canEdit} now={now} />}
         files={<ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />}
