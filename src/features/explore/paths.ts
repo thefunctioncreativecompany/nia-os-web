@@ -3,3 +3,6 @@
 
 /** Where Explore lives. */
 export const exploreHome = () => "/explore";
+
+/** A franchise's page on Explore (franchises.ts). */
+export const franchiseHref = (id: string) => `/explore/franchise/${id}`;

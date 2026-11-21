@@ -27,6 +27,10 @@
   "date": "2008-01-10",
   "precision": "day"
  },
+ "28-years-later-the-bone-temple": {
+  "date": "2026-01-14",
+  "precision": "day"
+ },
  "a-beautiful-mind": {
   "date": "2001-01-01",
   "precision": "year"
@@ -42,6 +46,10 @@
  "a-kid-from-coney-island": {
   "date": "2019-01-01",
   "precision": "year"
+ },
+ "a-knight-of-the-seven-kingdoms": {
+  "date": "2026-01-18",
+  "precision": "day"
  },
  "a-raisin-in-the-sun": {
   "date": "1961-01-01",
@@ -150,6 +158,10 @@
  "benji": {
   "date": "2012-01-01",
   "precision": "year"
+ },
+ "beware-boiuna": {
+  "date": "2026-11-12",
+  "precision": "day"
  },
  "black-girl": {
   "date": "1966-01-01",
@@ -775,6 +787,10 @@
   "date": "2026-11-08",
   "precision": "day"
  },
+ "crime-101": {
+  "date": "2026-01-28",
+  "precision": "day"
+ },
  "crouching-tiger-hidden-dragon": {
   "date": "2000-01-01",
   "precision": "year"
@@ -815,6 +831,10 @@
   "date": "2006-12-09",
   "precision": "day"
  },
+ "dutton-ranch": {
+  "date": "2026-05-15",
+  "precision": "day"
+ },
  "e-t-the-extra-terrestrial": {
   "date": "1982-05-26",
   "precision": "day"
@@ -837,6 +857,10 @@
  },
  "eyimofe": {
   "date": "2020-10-11",
+  "precision": "day"
+ },
+ "fall-2-deadpoint": {
+  "date": "2026-09-02",
   "precision": "day"
  },
  "fatal-seduction": {
@@ -931,6 +955,10 @@
   "date": "2017-09-08",
   "precision": "day"
  },
+ "fjord": {
+  "date": "2026-05-18",
+  "precision": "day"
+ },
  "footlight-parade": {
   "date": "1933-01-01",
   "precision": "year"
@@ -955,6 +983,10 @@
   "date": "2017-01-24",
   "precision": "day"
  },
+ "ghost-soldier": {
+  "date": "2026-11-04",
+  "precision": "day"
+ },
  "gilda": {
   "date": "1946-01-01",
   "precision": "year"
@@ -975,6 +1007,10 @@
   "date": "2025-01-01",
   "precision": "year"
  },
+ "goat": {
+  "date": "2026-02-13",
+  "precision": "day"
+ },
  "godzilla-minus-zero": {
   "date": "2026-09-26",
   "precision": "day"
@@ -989,6 +1025,10 @@
  },
  "green-book": {
   "date": "2018-09-11",
+  "precision": "day"
+ },
+ "greenland-2-migration": {
+  "date": "2026-01-08",
   "precision": "day"
  },
  "groundhog-day": {
@@ -1075,6 +1115,10 @@
   "date": "1966-01-01",
   "precision": "year"
  },
+ "how-to-rob-a-bank": {
+  "date": "2026-11-12",
+  "precision": "day"
+ },
  "how-to-ruin-christmas": {
   "date": "2020-12-16",
   "precision": "day"
@@ -1085,6 +1129,10 @@
  },
  "i-am-not-a-witch": {
   "date": "2017-05-25",
+  "precision": "day"
+ },
+ "i-play-rocky": {
+  "date": "2026-09-12",
   "precision": "day"
  },
  "imitation-of-life": {
@@ -1255,6 +1303,18 @@
   "date": "2013-05-29",
   "precision": "day"
  },
+ "madagascar": {
+  "date": "2005-05-27",
+  "precision": "day"
+ },
+ "madagascar-3-europes-most-wanted": {
+  "date": "2012-06-06",
+  "precision": "day"
+ },
+ "madagascar-escape-2-africa": {
+  "date": "2008-10-30",
+  "precision": "day"
+ },
  "malcolm-x": {
   "date": "1992-01-01",
   "precision": "year"
@@ -1293,6 +1353,10 @@
  },
  "men-in-black": {
   "date": "1997-07-02",
+  "precision": "day"
+ },
+ "mercy": {
+  "date": "2026-01-22",
   "precision": "day"
  },
  "michael": {
@@ -1435,6 +1499,10 @@
   "date": "1957-01-01",
   "precision": "year"
  },
+ "penguins-of-madagascar": {
+  "date": "2014-11-26",
+  "precision": "day"
+ },
  "pirates-of-the-caribbean-at-worlds-end": {
   "date": "2007-05-23",
   "precision": "day"
@@ -1458,6 +1526,10 @@
  "porgy-and-bess": {
   "date": "1959-01-01",
   "precision": "year"
+ },
+ "practical-magic-2": {
+  "date": "2026-08-26",
+  "precision": "day"
  },
  "predator": {
   "date": "1987-06-12",
@@ -1491,6 +1563,14 @@
   "date": "2010-01-01",
   "precision": "year"
  },
+ "puss-in-boots": {
+  "date": "2011-10-23",
+  "precision": "day"
+ },
+ "puss-in-boots-the-last-wish": {
+  "date": "2022-12-07",
+  "precision": "day"
+ },
  "quantum-of-solace": {
   "date": "2008-10-29",
   "precision": "day"
@@ -1510,6 +1590,10 @@
  "ray": {
   "date": "2004-01-01",
   "precision": "year"
+ },
+ "ready-or-not-here-i-come": {
+  "date": "2026-03-13",
+  "precision": "day"
  },
  "rear-window": {
   "date": "1954-01-01",
@@ -1571,6 +1655,10 @@
   "date": "2026-01-29",
   "precision": "day"
  },
+ "sense-and-sensibility": {
+  "date": "2026-09-25",
+  "precision": "day"
+ },
  "seriously-single": {
   "date": "2020-01-01",
   "precision": "year"
@@ -1597,6 +1685,22 @@
  },
  "shelter": {
   "date": "2026-01-29",
+  "precision": "day"
+ },
+ "shrek": {
+  "date": "2001-01-01",
+  "precision": "year"
+ },
+ "shrek-2": {
+  "date": "2004-05-15",
+  "precision": "day"
+ },
+ "shrek-forever-after": {
+  "date": "2010-04-21",
+  "precision": "day"
+ },
+ "shrek-the-third": {
+  "date": "2007-05-06",
   "precision": "day"
  },
  "shutter-island": {
@@ -1714,6 +1818,10 @@
  "the-amazing-spider-man-2": {
   "date": "2014-04-17",
   "precision": "day"
+ },
+ "the-animatrix": {
+  "date": "2003-01-01",
+  "precision": "year"
  },
  "the-avengers": {
   "date": "2011-07-15",
@@ -1867,6 +1975,26 @@
   "date": "2012-03-21",
   "precision": "day"
  },
+ "the-hunger-games-catching-fire": {
+  "date": "2013-11-11",
+  "precision": "day"
+ },
+ "the-hunger-games-mockingjay-part-1": {
+  "date": "2014-11-19",
+  "precision": "day"
+ },
+ "the-hunger-games-mockingjay-part-2": {
+  "date": "2015-11-18",
+  "precision": "day"
+ },
+ "the-hunger-games-sunrise-on-the-reaping": {
+  "date": "2026-10-28",
+  "precision": "day"
+ },
+ "the-hunger-games-the-ballad-of-songbirds-and-snakes": {
+  "date": "2023-11-15",
+  "precision": "day"
+ },
  "the-joe-louis-story": {
   "date": "1953-01-01",
   "precision": "year"
@@ -1881,6 +2009,26 @@
  },
  "the-last-days-of-ptolemy-grey": {
   "date": "2022-03-11",
+  "precision": "day"
+ },
+ "the-lord-of-the-rings-the-fellowship-of-the-ring": {
+  "date": "2001-12-19",
+  "precision": "day"
+ },
+ "the-lord-of-the-rings-the-return-of-the-king": {
+  "date": "2003-12-01",
+  "precision": "day"
+ },
+ "the-lord-of-the-rings-the-rings-of-power": {
+  "date": "2022-09-02",
+  "precision": "day"
+ },
+ "the-lord-of-the-rings-the-two-towers": {
+  "date": "2002-12-05",
+  "precision": "day"
+ },
+ "the-lord-of-the-rings-the-war-of-the-rohirrim": {
+  "date": "2024-12-05",
   "precision": "day"
  },
  "the-lost-world-jurassic-park": {
@@ -1902,6 +2050,18 @@
  "the-matrix": {
   "date": "1999-03-31",
   "precision": "day"
+ },
+ "the-matrix-reloaded": {
+  "date": "2003-01-01",
+  "precision": "year"
+ },
+ "the-matrix-resurrections": {
+  "date": "2021-12-17",
+  "precision": "day"
+ },
+ "the-matrix-revolutions": {
+  "date": "2003-01-01",
+  "precision": "year"
  },
  "the-mother-of-all-lies": {
   "date": "2023-05-24",
@@ -1987,6 +2147,10 @@
   "date": "2013-12-17",
   "precision": "day"
  },
+ "the-wrecking-crew": {
+  "date": "2026-01-28",
+  "precision": "day"
+ },
  "this-is-not-a-burial": {
   "date": "2019-01-01",
   "precision": "year"
@@ -2067,13 +2231,25 @@
   "date": "1995-01-01",
   "precision": "year"
  },
+ "war": {
+  "date": "2026-10-01",
+  "precision": "day"
+ },
  "west-side-story": {
   "date": "1961-01-01",
   "precision": "year"
  },
+ "whalefall": {
+  "date": "2026-10-05",
+  "precision": "day"
+ },
  "white-christmas": {
   "date": "1954-10-14",
   "precision": "day"
+ },
+ "wicker": {
+  "date": "2026-01-01",
+  "precision": "month"
  },
  "wild-horse-nine": {
   "date": "2026-09-03",

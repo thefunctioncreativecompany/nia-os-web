@@ -1,0 +1,64 @@
+{
+ "updated": "2026-11-21",
+ "franchises": [
+  {
+   "id": "the-hunger-games",
+   "name": "The Hunger Games",
+   "slugs": [
+    "the-hunger-games",
+    "the-hunger-games-catching-fire",
+    "the-hunger-games-mockingjay-part-1",
+    "the-hunger-games-mockingjay-part-2",
+    "the-hunger-games-the-ballad-of-songbirds-and-snakes",
+    "the-hunger-games-sunrise-on-the-reaping"
+   ]
+  },
+  {
+   "id": "the-lord-of-the-rings",
+   "name": "The Lord of the Rings",
+   "slugs": [
+    "the-lord-of-the-rings-the-fellowship-of-the-ring",
+    "the-lord-of-the-rings-the-two-towers",
+    "the-lord-of-the-rings-the-return-of-the-king",
+    "the-hobbit-an-unexpected-journey",
+    "the-hobbit-the-desolation-of-smaug",
+    "the-hobbit-the-battle-of-the-five-armies",
+    "the-lord-of-the-rings-the-rings-of-power",
+    "the-lord-of-the-rings-the-war-of-the-rohirrim"
+   ]
+  },
+  {
+   "id": "the-matrix",
+   "name": "The Matrix",
+   "slugs": [
+    "the-matrix",
+    "the-animatrix",
+    "the-matrix-reloaded",
+    "the-matrix-revolutions",
+    "the-matrix-resurrections"
+   ]
+  },
+  {
+   "id": "shrek",
+   "name": "Shrek",
+   "slugs": [
+    "shrek",
+    "shrek-2",
+    "shrek-the-third",
+    "shrek-forever-after",
+    "puss-in-boots",
+    "puss-in-boots-the-last-wish"
+   ]
+  },
+  {
+   "id": "madagascar",
+   "name": "Madagascar",
+   "slugs": [
+    "madagascar",
+    "madagascar-escape-2-africa",
+    "madagascar-3-europes-most-wanted",
+    "penguins-of-madagascar"
+   ]
+  }
+ ]
+}

@@ -187,6 +187,86 @@
   "cinemaRelease": true,
   "imdb": "tt0988595"
  },
+ "28-years-later-the-bone-temple": {
+  "videos": [
+   {
+    "id": "EOwTdTZA8D8",
+    "kind": "Official trailer",
+    "title": "28 YEARS LATER: THE BONE TEMPLE - Official Trailer (HD)",
+    "channel": "Sony Pictures Entertainment"
+   },
+   {
+    "id": "xRVU6bNbA4E",
+    "kind": "Cast interview",
+    "title": "Ralph Fiennes & the ’28 Years Later: The Bone Temple’ Cast on Working With Nia DaCosta",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "SnwLXIXq9xw",
+    "kind": "Cast interview",
+    "title": "The ’28 Years Later: The Bone Temple’ Cast Reactions to the Jimmys",
+    "channel": "Fandango"
+   },
+   {
+    "id": "m4pbDiDmNyw",
+    "kind": "Cast interview",
+    "title": "Ralph Fiennes as an ARCHER? 28 Years Later: The Bone Temple Interview 🦴 💀 ☣️ | Cineworld",
+    "channel": "Cineworld Cinemas"
+   },
+   {
+    "id": "R6uI06PBsCE",
+    "kind": "Cast interview",
+    "title": "28 YEARS LATER: THE BONE TEMPLE Interview with Ralph Fiennes, Chi Lewis-Parry & Erin Kellyman",
+    "channel": "AMC Theatres"
+   },
+   {
+    "id": "-wq2pa2gE8w",
+    "kind": "Filmmaker interview",
+    "title": "Danny Boyle on Nia DaCosta’s Vision for 28 Years Later: The Bone Temple | Premiere Interview",
+    "channel": "HeyUGuys"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "In smart splatter horror '28 Years Later: The Bone Temple', faith and science crawl from the muck!",
+    "href": "https://www.latimes.com/entertainment-arts/movies/story/2026-01-15/28-years-later-bone-temple-review-ralph-fiennes-jack-o-connell-alfie-williams-nia-da-costa",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "'28 Years Later: The Bone Temple' Review: Nia DaCosta's Freaky Sequel Puts the Brains Back in Eating Brains",
+    "href": "https://www.thewrap.com/creative-content/movies/28-years-later-the-bone-temple-review-ralph-fiennes-nia-dacosta/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Fangoria",
+    "title": "28 Years Later: The Bone Temple Review: Nia DaCosta Delivers A Terrifying Horror Movie Sequel For The Ages",
+    "href": "https://www.fangoria.com/28-years-later-the-bone-temple-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "/Film",
+    "title": "28 Years Later: The Bone Temple Review: The Horror Series Goes In Exciting New Directions With A Gruesome Sequel",
+    "href": "https://slashfilm.com/2074962/28-years-later-the-bone-temple-review",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Box Office: 'Avatar: Fire and Ash' Remains No. 1 in Fifth Weekend as '28 Years Later: Bone Temple' Stumbles With $13 Million Debut",
+    "href": "https://variety.com/2026/film/box-office/avatar-fire-and-ash-box-office-first-place-fifth-weekend-28-years-later-bone-temple-misses-expectations-1236634237/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "'28 Years Later: The Bone Temple' To Scare Off Na'vi From No. 1 With $20M+ MLK Opening – Box Office Preview",
+    "href": "https://deadline.com/2026/01/28-years-later-bone-temple-box-office-projection-1236658187/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt32141377"
+ },
  "a-charlie-brown-christmas": {
   "videos": [],
   "reviews": [
@@ -337,6 +417,97 @@
     "href": "https://www.thewrap.com/stephon-marbury-a-kid-from-coney-island"
    }
   ]
+ },
+ "a-knight-of-the-seven-kingdoms": {
+  "videos": [
+   {
+    "id": "sItUCKJQLTU",
+    "kind": "Official trailer",
+    "title": "A Knight of the Seven Kingdoms | Official Final Trailer | HBO Max",
+    "channel": "HBO Max"
+   },
+   {
+    "id": "UPFRItMOgPo",
+    "kind": "Teaser",
+    "title": "A Knight of the Seven Kingdoms | Official Teaser Trailer | HBO Max",
+    "channel": "HBO Max and GameofThrones"
+   },
+   {
+    "id": "YHw0QoSBBSU",
+    "kind": "Cast interview",
+    "title": "A Knight of the Seven Kingdoms Interview: Game of Thrones Spin-off Will Change How You See Westeros",
+    "channel": "Collider Interviews"
+   },
+   {
+    "id": "Yb9NK1d4Rq8",
+    "kind": "Cast interview",
+    "title": "A KNIGHT OF THE SEVEN KINGDOMS showrunner & stars explain how the show changes Westeros | NYCC 25",
+    "channel": "Popverse"
+   },
+   {
+    "id": "z4IjaNZQACI",
+    "kind": "Cast interview",
+    "title": "A KNIGHT OF THE SEVEN KINGDOMS Cast Reveals Their Favorite Scenes With Peter Claffey, Dexter & Co.",
+    "channel": "STREAM WARS"
+   },
+   {
+    "id": "kiPyP2qLu4U",
+    "kind": "Cast interview",
+    "title": "A KNIGHT OF THE SEVEN KINGDOMS Stars Explain Character Nicknames & Costumes",
+    "channel": "IMDb"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "BBC",
+    "title": "A Knight of the Seven Kingdoms review: The new Game of Thrones prequel is 'very funny' and a 'total delight'",
+    "href": "https://www.bbc.com/culture/article/20260113-a-knight-of-the-seven-kingdoms-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Polygon",
+    "title": "A Knight of the Seven Kingdoms is the best path forward for Game of Thrones",
+    "href": "https://www.polygon.com/knight-of-the-seven-kingdoms-season-1-review-game-of-thrones-future/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Washington Post",
+    "title": "A Knight of the Seven Kingdoms — Game of Thrones, but funnier",
+    "href": "https://www.washingtonpost.com/entertainment/tv/2026/01/17/knight-of-seven-kingdoms-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "A Knight of the Seven Kingdoms review – this is the Game of Thrones we all need now",
+    "href": "https://www.theguardian.com/tv-and-radio/2026/jan/19/knight-of-the-seven-kingdoms-review-game-of-thrones-we-need-now",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Collider",
+    "title": "A Knight of the Seven Kingdoms Review: This is Why TV Adaptations Shouldn't Follow the Book Word for Word",
+    "href": "https://collider.com/a-knight-of-the-seven-kingdoms-review-hbo-game-of-thrones/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "NPR",
+    "title": "A Knight of the Seven Kingdoms is Game of Thrones for the haters",
+    "href": "https://www.npr.org/2026/01/16/nx-s1-5671737/a-knight-of-the-seven-kingdoms-review-hbo-game-of-thrones-prequel",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Independent",
+    "title": "A Knight of the Seven Kingdoms is forced to pause filming as severe flooding leaves set underwater",
+    "href": "https://www.independent.co.uk/arts-entertainment/tv/news/a-knight-of-the-seven-kingdoms-hbo-floods-b2959128.html"
+   },
+   {
+    "outlet": "Screen Rant",
+    "title": "A Knight Of The Seven Kingdoms Season 2 Finally Overcomes Filming Challenges & Delays With Major Update",
+    "href": "https://screenrant.com/a-knight-of-the-seven-kingdoms-season-2-filming-wrap-update-peter-claffey/"
+   }
+  ],
+  "imdb": "tt27497448"
  },
  "a-raisin-in-the-sun": {
   "videos": [
@@ -1007,6 +1178,63 @@
    }
   ],
   "imdb": "tt2519480"
+ },
+ "beware-boiuna": {
+  "videos": [
+   {
+    "id": "4fn4UcgzRhg",
+    "kind": "Official trailer",
+    "title": "Beware Boiúna (2026) Official Trailer - Kiana Madeira, Jessica Rothe, Logan Marshall-Green",
+    "channel": "Lionsgate Movies and The Midnight Horror Society"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The A.V. Club",
+    "title": "You can't even see the stupid giant snake in the stupid giant snake movie Beware Boiúna",
+    "href": "https://www.avclub.com/beware-boiuna-review-big-snake-monster-movie-jessica-rothe",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "‘Beware Boiúna’ Review: A Really, Really Scary Movie About a Really, Really Big Snake",
+    "href": "https://www.thewrap.com/creative-content/reviews/beware-boiuna-review-jessica-rothe-kiana-madeira/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "‘Beware Boiúna’ Review: A Rip-Roaring Creature Feature with Teeth (and a Conscience)",
+    "href": "https://www.slantmagazine.com/film/beware-boiuna-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Bloody Disgusting",
+    "title": "‘Beware Boiúna’ Review: Snake Horror Slithers To The Top Of 2026’s Creature Feature Food Chain [Fantastic Fest 2026]",
+    "href": "https://bloody-disgusting.com/reviews/3967900/beware-boiuna-review-giant-snake-horror-slithers-to-the-top-of-2026s-creature-feature-food-chain-fantastic-fest-2026/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Dread Central",
+    "title": "‘Beware Boiúna’ Review – Finally, A Giant Snake Movie That’s Actually Scary [Fantastic Fest]",
+    "href": "https://www.dreadcentral.com/reviews/589275/beware-boiuna-review-finally-a-giant-snake-movie-thats-actually-scary-fantastic-fest/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Denton Record-Chronicle",
+    "title": "‘Beware Boiúna’ has real bite: Mike P. Nelson’s snake charms and chills at Fantastic Fest",
+    "href": "https://dentonrc.com/entertainment/movies/beware-boi-na-has-real-bite-mike-p-nelson-s-snake-charms-and-chills-at/article_435d0c72-1839-4fc0-8647-da54818187c9.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Daily Dead",
+    "title": "Fantastic Fest 2026 Review: BEWARE BOIÚNA is a Bumbling Big-Ass Creature Feature",
+    "href": "https://dailydead.com/fantastic-fest-2026-review-beware-boiuna-is-a-bumbling-big-ass-creature-feature/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt10377864"
  },
  "black-girl": {
   "videos": [],
@@ -1903,6 +2131,81 @@
   "cinemaRelease": true,
   "imdb": "tt1756855"
  },
+ "crime-101": {
+  "videos": [
+   {
+    "id": "f5y-cziwmMw",
+    "kind": "Official trailer",
+    "title": "Crime 101 | Official Trailer",
+    "channel": "Amazon MGM Studios and Chris Hemsworth"
+   },
+   {
+    "id": "9wZzxKXTwc8",
+    "kind": "Cast interview",
+    "title": "Bart Layton talks the cast, adaptation, and more for 'Crime 101'",
+    "channel": "The Mary Sue"
+   },
+   {
+    "id": "ejA2726bFLg",
+    "kind": "Cast interview",
+    "title": "Chris Hemsworth Confesses Being STARSTRUCK by Halle Berry on 'Crime 101' (Exclusive)",
+    "channel": "extratv"
+   },
+   {
+    "id": "N0DW0yiH2qY",
+    "kind": "Cast interview",
+    "title": "Chris Hemsworth And Halle Berry Talk Cast Chemistry, Film Crimes & More! - Crime 101",
+    "channel": "Comicbook.com"
+   },
+   {
+    "id": "gcjp4PTrnew",
+    "kind": "Filmmaker interview",
+    "title": "Crime 101 | Interview with Bart Layton",
+    "channel": "Picturehouse"
+   },
+   {
+    "id": "PgxOS674pwI",
+    "kind": "Filmmaker interview",
+    "title": "Bart Layton interview on Crime 101: Old-school thriller vibe & social commentary in LA",
+    "channel": "The Upcoming"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'Crime 101' Review: Chris Hemsworth's Heist Film Gets Away With It Despite Some Flaws",
+    "href": "https://www.thewrap.com/creative-content/movies/crime-101-review-chris-hemsworth-halle-berry/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Time Out",
+    "title": "Crime 101 review",
+    "href": "https://www.timeout.com/movies/crime-101-review-2026",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "/Film",
+    "title": "Crime 101 Review: Chris Hemsworth Is A Good Thief In This Enjoyable Crime Thriller Throwback",
+    "href": "https://slashfilm.com/2098680/crime-101-movie-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Little White Lies",
+    "title": "Crime 101 review – strong cast, weak script",
+    "href": "https://lwlies.com/reviews/crime-101",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "'Crime 101' Review: Bart Layton's Crime Thriller Goes Through the Procedural Motions",
+    "href": "https://www.slantmagazine.com/film/crime-101-review-chris-hemsworth-mark-ruffalo/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt32430579"
+ },
  "crystal-lake": {
   "videos": [
    {
@@ -2186,6 +2489,50 @@
   ],
   "imdb": "tt0036775"
  },
+ "dutton-ranch": {
+  "videos": [
+   {
+    "id": "19I5a1tRt98",
+    "kind": "Official trailer",
+    "title": "Dutton Ranch | Official Trailer | Paramount+",
+    "channel": "Paramount Plus and Yellowstone Universe"
+   },
+   {
+    "id": "2-fu2H3ZvD8",
+    "kind": "Teaser",
+    "title": "Dutton Ranch | Official Teaser | Paramount+",
+    "channel": "Paramount Plus and Yellowstone Universe"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "FandomWire",
+    "title": "Dutton Ranch Review: Hauser and Reilly Return the Sheridanverse in All Its Neo-Western Cowboy Noir Glory",
+    "href": "https://fandomwire.com/dutton-ranch-review-and-synopsis/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "TVLine",
+    "title": "Dutton Ranch Review: Beth And Rip Return In A Spin-Off Worthy Of The Yellowstone Name",
+    "href": "https://tvline.com/2172948/dutton-ranch-review-yellowstone-spin-off-beth-rip-paramount-plus/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "'Dutton Ranch' Review: Beth and Rip's 'Yellowstone' Spinoff Makes a Slow but Promising Impression",
+    "href": "https://www.thewrap.com/creative-content/reviews/dutton-ranch-review-taylor-sheridan-paramount-plus/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Dutton Ranch' Showrunner Chad Feehan Out Three Weeks Before Series Premiere",
+    "href": "https://variety.com/2026/tv/news/dutton-ranch-showrunner-chad-feehan-fired-1236729748/"
+   }
+  ],
+  "imdb": "tt34991493"
+ },
  "ebenezer": {
   "videos": [
    {
@@ -2446,6 +2793,63 @@
   ],
   "imdb": "tt10365870"
  },
+ "fall-2-deadpoint": {
+  "videos": [
+   {
+    "id": "Krs0VDIjhmE",
+    "kind": "Official trailer",
+    "title": "Fall 2: Deadpoint (2026) Official Trailer 2 - Harriet Slater, Arsema Thomas",
+    "channel": "Lionsgate Movies"
+   },
+   {
+    "id": "aRCEtqw7etI",
+    "kind": "Cast interview",
+    "title": "Fall 2: Deadpoint - The Directors dish on crumbling a mountain & their actors fears",
+    "channel": "Review Nation"
+   },
+   {
+    "id": "rTZm_g_r0Fs",
+    "kind": "Cast interview",
+    "title": "Harriet Slater & Arsema Thomas interview at Fall 2: Deadpoint premiere",
+    "channel": "The Upcoming"
+   },
+   {
+    "id": "sDIjR9wxs2Q",
+    "kind": "Cast interview",
+    "title": "Tom Brittney interview at Fall 2: Deadpoint premiere",
+    "channel": "The Upcoming"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "'Fall 2: Deadpoint' Review: A Mostly Successful Sequel to the Dizzy Word-of-Mouth Sensation",
+    "href": "https://variety.com/2026/film/reviews/fall-2-deadpoint-review-1236414376/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "/Film",
+    "title": "Fall 2: Deadpoint Review: This Successful Sequel Proves There Are More Dangerous Heights To Climb",
+    "href": "https://www.slashfilm.com/2249339/fall-2-movie-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "Fall 2: Deadpoint review: How the mighty B-movie has fallen",
+    "href": "https://www.avclub.com/fall-2-deadpoint-review",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "'Fall' Sequel In The Works After Vertigo-Inducing Thriller Becomes Surprise Netflix Hit",
+    "href": "https://deadline.com/2023/03/fall-netflix-how-made-sequel-coming-1235302823/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt31192372"
+ },
  "fatal-seduction": {
   "videos": [],
   "reviews": [
@@ -2606,6 +3010,92 @@
   ],
   "articles": [],
   "imdb": "tt2396489"
+ },
+ "fjord": {
+  "videos": [
+   {
+    "id": "frg59VOungA",
+    "kind": "Official trailer",
+    "title": "Fjord - Official Trailer - In Theaters October 9",
+    "channel": "NEON"
+   },
+   {
+    "id": "wjUl_W6vkjo",
+    "kind": "Cast interview",
+    "title": "Fjord | Interview with Sebastian Stan & Renate Reinsve",
+    "channel": "Picturehouse"
+   },
+   {
+    "id": "qJ46FK8pZng",
+    "kind": "Cast interview",
+    "title": "CANNES 2026 - Interview x FJORD (Sebastian Stan & Renate Reinsve)",
+    "channel": "Pathé Cinémas"
+   },
+   {
+    "id": "ji15_MoEQyg",
+    "kind": "Cast interview",
+    "title": "Sebastian Stan & Renate Reinsve interview on Fjord",
+    "channel": "The Upcoming"
+   },
+   {
+    "id": "tBK4KDuGRE4",
+    "kind": "Filmmaker interview",
+    "title": "Can Progressives be Too Extreme? Palme d'Or Winner 'Fjord' with Director Cristian Mungiu",
+    "channel": "IndieWire"
+   },
+   {
+    "id": "on9P4KUbxow",
+    "kind": "Filmmaker interview",
+    "title": "Fjord Director Cristian Mungiu on Why Audiences Should Be Watching Uncomfortable Films",
+    "channel": "Collider Interviews"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "'Fjord' Review: The Family That Prays Together is Torn Asunder in Cristian Mungiu's Brilliantly Knotted Social Drama, Led by Sebastian Stan and Renate Reinsve",
+    "href": "https://variety.com/2026/film/reviews/fjord-review-sebastian-stan-renate-reinsve-1236752172/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Screen Daily",
+    "title": "'Fjord' review: Sebastian Stan and Renate Reinsve intrigue in Cristian Mungiu's underpowered Norway-set drama",
+    "href": "https://www.screendaily.com/reviews/fjord-review-sebastian-stan-and-renate-reinsve-intrigue-in-cristian-mungius-underpowered-norway-set-drama/5216920.article",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "'Fjord' Review: Sebastian Stan and Renate Reinsve in Cristian Mungiu's Masterful Drama of Our Polarized Times – Cannes Film Festival",
+    "href": "https://deadline.com/2026/05/fjord-review-sebastian-stan-renate-reinsve-cristian-mungiu-1236914528/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Films Fatale",
+    "title": "Fjord Review: A house divided",
+    "href": "https://www.filmsfatale.com/blog/2026/9/22/fjord",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "IndieWire",
+    "title": "'Fjord' Review: Sebastian Stan and Renate Reinsve Are Religious Parents Accused of Child Abuse in Cristian Mungiu's Gripping Culture War Drama",
+    "href": "https://www.indiewire.com/criticism/movies/fjord-movie-review-sebastian-stan-renate-reinsve-1235194645/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Film Stage",
+    "title": "Sebastian Stan and Renate Reinsve Reteam for Cristian Mungiu's 'Fjord'",
+    "href": "https://thefilmstage.com/sebastian-stan-and-renate-reinsve-reteam-for-cristian-mungius-fjord/"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Cannes: Neon Picks Up Sebastian Stan, Renate Reinsve-Starrer 'Fjord'",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/neon-picks-up-sebastian-stan-renate-reinsve-starrer-fjord-1236213944/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt35410859"
  },
  "footlight-parade": {
   "videos": [
@@ -2820,6 +3310,57 @@
   "cinemaRelease": true,
   "imdb": "tt0021884"
  },
+ "ghost-soldier": {
+  "videos": [
+   {
+    "id": "UKaWzMf9Ybc",
+    "kind": "Official trailer",
+    "title": "GHOST SOLDIER - New Trailer | Starring Jim Caviezel (4K)",
+    "channel": "Sony Pictures Entertainment"
+   },
+   {
+    "id": "wHTq6AqVRLw",
+    "kind": "Cast interview",
+    "title": "Jim Caviezel on 'Ghost Soldier' | Interview | Military.com",
+    "channel": "Military.com"
+   },
+   {
+    "id": "cc2cEKGDQJM",
+    "kind": "Cast interview",
+    "title": "Jim Caviezel talks Ghost Soldier, fighting large odds & gaming Command & Conquer style",
+    "channel": "Review Nation"
+   },
+   {
+    "id": "zDUAsxhkgl4",
+    "kind": "Featurette",
+    "title": "The Making of a Modern-Day Hero: Ghost Soldier Filmmakers on Military, Family and Patriotism",
+    "channel": "Family Entourage and Sony Pictures Entertainment"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The A.V. Club",
+    "title": "Ghost Soldier review",
+    "href": "https://www.avclub.com/ghost-soldier-review-jim-caveizel-conservative-action-movie",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "JoBlo",
+    "title": "Ghost Soldier Review: Jim Caviezel Leads This Fun Action Throwback",
+    "href": "https://www.joblo.com/ghost-soldier-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Sony Shifts Jim Caviezel Action Thriller 'Ghost Soldier' To Veterans Day",
+    "href": "https://deadline.com/2026/09/ghost-soldier-release-date-jim-caviezel-1237101858/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt38686316"
+ },
  "gilda": {
   "videos": [],
   "reviews": [
@@ -2860,6 +3401,87 @@
     "href": "https://mg.co.za/friday/2025-03-19-a-sprint-for-opportunities/"
    }
   ]
+ },
+ "goat": {
+  "videos": [
+   {
+    "id": "ggZA2oi8S5s",
+    "kind": "Official trailer",
+    "title": "GOAT – New Trailer (HD)",
+    "channel": "Sony Pictures Entertainment"
+   },
+   {
+    "id": "5r-7eWDBc40",
+    "kind": "Teaser",
+    "title": "GOAT - Official Teaser Trailer (HD)",
+    "channel": "Sony Pictures Entertainment"
+   },
+   {
+    "id": "lLevEOVOWqg",
+    "kind": "Cast interview",
+    "title": "GOAT | Roarball Roundup: An Exclusive Interview with the Vineland Thorns (Full) | Sony Animation",
+    "channel": "Sony Pictures Animation"
+   },
+   {
+    "id": "eUhac2-AQ94",
+    "kind": "Cast interview",
+    "title": "Inside GOAT: All-Star Voice Cast Bringing Goat To Life",
+    "channel": "JoBlo Animation 4K"
+   },
+   {
+    "id": "Kzs8IG3kCFU",
+    "kind": "Cast interview",
+    "title": "Steph Curry & Caleb McLaughlin Shine At GOAT Premiere As Cast Talk Inspiration & Big Ambitions; N18G",
+    "channel": "SHOWSHA"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Associated Press",
+    "title": "Movie Review: Stephen Curry's animated basketball movie 'GOAT' is a disappointing air ball",
+    "href": "https://apnews.com/article/goat-movie-review-b1eae99ae8c8abf74204e769e9684341",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "'Goat' Review: Big League Dreams",
+    "href": "https://www.nytimes.com/2026/02/12/movies/goat-review.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "IGN",
+    "title": "Goat Review",
+    "href": "https://www.ign.com/articles/goat-movie-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "GOAT Review",
+    "href": "https://www.empireonline.com/movies/reviews/goat/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'GOAT' Review: A Go-for-Your-Dream Fairy Tale With a Bold New Animated Look and a Brashly Winning Attitude",
+    "href": "https://variety.com/2026/film/reviews/goat-review-caleb-mclaughlin-gabrielle-union-1236656658/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Goat review – noisy, lightning-speed basketball animation does it for the kids",
+    "href": "https://www.theguardian.com/film/2026/feb/09/goat-review-animation",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Box Office: 'Wuthering Heights' Falls for $11 Million on Opening Day; 'GOAT' Takes Second With $7.1 Million",
+    "href": "https://variety.com/2026/film/news/box-office-wuthering-heights-margot-robbie-jacob-elordi-1236663427/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt27613895"
  },
  "godzilla-minus-zero": {
   "videos": [
@@ -3014,6 +3636,93 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt14330672"
+ },
+ "greenland-2-migration": {
+  "videos": [
+   {
+    "id": "H8ieN10lX40",
+    "kind": "Official trailer",
+    "title": "Greenland 2: Migration (2026) Official Trailer - Gerard Butler, Morena Baccarin, Roman Griffin Davis",
+    "channel": "Lionsgate Movies"
+   },
+   {
+    "id": "HEO4DaigFiA",
+    "kind": "Cast interview",
+    "title": "Roman Griffin Davis interview on Greenland 2: Migration",
+    "channel": "The Upcoming"
+   },
+   {
+    "id": "7mUok_XPADE",
+    "kind": "Cast interview",
+    "title": "Gerard Butler interview on Greenland 2: Migration",
+    "channel": "The Upcoming"
+   },
+   {
+    "id": "wF_5-eWt6Jk",
+    "kind": "Filmmaker interview",
+    "title": "Greenland 2: Migration Director Ric Roman Waugh discusses destruction and story",
+    "channel": "Review Nation"
+   },
+   {
+    "id": "ocUaiRWNe5Q",
+    "kind": "Filmmaker interview",
+    "title": "Ric Roman Waugh interview on Greenland 2: Migration",
+    "channel": "The Upcoming"
+   },
+   {
+    "id": "oUKisTkgQAU",
+    "kind": "Featurette",
+    "title": "Greenland 2: Migration Exclusive Featurette - Filming in Iceland (2026) | Fandango at Home",
+    "channel": "Fandango (Stream)"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "/Film",
+    "title": "Greenland 2: Migration Review: Gerard Butler Looks For Post-Apocalyptic Hope In This Effective Sequel",
+    "href": "https://www.slashfilm.com/2070827/greenland-2-migration-review/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "'Greenland 2: Migration' Review: The New World",
+    "href": "https://www.nytimes.com/2026/01/08/movies/greenland-2-migration-review.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Review: In 'Greenland 2: Migration,' the end of the world doesn't seem so awful",
+    "href": "https://www.latimes.com/entertainment-arts/movies/story/2026-01-09/greenland-2-migration-review-gerard-butler",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Associated Press",
+    "title": "Movie Review: 'Greenland 2: Migration' is an unmemorable sequel with a memorably newsy title",
+    "href": "https://apnews.com/article/greenland-migration-review-gerard-butler-f4c67938df8f3e01121dcada343e7e3d",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Greenland 2: Migration review: Gerard Butler craters once again",
+    "href": "https://www.rogerebert.com/reviews/greenland-2-migration-gerard-butler-movie-review-2026",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Greenland 2: Migration review – disaster sequel is disastrously self-serious",
+    "href": "https://www.theguardian.com/film/2026/jan/08/greenland-2-migration-movie-review",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Box Office: 'Avatar: Fire And Ash' No. 1 Over 'Primate' & 'Greenland 2: Migration' In Fourth Weekend With $24M+",
+    "href": "https://deadline.com/2026/01/box-office-primate-avatar-fire-and-ash-greenland-migration-1236677406/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt14850054"
  },
  "hamnet": {
   "videos": [
@@ -4098,6 +4807,45 @@
   ],
   "imdb": "tt0060345"
  },
+ "how-to-rob-a-bank": {
+  "videos": [
+   {
+    "id": "ORxw68y3lyw",
+    "kind": "Official trailer",
+    "title": "How To Rob A Bank | Official Trailer",
+    "channel": "Amazon MGM Studios"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Sight and Sound",
+    "title": "How to Rob a Bank: 'Anti-capitalist' heist movie fails to invest enough personality in its characters",
+    "href": "https://www.bfi.org.uk/sight-and-sound/reviews/how-rob-bank-anti-capitalist-heist-movie-fails-invest-enough-personality-its-characters",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Time Out",
+    "title": "How to Rob a Bank review",
+    "href": "https://www.timeout.com/movies/how-to-rob-a-bank-review-2026",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "How to Rob a Bank review",
+    "href": "https://www.avclub.com/how-to-rob-a-bank-david-leitch-nichoulas-hoult-zoe-kravitz",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "David Leitch, 87North Teaming With Amazon MGM, Imagine for Heist Action Thriller (Exclusive)",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/david-leitch-teaming-with-amazon-mgm-imagine-heist-action-thriller-1236142377/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt35866986"
+ },
  "how-to-ruin-christmas": {
   "videos": [
    {
@@ -4281,6 +5029,74 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt6213284"
+ },
+ "i-play-rocky": {
+  "videos": [
+   {
+    "id": "V_g_Ut0jO-0",
+    "kind": "Official trailer",
+    "title": "I Play Rocky | Official Trailer",
+    "channel": "Amazon MGM Studios and IMDb"
+   },
+   {
+    "id": "exlWOS3GGuQ",
+    "kind": "Cast interview",
+    "title": "The 'I Play Rocky' Cast on Depicting Sylvester Stallone's Crowning Achievement",
+    "channel": "Fandango"
+   },
+   {
+    "id": "rVoNx1yuOH0",
+    "kind": "Cast interview",
+    "title": "Anthony Ippolito Talks Starring as Sylvester Stallone in I Play Rocky, Reenacting Iconic Film Scenes",
+    "channel": "The Tonight Show Starring Jimmy Fallon"
+   },
+   {
+    "id": "DrwhTZs7Aac",
+    "kind": "Cast interview",
+    "title": "How \"I Play Rocky\" star Anthony Ippolito found his Sylvester Stallone impression",
+    "channel": "CBS Mornings"
+   },
+   {
+    "id": "zQSxCpk42f8",
+    "kind": "Cast interview",
+    "title": "‘I Play Rocky’ Cast Reveals What It Takes to Become Sylvester Stallone & Carl Weathers!",
+    "channel": "Jennifer Hudson Show"
+   },
+   {
+    "id": "ANTuKRYYgQM",
+    "kind": "Cast interview",
+    "title": "Matt Dillon Talks 'I Play Rocky,' 'Magnificent 7' Roles",
+    "channel": "TODAY"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "'I Play Rocky' Review: Anthony Ippolito Channels Sylvester Stallone in Peter Farrelly's Cleverly Crafted Crowd-Pleaser About the Making of 'Rocky'",
+    "href": "https://variety.com/2026/film/reviews/i-play-rocky-review-anthony-ippolito-peter-farrelly-1236859563/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Screen Daily",
+    "title": "'I Play Rocky' review: Peter Farrelly turns story behind Sylvester Stallone's breakout into a sentimental, uninspiring pastiche",
+    "href": "https://www.screendaily.com/reviews/i-play-rocky-review-peter-farrelly-turns-story-behind-sylvester-stallones-breakout-into-a-sentimental-uninspiring-pastiche/5220366.article",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Peter Farrelly Directing 'I Play Rocky,' Inside Story of Sylvester Stallone's Star-Making Performance",
+    "href": "https://variety.com/2024/film/marets-festivals/peter-farrelly-directing-i-play-rocky-sylvester-stallone-drama-1235994577/"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Rocky' Found: Anthony Ippolito to Play Sylvester Stallone in Amazon MGM's Movie Behind Making of Boxing Classic (Exclusive)",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/rocky-anthony-ippolito-to-play-sylvester-stallone-1236354857/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt11995650"
  },
  "imitation-of-life": {
   "videos": [],
@@ -5527,6 +6343,199 @@
   "cinemaRelease": true,
   "imdb": "tt0314331"
  },
+ "madagascar": {
+  "videos": [
+   {
+    "id": "orAqhC-Hp_o",
+    "kind": "Official trailer",
+    "title": "Madagascar (2005) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "sd1yk_6GXIM",
+    "kind": "Cast interview",
+    "title": "Ben Stiller Interview for Madagascar (2005)",
+    "channel": "Historic Films Stock Footage Archive"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Star Tribune",
+    "title": "Movie review: 'Madagascar' runs wild",
+    "href": "https://web.archive.org/web/20050530000124/http://www.startribune.com/stories/1553/5421018.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Washington Post",
+    "title": "A Roar of Approval",
+    "href": "http://www.washingtonpost.com/wp-dyn/content/article/2005/05/26/AR2005052601775.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Madagascar",
+    "href": "https://web.archive.org/web/20051124115614/http://www.calendarlive.com/movies/turan/cl-et-madagascar27may27,0,3894379.story",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "CNN",
+    "title": "Review: Enjoyable trip to 'Madagascar'",
+    "href": "http://edition.cnn.com/2005/SHOWBIZ/Movies/05/27/review.madagascar/index.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Sydney Morning Herald",
+    "title": "Madagascar",
+    "href": "https://www.smh.com.au/entertainment/movies/madagascar-20051005-gdm71n.html",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0351283"
+ },
+ "madagascar-3-europes-most-wanted": {
+  "videos": [
+   {
+    "id": "laNiRXqh82Q",
+    "kind": "Official trailer",
+    "title": "Madagascar 3 Official Trailer #1 (2012) HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "JXnslFeWgVc",
+    "kind": "Cast interview",
+    "title": "Madagascar 3 Interview with Cedric The Entertainer",
+    "channel": "BlackTree TV"
+   },
+   {
+    "id": "ZSgauhbTYgg",
+    "kind": "Featurette",
+    "title": "Madagascar 3: Europe's Most Wanted - Official Australian Featurette - 'Mad Again'",
+    "channel": "Paramount Pictures Australia"
+   },
+   {
+    "id": "5Eq9EAHLXoU",
+    "kind": "Featurette",
+    "title": "Madagascar 3: Europe's Most Wanted - Official Australian Featurette - 'Going Bananas'",
+    "channel": "Paramount Pictures Australia"
+   },
+   {
+    "id": "7GAfFSLTtsQ",
+    "kind": "Featurette",
+    "title": "Madagascar 3: Europe's Most Wanted - Official Australian Featurette - 'On The Run'",
+    "channel": "Paramount Pictures Australia"
+   },
+   {
+    "id": "wEdDcSplt10",
+    "kind": "Featurette",
+    "title": "Madagascar 3: Europe's Most Wanted - Behind the Scenes - Ben Stiller, Chris Rock Movie HD",
+    "channel": "Rotten Tomatoes Coming Soon"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Denver Post",
+    "title": "Movie review: \"Madagascar 3: Europe's Most Wanted\" delights as furry friends and a frenzied foes return Read more: Movie review: \"Madagascar 3: Europe's Most Wanted\" delights as furry friends and a frenzied foes return",
+    "href": "http://www.denverpost.com/movies/ci_20801069/madagascar-3-movie-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Star Tribune",
+    "title": "'Madagascar 3' is a class menagerie",
+    "href": "https://web.archive.org/web/20130308234715/http://www.startribune.com/entertainment/movies/157854335.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Movie review: 'Madagascar 3' runs away to the circus",
+    "href": "https://web.archive.org/web/20120727144636/http://www.latimes.com/entertainment/news/movies/la-et-madagascar-3-20120608%2C0%2C599068.story",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "CNN",
+    "title": "‘Madagascar 3’ roars with $60.4 million debut, holding ‘Prometheus’ at No. 2",
+    "href": "https://www.cnn.com/2012/06/11/showbiz/movies/madagascar-3-box-office-ew"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Foreign Box Office: 'Madagascar 3' Tops Weak Weekend",
+    "href": "https://www.hollywoodreporter.com/news/foreign-box-office-madagascar-3-brave-abraham-lincoln-341332"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1277953"
+ },
+ "madagascar-escape-2-africa": {
+  "videos": [
+   {
+    "id": "hLVjIhPYq7s",
+    "kind": "Official trailer",
+    "title": "MADAGASCAR: ESCAPE 2 AFRICA | Official Trailer",
+    "channel": "Universal Kids"
+   },
+   {
+    "id": "2wKDIWUvDlA",
+    "kind": "Cast interview",
+    "title": "Madagascar 2 - Interview mit Eric Darnell",
+    "channel": "ParamountGermany"
+   },
+   {
+    "id": "-Nrb_jRUOhA",
+    "kind": "Cast interview",
+    "title": "Madagascar 2 - Meet the cast",
+    "channel": "BlackTree TV"
+   },
+   {
+    "id": "TgKRjqjZyEs",
+    "kind": "Cast interview",
+    "title": "'Madagascar 2' Cast Wild for Animals",
+    "channel": "Associated Press"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "A tamer wild bunch",
+    "href": "https://www.latimes.com/archives/la-xpm-2008-nov-07-et-madagascar7-story.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Newsday",
+    "title": "'Madagascar: Escape 2 Africa'",
+    "href": "https://web.archive.org/web/20200227031032/https://www.newsday.com/lifestyle/madagascar-escape-2-africa-1.166674",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Age",
+    "title": "Madagascar: Escape 2 Africa",
+    "href": "https://www.theage.com.au/entertainment/movies/madagascar-escape-2-africa-20081220-ge7l0e.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Washington Times",
+    "title": "MOVIES: 'Madagascar 2' knows how to move it",
+    "href": "https://www.washingtontimes.com/news/2008/nov/7/madagascar-2-knows-how-to-move-it/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "D'Works will rely on animal instinct",
+    "href": "https://variety.com/2005/digital/features/d-works-will-rely-on-animal-instinct-1117929100/"
+   },
+   {
+    "outlet": "/Film",
+    "title": "Madagascar: The Crate Escape Movie Trailer",
+    "href": "https://www.slashfilm.com/madagascar-the-crate-escape-movie-trailer/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0479952"
+ },
  "mami-wata": {
   "videos": [],
   "reviews": [
@@ -5713,6 +6722,81 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0117008"
+ },
+ "mercy": {
+  "videos": [
+   {
+    "id": "7H7Djx17l8Y",
+    "kind": "Official trailer",
+    "title": "Mercy | Official Trailer 2",
+    "channel": "Amazon MGM Studios"
+   },
+   {
+    "id": "92p-2tN9ziY",
+    "kind": "Cast interview",
+    "title": "MERCY Interview: Chris Pratt & Rebecca Ferguson Break Down the Future of Justice",
+    "channel": "BlackTree TV"
+   },
+   {
+    "id": "DZPaZFprNtc",
+    "kind": "Cast interview",
+    "title": "Mercy | Exclusive Interviews | Chris Pratt, Kali Reis",
+    "channel": "Moviefone"
+   },
+   {
+    "id": "Hk6yVBiOW9k",
+    "kind": "Filmmaker interview",
+    "title": "Mercy Director Timur Bekmambetov Turns A.I. Into Judge, Jury, and Executioner",
+    "channel": "Collider Interviews"
+   },
+   {
+    "id": "OA-g9bOi8xs",
+    "kind": "Featurette",
+    "title": "Mercy | Behind the Scenes – Featurette",
+    "channel": "Amazon MGM Studios"
+   },
+   {
+    "id": "adTea5-H99w",
+    "kind": "Featurette",
+    "title": "Mercy | Visual Breakdown - Featurette",
+    "channel": "Amazon MGM Studios"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Globe and Mail",
+    "title": "Not even Chris Pratt and Rebecca Ferguson can save soulless sci-fi Mercy",
+    "href": "https://www.theglobeandmail.com/culture/film-and-tv/film/article-mercy-movie-chris-pratt-rebecca-ferguson-screenlife-sci-fi/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Independent",
+    "title": "Mercy review – An AI judge decides Chris Pratt's fate in this absolutely dismal dystopian dreck",
+    "href": "https://www.the-independent.com/arts-entertainment/films/reviews/mercy-movie-review-chris-pratt-rebecca-ferguson-b2905313.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Toronto Star",
+    "title": "It's early in the year, but this Chris Pratt dud may just be the worst movie of 2026",
+    "href": "https://www.thestar.com/entertainment/movies/its-early-in-the-year-but-this-chris-pratt-dud-may-just-be-the-worst/article_c88c39e8-9a14-48d3-aba0-f3d27f0a2a4c.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Chicago Reader",
+    "title": "Review: Mercy",
+    "href": "https://chicagoreader.com/film-tv/movie-review/review-mercy/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Box Office: Chris Pratt's 'Mercy' Toppling 'Avatar 3' as a Brutal Winter Storm Threatens Moviegoing",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/chris-pratt-mercy-box-office-unseats-avatar-1236483753/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt31050594"
  },
  "michael": {
   "videos": [
@@ -7216,6 +8300,93 @@
   "cinemaRelease": true,
   "imdb": "tt0050825"
  },
+ "penguins-of-madagascar": {
+  "videos": [
+   {
+    "id": "qiskihiI8NE",
+    "kind": "Official trailer",
+    "title": "Penguins of Madagascar Official Trailer #1 (2014) Benedict Cumberbatch Movie HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "aUlwfKVrAmE",
+    "kind": "Teaser",
+    "title": "Penguins of Madagascar - Official Teaser Trailer - DreamWorks Animations",
+    "channel": "Empire Movies"
+   },
+   {
+    "id": "g5nYXCwkuh0",
+    "kind": "Cast interview",
+    "title": "Penguins of Madagascar Interview HD | Celebrity Interviews | FandangoMovies",
+    "channel": "Fandango"
+   },
+   {
+    "id": "vv-r2Em2zO8",
+    "kind": "Cast interview",
+    "title": "The Adventurous Cast of Penguins of Madagascar",
+    "channel": "Rotten Tomatoes"
+   },
+   {
+    "id": "1IfPX8Hx-Nc",
+    "kind": "Cast interview",
+    "title": "DreamWorks' Penguins of Madagascar [\"BREAKING THE ICE\" Interview Clip in HD]",
+    "channel": "20th Century Studios Singapore"
+   },
+   {
+    "id": "8z_c_fONMbc",
+    "kind": "Cast interview",
+    "title": "John Malkovich 'Penguins Of Madagascar' Exclusive Interview: Comic-Con San Diego (2014) HD",
+    "channel": "Movieclips Action"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "New York Daily News",
+    "title": "'Penguins of Madagascar,' movie review",
+    "href": "https://www.nydailynews.com/2014/11/24/penguins-of-madagascar-movie-review/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "Review: Penguins Of Madagascar is DreamWorks Animation at its most amusingly energetic",
+    "href": "https://www.avclub.com/review/penguins-madagascar-dreamworks-animation-its-most--212233",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Penguins Of Madagascar Review",
+    "href": "https://www.empireonline.com/movies/reviews/penguins-madagascar-review/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "'Penguins of Madagascar': A happy feat of action, comedy",
+    "href": "https://web.archive.org/web/20141208042813/http://entertainment.suntimes.com/movies/penguins-madagascar-happy-feat-action-comedy/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Penguins of Madagascar': Film Review",
+    "href": "https://www.hollywoodreporter.com/review/penguins-madagascar-film-review-748219",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "Penguins of Madagascar Review - Movie Reviews and News - EW.com",
+    "href": "https://web.archive.org/web/20201207073420/https://www.ew.com/ew/article/0,,20876861,00.html",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "DreamWorks Animation Takes $57M Write-Down on 'Penguins of Madagascar'",
+    "href": "https://www.hollywoodreporter.com/news/dreamworks-animation-takes-57m-write-777474"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1911658"
+ },
  "porgy-and-bess": {
   "videos": [],
   "reviews": [
@@ -7246,6 +8417,81 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0053182"
+ },
+ "practical-magic-2": {
+  "videos": [
+   {
+    "id": "Ho10_4IX1jE",
+    "kind": "Official trailer",
+    "title": "Practical Magic 2 | Official Trailer",
+    "channel": "Warner Bros."
+   },
+   {
+    "id": "iSWP2feb4rw",
+    "kind": "Teaser",
+    "title": "Practical Magic 2 | Official Teaser Trailer",
+    "channel": "Warner Bros."
+   },
+   {
+    "id": "NDVFGBDgBqQ",
+    "kind": "Cast interview",
+    "title": "Nicole Kidman CRASHES Joey King's 'Practical Magic 2' Interview (Exclusive)",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "Lug4FUXd-PU",
+    "kind": "Cast interview",
+    "title": "\"We Know How to Party Together\" Sandra Bullock, Nicole Kidman & Cast on Filming 'Practical Magic 2'",
+    "channel": "Fandango and Movieclips"
+   },
+   {
+    "id": "rTHAZ3csqNg",
+    "kind": "Cast interview",
+    "title": "Practical Magic 2 Boys (Xolo Maridueña and Solly Mcleod) on Making Their Own 'Sisterhood' On Set",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "EWgHFdRRSAw",
+    "kind": "Cast interview",
+    "title": "Drinking Midnight Margaritas With The Cast of Practical Magic 2!",
+    "channel": "BuzzFeed UK"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Daily Telegraph",
+    "title": "Nicole Kidman and Sandra Bullock would need real magic to save this sequel",
+    "href": "https://www.telegraph.co.uk/films/2026/09/10/practical-magic-2-review-nicole-kidman-sandra-bullock/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'Practical Magic 2' Review: Sandra Bullock and Nicole Kidman Don't Quite Cast a Spell in an Overlong, Predictable Sequel",
+    "href": "https://au.variety.com/2026/film/reviews/practical-magic-2-review-sandra-bullock-nicole-kidman-40077/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "'Practical Magic 2' Review: Sandra Bullock and Nicole Kidman Get a Flawed but Fantastical Reunion",
+    "href": "https://www.thewrap.com/creative-content/reviews/practical-magic-2-review/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "/Film",
+    "title": "Practical Magic 2 Review: An Unfunny, Sloppily Assembled Sequel",
+    "href": "https://slashfilm.com/2250623/practical-magic-2-review/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "'Practical Magic 2' Opens To $30M U.S., On Par With Recent Sandra Bullock Pics – Box Office Update",
+    "href": "https://deadline.com/2026/09/box-office-practical-magic-2-weekend-1237098516/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt32588798"
  },
  "primetime": {
   "videos": [
@@ -7513,6 +8759,153 @@
   "articles": [],
   "imdb": "tt1508328"
  },
+ "puss-in-boots": {
+  "videos": [
+   {
+    "id": "1esRrwrmWzA",
+    "kind": "Official trailer",
+    "title": "Puss in Boots (2011) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "WG_JeLOJP-g",
+    "kind": "Cast interview",
+    "title": "Antonio Banderas Does PUSS IN BOOTS Voice In Hilarious Interview!",
+    "channel": "Jake's Takes"
+   },
+   {
+    "id": "W33XvIzdMY0",
+    "kind": "Filmmaker interview",
+    "title": "Film Director Chris Miller of Puss In Boots",
+    "channel": "WCPO 9"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Puss in Boots: Film Review",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/puss-boots-film-review-252312/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Puss in Boots",
+    "href": "https://variety.com/2011/film/reviews/puss-in-boots-1117946409/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Times Herald",
+    "title": "Review: 'Puss in Boots' a lively spin-off",
+    "href": "https://www.timesherald.com/2011/10/26/review-puss-in-boots-a-lively-spin-off/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Arizona Republic",
+    "title": "'Puss in Boots,' 3.5 stars",
+    "href": "https://web.archive.org/web/20201119181432/http://archive.azcentral.com/thingstodo/movies/articles/2011/10/24/20111024puss-in-boots-review.html?nclick_check=1",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Seattle Times",
+    "title": "'Puss in Boots': Catnip for kids",
+    "href": "https://www.seattletimes.com/entertainment/movies/puss-in-boots-catnip-for-kids/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Austin Chronicle",
+    "title": "Puss in Boots - Film Calendar",
+    "href": "https://www.austinchronicle.com/events/film/2011-10-28/puss-in-boots/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "Box office update: 'Puss in Boots' the cat's meow on Friday with $9.6 million",
+    "href": "https://ew.com/article/2011/10/29/box-office-update-puss-in-boots-in-time-rum-diary/"
+   },
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "Box office report: 'Puss in Boots' walks all over 'In Time' and 'The Rum Diary' with $34 million debut",
+    "href": "https://ew.com/article/2011/10/30/box-office-report-puss-in-boots-in-time-rum-diary/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0448694"
+ },
+ "puss-in-boots-the-last-wish": {
+  "videos": [
+   {
+    "id": "RqrXhwS33yc",
+    "kind": "Official trailer",
+    "title": "Puss In Boots: The Last Wish - Official Trailer 2",
+    "channel": "Universal Pictures"
+   },
+   {
+    "id": "DB7kdCoxb3U",
+    "kind": "Cast interview",
+    "title": "Florence Pugh Puss In Boots: The Last Wish Interview 😻 | Newsround",
+    "channel": "BBC Newsround"
+   },
+   {
+    "id": "TwKHzRAdBhc",
+    "kind": "Cast interview",
+    "title": "'Puss in Boots' Director & Harvey Guillén Break Down the Wagon Scene | Vanity Fair",
+    "channel": "Vanity Fair"
+   },
+   {
+    "id": "xVk0dbnzYBU",
+    "kind": "Filmmaker interview",
+    "title": "'Puss in Boots: The Last Wish' with Joel Crawford, Mark Swift & more | Academy Conversations",
+    "channel": "Oscars"
+   },
+   {
+    "id": "txMaan4N404",
+    "kind": "Filmmaker interview",
+    "title": "Puss in Boots: The Last Wish | Harvey Guillén and Joel Crawford | Talks at Google",
+    "channel": "Talks at Google"
+   },
+   {
+    "id": "ydsD45HHRmI",
+    "kind": "Filmmaker interview",
+    "title": "'Puss in Boots: The Last Wish' director Joel Crawford on a sequel over a decade after the first one",
+    "channel": "GoldDerby / Gold Derby"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "IGN",
+    "title": "Puss in Boots: The Last Wish Review",
+    "href": "https://www.ign.com/articles/puss-in-boots-the-last-wish-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Puss in Boots: The Last Wish movie review",
+    "href": "https://www.rogerebert.com/reviews/puss-in-boots-the-last-wish-movie-review-2022",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Animation World Network",
+    "title": "Crime and Funishment: A Feline Hero Returns in 'Puss in Boots: The Last Wish'",
+    "href": "https://www.awn.com/animationworld/crime-and-funishment-feline-hero-returns-puss-boots-last-wish"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "'Puss In Boots: The Last Wish' Claws Way To No. 8 In Deadline's 2022 Most Valuable Blockbuster Tournament",
+    "href": "https://deadline.com/2023/04/puss-in-boots-the-last-wish-box-office-profits-1235318265/"
+   },
+   {
+    "outlet": "Variety",
+    "title": "How TikTok and Cat Lovers Helped Propel Puss in Boots: The Last Wish to Box Office Glory",
+    "href": "https://variety.com/2023/film/news/puss-in-boots-the-last-wish-box-office-tiktok-trend-1235546015/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt3915174"
+ },
  "queen-sono": {
   "videos": [
    {
@@ -7673,6 +9066,81 @@
    }
   ],
   "articles": []
+ },
+ "ready-or-not-here-i-come": {
+  "videos": [
+   {
+    "id": "jczr0KCloXk",
+    "kind": "Official trailer",
+    "title": "READY OR NOT 2: HERE I COME | Official Trailer | Searchlight Pictures",
+    "channel": "SearchlightPictures"
+   },
+   {
+    "id": "bL0gczaATfg",
+    "kind": "Cast interview",
+    "title": "Samara Weaving & Kathryn Newton on Making \"Strange Choices\" in 'Ready or Not 2: Here I Come'",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "k8fke5tgqYY",
+    "kind": "Cast interview",
+    "title": "The 'Ready or Not 2: Here I Come' Cast on Balancing Drama and Comedy",
+    "channel": "Fandango"
+   },
+   {
+    "id": "SkofdBaE6Ak",
+    "kind": "Cast interview",
+    "title": "Cast of 'Ready or Not 2: Here I Come' joins 'GMA'",
+    "channel": "Good Morning America"
+   },
+   {
+    "id": "ndRDj_p8ARY",
+    "kind": "Cast interview",
+    "title": "\"Ready or Not 2: Here I Come\" Cast Plays Who's Who",
+    "channel": "BuzzFeed Celeb"
+   },
+   {
+    "id": "fmuDZecuKO4",
+    "kind": "Cast interview",
+    "title": "READY OR NOT 2: How Samara Weaving Impressed Her Co-Stars On Set",
+    "channel": "IMDb"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Tom's Guide",
+    "title": "'Ready or Not 2' review: An outrageously good time with bloody carnage and Samara Weaving at her best",
+    "href": "https://www.tomsguide.com/entertainment/movies/ready-or-not-2-review-an-outrageously-good-time-with-bloody-carnage-and-samara-weaving-at-her-best",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "Ready or Not 2: Here I Come review",
+    "href": "https://www.avclub.com/ready-or-not-2-here-i-come-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'Ready or Not 2: Here I Come' Review: Samara Weaving Gets Trapped in a More Dangerous — and Luridly Preposterous — Game",
+    "href": "https://au.variety.com/2026/film/global/ready-or-not-2-here-i-come-review-samara-weaving-34426/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "'Ready or Not 2: Here I Come' Review: Even Samara Weaving's Primal Rage Can't Make This Game Interesting",
+    "href": "https://www.thewrap.com/creative-content/movies/ready-or-not-2-here-i-come-review-samara-weaving-sxsw/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "'Ready or Not 2: Here I Come' Review: Falling Back on Old Habits",
+    "href": "https://www.slantmagazine.com/film/ready-or-not-2-here-i-come-review-samara-weaving/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt33978029"
  },
  "rear-window": {
   "videos": [
@@ -8137,6 +9605,68 @@
   "cinemaRelease": true,
   "imdb": "tt8036976"
  },
+ "sense-and-sensibility": {
+  "videos": [
+   {
+    "id": "mcrwcvad84U",
+    "kind": "Official trailer",
+    "title": "SENSE AND SENSIBILITY - Official Trailer [HD] - Only In Theaters October 16",
+    "channel": "Focus Features"
+   },
+   {
+    "id": "6jXp8wN-yKw",
+    "kind": "Cast interview",
+    "title": "Sense and Sensibility | Interview with Herbert Nordrum and Frank Dillane",
+    "channel": "Picturehouse"
+   },
+   {
+    "id": "hxpBVd2pETw",
+    "kind": "Cast interview",
+    "title": "The 'Sense and Sensibility' Cast on Who's More of an \"Elinor\" or a \"Marianne\"",
+    "channel": "Fandango and Movieclips"
+   },
+   {
+    "id": "It8vLjXzc2Y",
+    "kind": "Cast interview",
+    "title": "Daisy Edgar-Jones Talks 'Dream Role' in ‘Sense and Sensibility’",
+    "channel": "TODAY"
+   },
+   {
+    "id": "oZ-iviT6ylo",
+    "kind": "Filmmaker interview",
+    "title": "Sense and Sensibility | Interview with Esmé Creed-Miles and Georgia Oakley",
+    "channel": "Picturehouse"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Daily Telegraph",
+    "title": "This wildly entertaining Sense and Sensibility is Austen with the bonnets blown off",
+    "href": "https://www.telegraph.co.uk/films/2026/09/21/sense-sensibility-daisy-edgar-jones-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Sense and Sensibility review – Daisy Edgar-Jones leads sober-minded next-gen do-over of Austen romcom",
+    "href": "https://www.theguardian.com/film/2026/sep/21/sense-and-sensibility-review-romcom-austen-daisy-edgar-jones",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Screen Daily",
+    "title": "Daisy Edgar-Jones to star in Georgia Oakley's 'Sense and Sensibility' for Working Title, Focus Features",
+    "href": "https://www.screendaily.com/news/daisy-edgar-jones-to-star-in-georgia-oakleys-sense-and-sensibility-for-working-title-focus-features/5206400.article"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Daisy Edgar-Jones to Star in New 'Sense and Sensibility' Movie",
+    "href": "https://variety.com/2025/film/news/daisy-edgar-jones-sense-and-sensibility-movie-1236440135/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt13609648"
+ },
  "seriously-single": {
   "videos": [],
   "reviews": [
@@ -8367,6 +9897,219 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt32357218"
+ },
+ "shrek": {
+  "videos": [
+   {
+    "id": "CwXOrWvPBPk",
+    "kind": "Official trailer",
+    "title": "Shrek (2001) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "ZaLjRTWtO5Q",
+    "kind": "Filmmaker interview",
+    "title": "Interview With Shrek Director Vicky Jenson",
+    "channel": "The Los Angeles Film School"
+   },
+   {
+    "id": "NbPLaRXf9Pc",
+    "kind": "Featurette",
+    "title": "The Making of Shrek",
+    "channel": "Collider Behind the Scenes"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Shrek",
+    "href": "https://web.archive.org/web/20100716150531/http://rogerebert.suntimes.com/apps/pbcs.dll/article?AID=/20010518/REVIEWS/105180305/1023",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "USA Today",
+    "title": "'Shrek' spins jokes from fairy tales",
+    "href": "https://www.usatoday.com/life/enter/movies/2001-05-16-shrek-review.htm",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Sight and Sound",
+    "title": "“A film of marvels if not quite a marvellous film”: Shrek reviewed in 2001",
+    "href": "https://www.bfi.org.uk/sight-and-sound/reviews/film-marvels-if-not-quite-marvellous-film-shrek-reviewed-2001",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Total Film",
+    "title": "Shrek review",
+    "href": "https://www.gamesradar.com/uk/shrek-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Slant Magazine",
+    "title": "Review: Shrek",
+    "href": "https://www.slantmagazine.com/film/shrek/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Shrek' on deck for B.O. bonanza",
+    "href": "https://variety.com/2001/digital/features/hannibal-vid-plans-cooking-1117798451/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0126029"
+ },
+ "shrek-2": {
+  "videos": [
+   {
+    "id": "xBgSfhp5Fxo",
+    "kind": "Official trailer",
+    "title": "Shrek 2 (2004) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Shrek 2",
+    "href": "https://www.rogerebert.com/reviews/shrek-2-2004",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Eye for Film",
+    "title": "Shrek 2 film review",
+    "href": "https://www.eyeforfilm.co.uk/review/shrek-2-film-review-by-david-haviland",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Total Film",
+    "title": "Shrek 2 review",
+    "href": "https://www.gamesradar.com/shrek-2-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Herald",
+    "title": "'Shrek 2' should keep millions of fans happy",
+    "href": "https://www.heraldnet.com/life/shrek-2-should-keep-millions-of-fans-happy/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "imdb": "tt0298148"
+ },
+ "shrek-forever-after": {
+  "videos": [
+   {
+    "id": "Ma9oseKpj9g",
+    "kind": "Official trailer",
+    "title": "Shrek Forever After (2010) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "FrnayzCIIoc",
+    "kind": "Cast interview",
+    "title": "Unscripted with The Shrek Forever After Cast",
+    "channel": "Moviefone"
+   },
+   {
+    "id": "r2oU30WrGVA",
+    "kind": "Featurette",
+    "title": "SHREK FOREVER AFTER Featurette - Final Chapter (2010) Mike Myers",
+    "channel": "JoBlo Animation 4K"
+   },
+   {
+    "id": "1m_Pc40S2B0",
+    "kind": "Featurette",
+    "title": "'Shrek Forever After' Featurette",
+    "channel": "hollywoodstreams"
+   },
+   {
+    "id": "UsVVDd6kIQI",
+    "kind": "Featurette",
+    "title": "'Shrek Forever After' Featurette 2",
+    "channel": "hollywoodstreams"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Boxoffice",
+    "title": "Shrek Forever After Movie Review",
+    "href": "https://web.archive.org/web/20100529000106/http://www.boxofficemagazine.com/reviews/theatrical/2010-05-shrek-forever-after",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "Shrek Forever After review",
+    "href": "https://web.archive.org/web/20100520031817/http://www.ew.com/ew/article/0,,20386387,00.html",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "'Shrek' kicks off the sure-to-be successful summer kid flick biz",
+    "href": "http://insidemovies.ew.com/2010/05/20/shrek-box-office-preview/"
+   },
+   {
+    "outlet": "MSNBC",
+    "title": "'Shrek Forever After' roars to top of box office",
+    "href": "https://web.archive.org/web/20100526010221/http://today.msnbc.msn.com/id/37302907/ns/today-entertainment/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0892791"
+ },
+ "shrek-the-third": {
+  "videos": [
+   {
+    "id": "_MoIr7811Bs",
+    "kind": "Official trailer",
+    "title": "Shrek the Third (2007) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "SDfvrWj81dI",
+    "kind": "Cast interview",
+    "title": "Cameron Diaz Interview for Shrek the Third (2007)",
+    "channel": "Historic Films Stock Footage Archive"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Times",
+    "title": "Shrek the Third",
+    "href": "https://web.archive.org/web/20110615123944/http://entertainment.timesonline.co.uk/tol/arts_and_entertainment/film/article1917686.ece",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "A Grumpy Green Giant Who Would Not Be King",
+    "href": "https://movies.nytimes.com/2007/05/18/movies/18shre.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Ogre and ogre again",
+    "href": "https://www.rogerebert.com/reviews/shrek-the-third",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "CNBC",
+    "title": "'Shrek the Third' Shatters U.S. Box Office Records",
+    "href": "https://www.cnbc.com/id/18738219"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Third 'Shrek' Helps Quadruple Profit at DreamWorks",
+    "href": "https://www.nytimes.com/2007/10/31/business/media/31dream.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0413267"
  },
  "silverton-siege": {
   "videos": [
@@ -9001,6 +10744,26 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0043265"
+ },
+ "the-animatrix": {
+  "videos": [
+   {
+    "id": "94fPVqJqBGA",
+    "kind": "Official trailer",
+    "title": "The Animatrix - Trailer",
+    "channel": "Warner Bros. Rewind"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Empire",
+    "title": "The Animatrix Review",
+    "href": "https://www.empireonline.com/movies/reviews/animatrix-review/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [],
+  "imdb": "tt0328832"
  },
  "the-best-years-of-our-lives": {
   "videos": [],
@@ -9741,6 +11504,379 @@
   "cinemaRelease": true,
   "imdb": "tt0457939"
  },
+ "the-hunger-games-catching-fire": {
+  "videos": [
+   {
+    "id": "EAzGXqJSDJ8",
+    "kind": "Official trailer",
+    "title": "The Hunger Games: Catching Fire Official Theatrical Trailer (2013) HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "IctcdgbksZ4",
+    "kind": "Teaser",
+    "title": "The Hunger Games: Catching Fire Official Teaser #1 (2013) HD Movie",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "oJ1LxzWL8n0",
+    "kind": "Cast interview",
+    "title": "The Hunger Games: Catching Fire - Sam Claflin and Jena Malone Interview",
+    "channel": "IGN"
+   },
+   {
+    "id": "QybTQUZchhk",
+    "kind": "Cast interview",
+    "title": "Donald Sutherland Interview - The Hunger Games: Catching Fire (HD) JoBlo.com",
+    "channel": "JoBlo Movie Network"
+   },
+   {
+    "id": "zNvoe0LPkeA",
+    "kind": "Cast interview",
+    "title": "The Hunger Games: Catching Fire: Jena Malone \"Johanna Mason\" On Set Interview | ScreenSlam",
+    "channel": "ScreenSlam"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Village Voice",
+    "title": "The Hunger Games: Catching Fire Is a Delicious Middle Course",
+    "href": "https://web.archive.org/web/20131203005520/http://www.villagevoice.com/2013-11-13/film/the-hunger-games-catching-fire-movie-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "ScreenAnarchy",
+    "title": "Review: The Hunger Games: Catching Fire Kicks It Up A Notch, Sets the Stage For A Grand Finale",
+    "href": "https://screenanarchy.com/2013/11/review-the-hunger-games-catching-fire-kicks-it-up-a-notch-sets-the-stage-for-a-grand-finale.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Fox News",
+    "title": "'Catching Fire' review: The 'Hunger Games' movie we've been waiting for",
+    "href": "https://www.foxnews.com/entertainment/catching-fire-review-the-hunger-games-movie-weve-been-waiting-for",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Hunger Games: Catching Fire",
+    "href": "https://www.rogerebert.com/?p=63582",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt1951264"
+ },
+ "the-hunger-games-mockingjay-part-1": {
+  "videos": [
+   {
+    "id": "3PkkHsuMrho",
+    "kind": "Official trailer",
+    "title": "The Hunger Games: Mockingjay - Part 1 Official Trailer #1 (2014) - THG Movie HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "k3JB1NX4A1g",
+    "kind": "Teaser",
+    "title": "The Hunger Games: Mockingjay - Part 1 Official Teaser - Unity (2014) - THG Movie HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "uOzp1tfr_uY",
+    "kind": "Cast interview",
+    "title": "The Hunger Games: Mockingjay - Part 1 - Woody Harrelson Interview (2014) - THG Movie HD",
+    "channel": "Rotten Tomatoes Coming Soon"
+   },
+   {
+    "id": "pN68GzG6FCs",
+    "kind": "Filmmaker interview",
+    "title": "The Hunger Games Mockingjay Part 1: Interview with Director Francis Lawrence",
+    "channel": "Collider Ladies Night"
+   },
+   {
+    "id": "mP862vlufeU",
+    "kind": "Filmmaker interview",
+    "title": "The Hunger Games: Mockingjay - Part 1 - Francis Lawrence Interview (2014) - THG Movie HD",
+    "channel": "Rotten Tomatoes Coming Soon"
+   },
+   {
+    "id": "eg3kBT29SN8",
+    "kind": "Filmmaker interview",
+    "title": "The Hunger Games Mockingjay Part One - Francis Lawrence Interview",
+    "channel": "Rotten Tomatoes"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Time Out",
+    "title": "The Hunger Games: Mockingjay - Part 1",
+    "href": "https://www.timeout.com/london/film/the-hunger-games-mockingjay-part-1",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Total Film",
+    "title": "The Hunger Games: Mockingjay: Part 1 Review",
+    "href": "https://www.gamesradar.com/the-hunger-games-mockingjay-part-1-review/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Daily Telegraph",
+    "title": "The Hunger Games: Mockingjay - Part 1: Starved of action",
+    "href": "https://www.telegraph.co.uk/culture/film/filmreviews/11213123/The-Hunger-Games-Mockingjay-Part-1-review-starved-of-action.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "The Hunger Games: Mockingjay Part 1 review – revolution will be advertised",
+    "href": "https://www.theguardian.com/film/2014/nov/11/the-hunger-games-mockingjay-part-one-film-review",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "No. 4 'Hunger Games: Mockingjay Part 1′ – 2014 Most Valuable Blockbuster Movie Tournament",
+    "href": "https://deadline.com/2015/03/hunger-games-mockingjay-part-1-profit-box-office-2014-1201391223/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1951265"
+ },
+ "the-hunger-games-mockingjay-part-2": {
+  "videos": [
+   {
+    "id": "KmYNkasYthg",
+    "kind": "Official trailer",
+    "title": "The Hunger Games: Mockingjay - Part 2 Official Teaser Trailer #1 (2015) - Jennifer Lawrence Movie HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "PHKmAJGT414",
+    "kind": "Teaser",
+    "title": "The Hunger Games: Mockingjay - Part 2 Teaser TRAILER 1 (2015) - Jennifer Lawrence Movie HD",
+    "channel": "Rotten Tomatoes Coming Soon"
+   },
+   {
+    "id": "Ujx9ImQ66a0",
+    "kind": "Cast interview",
+    "title": "The Hunger Games: Mockingjay - Part 2 Exclusive Interview - Fact or Fiction (2015) HD",
+    "channel": "Rotten Tomatoes Coming Soon"
+   },
+   {
+    "id": "hFs34LNW3Vc",
+    "kind": "Cast interview",
+    "title": "'The Hunger Games: Mockingjay - Part 2' Exclusive Cast Interview - Comic-Con (2015) HD",
+    "channel": "Movieclips Action"
+   },
+   {
+    "id": "KVDxALeAeHM",
+    "kind": "Cast interview",
+    "title": "THE HUNGER GAMES Mockingjay Part 2 Cast Interviews",
+    "channel": "Flicks And The City"
+   },
+   {
+    "id": "yi7w5ZRMbe4",
+    "kind": "Cast interview",
+    "title": "The Hunger Games: Mockingjay Pt. 2 Stars chat to KISS",
+    "channel": "KISS"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Katniss is the best reason to stick with 'The Hunger Games: Mockingjay -- Part 2,' reviews say",
+    "href": "https://www.latimes.com/entertainment/movies/moviesnow/la-et-mn-hunger-games-mockingjay-part-2-reviews-critics-katniss-20151120-story.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Review: 'The Hunger Games: Mockingjay Part 2,' Katniss's Final Battle",
+    "href": "https://www.nytimes.com/2015/11/20/movies/review-the-hunger-games-mockingjay-part-2-katnisss-final-battle.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "The Hunger Games: Mockingjay—Part 2: EW review",
+    "href": "https://www.ew.com/article/2015/11/04/the-hunger-games-mockingjay-part-2-ew-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Daily Telegraph",
+    "title": "The Hunger Games: Mockingjay – Part 2 review: 'scorchingly tense'",
+    "href": "https://www.telegraph.co.uk/film/the-hunger-games-mockingjay-part-2/review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "The Hunger Games: Mockingjay – Part 2 review: Jennifer Lawrence drags franchise through final round",
+    "href": "https://www.theguardian.com/film/2015/nov/04/the-hunger-games-mockingjay-part-2-review-jennifer-lawrence",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "'Hunger Games' studio Lionsgate faces a challenge as its young-adult films lose their appeal",
+    "href": "https://www.latimes.com/entertainment/envelope/cotown/la-et-ct-lionsgate-allegiant-20160323-story.html"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "Lionsgate Plans 17 Films For 2017, Says 'Star Wars' Grabbed $50M-$100M From 'Mockingjay 2'; Stock Falls 27%",
+    "href": "https://deadline.com/2016/02/lionsgate-2017-slate-star-wars-grabbed-50m-to-100m-from-mockingjay-2-1201697048/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1951266"
+ },
+ "the-hunger-games-sunrise-on-the-reaping": {
+  "videos": [
+   {
+    "id": "fS35YSjopjE",
+    "kind": "Official trailer",
+    "title": "The Hunger Games: Sunrise on the Reaping (2026) Official Trailer – Joseph Zada",
+    "channel": "Lionsgate Movies"
+   },
+   {
+    "id": "MPjxijuBuSo",
+    "kind": "Teaser",
+    "title": "The Hunger Games: Sunrise on the Reaping (2026) Official Teaser – Joseph Zada",
+    "channel": "Lionsgate Movies"
+   },
+   {
+    "id": "6bw_8fulBr0",
+    "kind": "Cast interview",
+    "title": "\"It Was So Surreal\" 'The Hunger Games: Sunrise on the Reaping' Cast Share Stories From the Set",
+    "channel": "Fandango and Movieclips"
+   },
+   {
+    "id": "vAiMdH5o6mM",
+    "kind": "Cast interview",
+    "title": "The Cast of ‘The Hunger Games: Sunrise on the Reaping’ on Action, Romance & Eclectic Costumes",
+    "channel": "Fandango and Movieclips"
+   },
+   {
+    "id": "PqqMDC0dpDQ",
+    "kind": "Cast interview",
+    "title": "'The Hunger Games: Sunrise on the Reaping' Cast Take a Friendship Test | Glamour",
+    "channel": "Glamour"
+   },
+   {
+    "id": "cil8IP8nMZQ",
+    "kind": "Cast interview",
+    "title": "'The Hunger Games: Sunrise On The Reaping' SPOILER Cast Interviews",
+    "channel": "CinemaBlend"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'The Hunger Games: Sunrise on the Reaping' Review: They Finally Made Another Good 'Hunger Games' Movie",
+    "href": "https://www.thewrap.com/creative-content/movies/the-hunger-games-sunrise-on-the-reaping-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "‘The Hunger Games: Sunrise on the Reaping’ Review: A Worthier Prequel to the Dystopian Battle Royale, Powered by Joseph Zada’s Star-Making Turn",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/the-hunger-games-sunrise-on-the-reaping-review-joseph-zada-1236755773/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "‘The Hunger Games: Sunrise on the Reaping’ Review: Not as Deadly as ‘Songbirds & Snakes,’ the Haymitch Origin Story Makes for a Watchable if Meandering Prequel",
+    "href": "https://variety.com/2026/film/reviews/the-hunger-games-sunrise-on-the-reaping-review-1236944341/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "‘The Hunger Games: Sunrise on the Reaping’ Review: Another Tribute",
+    "href": "https://www.nytimes.com/2026/11/17/movies/the-hunger-games-sunrise-on-the-reaping-review.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Screen Daily",
+    "title": "‘The Hunger Games: Sunrise On The Reaping’ review: Underwhelming prequel to hit YA franchise suffers from a lack of compelling characters",
+    "href": "https://www.screendaily.com/reviews/the-hunger-games-sunrise-on-the-reaping-review-underwhelming-prequel-to-hit-ya-franchise-suffers-from-a-lack-of-compelling-characters/5222281.article",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "'The Hunger Games: Sunrise On The Reaping': Lionsgate Sets Fall 2026 Release For New Prequel, Director Francis Lawrence In Talks To Return",
+    "href": "https://deadline.com/2024/06/hunger-games-runrise-on-the-reaping-theatrical-release-date-1235960640/"
+   },
+   {
+    "outlet": "ComicBook.com",
+    "title": "The Hunger Games Producer Addresses Movie Franchise’s Future & How Early They Knew About Sunrise on the Reaping",
+    "href": "https://comicbook.com/movies/news/the-hunger-games-producer-addresses-movie-franchises-future-how-early-they-knew-about-sunrise-on-the-reaping/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt32558705"
+ },
+ "the-hunger-games-the-ballad-of-songbirds-and-snakes": {
+  "videos": [
+   {
+    "id": "RDE6Uz73A7g",
+    "kind": "Official trailer",
+    "title": "The Hunger Games: The Ballad of Songbirds & Snakes (2023) Official Trailer",
+    "channel": "Lionsgate Movies"
+   },
+   {
+    "id": "w3NRJDBJImU",
+    "kind": "Cast interview",
+    "title": "'The Hunger Games: The Ballad of Songbirds & Snakes' Cast on What Fans Should Expect",
+    "channel": "Fandango"
+   },
+   {
+    "id": "2nmAEBG9WaQ",
+    "kind": "Cast interview",
+    "title": "The Hunger Games: The Ballad of Songbirds & Snakes | Official IMAX® Interview",
+    "channel": "IMAX"
+   },
+   {
+    "id": "GbS1jxV3cJ4",
+    "kind": "Cast interview",
+    "title": "THE HUNGER GAMES: THE BALLAD OF SONGBIRDS & SNAKES cast & director I Happy Sad Confused",
+    "channel": "Josh Horowitz"
+   },
+   {
+    "id": "OR7v0FEJ_1k",
+    "kind": "Cast interview",
+    "title": "THE HUNGER GAMES: THE BALLAD OF SONGBIRDS & SNAKES Cast Reveals Their Incredible Audition Stories",
+    "channel": "STREAM WARS"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "IndieWire",
+    "title": "'The Hunger Games: The Ballad of Songbirds & Snakes' Review: The Rare Hollywood Prequel That Towers Over the Rest of Its Franchise",
+    "href": "https://www.indiewire.com/criticism/movies/hunger-games-ballad-of-songbirds-and-snakes-movie-review-1234923868/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Hunger Games: The Ballad of Songbirds & Snakes movie review (2023)",
+    "href": "https://www.rogerebert.com/reviews/the-hunger-games-the-ballad-of-songbirds-and-snakes-movie-review-2023",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "USA Today",
+    "title": "Review: 'Ballad of Songbirds and Snakes' is the best 'Hunger Games' movie of them all",
+    "href": "https://www.usatoday.com/story/entertainment/movies/2023/11/09/ballad-of-songbirds-and-snakes-movie-review/71500864007/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Box Office: 'Hunger Games' Prequel 'Ballad of Songbirds and Snakes' Targets $50 Million Debut",
+    "href": "https://variety.com/2023/film/news/box-office-hunger-games-prequel-box-office-estimates-1235790861/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt10545296"
+ },
  "the-joe-louis-story": {
   "videos": [],
   "reviews": [
@@ -9770,6 +11906,269 @@
    }
   ],
   "imdb": "tt13820498"
+ },
+ "the-lord-of-the-rings-the-fellowship-of-the-ring": {
+  "videos": [
+   {
+    "id": "_nZdmwHrcnw",
+    "kind": "Official trailer",
+    "title": "The Fellowship of the Ring | The Lord of the Rings 4K Ultra HD | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "href": "https://www.rogerebert.com/reviews/lord-of-the-rings-the-fellowship-of-the-ring-2001",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Empire",
+    "title": "Lord Of The Rings: The Fellowship Of The Ring Review",
+    "href": "https://empireonline.com/movies/lord-rings-fellowship-ring/review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Total Film",
+    "title": "The Lord of the Rings: The Fellowship of the Ring review",
+    "href": "https://www.gamesradar.com/the-lord-of-the-rings-the-fellowship-of-the-ring-1-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Salon",
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "href": "https://www.salon.com/ent/movies/review/2001/12/18/lord_of_the_rings/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "imdb": "tt0120737"
+ },
+ "the-lord-of-the-rings-the-return-of-the-king": {
+  "videos": [
+   {
+    "id": "r5X-hFf6Bwo",
+    "kind": "Official trailer",
+    "title": "The Lord of the Rings: The Return of the King Official Trailer #1 - (2003) HD",
+    "channel": "Movieclips"
+   },
+   {
+    "id": "co9SNfJNDN8",
+    "kind": "Teaser",
+    "title": "The Lord of the Rings: The Return of the King Official Teaser #1 - (2003) HD",
+    "channel": "Movieclips"
+   },
+   {
+    "id": "gKE1DKd58o8",
+    "kind": "Featurette",
+    "title": "THE LORD OF THE RINGS THE RETURN OF THE KING Behind The Scenes #2 (2003)",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   },
+   {
+    "id": "Dbea4JTHnLk",
+    "kind": "Featurette",
+    "title": "THE LORD OF THE RINGS THE RETURN OF THE KING Behind The Scenes (2003)",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "The Lord of the Rings: The Return of the King: Film Review",
+    "href": "https://www.hollywoodreporter.com/review/lord-rings-return-king-review-2003-movie-950539",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Christianity Today",
+    "title": "The Lord of the Rings: The Return of the King",
+    "href": "https://christianitytoday.com/ct/2004/january/11.73.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Flick Filosopher",
+    "title": "The Lord of the Rings: The Return of the King (review)",
+    "href": "https://www.flickfilosopher.com/?p=1497",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RTÉ",
+    "title": "The Lord of the Rings: The Return of the King",
+    "href": "https://www.rte.ie/entertainment/movie-reviews/2003/1217/446515-lotr",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [],
+  "imdb": "tt0167260"
+ },
+ "the-lord-of-the-rings-the-rings-of-power": {
+  "videos": [
+   {
+    "id": "x8UAUAuKNcU",
+    "kind": "Official trailer",
+    "title": "The Lord of the Rings: The Rings of Power - Official Trailer | Prime Video",
+    "channel": "Prime Video"
+   },
+   {
+    "id": "v7v1hIkYH24",
+    "kind": "Teaser",
+    "title": "The Lord of the Rings: The Rings of Power – Offical Teaser Trailer | Prime Video",
+    "channel": "Prime Video"
+   },
+   {
+    "id": "EssYj63T4rE",
+    "kind": "Cast interview",
+    "title": "Middle Earth Pictionary with the Cast | The Lord of The Rings: The Rings of Power | Prime Video",
+    "channel": "Prime Video"
+   },
+   {
+    "id": "pRCrPSx4azg",
+    "kind": "Cast interview",
+    "title": "The Lord Of The Rings: The Rings Of Power Cast Play MTV Yearbook",
+    "channel": "MTV UK"
+   },
+   {
+    "id": "bxeRfpoin1E",
+    "kind": "Cast interview",
+    "title": "'The Lord of The Rings: The Rings of Power' Cast Reveals Filming Secrets | Ask Me Anything | ELLE",
+    "channel": "ELLE"
+   },
+   {
+    "id": "CiuPBvkynHU",
+    "kind": "Cast interview",
+    "title": "The 'Lord of the Rings: The Rings of Power' Cast Debates Whether Sauron Is \"Brat\"",
+    "channel": "Mashable"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "'The Rings of Power' Review: Amazon's Lord of the Rings Series",
+    "href": "https://au.variety.com/2022/tv/reviews/rings-of-power-review-lord-of-the-rings-amazon-5508/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time",
+    "title": "The Rings of Power Is Filled With Beautiful Images and Tired Archetypes",
+    "href": "https://time.com/6209353/rings-of-power-review/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "imdb": "tt7631058"
+ },
+ "the-lord-of-the-rings-the-two-towers": {
+  "videos": [
+   {
+    "id": "LbfMDwc4azU",
+    "kind": "Official trailer",
+    "title": "The Lord of the Rings: The Two Towers (2002) Official Trailer #2 - Orlando Bloom Movie HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Lord of the Rings:The Two Towers Movie Review",
+    "href": "https://www.rogerebert.com/reviews/lord-of-the-rings-the-two-towers-2002",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "BBC",
+    "title": "BBC - Stoke and Staffordshire Films - The Lord of the Rings: The Two Towers Review",
+    "href": "https://www.bbc.co.uk/stoke/films/reviews/g_m/lotr_the_two_towers_alt.shtml",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "That's another fine myth ...",
+    "href": "http://www.theguardian.com/film/2002/dec/15/lordoftherings.jrrtolkien",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Orlando Sentinel",
+    "title": "LORD OF THE BOX OFFICE: 'RINGS' SHOWS ITS POWER",
+    "href": "https://www.orlandosentinel.com/news/os-xpm-2002-12-21-0212200456-story.html"
+   },
+   {
+    "outlet": "United Press International",
+    "title": "'Two Towers' dominates US box office",
+    "href": "https://www.upi.com/Odd_News/2002/12/22/Two-Towers-dominates-US-box-office/65301040606355/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0167261"
+ },
+ "the-lord-of-the-rings-the-war-of-the-rohirrim": {
+  "videos": [
+   {
+    "id": "gCUg6Td5fgQ",
+    "kind": "Official trailer",
+    "title": "The Lord of the Rings: The War of the Rohirrim | Official Trailer",
+    "channel": "Warner Bros."
+   },
+   {
+    "id": "5ktpNcp2aMI",
+    "kind": "Cast interview",
+    "title": "The Lord of the Rings: The War of the Rohirrim | Interview",
+    "channel": "Picturehouse"
+   },
+   {
+    "id": "aYhJFYghAf0",
+    "kind": "Cast interview",
+    "title": "Gaia Wise Interview | The Lord of the Rings The War of the Rohirrim World Premiere",
+    "channel": "HeyUGuys"
+   },
+   {
+    "id": "kxfMM3WsOJg",
+    "kind": "Cast interview",
+    "title": "Gaia Wise | The Lord Of The Rings The War Of The Rohirrim World Premiere Red Carpet Interview",
+    "channel": "HeyUGuys"
+   },
+   {
+    "id": "QzFqCZyzrBg",
+    "kind": "Cast interview",
+    "title": "Richard Armitage Interview | The Lord of the Rings The War of the Rohirrim World Premiere",
+    "channel": "HeyUGuys"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Irish Times",
+    "title": "The Lord of the Rings: The War of the Rohirrim review: Enjoyably gory epic is a useful addition to Tolkien lore",
+    "href": "https://www.irishtimes.com/culture/film/review/2024/12/11/the-lord-of-the-rings-the-war-of-the-rohirrim-review-enjoyably-gory-epic-is-a-useful-addition-to-tolkien-lore",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Inverse",
+    "title": "The Lord of the Rings: The War of the Rohirrim review",
+    "href": "https://www.inverse.com/entertainment/the-lord-of-the-rings-war-of-the-rohirrim-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "/Film",
+    "title": "The War Of The Rohirrim Review: The Lord Of The Rings Goes Anime In Dazzling, But Inessential Prequel",
+    "href": "https://www.slashfilm.com/1730142/the-lord-of-the-rings-the-war-of-the-rohirrim-review",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "The Lord of the Rings: The War of the Rohirrim review",
+    "href": "https://avclub.com/the-lord-of-the-rings-the-war-of-the-rohirrim-review",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Total Film",
+    "title": "The Lord of the Rings: The War of the Rohirrim review",
+    "href": "https://www.gamesradar.com/entertainment/lord-of-the-rings-movies/the-lord-of-the-rings-the-war-of-the-rohirrim-review",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt14824600"
  },
  "the-maltese-falcon": {
   "videos": [
@@ -9836,6 +12235,205 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt30825738"
+ },
+ "the-matrix-reloaded": {
+  "videos": [
+   {
+    "id": "kYzz0FSgpSU",
+    "kind": "Official trailer",
+    "title": "The Matrix Reloaded (2003) Official Trailer #1 - Keanu Reeves Movie HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "JNCLUd3Htos",
+    "kind": "Cast interview",
+    "title": "The Matrix Reloaded | A Conversation with Master Wo Ping | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "V6rT-H3VFvw",
+    "kind": "Cast interview",
+    "title": "The Matrix Reloaded Producer Joel Silver Interview Press Junket (2003)",
+    "channel": "Historic Films Stock Footage Archive"
+   },
+   {
+    "id": "txaiyVsO6oQ",
+    "kind": "Featurette",
+    "title": "The Matrix Reloaded | Weapons of the Great Hall | Behind the Scenes | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment and Warner Bros. Rewind"
+   },
+   {
+    "id": "Ttz_0pXikIw",
+    "kind": "Featurette",
+    "title": "The Matrix Reloaded | Building Merovingian's Lair | Behind the Scenes | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "do1zQ9DTMdA",
+    "kind": "Featurette",
+    "title": "The Matrix Reloaded | Tiger Chen Hu Martial Arts | Behind the Scenes | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "The Matrix Reloaded",
+    "href": "https://web.archive.org/web/20100430154655/http://www.variety.com/index.asp?layout=review&reviewid=VE1117920694&categoryid=31&cs=1",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Deep Focus Review",
+    "title": "The Matrix Reloaded",
+    "href": "https://deepfocusreview.com/reviews/the-matrix-reloaded/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Wall Street Journal",
+    "title": "'Matrix Reloaded' Sales Hit $37.5 Million on 1st Day",
+    "href": "https://www.wsj.com/articles/SB105312617241241200"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "'Matrix' sequel is big but no match for 'Spider-Man'",
+    "href": "https://www.latimes.com/archives/la-xpm-2003-may-19-et-horn19-story.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0234215"
+ },
+ "the-matrix-resurrections": {
+  "videos": [
+   {
+    "id": "9ix7TUGVYIo",
+    "kind": "Official trailer",
+    "title": "The Matrix Resurrections – Official Trailer 1",
+    "channel": "Warner Bros."
+   },
+   {
+    "id": "0LLfBJK1jn0",
+    "kind": "Teaser",
+    "title": "The Matrix Resurrections | Official Teaser | HBO Max",
+    "channel": "HBO Max"
+   },
+   {
+    "id": "4qG8fsuMCFk",
+    "kind": "Cast interview",
+    "title": "'The Matrix Resurrections' Cast on the Evolution of the Franchise | Rotten Tomatoes",
+    "channel": "Rotten Tomatoes"
+   },
+   {
+    "id": "7DA5PeQUGmI",
+    "kind": "Cast interview",
+    "title": "'The Matrix Resurrections' Cast Discuss Nostalgia & Action | Around the Table | Entertainment Weekly",
+    "channel": "Entertainment Weekly"
+   },
+   {
+    "id": "xWGiQRPL0Fg",
+    "kind": "Cast interview",
+    "title": "The Matrix Resurrections Interview: Jessica Henwick & Yahya Abdul-Mateen II",
+    "channel": "Cineworld Cinemas"
+   },
+   {
+    "id": "EvoYtD-0Vf4",
+    "kind": "Featurette",
+    "title": "The Matrix Resurrections | A Film Legacy (Featurette) | HBO Max",
+    "channel": "HBO Max"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Independent",
+    "title": "The Matrix Resurrections sees franchise back to its confusing best – review",
+    "href": "https://www.independent.co.uk/arts-entertainment/films/reviews/matrix-resurrections-review-matrix-4-b1980167.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "ScreenCrush",
+    "title": "The Matrix Resurrections Review: A Welcome Return to the Matrix",
+    "href": "https://screencrush.com/the-matrix-resurrections-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "The Matrix Resurrections review – drained of life by the Hollywood machine",
+    "href": "https://www.theguardian.com/film/2021/dec/21/the-matrix-resurrections-review-keanu-reeves",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Verge",
+    "title": "The Matrix Resurrections is more interested in being self-aware than being good",
+    "href": "https://www.theverge.com/2021/12/21/22841582/matrix-resurrections-lana-wachowski-keanu-reeves-carrie-anne-moss-review",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "With 'Spider-Man' Hoarding Christmas Box Office, Is There Room For 'Matrix', 'Sing 2' & 'King's Man'?",
+    "href": "https://deadline.com/2021/12/christmas-box-office-spider-man-matrix-resurrections-sing-2-1234900168/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt10838180"
+ },
+ "the-matrix-revolutions": {
+  "videos": [
+   {
+    "id": "hMbexEPAOQI",
+    "kind": "Official trailer",
+    "title": "The Matrix Revolutions (2003) Official Trailer #1 - Keanu Reeves Movie HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "B0Xgw_kiEQI",
+    "kind": "Featurette",
+    "title": "THE MATRIX REVOLUTIONS Behind The Scenes #4 (2003) Sci-Fi, Keanu Reeves",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   },
+   {
+    "id": "Osnc0suAse0",
+    "kind": "Featurette",
+    "title": "THE MATRIX REVOLUTIONS Behind The Scenes (2003) Sci-Fi, Keanu Reeves",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   },
+   {
+    "id": "1yA5Yt_YJxw",
+    "kind": "Featurette",
+    "title": "THE MATRIX REVOLUTIONS Behind The Scenes #3 (2003) Sci-Fi, Keanu Reeves",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Slate",
+    "title": "Time to pull the plug on The Matrix.",
+    "href": "https://slate.com/culture/2003/11/time-to-pull-the-plug-on-the-matrix.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "USA Today",
+    "title": "'The Matrix Revolutions': This big finish isn't The One",
+    "href": "https://www.usatoday.com/life/movies/reviews/2003-11-04-matrix-review_x.htm",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Wall Street Journal",
+    "title": "'Matrix Revolutions' Opens Big, But 'Reloaded' Still Is the King",
+    "href": "https://www.wsj.com/articles/SB106815568915328400"
+   },
+   {
+    "outlet": "Sun Sentinel",
+    "title": "At the Box Office",
+    "href": "https://www.sun-sentinel.com/news/fl-xpm-2003-11-12-0311110289-story.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0242653"
  },
  "the-mother-of-all-lies": {
   "videos": [
@@ -10523,6 +13121,85 @@
   "cinemaRelease": true,
   "imdb": "tt0032138"
  },
+ "the-wrecking-crew": {
+  "videos": [
+   {
+    "id": "v8R0xDczERo",
+    "kind": "Official trailer",
+    "title": "The Wrecking Crew – Official Trailer | Prime Video",
+    "channel": "Prime Video"
+   },
+   {
+    "id": "OItVzdcx8Ho",
+    "kind": "Cast interview",
+    "title": "Jason Momoa and Dave Bautista want to BEAT UP the CEO of Sex | 'The Wrecking Crew' Interview",
+    "channel": "Etalk"
+   },
+   {
+    "id": "Q56zV9RsuRI",
+    "kind": "Cast interview",
+    "title": "Pasifika Cast of The Wrecking Crew Talk Culture, Strong Pacific Women and Real Scraps",
+    "channel": "TheCoconetTV"
+   },
+   {
+    "id": "Vo0vD9bDoTc",
+    "kind": "Cast interview",
+    "title": "Jason Momoa Talks Lobo & Blanka Details! - The Wrecking Crew Interview",
+    "channel": "Comicbook.com"
+   },
+   {
+    "id": "tEtLFJwslEM",
+    "kind": "Cast interview",
+    "title": "Jason Momoa interview at The Wrecking Crew premiere: Nostalgic action & Hawaii spin",
+    "channel": "The Upcoming"
+   },
+   {
+    "id": "ryGtMd9dB2o",
+    "kind": "Filmmaker interview",
+    "title": "The Wrecking Crew Spoilers: Director Ángel Manuel Soto Breaks Down the Ending & Teases Sequel Ideas",
+    "channel": "Collider Interviews"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The A.V. Club",
+    "title": "The Wrecking Crew review",
+    "href": "https://www.avclub.com/the-wrecking-crew-review",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "CinemaBlend",
+    "title": "The Wrecking Crew review",
+    "href": "https://www.cinemablend.com/movies/the-wrecking-crew-review",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "JoBlo",
+    "title": "The Wrecking Crew Review: Jason Momoa and Dave Bautista are the action duo we need right now",
+    "href": "https://www.joblo.com/the-wrecking-crew-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Daily Beast",
+    "title": "The Action-Movie Bros Dads Everywhere Have Been Waiting For",
+    "href": "https://www.thedailybeast.com/obsessed/the-wrecking-crew-review-jason-momoa-and-dave-bautista-are-perfect-action-movie-bros",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Dave Bautista, Jason Momoa to Team for 'Wrecking Crew' from 'Blue Beetle' Director Ángel Manuel Soto",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/dave-bautista-jason-momoa-wrecking-crew-1235571434/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "Jason Momoa & Dave Bautista Create a Bidding War For Buddy Action Comedy Pitch; MGM Wins 4-Bidder Battle",
+    "href": "https://deadline.com/2021/11/jason-momoa-dave-bautista-mgm-buddy-cop-action-comedy-lethal-weapon-style-movie-1234872695/"
+   }
+  ],
+  "imdb": "tt33046197"
+ },
  "this-is-not-a-burial": {
   "videos": [
    {
@@ -11145,6 +13822,56 @@
   "articles": [],
   "imdb": "tt23112594"
  },
+ "war": {
+  "videos": [
+   {
+    "id": "3pJGKhUxuNM",
+    "kind": "Official trailer",
+    "title": "War | Official Trailer | Sky",
+    "channel": "Sky TV"
+   },
+   {
+    "id": "OsQA--B9rVk",
+    "kind": "Teaser",
+    "title": "War | Official Teaser | HBO Max",
+    "channel": "HBO Max and HBO"
+   },
+   {
+    "id": "iCdTvl03ARs",
+    "kind": "Cast interview",
+    "title": "The Cast of WAR Discuss Season 1’s Most Unforgettable Moments | WAR",
+    "channel": "Sky TV"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'War' Review: Sienna Miller and Dominic West Excel in Intricate HBO Legal Drama",
+    "href": "https://www.thewrap.com/creative-content/tv-shows/war-hbo-sky-review-sienna-miller-dominic-west/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "War review",
+    "href": "https://www.avclub.com/war-review-hbo-dominic-west-sienna-miller",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Daily Beast",
+    "title": "HBO's Latest Has a Billionaire and Movie Star Going to 'War'",
+    "href": "https://www.thedailybeast.com/obsessed/war-hbos-latest-has-a-billionaire-and-movie-star-going-to-war/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Dominic West & Sienna Miller To Star In Legal Thriller War For HBO & Sky From George Kay",
+    "href": "https://deadline.com/2025/08/dominic-west-sienna-miller-war-hbo-sky-1236492735/"
+   }
+  ],
+  "imdb": "tt37972251"
+ },
  "west-side-story": {
   "videos": [
    {
@@ -11188,6 +13915,75 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt0055614"
+ },
+ "whalefall": {
+  "videos": [
+   {
+    "id": "Dw-5ZGapGTQ",
+    "kind": "Official trailer",
+    "title": "Whalefall | Official Trailer | In Theaters October 16",
+    "channel": "20th Century Studios"
+   },
+   {
+    "id": "67ho3OxCmmM",
+    "kind": "Teaser",
+    "title": "Whalefall | Official Teaser | In Theaters October 16",
+    "channel": "20th Century Studios"
+   },
+   {
+    "id": "wVKQ5DkS8ag",
+    "kind": "Cast interview",
+    "title": "How to Make a Movie Inside a Whale | 'Whalefall' Director Brian Duffield | Filmmaker Toolkit Podcast",
+    "channel": "IndieWire"
+   },
+   {
+    "id": "LwXvSmkHp7E",
+    "kind": "Cast interview",
+    "title": "Austin Abrams talks new movie ‘Whalefall’",
+    "channel": "Good Morning America"
+   },
+   {
+    "id": "5QlyEM6wNiU",
+    "kind": "Cast interview",
+    "title": "Whalefall Interview with Austin Abrams & Josh Brolin 🐋 | Cineworld",
+    "channel": "Cineworld Cinemas"
+   },
+   {
+    "id": "fQHMil1og-E",
+    "kind": "Filmmaker interview",
+    "title": "Whalefall Director Brian Duffield on Making His Hardest Movie Yet, Clears Up Alien Rumors",
+    "channel": "Collider Interviews"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Whalefall review: Austin Abrams survives the belly of the beast",
+    "href": "https://www.rogerebert.com/reviews/whalefall-austin-abrams-movie-review-2026",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Screen Daily",
+    "title": "'Whalefall' review: Breathless survival thriller puts a terrific Austin Abrams right in the belly of the beast",
+    "href": "https://www.screendaily.com/reviews/whalefall-review-breathless-survival-thriller-puts-a-terrific-austin-abrams-right-in-the-belly-of-the-beast/5221405.article",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Time Out",
+    "title": "Whalefall review: this Austin Abrams and Josh Brolin sub-sea thriller is pure nightmare fuel for claustrophobics",
+    "href": "https://www.timeout.com/movies/whalefall-review-2026",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Financial Times",
+    "title": "Whalefall film review — jaunty update of Jonah needed a little less blubber",
+    "href": "https://www.ft.com/content/4644d0e2-8a31-4826-8786-44159823a336",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt28535715"
  },
  "white-christmas": {
   "videos": [],
@@ -11243,6 +14039,75 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0047673"
+ },
+ "wicker": {
+  "videos": [
+   {
+    "id": "7ZOpGdJAKEk",
+    "kind": "Official trailer",
+    "title": "Wicker Final Trailer (2026)",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "qnHrUKdSPD0",
+    "kind": "Cast interview",
+    "title": "How Olivia Colman, Peter Dinklage, Alexander Skarsgård and Cast Brought 'Wicker' Husbands to Life",
+    "channel": "Deadline Hollywood"
+   },
+   {
+    "id": "Y0Usw_gjq5M",
+    "kind": "Cast interview",
+    "title": "WICKER: Full Interview with Filmmaker & Cast | Sundance Film Festival 2026",
+    "channel": "IndieWire"
+   },
+   {
+    "id": "JMwwyun2g68",
+    "kind": "Cast interview",
+    "title": "The Captivating Cast Of 'Wicker' On The Graham Norton Show",
+    "channel": "The Graham Norton Show"
+   },
+   {
+    "id": "ob-KN-uRkB0",
+    "kind": "Cast interview",
+    "title": "Wicker Co-Stars Olivia Colman and Alexander Skarsgård Watch Early Career Clips Together | BAFTA",
+    "channel": "BAFTA"
+   },
+   {
+    "id": "hAHSJTywXzs",
+    "kind": "Cast interview",
+    "title": "Wicker Stars Olivia Colman & Alexander Skarsgård Argue Over The Internet's Biggest Debates",
+    "channel": "LADbible Entertainment"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'Wicker' Review: Olivia Colman and Alexander Skarsgård Fable Is Well-Intentioned but Wooden",
+    "href": "https://www.thewrap.com/creative-content/movies/wicker-review-olivia-colman-alexander-skarsgard/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Screen Daily",
+    "title": "Wicker review: Olivia Colman and Alexander Skarsgård are made for each other in charming love story",
+    "href": "https://www.screendaily.com/reviews/wicker-review-olivia-colman-and-alexander-skarsgard-are-made-for-each-other-in-charming-love-story/5213000.article",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Film Stage",
+    "title": "Sundance Review: Wicker Audaciously Contemplates the Self-Destructive Perils of Jealousy",
+    "href": "https://thefilmstage.com/sundance-review-wicker-audaciously-contemplates-the-self-destructive-perils-of-jealousy",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "JoBlo",
+    "title": "Wicker Review: Olivia Colman and Alexander Skarsgard lead this quirky fairy tale for grown-ups",
+    "href": "https://www.joblo.com/wicker-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt29611136"
  },
  "wild-horse-nine": {
   "videos": [

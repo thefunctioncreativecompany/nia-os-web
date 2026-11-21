@@ -2157,5 +2157,231 @@
    "a24"
   ],
   "tmdb": "tv/213562"
+ },
+ "goat": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/1297842"
+ },
+ "wicker": {
+  "studios": [],
+  "tmdb": "movie/1195803"
+ },
+ "sense-and-sensibility": {
+  "studios": [
+   "focus",
+   "working-title"
+  ],
+  "tmdb": "movie/1503762"
+ },
+ "practical-magic-2": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/1302904"
+ },
+ "crime-101": {
+  "studios": [
+   "working-title"
+  ],
+  "tmdb": "movie/1171145"
+ },
+ "28-years-later-the-bone-temple": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/1272837"
+ },
+ "whalefall": {
+  "studios": [
+   "20th-century",
+   "imagine"
+  ],
+  "tmdb": "movie/1255833"
+ },
+ "a-knight-of-the-seven-kingdoms": {
+  "studios": [],
+  "tmdb": "tv/224372"
+ },
+ "ghost-soldier": {
+  "studios": [
+   "columbia"
+  ],
+  "tmdb": "movie/1562642"
+ },
+ "the-wrecking-crew": {
+  "studios": [],
+  "tmdb": "movie/1168190"
+ },
+ "fall-2-deadpoint": {
+  "studios": [],
+  "tmdb": "movie/1101412"
+ },
+ "mercy": {
+  "studios": [],
+  "tmdb": "movie/1236153"
+ },
+ "war": {
+  "studios": [],
+  "tmdb": "tv/298852"
+ },
+ "greenland-2-migration": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/840464"
+ },
+ "fjord": {
+  "studios": [],
+  "tmdb": "movie/1401459"
+ },
+ "dutton-ranch": {
+  "studios": [],
+  "tmdb": "tv/299167"
+ },
+ "beware-boiuna": {
+  "studios": [],
+  "tmdb": "movie/1244523"
+ },
+ "ready-or-not-here-i-come": {
+  "studios": [],
+  "tmdb": "movie/1266127"
+ },
+ "i-play-rocky": {
+  "studios": [],
+  "tmdb": "movie/1286656"
+ },
+ "how-to-rob-a-bank": {
+  "studios": [
+   "imagine"
+  ],
+  "tmdb": "movie/1437511"
+ },
+ "the-hunger-games-catching-fire": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/101299"
+ },
+ "the-hunger-games-mockingjay-part-1": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/131631"
+ },
+ "the-hunger-games-mockingjay-part-2": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/131634"
+ },
+ "the-hunger-games-the-ballad-of-songbirds-and-snakes": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/695721"
+ },
+ "the-lord-of-the-rings-the-fellowship-of-the-ring": {
+  "studios": [
+   "new-line",
+   "wingnut"
+  ],
+  "tmdb": "movie/120"
+ },
+ "the-lord-of-the-rings-the-two-towers": {
+  "studios": [
+   "new-line",
+   "wingnut"
+  ],
+  "tmdb": "movie/121"
+ },
+ "the-lord-of-the-rings-the-return-of-the-king": {
+  "studios": [
+   "new-line",
+   "wingnut"
+  ],
+  "tmdb": "movie/122"
+ },
+ "the-lord-of-the-rings-the-rings-of-power": {
+  "studios": [
+   "new-line"
+  ],
+  "tmdb": "tv/84773"
+ },
+ "the-lord-of-the-rings-the-war-of-the-rohirrim": {
+  "studios": [
+   "new-line",
+   "wingnut"
+  ],
+  "tmdb": "movie/839033"
+ },
+ "the-animatrix": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/55931"
+ },
+ "the-matrix-reloaded": {
+  "studios": [],
+  "tmdb": "movie/604"
+ },
+ "the-matrix-revolutions": {
+  "studios": [],
+  "tmdb": "movie/605"
+ },
+ "the-matrix-resurrections": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/624860"
+ },
+ "shrek": {
+  "studios": [
+   "dreamworks"
+  ],
+  "tmdb": "movie/808"
+ },
+ "shrek-2": {
+  "studios": [],
+  "tmdb": "movie/809"
+ },
+ "shrek-the-third": {
+  "studios": [],
+  "tmdb": "movie/810"
+ },
+ "shrek-forever-after": {
+  "studios": [],
+  "tmdb": "movie/10192"
+ },
+ "puss-in-boots": {
+  "studios": [],
+  "tmdb": "movie/417859"
+ },
+ "puss-in-boots-the-last-wish": {
+  "studios": [],
+  "tmdb": "movie/315162"
+ },
+ "madagascar": {
+  "studios": [],
+  "tmdb": "movie/953"
+ },
+ "madagascar-escape-2-africa": {
+  "studios": [],
+  "tmdb": "movie/10527"
+ },
+ "madagascar-3-europes-most-wanted": {
+  "studios": [],
+  "tmdb": "movie/80321"
+ },
+ "penguins-of-madagascar": {
+  "studios": [],
+  "tmdb": "movie/270946"
+ },
+ "the-hunger-games-sunrise-on-the-reaping": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/1300968"
  }
 }

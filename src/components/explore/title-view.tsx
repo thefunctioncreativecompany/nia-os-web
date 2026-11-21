@@ -25,6 +25,10 @@ import { TitleCard, entrySpan } from "./title-card";
 import { TmdbCredit } from "./tmdb-credit";
 import { VideoThumbnail } from "./video-thumbnail";
 import { BackLink } from "@/components/nia/back-link";
+import { ViewAll } from "@/components/nia/view-all";
+import { franchiseHref } from "@/features/explore/paths";
+import type { FranchiseRow } from "@/features/explore/franchises";
+import { ROW_MAX } from "@/lib/rows";
 import { servedSized } from "@/lib/served-sized";
 import { sentenceCase } from "@/lib/sentence-case";
 
@@ -37,7 +41,20 @@ import { sentenceCase } from "@/lib/sentence-case";
 // loads only when Play is pressed, and stops when the page is left. "You may also like" closes the
 // page: titles that share its genres, collection, country, type or era.
 // `press`: this title's press kit, handed in by the page (the browser doesn't carry them all).
-export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }: { entry: Entry; castCrew?: RowPerson[]; castTotal?: number; press?: PressCoverage | null }) {
+export function TitleView({
+  entry,
+  castCrew = [],
+  castTotal = 0,
+  press = null,
+  franchise = null,
+}: {
+  entry: Entry;
+  castCrew?: RowPerson[];
+  castTotal?: number;
+  press?: PressCoverage | null;
+  /** The franchise this title belongs to (franchises.ts), for the row of its other titles. */
+  franchise?: FranchiseRow | null;
+}) {
   const params = useSearchParams();
   const { title, collection, pinnedSeason } = entry;
   const from = params.get("from") === "all" ? "all" : params.get("from") === "library" ? "library" : undefined;
@@ -275,12 +292,44 @@ export function TitleView({ entry, castCrew = [], castTotal = 0, press = null }:
         />
       )}
 
+      {/* The rest of its franchise, in release order, above You may also like (Ika, 2026-11-21);
+          View all opens the franchise's page. */}
+      {franchise && (
+        <section aria-labelledby="franchise" className="flex flex-col gap-4">
+          <div className="flex items-center justify-between gap-3">
+            <h2 id="franchise" className="text-subtitle font-semibold text-foreground">
+              More from {franchise.name}
+            </h2>
+            <ViewAll href={franchiseHref(franchise.id)} />
+          </div>
+          <ScrollRow label={`More from ${franchise.name}`}>
+            {franchise.slugs
+              .filter((slug) => slug !== title.slug)
+              .flatMap((slug) => findEntry(slug) ?? [])
+              .slice(0, ROW_MAX)
+              .map((e) => (
+                <li key={e.title.slug} className="w-[calc(44%*var(--span,1))] flex-none snap-start sm:w-[calc(30%*var(--span,1))] md:w-[calc(22%*var(--span,1))] lg:w-[calc(16%*var(--span,1))]" style={entrySpan(e)}>
+                  <TitleCard entry={e} href={titleHref(e.title.slug, from)} sizes="(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw" />
+                </li>
+              ))}
+          </ScrollRow>
+        </section>
+      )}
+
       <section aria-labelledby="also-like" className="flex flex-col gap-4">
         <h2 id="also-like" className="text-subtitle font-semibold text-foreground">
           You may also like
         </h2>
         <ScrollRow label="You may also like">
-          {similarItems(title.slug, sameCategory(entry).map((e) => e.title.slug)).map((slug) => findEntry(slug)!).map((e) => (
+          {/* Not the franchise's other titles: they have their own row above. */}
+          {similarItems(
+            title.slug,
+            sameCategory(entry)
+              .map((e) => e.title.slug)
+              .filter((slug) => !franchise?.slugs.includes(slug)),
+          )
+            .map((slug) => findEntry(slug)!)
+            .map((e) => (
             <li key={e.title.slug} className="w-[calc(44%*var(--span,1))] flex-none snap-start sm:w-[calc(30%*var(--span,1))] md:w-[calc(22%*var(--span,1))] lg:w-[calc(16%*var(--span,1))]" style={entrySpan(e)}>
               <TitleCard entry={e} href={titleHref(e.title.slug, from)} sizes="(min-width: 64rem) 16vw, (min-width: 40rem) 30vw, 44vw" />
             </li>

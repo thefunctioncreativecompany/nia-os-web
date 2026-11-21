@@ -1267,3 +1267,26 @@ onboarding's Import profile and Follow creators describe features removed in the
   project; the Free card and the Plans comparison say "Unlimited", and "Unlimited projects" left the
   paid plans' list. Documents per project (5), collaborators (3) and uploads (25 MB) are unchanged.
   Setting a number in FREE_LIMITS.projects brings a cap back.
+- (2026-11-21) Franchises on Explore (Ika: films and series with five or more instalments; "all
+  pieces should be able to be searched individually, but also can be found within each"). Every
+  instalment is a title of its own (cover, cast and crew, press kit, its own search result); a
+  franchise groups them in release order (`franchises.json`, `franchises.ts`) with a page at
+  `/explore/franchise/[id]`, a "More from <franchise>" row above You may also like on each of its
+  titles (which then leaves them out of You may also like), and a place in Explore and global
+  search ("Shrek" finds Puss in Boots). Not an Explore category: no row on Explore's home. First
+  five: The Hunger Games (with Sunrise on the Reaping), The Lord of the Rings (with The Hobbit, The
+  Rings of Power and The War of the Rohirrim), The Matrix (with The Animatrix), Shrek (with both
+  Puss in Boots films) and Madagascar (with Penguins of Madagascar): 24 new titles, 427 on Explore.
+  The franchise page and row are built from the festival page's pattern without a Figma frame;
+  add to the Figma reconcile. Press kits for older films checked by hand: the drafter had picked up
+  soundtrack, video-game and box-office citations as reviews (Fellowship, Return of the King,
+  Shrek 2, Matrix Reloaded) and other films' videos (Shrek 5, Penguins under Madagascar); replaced
+  with film reviews from edited publications.
+- (2026-11-21) Best of 2026, batches 8 and 9: GOAT, Wicker, Sense and Sensibility, Practical Magic
+  2, Crime 101, 28 Years Later: The Bone Temple, Whalefall, A Knight of the Seven Kingdoms, Ghost
+  Soldier, The Wrecking Crew; Fall 2: Deadpoint, Mercy, WAR, Greenland 2: Migration, Fjord, Dutton
+  Ranch, Beware Boiúna, Ready or Not 2: Here I Come, I Play Rocky, How to Rob a Bank. With Sunrise
+  on the Reaping, 81 of 100 live. Press kits checked as before; the box-office articles about other
+  films and video-game "cast interviews" under WAR were taken out, and the kits with no reviews
+  (Wicker, Crime 101, Ghost Soldier, The Wrecking Crew, WAR, Dutton Ranch, Ready or Not 2, How to
+  Rob a Bank) filled from edited publications.

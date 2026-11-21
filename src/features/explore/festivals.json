@@ -30,7 +30,10 @@
     "the-pianist",
     "la-bola-negra",
     "hope",
-    "colony"
+    "colony",
+    "fjord",
+    "the-matrix-reloaded",
+    "shrek"
    ]
   },
   {
@@ -43,8 +46,10 @@
     "saloum",
     "carrie",
     "crystal-lake",
+    "i-play-rocky",
     "la-bola-negra",
     "tenzing",
+    "fjord",
     "wild-horse-nine",
     "hope",
     "obsession"
@@ -66,6 +71,19 @@
    ]
   },
   {
+   "id": "sundance",
+   "name": "Sundance Film Festival",
+   "logo": true,
+   "slugs": [
+    "mami-wata",
+    "this-is-not-a-burial",
+    "inxeba",
+    "pumzi",
+    "jeen-yuhs",
+    "wicker"
+   ]
+  },
+  {
    "id": "venice",
    "name": "Venice Film Festival",
    "logo": true,
@@ -75,18 +93,6 @@
     "brokeback-mountain",
     "wild-horse-nine",
     "primetime"
-   ]
-  },
-  {
-   "id": "sundance",
-   "name": "Sundance Film Festival",
-   "logo": true,
-   "slugs": [
-    "mami-wata",
-    "this-is-not-a-burial",
-    "inxeba",
-    "pumzi",
-    "jeen-yuhs"
    ]
   },
   {

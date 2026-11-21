@@ -430,6 +430,15 @@
   "black-and-white",
   "bright-airy"
  ],
+ "a-story-of-derry": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "a-talent-for-murder": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "abouna": [
   "cool-palette"
  ],
@@ -478,6 +487,9 @@
   "warm-palette",
   "low-key"
  ],
+ "apocalypse-z-new-world": [
+  "muted-colour"
+ ],
  "apollo-13": [
   "muted-colour",
   "low-key"
@@ -489,6 +501,10 @@
   "vivid-colour",
   "cool-palette",
   "low-key"
+ ],
+ "avatar-seven-havens": [
+  "vivid-colour",
+  "cool-palette"
  ],
  "avatar-the-way-of-water": [
   "vivid-colour",
@@ -535,6 +551,10 @@
   "bright-airy"
  ],
  "benji": [],
+ "beware-boiuna": [
+  "warm-palette",
+  "low-key"
+ ],
  "black-girl": [
   "black-and-white",
   "bright-airy"
@@ -546,6 +566,10 @@
  "black-panther": [
   "cool-palette",
   "low-key"
+ ],
+ "blades-of-the-guardians": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "blood-and-water": [
   "vivid-colour",
@@ -701,6 +725,11 @@
   "warm-palette",
   "low-key"
  ],
+ "dutton-ranch": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "e-t-the-extra-terrestrial": [
   "vivid-colour",
   "cool-palette"
@@ -726,6 +755,9 @@
   "warm-palette",
   "low-key"
  ],
+ "fall-2-deadpoint": [
+  "muted-colour"
+ ],
  "fatal-seduction": [
   "vivid-colour",
   "warm-palette",
@@ -744,6 +776,9 @@
  ],
  "five-fingers-for-marseilles": [
   "muted-colour"
+ ],
+ "fjord": [
+  "cool-palette"
  ],
  "footlight-parade": [
   "vivid-colour",
@@ -805,6 +840,9 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "greenland-2-migration": [
+  "muted-colour"
+ ],
  "groundhog-day": [],
  "half-and-half": [
   "warm-palette"
@@ -844,6 +882,10 @@
  "heart-of-the-hunter": [
   "warm-palette"
  ],
+ "heartland": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "hidden-figures": [
   "cool-palette"
  ],
@@ -874,6 +916,9 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "how-to-rob-a-bank": [
+  "warm-palette"
+ ],
  "how-to-ruin-christmas": [
   "vivid-colour",
   "cool-palette"
@@ -889,6 +934,9 @@
  "i-am-not-a-witch": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "i-play-rocky": [
+  "muted-colour"
  ],
  "imitation-of-life-1934": [
   "warm-palette"
@@ -993,6 +1041,10 @@
  "klaus": [
   "warm-palette"
  ],
+ "kung-fu-soccer": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "la-bola-negra": [
   "warm-palette",
   "low-key"
@@ -1038,6 +1090,19 @@
   "bright-airy"
  ],
  "love-thy-neighbor": [],
+ "madagascar-3-europes-most-wanted": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
+ ],
+ "madagascar-escape-2-africa": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "madagascar": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "malcolm-x": [
   "vivid-colour",
   "warm-palette",
@@ -1073,6 +1138,9 @@
  ],
  "men-in-black": [
   "low-key"
+ ],
+ "mercy": [
+  "warm-palette"
  ],
  "michael": [
   "vivid-colour",
@@ -1137,6 +1205,9 @@
   "muted-colour",
   "bright-airy"
  ],
+ "never-surrender": [
+  "warm-palette"
+ ],
  "nickel-boys": [
   "vivid-colour",
   "warm-palette"
@@ -1198,6 +1269,13 @@
  "paths-of-glory": [
   "black-and-white"
  ],
+ "paw-patrol-the-dino-movie": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "penguins-of-madagascar": [
+  "cool-palette"
+ ],
  "pirates-of-the-caribbean-at-worlds-end": [
   "vivid-colour",
   "warm-palette"
@@ -1253,6 +1331,14 @@
   "warm-palette"
  ],
  "pumzi": [],
+ "puss-in-boots-the-last-wish": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "puss-in-boots": [
+  "warm-palette",
+  "low-key"
+ ],
  "quantum-of-solace": [
   "warm-palette"
  ],
@@ -1273,6 +1359,10 @@
   "vivid-colour",
   "cool-palette",
   "low-key"
+ ],
+ "ready-or-not-here-i-come": [
+  "warm-palette",
+  "bright-airy"
  ],
  "rear-window": [
   "vivid-colour",
@@ -1297,6 +1387,10 @@
  "roman-holiday": [
   "black-and-white",
   "bright-airy"
+ ],
+ "runner": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "saloum": [
   "muted-colour"
@@ -1355,6 +1449,22 @@
  "shelter": [
   "warm-palette"
  ],
+ "shrek-2": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "shrek-forever-after": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "shrek-the-third": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "shrek": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "shutter-island": [
   "vivid-colour",
   "low-key"
@@ -1394,6 +1504,9 @@
  "spider-man": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "spider-noir": [
+  "low-key"
  ],
  "squid-game": [
   "vivid-colour",
@@ -1456,6 +1569,9 @@
   "vivid-colour",
   "low-key"
  ],
+ "the-animatrix": [
+  "warm-palette"
+ ],
  "the-avengers": [
   "vivid-colour",
   "cool-palette"
@@ -1463,6 +1579,11 @@
  "the-batman": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "the-beast": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "the-best-years-of-our-lives": [
   "vivid-colour",
@@ -1538,6 +1659,16 @@
   "vivid-colour",
   "low-key"
  ],
+ "the-fix": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "the-furious": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "the-general": [
   "vivid-colour",
   "cool-palette"
@@ -1553,6 +1684,10 @@
  "the-godfather": [
   "muted-colour",
   "low-key"
+ ],
+ "the-good-daughter": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "the-graduate": [
   "muted-colour"
@@ -1586,10 +1721,33 @@
  "the-house-is-black": [
   "black-and-white"
  ],
+ "the-hunger-games-catching-fire": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "the-hunger-games-mockingjay-part-1": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "the-hunger-games-mockingjay-part-2": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "the-hunger-games-sunrise-on-the-reaping": [],
+ "the-hunger-games-the-ballad-of-songbirds-and-snakes": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "the-hunger-games": [
   "vivid-colour",
   "warm-palette",
   "low-key"
+ ],
+ "the-invite": [
+  "muted-colour"
  ],
  "the-joe-louis-story": [
   "vivid-colour",
@@ -1607,6 +1765,26 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "the-lord-of-the-rings-the-fellowship-of-the-ring": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "the-lord-of-the-rings-the-return-of-the-king": [
+  "muted-colour"
+ ],
+ "the-lord-of-the-rings-the-rings-of-power": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "the-lord-of-the-rings-the-two-towers": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "the-lord-of-the-rings-the-war-of-the-rohirrim": [
+  "muted-colour",
+  "bright-airy"
+ ],
  "the-lost-world-jurassic-park": [
   "muted-colour",
   "warm-palette",
@@ -1623,9 +1801,25 @@
  "the-martian": [
   "warm-palette"
  ],
+ "the-matrix-reloaded": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "the-matrix-resurrections": [
+  "cool-palette"
+ ],
+ "the-matrix-revolutions": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
+ ],
  "the-matrix": [
   "vivid-colour",
   "low-key"
+ ],
+ "the-mongoose": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "the-mother-of-all-lies": [
   "vivid-colour",
@@ -1774,6 +1968,11 @@
   "warm-palette",
   "bright-airy"
  ],
+ "war": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
+ ],
  "west-side-story": [
   "vivid-colour",
   "warm-palette"
@@ -1788,6 +1987,10 @@
   "bright-airy"
  ],
  "wicker": [],
+ "widows-bay": [
+  "cool-palette",
+  "bright-airy"
+ ],
  "wild-horse-nine": [
   "muted-colour",
   "warm-palette",
@@ -1805,5 +2008,10 @@
  ],
  "you-can-see-everything": [
   "warm-palette"
+ ],
+ "your-mother-your-mother-your-mother": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ]
 }

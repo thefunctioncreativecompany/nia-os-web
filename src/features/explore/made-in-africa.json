@@ -11462,6 +11462,1341 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "goat",
+   "collection": "explore-all",
+   "title": "GOAT",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Tyree Dillihay",
+   "recognition": "Over $193 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "An animated sports comedy: a small goat gets a shot at roarball, a full-contact game ruled by the fastest, fiercest animals in the world",
+   "added": "2026-11-20",
+   "imdb_id": "tt27613895",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "ggZA2oi8S5s",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "wicker",
+   "collection": "explore-all",
+   "title": "Wicker",
+   "type": "film",
+   "genres": [
+    "Romance",
+    "Fantasy",
+    "Comedy"
+   ],
+   "year": 2026,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Alex Huston Fischer & Eleanor Wilson",
+   "recognition": "Selected for the Sundance Film Festival",
+   "pair_with": "",
+   "study_note": "A ridiculed fisherwoman commissions herself a husband made of wicker: a fable from a short story, played as an offbeat romantic comedy",
+   "added": "2026-11-20",
+   "imdb_id": "tt29611136",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "7ZOpGdJAKEk",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "sense-and-sensibility",
+   "collection": "explore-all",
+   "title": "Sense and Sensibility",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Romance"
+   ],
+   "year": 2026,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Georgia Oakley",
+   "recognition": "Over $42 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Georgia Oakley (Blue Jean) adapts Jane Austen: two sisters, love and money in 18th-century England",
+   "added": "2026-11-20",
+   "imdb_id": "tt13609648",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "mcrwcvad84U",
+     "kind": "trailer",
+     "channel": "Focus Features",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "practical-magic-2",
+   "collection": "explore-all",
+   "title": "Practical Magic 2",
+   "type": "film",
+   "genres": [
+    "Romance",
+    "Fantasy",
+    "Comedy"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Susanne Bier",
+   "recognition": "Over $105 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The Owens sisters return 28 years after Practical Magic, with Sandra Bullock and Nicole Kidman, to face the curse on their family",
+   "added": "2026-11-20",
+   "imdb_id": "tt32588798",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Ho10_4IX1jE",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "crime-101",
+   "collection": "explore-all",
+   "title": "Crime 101",
+   "type": "film",
+   "genres": [
+    "Crime",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Bart Layton",
+   "recognition": "Nearly $73 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Bart Layton (American Animals) adapts Don Winslow: a thief working the 101 freeway in Los Angeles, the detective after him and an insurance broker caught between",
+   "added": "2026-11-20",
+   "imdb_id": "tt32430579",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "f5y-cziwmMw",
+     "kind": "trailer",
+     "channel": "Amazon MGM Studios and Chris Hemsworth",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "28-years-later-the-bone-temple",
+   "collection": "explore-all",
+   "title": "28 Years Later: The Bone Temple",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Thriller",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Nia DaCosta",
+   "recognition": "Nearly $59 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Nia DaCosta picks up where Danny Boyle's 28 Years Later ended: Dr. Kelson's discovery, and Spike caught in Jimmy Crystal's cult",
+   "added": "2026-11-20",
+   "imdb_id": "tt32141377",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "EOwTdTZA8D8",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "whalefall",
+   "collection": "explore-all",
+   "title": "Whalefall",
+   "type": "film",
+   "genres": [
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Brian Duffield",
+   "recognition": "Over $39 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Brian Duffield adapts Daniel Kraus's novel: a diver swallowed by a sperm whale has one hour of oxygen to get out",
+   "added": "2026-11-20",
+   "imdb_id": "tt28535715",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Dw-5ZGapGTQ",
+     "kind": "trailer",
+     "channel": "20th Century Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "a-knight-of-the-seven-kingdoms",
+   "collection": "explore-all",
+   "title": "A Knight of the Seven Kingdoms",
+   "type": "series",
+   "genres": [
+    "Drama",
+    "Fantasy",
+    "Adventure"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "George R.R. Martin & Ira Parker",
+   "pair_with": "",
+   "study_note": "George R.R. Martin's Dunk and Egg stories: a hedge knight and his squire wander Westeros a century before Game of Thrones, on a smaller, earthier scale",
+   "added": "2026-11-20",
+   "imdb_id": "tt27497448",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "sItUCKJQLTU",
+     "kind": "trailer",
+     "channel": "HBO Max",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "ghost-soldier",
+   "collection": "explore-all",
+   "title": "Ghost Soldier",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "William Eubank",
+   "pair_with": "",
+   "study_note": "Jim Caviezel as a former soldier living off the grid who takes on a foreign corporation seizing his neighbours' land",
+   "added": "2026-11-20",
+   "imdb_id": "tt38686316",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "UKaWzMf9Ybc",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-wrecking-crew",
+   "collection": "explore-all",
+   "title": "The Wrecking Crew",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Comedy",
+    "Crime",
+    "Mystery"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "Canada"
+   ],
+   "credit": "Ángel Manuel Soto",
+   "pair_with": "",
+   "study_note": "Jason Momoa and Dave Bautista as estranged half-brothers looking into their father's death: a buddy action comedy",
+   "added": "2026-11-20",
+   "imdb_id": "tt33046197",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "v8R0xDczERo",
+     "kind": "trailer",
+     "channel": "Prime Video",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "fall-2-deadpoint",
+   "collection": "explore-all",
+   "title": "Fall 2: Deadpoint",
+   "type": "film",
+   "genres": [
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United Kingdom",
+    "United States",
+    "Thailand"
+   ],
+   "credit": "Peter Spierig & Michael Spierig",
+   "pair_with": "",
+   "study_note": "The sequel to Fall moves to Thailand's Mount Kwan: two climbers trapped thousands of feet up, the whole film built on height and exposure",
+   "added": "2026-11-21",
+   "imdb_id": "tt31192372",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Krs0VDIjhmE",
+     "kind": "trailer",
+     "channel": "Lionsgate Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "mercy",
+   "collection": "explore-all",
+   "title": "Mercy",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Thriller",
+    "Crime",
+    "Mystery"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Timur Bekmambetov",
+   "recognition": "Nearly $55 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Timur Bekmambetov puts a detective on trial before the AI judge he once championed: 90 minutes to prove he didn't kill his wife",
+   "added": "2026-11-21",
+   "imdb_id": "tt31050594",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "7H7Djx17l8Y",
+     "kind": "trailer",
+     "channel": "Amazon MGM Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "war",
+   "collection": "explore-all",
+   "title": "WAR",
+   "type": "series",
+   "genres": [
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "United Kingdom"
+   ],
+   "credit": "George Kay",
+   "pair_with": "",
+   "study_note": "George Kay (Lupin) sets an anthology in London's elite law firms: two rivals, a different headline-making case each season",
+   "added": "2026-11-21",
+   "imdb_id": "tt37972251",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "3pJGKhUxuNM",
+     "kind": "trailer",
+     "channel": "Sky TV",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "greenland-2-migration",
+   "collection": "explore-all",
+   "title": "Greenland 2: Migration",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Thriller",
+    "Sci-Fi"
+   ],
+   "year": 2026,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Ric Roman Waugh",
+   "recognition": "Nearly $45 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Gerard Butler's family leaves the Greenland bunker to cross a Europe wrecked by a comet: a disaster film turned road movie",
+   "added": "2026-11-21",
+   "imdb_id": "tt14850054",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "H8ieN10lX40",
+     "kind": "trailer",
+     "channel": "Lionsgate Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "fjord",
+   "collection": "explore-all",
+   "title": "Fjord",
+   "type": "film",
+   "genres": [
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "Romania",
+    "Norway",
+    "France",
+    "Denmark",
+    "Sweden"
+   ],
+   "credit": "Cristian Mungiu",
+   "recognition": "Selected for the Cannes and Toronto film festivals",
+   "pair_with": "",
+   "study_note": "Cristian Mungiu, who won the Palme d'Or for 4 Months, 3 Weeks and 2 Days, follows a Romanian family settling in a remote Norwegian village, from a true story",
+   "added": "2026-11-21",
+   "imdb_id": "tt35410859",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "frg59VOungA",
+     "kind": "trailer",
+     "channel": "NEON",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "dutton-ranch",
+   "collection": "explore-all",
+   "title": "Dutton Ranch",
+   "type": "series",
+   "genres": [
+    "Adventure",
+    "Drama"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Chad Feehan",
+   "pair_with": "",
+   "study_note": "A Yellowstone sequel series: Rip Wheeler and Beth Dutton start again on a ranch in South Texas, against a rival cattle empire",
+   "added": "2026-11-21",
+   "imdb_id": "tt34991493",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "19I5a1tRt98",
+     "kind": "trailer",
+     "channel": "Paramount Plus and Yellowstone Universe",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "beware-boiuna",
+   "collection": "explore-all",
+   "title": "Beware Boiúna",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Horror",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "Germany",
+    "Colombia"
+   ],
+   "credit": "Mike P. Nelson",
+   "pair_with": "",
+   "study_note": "A medical mission in the Amazon wakes an ancient giant serpent from Brazilian folklore: a creature feature set in the rainforest",
+   "added": "2026-11-21",
+   "imdb_id": "tt10377864",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "4fn4UcgzRhg",
+     "kind": "trailer",
+     "channel": "Lionsgate Movies and The Midnight Horror Society",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "ready-or-not-here-i-come",
+   "collection": "explore-all",
+   "title": "Ready or Not: Here I Come",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Comedy"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Matt Bettinelli-Olpin & Tyler Gillett",
+   "recognition": "Nearly $43 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Radio Silence's sequel picks up moments after Ready or Not: Grace and her estranged sister in the next round of a deadly game",
+   "added": "2026-11-21",
+   "imdb_id": "tt33978029",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "jczr0KCloXk",
+     "kind": "trailer",
+     "channel": "SearchlightPictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "i-play-rocky",
+   "collection": "explore-all",
+   "title": "I Play Rocky",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Historical"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "Australia"
+   ],
+   "credit": "Peter Farrelly",
+   "recognition": "Selected for the Toronto International Film Festival",
+   "pair_with": "",
+   "study_note": "How Sylvester Stallone wrote Rocky and refused to sell it unless he played the lead: a true story about making a film, set in 1970s Hollywood and Philadelphia",
+   "added": "2026-11-21",
+   "imdb_id": "tt11995650",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "V_g_Ut0jO-0",
+     "kind": "trailer",
+     "channel": "Amazon MGM Studios and IMDb",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "how-to-rob-a-bank",
+   "collection": "explore-all",
+   "title": "How to Rob a Bank",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Crime",
+    "Thriller"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States"
+   ],
+   "credit": "David Leitch",
+   "pair_with": "",
+   "study_note": "David Leitch (Bullet Train) follows a crew of bank robbers who livestream their heists, and the FBI agent and software engineer tracking them",
+   "added": "2026-11-21",
+   "imdb_id": "tt35866986",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "ORxw68y3lyw",
+     "kind": "trailer",
+     "channel": "Amazon MGM Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-hunger-games-catching-fire",
+   "collection": "modern-classics",
+   "title": "The Hunger Games: Catching Fire",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Adventure",
+    "Action"
+   ],
+   "year": 2013,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Francis Lawrence",
+   "recognition": "Over $865 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Francis Lawrence takes over and shoots the arena in IMAX: the series moves from handheld drama to large-format spectacle",
+   "added": "2026-11-21",
+   "imdb_id": "tt1951264",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "EAzGXqJSDJ8",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-hunger-games-mockingjay-part-1",
+   "collection": "modern-classics",
+   "title": "The Hunger Games: Mockingjay - Part 1",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Adventure",
+    "Thriller"
+   ],
+   "year": 2014,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Francis Lawrence",
+   "recognition": "Over $755 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "A war film with hardly a battle: bunkers, propaganda shoots and a rebellion staged for the camera",
+   "added": "2026-11-21",
+   "imdb_id": "tt1951265",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "3PkkHsuMrho",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-hunger-games-mockingjay-part-2",
+   "collection": "modern-classics",
+   "title": "The Hunger Games: Mockingjay - Part 2",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2015,
+   "countries": [
+    "United States",
+    "Germany"
+   ],
+   "credit": "Francis Lawrence",
+   "recognition": "Over $650 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The Capitol as a booby-trapped city, shot in Berlin and around Paris: the finale as an urban war film",
+   "added": "2026-11-21",
+   "imdb_id": "tt1951266",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "KmYNkasYthg",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-hunger-games-the-ballad-of-songbirds-and-snakes",
+   "collection": "modern-classics",
+   "title": "The Hunger Games: The Ballad of Songbirds & Snakes",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Drama"
+   ],
+   "year": 2023,
+   "countries": [
+    "United States",
+    "Germany"
+   ],
+   "credit": "Francis Lawrence",
+   "recognition": "Over $330 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "A prequel 64 years before Katniss: postwar Panem built from Berlin's and Poland's period and brutalist locations",
+   "added": "2026-11-21",
+   "imdb_id": "tt10545296",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "RDE6Uz73A7g",
+     "kind": "trailer",
+     "channel": "Lionsgate Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-lord-of-the-rings-the-fellowship-of-the-ring",
+   "collection": "modern-classics",
+   "title": "The Lord of the Rings: The Fellowship of the Ring",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Action"
+   ],
+   "year": 2001,
+   "countries": [
+    "New Zealand",
+    "United States"
+   ],
+   "credit": "Peter Jackson",
+   "recognition": "Four Academy Awards, including Best Cinematography",
+   "pair_with": "",
+   "study_note": "Peter Jackson shoots all three films back to back in New Zealand: forced perspective, miniatures and Weta's practical makeup",
+   "added": "2026-11-21",
+   "imdb_id": "tt0120737",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "_nZdmwHrcnw",
+     "kind": "trailer",
+     "channel": "Warner Bros. Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-lord-of-the-rings-the-two-towers",
+   "collection": "modern-classics",
+   "title": "The Lord of the Rings: The Two Towers",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Action"
+   ],
+   "year": 2002,
+   "countries": [
+    "New Zealand",
+    "United States"
+   ],
+   "credit": "Peter Jackson",
+   "recognition": "Two Academy Awards, for visual effects and sound editing",
+   "pair_with": "",
+   "study_note": "Gollum, a performance-captured character who carries scenes, and Helm's Deep, shot over months of nights in artificial rain",
+   "added": "2026-11-21",
+   "imdb_id": "tt0167261",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "LbfMDwc4azU",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-lord-of-the-rings-the-return-of-the-king",
+   "collection": "modern-classics",
+   "title": "The Lord of the Rings: The Return of the King",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Action"
+   ],
+   "year": 2003,
+   "countries": [
+    "New Zealand",
+    "United States"
+   ],
+   "credit": "Peter Jackson",
+   "recognition": "Eleven Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "Eleven Oscars from eleven nominations: the Pelennor Fields battle puts crowd-simulation software to work at full scale",
+   "added": "2026-11-21",
+   "imdb_id": "tt0167260",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "r5X-hFf6Bwo",
+     "kind": "trailer",
+     "channel": "Movieclips",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-lord-of-the-rings-the-rings-of-power",
+   "collection": "explore-all",
+   "title": "The Lord of the Rings: The Rings of Power",
+   "type": "series",
+   "genres": [
+    "Fantasy",
+    "Adventure",
+    "Drama"
+   ],
+   "year": 2022,
+   "countries": [
+    "United States"
+   ],
+   "credit": "J. D. Payne & Patrick McKay",
+   "pair_with": "",
+   "study_note": "Amazon's Second Age prequel, among the most expensive series ever made: season one shot in New Zealand, season two in the UK",
+   "added": "2026-11-21",
+   "imdb_id": "tt7631058",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "x8UAUAuKNcU",
+     "kind": "trailer",
+     "channel": "Prime Video",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-lord-of-the-rings-the-war-of-the-rohirrim",
+   "collection": "modern-classics",
+   "title": "The Lord of the Rings: The War of the Rohirrim",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Fantasy",
+    "Adventure",
+    "Action"
+   ],
+   "year": 2024,
+   "countries": [
+    "United States",
+    "Japan",
+    "New Zealand"
+   ],
+   "credit": "Kenji Kamiyama",
+   "pair_with": "",
+   "study_note": "Kenji Kamiyama tells Helm Hammerhand's war as anime, 183 years before the trilogy: Middle-earth drawn by hand",
+   "added": "2026-11-21",
+   "imdb_id": "tt14824600",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "gCUg6Td5fgQ",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-animatrix",
+   "collection": "modern-classics",
+   "title": "The Animatrix",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Sci-Fi"
+   ],
+   "year": 2003,
+   "countries": [
+    "United States",
+    "Japan"
+   ],
+   "credit": "Mahiro Maeda, Shinichiro Watanabe, Peter Chung & others",
+   "pair_with": "",
+   "study_note": "Nine animated shorts around the Matrix from anime's leading directors and others: one world in nine visual styles",
+   "added": "2026-11-21",
+   "imdb_id": "tt0328832",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "94fPVqJqBGA",
+     "kind": "trailer",
+     "channel": "Warner Bros. Rewind",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-matrix-reloaded",
+   "collection": "modern-classics",
+   "title": "The Matrix Reloaded",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Sci-Fi"
+   ],
+   "year": 2003,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Lana Wachowski & Lilly Wachowski",
+   "recognition": "Over $740 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "A freeway chase on a mile and a half of road built for it, and the Burly Brawl's crowd of digital doubles",
+   "added": "2026-11-21",
+   "imdb_id": "tt0234215",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "kYzz0FSgpSU",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-matrix-revolutions",
+   "collection": "modern-classics",
+   "title": "The Matrix Revolutions",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Sci-Fi"
+   ],
+   "year": 2003,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Lana Wachowski & Lilly Wachowski",
+   "recognition": "Over $425 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Shot back to back with Reloaded: the siege of Zion and a final fight with Agent Smith in pouring rain",
+   "added": "2026-11-21",
+   "imdb_id": "tt0242653",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "hMbexEPAOQI",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-matrix-resurrections",
+   "collection": "modern-classics",
+   "title": "The Matrix Resurrections",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Adventure"
+   ],
+   "year": 2021,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Lana Wachowski",
+   "pair_with": "",
+   "study_note": "Lana Wachowski returns 18 years on and writes the franchise's own making into the story: a sequel about sequels",
+   "added": "2026-11-21",
+   "imdb_id": "tt10838180",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "9ix7TUGVYIo",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "shrek",
+   "collection": "modern-classics",
+   "title": "Shrek",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Fantasy",
+    "Adventure",
+    "Family"
+   ],
+   "year": 2001,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Andrew Adamson & Vicky Jenson",
+   "recognition": "The first Academy Award for Best Animated Feature",
+   "pair_with": "",
+   "study_note": "DreamWorks' fairy-tale parody and the first Best Animated Feature winner: pop songs, and fur, hair and fire rendered by PDI",
+   "added": "2026-11-21",
+   "imdb_id": "tt0126029",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "CwXOrWvPBPk",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "shrek-2",
+   "collection": "modern-classics",
+   "title": "Shrek 2",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Fantasy",
+    "Romance"
+   ],
+   "year": 2004,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Andrew Adamson, Kelly Asbury & Conrad Vernon",
+   "recognition": "Over $930 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The meet-the-parents sequel, set in Far Far Away, a fairy-tale parody of Hollywood",
+   "added": "2026-11-21",
+   "imdb_id": "tt0298148",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "xBgSfhp5Fxo",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "shrek-the-third",
+   "collection": "modern-classics",
+   "title": "Shrek the Third",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Fantasy",
+    "Adventure"
+   ],
+   "year": 2007,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Chris Miller",
+   "recognition": "Over $810 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Shrek looks for an heir to the throne: a teenage Arthur, a boarding school and a coup by fairy-tale villains",
+   "added": "2026-11-21",
+   "imdb_id": "tt0413267",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "_MoIr7811Bs",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "shrek-forever-after",
+   "collection": "modern-classics",
+   "title": "Shrek Forever After",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Fantasy",
+    "Adventure"
+   ],
+   "year": 2010,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Mike Mitchell",
+   "recognition": "Over $750 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "An alternate world where Shrek was never born: Rumpelstiltskin's kingdom, made for 3D",
+   "added": "2026-11-21",
+   "imdb_id": "tt0892791",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Ma9oseKpj9g",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "puss-in-boots",
+   "collection": "modern-classics",
+   "title": "Puss in Boots",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Adventure",
+    "Action"
+   ],
+   "year": 2011,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Chris Miller",
+   "recognition": "Academy Award nomination for Best Animated Feature",
+   "pair_with": "",
+   "study_note": "The spin-off goes back before Shrek: a spaghetti-western origin for the cat, with Humpty Dumpty as his partner",
+   "added": "2026-11-21",
+   "imdb_id": "tt0448694",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "1esRrwrmWzA",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "puss-in-boots-the-last-wish",
+   "collection": "modern-classics",
+   "title": "Puss in Boots: The Last Wish",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Fantasy",
+    "Adventure"
+   ],
+   "year": 2022,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Joel Crawford",
+   "recognition": "Academy Award nomination for Best Animated Feature",
+   "pair_with": "",
+   "study_note": "DreamWorks' painterly turn: fights animated at a choppier frame rate, and a wolf who is Death himself",
+   "added": "2026-11-21",
+   "imdb_id": "tt3915174",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "RqrXhwS33yc",
+     "kind": "trailer",
+     "channel": "Universal Pictures",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "madagascar",
+   "collection": "modern-classics",
+   "title": "Madagascar",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Adventure"
+   ],
+   "year": 2005,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Eric Darnell & Tom McGrath",
+   "recognition": "Over $530 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Four Central Park Zoo animals stranded in the wild: squash-and-stretch animation in the spirit of classic cartoons",
+   "added": "2026-11-21",
+   "imdb_id": "tt0351283",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "orAqhC-Hp_o",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "madagascar-escape-2-africa",
+   "collection": "modern-classics",
+   "title": "Madagascar: Escape 2 Africa",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Adventure"
+   ],
+   "year": 2008,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Eric Darnell & Tom McGrath",
+   "recognition": "Over $600 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The zoo animals crash-land on the African savanna, where Alex meets the pride he was born into",
+   "added": "2026-11-21",
+   "imdb_id": "tt0479952",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "hLVjIhPYq7s",
+     "kind": "trailer",
+     "channel": "Universal Kids",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "madagascar-3-europes-most-wanted",
+   "collection": "modern-classics",
+   "title": "Madagascar 3: Europe's Most Wanted",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Adventure"
+   ],
+   "year": 2012,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Eric Darnell, Conrad Vernon & Tom McGrath",
+   "recognition": "Over $740 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The animals join a travelling circus across Europe: a Monte Carlo chase and a neon trapeze finale",
+   "added": "2026-11-21",
+   "imdb_id": "tt1277953",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "laNiRXqh82Q",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "penguins-of-madagascar",
+   "collection": "modern-classics",
+   "title": "Penguins of Madagascar",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Adventure"
+   ],
+   "year": 2014,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Simon J. Smith & Eric Darnell",
+   "recognition": "Over $370 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The four penguins get their own spy caper against an octopus, with Benedict Cumberbatch's wolf leading a rival agency",
+   "added": "2026-11-21",
+   "imdb_id": "tt1911658",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "qiskihiI8NE",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-hunger-games-sunrise-on-the-reaping",
+   "collection": "explore-all",
+   "title": "The Hunger Games: Sunrise on the Reaping",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Adventure"
+   ],
+   "year": 2026,
+   "countries": [
+    "United States",
+    "Germany"
+   ],
+   "credit": "Francis Lawrence",
+   "pair_with": "",
+   "study_note": "Francis Lawrence's fifth Hunger Games film goes back 24 years, to the reaping of the 50th Games, from Suzanne Collins's prequel novel",
+   "added": "2026-11-21",
+   "imdb_id": "tt32558705",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "fS35YSjopjE",
+     "kind": "trailer",
+     "channel": "Lionsgate Movies",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

@@ -21,6 +21,7 @@ import { LIBRARY } from "@/features/explore/library";
 import { BEST_OF_2026, CATEGORY_NAMES, findEntry, inBestOf2026 } from "@/features/explore/made-in-africa";
 import { ALL_TAGS, tagLabel, tagsFor } from "@/features/explore/tags";
 import { exploreAccess } from "@/features/explore/saves";
+import { franchiseHref } from "@/features/explore/paths";
 import { findExploreNames, loadExploreSearchIndex, type ExploreSearchIndex, type NameHit } from "@/features/explore/search-index";
 import { nameLeads, type NameMatch } from "@/features/explore/name-search";
 import { ICPS, WORKFLOWS } from "@/features/workflows/workflows";
@@ -214,6 +215,16 @@ async function load(): Promise<Result[]> {
       words: "festival film festival",
       href: `/explore/festival/${f.id}`,
       explore: { image: f.logo, aspect: 1 },
+    })),
+    // Explore's franchises (2026-11-21), each opening its films and series in release order.
+    ...(index?.franchises ?? []).map((f): Result => ({
+      key: `fr:${f.id}`,
+      kind: "explore",
+      title: f.name,
+      meta: `Franchise · ${f.count} titles`,
+      words: "franchise series sequels",
+      href: franchiseHref(f.id),
+      explore: { image: f.cover },
     })),
     // Explore's cast & crew come from the name lookup as people type (personResults), all of them.
   ];

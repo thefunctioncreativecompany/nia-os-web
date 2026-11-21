@@ -3,13 +3,17 @@
 import { creditsOf, peopleForSearch } from "./people-index";
 import { rankNames, type NameMatch } from "./name-search";
 import { itemFor } from "./search-data";
+import { exploreItem } from "./items";
 import { filmCreditSlugs, filmCredits, filmPerson } from "./film-people";
 import { festivalRows } from "./festivals";
+import { franchiseHref, franchiseRows } from "./franchises";
 import { studioRows } from "./studios";
 
 export type ExploreSearchIndex = {
   studios: { id: string; name: string; group: string; logo: string | null; count: number }[];
   festivals: { id: string; name: string; logo: string | null; count: number }[];
+  /** Franchises (2026-11-21), each with its first title's cover. */
+  franchises: { id: string; name: string; cover: string | null; count: number }[];
   /** Each title's studio names, so "Netflix" or "A24" finds their titles. */
   titleStudios: Record<string, string[]>;
 };
@@ -25,9 +29,13 @@ export async function loadExploreSearchIndex(): Promise<ExploreSearchIndex> {
   // Festivals too, so "Cannes" or "Sundance" finds the titles that screened there.
   const festivals = festivalRows();
   for (const f of festivals) for (const slug of f.slugs) (titleStudios[slug] ??= []).push(f.name);
+  // And franchises, so "Lord of the Rings" finds The Hobbit and "Shrek" finds Puss in Boots.
+  const franchises = franchiseRows();
+  for (const f of franchises) for (const slug of f.slugs) (titleStudios[slug] ??= []).push(f.name);
   return {
     studios: rows.map((r) => ({ id: r.id, name: r.name, group: r.group, logo: r.logo, count: r.slugs.length })),
     festivals: festivals.map((f) => ({ id: f.id, name: f.name, logo: f.logo, count: f.slugs.length })),
+    franchises: franchises.map((f) => ({ id: f.id, name: f.name, cover: exploreItem(f.slugs[0])?.image ?? null, count: f.slugs.length })),
     titleStudios,
   };
 }
@@ -44,13 +52,13 @@ export async function loadExploreCastCrew(): Promise<Record<string, string[]>> {
 }
 
 export type NameHit = {
-  kind: "person" | "studio" | "festival";
+  kind: "person" | "studio" | "festival" | "franchise";
   key: string;
   name: string;
-  /** Under the name: their main role, or "Studio" / "Festival". */
+  /** Under the name: their main role, or "Studio" / "Festival" / "Franchise". */
   role: string;
   href: string;
-  /** A person's photo, or a studio's or festival's logo. */
+  /** A person's photo, a studio's or festival's logo, or a franchise's first cover. */
   photo: string | null;
   /** How many things on Explore they're credited on, or carry. */
   count: number;
@@ -79,6 +87,7 @@ export async function findExploreNames(query: string): Promise<NameHit[]> {
     [
       ...studioRows().map((s) => ({ kind: "studio" as const, key: s.id, name: s.name, logo: s.logo, slugs: s.slugs, count: s.slugs.length })),
       ...festivalRows().map((f) => ({ kind: "festival" as const, key: f.id, name: f.name, logo: f.logo, slugs: f.slugs, count: f.slugs.length })),
+      ...franchiseRows().map((f) => ({ kind: "franchise" as const, key: f.id, name: f.name, logo: exploreItem(f.slugs[0])?.image ?? null, slugs: f.slugs, count: f.slugs.length })),
     ],
     4,
   ).map(
@@ -86,8 +95,8 @@ export async function findExploreNames(query: string): Promise<NameHit[]> {
       kind: p.kind,
       key: p.key,
       name: p.name,
-      role: p.kind === "studio" ? "Studio" : "Festival",
-      href: `/explore/${p.kind}/${p.key}`,
+      role: p.kind === "studio" ? "Studio" : p.kind === "festival" ? "Festival" : "Franchise",
+      href: p.kind === "franchise" ? franchiseHref(p.key) : `/explore/${p.kind}/${p.key}`,
       photo: p.logo,
       count: p.count,
       match: p.match,

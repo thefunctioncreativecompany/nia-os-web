@@ -8,6 +8,7 @@ import { getPress } from "@/components/explore/press-coverage";
 import { allSlugs, findEntry } from "@/features/explore/made-in-africa";
 import { filmCastAndCrew } from "@/features/explore/film-people";
 import { TOP_CREDITS } from "@/features/explore/credit-format";
+import { franchiseOf } from "@/features/explore/franchises";
 
 // The titles are known ahead of time, so each page is drawn once at build.
 export function generateStaticParams() {
@@ -38,7 +39,7 @@ async function Title({ params }: Pick<PageProps<"/explore/title/[slug]">, "param
   // Only the top credits reach the page; the rest comes with "View all" on a paid plan.
   const all = filmCastAndCrew(slug);
   const castCrew = all.slice(0, TOP_CREDITS).map(({ key, name, role, href, photo }) => ({ key, name, role, href, photo }));
-  return <TitleView key={slug} entry={entry} castCrew={castCrew} castTotal={all.length} press={getPress(slug)} />;
+  return <TitleView key={slug} entry={entry} castCrew={castCrew} castTotal={all.length} press={getPress(slug)} franchise={franchiseOf(slug)} />;
 }
 
 // Shaped like the page, as on a project.

@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "explore-franchises",
+    date: "2026-11-21",
+    title: "Franchises on Explore",
+    body: "The Hunger Games, The Lord of the Rings, The Matrix, Shrek and Madagascar: every film and series has its own page, and each franchise gathers them in release order. Search a franchise's name to see them all.",
+    href: "/explore/franchise/the-lord-of-the-rings",
+    cta: "See The Lord of the Rings",
+    icon: "cards",
+    weight: { production: 0.5, fashion: 0.5, creator: 0.6 },
+  },
+  {
     id: "explore-search",
     date: "2026-11-19",
     title: "Search Explore by how it was made",

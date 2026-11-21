@@ -227,6 +227,7 @@ function countLine(titles: number, names: NameHit[]) {
     ["person", "person", "people"],
     ["studio", "studio", "studios"],
     ["festival", "festival", "festivals"],
+    ["franchise", "franchise", "franchises"],
   ];
   const parts = kinds.flatMap(([kind, one, many]) => {
     const n = names.filter((h) => h.kind === kind).length;
@@ -236,9 +237,20 @@ function countLine(titles: number, names: NameHit[]) {
 }
 
 // What a name's titles are called under it.
-const titlesOf = (hit: NameHit) => (hit.kind === "person" ? `Titles with ${hit.name}` : hit.kind === "studio" ? `From ${hit.name}` : `At ${hit.name}`);
-const namesLabel = (names: NameHit[]) =>
-  names.every((n) => n.kind === "person") ? "People" : names.every((n) => n.kind !== "person") ? "Studios and festivals" : "People, studios and festivals";
+const titlesOf = (hit: NameHit) =>
+  hit.kind === "person" ? `Titles with ${hit.name}` : hit.kind === "studio" ? `From ${hit.name}` : hit.kind === "festival" ? `At ${hit.name}` : `In ${hit.name}`;
+// "People", "Studios and franchises": the kinds of name found, in a fixed order.
+const KIND_NAMES: [NameHit["kind"], string][] = [
+  ["person", "people"],
+  ["studio", "studios"],
+  ["festival", "festivals"],
+  ["franchise", "franchises"],
+];
+const namesLabel = (names: NameHit[]) => {
+  const kinds = KIND_NAMES.filter(([kind]) => names.some((n) => n.kind === kind)).map(([, name]) => name);
+  const text = kinds.length > 1 ? `${kinds.slice(0, -1).join(", ")} and ${kinds.at(-1)}` : (kinds[0] ?? "");
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};
 const titleCount = (n: number) => `${n} ${n === 1 ? "title" : "titles"}`;
 
 function Results({ hits, pool, data, query, names }: { hits: SearchHit[] | null; pool: SearchDoc[]; data: Loaded; query: string; names: NameHit[] }) {
@@ -343,7 +355,7 @@ function NameCard({ hit }: { hit: NameHit }) {
           {[hit.role, `${titleCount(hit.count)} on Explore`].filter(Boolean).join(" · ")}
         </span>
         <span className={cn(buttonVariants({ variant: "secondary", size: "compact" }), "pointer-events-none mt-2")}>
-          {hit.kind === "person" ? "View profile" : hit.kind === "studio" ? "View studio" : "View festival"}
+          {hit.kind === "person" ? "View profile" : hit.kind === "studio" ? "View studio" : hit.kind === "festival" ? "View festival" : "View franchise"}
         </span>
       </span>
     </Link>
@@ -372,13 +384,14 @@ function NamesRow({ label, names }: { label: string; names: NameHit[] }) {
   );
 }
 
-// A person's photo or initials in a circle; a studio's or festival's logo in a rounded square.
+// A person's photo or initials in a circle; a studio's or festival's logo in a rounded square; a
+// franchise's first cover filling one.
 function NamePicture({ hit, className, large = false }: { hit: NameHit; className?: string; large?: boolean }) {
   if (hit.kind === "person") return <PersonPicture name={hit.name} photo={hit.photo} className={className} large={large} />;
   return (
     <span className={cn("relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-secondary", className)}>
       {hit.photo ? (
-        <Image src={hit.photo} alt="" fill sizes={large ? "128px" : "96px"} className="object-contain p-3" />
+        <Image src={hit.photo} alt="" fill sizes={large ? "128px" : "96px"} className={hit.kind === "franchise" ? "object-cover" : "object-contain p-3"} />
       ) : (
         <span className="text-subtitle font-semibold text-muted-foreground">{initials(hit.name)}</span>
       )}
