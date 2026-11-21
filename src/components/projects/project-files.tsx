@@ -56,7 +56,7 @@ const extension = (name: string) => (name.includes(".") ? name.split(".").pop()!
 const TINT: Record<FileKind, string> = { document: "var(--foreground)", image: "var(--chart-2)", audio: "var(--nia-blue)", video: "var(--chart-3)" };
 
 /** A rounded page with a folded corner and the extension on a coloured label (Bencho). */
-function PageIcon({ name, kind, size: px = 36 }: { name: string; kind: FileKind; size?: number }) {
+export function PageIcon({ name, kind, size: px = 36 }: { name: string; kind: FileKind; size?: number }) {
   return (
     <svg width={px} height={px} viewBox="0 0 40 40" fill="none" aria-hidden className="shrink-0">
       <path
@@ -191,7 +191,7 @@ export const MAX_UPLOAD_MB = MAX_MB;
 export { ACCEPT as UPLOAD_ACCEPT };
 
 /** The upload box. `tag`: what new files are tagged ("auto" picks by kind). Also used by Add document. */
-export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT, hint }: { projectId: string; onUploaded: () => void; tag?: FileTag | "auto"; accept?: string; hint?: string }) {
+export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT, hint }: { projectId: string; /** How many of the files went in. */ onUploaded: (count: number) => void; tag?: FileTag | "auto"; accept?: string; hint?: string }) {
   const reduced = useReducedMotion() ?? false;
   const input = useRef<HTMLInputElement>(null);
   // Each refusal replays the shake (a new key restarts it).
@@ -230,18 +230,20 @@ export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT,
     const batch = ok.map((f) => ({ file: f, up: { key: crypto.randomUUID(), name: f.name, kind: kindOf(f.type), bytes: f.size, progress: 0, done: false } }));
     setUploads((list) => [...list, ...batch.map((b) => b.up)]);
     const set = (key: string, patch: Partial<Upload>) => setUploads((list) => list.map((u) => (u.key === key ? { ...u, ...patch } : u)));
-    await Promise.all(
+    const went = await Promise.all(
       batch.map(async ({ file, up }) => {
         try {
           await uploadProjectFile(projectId, file, session.access_token, tag, (p) => set(up.key, { progress: p }), up.key);
           set(up.key, { progress: 1, done: true });
+          return true;
         } catch (e) {
           toast.error(`${file.name}: ${e instanceof Error ? e.message : "couldn't upload"}`);
           setUploads((list) => list.filter((u) => u.key !== up.key));
+          return false;
         }
       }),
     );
-    onUploaded();
+    onUploaded(went.filter(Boolean).length);
     // Each finished row ticks, then leaves.
     window.setTimeout(() => setUploads((list) => list.filter((u) => !u.done)), 1500);
   };
@@ -333,7 +335,7 @@ type Tab = "all" | FileTag;
 const isFinal = (file: ProjectFile) => file.tag === "final";
 
 /** A project's files as shown: archiving and retagging take effect at once, then the page reloads. */
-function useProjectFiles(files: ProjectFile[]) {
+export function useProjectFiles(files: ProjectFile[]) {
   const router = useRouter();
   const [removed, setRemoved] = useState<string[]>([]);
   const [retagged, setRetagged] = useState<Record<string, FileTag>>({});
@@ -812,7 +814,7 @@ function ArchiveButton({ projectId, onChanged, onRestored }: { projectId: string
         <Archive aria-hidden /> Archive
       </Button>
       <Dialog open={open} onOpenChange={(o) => { setOpen(o); if (!o) setConfirming(null); }}>
-        <DialogContent className="flex max-h-[calc(100svh-2rem)] w-[calc(100%-2rem)] max-w-[520px] flex-col gap-4 overflow-y-auto rounded-2xl p-6 sm:max-w-[520px]">
+        <DialogContent className="flex max-h-[calc(100svh-2rem)] w-[calc(100%-2rem)] max-w-130 flex-col gap-4 overflow-y-auto rounded-2xl p-6 sm:max-w-130">
           <DialogTitle className="text-subtitle font-bold">Archive</DialogTitle>
           <DialogDescription className="-mt-2 text-small text-muted-foreground">
             Archived files are hidden from the project. Restore one to bring it back, or delete it for good.

@@ -23,7 +23,8 @@ import { workingSuggestions } from "@/features/templates/recommend";
 import { useTemplateProfile } from "@/features/templates/use-template-profile";
 
 // "Add document" (Ika, 2026-10-19), loaded only when it's opened: first choose how, then upload documents from the computer
-// (saved to the project's files, tagged as briefs & paperwork) or start one from a template.
+// (saved to the project's files, tagged as briefs & paperwork, and listed in Documents too: Ika, 2026-11-21, UB1) or
+// start one from a template.
 export function AddDocumentDialog({ projectId, existing, open, onOpenChange }: { projectId: string; existing: ProjectDocument[]; open: boolean; onOpenChange: (open: boolean) => void }) {
   // Paid workspaces skip the free plan's document limits.
   const [paid, setPaid] = useState(false);
@@ -65,7 +66,7 @@ export function AddDocumentDialog({ projectId, existing, open, onOpenChange }: {
 
   return (
     <Dialog open={open} onOpenChange={close}>
-      <DialogContent className="flex max-h-[calc(100svh-2rem)] w-[calc(100%-2rem)] max-w-[480px] flex-col gap-5 overflow-y-auto rounded-2xl p-6 sm:max-w-[480px]">
+      <DialogContent className="flex max-h-[calc(100svh-2rem)] w-[calc(100%-2rem)] max-w-120 flex-col gap-5 overflow-y-auto rounded-2xl p-6 sm:max-w-120">
         <DialogTitle className="text-subtitle font-bold">
           {step === "choose" ? "Add a document" : step === "upload" ? "Upload documents" : "Start from a template"}
         </DialogTitle>
@@ -73,7 +74,7 @@ export function AddDocumentDialog({ projectId, existing, open, onOpenChange }: {
           {step === "choose"
             ? "Bring in a document you already have, or make one from a template."
             : step === "upload"
-              ? "PDFs, Word, text and spreadsheets. They go into this project's files as briefs & paperwork."
+              ? "PDFs, Word, text and spreadsheets. They show in Documents and in Files."
               : "It opens ready to fill in, saved to this project."}
         </DialogDescription>
 
@@ -104,9 +105,12 @@ export function AddDocumentDialog({ projectId, existing, open, onOpenChange }: {
             tag="brief"
             accept=".pdf,.doc,.docx,.txt,.md,.rtf,.csv,.xls,.xlsx,.ppt,.pptx"
             hint="PDF, Word, text, spreadsheets and decks"
-            onUploaded={() => {
+            onUploaded={(count) => {
+              if (!count) return;
+              // Back to Documents, where the new ones now sit at the top.
+              close(false);
               router.refresh();
-              toast.success("Added to this project's files");
+              toast.success(count === 1 ? "Added to Documents" : `${count} documents added`);
             }}
           />
         )}

@@ -21,6 +21,19 @@ Status: ⬜ logged, not started · 🔍 being studied · 🔄 in progress · ✅
 
 ---
 
+## 0000. Logged 2026-11-21: Ika, uploads, editable briefs, formatting
+
+Decided 2026-11-21 (Ika): a document uploaded from the Documents tab shows in **both places**, a
+card in Documents and in Files → Briefs & paperwork; uploads and editable briefs **don't count**
+toward the free plan's 5 documents. Order: UB1 first (ships alone), then UB2 with UB3's formatting;
+UB3 also goes into CLAUDE.md as a standing rule.
+
+| # | What | Found | Status |
+|---|------|-------|--------|
+| UB1 | **Uploaded documents are hard to find after upload.** | Documents tab → Add document → Upload from your computer saved the file to `project_files` tagged `brief` (`add-document-dialog.tsx`), so it appeared only on the References tab under Files → Briefs & paperwork, not in the Documents list it was uploaded from; the toast didn't say where | ✅ 2026-11-21: every document tagged Brief & paperwork is also a card in Documents (open, download, archive), newest first with the template documents; the tab counts them; the pop-up closes on upload ("Added to Documents"); the header reads "N of 5 templates". Tested on localhost, desktop and phone width (PDF + Word, then archived) |
+| UB2 | **Briefs editable on the platform, like meeting notes.** | Meeting notes already read Word, PDF, text and Markdown into formatted text (`features/meetings/read-file.ts`) and open in the always-editable document editor with headings (`RichTextEditor` `variant="document"`, autosave). An uploaded brief today is only a stored file (download or preview) | ⬜ next |
+| UB3 | **Text and content formatting is vital to the experience** (Ika: "VITAL"). | Standing rule: anything people read or write keeps its formatting (headings, bold, italics, lists, links, tables) from upload through editing, preview and export. Known gaps: tables in uploaded Word files become "a · b · c" lines (`htmlToMarkdown`), pictures are dropped, the editor has no tables | ⬜ with UB2 |
+
 ## 000. Logged 2026-11-18: Ika, more visual life where it helps, calm where people work
 
 Explore is for inspiration, so it can be richer; Home, Projects and Templates stay calm so people

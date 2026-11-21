@@ -4,14 +4,15 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FilePlus2, FolderMinus, Trash2 } from "lucide-react";
+import { Archive, Download, FilePlus2, FolderMinus, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
-import type { ProjectDocument } from "@/lib/projects-data";
-import { timeAgo } from "@/lib/projects";
+import type { ProjectDocument, ProjectFile } from "@/lib/projects-data";
+import { isUploadedDocument, timeAgo } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { FlatIcon } from "@/features/templates/components/flat-icon";
+import { PageIcon, useProjectFiles } from "@/components/projects/project-files";
 
 // The dialog and the template suggestions behind it load the first time it opens.
 const AddDocumentDialog = dynamic(() => import("./add-document-dialog").then((m) => m.AddDocumentDialog), { ssr: false });
@@ -23,13 +24,20 @@ export const FREE_DOCUMENT_LIMIT = 5;
 
 // Documents saved to this project (build step 8): open one to keep working on it, remove it from
 // the project (it stays in its maker's drafts), or add a new one from a template, which is saved
-// here as soon as it's started.
-export function ProjectDocuments({ projectId, documents, icons, canEdit, isOwner, userId, now }: { projectId: string; documents: ProjectDocument[]; icons: Record<string, string>; canEdit: boolean; isOwner: boolean; userId: string; now: number }) {
+// here as soon as it's started. Documents uploaded to the project are listed here too, newest
+// first with the rest (Ika, 2026-11-21, UB1: they were only in Files, so hard to find); they stay
+// in Files as well and don't count toward the free plan's documents.
+export function ProjectDocuments({ projectId, documents, uploads, icons, canEdit, isOwner, userId, now }: { projectId: string; documents: ProjectDocument[]; uploads: ProjectFile[]; icons: Record<string, string>; canEdit: boolean; isOwner: boolean; userId: string; now: number }) {
   const [confirming, setConfirming] = useState<string | null>(null);
   const router = useRouter();
   const [adding, setAdding] = useState(false);
   const [removed, setRemoved] = useState<string[]>([]);
   const list = documents.filter((d) => !removed.includes(d.id));
+  const files = useProjectFiles(uploads);
+  const entries = [
+    ...list.map((doc) => ({ at: doc.updatedAt, doc, file: null })),
+    ...files.live.filter(isUploadedDocument).map((file) => ({ at: file.createdAt, doc: null, file })),
+  ].toSorted((a, b) => b.at.localeCompare(a.at));
 
   const remove = async (doc: ProjectDocument) => {
     setRemoved((r) => [...r, doc.id]);
@@ -60,8 +68,8 @@ export function ProjectDocuments({ projectId, documents, icons, canEdit, isOwner
       <div className="flex items-center justify-between gap-3">
         <h2 id="documents" className="flex items-baseline gap-2 text-lg leading-[1.4] font-bold text-foreground">
           Documents
-          <span className="text-small font-semibold text-muted-foreground">
-            {list.length} of {FREE_DOCUMENT_LIMIT}
+          <span className="text-small font-semibold whitespace-nowrap text-muted-foreground">
+            {list.length} of {FREE_DOCUMENT_LIMIT} templates
           </span>
         </h2>
         {canEdit && (
@@ -70,13 +78,44 @@ export function ProjectDocuments({ projectId, documents, icons, canEdit, isOwner
           </Button>
         )}
       </div>
-      {list.length === 0 ? (
+      {entries.length === 0 ? (
         <p className="text-small text-muted-foreground">
-          {canEdit ? `No documents yet. Add up to ${FREE_DOCUMENT_LIMIT} from templates (one of each), like a call sheet or shotlist. Uploaded documents go to Files & references.` : "No documents yet."}
+          {canEdit ? "No documents yet. Upload your own, or start a call sheet, shotlist and more from a template." : "No documents yet."}
         </p>
       ) : (
         <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {list.map((doc) => (
+          {entries.map(({ doc, file }) =>
+            file ? (
+              <li key={file.id} className="hover-sweep group flex items-center gap-3 rounded-xl border border-border bg-card p-3">
+                <span className="flex size-10 shrink-0 items-center justify-center">
+                  <PageIcon name={file.name} kind={file.kind} />
+                </span>
+                {file.url ? (
+                  <a href={file.url} target="_blank" rel="noreferrer" className="min-w-0 flex-1 rounded-sm outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+                    <span className="block truncate text-sm font-bold text-foreground group-hover:underline">{file.name}</span>
+                    <span className="block truncate text-caption text-muted-foreground">Uploaded · {timeAgo(file.createdAt, now)}</span>
+                  </a>
+                ) : (
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-sm font-bold text-foreground">{file.name}</span>
+                    <span className="block truncate text-caption text-muted-foreground">Uploaded · {timeAgo(file.createdAt, now)}</span>
+                  </span>
+                )}
+                {file.url && (
+                  <Button asChild variant="ghost" size="icon-sm" aria-label={`Download ${file.name}`}>
+                    <a href={`${file.url}&download=${encodeURIComponent(file.name)}`}>
+                      <Download />
+                    </a>
+                  </Button>
+                )}
+                {canEdit && (
+                  <Button variant="ghost" size="icon-sm" aria-label={`Archive ${file.name}`} onClick={() => void files.remove(file)}>
+                    <Archive />
+                  </Button>
+                )}
+              </li>
+            ) : (
+              doc && (
             <li key={doc.id} className="hover-sweep group flex flex-col gap-2 rounded-xl border border-border bg-card p-3">
               <div className="flex items-center gap-3">
               <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-nia-panel">
@@ -113,7 +152,9 @@ export function ProjectDocuments({ projectId, documents, icons, canEdit, isOwner
                 </div>
               )}
             </li>
-          ))}
+              )
+            ),
+          )}
         </ul>
       )}
       <AddDocumentDialog projectId={projectId} existing={list} open={adding} onOpenChange={setAdding} />
