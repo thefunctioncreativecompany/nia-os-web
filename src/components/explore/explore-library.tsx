@@ -17,6 +17,8 @@ import type { FestivalRow } from "@/features/explore/festivals";
 import { TopTen } from "./top-ten";
 import { ExploreSearch } from "./explore-search";
 import { ROW_MAX } from "@/lib/rows";
+import { exploreItem } from "@/features/explore/items";
+import { TrailerCell } from "./trailer-cell";
 import { PersonTile, type RowPerson } from "@/components/nia/cast-crew-row";
 import { ScrollRow, TEN_ACROSS } from "@/components/nia/scroll-row";
 import { cn } from "@/lib/utils";
@@ -24,8 +26,8 @@ import { cn } from "@/lib/utils";
 // Explore, the library: Ika's Claude Design "ExploreLibrary" as designed (layout, motion, images),
 // in the platform's font, colours, buttons and sentence case. Drawn from explore-data.ts. The
 // rows under By category come in a new order on each visit (`seed`, Ika 2026-10-22).
-// Recently added was removed for now (Ika, 2026-11-08; git tag parked-2026-11-08-recently-added).
-export function ExploreLibrary({ seed, top, studios, people = [], festivals = [], inSeason = [], searchCount }: { seed: number; top: Promise<string[]>; studios: StudioRow[]; people?: RowPerson[]; festivals?: FestivalRow[]; inSeason?: string[]; searchCount: number }) {
+// Recently added is back under Top 10 as a row like the others (Ika, 2026-11-21).
+export function ExploreLibrary({ seed, top, recent = [], studios, people = [], festivals = [], inSeason = [], searchCount }: { seed: number; top: Promise<string[]>; recent?: string[]; studios: StudioRow[]; people?: RowPerson[]; festivals?: FestivalRow[]; inSeason?: string[]; searchCount: number }) {
   return (
     <div className="flex w-full flex-col px-4 pt-10 pb-24 md:px-page lg:pt-12.5">
       {/* Opens the whole library as one canvas (Ika, 2026-10-21). */}
@@ -69,6 +71,27 @@ export function ExploreLibrary({ seed, top, studios, people = [], festivals = []
           </Suspense>
         </div>
       </section>
+
+      {/* Recently added, just under Top 10 (Ika, 2026-11-21): ten of the newest week's additions,
+          newest first, a different ten on each visit; View all has everything, newest first. */}
+      {recent.length > 0 && (
+        <section aria-labelledby="recently-added" className="mt-12">
+          <div className="flex items-center justify-between gap-3">
+            <h2 id="recently-added" className="text-subtitle font-semibold text-foreground">
+              Recently added
+            </h2>
+            <ViewAll href="/explore/recent" />
+          </div>
+          <div className="mt-6">
+            <ScrollRow label="Recently added">
+              {recent.flatMap((slug) => {
+                const item = exploreItem(slug);
+                return item ? [<TrailerCell key={slug} item={item} />] : [];
+              })}
+            </ScrollRow>
+          </div>
+        </section>
+      )}
 
       {/* By studio, just under Top 10 (Ika, 2026-11-10): logos that open each studio's View all. */}
       {studios.length > 0 && (

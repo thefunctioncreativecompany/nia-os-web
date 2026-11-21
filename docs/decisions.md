@@ -1290,3 +1290,10 @@ onboarding's Import profile and Follow creators describe features removed in the
   films and video-game "cast interviews" under WAR were taken out, and the kits with no reviews
   (Wicker, Crime 101, Ghost Soldier, The Wrecking Crew, WAR, Dutton Ranch, Ready or Not 2, How to
   Rob a Bank) filled from edited publications.
+- (2026-11-21) Recently added is back on Explore (Ika: "under top 10 … as a carousel, with same
+  functionalities as other sections"): a row like Best of 2026's, just under Top 10 (trailer
+  cells with the hover trailer, ten at most, a different ten on each visit, newest first) with
+  View all at `/explore/recent` (everything with an `added` day, newest first, "Added 21 Nov").
+  It draws from the week up to the latest added day, not today, so it's never empty in a quiet
+  week (`src/features/explore/recent.ts`). Replaces the parked mosaic (2026-11-08, "not working
+  great"); the `/explore/recent` redirect is gone.

@@ -5,6 +5,7 @@ Newest first. The full story of each change is in its commit and in docs/decisio
 
 ## Recent Changes
 
+- 2026-11-21 · Explore: Recently added back under Top 10 as a row, View all at `/explore/recent`. Files: `src/features/explore/recent.ts`, `src/components/explore/{explore-library,recent-all}.tsx`, Explore and recent pages, `next.config.ts`.
 - 2026-11-21 · Explore: franchises (page, row on each title, search) with 24 new titles; Best of 2026 batches 8–9 (81 of 100 live). Files: `src/features/explore/*`, `src/components/explore/franchise-all.tsx`, `src/app/(app)/explore/franchise/`, title page, search, `public/explore/made-in-africa/*.jpg`, docs.
 - 2026-11-21 · `fix/uploads-in-documents` · Uploaded documents show in the project's Documents tab (and still in Files); the Add document pop-up closes on upload and says "Added to Documents" (UB1). Files: `src/components/projects/{project-documents,add-document-dialog,project-files}.tsx`, `src/app/(app)/projects/[id]/page.tsx`, `src/lib/projects.ts`, `docs/FEEDBACK.md`, `CHANGELOG.md`.
 - 2026-11-20 · `feature/explore-templates-marketplace` · Best of 2026 batch 7 (10 titles, 60 of 100 live), press videos back. Files: `src/features/explore/*` data, `public/explore/made-in-africa/*.jpg`, `scripts/check-trailers.mjs`, docs.
