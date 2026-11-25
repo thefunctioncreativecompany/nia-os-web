@@ -7,6 +7,7 @@ import { Feedback } from "@/components/nia/feedback";
 import { ExploreAllButton } from "@/components/nia/explore-all-button";
 import { NavTrail } from "@/components/nia/back-link";
 import { OfflineCopies } from "@/lib/offline-copies";
+import { DesktopNotices } from "@/lib/desktop-notices";
 import { MotionProvider } from "@/components/nia/motion-provider";
 import { NavDock, NavScrollMarker, Navbar } from "@/components/nia/navbar";
 import { UserMenu, UserMenuSkeleton } from "@/components/nia/user-menu";
@@ -47,6 +48,8 @@ export default function AppLayout({ children }: LayoutProps<"/">) {
           </Suspense>
           {/* Documents opened stay readable offline (public/sw.js). */}
           <OfflineCopies />
+          {/* Shares, comments and access requests on the computer, when turned on (Settings → General). */}
+          <DesktopNotices />
           {/* Explore all from anywhere (desktop), bottom left. It reads the address too. */}
           <Suspense fallback={null}>
             <ExploreAllButton />

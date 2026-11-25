@@ -1336,3 +1336,8 @@ onboarding's Import profile and Follow creators describe features removed in the
   references (back to Unsorted). Table `project_reference_folders`, `folder_id` on `project_files`
   and `project_references`, `remove_reference_folder` (20261126000000_reference_folders.sql).
   Search shows a reference's folder and finds what's in a folder by its name.
+- (2026-11-25) Desktop notifications, step 1 (FEEDBACK D6, Ika OK'd the plan): shown by the open
+  page (no push service yet), only when Nia isn't in front; shares, access requests, comments and
+  replies, not edits. The switch sits in Settings → General as a "Notifications" card (the parked
+  Figma-built "Notification rules" card's look) because the Claude Design draft for the
+  Notifications tab couldn't be read from here; the tab opens when that draft is shared.

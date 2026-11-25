@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "desktop-notifications",
+    date: "2026-11-25",
+    title: "Desktop notifications",
+    body: "Turn them on in Settings and your computer tells you when someone shares a project with you, comments or asks for access, while Nia is open in the background.",
+    href: "/settings/general",
+    cta: "Turn them on",
+    icon: "chat",
+    weight: { production: 0.9, fashion: 0.7, creator: 0.7 },
+  },
+  {
     id: "reference-folders",
     date: "2026-11-25",
     title: "Reference folders",

@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import type { GeneralSettings } from "@/lib/settings";
 import { createClient } from "@/lib/supabase/client";
 import { playSound, setSoundsOn, soundsOn, subscribeSounds } from "@/lib/sounds";
+import { desktopNotices, desktopNoticesSupported, setDesktopNotices, subscribeDesktopNotices } from "@/lib/desktop-notices";
 import { setTheme, subscribeTheme, THEME_CHOICES, themeChoice } from "@/lib/theme";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { Input } from "@/components/ui/input";
@@ -33,6 +34,8 @@ export function GeneralSettingsForm({
   const [isSaving, setIsSaving] = useState(false);
   // Appearance and sounds are choices for this device, so they act at once rather than on Save.
   const sounds = useSyncExternalStore(subscribeSounds, soundsOn, () => true);
+  const notices = useSyncExternalStore(subscribeDesktopNotices, desktopNotices, () => "off" as const);
+  const canNotify = useSyncExternalStore(subscribeDesktopNotices, desktopNoticesSupported, () => false);
   const theme = useSyncExternalStore(subscribeTheme, themeChoice, () => "system" as const);
 
   const handleSave = async (e: React.FormEvent) => {
@@ -111,6 +114,22 @@ export function GeneralSettingsForm({
           }}
         />
       </SettingsCard>
+
+      {canNotify && (
+        <SettingsCard title="Notifications" className="gap-4">
+          <SettingsToggleRow
+            id="desktop-notifications"
+            title="Desktop notifications"
+            description={
+              notices === "blocked"
+                ? "Your browser is blocking them. Allow notifications for Nia in the browser's site settings, then come back."
+                : "When someone shares a project with you, comments or asks for access, while Nia is open. On this device."
+            }
+            checked={notices === "on"}
+            onCheckedChange={(checked) => void setDesktopNotices(checked)}
+          />
+        </SettingsCard>
+      )}
     </div>
   );
 }
