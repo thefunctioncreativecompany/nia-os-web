@@ -91,6 +91,8 @@ export default function Page() {
               from Google APIs will adhere to the{" "}
               <a
                 href="https://developers.google.com/terms/api-services-user-data-policy"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-nia-ink underline"
               >
                 Google API Services User Data Policy
