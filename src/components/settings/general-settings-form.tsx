@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import type { GeneralSettings } from "@/lib/settings";
 import { createClient } from "@/lib/supabase/client";
 import { playSound, setSoundsOn, soundsOn, subscribeSounds } from "@/lib/sounds";
-import { desktopNotices, desktopNoticesSupported, setDesktopNotices, subscribeDesktopNotices } from "@/lib/desktop-notices";
+import { desktopNotices, desktopNoticesSupported, pushAvailable, setDesktopNotices, subscribeDesktopNotices } from "@/lib/desktop-notices";
 import { setTheme, subscribeTheme, THEME_CHOICES, themeChoice } from "@/lib/theme";
 import { ChoicePills } from "@/components/nia/choice-pills";
 import { Input } from "@/components/ui/input";
@@ -36,6 +36,7 @@ export function GeneralSettingsForm({
   const sounds = useSyncExternalStore(subscribeSounds, soundsOn, () => true);
   const notices = useSyncExternalStore(subscribeDesktopNotices, desktopNotices, () => "off" as const);
   const canNotify = useSyncExternalStore(subscribeDesktopNotices, desktopNoticesSupported, () => false);
+  const closedToo = useSyncExternalStore(subscribeDesktopNotices, pushAvailable, () => false);
   const theme = useSyncExternalStore(subscribeTheme, themeChoice, () => "system" as const);
 
   const handleSave = async (e: React.FormEvent) => {
@@ -123,7 +124,7 @@ export function GeneralSettingsForm({
             description={
               notices === "blocked"
                 ? "Your browser is blocking them. Allow notifications for Nia in the browser's site settings, then come back."
-                : "When someone shares a project with you, comments or asks for access, while Nia is open. On this device."
+                : `When someone shares a project with you, comments or asks for access, ${closedToo ? "even when Nia is closed" : "while Nia is open"}. On this device.`
             }
             checked={notices === "on"}
             onCheckedChange={(checked) => void setDesktopNotices(checked)}

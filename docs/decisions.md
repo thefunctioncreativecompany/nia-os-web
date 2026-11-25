@@ -1372,3 +1372,10 @@ onboarding's Import profile and Follow creators describe features removed in the
   open, and the Files section lost its own upload (one way in; Documents takes documents). From
   Overview, an uploaded picture opens itself in References' viewer (?ref=); Explore titles and
   Instagram posts open their own pages, as in References.
+- (2026-11-25) Desktop notifications, step 2 (Ika: "do C2"): web push. The browser's address is
+  saved per person through two functions (no direct table access); one address per browser, so
+  it follows whichever account turned notices on last. The database calls Nia (a Supabase
+  database webhook with a secret header, set in the dashboard so the secret stays out of code),
+  and Nia sends with web-push 3.6.7 (the long-standing release, not the two-week-old 4.0). When
+  push is on, the open page stops showing notices itself so nothing shows twice. Log out takes
+  the address away and turns the device setting off.

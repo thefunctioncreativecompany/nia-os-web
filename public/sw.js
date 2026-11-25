@@ -1,5 +1,7 @@
-// Nia's service worker (FEEDBACK D5, Ika 2026-11-25): documents you open stay readable offline.
+// Nia's service worker. Two jobs: documents you open stay readable offline (FEEDBACK D5), and
+// notices arrive when Nia is closed (FEEDBACK D6 step 2, at the end of this file).
 //
+// Offline (Ika 2026-11-25):
 // - Each document page you open is saved on this computer (the page asks: "save"), with the
 //   files it needs to draw. The newest 20 are kept.
 // - Pages always come from the internet first. Only when that fails does a saved document open
@@ -148,3 +150,45 @@ async function clearAll() {
   await caches.delete(DOCS);
   await tidy();
 }
+
+// Notices (FEEDBACK D6 step 2): Nia's server sends {title, body, href, tag} (src/lib/push.ts).
+// Someone looking at Nia sees it in Updates, so nothing pops up then.
+self.addEventListener("push", (event) => {
+  let notice = null;
+  try {
+    notice = event.data ? event.data.json() : null;
+  } catch {}
+  if (!notice || !notice.title) return;
+  event.waitUntil(
+    (async () => {
+      const windows = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+      if (windows.some((w) => w.focused)) return;
+      await self.registration.showNotification(notice.title, {
+        body: notice.body || "",
+        tag: notice.tag,
+        icon: "/app-icons/icon-192.png",
+        data: { href: notice.href || "/home" },
+      });
+    })(),
+  );
+});
+
+// Clicking a notice: Nia comes forward on that page (or opens on it).
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const href = new URL((event.notification.data && event.notification.data.href) || "/home", self.location.origin).href;
+  event.waitUntil(
+    (async () => {
+      const windows = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+      const nia = windows.find((w) => new URL(w.url).origin === self.location.origin);
+      if (nia) {
+        await nia.focus();
+        try {
+          await nia.navigate(href);
+          return;
+        } catch {}
+      }
+      await self.clients.openWindow(href);
+    })(),
+  );
+});
