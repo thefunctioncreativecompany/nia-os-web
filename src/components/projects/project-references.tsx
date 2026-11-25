@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Check, ChevronLeft, ChevronRight, Download, FolderPlus, MoreHorizontal, X } from "lucide-react";
+import { ArrowUpRight, Check, ChevronLeft, ChevronRight, Download, FolderPlus, MoreHorizontal, Play, X } from "lucide-react";
 import { toast } from "sonner";
 
 import { createClient } from "@/lib/supabase/client";
@@ -10,9 +10,11 @@ import { currentUser } from "@/lib/supabase/current-user";
 import type { ProjectFile } from "@/lib/projects-data";
 import { timeAgo } from "@/lib/projects";
 import { cn } from "@/lib/utils";
-import { exploreItem } from "@/features/explore/items";
+import { exploreItem, hoverVideoId } from "@/features/explore/items";
 import { loadReferences, removeReference } from "@/features/explore/saves";
 import { loadInstagramReferences, referenceHref, type InstagramReference } from "@/lib/instagram-references";
+import { instagramEmbedFor, type InstagramLink } from "@/lib/instagram";
+import { sentenceCase } from "@/lib/sentence-case";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -26,6 +28,7 @@ import { NotYet } from "@/components/nia/not-yet";
 import { CARD_DRAG_TYPE } from "@/components/nia/drag-reorder";
 import { Dropzone, PageIcon, useProjectFiles } from "./project-files";
 import { AddInstagramReference } from "./add-instagram-reference";
+import { leadName } from "./instagram-reference-card";
 import { REFERENCES_CHANGED } from "./references-events";
 
 // A project's references in folders (Ika, 2026-11-24, PR1: "teams sort references into named
@@ -37,7 +40,14 @@ import { REFERENCES_CHANGED } from "./references-events";
 // rename, reorder and remove folders, move references by Select + Move to, or by dragging a tile
 // onto a folder, and drag tiles to reorder them (the team's order, `position`, as on Overview).
 // Opening a tile shows the viewer: the picture, previous and next (buttons and arrow keys), and its
-// details (where it's from, folder, note, links).
+// details (where it's from, folder, note, links). Anything that plays plays there (PR4, 2026-11-25:
+// Instagram's player, an Explore title's trailer, uploaded video and sound).
+// Selecting works like Finder, File Explorer and Bridge (PR5, Ika 2026-11-25; one click still opens):
+// ⌘/Ctrl-click adds one, Shift-click a range, dragging a box across empty space selects what it
+// touches, the circle on a tile selects it, and once something's selected a click adds to it.
+// ⌘/Ctrl+A selects all, Esc clears, arrows move (Shift extends), Space or Enter opens (Space again
+// closes, Quick Look), ⌘⇧N / Ctrl+Shift+N makes a folder (with the selection in it), ⌘⌫ / Delete
+// removes the selection. Dragging a selection onto a folder moves all of it. Phones keep Select.
 
 type Folder = { id: string; name: string; position: number | null };
 type Table = "project_files" | "project_references";
@@ -53,7 +63,13 @@ type Item = {
   source: string;
   link?: { href: string; label: string; external?: boolean };
   file?: ProjectFile;
+  /** What plays in the viewer, if anything. */
+  play?: Playable;
+  /** A label on the tile (an Instagram post's kind of film) and who made it. */
+  label?: string | null;
+  maker?: string | null;
 };
+type Playable = { kind: "instagram"; link: InstagramLink; aspect: number; frame: number | null } | { kind: "youtube"; id: string } | { kind: "video" } | { kind: "audio" };
 type Placed = { folder: string | null; position: number | null; note: string | null; /** Who added it. */ by?: string | null };
 /** All, things in no folder, or one folder. */
 type View = "all" | "unsorted" | string;
@@ -146,10 +162,14 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
       source: `Uploaded ${timeAgo(f.createdAt, now)}`,
       link: f.url ? { href: `${f.url}&download=${encodeURIComponent(f.name)}`, label: "Download" } : undefined,
       file: f,
+      play: f.kind === "video" ? { kind: "video" } : f.kind === "audio" ? { kind: "audio" } : undefined,
     })),
     ...(explore ?? []).flatMap((r): Item[] => {
       const entry = exploreItem(r.slug);
-      return entry ? [{ id: r.id, table: "project_references", name: entry.title, thumb: entry.image, picture: entry.image, at: r.at, source: "From Explore", link: { href: entry.href(), label: "Open in Explore" } }] : [];
+      const trailer = hoverVideoId(r.slug);
+      return entry
+        ? [{ id: r.id, table: "project_references", name: entry.title, thumb: entry.image, picture: entry.image, at: r.at, source: "From Explore", link: { href: entry.href(), label: "Open in Explore" }, play: trailer ? { kind: "youtube", id: trailer } : undefined }]
+        : [];
     }),
     ...(posts ?? []).map((p): Item => ({
       id: p.id,
@@ -160,6 +180,9 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
       at: p.createdAt,
       source: p.account ? `Instagram · @${p.account}` : "Instagram",
       link: { href: referenceHref(projectId, p.id), label: "Open the post" },
+      play: { kind: "instagram", link: p.link, aspect: p.aspect ?? 4 / 5, frame: p.frame },
+      label: p.productionType ? sentenceCase(p.productionType) : null,
+      maker: leadName(p),
     })),
   ];
   const place = (id: string) => placed.get(id) ?? { folder: null, position: null, note: null };
@@ -238,7 +261,8 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
   };
 
   // ---- Folders ----
-  const [naming, setNaming] = useState<{ folder: Folder | null } | null>(null);
+  // `withSelection`: a new folder that takes what's selected (Finder's New Folder with Selection).
+  const [naming, setNaming] = useState<{ folder: Folder | null; withSelection?: boolean } | null>(null);
   const [confirmRemove, setConfirmRemove] = useState<Folder | null>(null);
   const saveFolder = async (name: string) => {
     const clean = name.trim().slice(0, 60);
@@ -264,6 +288,10 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
       return false;
     }
     setFolders((was) => [...(was ?? []), data as Folder]);
+    if (naming?.withSelection && pickedItems.length) {
+      await moveTo(pickedItems, (data as Folder).id);
+      clearPicked();
+    }
     setView((data as Folder).id);
     return true;
   };
@@ -291,22 +319,138 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
     toast.success(`Removed ${folder.name}. Its references are in Unsorted.`);
   };
 
-  // ---- Selecting several ----
+  // ---- Selecting (Finder, File Explorer, Bridge) ----
+  // Touch screens turn on selecting with the Select button; pointers select straight away.
   const [selecting, setSelecting] = useState(false);
   const [picked, setPicked] = useState<Set<string>>(new Set());
-  const stopSelecting = () => {
+  const anchor = useRef<number | null>(null);
+  const pickedItems = shown.filter((i) => picked.has(i.id));
+  const choosing = selecting || picked.size > 0;
+  const clearPicked = () => {
     setSelecting(false);
     setPicked(new Set());
+    anchor.current = null;
   };
-  const pick = (id: string) =>
+  const toggle = (id: string) =>
     setPicked((was) => {
       const next = new Set(was);
       if (next.has(id)) next.delete(id);
       else next.add(id);
       return next;
     });
+  const pickRange = (to: number, keep: boolean) => {
+    const from = anchor.current ?? to;
+    const ids = shown.slice(Math.min(from, to), Math.max(from, to) + 1).map((i) => i.id);
+    setPicked((was) => new Set([...(keep ? was : []), ...ids]));
+  };
+  const onTile = (e: React.MouseEvent, item: Item, i: number) => {
+    if (canEdit && (e.metaKey || e.ctrlKey)) {
+      toggle(item.id);
+      anchor.current = i;
+    } else if (canEdit && e.shiftKey) pickRange(i, e.metaKey || e.ctrlKey);
+    else if (choosing) {
+      toggle(item.id);
+      anchor.current = i;
+    } else setViewing(i);
+  };
 
-  // ---- Dragging a tile (onto another tile to reorder, onto a folder to move it there) ----
+  // Dragging a box across empty space selects what it touches (Shift or ⌘/Ctrl adds to the selection).
+  const grid = useRef<HTMLDivElement>(null);
+  const [box, setBox] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
+  const boxStart = useRef<{ x: number; y: number; base: Set<string> } | null>(null);
+  const onGridPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!canEdit || e.button !== 0 || e.pointerType !== "mouse" || (e.target as HTMLElement).closest("[data-tile]")) return;
+    const r = grid.current!.getBoundingClientRect();
+    boxStart.current = { x: e.clientX - r.left, y: e.clientY - r.top, base: e.shiftKey || e.metaKey || e.ctrlKey ? new Set(picked) : new Set() };
+    if (!e.shiftKey && !e.metaKey && !e.ctrlKey) setPicked(new Set());
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+  const onGridPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const start = boxStart.current;
+    if (!start || !grid.current) return;
+    const r = grid.current.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    const rect = { x: Math.min(start.x, x), y: Math.min(start.y, y), w: Math.abs(x - start.x), h: Math.abs(y - start.y) };
+    if (rect.w < 4 && rect.h < 4) return;
+    setBox(rect);
+    const hit = new Set(start.base);
+    grid.current.querySelectorAll<HTMLElement>("[data-tile]").forEach((el) => {
+      const t = el.getBoundingClientRect();
+      const tx = t.left - r.left;
+      const ty = t.top - r.top;
+      if (tx < rect.x + rect.w && tx + t.width > rect.x && ty < rect.y + rect.h && ty + t.height > rect.y) hit.add(el.dataset.tile!);
+    });
+    setPicked(hit);
+  };
+  const onGridPointerUp = () => {
+    boxStart.current = null;
+    setBox(null);
+  };
+
+  // Keys in the grid.
+  const tileButtons = () => [...(grid.current?.querySelectorAll<HTMLButtonElement>("[data-tile] > button[data-open]") ?? [])];
+  const onGridKey = (e: React.KeyboardEvent) => {
+    const mod = e.metaKey || e.ctrlKey;
+    const buttons = tileButtons();
+    const at = buttons.indexOf(document.activeElement as HTMLButtonElement);
+    if (canEdit && mod && e.key.toLowerCase() === "a") {
+      e.preventDefault();
+      setPicked(new Set(shown.map((i) => i.id)));
+    } else if (e.key === "Escape" && picked.size) {
+      e.preventDefault();
+      clearPicked();
+    } else if (e.key === " " && at >= 0) {
+      e.preventDefault();
+      setViewing(at);
+    } else if (canEdit && picked.size && ((e.key === "Backspace" && mod) || e.key === "Delete")) {
+      e.preventDefault();
+      setConfirmBulk(true);
+    } else if (at >= 0 && ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
+      e.preventDefault();
+      const top = buttons[0].getBoundingClientRect().top;
+      const cols = Math.max(1, buttons.filter((b) => Math.abs(b.getBoundingClientRect().top - top) < 2).length);
+      const by = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -cols, ArrowDown: cols }[e.key]!;
+      const to = Math.min(buttons.length - 1, Math.max(0, at + by));
+      buttons[to].focus();
+      if (canEdit && e.shiftKey) {
+        if (anchor.current === null) anchor.current = at;
+        pickRange(to, false);
+      }
+    }
+  };
+  // ⌘⇧N / Ctrl+Shift+N: a new folder, taking the selection when there is one.
+  useEffect(() => {
+    if (!canEdit || !foldersOn) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (!(e.metaKey || e.ctrlKey) || !e.shiftKey || e.key.toLowerCase() !== "n") return;
+      if ((e.target as HTMLElement).closest("input, textarea, [contenteditable], [role=dialog]")) return;
+      e.preventDefault();
+      setNaming({ folder: null, withSelection: picked.size > 0 });
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [canEdit, foldersOn, picked]);
+
+  // Removing what's selected: pictures go to the archive, linked titles and posts come off.
+  const [confirmBulk, setConfirmBulk] = useState(false);
+  const removePicked = async () => {
+    const list = pickedItems;
+    const filesOut = list.filter((i) => i.file);
+    const linksOut = list.filter((i) => !i.file);
+    const results = await Promise.all([...filesOut.map((i) => db().rpc("remove_project_file", { file_id: i.id })), ...linksOut.map((i) => removeReference(db(), i.id))]);
+    const failed = results.filter((r) => ("error" in r && r.error) || ("ready" in r && !r.ready)).length;
+    clearPicked();
+    if (failed) toast.error(`Couldn't remove ${failed} of them. Try again.`);
+    else toast.success(`Removed ${list.length} ${list.length === 1 ? "reference" : "references"}${filesOut.length ? "; pictures are in the archive" : ""}.`);
+    if (filesOut.length) refresh();
+    if (linksOut.length) {
+      await loadLinked();
+      window.dispatchEvent(new Event(REFERENCES_CHANGED));
+    }
+  };
+
+  // ---- Dragging (onto a folder to move what's dragged there, onto a tile to reorder one) ----
   const [dragging, setDragging] = useState<string | null>(null);
   const [over, setOver] = useState<string | null>(null);
   const carries = (e: React.DragEvent) => [...e.dataTransfer.types].includes(CARD_DRAG_TYPE);
@@ -320,10 +464,10 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
           },
           onDragLeave: () => setOver(null),
           onDrop: (e: React.DragEvent) => {
-            const id = e.dataTransfer.getData(CARD_DRAG_TYPE);
+            const ids = e.dataTransfer.getData(CARD_DRAG_TYPE).split(",");
             setOver(null);
-            const item = items.find((i) => i.id === id);
-            if (item && folderOf(item.id) !== folder) void moveTo([item], folder);
+            const list = items.filter((i) => ids.includes(i.id) && folderOf(i.id) !== folder);
+            if (list.length) void moveTo(list, folder).then(() => ids.length > 1 && setPicked(new Set()));
           },
         }
       : {};
@@ -361,8 +505,9 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
         {canEdit && (
           <div className="flex items-center gap-2">
             {shown.length > 1 && (
-              <Button variant="ghost" size="compact" onClick={() => (selecting ? stopSelecting() : setSelecting(true))}>
-                {selecting ? "Done" : "Select"}
+              // Touch screens: pointers select by clicking (see above).
+              <Button variant="ghost" size="compact" className="pointer-fine:hidden" onClick={() => (choosing ? clearPicked() : setSelecting(true))}>
+                {choosing ? "Done" : "Select"}
               </Button>
             )}
             <Button variant="secondary" size="compact" aria-expanded={adding} onClick={() => setAdding((a) => !a)}>
@@ -442,63 +587,101 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
           {items.length === 0 ? (canEdit ? "No references yet. Add pictures or Instagram links, or titles from Inspiration below." : "No references yet.") : currentFolder ? `Nothing in ${currentFolder.name} yet.` : "Nothing here."}
         </p>
       ) : (
-        <ul className="grid grid-cols-3 items-start gap-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8">
-          {shown.map((item, i) => {
-            const on = picked.has(item.id);
-            return (
-              <li
-                key={item.id}
-                className={cn("group relative flex min-w-0 flex-col gap-1.5 rounded-lg", dragging === item.id && "opacity-40", over === item.id && dragging !== item.id && "ring-3 ring-nia-blue/60")}
-                draggable={canEdit && !selecting}
-                onDragStart={(e) => {
-                  e.dataTransfer.setData(CARD_DRAG_TYPE, item.id);
-                  e.dataTransfer.effectAllowed = "move";
-                  setDragging(item.id);
-                }}
-                onDragEnd={() => {
-                  setDragging(null);
-                  setOver(null);
-                }}
-                onDragOver={(e) => {
-                  if (!dragging || !carries(e)) return;
-                  e.preventDefault();
-                  setOver(item.id);
-                }}
-                onDrop={(e) => {
-                  const id = e.dataTransfer.getData(CARD_DRAG_TYPE);
-                  setOver(null);
-                  if (id) void reorder(id, item.id);
-                }}
-              >
-                <button
-                  type="button"
-                  aria-label={selecting ? `Select ${item.name}` : `Open ${item.name}`}
-                  aria-pressed={selecting ? on : undefined}
-                  onClick={() => (selecting ? pick(item.id) : setViewing(i))}
-                  className={cn("relative block aspect-[4/5] w-full overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50", on && "ring-3 ring-nia-blue")}
+        <div
+          ref={grid}
+          className="relative -m-2 p-2 select-none"
+          onPointerDown={onGridPointerDown}
+          onPointerMove={onGridPointerMove}
+          onPointerUp={onGridPointerUp}
+          onPointerCancel={onGridPointerUp}
+          onKeyDown={onGridKey}
+        >
+          <ul aria-label="References" className="grid grid-cols-3 items-start gap-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8">
+            {shown.map((item, i) => {
+              const on = picked.has(item.id);
+              return (
+                <li
+                  key={item.id}
+                  data-tile={item.id}
+                  className={cn("group relative flex min-w-0 flex-col gap-1.5 rounded-lg", dragging && (dragging === item.id || (picked.has(dragging) && on)) && "opacity-40", over === item.id && dragging !== item.id && "ring-3 ring-nia-blue/60")}
+                  draggable={canEdit && !selecting}
+                  onDragStart={(e) => {
+                    // A selected tile carries the whole selection.
+                    const ids = on && picked.size > 1 ? pickedItems.map((x) => x.id) : [item.id];
+                    e.dataTransfer.setData(CARD_DRAG_TYPE, ids.join(","));
+                    e.dataTransfer.effectAllowed = "move";
+                    setDragging(item.id);
+                  }}
+                  onDragEnd={() => {
+                    setDragging(null);
+                    setOver(null);
+                  }}
+                  onDragOver={(e) => {
+                    if (!dragging || !carries(e)) return;
+                    e.preventDefault();
+                    setOver(item.id);
+                  }}
+                  onDrop={(e) => {
+                    const ids = e.dataTransfer.getData(CARD_DRAG_TYPE).split(",");
+                    setOver(null);
+                    if (ids.length === 1 && ids[0]) void reorder(ids[0], item.id);
+                  }}
                 >
-                  {item.thumb ? (
-                    // eslint-disable-next-line @next/next/no-img-element -- private files use short-lived links, which the image optimiser would cache
-                    <img src={item.thumb} alt="" loading="lazy" draggable={false} className="size-full object-cover transition-transform duration-base ease-out group-hover:scale-[1.03]" />
-                  ) : item.file ? (
-                    <span className="flex size-full items-center justify-center">
-                      <PageIcon name={item.file.name} kind={item.file.kind} size={44} />
-                    </span>
-                  ) : null}
-                  {selecting && (
-                    <span className={cn("absolute top-2 right-2 flex size-6 items-center justify-center rounded-full border-2", on ? "border-nia-blue bg-nia-blue text-nia-blue-foreground" : "border-white bg-black/20")}>
+                  <button
+                    type="button"
+                    data-open
+                    aria-label={choosing ? `${on ? "Deselect" : "Select"} ${item.name}` : `Open ${item.name}`}
+                    onClick={(e) => onTile(e, item, i)}
+                    className={cn("relative block aspect-[4/5] w-full overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50", on && "ring-3 ring-nia-blue")}
+                  >
+                    {item.thumb ? (
+                      // Fitted, not cropped, as Bridge shows them. eslint-disable-next-line @next/next/no-img-element -- private files use short-lived links, which the image optimiser would cache
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={item.thumb} alt="" loading="lazy" draggable={false} className="size-full object-contain transition-transform duration-base ease-out group-hover:scale-[1.03]" />
+                    ) : item.file ? (
+                      <span className="flex size-full items-center justify-center">
+                        <PageIcon name={item.file.name} kind={item.file.kind} size={44} />
+                      </span>
+                    ) : null}
+                    {item.label && <span className="absolute top-1.5 left-1.5 max-w-[calc(100%-2.5rem)] truncate rounded-full bg-card/90 px-2 py-0.5 text-meta font-semibold text-foreground">{item.label}</span>}
+                    {item.play && (
+                      <span aria-hidden className="absolute right-1.5 bottom-1.5 flex size-7 items-center justify-center rounded-full bg-black/55 text-white">
+                        <Play className="ml-0.5 size-3.5 fill-current" />
+                      </span>
+                    )}
+                  </button>
+                  {canEdit && (
+                    // The circle that selects without opening (shown on hover, and while choosing).
+                    <button
+                      type="button"
+                      tabIndex={-1}
+                      aria-label={`${on ? "Deselect" : "Select"} ${item.name}`}
+                      onClick={() => {
+                        toggle(item.id);
+                        anchor.current = i;
+                      }}
+                      className={cn(
+                        "absolute top-1.5 right-1.5 flex size-6 items-center justify-center rounded-full border-2 outline-none transition-opacity duration-fast",
+                        on ? "border-nia-blue bg-nia-blue text-nia-blue-foreground" : "border-white bg-black/25",
+                        on || choosing ? "opacity-100" : "opacity-0 group-hover:opacity-100 pointer-coarse:hidden",
+                      )}
+                    >
                       {on && <Check aria-hidden className="size-3.5" />}
-                    </span>
+                    </button>
                   )}
-                </button>
-                <span className="truncate text-small font-medium text-foreground">{item.name}</span>
-              </li>
-            );
-          })}
-        </ul>
+                  <span className="flex min-w-0 flex-col">
+                    <span className="truncate text-small font-medium text-foreground">{item.name}</span>
+                    {item.maker && <span className="truncate text-caption text-muted-foreground">{item.maker}</span>}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+          {box && <span aria-hidden className="pointer-events-none absolute rounded-sm border border-nia-blue bg-nia-blue/10" style={{ left: box.x, top: box.y, width: box.w, height: box.h }} />}
+        </div>
       )}
 
-      {selecting && (
+      {choosing && (
         <div role="toolbar" aria-label="Selected references" className="fixed inset-x-0 bottom-28 z-40 mx-auto flex w-fit max-w-[calc(100%-2rem)] flex-wrap items-center gap-2 rounded-full border border-border bg-card p-2 pl-4 shadow-elevation-2 lg:bottom-6">
           <span aria-live="polite" className="text-small font-semibold text-foreground tabular-nums">
             {picked.size} selected
@@ -507,33 +690,54 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
             Select all
           </Button>
           {foldersOn && (
-            <Select
-              value=""
-              disabled={!picked.size}
-              onValueChange={(v) => {
-                if (v === "new") return setNaming({ folder: null });
-                void moveTo(shown.filter((i) => picked.has(i.id)), v === "unsorted" ? null : v).then(stopSelecting);
-              }}
-            >
-              <SelectTrigger aria-label="Move selected to" className="h-8 w-auto rounded-full text-small">
-                <SelectValue placeholder="Move to…" />
-              </SelectTrigger>
-              <SelectContent>
-                {(folders ?? []).map((f) => (
-                  <SelectItem key={f.id} value={f.id}>
-                    {f.name}
-                  </SelectItem>
-                ))}
-                <SelectItem value="unsorted">Unsorted</SelectItem>
-                <SelectItem value="new">New folder…</SelectItem>
-              </SelectContent>
-            </Select>
+            <>
+              <Select value="" disabled={!picked.size} onValueChange={(v) => void moveTo(pickedItems, v === "unsorted" ? null : v).then(clearPicked)}>
+                <SelectTrigger aria-label="Move selected to" className="h-8 w-auto rounded-full text-small">
+                  <SelectValue placeholder="Move to…" />
+                </SelectTrigger>
+                <SelectContent>
+                  {(folders ?? []).map((f) => (
+                    <SelectItem key={f.id} value={f.id}>
+                      {f.name}
+                    </SelectItem>
+                  ))}
+                  <SelectItem value="unsorted">Unsorted</SelectItem>
+                </SelectContent>
+              </Select>
+              <Button variant="ghost" size="compact" disabled={!picked.size} onClick={() => setNaming({ folder: null, withSelection: true })}>
+                New folder with these
+              </Button>
+            </>
           )}
-          <Button variant="ghost" size="icon-sm" aria-label="Stop selecting" onClick={stopSelecting}>
+          <Button variant="ghost" size="compact" disabled={!picked.size} onClick={() => setConfirmBulk(true)}>
+            Remove
+          </Button>
+          <Button variant="ghost" size="icon-sm" aria-label="Clear the selection" onClick={clearPicked}>
             <X />
           </Button>
         </div>
       )}
+
+      <AlertDialog open={confirmBulk} onOpenChange={setConfirmBulk}>
+        <AlertDialogContent className="max-w-110 gap-4">
+          <AlertDialogTitle className="text-left text-lg">
+            Remove {picked.size} {picked.size === 1 ? "reference" : "references"}?
+          </AlertDialogTitle>
+          <AlertDialogDescription className="text-sm leading-normal text-muted-foreground">Uploaded pictures go to the project&apos;s archive, where they can be restored. Explore titles and Instagram posts come off this project.</AlertDialogDescription>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              variant="danger"
+              onClick={() => {
+                setConfirmBulk(false);
+                void removePicked();
+              }}
+            >
+              Remove
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       <FolderNameDialog open={naming !== null} folder={naming?.folder ?? null} onClose={() => setNaming(null)} onSave={saveFolder} />
 
@@ -561,24 +765,20 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
           showCloseButton={false}
           className="flex h-[min(92svh,60rem)] max-w-[min(96vw,90rem)] flex-col gap-0 overflow-hidden p-0 sm:max-w-[min(96vw,90rem)] lg:flex-row"
           onKeyDown={(e) => {
-            if (e.target instanceof HTMLTextAreaElement) return;
+            if ((e.target as HTMLElement).closest("textarea, input, select, [role=combobox], iframe")) return;
             if (e.key === "ArrowRight") step(1);
             if (e.key === "ArrowLeft") step(-1);
+            // Space again closes, as Quick Look does.
+            if (e.key === " " && !(e.target instanceof HTMLButtonElement)) {
+              e.preventDefault();
+              setViewing(null);
+            }
           }}
         >
           {open && (
             <>
               <div className="relative flex min-h-0 flex-1 items-center justify-center bg-foreground">
-                {open.file?.kind === "video" && open.file.url ? (
-                  <video key={open.id} controls preload="metadata" src={open.file.url} className="max-h-full max-w-full" />
-                ) : open.file?.kind === "audio" && open.file.url ? (
-                  <audio key={open.id} controls preload="none" src={open.file.url} className="w-3/4" />
-                ) : open.picture ? (
-                  // eslint-disable-next-line @next/next/no-img-element -- see above
-                  <img key={open.id} src={open.picture} alt={open.name} className="max-h-full max-w-full object-contain" />
-                ) : open.file ? (
-                  <PageIcon name={open.file.name} kind={open.file.kind} size={96} />
-                ) : null}
+                <Stage key={open.id} item={open} />
                 <button type="button" aria-label="Close" onClick={() => setViewing(null)} className="absolute top-3 left-3 flex size-9 items-center justify-center rounded-full bg-black/50 text-white outline-none hover:bg-black/70 focus-visible:ring-3 focus-visible:ring-white/50">
                   <X className="size-4" />
                 </button>
@@ -623,6 +823,65 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
         </DialogContent>
       </Dialog>
     </section>
+  );
+}
+
+/** The viewer's picture, or what plays: Instagram's player, a trailer, a video or sound. */
+function Stage({ item }: { item: Item }) {
+  const [playing, setPlaying] = useState(false);
+  const play = item.play;
+  if (play?.kind === "video" && item.file?.url) return <video controls autoPlay preload="metadata" src={item.file.url} className="max-h-full max-w-full" />;
+  if (play?.kind === "audio" && item.file?.url) return <audio controls autoPlay preload="none" src={item.file.url} className="w-3/4" />;
+  if (playing && play?.kind === "youtube")
+    return (
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${play.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+        title={`${item.name}: trailer`}
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+        allowFullScreen
+        className="aspect-video max-h-full w-full max-w-full bg-black"
+      />
+    );
+  if (playing && play?.kind === "instagram") {
+    // As the post's own page: Instagram's header (and a film's black bars) sit above the frame.
+    const shape = play.frame ? play.aspect : Math.max(play.aspect, 4 / 5);
+    const post = play.frame ? play.aspect / play.frame : 1;
+    return (
+      <div className="relative h-full max-h-full overflow-hidden" style={{ aspectRatio: shape }}>
+        <iframe
+          src={instagramEmbedFor(play.link)}
+          title={`${item.name}, on Instagram`}
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          scrolling="no"
+          className="absolute inset-x-0 w-full bg-foreground"
+          style={{ top: `calc(var(--spacing) * -13.5 - ${((post - 1) / 2) * 100}%)`, height: `calc(${post * 100}% + var(--spacing) * 73.5)` }}
+        />
+      </div>
+    );
+  }
+  return (
+    <>
+      {item.picture ? (
+        // eslint-disable-next-line @next/next/no-img-element -- private files use short-lived links, which the image optimiser would cache
+        <img src={item.picture} alt={item.name} className="max-h-full max-w-full object-contain" />
+      ) : item.file ? (
+        <PageIcon name={item.file.name} kind={item.file.kind} size={96} />
+      ) : null}
+      {(play?.kind === "youtube" || play?.kind === "instagram") && (
+        <button
+          type="button"
+          onClick={() => setPlaying(true)}
+          aria-label={play.kind === "youtube" ? `Play the trailer for ${item.name}` : `Play ${item.name}, from Instagram`}
+          className="group absolute inset-0 flex items-center justify-center outline-none focus-visible:ring-3 focus-visible:ring-white/50 focus-visible:ring-inset"
+        >
+          <span className="flex size-16 items-center justify-center rounded-full bg-card/90 text-foreground shadow-card-hover transition-transform duration-fast ease-out group-hover:scale-105 motion-reduce:scale-100!">
+            <Play aria-hidden className="ml-1 size-6 fill-current" />
+          </span>
+        </button>
+      )}
+    </>
   );
 }
 

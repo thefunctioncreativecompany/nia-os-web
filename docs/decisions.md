@@ -1352,3 +1352,14 @@ onboarding's Import profile and Follow creators describe features removed in the
   details beside the list (in place of it on phones) save as they change; drag a row within its
   group, or Move up/down. Assignees come from the project's cast & crew only (the database checks,
   20261125000000_milestones_detail.sql). Rules and tests in `src/features/milestones/rules.ts`.
+- (2026-11-25) References play again and select like Finder (PR4, PR5; Ika: "it's not playing/showing
+  the content as it previously did, selecting images to move/group is clunky … learn shortcuts from
+  Finder, File Explorer and Adobe Bridge"). Tiles fit each reference at its real shape (as Bridge),
+  with ▶ on anything that plays; the viewer plays Instagram posts in Instagram's player (as the post's
+  page), Explore trailers (YouTube's privacy-enhanced player, on Play) and uploaded video and sound.
+  Ika kept one click to open (not Finder's click to select), so selecting is ⌘/Ctrl-click, Shift-click,
+  a box dragged across empty space, or the circle on a tile; once something's selected a click adds
+  to it. ⌘A, Esc, arrows (Shift extends), Space for Quick Look, ⌘⇧N / Ctrl+Shift+N (a new folder with
+  the selection, Finder's New Folder with Selection), ⌘⌫ / Delete (asks first). Dragging a selected
+  tile carries the selection onto a folder. No trailers on hover in the grid (they play in the
+  viewer). Phones keep the Select button. Files gets the same next.
