@@ -647,7 +647,6 @@ const TABS = TAGS.filter((t) => t.value !== "final" && t.value !== "reference");
 
 export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: string; files: ProjectFile[]; canEdit: boolean; now: number }) {
   const [tab, setTab] = useState<Tab>("all");
-  const [uploadTag, setUploadTag] = useState<FileTag | "auto">("auto");
   const { live: all, remove, retag, retagMany, refresh, restored } = useProjectFiles(files);
 
   const live = all.filter((f) => !isFinal(f) && f.tag !== "reference");
@@ -703,27 +702,8 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
           </Button>
         )}
       </div>
-      {canEdit && (
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2 text-small text-muted-foreground">
-            <span id="upload-tag">Tag new files as</span>
-            <Select value={uploadTag} onValueChange={(v) => setUploadTag(v as FileTag | "auto")}>
-              <SelectTrigger aria-labelledby="upload-tag" className="h-8 w-auto rounded-full text-small">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="auto">Automatic (by kind of file)</SelectItem>
-                {TAGS.map((t) => (
-                  <SelectItem key={t.value} value={t.value}>
-                    {t.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <Dropzone projectId={projectId} tag={uploadTag} onUploaded={refresh} />
-        </div>
-      )}
+      {/* Uploads go in through References above (Ika, 2026-11-25: one upload bar on the tab) and
+          Documents; files are listed and tagged here. */}
       {live.length === 0 && !canEdit && <p className="text-small text-muted-foreground">No files yet.</p>}
       {canEdit && <ArchiveButton projectId={projectId} onChanged={refresh} onRestored={restored} />}
       {live.length > 0 && inTab.length === 0 && <p className="text-small text-muted-foreground">Nothing tagged {TAGS.find((t) => t.value === tab)?.label.toLowerCase()} yet. Change a file&rsquo;s tag from the menu on it.</p>}

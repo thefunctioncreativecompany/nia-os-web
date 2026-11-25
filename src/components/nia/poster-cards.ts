@@ -10,7 +10,9 @@ import type { CSSProperties } from "react";
 export const POSTER = 268 / 373;
 
 /** A card's width for a picture of this shape (width ÷ height); portrait or unknown: a poster. */
-export const posterSpan = (shape?: number | null) => ({ "--span": Math.max(POSTER, shape || POSTER) / POSTER }) as CSSProperties;
+// Each card at its picture's own shape, as tall as a poster (Ika's rule, 2026-11-25: always the content's
+// own ratio), so a portrait picture is narrower and a wide one wider; none is cropped.
+export const posterSpan = (shape?: number | null) => ({ "--span": (shape || POSTER) / POSTER }) as CSSProperties;
 
 /** The card: put `posterSpan(shape)` in its style. */
 export const POSTER_CARD = "group/card flex w-[calc(13rem*var(--span,1))] max-w-[85vw] shrink-0 snap-start flex-col gap-2.5 rounded-xl transition-opacity duration-fast print:break-inside-avoid";

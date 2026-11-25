@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowUpRight, Check, ChevronLeft, ChevronRight, Download, FolderPlus, MoreHorizontal, Play, X } from "lucide-react";
 import { toast } from "sonner";
 
@@ -48,6 +49,10 @@ import { REFERENCES_CHANGED } from "./references-events";
 // ⌘/Ctrl+A selects all, Esc clears, arrows move (Shift extends), Space or Enter opens (Space again
 // closes, Quick Look), ⌘⇧N / Ctrl+Shift+N makes a folder (with the selection in it), ⌘⌫ / Delete
 // removes the selection. Dragging a selection onto a folder moves all of it. Phones keep Select.
+// Every reference shows at its own shape (Ika's rule, 2026-11-25: "always display it in the ratio of
+// the content itself, and the layout should adapt"): rows of even height that fill the width, each
+// tile as wide as its shape needs (like Google Photos; no masonry columns, which leave gaps). The
+// upload and link bar stays open for editors; a reference opened from Overview arrives as ?ref=.
 
 type Folder = { id: string; name: string; position: number | null };
 type Table = "project_files" | "project_references";
@@ -65,6 +70,8 @@ type Item = {
   file?: ProjectFile;
   /** What plays in the viewer, if anything. */
   play?: Playable;
+  /** Its shape (width ÷ height) when known before the picture loads. */
+  shape?: number;
   /** A label on the tile (an Instagram post's kind of film) and who made it. */
   label?: string | null;
   maker?: string | null;
@@ -75,8 +82,34 @@ type Placed = { folder: string | null; position: number | null; note: string | n
 type View = "all" | "unsorted" | string;
 
 const last = Number.MAX_SAFE_INTEGER;
+/** A film poster's shape (Explore's cards). */
+const POSTER = 268 / 373;
+const GAP = 12;
+
+/** Rows of even height that fill the width, each tile as wide as its shape needs; the last row keeps
+ * the usual height rather than stretching. Returns each tile's width and height. */
+function justify(shapes: number[], width: number) {
+  const target = width >= 1200 ? 220 : width >= 768 ? 180 : 120;
+  const out: { w: number; h: number }[] = [];
+  let row: number[] = [];
+  let sum = 0;
+  const close = (h: number) => {
+    for (const r of row) out.push({ w: Math.max(40, Math.floor(r * h)), h: Math.round(h) });
+    row = [];
+    sum = 0;
+  };
+  for (const r of shapes) {
+    row.push(r);
+    sum += r;
+    const gaps = GAP * (row.length - 1);
+    if (sum * target + gaps >= width) close(Math.min(target * 1.6, (width - gaps) / sum));
+  }
+  if (row.length) close(target);
+  return out;
+}
 
 export function ProjectReferences({ projectId, files, canEdit, now }: { projectId: string; files: ProjectFile[]; canEdit: boolean; now: number }) {
+  const router = useRouter();
   const { live, remove: archive, refresh } = useProjectFiles(files);
   const [folders, setFolders] = useState<Folder[] | null>(null);
   // Folders need their migration; until it's run the gallery shows without them.
@@ -168,7 +201,7 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
       const entry = exploreItem(r.slug);
       const trailer = hoverVideoId(r.slug);
       return entry
-        ? [{ id: r.id, table: "project_references", name: entry.title, thumb: entry.image, picture: entry.image, at: r.at, source: "From Explore", link: { href: entry.href(), label: "Open in Explore" }, play: trailer ? { kind: "youtube", id: trailer } : undefined }]
+        ? [{ id: r.id, table: "project_references", name: entry.title, thumb: entry.image, picture: entry.image, at: r.at, source: "From Explore", link: { href: entry.href(), label: "Open in Explore" }, play: trailer ? { kind: "youtube", id: trailer } : undefined, shape: entry.aspect ?? POSTER }]
         : [];
     }),
     ...(posts ?? []).map((p): Item => ({
@@ -181,6 +214,7 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
       source: p.account ? `Instagram · @${p.account}` : "Instagram",
       link: { href: referenceHref(projectId, p.id), label: "Open the post" },
       play: { kind: "instagram", link: p.link, aspect: p.aspect ?? 4 / 5, frame: p.frame },
+      shape: p.aspect ?? undefined,
       label: p.productionType ? sentenceCase(p.productionType) : null,
       maker: leadName(p),
     })),
@@ -351,7 +385,10 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
     else if (choosing) {
       toggle(item.id);
       anchor.current = i;
-    } else setViewing(i);
+    } else if (!item.file && item.link) router.push(item.link.href);
+    // An Explore title opens its page and an Instagram post its own (with Instagram's player), as
+    // before PR1 (Ika, 2026-11-25); uploads open the viewer.
+    else setViewing(i);
   };
 
   // Dragging a box across empty space selects what it touches (Shift or ⌘/Ctrl adds to the selection).
@@ -408,10 +445,17 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
       setConfirmBulk(true);
     } else if (at >= 0 && ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) {
       e.preventDefault();
-      const top = buttons[0].getBoundingClientRect().top;
-      const cols = Math.max(1, buttons.filter((b) => Math.abs(b.getBoundingClientRect().top - top) < 2).length);
-      const by = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -cols, ArrowDown: cols }[e.key]!;
-      const to = Math.min(buttons.length - 1, Math.max(0, at + by));
+      let to = at + (e.key === "ArrowLeft" ? -1 : e.key === "ArrowRight" ? 1 : 0);
+      if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+        // The nearest tile in the row above or below.
+        const here = buttons[at].getBoundingClientRect();
+        const mid = here.left + here.width / 2;
+        const rows = buttons.map((b, n) => ({ n, r: b.getBoundingClientRect() })).filter(({ r }) => (e.key === "ArrowDown" ? r.top > here.top + 2 : r.top < here.top - 2));
+        const nextTop = e.key === "ArrowDown" ? Math.min(...rows.map(({ r }) => r.top)) : Math.max(...rows.map(({ r }) => r.top));
+        const row = rows.filter(({ r }) => Math.abs(r.top - nextTop) < 2);
+        if (row.length) to = row.reduce((best, x) => (Math.abs(x.r.left + x.r.width / 2 - mid) < Math.abs(best.r.left + best.r.width / 2 - mid) ? x : best)).n;
+      }
+      to = Math.min(buttons.length - 1, Math.max(0, to));
       buttons[to].focus();
       if (canEdit && e.shiftKey) {
         if (anchor.current === null) anchor.current = at;
@@ -473,7 +517,6 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
       : {};
 
   // ---- Adding ----
-  const [adding, setAdding] = useState(false);
   const inFolder = currentFolder?.id ?? null;
   const postAdded = async () => {
     const had = new Set((posts ?? []).map((p) => p.id));
@@ -487,10 +530,45 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
     }
   };
 
+  // ---- Shapes and the grid's width ----
+  const [shapes, setShapes] = useState<Record<string, number>>({});
+  const measured = (id: string, img: HTMLImageElement) => {
+    if (!img.naturalWidth || !img.naturalHeight) return;
+    const r = img.naturalWidth / img.naturalHeight;
+    setShapes((was) => (Math.abs((was[id] ?? 0) - r) < 0.01 ? was : { ...was, [id]: r }));
+  };
+  const shapeOf = (item: Item) => shapes[item.id] ?? item.shape ?? (item.file?.kind === "video" ? 16 / 9 : item.file ? 1 : POSTER);
+  const [gridWidth, setGridWidth] = useState(0);
+  const gridRef = grid;
+  useLayoutEffect(() => {
+    const el = gridRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([entry]) => setGridWidth(Math.floor(entry.contentRect.width)));
+    ro.observe(el);
+    return () => ro.disconnect();
+    // The grid appears once there are references to show.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, shown.length > 0]);
+  const sizes = gridWidth ? justify(shown.map(shapeOf), gridWidth) : [];
+
   // ---- Viewer ----
   const [viewing, setViewing] = useState<number | null>(null);
   const open = shown[viewing ?? -1] ?? null;
   const step = (by: number) => setViewing((v) => (v === null || shown.length === 0 ? v : (v + by + shown.length) % shown.length));
+
+  // A reference opened from Overview's row arrives as ?ref=<id>: open it, once.
+  const asked = useRef<string | null | undefined>(undefined);
+  useEffect(() => {
+    if (asked.current === undefined) asked.current = new URLSearchParams(window.location.search).get("ref");
+    const id = asked.current;
+    if (!id || loading) return;
+    const at = shown.findIndex((i) => i.id === id);
+    asked.current = null;
+    const url = new URL(window.location.href);
+    url.searchParams.delete("ref");
+    window.history.replaceState(window.history.state, "", url);
+    if (at >= 0) setViewing(at);
+  }, [loading, shown]);
 
   const count = (v: View) => inView(v).length;
   const unsorted = count("unsorted");
@@ -510,9 +588,6 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
                 {choosing ? "Done" : "Select"}
               </Button>
             )}
-            <Button variant="secondary" size="compact" aria-expanded={adding} onClick={() => setAdding((a) => !a)}>
-              {adding ? "Close" : "Add"}
-            </Button>
           </div>
         )}
       </div>
@@ -564,7 +639,7 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
         </div>
       )}
 
-      {canEdit && adding && (
+      {canEdit && (
         <div className="flex flex-col gap-3 rounded-2xl border border-border p-4">
           <Dropzone projectId={projectId} tag="reference" folderId={inFolder} onUploaded={refresh} hint={currentFolder ? `Pictures go into ${currentFolder.name}` : undefined} />
           {postsOff ? <NotYet>Adding Instagram links isn&rsquo;t switched on yet.</NotYet> : <AddInstagramReference projectId={projectId} held={new Set((posts ?? []).map((p) => p.link.code))} onAdded={() => void postAdded()} />}
@@ -596,14 +671,16 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
           onPointerCancel={onGridPointerUp}
           onKeyDown={onGridKey}
         >
-          <ul aria-label="References" className="grid grid-cols-3 items-start gap-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8">
+          <ul aria-label="References" className="flex flex-wrap items-start gap-3">
             {shown.map((item, i) => {
               const on = picked.has(item.id);
+              const size = sizes[i] ?? { w: 160, h: 180 };
               return (
                 <li
+                  style={{ width: size.w }}
                   key={item.id}
                   data-tile={item.id}
-                  className={cn("group relative flex min-w-0 flex-col gap-1.5 rounded-lg", dragging && (dragging === item.id || (picked.has(dragging) && on)) && "opacity-40", over === item.id && dragging !== item.id && "ring-3 ring-nia-blue/60")}
+                  className={cn("group relative flex shrink-0 flex-col gap-1.5 rounded-lg", dragging && (dragging === item.id || (picked.has(dragging) && on)) && "opacity-40", over === item.id && dragging !== item.id && "ring-3 ring-nia-blue/60")}
                   draggable={canEdit && !selecting}
                   onDragStart={(e) => {
                     // A selected tile carries the whole selection.
@@ -632,12 +709,12 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
                     data-open
                     aria-label={choosing ? `${on ? "Deselect" : "Select"} ${item.name}` : `Open ${item.name}`}
                     onClick={(e) => onTile(e, item, i)}
-                    className={cn("relative block aspect-[4/5] w-full overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50", on && "ring-3 ring-nia-blue")}
+                    className={cn("relative block w-full overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50", on && "ring-3 ring-nia-blue")}
+                    style={{ height: size.h }}
                   >
                     {item.thumb ? (
-                      // Fitted, not cropped, as Bridge shows them. eslint-disable-next-line @next/next/no-img-element -- private files use short-lived links, which the image optimiser would cache
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={item.thumb} alt="" loading="lazy" draggable={false} className="size-full object-contain transition-transform duration-base ease-out group-hover:scale-[1.03]" />
+                      <img src={item.thumb} alt="" loading="lazy" draggable={false} onLoad={(e) => measured(item.id, e.currentTarget)} className="size-full object-cover transition-transform duration-base ease-out group-hover:scale-[1.03]" />
                     ) : item.file ? (
                       <span className="flex size-full items-center justify-center">
                         <PageIcon name={item.file.name} kind={item.file.kind} size={44} />
@@ -777,7 +854,7 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
         >
           {open && (
             <>
-              <div className="relative flex min-h-0 flex-1 items-center justify-center bg-foreground">
+              <div className="relative flex min-h-0 flex-1 items-center justify-center bg-black">
                 <Stage key={open.id} item={open} />
                 <button type="button" aria-label="Close" onClick={() => setViewing(null)} className="absolute top-3 left-3 flex size-9 items-center justify-center rounded-full bg-black/50 text-white outline-none hover:bg-black/70 focus-visible:ring-3 focus-visible:ring-white/50">
                   <X className="size-4" />
@@ -830,7 +907,7 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
 function Stage({ item }: { item: Item }) {
   const [playing, setPlaying] = useState(false);
   const play = item.play;
-  if (play?.kind === "video" && item.file?.url) return <video controls autoPlay preload="metadata" src={item.file.url} className="max-h-full max-w-full" />;
+  if (play?.kind === "video" && item.file?.url) return <video controls autoPlay preload="metadata" src={item.file.url} className="size-full object-contain" />;
   if (play?.kind === "audio" && item.file?.url) return <audio controls autoPlay preload="none" src={item.file.url} className="w-3/4" />;
   if (playing && play?.kind === "youtube")
     return (
@@ -839,7 +916,7 @@ function Stage({ item }: { item: Item }) {
         title={`${item.name}: trailer`}
         allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
         allowFullScreen
-        className="aspect-video max-h-full w-full max-w-full bg-black"
+        className="size-full bg-black"
       />
     );
   if (playing && play?.kind === "instagram") {

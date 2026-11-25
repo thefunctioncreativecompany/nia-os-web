@@ -1363,3 +1363,12 @@ onboarding's Import profile and Follow creators describe features removed in the
   the selection, Finder's New Folder with Selection), ⌘⌫ / Delete (asks first). Dragging a selected
   tile carries the selection onto a folder. No trailers on hover in the grid (they play in the
   viewer). Phones keep the Select button. Files gets the same next.
+- (2026-11-25) Visual content at its own ratio, everywhere (Ika: "always display it in the ratio of the
+  content itself, and the layout should adapt to the ratios"). References lay out in rows of even
+  height that fill the width, each tile as wide as its picture's shape needs (like Google Photos);
+  masonry columns stay out (gaps). Poster-style card rows (Overview's References, a template's
+  reference cards) keep each card at its picture's shape at the same height, wider or narrower,
+  instead of stretching portraits to a poster. The upload and Instagram link bar on References stays
+  open, and the Files section lost its own upload (one way in; Documents takes documents). From
+  Overview, an uploaded picture opens itself in References' viewer (?ref=); Explore titles and
+  Instagram posts open their own pages, as in References.

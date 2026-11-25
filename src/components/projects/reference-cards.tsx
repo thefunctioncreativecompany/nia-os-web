@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -23,7 +24,7 @@ import type { LinkedPicture } from "@/components/projects/use-linked-references"
 /** `notes`: whether notes can be kept yet (their migration has run). */
 export type ReferencePicture = { id: string; name: string; url: string; note: string | null; notes?: boolean };
 
-export function ReferenceCards({ pictures, linked = [], canEdit, onOpen }: { pictures: ReferencePicture[]; linked?: LinkedPicture[]; canEdit: boolean; onOpen: () => void }) {
+export function ReferenceCards({ pictures, linked = [], canEdit, onOpen }: { pictures: ReferencePicture[]; linked?: LinkedPicture[]; canEdit: boolean; /** Opens an uploaded picture in References' viewer. */ onOpen: (id: string) => void }) {
   const [order, setOrder] = useState(pictures);
   const [shapes, setShapes] = useState<Record<string, number>>({});
   // A new list from the server (an upload, a refresh) replaces the local one.
@@ -61,12 +62,11 @@ export function ReferenceCards({ pictures, linked = [], canEdit, onOpen }: { pic
     <ScrollRow label="References" arrowTop={POSTER_ARROWS} className="items-start gap-4">
       {linked.map((l) => (
         <li key={l.id} style={posterSpan(shapes[l.id])} className={POSTER_CARD}>
-          <button
-            type="button"
-            aria-label={`${l.name}, open References`}
-            onClick={onOpen}
+          <Link
+            href={l.href}
+            aria-label={`Open ${l.name}`}
             className="relative block w-full overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-            style={{ aspectRatio: Math.max(POSTER, shapes[l.id] || POSTER) }}
+            style={{ aspectRatio: shapes[l.id] || POSTER }}
           >
             {l.url && (
               // eslint-disable-next-line @next/next/no-img-element -- posters from Explore and covers on private links
@@ -81,7 +81,7 @@ export function ReferenceCards({ pictures, linked = [], canEdit, onOpen }: { pic
                 className="absolute inset-0 size-full object-cover transition-transform duration-base ease-out hover:scale-[1.02] motion-reduce:transition-none"
               />
             )}
-          </button>
+          </Link>
           <span className="truncate px-1 text-small font-semibold text-foreground" title={l.name}>
             {l.name}
           </span>
@@ -92,10 +92,10 @@ export function ReferenceCards({ pictures, linked = [], canEdit, onOpen }: { pic
         <li key={p.id} style={posterSpan(shapes[p.id])} className={cn(POSTER_CARD, drag.state(i))} {...(canEdit ? drag.target(i) : {})}>
           <button
             type="button"
-            aria-label={`${p.name}, open References`}
-            onClick={onOpen}
+            aria-label={`Open ${p.name}`}
+            onClick={() => onOpen(p.id)}
             className="relative block w-full overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-            style={{ aspectRatio: Math.max(POSTER, shapes[p.id] || POSTER) }}
+            style={{ aspectRatio: shapes[p.id] || POSTER }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element -- private files use links that last a while, which the image optimiser would cache */}
             <img

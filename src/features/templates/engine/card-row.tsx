@@ -56,7 +56,7 @@ export function CardRow({ section, rows, columns, base, currency, setCell, addRo
         const number = String(r + 1).padStart(2, '0');
         const name = `${noun} ${number}`;
         const id = picture ? (row[fieldLabel(picture)] as string) || '' : '';
-        const shape = Math.max(POSTER, (id && shapes[id]) || POSTER);
+        const shape = (id && shapes[id]) || POSTER;
         return (
           <li
             key={row.id}

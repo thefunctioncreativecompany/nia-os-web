@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 
 import { createClient } from "@/lib/supabase/client";
 import { loadReferences } from "@/features/explore/saves";
-import { loadInstagramReferences } from "@/lib/instagram-references";
+import { loadInstagramReferences, referenceHref } from "@/lib/instagram-references";
 
 // The references a project links to (Ika, 2026-11-19: "add the linked references" to Overview):
 // Explore titles and pasted Instagram posts, in the team's order as on the References tab, then
 // newest first. Explore's list loads only when needed, so Overview stays light. Null until
 // loaded: the row waits for them, so they don't push the pictures along after it shows.
 
-export type LinkedPicture = { id: string; name: string; url: string | null; note: string | null };
+export type LinkedPicture = { id: string; name: string; url: string | null; note: string | null; /** Its own page: the Explore title, or the Instagram post with its player. */ href: string };
 
 export function useLinkedReferences(projectId: string): LinkedPicture[] | null {
   const [linked, setLinked] = useState<LinkedPicture[] | null>(null);
@@ -31,11 +31,11 @@ export function useLinkedReferences(projectId: string): LinkedPicture[] | null {
       const items = [
         ...(explore.ready ? explore.data : []).flatMap((r) => {
           const entry = exploreItem(r.slug);
-          return entry ? [{ id: r.id, at: r.createdAt, name: entry.title, url: entry.image ?? null }] : [];
+          return entry ? [{ id: r.id, at: r.createdAt, name: entry.title, url: entry.image ?? null, href: entry.href() }] : [];
         }),
-        ...posts.map((p) => ({ id: p.id, at: p.createdAt, name: p.title || p.account || "Instagram post", url: p.coverUrl })),
+        ...posts.map((p) => ({ id: p.id, at: p.createdAt, name: p.title || p.account || "Instagram post", url: p.coverUrl, href: referenceHref(projectId, p.id) })),
       ].toSorted((a, b) => place(a.id) - place(b.id) || b.at.localeCompare(a.at));
-      setLinked(items.map(({ id, name, url }) => ({ id, name, url, note: arranged.get(id)?.note ?? null })));
+      setLinked(items.map(({ id, name, url, href }) => ({ id, name, url, href, note: arranged.get(id)?.note ?? null })));
     })().catch(() => live && setLinked([]));
     return () => {
       live = false;

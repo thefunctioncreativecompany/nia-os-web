@@ -491,7 +491,14 @@ export function ProjectEditor({
                 <ViewAll onClick={() => setTab("references")}>{counts.references ? "View all" : canEdit ? "Add references" : "View all"}</ViewAll>
               </div>
               {linked && (referencePreview.length > 0 || linked.length > 0) && (
-                <ReferenceCards pictures={referencePreview.slice(0, Math.max(0, ROW_MAX - linked.length))} linked={linked} canEdit={canEdit} onOpen={() => setTab("references")} />
+                <ReferenceCards pictures={referencePreview.slice(0, Math.max(0, ROW_MAX - linked.length))} linked={linked} canEdit={canEdit} onOpen={(id) => {
+                    // The picture itself, in References' viewer (?ref=, project-references.tsx).
+                    setTab("references");
+                    const url = new URL(window.location.href);
+                    url.searchParams.set("ref", id);
+                    window.history.replaceState(window.history.state, "", url);
+                  }}
+                />
               )}
             </section>
           </div>
