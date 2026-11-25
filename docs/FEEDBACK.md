@@ -21,6 +21,23 @@ Status: ⬜ logged, not started · 🔍 being studied · 🔄 in progress · ✅
 
 ---
 
+## 00000. Logged 2026-11-24: Ika, project page (references, key milestones)
+
+Decided 2026-11-24 (Ika): **Ika designs first** in Claude Design (reference folders, the
+full-screen reference viewer, the full-screen key milestones view), then they're built from her
+designs; **PR2 first**, then PR1 and PR3. Pinterest boards and YouTube playlists: **bring the
+pictures in** (not just a link). That needs Pinterest's developer access (an app, reviewed by
+Pinterest) and each person connecting their own Pinterest account; Pinterest's API is built
+around the connected person's own boards; whether someone else's public board can come in is to
+be checked when the access is set up.
+YouTube playlists bring in each video's thumbnail and link.
+
+| # | What | Found | Status |
+|---|------|-------|--------|
+| PR1 | **References as collections.** Teams sort references into named folders instead of one endless gallery; smaller tiles in the full gallery; full-screen view with next/previous and the reference's details | References tab = Files (tags, not folders; stills in 2–3 columns) + Inspiration (Explore titles and Instagram posts, `project_references`). The stills viewer has arrow keys only (no buttons, no details) and covers uploaded stills, not Explore or Instagram references. `collections` exists but is each person's saved Explore titles, not a project's. Needs a project folders table and a folder on each file and reference (migration) | 🔍 |
+| PR2 | **Key milestones: who's responsible, more detail, reorder.** Assignee next to the date; a crew name in the text assigns it to that person automatically; department, priority and stage in a full-screen view; drag to reorder | `project_milestones` has kind, title, date, done and an unused `position`; no assignee, department, priority or stage (migration). Crew names to match against: the project's cast & crew (`cast_crew`, `people`) | 🔍 |
+| PR3 | **Link references from YouTube, Vimeo and Pinterest** (Instagram already works): link a collection, or bring its images into the project's references | Instagram posts read one post at a time (cover copied into the project). YouTube (videos and playlists) and Vimeo give a title and thumbnail for any public link. Pinterest pins can be read one at a time; reading a whole board officially needs the board owner to connect their Pinterest account, and copying a board's pictures in bulk raises Pinterest's terms and Explore's "link, never copy" rule. Instagram's saved collections are private to their owner | 🔍 |
+
 ## 0000. Logged 2026-11-21: Ika, uploads, editable briefs, formatting
 
 Decided 2026-11-21 (Ika): a document uploaded from the Documents tab shows in **both places**, a
