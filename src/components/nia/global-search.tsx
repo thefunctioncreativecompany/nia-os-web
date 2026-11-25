@@ -157,7 +157,7 @@ async function load(): Promise<Result[]> {
         title: f.name,
         meta: [project?.title, f.tag && TAGS[f.tag], folder].filter(Boolean).join(" · "),
         words: `${f.kind} ${folder ?? ""}`,
-        href: project ? (f.tag === "reference" ? `/projects/${project.id}?tab=references` : `/projects/${project.id}#files`) : "/projects",
+        href: project ? (f.tag === "final" ? `/projects/${project.id}` : `/projects/${project.id}?tab=references`) : "/projects",
         at: f.created_at,
         file: { kind: f.kind, path: f.path, thumb: f.thumb_path, tag: f.tag, size: f.size },
       };
