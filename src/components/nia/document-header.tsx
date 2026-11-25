@@ -1,8 +1,6 @@
-import { Download } from "lucide-react";
 
 import { cn, getInitials } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { BackLink } from "@/components/nia/back-link";
 
 export type DocumentViewer = { name: string; avatarUrl?: string | null };
@@ -77,23 +75,5 @@ export function DocumentPreviewHeader({ status = "Ready to export", className }:
       <p className="font-bold text-muted-foreground">Preview</p>
       <p role="status" className="text-nia-placeholder">{status}</p>
     </div>
-  );
-}
-
-// Secondary action under the preview (Figma: "Download PDF" in the editor's preview panel).
-export function DownloadPdfButton({
-  className,
-  ...props
-}: Omit<React.ComponentProps<typeof Button>, "children" | "variant">) {
-  return (
-    <Button
-      type="button"
-      variant="outline"
-      className={cn("h-auto gap-2 p-3 text-small font-semibold", className)}
-      {...props}
-    >
-      <Download aria-hidden />
-      Download PDF
-    </Button>
   );
 }

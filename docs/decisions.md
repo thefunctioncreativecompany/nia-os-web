@@ -1310,3 +1310,9 @@ onboarding's Import profile and Follow creators describe features removed in the
   the new titles and Sense and Sensibility, Whalefall and How to Rob a Bank sit just below it (still
   on Explore), and ten newly ranked titles wait for the next batch (`toAdd` in best-of-2026.json).
   A Story of Derry has no Wikidata item, press kit or exact date yet; Never Surrender has no cast.
+- (2026-11-20) Desktop app (Ika: "starting with desktop"): first make Nia installable from the
+  browser (Chrome, Edge, Safari's Add to Dock), its own window and icon, loading the live site;
+  then check it works there; a downloadable app (Tauri) only when there's a reason the installed
+  one can't meet. Phones follow. The icon is the existing Nia mark; the window bar takes the page
+  background (white or `#1F1F1F`). No offline code: Chrome's own offline screen shows Nia's name
+  and icon.

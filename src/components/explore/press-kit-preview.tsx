@@ -82,7 +82,7 @@ export function PressKitPreview({
               {item.rank ? `Number ${item.rank} · ` : ""}
               {meta ?? "Press kit"}
             </p>
-            <DialogTitle className="mt-2.5 mb-4 text-display leading-tight font-semibold tracking-tight text-foreground">{film.title}</DialogTitle>
+            <DialogTitle className="mt-2.5 mb-4 text-h2 font-semibold tracking-tight text-foreground">{film.title}</DialogTitle>
 
             <div className="flex flex-wrap items-center justify-between gap-4">
               <p className="text-sm text-muted-foreground">

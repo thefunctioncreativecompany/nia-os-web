@@ -165,7 +165,7 @@ function PreviewBody({
         <p className="flex flex-wrap items-center gap-2.5 text-micro font-semibold text-muted-foreground">
           {t.group ? sentenceCase(t.group) : COMING_SOON} · {t.sku}
         </p>
-        <Title className="mt-2.5 mb-4 text-display leading-tight font-semibold tracking-tight text-foreground">{t.name}</Title>
+        <Title className="mt-2.5 mb-4 text-h2 font-semibold tracking-tight text-foreground">{t.name}</Title>
 
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
