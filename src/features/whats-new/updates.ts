@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "desktop-app-offline",
+    date: "2026-11-25",
+    title: "Nia on your computer, documents offline",
+    body: "Install Nia from Chrome or Edge (the install icon in the address bar) and it opens in its own window. Documents you open stay readable when the signal drops on set.",
+    href: "/projects",
+    cta: "Open your projects",
+    icon: "folder",
+    weight: { production: 0.9, fashion: 0.7, creator: 0.6 },
+  },
+  {
     id: "explore-franchises",
     date: "2026-11-21",
     title: "Franchises on Explore",

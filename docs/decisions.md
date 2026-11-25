@@ -1303,3 +1303,9 @@ onboarding's Import profile and Follow creators describe features removed in the
   one can't meet. Phones follow. The icon is the existing Nia mark; the window bar takes the page
   background (white or `#1F1F1F`). No offline code: Chrome's own offline screen shows Nia's name
   and icon.
+- (2026-11-25) Documents offline (FEEDBACK D5, Ika OK'd the plan): a hand-written service
+  worker (`public/sw.js`, no library) keeps a copy of each document opened (newest 20, with the
+  build files it needs), never other pages or data. Pages always come from the internet first;
+  offline, a saved document opens read-only (the worker marks the copy; the editor shows "Offline
+  copy from …") and anything else shows `/offline`. Log out deletes the copies. Live site only
+  (off in development).
