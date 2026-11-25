@@ -131,9 +131,10 @@ changing it. The master list of what's shipped, open, fed back and planned is
 
 - Shipping (Ika, 2026-11-21): once Ika has OK'd a fix's plan and it passes the checks locally
   (types, lint, tests, a browser test), ship it without asking: commit on its own branch, push,
-  open a pull request and set it to merge itself (`gh pr merge --auto --rebase`). GitHub merges it
-  into `main` only when "Types, lint and tests" (`.github/workflows/checks.yml`) passes; if it
-  fails, fix it or tell Ika why. Then confirm the change on the live site itself (Vercel's tick
+  open a pull request, wait for GitHub's "Types, lint and tests" (`.github/workflows/checks.yml`;
+  `gh pr checks <n> --watch`) and merge only when it passes (`gh pr merge <n> --rebase`); if it
+  fails, fix it or tell Ika why. (GitHub's own auto-merge and a protected `main` need an admin of
+  the thefunctioncreativecompany organisation; until one turns them on, Claude does the waiting.) Then confirm the change on the live site itself (Vercel's tick
   can come before the live site updates) and tell Ika it's live. Migrations and Supabase or
   Vercel dashboard steps still wait for Ika.
 - If something fails twice, stop, explain simply, and offer to revert to the last commit.
