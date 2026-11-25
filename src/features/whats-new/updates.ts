@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "milestone-assignees",
+    date: "2026-11-25",
+    title: "Who's on each milestone",
+    body: "Name someone from the crew as you add an action and it's theirs. View all shows every milestone by when it's due, with department, stage, priority and notes.",
+    href: "/projects",
+    cta: "Open your projects",
+    icon: "flag",
+    weight: { production: 0.9, fashion: 0.7, creator: 0.6 },
+  },
+  {
     id: "desktop-notifications",
     date: "2026-11-25",
     title: "Desktop notifications",

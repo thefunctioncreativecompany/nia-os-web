@@ -404,7 +404,7 @@ export function ProjectEditor({
                 />
               </section>
               {/* Key milestones and actions, under Notes (Ika, 2026-11-15). */}
-              <ProjectMilestones projectId={project.id} canEdit={canEdit} />
+              <ProjectMilestones projectId={project.id} projectTitle={project.title} canEdit={canEdit} />
             </div>
 
             {/* Right: the details, in a card. Every value still edits in place. */}

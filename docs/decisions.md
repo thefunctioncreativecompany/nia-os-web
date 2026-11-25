@@ -1341,3 +1341,14 @@ onboarding's Import profile and Follow creators describe features removed in the
   replies, not edits. The switch sits in Settings → General as a "Notifications" card (the parked
   Figma-built "Notification rules" card's look) because the Claude Design draft for the
   Notifications tab couldn't be read from here; the tab opens when that draft is shared.
+- (2026-11-25) Key milestones: who's responsible (PR2, Ika 2026-11-24; built from existing pieces,
+  Figma draft frames 1–3). On the Overview each item shows its assignee next to the date (first name,
+  or the full name when two share it). Adding an item, a crew member named in the words is assigned:
+  a full name however it's typed, a first name only with a capital (so "will" and "may" don't assign
+  anyone), a choice when two share it, × or "Nobody" to take them off, and Undo after; assigning
+  fills in their department when it's empty. View all opens the full view (a pop-up): Overdue, This
+  week (next seven days), Later, No date, then Done; columns for assignee, department, stage,
+  priority and date, notes under the title; filters for assignee, stage and department; a row's
+  details beside the list (in place of it on phones) save as they change; drag a row within its
+  group, or Move up/down. Assignees come from the project's cast & crew only (the database checks,
+  20261125000000_milestones_detail.sql). Rules and tests in `src/features/milestones/rules.ts`.

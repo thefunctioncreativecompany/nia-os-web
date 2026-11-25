@@ -15,7 +15,7 @@ stack and the counts.
 | Area | What people can do |
 |------|--------------------|
 | Accounts | Sign up and log in with email or Google, reset a password, a 5-screen onboarding |
-| Projects | Projects list with search, stage chips, type and genre filters and sort; create blank or from a workflow; cover, production details, files up to 50 MB with tags (select several, tag at once); references in folders (select or drag to move) with a full-screen viewer; share by email (Can view / Can edit), a view-only link, or "view and ask to edit"; comments with replies; live updates between collaborators |
+| Projects | Projects list with search, stage chips, type and genre filters and sort; create blank or from a workflow; cover, production details, files up to 50 MB with tags (select several, tag at once); references in folders (select or drag to move) with a full-screen viewer; key milestones with assignees and a full view; share by email (Can view / Can edit), a view-only link, or "view and ask to edit"; comments with replies; live updates between collaborators |
 | Cast & crew | One directory per workspace: cast table, crew by department, profiles, statuses, add and edit people |
 | Templates | 37 working templates in one list by category; editor with autosave, Undo/Redo; downloads as PDF, Word, Markdown and .txt; tutorials |
 | Workflows | 12 guided workflows, three for each group (creators, filmmakers, photographers, small studios) |
