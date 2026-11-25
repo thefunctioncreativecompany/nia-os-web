@@ -42,6 +42,8 @@ const nextConfig: NextConfig = {
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
         ],
       },
+      // The offline helper (public/sw.js) is always fetched fresh, so a fix reaches everyone.
+      { source: "/sw.js", headers: [{ key: "Cache-Control", value: "no-cache, no-store, must-revalidate" }] },
     ];
   },
   // Home moved from /dashboard; keep old links and bookmarks working.

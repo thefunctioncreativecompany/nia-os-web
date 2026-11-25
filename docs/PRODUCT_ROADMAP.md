@@ -34,7 +34,7 @@ stack and the counts.
 | Explore catalogue | 🔄 | Studio-catalogue titles 2–3 at a time, each with a press kit; AI tagging from a fixed list (EX5) |
 | PostHog activation | 🔄 Installed, session replay on | First recordings on the live site; Replay Vision scanners start then |
 | Meetings (step 3 of 4) | 🔄 Step 1 live (Overview → Meetings); step 2 (suggested changes) built, off until an `ANTHROPIC_API_KEY` is added (no paid services yet); step 3 (Schedule a Google Meet: Calendar event, Meet link, invites, who's busy) live 2026-11-19, booked meetings on Home's Upcoming schedule | Add the key for step 2; then Gemini notes arriving by themselves (4). `docs/MEETINGS_SPEC.md` |
-| Desktop app | 🔄 Step 1 live 2026-11-24: install from Chrome, Edge or Safari (own window, Dock or Start menu icon) | Step 2 checked 2026-11-25 (all pages, sign-in, Google, links; Safari waits on Ika); next documents offline, then desktop notifications; a downloadable Tauri app only with a reason (FEEDBACK D1–D7) |
+| Desktop app | 🔄 Step 1 live 2026-11-24: install from Chrome, Edge or Safari (own window, Dock or Start menu icon) | Step 2 checked 2026-11-25 (all pages, sign-in, Google, links; Safari waits on Ika); documents offline live 2026-11-25; next desktop notifications; a downloadable Tauri app only with a reason (FEEDBACK D1–D7) |
 | Onboarding (1.4) | 🔄 | "How did you hear about us" as an optional tap; "What you can do" as slides (waits on Figma) |
 
 ## Known rough edges

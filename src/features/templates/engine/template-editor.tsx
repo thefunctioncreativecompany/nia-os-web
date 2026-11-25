@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { BadgeCheck, Download, Eye, FileText, FileType, FolderCheck, FolderPlus, ListPlus, Plus, Printer, Redo2, Trash2, Undo2 } from 'lucide-react';
+import { BadgeCheck, CloudOff, Download, Eye, FileText, FileType, FolderCheck, FolderPlus, ListPlus, Plus, Printer, Redo2, Trash2, Undo2 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { recordEvent } from '@/lib/product-events';
 import { cn } from '@/lib/utils';
@@ -31,6 +31,7 @@ import { SectionOutline } from './section-outline';
 import { FirstUseTutorial } from '@/features/templates/tutorial/first-use-tutorial';
 import type { TutorialProps } from '@/features/templates/tutorial/template-tutorial';
 import { useDocument, type DocumentProject } from './use-document';
+import { saveOfflineCopy, savedTime, useOfflineCopy } from '@/lib/offline-copies';
 import { WhatsNext } from './whats-next';
 
 // The one editor every document template uses (TEMPLATE_ENGINE.md §3), from the Filming Notice
@@ -46,7 +47,7 @@ export function TemplateEditor({
   initialData,
   initialPaid = false,
   initialProject = null,
-  readOnly = false,
+  readOnly: viewOnly = false,
   canDelete = false,
   next = [],
   tutorial = null,
@@ -68,7 +69,18 @@ export function TemplateEditor({
 }) {
   const router = useRouter();
   const [confirmDelete, setConfirmDelete] = useState(false);
+  // Opened offline from the copy on this computer (FEEDBACK D5): readable, not editable.
+  const offlineAt = useOfflineCopy();
+  const readOnly = viewOnly || offlineAt !== null;
   const doc = useDocument(schema, documentId, initialData, initialPaid, initialProject);
+  // Keeps this document readable offline: a copy when it opens, and again once edits settle.
+  const projectTitle = doc.project?.title ?? null;
+  const savedAt = doc.savedAt;
+  useEffect(() => {
+    if (!documentId || offlineAt !== null) return;
+    const t = setTimeout(() => saveOfflineCopy(schema.name, projectTitle), savedAt ? 10_000 : 0);
+    return () => clearTimeout(t);
+  }, [documentId, offlineAt, schema.name, projectTitle, savedAt]);
   const [choosing, setChoosing] = useState(false);
   const askProject = useCallback(() => setChoosing(true), []);
   const pictures = usePictureStore({ schema, data: doc.data, projectId: doc.project?.id ?? null, readOnly, onAskProject: askProject });
@@ -134,7 +146,12 @@ export function TemplateEditor({
 
         {tutorial && !readOnly && !documentId && <FirstUseTutorial code={schema.code} tutorial={tutorial} />}
 
-        {readOnly && (
+        {offlineAt !== null ? (
+          <p role="status" className="flex items-center gap-2 rounded-lg bg-nia-panel px-4 py-3 text-small text-muted-foreground print:hidden">
+            <CloudOff aria-hidden className="size-4 shrink-0" />
+            {offlineAt ? `Offline copy from ${savedTime(offlineAt)}.` : 'Offline copy.'} Reconnect to edit.
+          </p>
+        ) : viewOnly && (
           <p role="status" className="flex items-center gap-2 rounded-lg bg-nia-panel px-4 py-3 text-small text-muted-foreground print:hidden">
             <Eye aria-hidden className="size-4 shrink-0" />
             You can view this document. Ask the project owner for edit access to change it.
@@ -209,7 +226,7 @@ export function TemplateEditor({
 
       <aside
         aria-label="Preview and download"
-        className="flex min-w-0 flex-[1_1_360px] flex-col border-border bg-nia-panel px-4 pt-10 pb-15 md:border-l md:pr-page md:pl-10 lg:max-w-[540px] print:hidden"
+        className="flex min-w-0 flex-[1_1_360px] flex-col border-border bg-nia-panel px-4 pt-10 pb-15 md:border-l md:pr-page md:pl-10 lg:max-w-135 print:hidden"
       >
         <div className="flex flex-col gap-6 md:sticky md:top-[calc(var(--nav-offset)+1.5rem)]">
           <DocumentPreviewHeader status={doc.paid ? 'Paid' : ready ? 'Ready to export' : 'Draft'} />
