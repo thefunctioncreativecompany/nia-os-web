@@ -82,9 +82,6 @@ export function ReferenceCards({ pictures, linked = [], canEdit, onOpen }: { pic
               />
             )}
           </Link>
-          <span className="truncate px-1 text-small font-semibold text-foreground" title={l.name}>
-            {l.name}
-          </span>
           {l.note && <p className="px-1 text-small text-muted-foreground">{l.note}</p>}
         </li>
       ))}
@@ -111,9 +108,8 @@ export function ReferenceCards({ pictures, linked = [], canEdit, onOpen }: { pic
           </button>
           <div className="flex items-center gap-1">
             {canEdit && <DragHandle name={p.name} {...drag.handle(i)} />}
-            <span className="min-w-0 flex-1 truncate text-small font-semibold text-foreground" title={p.name}>
-              {p.name}
-            </span>
+            {/* No name under the picture: it shows when the picture is opened (Ika, 2026-11-25). */}
+            <span className="min-w-0 flex-1" />
             {canEdit && (
               <span className={CARD_TOOLS}>
                 <MoveButtons name={p.name} i={i} count={order.length} onMove={(a, b) => void move(a, b)} />

@@ -29,7 +29,6 @@ import { NotYet } from "@/components/nia/not-yet";
 import { CARD_DRAG_TYPE } from "@/components/nia/drag-reorder";
 import { Dropzone, PageIcon, useProjectFiles } from "./project-files";
 import { AddInstagramReference } from "./add-instagram-reference";
-import { leadName } from "./instagram-reference-card";
 import { REFERENCES_CHANGED } from "./references-events";
 
 // A project's references in folders (Ika, 2026-11-24, PR1: "teams sort references into named
@@ -53,6 +52,7 @@ import { REFERENCES_CHANGED } from "./references-events";
 // the content itself, and the layout should adapt"): rows of even height that fill the width, each
 // tile as wide as its shape needs (like Google Photos; no masonry columns, which leave gaps). The
 // upload and link bar stays open for editors; a reference opened from Overview arrives as ?ref=.
+// Pictures only in the gallery: a reference's name shows when it's opened (Ika, 2026-11-25).
 
 type Folder = { id: string; name: string; position: number | null };
 type Table = "project_files" | "project_references";
@@ -72,9 +72,8 @@ type Item = {
   play?: Playable;
   /** Its shape (width ÷ height) when known before the picture loads. */
   shape?: number;
-  /** A label on the tile (an Instagram post's kind of film) and who made it. */
+  /** A label on the tile (an Instagram post's kind of film). */
   label?: string | null;
-  maker?: string | null;
 };
 type Playable = { kind: "instagram"; link: InstagramLink; aspect: number; frame: number | null } | { kind: "youtube"; id: string } | { kind: "video" } | { kind: "audio" };
 type Placed = { folder: string | null; position: number | null; note: string | null; /** Who added it. */ by?: string | null };
@@ -216,7 +215,6 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
       play: { kind: "instagram", link: p.link, aspect: p.aspect ?? 4 / 5, frame: p.frame },
       shape: p.aspect ?? undefined,
       label: p.productionType ? sentenceCase(p.productionType) : null,
-      maker: leadName(p),
     })),
   ];
   const place = (id: string) => placed.get(id) ?? { folder: null, position: null, note: null };
@@ -746,10 +744,6 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
                       {on && <Check aria-hidden className="size-3.5" />}
                     </button>
                   )}
-                  <span className="flex min-w-0 flex-col">
-                    <span className="truncate text-small font-medium text-foreground">{item.name}</span>
-                    {item.maker && <span className="truncate text-caption text-muted-foreground">{item.maker}</span>}
-                  </span>
                 </li>
               );
             })}
