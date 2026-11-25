@@ -556,6 +556,80 @@
   "cinemaRelease": true,
   "imdb": "tt0055353"
  },
+ "a-talent-for-murder": {
+  "videos": [
+   {
+    "id": "qfAFf8n0l-Y",
+    "kind": "Official trailer",
+    "title": "A Talent for Murder Trailer #1 (2026)",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "KGje5nL8bdA",
+    "kind": "Cast interview",
+    "title": "TIFF Interview: ‘A Talent for Murder’s’ Helen Mirren, Alden Ehrenreich and more",
+    "channel": "Los Angeles Times"
+   },
+   {
+    "id": "RggBlea_zLE",
+    "kind": "Cast interview",
+    "title": "A Talent for Murder | Exclusive Interviews | Helen Mirren, Alden Ehrenreich",
+    "channel": "Moviefone"
+   },
+   {
+    "id": "xQ_o6myPdvE",
+    "kind": "Featurette",
+    "title": "A Talent for Murder Exclusive Featurette - Story (2026)",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "V6tcjxGaFlc",
+    "kind": "Featurette",
+    "title": "A Talent For Murder | Official Featurette | Bleecker Street",
+    "channel": "Bleecker Street"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'A Talent for Murder' Review: Helen Mirren and Alden Ehrenreich Have a Ball in Meta Riff on Murder Mysteries",
+    "href": "https://www.thewrap.com/industry-news/business/a-talent-for-muder-review-helen-mirren-alden-ehrenreich/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time Out",
+    "title": "A Talent For Murder",
+    "href": "https://www.timeout.com/movies/a-talent-for-murder-review-2026",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "A Talent for Murder review",
+    "href": "https://www.avclub.com/a-talent-for-murder-review-patricia-highsmith-helen-mirren-alden-ehrenreich",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Screen Daily",
+    "title": "'A Talent for Murder' review: Helen Mirren is spiky author Patricia Highsmith in Anton Corbijn's underwhelming thriller",
+    "href": "https://www.screendaily.com/reviews/a-talent-for-murder-review-helen-mirren-is-spiky-author-patricia-highsmith-in-anton-corbijns-underwhelming-thriller/5220450.article",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Helen Mirren To Star As Patricia Highsmith In Ripley-Esque Thriller 'Switzerland' For Director Anton Corbijn & FilmNation: EFM Hot Package",
+    "href": "https://deadline.com/2023/02/helen-mirren-patricia-highsmith-anton-corbijn-ripley-switzerland-filmnation-efm-1235251948/"
+   },
+   {
+    "outlet": "Cineuropa",
+    "title": "Anton Corbijn set to shoot the thriller Switzerland, with Helen Mirren in the leading role",
+    "href": "https://cineuropa.org/en/newsdetail/458225"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt14129116"
+ },
  "all-about-eve": {
   "videos": [
    {
@@ -716,6 +790,24 @@
   "streaming": "Netflix",
   "imdb": "tt21432050"
  },
+ "apocalypse-z-new-world": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "Pajiba",
+    "title": "Review: 'Apocalypse Z: New World' Is Intense, Action-Packed Nonsense",
+    "href": "https://www.pajiba.com/film_reviews/review-apocalypse-z-new-world-is-intense-actionpacked-nonsense.php",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Leisurebyte",
+    "title": "Apocalypse Z: New World Review: A Bigger, Bloodier Zombie Sequel That Prioritises Action Over Emotion",
+    "href": "https://leisurebyte.com/apocalypse-z-new-world-review-carlos-alcaide/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": []
+ },
  "atlantics": {
   "videos": [
    {
@@ -783,6 +875,44 @@
   ],
   "streaming": "Netflix",
   "imdb": "tt10199586"
+ },
+ "avatar-seven-havens": {
+  "videos": [
+   {
+    "id": "bBgC5ykMWcw",
+    "kind": "Official trailer",
+    "title": "Avatar: Seven Havens Season 1 Trailer",
+    "channel": "Rotten Tomatoes TV"
+   },
+   {
+    "id": "RvksPficuOU",
+    "kind": "Teaser",
+    "title": "Avatar: Seven Havens | Official Teaser | Paramount+ (SDCC 2026)",
+    "channel": "Avatar Legends and Paramount Plus"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'Avatar: Seven Havens' Review: Wondrous, Inventive Paramount+ Spinoff Is Worth the Wait",
+    "href": "https://thewrap.com/creative-content/reviews/avatar-seven-havens-review-paramount-plus",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Inverse",
+    "title": "Avatar: Seven Havens review",
+    "href": "https://www.inverse.com/entertainment/avatar-seven-havens-review-paramount",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "GamesRadar+",
+    "title": "Avatar: Seven Havens season 1 review",
+    "href": "https://www.gamesradar.com/entertainment/animation-shows/avatar-seven-havens-season-1-review/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [],
+  "imdb": "tt35854736"
  },
  "avatar-the-way-of-water": {
   "videos": [
@@ -1271,6 +1401,69 @@
    }
   ],
   "imdb": "tt0060758"
+ },
+ "blades-of-the-guardians": {
+  "videos": [
+   {
+    "id": "HQArRGxbyyM",
+    "kind": "Official trailer",
+    "title": "Blades of The Guardians: Wind Rises in The Desert - Exclusive Trailer (2026)",
+    "channel": "IGN"
+   },
+   {
+    "id": "GowSaduohMM",
+    "kind": "Featurette",
+    "title": "BLADES OF THE GUARDIANS – The Making of Episode 04: \"The Return\"",
+    "channel": "Well Go USA Entertainment"
+   },
+   {
+    "id": "ro0DxUkoXjI",
+    "kind": "Featurette",
+    "title": "BLADES OF THE GUARDIANS – The Making of Episode 03: \"The Guardian Squad\"",
+    "channel": "Well Go USA Entertainment"
+   },
+   {
+    "id": "BlwHFtF4iNQ",
+    "kind": "Featurette",
+    "title": "BLADES OF THE GUARDIANS – The Making of Episode 02: \"Those Who Ascend The Mountain\"",
+    "channel": "Well Go USA Entertainment"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Blades of the Guardians",
+    "href": "https://www.rogerebert.com/reviews/blades-of-the-guardians-yuen-woo-ping-film-review-2026",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Blades of the Guardians review – swords to the fore in martial arts master Yuen Woo-ping's wuxia heaven",
+    "href": "https://www.theguardian.com/film/2026/apr/16/blades-of-the-guardians-review-wu-jing-jet-li-swords-wuxia-yuen-woo-ping",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Sight and Sound",
+    "title": "Blades of the Guardians: cluttered storytelling overwhelms Yuen Woo-Ping's wuxia epic",
+    "href": "https://www.bfi.org.uk/sight-and-sound/reviews/blades-of-the-guardians-cluttered-storytelling-overwhelms-yuen-woo-pings-wuxia-epic",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "South China Morning Post",
+    "title": "Review: Blades of the Guardians movie review: Wu Jing leads star-studded Chinese martial arts epic",
+    "href": "https://www.scmp.com/lifestyle/entertainment/article/3343820/blades-guardians-movie-review-wu-jing-leads-star-studded-chinese-martial-arts-epic",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "In Review Online",
+    "title": "Blades of the Guardians — Yuen Woo-ping [Review]",
+    "href": "https://inreviewonline.com/2026/02/17/blades-of-the-guardians-review/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt32649961"
  },
  "blood-and-water": {
   "videos": [],
@@ -4387,6 +4580,55 @@
   "cinemaRelease": true,
   "imdb": "tt28943278"
  },
+ "heartland": {
+  "videos": [
+   {
+    "id": "oeKNf0_xIrA",
+    "kind": "Official trailer",
+    "title": "Heartland | Official Trailer (Jessica Chastain / Netflix 2026)",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "3BRoHJ2JDIg",
+    "kind": "Cast interview",
+    "title": "Jessica Chastain, Ross Lynch, & the 'Heartland' Cast Spill Filming Secrets | Netflix Movie Interview",
+    "channel": "Brit + Co"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Daily Beast",
+    "title": "Oscar Winner Delivers Knockout Turn as Feisty Country Star",
+    "href": "https://www.thedailybeast.com/obsessed/heartland-jessica-chastain-delivers-knockout-turn-as-feisty-country-star",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Heartland",
+    "href": "https://www.rogerebert.com/?p=278424",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "FandomWire",
+    "title": "Heartland review",
+    "href": "https://fandomwire.com/heartland-review/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Jessica Chastain, Carter Faith & John Hawkes To Star In Mystery Thriller ‘Heartland’ From Netflix And Shana Feste",
+    "href": "https://deadline.com/2025/09/jessica-chastain-john-hawkes-carter-faith-heartland-1236510838/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "Garrett Hedlund, Jennifer Nettles, Ross Lynch & Ben Dickey Join Jessica Chastain In Shana Feste’s Netflix Mystery Thriller ‘Heartland’",
+    "href": "https://deadline.com/2025/10/garrett-hedlund-jennifer-nettles-ross-lynch-ben-dickey-heartland-1236590459/"
+   }
+  ],
+  "imdb": "tt38213251"
+ },
  "high-noon": {
   "videos": [],
   "reviews": [
@@ -5859,6 +6101,56 @@
    }
   ],
   "imdb": "tt4729430"
+ },
+ "kung-fu-soccer": {
+  "videos": [
+   {
+    "id": "uRJfExHajQw",
+    "kind": "Cast interview",
+    "title": "功夫女足｜Kung Fu Soccer | Interview with Sisley Choi | 蔡思贝采访视频",
+    "channel": "GSCinemas"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "South China Morning Post",
+    "title": "Kung Fu Soccer movie review: Stephen Chow’s stale, gender-swapped Shaolin Soccer spin-off",
+    "href": "https://www.scmp.com/lifestyle/entertainment/article/3360365/kung-fu-soccer-movie-review-stephen-chows-stale-gender-swapped-shaolin-soccer-spin",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Screen Daily",
+    "title": "‘Kung Fu Soccer’ review: Stephen Chow’s Chinese box-office hit is poor imitation of his early classics",
+    "href": "https://www.screendaily.com/reviews/kung-fu-soccer-review-stephen-chows-chinese-box-office-hit-is-poor-imitation-of-his-early-classics/5219370.article",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Kung Fu Soccer",
+    "href": "https://www.rogerebert.com/reviews/kung-fu-soccer-stephen-chow-movie-review-2026",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "8days",
+    "title": "Kung Fu Soccer Review: Beat Post-World Cup Blues With Stephen Chow’s Messi, Messy & Madcap Fun",
+    "href": "https://www.8days.sg/seeanddo/streamit/kung-fu-soccer-stephen-chow-zhang-xiaofei-dilraba-dilmurat-movie-review-2026-861716",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Stephen Chow’s 'Kung Fu Soccer' Kicks Off With Mighty $74 Million Two-Day Debut at China Box Office",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/stephen-chow-kung-fu-soccer-china-box-office-1236646255/"
+   },
+   {
+    "outlet": "The ASEAN Daily",
+    "title": "Hong Kong Superstar Stephen Chow Unveils Exciting International Production: 'Shaolin Women's Soccer'",
+    "href": "https://theaseandaily.com/hong-kong-superstar-stephen-chow-unveils-exciting-international-production-shaolin-womens-soccer/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt36103784"
  },
  "la-bola-negra": {
   "videos": [
@@ -7567,6 +7859,25 @@
   "cinemaRelease": true,
   "imdb": "tt11873472"
  },
+ "never-surrender": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "But Why Tho?",
+    "title": "Never Surrender review",
+    "href": "https://butwhytho.net/2026/11/never-surrender-review/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Flick On Click",
+    "title": "Never Surrender review",
+    "href": "https://www.flickonclick.com/never-surrender-review/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "imdb": "tt39370926"
+ },
  "nickel-boys": {
   "videos": [
    {
@@ -8299,6 +8610,69 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0050825"
+ },
+ "paw-patrol-the-dino-movie": {
+  "videos": [
+   {
+    "id": "-AVNejpbBOo",
+    "kind": "Official trailer",
+    "title": "PAW Patrol: The Dino Movie | Dog Vision Trailer (2026 Movie)",
+    "channel": "Paramount Pictures"
+   },
+   {
+    "id": "aHw4PuLCUIc",
+    "kind": "Teaser",
+    "title": "PAW Patrol: The Dino Movie | Teaser Trailer (2026 Movie)",
+    "channel": "Paramount Pictures"
+   },
+   {
+    "id": "SJHFcvqDVYk",
+    "kind": "Cast interview",
+    "title": "\"Paw Patrol: The Dino Movie\" stars reveal what they want audience to take away from film",
+    "channel": "CBS Mornings"
+   },
+   {
+    "id": "vo5NDI58PVw",
+    "kind": "Cast interview",
+    "title": "Paw Patrol: The Dino Movie - Meet The Cast | Paramount Pictures",
+    "channel": "Hollywood+"
+   },
+   {
+    "id": "0DWeJEVLie8",
+    "kind": "Featurette",
+    "title": "PAW Patrol: The Dino Movie | Cast Featurette (2026 Movie)",
+    "channel": "Paramount Pictures"
+   },
+   {
+    "id": "vOOGzhtsmns",
+    "kind": "Featurette",
+    "title": "Paw Patrol: The Dino Movie | Cast Featurette | In Cinemas Sept 17",
+    "channel": "Paramount Pictures New Zealand"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "JoBlo",
+    "title": "PAW Patrol: The Dino Movie Review: These Pups Still Have Some Bite",
+    "href": "https://www.joblo.com/paw-patrol-the-dino-movie-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "OSV News",
+    "title": "PAW Patrol: The Dino Movie",
+    "href": "https://www.osvnews.com/paw-patrol-the-dino-movie/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "TheWrap",
+    "title": "'Paw Patrol: The Dino Movie' Review: Toy Commercial Has Iffy Messages, But Gets One Thing Right",
+    "href": "https://thewrap.com/creative-content/movies/paw-patrol-the-dino-movie-review",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt29356163"
  },
  "penguins-of-madagascar": {
   "videos": [
@@ -9372,6 +9746,45 @@
   "cinemaRelease": true,
   "imdb": "tt0046250"
  },
+ "runner": {
+  "videos": [
+   {
+    "id": "4hosJoujpoY",
+    "kind": "Teaser",
+    "title": "Runner Teaser Trailer (2026)",
+    "channel": "Rotten Tomatoes Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'Runner' Review: Alan Ritchson and Owen Wilson Take a Run at B-Movie Greatness",
+    "href": "https://www.thewrap.com/creative-content/movies/runner-review-alan-ritchson-owen-wilson/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "JoBlo",
+    "title": "Runner Review: Alan Ritchson and Owen Wilson make for an entertaining odd couple in this solid throwback action flick",
+    "href": "https://www.joblo.com/?p=945160",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Film Threat",
+    "title": "Runner",
+    "href": "https://filmthreat.com/reviews/runner-2026-angel/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "Runner review",
+    "href": "https://www.avclub.com/runner-review",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt31349844"
+ },
  "saloum": {
   "videos": [
    {
@@ -10357,6 +10770,80 @@
   "cinemaRelease": true,
   "imdb": "tt22084616"
  },
+ "spider-noir": {
+  "videos": [
+   {
+    "id": "DfowFyDxUXo",
+    "kind": "Official trailer",
+    "title": "\"Spider-Noir\" - Authentic Black & White Trailer | Prime Video",
+    "channel": "Prime Video"
+   },
+   {
+    "id": "HgMbkitzhEM",
+    "kind": "Teaser",
+    "title": "“Spider-Noir” – Authentic Black & White Teaser Trailer | Prime Video",
+    "channel": "Prime Video"
+   },
+   {
+    "id": "3gdNB-HbnzE",
+    "kind": "Cast interview",
+    "title": "Spider-Noir's Nicolas Cage and the Cast Talk Season 1 Spoilers, Season 2, and More",
+    "channel": "Collider Interviews"
+   },
+   {
+    "id": "gwaMw7kM3L8",
+    "kind": "Cast interview",
+    "title": "Cast and Showrunner for ‘Spider-Noir’ | Conversations at the SAG-AFTRA Foundation",
+    "channel": "SAG-AFTRA Foundation"
+   },
+   {
+    "id": "NgJpIEaCEhI",
+    "kind": "Cast interview",
+    "title": "Nicolas Cage Reveals He Considered RETIRING, Talks 1st TV Show 'Spider-Noir' (Exclusive)",
+    "channel": "extratv"
+   },
+   {
+    "id": "k1cY0dWO8bw",
+    "kind": "Cast interview",
+    "title": "Spider-Noir's New Villains Talk Fist Fights With Nic Cage! - Spider-Noir Cast Interview",
+    "channel": "Comicbook.com"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'Spider-Noir' Review: Nicolas Cage Marvels in One of the Year's Top TV Treats",
+    "href": "https://www.thewrap.com/creative-content/reviews/spider-noir-review-nicolas-cage-prime-video/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "/Film",
+    "title": "Spider-Noir Review: Nicolas Cage's Idiosyncratic Performance Keeps This Spider-Man Series Swinging",
+    "href": "https://slashfilm.com/2177684/spider-noir-review-nicolas-cage-marvel-spider-man-series/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "TVLine",
+    "title": "Spider-Noir Review: Nicolas Cage Spins A Tribute To Film Noir That Gets Stuck In Homage",
+    "href": "https://tvline.com/2181744/spider-noir-review-marvel-spider-man-nicolas-cage-prime-video/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Playlist",
+    "title": "'Spider-Noir' Review: 1930s Film Noir For Dummies, With Nicolas Cage Stuck In Raymond Chandler Cosplay",
+    "href": "https://theplaylist.net/spider-noir-review-nicolas-cage-20260522/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Nicolas Cage Says He’s 'Probably Not' Working With Amazon Again After Refusing to Sign AI Waiver for 'Spider-Noir,' Teases Joining 'True Detective'",
+    "href": "https://variety.com/2026/tv/news/nicolas-cage-ai-waiver-amazon-spider-noir-1236907564/"
+   }
+  ],
+  "imdb": "tt30460310"
+ },
  "stagecoach": {
   "videos": [],
   "reviews": [
@@ -10764,6 +11251,67 @@
   ],
   "articles": [],
   "imdb": "tt0328832"
+ },
+ "the-beast": {
+  "videos": [
+   {
+    "id": "kEZpVzlqFds",
+    "kind": "Official trailer",
+    "title": "The Beast - Official Trailer (2026) Samuel L. Jackson, Joel Kinnaman",
+    "channel": "IGN"
+   },
+   {
+    "id": "IikQKyqIObM",
+    "kind": "Filmmaker interview",
+    "title": "Renny Harlin Talks The Beast, Die Hard 2, and Reveals What Bruce Willis Hated About John McClane",
+    "channel": "Collider Interviews"
+   },
+   {
+    "id": "-pAzKnBiyCA",
+    "kind": "Filmmaker interview",
+    "title": "Renny Harlin Interview: How Steven Spielberg Changed His Life, Deep Water, and The Beast",
+    "channel": "Collider Interviews"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "JoBlo",
+    "title": "The Beast Review: Samuel L. Jackson and Renny Harlin Deliver Old-School Action",
+    "href": "https://www.joblo.com/the-beast-review-samuel-l-jackson/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Spectrum Culture",
+    "title": "The Beast",
+    "href": "https://spectrumculture.com/2026/10/12/the-beast-review-2/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Beast",
+    "href": "https://www.rogerebert.com/?p=277069",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "FandomWire",
+    "title": "The Beast review",
+    "href": "https://fandomwire.com/the-beast-review/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Samuel L. Jackson In Talks To Play U.S. President In 'The Beast' Alongside Joel Kinnaman; WME Independent Package Has An IA With Peter Berg & Fifth Season Among Producers – Toronto",
+    "href": "https://deadline.com/2023/09/samuel-jackson-us-president-beast-movie-joel-kinnaman-peter-berg-toronto-1235538244/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "Samuel L. Jackson & Joel Kinnaman Action Film 'The Beast' Adds 'Oppenheimer' Actor Guy Burnet; Filming To Begin Next Week In Spain",
+    "href": "https://deadline.com/2024/08/samuel-l-jackson-joel-kinnaman-action-film-the-beast-filming-spain-guy-burnet-1236072570/"
+   }
+  ],
+  "imdb": "tt29256561"
  },
  "the-best-years-of-our-lives": {
   "videos": [],
@@ -11330,6 +11878,84 @@
   "cinemaRelease": true,
   "imdb": "tt27165187"
  },
+ "the-fix": {
+  "videos": [
+   {
+    "id": "0w24HG0_G2o",
+    "kind": "Cast interview",
+    "title": "The Fix | Exclusive Interviews | Liam Neeson, Zachary Levi",
+    "channel": "Moviefone"
+   },
+   {
+    "id": "XvPxMj24y9Y",
+    "kind": "Filmmaker interview",
+    "title": "Things You Didn't Know About THE FIX – Elnaaz Norouzi & Guy Moshe Reveal All | Exclusive Interview",
+    "channel": "Lehren TV"
+   },
+   {
+    "id": "-2bQF7HEyS4",
+    "kind": "Filmmaker interview",
+    "title": "The Fix director Guy Moshe: “Anybody who liked Dhurandhar is gonna like our movie” | Elnaaz Norouzi",
+    "channel": "India Forums"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'The Fix' Review: Zachary Levi Takes Iran in an Ill-Conceived, Overlong Misfire",
+    "href": "https://www.thewrap.com/creative-content/reviews/the-fix-review-zachary-levi/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "FandomWire",
+    "title": "The Fix review",
+    "href": "https://fandomwire.com/the-fix-review/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Liam Neeson Joins Zachary Levi Action-Thriller 'Hotel Tehran'",
+    "href": "https://variety.com/2024/film/markets-festivals/liam-neeson-zachary-levi-action-thriller-hotel-tehran-1236002697/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt9601292"
+ },
+ "the-furious": {
+  "videos": [
+   {
+    "id": "JkFScVWmkyc",
+    "kind": "Filmmaker interview",
+    "title": "The Furious Interview: Kenji Tanigaki, Joe Taslim, Xie Miao, Yayan Ruhian, and Brian Le",
+    "channel": "Collider Interviews"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "JoBlo",
+    "title": "'The Furious' (TIFF) Review: A banger of a martial arts flick",
+    "href": "https://www.joblo.com/the-furious-tiff-review-a-banger-of-a-martial-arts-flick/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "TIFF 2025: 'Dust Bunny', 'The Furious', 'Normal'",
+    "href": "https://www.rogerebert.com/festivals/tiff-2025-dust-bunny-the-furious-normal",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "'Crouching Tiger, Hidden Dragon' Producer Bill Kong Aims to Reset Martial Arts Genre with 'The Furious', Directed by Tanigaki Kenji (Exclusive)",
+    "href": "https://variety.com/2024/film/news/crouching-tiger-hidden-dragon-bill-kong-the-furious-tanigaki-kenji-1235982055/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt33311069"
+ },
  "the-general": {
   "videos": [],
   "reviews": [
@@ -11360,6 +11986,85 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0017925"
+ },
+ "the-good-daughter": {
+  "videos": [
+   {
+    "id": "TEVgV_pdavU",
+    "kind": "Official trailer",
+    "title": "The Good Daughter | Official Trailer | Peacock Original",
+    "channel": "Peacock"
+   },
+   {
+    "id": "Z9LE3tgx4zM",
+    "kind": "Teaser",
+    "title": "The Good Daughter | Official Teaser | Peacock Original",
+    "channel": "Peacock"
+   },
+   {
+    "id": "LjffT6jYlXA",
+    "kind": "Cast interview",
+    "title": "The Good Daughter | Casting the Quinn Family | Peacock Original",
+    "channel": "Peacock"
+   },
+   {
+    "id": "vO8GJBGs0AA",
+    "kind": "Cast interview",
+    "title": "Meghann Fahy Talks ‘The Good Daughter,’ New Bob Haircut, More",
+    "channel": "TODAY"
+   },
+   {
+    "id": "mm-4Lk9Hpc0",
+    "kind": "Cast interview",
+    "title": "Rose Byrne, Meghann Fahy and more stars shine at 'The Good Daughter' premiere",
+    "channel": "Page Six"
+   },
+   {
+    "id": "t0THiPnfCtE",
+    "kind": "Cast interview",
+    "title": "Rose Byrne Talks 'The Good Daughter,' Thanksgiving Plans, More",
+    "channel": "TODAY"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'The Good Daughter' review",
+    "href": "https://www.thewrap.com/creative-content/reviews/the-good-daughter-tv-show-review/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Tom's Guide",
+    "title": "The Good Daughter review: Meghann Fahy and Rose Byrne star in a bingeable Peacock mystery that Harlan Coben fans shouldn't skip",
+    "href": "https://www.tomsguide.com/entertainment/peacock/the-good-daughter-review-meghann-fahy-and-rose-byrne-star-in-a-bingeable-peacock-mystery-that-harlan-coben-fans-shouldnt-skip",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "The Good Daughter review",
+    "href": "https://www.avclub.com/the-good-daughter-review-peacock-rose-byrne-meghann-fahy",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Daily Beast",
+    "title": "Award-Worthy Stars Can't Save Year's Most Unwatchable Show",
+    "href": "https://www.thedailybeast.com/obsessed/the-good-daughter-award-worthy-stars-cant-save-years-most-unwatchable-show",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Jessica Biel Limited Series 'The Good Daughter' Ordered By Peacock From Fifth Season & Made Up Stories",
+    "href": "https://deadline.com/2024/03/jessica-biel-limited-series-the-good-daughter-peacock-1235862292/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "Jessica Biel Exits Peacock Limited Series 'The Good Daughter'",
+    "href": "https://deadline.com/2024/09/jessica-biel-exit-peacock-the-good-daughter-1236098567/"
+   }
+  ],
+  "imdb": "tt31842126"
  },
  "the-grapes-of-wrath": {
   "videos": [
@@ -11876,6 +12581,92 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt10545296"
+ },
+ "the-invite": {
+  "videos": [
+   {
+    "id": "OJ19I9q_hOQ",
+    "kind": "Official trailer",
+    "title": "The Invite | Official Trailer HD | A24",
+    "channel": "A24"
+   },
+   {
+    "id": "0b8wsIzm9Ac",
+    "kind": "Filmmaker interview",
+    "title": "Director Olivia Wilde Reveals the Craft Behind the Chemistry in 'The Invite' | Filmmaker Toolkit",
+    "channel": "IndieWire"
+   },
+   {
+    "id": "BAVkjjiUtPE",
+    "kind": "Filmmaker interview",
+    "title": "Olivia Wilde and Edward Norton Discuss Their Influences for The Invite",
+    "channel": "Letterboxd"
+   },
+   {
+    "id": "w_B47CkxC9I",
+    "kind": "Filmmaker interview",
+    "title": "Olivia Wilde, Seth Rogen & Penélope Cruz for ‘The Invite’ | SAG-AFTRA Foundation Conversations",
+    "channel": "SAG-AFTRA Foundation"
+   },
+   {
+    "id": "QVdh3bnWEgI",
+    "kind": "Filmmaker interview",
+    "title": "Edward Norton Reveals Olivia Wilde's Wild Filmmaking Method | The Invite Interview",
+    "channel": "HeyUGuys"
+   },
+   {
+    "id": "BR9PAIv5BOc",
+    "kind": "Filmmaker interview",
+    "title": "Olivia Wilde Talks Directing WILD New Comedy THE INVITE | Interview",
+    "channel": "Jake's Takes"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "TheWrap",
+    "title": "'The Invite' Review: Olivia Wilde Scores With Hilarious, Sharp Relationship Dramedy",
+    "href": "https://www.thewrap.com/creative-content/movies/the-invite-review-olivia-wilde-seth-rogen-movie/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "IndieWire",
+    "title": "'The Invite' Review: You're Going to Want to Attend Olivia Wilde's Crackling, Crazy Entertaining Dinner Party from Hell",
+    "href": "https://www.indiewire.com/criticism/movies/the-invite-review-olivia-wilde-1235174788/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'The Invite' Review: Starring Alongside MVP Seth Rogen, Director Olivia Wilde Steers a Tart Marital Comedy Into Occasionally Choppy Darker Waters",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/the-invite-review-olivia-wilde-seth-rogen-penelope-cruz-1236484375/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "'The Invite' Review: Director & Star Olivia Wilde Navigates Dinner Parties, Monogamy & Orgies in Whip-Smart Marital Comedy – Sundance Film Festival",
+    "href": "https://deadline.com/2026/01/the-invite-review-olivia-wilde-marital-comedy-sundance-1236690975/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Screen Daily",
+    "title": "'The Invite' review: Olivia Wilde directs and stars in glossy, tense dinner party drama",
+    "href": "https://www.screendaily.com/reviews/the-invite-review-olivia-wilde-directs-and-stars-in-glossy-tense-dinner-party-drama/5213001.article",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Rare Summer Comedy 'The Invite' Banks a Top Limited Opening of the Year – Specialty Box Office",
+    "href": "https://deadline.com/2026/06/indie-film-box-offiice-comedy-the-invite-top-limited-opening-1236969226/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "'The Invite' Dines Out at No. 6 for Weekend in Solid National Expansion; 'Reading Lolita in Tehran' at the Angelika – Specialty Box Office",
+    "href": "https://deadline.com/2026/07/indie-film-box-office-the-invite-no-6-1236980119/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt14173636"
  },
  "the-joe-louis-story": {
   "videos": [],
@@ -12434,6 +13225,37 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0242653"
+ },
+ "the-mongoose": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "The Mongoose review: Liam Neeson snakes his way through another limp fall actioner",
+    "href": "https://www.rogerebert.com/reviews/the-mongoose-liam-neeson-film-review-2026",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Flickering Myth",
+    "title": "Movie Review – The Mongoose (2026)",
+    "href": "https://www.flickeringmyth.com/movie-review-the-mongoose-2026/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Liam Neeson To Star In Cross-Country Car Chase Movie 'Mongoose', Amazon Seals Big Cannes Market Deal",
+    "href": "https://deadline.com/2024/05/liam-neeson-cross-country-car-chase-film-mongoose-amazon-deal-1235927218/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "Liam Neeson Chase Pic 'The Mongoose' Underway In Australia With Marisa Tomei, Ving Rhames & Michael Chiklis Joining Cast",
+    "href": "https://deadline.com/2025/02/liam-neeson-film-mongoose-filming-australia-marisa-tomei-ving-rhames-michael-chiklis-1236285534/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt13611778"
  },
  "the-mother-of-all-lies": {
   "videos": [
@@ -14109,6 +14931,67 @@
   "cinemaRelease": true,
   "imdb": "tt29611136"
  },
+ "widows-bay": {
+  "videos": [
+   {
+    "id": "Nmc2RYm6PUE",
+    "kind": "Teaser",
+    "title": "Widow's Bay — Official Teaser Trailer | Apple TV",
+    "channel": "Apple TV"
+   },
+   {
+    "id": "RMWrFkgK1OY",
+    "kind": "Cast interview",
+    "title": "Widow's Bay Cast Celebrates (Almost) Sweeping the Emmys (Exclusive)",
+    "channel": "Entertainment Tonight"
+   },
+   {
+    "id": "Lk9bysJmbc0",
+    "kind": "Cast interview",
+    "title": "Cast for ‘Widow's Bay’ | Conversations at the SAG-AFTRA Foundation",
+    "channel": "SAG-AFTRA Foundation"
+   },
+   {
+    "id": "65C0IacnCUA",
+    "kind": "Cast interview",
+    "title": "Is Apple TV's Widow's Bay Too Scary? Cast Reveals Their Biggest On-Set Scares | Say More",
+    "channel": "Mashable"
+   },
+   {
+    "id": "k-yxvh8LiCg",
+    "kind": "Cast interview",
+    "title": "Matthew Rhys Talks ‘Widow’s Bay,’ Horse Cutting, Boating, More",
+    "channel": "TODAY"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Guardian",
+    "title": "'Widow's Bay' review – Matthew Rhys' intoxicating comedy-horror is an absolute blast",
+    "href": "https://www.theguardian.com/tv-and-radio/2026/apr/29/widows-bay-review-matthew-rhys-intoxicating-comedy-horror-is-an-absolute-blast",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Apple TV Horror Comedy 'Widow's Bay' Walks a Tonal Tightrope to Bewitching Effect: TV Review",
+    "href": "https://variety.com/2026/tv/reviews/widows-bay-review-apple-tv-horror-comedy-1236733401/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline",
+    "title": "Apple Sets Horror-Comedy Series 'Widow's Bay' from Katie Dippold & Hiro Murai",
+    "href": "https://deadline.com/2024/09/apple-widows-bay-katie-dippold-hiro-murai-1236077757/"
+   },
+   {
+    "outlet": "Deadline",
+    "title": "Matthew Rhys to Headline Apple TV+ Series 'Widow's Bay'",
+    "href": "https://deadline.com/2025/02/matthew-rhys-cast-widows-bay-apple-tv-series-1236285817/"
+   }
+  ],
+  "imdb": "tt33332385"
+ },
  "wild-horse-nine": {
   "videos": [
    {
@@ -14332,5 +15215,60 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt45368240"
+ },
+ "your-mother-your-mother-your-mother": {
+  "videos": [
+   {
+    "id": "Imae3sxYzms",
+    "kind": "Official trailer",
+    "title": "YOUR MOTHER YOUR MOTHER YOUR MOTHER trailer | BFI London Film Festival 2026 – 7-18 October",
+    "channel": "BFI"
+   },
+   {
+    "id": "hCXfh1oB3oc",
+    "kind": "Teaser",
+    "title": "Your Mother Your Mother Your Mother | Official Teaser Trailer",
+    "channel": "Amazon MGM Studios"
+   },
+   {
+    "id": "vGevlIX-QuA",
+    "kind": "Featurette",
+    "title": "Your Mother Your Mother Your Mother Featurette - Genre-Bending Mission (2026)",
+    "channel": "Rotten Tomatoes Coming Soon"
+   },
+   {
+    "id": "Y38b2_-lIow",
+    "kind": "Featurette",
+    "title": "Your Mother Your Mother Your Mother | Peace In Violence Featurette | MGM",
+    "channel": "Amazon MGM Studios"
+   },
+   {
+    "id": "mfyJhfRaWT0",
+    "kind": "Featurette",
+    "title": "Your Mother Your Mother Your Mother | Genre-Bending Mission Featurette",
+    "channel": "Amazon MGM Studios"
+   },
+   {
+    "id": "UZDl1rW4y2I",
+    "kind": "Featurette",
+    "title": "Your Mother Your Mother Your Mother Exclusive Featurette - Sword Work (2026)",
+    "channel": "Fandango (Stream)"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Daily Beast",
+    "title": "Two-Time Oscar Winner Gives His Best Performance in a Decade",
+    "href": "https://www.thedailybeast.com/obsessed/your-mother-your-mother-your-mother-mahershala-ali-gives-best-performance-in-a-decade/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The List",
+    "title": "Your Mother Your Mother Your Mother film review: emotionally authentic",
+    "href": "https://list.co.uk/news/your-mother-your-mother-your-mother-film-review-emotionally-authentic-49294",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": []
  }
 }

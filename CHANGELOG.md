@@ -5,6 +5,7 @@ Newest first. The full story of each change is in its commit and in docs/decisio
 
 ## Recent Changes
 
+- 2026-11-24 · `explore/best-of-2026-batches-10-11` · Best of 2026 batches 10–11 (19 titles with checked trailers and press kits), weekly rerank (90 of the top 100 live). Files: `src/features/explore/*` data, `public/explore/made-in-africa/*.jpg`, `docs/decisions.md`, `CHANGELOG.md`.
 - 2026-11-21 · `chore/auto-ship` · Automatic shipping: GitHub runs types, lint and tests on every pull request and change to main; pull requests merge themselves once they pass; CLAUDE.md says when Claude ships without asking. Files: `.github/workflows/checks.yml` (new), `CLAUDE.md`, `CHANGELOG.md`.
 - 2026-11-21 · Explore: Recently added back under Top 10 as a row, View all at `/explore/recent`. Files: `src/features/explore/recent.ts`, `src/components/explore/{explore-library,recent-all}.tsx`, Explore and recent pages, `next.config.ts`.
 - 2026-11-21 · Explore: franchises (page, row on each title, search) with 24 new titles; Best of 2026 batches 8–9 (81 of 100 live). Files: `src/features/explore/*`, `src/components/explore/franchise-all.tsx`, `src/app/(app)/explore/franchise/`, title page, search, `public/explore/made-in-africa/*.jpg`, docs.
