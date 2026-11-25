@@ -96,7 +96,7 @@ async function load(): Promise<Result[]> {
   const [projects, documents, files, templates, explore, meetings] = await Promise.all([
     supabase.from("projects").select("id, title, production_type, stage, director, genres, description, cover_url, updated_at, client, crew").is("deleted_at", null).order("updated_at", { ascending: false }).limit(300),
     supabase.from("documents").select("id, template_code, title, status, updated_at, project:projects(id, title)").is("deleted_at", null).order("updated_at", { ascending: false }).limit(300),
-    supabase.from("project_files").select("id, name, kind, tag, size, path, thumb_path, created_at, project:projects(id, title)").is("deleted_at", null).order("created_at", { ascending: false }).limit(300),
+    supabase.from("project_files").select("id, name, kind, tag, size, path, thumb_path, created_at, project:projects(id, title), folder:project_reference_folders(name)").is("deleted_at", null).order("created_at", { ascending: false }).limit(300),
     loadTemplateIndex().catch(() => []),
     exploreAccess(supabase).catch(() => false),
     // Meetings (docs/MEETINGS_SPEC.md): only the editors of a project get any; none before the migration.
@@ -149,13 +149,15 @@ async function load(): Promise<Result[]> {
     }),
     ...(files.data ?? []).map((f): Result => {
       const project = f.project as unknown as Ref;
+      // A reference's folder (PR1): shown with it, and its name finds what's in it.
+      const folder = (f.folder as unknown as { name: string } | null)?.name ?? null;
       return {
         key: `f:${f.id}`,
         kind: "file",
         title: f.name,
-        meta: [project?.title, f.tag && TAGS[f.tag]].filter(Boolean).join(" · "),
-        words: f.kind,
-        href: project ? `/projects/${project.id}#files` : "/projects",
+        meta: [project?.title, f.tag && TAGS[f.tag], folder].filter(Boolean).join(" · "),
+        words: `${f.kind} ${folder ?? ""}`,
+        href: project ? (f.tag === "reference" ? `/projects/${project.id}?tab=references` : `/projects/${project.id}#files`) : "/projects",
         at: f.created_at,
         file: { kind: f.kind, path: f.path, thumb: f.thumb_path, tag: f.tag, size: f.size },
       };

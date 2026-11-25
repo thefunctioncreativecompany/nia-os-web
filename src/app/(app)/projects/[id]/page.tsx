@@ -13,7 +13,7 @@ import { ProjectDocuments } from "@/components/projects/project-documents";
 import { ProjectMeetings } from "@/components/projects/project-meetings";
 import { googleConfigured } from "@/lib/google";
 import { ProjectFiles, ProjectFinalAssets } from "@/components/projects/project-files";
-import { ProjectInspiration } from "@/components/projects/project-inspiration-lazy";
+import { ProjectInspiration, ProjectReferences } from "@/components/projects/project-inspiration-lazy";
 import { Comments } from "@/components/nia/comments";
 import { everyTemplate } from "@/features/templates/catalog";
 import type { ProjectSignals } from "@/features/explore/match";
@@ -91,7 +91,13 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
         documents={<ProjectDocuments projectId={id} documents={documents} uploads={files} icons={ICONS} canEdit={canEdit} isOwner={role === "owner"} userId={userId} now={now} />}
         meetings={meetingsSection}
         finals={<ProjectFinalAssets files={files} canEdit={canEdit} now={now} />}
-        files={<ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />}
+        files={
+          <>
+            {/* References in folders (PR1), then the other files. */}
+            <ProjectReferences projectId={id} files={files.filter((f) => f.tag === "reference")} canEdit={canEdit} now={now} />
+            <ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />
+          </>
+        }
         inspiration={<ProjectInspiration projectId={id} signals={inspirationSignals(project)} canEdit={canEdit} />}
         comments={<Comments subject={{ projectId: id }} />}
         activity={

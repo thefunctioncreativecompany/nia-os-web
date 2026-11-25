@@ -1322,3 +1322,17 @@ onboarding's Import profile and Follow creators describe features removed in the
   the new titles and Sense and Sensibility, Whalefall and How to Rob a Bank sit just below it (still
   on Explore), and ten newly ranked titles wait for the next batch (`toAdd` in best-of-2026.json).
   A Story of Derry has no Wikidata item, press kit or exact date yet; Never Surrender has no cast.
+- (2026-11-25) Reference folders (PR1, Ika 2026-11-24: "teams sort references into named folders
+  instead of one endless gallery"; built from existing pieces on Ika's OK, not drawn first). The
+  References tab leads with one References section for every kind of reference: pictures uploaded
+  as references, Explore titles and Instagram posts in one grid (8 to a row on computers, 3 on
+  phones), so the Files section below keeps raw files, work in progress and briefs, and
+  Inspiration's suggestions come last. Folders run across the top in Marketplace's chip look (All,
+  each folder, Unsorted, New folder); one folder per reference (tags already cover other sorting).
+  Move by Select + Move to, by dragging a tile onto a folder, or from the viewer; drag a tile onto
+  another to reorder (the team's order, `position`, which Overview's row also follows). The viewer
+  shows the picture with previous/next and arrow keys, and beside it who added it and when, its
+  folder and note, and its link; Move earlier/later there for keyboards. Removing a folder keeps its
+  references (back to Unsorted). Table `project_reference_folders`, `folder_id` on `project_files`
+  and `project_references`, `remove_reference_folder` (20261126000000_reference_folders.sql).
+  Search shows a reference's folder and finds what's in a folder by its name.

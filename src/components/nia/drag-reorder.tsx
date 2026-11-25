@@ -10,7 +10,9 @@ import { cn } from "@/lib/utils";
 // The browser's own drag and drop, so no extra library loads. Used by a template's reference cards
 // (card-row.tsx) and a project's References.
 
-const TYPE = "application/x-nia-card";
+/** What a dragged card carries (its place), so a drop zone such as a folder can take it. */
+export const CARD_DRAG_TYPE = "application/x-nia-card";
+const TYPE = CARD_DRAG_TYPE;
 const carries = (e: React.DragEvent) => [...e.dataTransfer.types].includes(TYPE);
 
 export function useDragReorder(onMove: (from: number, to: number) => void) {

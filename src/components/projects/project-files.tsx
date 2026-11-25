@@ -145,7 +145,7 @@ async function imagePreview(file: File): Promise<Blob | null> {
  * PDF (best effort: a locked PDF just shows its icon), then its record with a tag. Used by the upload box, the
  * New project form (audit #12) and a shot list's pictures. Returns the file's id; throws with a readable message if it fails.
  */
-export async function uploadProjectFile(projectId: string, file: File, token: string, tag: FileTag | "auto" = "auto", onProgress: (p: number) => void = () => {}, key: string = crypto.randomUUID()) {
+export async function uploadProjectFile(projectId: string, file: File, token: string, tag: FileTag | "auto" = "auto", onProgress: (p: number) => void = () => {}, key: string = crypto.randomUUID(), folderId: string | null = null) {
   const supabase = createClient();
   const kind = kindOf(file.type);
   const safe = file.name.replace(/[^\w.\-]+/g, "-").slice(-120) || "file";
@@ -178,6 +178,8 @@ export async function uploadProjectFile(projectId: string, file: File, token: st
       kind,
       tag: tag === "auto" ? AUTO_TAG[kind] : tag,
       thumb_path: thumb,
+      // Into a reference folder (PR1); left out otherwise, so uploads work before its migration.
+      ...(folderId ? { folder_id: folderId } : {}),
     })
     .select("id")
     .single();
@@ -191,7 +193,7 @@ export const MAX_UPLOAD_MB = MAX_MB;
 export { ACCEPT as UPLOAD_ACCEPT };
 
 /** The upload box. `tag`: what new files are tagged ("auto" picks by kind). Also used by Add document. */
-export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT, hint }: { projectId: string; /** How many of the files went in. */ onUploaded: (count: number) => void; tag?: FileTag | "auto"; accept?: string; hint?: string }) {
+export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT, hint, folderId = null }: { projectId: string; /** How many of the files went in. */ onUploaded: (count: number) => void; tag?: FileTag | "auto"; accept?: string; hint?: string; /** A reference folder new files go into. */ folderId?: string | null }) {
   const reduced = useReducedMotion() ?? false;
   const input = useRef<HTMLInputElement>(null);
   // Each refusal replays the shake (a new key restarts it).
@@ -233,7 +235,7 @@ export function Dropzone({ projectId, onUploaded, tag = "auto", accept = ACCEPT,
     const went = await Promise.all(
       batch.map(async ({ file, up }) => {
         try {
-          await uploadProjectFile(projectId, file, session.access_token, tag, (p) => set(up.key, { progress: p }), up.key);
+          await uploadProjectFile(projectId, file, session.access_token, tag, (p) => set(up.key, { progress: p }), up.key, folderId);
           set(up.key, { progress: 1, done: true });
           return true;
         } catch (e) {
@@ -639,15 +641,16 @@ export function ProjectFinalAssets({ files, canEdit, now }: { files: ProjectFile
   );
 }
 
-// Tabs in Files & references: every tag but final, which has its own section.
-const TABS = TAGS.filter((t) => t.value !== "final");
+// Tabs in Files: every tag but final and reference, which have their own sections (final assets on
+// Overview; references in folders above, project-references.tsx).
+const TABS = TAGS.filter((t) => t.value !== "final" && t.value !== "reference");
 
 export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: string; files: ProjectFile[]; canEdit: boolean; now: number }) {
   const [tab, setTab] = useState<Tab>("all");
   const [uploadTag, setUploadTag] = useState<FileTag | "auto">("auto");
   const { live: all, remove, retag, retagMany, refresh, restored } = useProjectFiles(files);
 
-  const live = all.filter((f) => !isFinal(f));
+  const live = all.filter((f) => !isFinal(f) && f.tag !== "reference");
   const inTab = tab === "all" ? live : live.filter((f) => f.tag === tab);
   // Selecting several files to tag at once; Shift picks every file between this one and the last.
   const [selecting, setSelecting] = useState(false);
@@ -683,7 +686,7 @@ export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: st
     <section aria-labelledby="files" className="flex flex-col gap-4">
       <div className="flex flex-col gap-3">
         <h2 id="files" className="text-lg leading-[1.4] font-bold text-foreground">
-          Files &amp; references
+          Files
         </h2>
         {live.length > 0 && (
           <SegmentedControl

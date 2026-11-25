@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "reference-folders",
+    date: "2026-11-25",
+    title: "Reference folders",
+    body: "Sort a project's references into folders like Lighting or Wardrobe: pictures, Explore titles and Instagram posts together. Open any one full screen with its note and where it came from.",
+    href: "/projects",
+    cta: "Open your projects",
+    icon: "folder",
+    weight: { production: 0.8, fashion: 0.9, creator: 0.8 },
+  },
+  {
     id: "desktop-app-offline",
     date: "2026-11-25",
     title: "Nia on your computer, documents offline",
