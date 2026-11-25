@@ -55,6 +55,14 @@
   "date": "1961-01-01",
   "precision": "year"
  },
+ "a-story-of-derry": {
+  "date": "2026-01-01",
+  "precision": "year"
+ },
+ "a-talent-for-murder": {
+  "date": "2026-09-14",
+  "precision": "day"
+ },
  "abouna": {
   "date": "2002-01-01",
   "precision": "year"
@@ -103,6 +111,10 @@
   "date": "1979-01-01",
   "precision": "year"
  },
+ "apocalypse-z-new-world": {
+  "date": "2026-10-30",
+  "precision": "day"
+ },
  "apollo-13": {
   "date": "1995-06-30",
   "precision": "day"
@@ -117,6 +129,10 @@
  },
  "avatar": {
   "date": "2009-12-16",
+  "precision": "day"
+ },
+ "avatar-seven-havens": {
+  "date": "2026-10-09",
   "precision": "day"
  },
  "avatar-the-way-of-water": {
@@ -173,6 +189,10 @@
  },
  "black-panther": {
   "date": "2018-02-14",
+  "precision": "day"
+ },
+ "blades-of-the-guardians": {
+  "date": "2026-02-17",
   "precision": "day"
  },
  "blood-and-water": {
@@ -1079,6 +1099,10 @@
   "date": "2024-03-29",
   "precision": "day"
  },
+ "heartland": {
+  "date": "2026-11-13",
+  "precision": "day"
+ },
  "hidden-figures": {
   "date": "2016-12-26",
   "precision": "day"
@@ -1249,6 +1273,10 @@
  },
  "klaus": {
   "date": "2019-11-08",
+  "precision": "day"
+ },
+ "kung-fu-soccer": {
+  "date": "2026-07-11",
   "precision": "day"
  },
  "la-bola-negra": {
@@ -1431,6 +1459,10 @@
   "date": "1976-01-01",
   "precision": "year"
  },
+ "never-surrender": {
+  "date": "2026-11-12",
+  "precision": "day"
+ },
  "nickel-boys": {
   "date": "2024-08-30",
   "precision": "day"
@@ -1498,6 +1530,10 @@
  "paths-of-glory": {
   "date": "1957-01-01",
   "precision": "year"
+ },
+ "paw-patrol-the-dino-movie": {
+  "date": "2026-07-24",
+  "precision": "day"
  },
  "penguins-of-madagascar": {
   "date": "2014-11-26",
@@ -1623,6 +1659,10 @@
   "date": "1953-08-27",
   "precision": "day"
  },
+ "runner": {
+  "date": "2026-09-10",
+  "precision": "day"
+ },
  "saloum": {
   "date": "2021-01-01",
   "precision": "year"
@@ -1640,8 +1680,8 @@
   "precision": "year"
  },
  "scarface": {
-  "date": "1983-01-01",
-  "precision": "year"
+  "date": "1983-12-09",
+  "precision": "day"
  },
  "scary-movie": {
   "date": "2026-06-04",
@@ -1751,6 +1791,10 @@
   "date": "2021-07-16",
   "precision": "day"
  },
+ "spider-noir": {
+  "date": "2026-05-25",
+  "precision": "day"
+ },
  "squid-game": {
   "date": "2021-09-17",
   "precision": "day"
@@ -1829,6 +1873,10 @@
  },
  "the-batman": {
   "date": "2022-02-23",
+  "precision": "day"
+ },
+ "the-beast": {
+  "date": "2026-10-09",
   "precision": "day"
  },
  "the-best-years-of-our-lives": {
@@ -1919,6 +1967,14 @@
   "date": "1997-05-07",
   "precision": "day"
  },
+ "the-fix": {
+  "date": "2026-09-11",
+  "precision": "day"
+ },
+ "the-furious": {
+  "date": "2025-09-06",
+  "precision": "day"
+ },
  "the-general": {
   "date": "1926-12-25",
   "precision": "day"
@@ -1933,6 +1989,10 @@
  },
  "the-godfather-part-iii": {
   "date": "1990-12-25",
+  "precision": "day"
+ },
+ "the-good-daughter": {
+  "date": "2026-11-12",
   "precision": "day"
  },
  "the-graduate": {
@@ -1993,6 +2053,10 @@
  },
  "the-hunger-games-the-ballad-of-songbirds-and-snakes": {
   "date": "2023-11-15",
+  "precision": "day"
+ },
+ "the-invite": {
+  "date": "2026-01-24",
   "precision": "day"
  },
  "the-joe-louis-story": {
@@ -2062,6 +2126,10 @@
  "the-matrix-revolutions": {
   "date": "2003-01-01",
   "precision": "year"
+ },
+ "the-mongoose": {
+  "date": "2026-10-30",
+  "precision": "day"
  },
  "the-mother-of-all-lies": {
   "date": "2023-05-24",
@@ -2248,8 +2316,12 @@
   "precision": "day"
  },
  "wicker": {
-  "date": "2026-01-01",
-  "precision": "month"
+  "date": "2026-01-24",
+  "precision": "day"
+ },
+ "widows-bay": {
+  "date": "2026-04-29",
+  "precision": "day"
  },
  "wild-horse-nine": {
   "date": "2026-09-03",
@@ -2270,5 +2342,9 @@
  "you-can-see-everything": {
   "date": "2026-09-06",
   "precision": "day"
+ },
+ "your-mother-your-mother-your-mother": {
+  "date": "2026-01-01",
+  "precision": "year"
  }
 }
