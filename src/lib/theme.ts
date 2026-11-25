@@ -14,8 +14,13 @@ const KEY = "nia-theme";
 const DARK = "(prefers-color-scheme: dark)";
 const listeners = new Set<() => void>();
 
+/** The window's bar when Nia runs as an app (and the browser's, where it tints): the page
+ *  background, `--background` in globals.css, which a meta tag can't read. */
+export const WINDOW_COLOR = { light: "#ffffff", dark: "#1f1f1f" };
+const BAR = 'meta[name="theme-color"]';
+
 /** Runs in <head> before anything draws: the same rule as applyTheme, with no imports. */
-export const THEME_SCRIPT = `try{var t=localStorage.getItem("${KEY}");if(t==="dark"||(t!=="light"&&matchMedia("${DARK}").matches))document.documentElement.classList.add("dark")}catch(e){}`;
+export const THEME_SCRIPT = `try{var t=localStorage.getItem("${KEY}"),d=t==="dark"||(t!=="light"&&matchMedia("${DARK}").matches);if(d)document.documentElement.classList.add("dark");var m=document.createElement("meta");m.name="theme-color";m.content=d?"${WINDOW_COLOR.dark}":"${WINDOW_COLOR.light}";document.head.appendChild(m)}catch(e){}`;
 
 export function themeChoice(): ThemeChoice {
   try {
@@ -29,6 +34,7 @@ export function themeChoice(): ThemeChoice {
 function applyTheme(choice: ThemeChoice) {
   const dark = choice === "dark" || (choice === "system" && matchMedia(DARK).matches);
   document.documentElement.classList.toggle("dark", dark);
+  document.querySelector(BAR)?.setAttribute("content", dark ? WINDOW_COLOR.dark : WINDOW_COLOR.light);
 }
 
 export function setTheme(choice: ThemeChoice) {
