@@ -162,10 +162,10 @@ database reads waiting on each other that could run together; global search load
 | PA2 | **Portfolio link preview can show any project picture.** `cover_file_id` isn't checked against the portfolio's projects; the page itself checks (`loadPublic`), the preview picture doesn't (`publicPreview`, `src/features/portfolios/data.ts`) | 🔄 2026-11-18: the preview picks its cover from the page's own work; the same migration checks covers (not yet in effect, see PA1) |
 | PA3 | Portfolios beta list (`PORTFOLIOS_BETA_EMAILS`) is checked in the app only: any signed-in account can make and publish a portfolio straight through the database | ✅ 2026-11-18: the public page, its title and preview show only portfolios made by someone on the list |
 | PA4 | Meetings step 1 shows nothing on the live site until `20261120000000_meetings.sql` is run (the app copes without it) | ✅ run 2026-11-18 |
-| PA5 | Titles off the heading standard: template preview pop-up (`preview-modal.tsx:168`) and press kit pop-up (`press-kit-preview.tsx:85`) use `text-display`; Timeline's phone note uses `text-h3` (`timeline-locked.tsx:12`) | ⬜ |
+| PA5 | Titles off the heading standard: template preview pop-up (`preview-modal.tsx:168`) and press kit pop-up (`press-kit-preview.tsx:85`) use `text-display`; Timeline's phone note uses `text-h3` (`timeline-locked.tsx:12`) | ✅ 2026-11-19: all three at the page-title size; `nia/heading-style` now fails lint |
 | PA6 | Navbar's desktop edge is 24px (`lg:px-6`, from NAVBAR_BUILD.md) and pages are 30px (`md:px-page`), so the logo and page content don't line up; the spec predates the 2026-11-12 page-edge rule | ⏸ Ika decides |
-| PA7 | Cast & crew profile with no email: the greyed-out Email button is blue; the working one is grey | ⬜ |
-| PA8 | Unused: `MarqueeColumns` and `ScrubFilmstrip` (`src/components/nia`, nothing imports them since 2026-10-23) and the package `@radix-ui/react-switch` (`radix-ui` covers it) | ⬜ delete (tag first) |
+| PA7 | Cast & crew profile with no email: the greyed-out Email button is blue; the working one is grey | ✅ 2026-11-19: both grey (`secondary`) |
+| PA8 | Unused: `MarqueeColumns` and `ScrubFilmstrip` (`src/components/nia`, nothing imports them since 2026-10-23) and the package `@radix-ui/react-switch` (`radix-ui` covers it) | ✅ 2026-11-19: deleted with `DownloadPdfButton`, tag `parked-2026-11-19-unused` |
 | PA9 | Switches that are always on (`exploreUnlocked`, `previewPanel`, `portfoliosBeta` in `src/lib/features.ts`) keep their "off" code; CLAUDE.md still names `features.onboardingExtrasShown`, which is gone | ⬜ |
 
 ## 0b. Logged 2026-11-19: ideas from Astryx (Meta's open-source design system)
@@ -175,9 +175,9 @@ Ika asked how github.com/meta/astryx could help without replacing what we have. 
 
 | # | What | Status |
 |---|------|--------|
-| AX1 | **Design rules checked automatically.** `npm run lint` checks the CLAUDE.md Design rules (`lint/nia-design-rules.mjs`, 26 tests): no masonry, Geist only, sentence case and button shapes fail lint; pixel values, raw colours and heading styles warn until cleaned up. Not run: the `/dev/components` gallery | ✅ 2026-11-19 |
-| AX1a | Its first run found 9 buttons with their pill shape overridden (`rounded-lg`/`rounded-md`): document header, scroll-tab arrows, Delete project, Edit details, project form, template editor | ✅ 2026-11-19: all pills; Delete project uses the red `danger` button (it was the blue one painted red, with a blue halo). `DownloadPdfButton` (`document-header.tsx`) is used nowhere: delete with PA8 |
-| AX1b | 67 pixel values in pages (46 have an exact theme size, named in the warning), 1 raw colour (profile photo overlay) and the PA5 titles plus one `font-extrabold` (template miniature) | ⬜ as each screen is next touched |
+| AX1 | **Design rules checked automatically.** `npm run lint` checks the CLAUDE.md Design rules (`lint/nia-design-rules.mjs`, 26 tests): no masonry, Geist only, sentence case, button shapes and heading styles fail lint; pixel values and raw colours warn until cleaned up. Not run: the `/dev/components` gallery | ✅ 2026-11-19 |
+| AX1a | Its first run found 9 buttons with their pill shape overridden (`rounded-lg`/`rounded-md`): document header, scroll-tab arrows, Delete project, Edit details, project form, template editor | ✅ 2026-11-19: all pills; Delete project uses the red `danger` button (it was the blue one painted red, with a blue halo). `DownloadPdfButton` (`document-header.tsx`) was used nowhere: deleted with PA8 |
+| AX1b | 67 pixel values in pages (46 have an exact theme size, named in the warning), 1 raw colour (profile photo overlay); the PA5 titles and the template miniature's `font-extrabold` fixed 2026-11-19 | ⬜ as each screen is next touched |
 | AX2 | Astryx's ready-made layouts (table with a floating bar for changing many rows, filter tabs, step-by-step form with a review step, chat with citations) as references in Claude Design before Figma: cast & crew bulk changes, shoot days, Copilot | ⬜ when those steps start |
 | AX3 | Check our own controls (`FilterChip`, `ChipMenu`, `SearchField`) against Astryx's written accessibility contracts (keyboard, screen reader) | ⬜ |
 | AX4 | Score how well a fresh AI assistant follows CLAUDE.md on 10 Nia screen tasks, like Astryx's "vibe tests", to see which rules don't get through | ⬜ later, optional |

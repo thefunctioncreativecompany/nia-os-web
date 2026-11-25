@@ -381,7 +381,7 @@ function ProfilePanel({ entry: e, editable, status, onEdit }: { entry: Directory
             </a>
           </Button>
         ) : (
-          <Button disabled className="flex-1">
+          <Button variant="secondary" disabled className="flex-1">
             <Send aria-hidden /> Email
           </Button>
         )}

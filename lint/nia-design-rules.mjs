@@ -166,7 +166,7 @@ export const niaDesignRules = [
       "nia/sentence-case": "error",
       "nia/button-pill": "error",
       "nia/no-raw-color": "warn",
-      "nia/heading-style": "warn",
+      "nia/heading-style": "error",
       "nia/no-raw-px": "warn",
       "no-restricted-imports": [
         "error",
