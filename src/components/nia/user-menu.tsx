@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import type { CurrentUser } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/client";
 import { clearOfflineCopies } from "@/lib/offline-copies";
+import { endDesktopNotices } from "@/lib/desktop-notices";
 import { forget, keepRemembering, parseAccounts, remember, switchTo } from "@/lib/accounts";
 import { UserMenu as ArcUserMenu } from "@/components/arc/user-menu/user-menu";
 import { openFeedback } from "@/components/nia/feedback";
@@ -71,6 +72,8 @@ export function UserMenu({ user }: { user: CurrentUser }) {
       onSignOut={async () => {
         // Only this account: the others saved on this device stay signed in.
         forget(user.id);
+        // Notices for this account stop reaching this computer (needs the sign-in, so first).
+        await endDesktopNotices();
         await Promise.all([createClient().auth.signOut({ scope: "local" }), clearOfflineCopies()]);
         router.push("/login");
         router.refresh();

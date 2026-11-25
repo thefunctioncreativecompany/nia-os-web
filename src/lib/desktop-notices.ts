@@ -4,13 +4,19 @@ import { useEffect, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/client";
+import { noticeFor, type NoticeRow } from "@/lib/notice-rules";
 
-// Desktop notifications (FEEDBACK D6 step 1, Ika 2026-11-25): while Nia is open, even behind
-// other apps, the computer shows when someone shares a project with you, comments or asks for
-// access. Collaborators' edits stay in Updates. A choice for this device (Settings → General),
-// on only once the browser allows it. Nia closed: nothing yet (step 2, web push).
+// Desktop notifications (FEEDBACK D6, Ika 2026-11-25): the computer shows when someone shares a
+// project with you, comments or asks for access. Collaborators' edits stay in Updates. A choice
+// for this device (Settings → General), on only once the browser allows it.
+// Step 2: where the browser can, this computer also gets them when Nia is closed. Turning on gives
+// Nia the browser's address for notices (a push subscription, saved for this person); the server
+// sends each notice there (lib/push.ts) and the service worker shows it (public/sw.js). Off, or Log
+// out, takes the address away. Where that's not possible, the open page shows them itself.
 
 const KEY = "nia-desktop-notices";
+const PUSH_KEY = "nia-push";
+const VAPID = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? "";
 const listeners = new Set<() => void>();
 const changed = () => listeners.forEach((l) => l());
 
@@ -39,6 +45,75 @@ export function subscribeDesktopNotices(listener: () => void) {
   };
 }
 
+/** Notices can reach this computer with Nia closed: the live site, a browser with push, keys set. */
+export const pushAvailable = () =>
+  process.env.NODE_ENV === "production" && !!VAPID && typeof navigator !== "undefined" && "serviceWorker" in navigator && typeof window !== "undefined" && "PushManager" in window;
+
+const pushSaved = () => {
+  try {
+    return localStorage.getItem(PUSH_KEY) === "on";
+  } catch {
+    return false;
+  }
+};
+const remember = (on: boolean) => {
+  try {
+    localStorage.setItem(PUSH_KEY, on ? "on" : "off");
+  } catch {}
+};
+
+function keyBytes(base64url: string) {
+  const raw = atob(base64url.replace(/-/g, "+").replace(/_/g, "/") + "=".repeat((4 - (base64url.length % 4)) % 4));
+  return Uint8Array.from(raw, (c) => c.charCodeAt(0));
+}
+const sameKey = (a: ArrayBuffer | null | undefined, b: Uint8Array) => !!a && new Uint8Array(a).every((x, i) => x === b[i]) && a.byteLength === b.length;
+
+/** Gives Nia this browser's address for notices, for the signed-in person. True when saved.
+ *  One at a time: turning on and the page opening both ask, and two at once made two addresses. */
+let starting: Promise<boolean> | null = null;
+function startPush(): Promise<boolean> {
+  starting ??= savePush().finally(() => {
+    starting = null;
+  });
+  return starting;
+}
+
+async function savePush(): Promise<boolean> {
+  if (!pushAvailable() || Notification.permission !== "granted") return false;
+  try {
+    const reg = await navigator.serviceWorker.ready;
+    const key = keyBytes(VAPID);
+    let sub = await reg.pushManager.getSubscription();
+    // Made with other keys (they were changed): start again.
+    if (sub && !sameKey(sub.options.applicationServerKey, key)) {
+      await sub.unsubscribe();
+      sub = null;
+    }
+    sub ??= await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: key });
+    const { keys } = sub.toJSON();
+    const { error } = await createClient().rpc("save_push_subscription", { sub_endpoint: sub.endpoint, sub_p256dh: keys?.p256dh ?? "", sub_auth: keys?.auth ?? "" });
+    remember(!error);
+    return !error;
+  } catch {
+    remember(false);
+    return false;
+  }
+}
+
+/** Takes the address away (needs the sign-in, so before Log out). */
+async function stopPush() {
+  // Let one that's under way finish first, so its address is the one removed.
+  await starting?.catch(() => false);
+  remember(false);
+  if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) return;
+  try {
+    const sub = await (await navigator.serviceWorker.getRegistration())?.pushManager.getSubscription();
+    if (!sub) return;
+    await createClient().rpc("remove_push_subscription", { sub_endpoint: sub.endpoint });
+    await sub.unsubscribe();
+  } catch {}
+}
+
 /** Asks the browser (the first time), then turns them on; returns where things ended up. */
 export async function setDesktopNotices(on: boolean): Promise<NoticeState> {
   if (on && desktopNoticesSupported() && Notification.permission === "default") await Notification.requestPermission();
@@ -47,19 +122,25 @@ export async function setDesktopNotices(on: boolean): Promise<NoticeState> {
   } catch {}
   changed();
   const state = desktopNotices();
-  if (on && state === "on") show({ title: "Desktop notifications are on", body: "Shares, comments and access requests show here while Nia is open.", tag: "nia-on" });
+  if (on && state === "on") {
+    const closedToo = await startPush();
+    show({
+      title: "Desktop notifications are on",
+      body: `Shares, comments and access requests show here${closedToo ? ", even when Nia is closed" : " while Nia is open"}.`,
+      tag: "nia-on",
+    });
+  }
+  if (!on) await stopPush();
   return state;
 }
 
-type Row = { id: number; project_id: string | null; kind: string; title: string; body: string };
-
-/** Which notifications pop up, and where clicking one goes (null: Updates only). Comments are
- *  "activity" rows told apart by their wording (20261112000000_comments.sql). */
-export function noticeFor(row: Row): { href: string } | null {
-  const project = row.project_id ? `/projects/${row.project_id}` : "/home";
-  if (row.kind === "shared") return { href: project };
-  if (row.kind === "activity" && / commented on | replied to your comment /.test(` ${row.title} `)) return { href: row.project_id ? `${project}?tab=comments` : project };
-  return null;
+/** Log out: this computer stops getting the account's notices. */
+export async function endDesktopNotices() {
+  await stopPush();
+  try {
+    localStorage.setItem(KEY, "off");
+  } catch {}
+  changed();
 }
 
 function show({ title, body, tag, onClick }: { title: string; body: string; tag: string; onClick?: () => void }) {
@@ -82,6 +163,9 @@ export function DesktopNotices() {
   const state = useSyncExternalStore(subscribeDesktopNotices, desktopNotices, noServer);
   useEffect(() => {
     if (state !== "on") return;
+    // Keeps this computer's address saved for whoever is signed in (it may have moved, or been
+    // turned on before notices could arrive with Nia closed).
+    void startPush();
     const supabase = createClient();
     let live = true;
     let channel: ReturnType<typeof supabase.channel> | null = null;
@@ -96,10 +180,10 @@ export function DesktopNotices() {
       channel = supabase
         .channel("desktop-notices")
         .on("postgres_changes", { event: "INSERT", schema: "public", table: "notifications" }, ({ new: row }) => {
-          const notice = noticeFor(row as Row);
-          // Looking at Nia already: it shows in Updates.
-          if (!notice || (document.visibilityState === "visible" && document.hasFocus())) return;
-          const r = row as Row;
+          const notice = noticeFor(row as NoticeRow);
+          // Looking at Nia already: it shows in Updates. Arriving by push: the service worker shows it.
+          if (!notice || (document.visibilityState === "visible" && document.hasFocus()) || pushSaved()) return;
+          const r = row as NoticeRow;
           show({ title: r.title, body: r.body, tag: `nia-${r.id}`, onClick: () => router.push(notice.href) });
         })
         .subscribe();

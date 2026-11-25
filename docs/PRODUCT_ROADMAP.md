@@ -34,7 +34,7 @@ stack and the counts.
 | Explore catalogue | 🔄 | Studio-catalogue titles 2–3 at a time, each with a press kit; AI tagging from a fixed list (EX5) |
 | PostHog activation | 🔄 Installed, session replay on | First recordings on the live site; Replay Vision scanners start then |
 | Meetings (step 3 of 4) | 🔄 Step 1 live (Overview → Meetings); step 2 (suggested changes) built, off until an `ANTHROPIC_API_KEY` is added (no paid services yet); step 3 (Schedule a Google Meet: Calendar event, Meet link, invites, who's busy) live 2026-11-19, booked meetings on Home's Upcoming schedule | Add the key for step 2; then Gemini notes arriving by themselves (4). `docs/MEETINGS_SPEC.md` |
-| Desktop app | 🔄 Step 1 live 2026-11-24: install from Chrome, Edge or Safari (own window, Dock or Start menu icon) | Step 2 checked 2026-11-25 (all pages, sign-in, Google, links; Safari waits on Ika); documents offline and desktop notifications (while Nia is open) live 2026-11-25; next notifications when Nia is closed; a downloadable Tauri app only with a reason (FEEDBACK D1–D7) |
+| Desktop app | 🔄 Step 1 live 2026-11-24: install from Chrome, Edge or Safari (own window, Dock or Start menu icon) | Step 2 checked 2026-11-25 (all pages, sign-in, Google, links; Safari waits on Ika); documents offline and desktop notifications (while Nia is open) live 2026-11-25; notices with Nia closed built, waiting on the migration, webhook and Vercel keys; a downloadable Tauri app only with a reason (FEEDBACK D1–D7) |
 | Onboarding (1.4) | 🔄 | "How did you hear about us" as an optional tap; "What you can do" as slides (waits on Figma) |
 
 ## Known rough edges
@@ -115,6 +115,7 @@ From beta testers, November 2026 (full list and permissions: [FEEDBACK.md](FEEDB
 | Hosting | Vercel (deploys from `main`), GitHub |
 | Documents | jsPDF + jspdf-autotable (PDF), docx (Word), pdf.js (reading PDFs), mammoth (reading Word meeting notes) |
 | Other UI | Recharts, react-day-picker, d3-time, cmdk, Sonner, Vaul, react-easy-crop |
+| Notifications | web-push 3.6.7 (sends desktop notices through the browser's own push service: Google's for Chrome and Edge, Apple's for Safari; `src/lib/push.ts`), a service worker (`public/sw.js`) |
 | Video | Remotion (template tutorials, demo films); ElevenLabs voice-over (demo films only) |
 | Testing | Vitest; Playwright MCP (headless Chrome checks); ESLint |
 | Security | Zod 4 checks every server action's input (`src/lib/schemas.ts`); pictures downloaded on the server are capped at 50 MB and 100 megapixels, refuse redirects and come only from Nia, its own Supabase project, YouTube thumbnails and Wikimedia Commons (`src/lib/fetch-image.ts`) |
@@ -127,6 +128,7 @@ From beta testers, November 2026 (full list and permissions: [FEEDBACK.md](FEEDB
 | Supabase | Database, sign-in, files, live updates | Live |
 | Google | Sign in with Google; Calendar and Meet for booking production meetings (`src/lib/google.ts`, its own "Nia calendar" client; free) | Sign-in live; Calendar live, in Google's Testing mode (only test users added in Google Cloud can connect) until Google verifies the app |
 | Resend | Auth emails and project invites | Live |
+| Browser push services (Google, Apple, Microsoft) | Desktop notifications when Nia is closed: Nia sends to the address each browser gives (keys `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`); a Supabase database webhook on new notifications calls `/api/push` (`PUSH_WEBHOOK_SECRET`) | Built; live once the migration, webhook and Vercel keys are in |
 | PostHog | Product analytics, session replay | Live, waiting on first recordings |
 | TMDB | Explore posters and credits (free API during the private beta) | Beta; commercial licence before charging |
 | Wikidata, Wikimedia Commons | Explore credits and film people's photos (credited) | Live |

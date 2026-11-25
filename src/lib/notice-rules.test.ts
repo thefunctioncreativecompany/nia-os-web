@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { noticeFor } from "./desktop-notices";
+import { noticeFor } from "./notice-rules";
 
 const row = (kind: string, title: string, project_id: string | null = "p1") => ({ id: 1, project_id, kind, title, body: "" });
 
