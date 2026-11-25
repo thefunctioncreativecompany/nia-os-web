@@ -3,12 +3,12 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowUpRight, Check, ChevronLeft, ChevronRight, Download, FolderPlus, MoreHorizontal, Play, X } from "lucide-react";
+import { ArrowUpRight, Check, ChevronLeft, ChevronRight, Download, FolderPlus, Play, X } from "lucide-react";
 import { toast } from "sonner";
 
 import { createClient } from "@/lib/supabase/client";
 import { currentUser } from "@/lib/supabase/current-user";
-import type { ProjectFile } from "@/lib/projects-data";
+import type { FileTag, ProjectFile } from "@/lib/projects-data";
 import { timeAgo } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 import { exploreItem, hoverVideoId } from "@/features/explore/items";
@@ -24,10 +24,10 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogTitle } from "@/components/ui/alert-dialog";
-import { ChipRow, FilterChip, chipClass } from "@/components/nia/filter-bar";
+import { ChipMenu, ChipRow, FilterChip, chipClass } from "@/components/nia/filter-bar";
 import { NotYet } from "@/components/nia/not-yet";
 import { CARD_DRAG_TYPE } from "@/components/nia/drag-reorder";
-import { Dropzone, PageIcon, useProjectFiles } from "./project-files";
+import { ArchiveButton, Dropzone, PageIcon, TAGS, useProjectFiles } from "./project-files";
 import { AddInstagramReference } from "./add-instagram-reference";
 import { REFERENCES_CHANGED } from "./references-events";
 
@@ -53,6 +53,10 @@ import { REFERENCES_CHANGED } from "./references-events";
 // tile as wide as its shape needs (like Google Photos; no masonry columns, which leave gaps). The
 // upload and link bar stays open for editors; a reference opened from Overview arrives as ?ref=.
 // Pictures only in the gallery: a reference's name shows when it's opened (Ika, 2026-11-25).
+// One gallery for the tab (Ika, 2026-11-25): the project's other files (raw, work in progress,
+// briefs) are here too, behind Explore's dropdown "Type: References ▾" beside the folders; uploads
+// take the type in view. A folder's options (rename, move, remove) open on right-click, a long
+// press, or the menu key. Dragging to reorder shows a line where the tiles will land.
 
 type Folder = { id: string; name: string; position: number | null };
 type Table = "project_files" | "project_references";
@@ -77,6 +81,15 @@ type Item = {
 };
 type Playable = { kind: "instagram"; link: InstagramLink; aspect: number; frame: number | null } | { kind: "youtube"; id: string } | { kind: "video" } | { kind: "audio" };
 type Placed = { folder: string | null; position: number | null; note: string | null; /** Who added it. */ by?: string | null };
+/** What's in view: references (with Explore titles and Instagram posts), one tag of file, or everything. */
+type Shown = "reference" | "raw" | "wip" | "brief" | "all";
+const TYPES: { value: Shown; label: string }[] = [
+  { value: "reference", label: "References" },
+  { value: "raw", label: "Raw files" },
+  { value: "wip", label: "Work in progress" },
+  { value: "brief", label: "Briefs & paperwork" },
+  { value: "all", label: "Everything" },
+];
 /** All, things in no folder, or one folder. */
 type View = "all" | "unsorted" | string;
 
@@ -109,7 +122,10 @@ function justify(shapes: number[], width: number) {
 
 export function ProjectReferences({ projectId, files, canEdit, now }: { projectId: string; files: ProjectFile[]; canEdit: boolean; now: number }) {
   const router = useRouter();
-  const { live, remove: archive, refresh } = useProjectFiles(files);
+  const { live: allFiles, remove: archive, retag, retagMany, refresh, restored } = useProjectFiles(files);
+  const [kind, setKind] = useState<Shown>("reference");
+  const live = allFiles.filter((f) => f.tag !== "final" && (kind === "all" || f.tag === kind));
+  const withLinks = kind === "reference" || kind === "all";
   const [folders, setFolders] = useState<Folder[] | null>(null);
   // Folders need their migration; until it's run the gallery shows without them.
   const [foldersOn, setFoldersOn] = useState(true);
@@ -126,7 +142,7 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
   const fileIds = files.map((f) => f.id).join(",");
   const loadFilePlaces = useCallback(async () => {
     const db = createClient();
-    const { data, error } = await db.from("project_files").select("id, folder_id, position, note, uploaded_by").eq("project_id", projectId).eq("tag", "reference").is("deleted_at", null);
+    const { data, error } = await db.from("project_files").select("id, folder_id, position, note, uploaded_by").eq("project_id", projectId).is("deleted_at", null);
     if (error) return;
     setPlaced((was) => {
       const next = new Map(was);
@@ -196,14 +212,14 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
       file: f,
       play: f.kind === "video" ? { kind: "video" } : f.kind === "audio" ? { kind: "audio" } : undefined,
     })),
-    ...(explore ?? []).flatMap((r): Item[] => {
+    ...(withLinks ? (explore ?? []) : []).flatMap((r): Item[] => {
       const entry = exploreItem(r.slug);
       const trailer = hoverVideoId(r.slug);
       return entry
         ? [{ id: r.id, table: "project_references", name: entry.title, thumb: entry.image, picture: entry.image, at: r.at, source: "From Explore", link: { href: entry.href(), label: "Open in Explore" }, play: trailer ? { kind: "youtube", id: trailer } : undefined, shape: entry.aspect ?? POSTER }]
         : [];
     }),
-    ...(posts ?? []).map((p): Item => ({
+    ...(withLinks ? (posts ?? []) : []).map((p): Item => ({
       id: p.id,
       table: "project_references",
       name: p.title || p.account || "Instagram post",
@@ -257,12 +273,12 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
   };
 
   // Reordering within what's shown saves each shown reference's place (0, 1, 2…).
-  const reorder = async (fromId: string, toId: string) => {
-    const ids = shown.map((i) => i.id);
-    const from = ids.indexOf(fromId);
-    const to = ids.indexOf(toId);
-    if (from < 0 || to < 0 || from === to) return;
-    ids.splice(to, 0, ids.splice(from, 1)[0]);
+  const reorder = async (moved: string[], toId: string, after = false) => {
+    if (moved.includes(toId)) return;
+    const ids = shown.map((i) => i.id).filter((id) => !moved.includes(id));
+    const at = ids.indexOf(toId);
+    if (at < 0) return;
+    ids.splice(after ? at + 1 : at, 0, ...moved.filter((id) => shown.some((i) => i.id === id)));
     const before = new Map(placed);
     setPlaced((was) => {
       const next = new Map(was);
@@ -495,6 +511,11 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
   // ---- Dragging (onto a folder to move what's dragged there, onto a tile to reorder one) ----
   const [dragging, setDragging] = useState<string | null>(null);
   const [over, setOver] = useState<string | null>(null);
+  // Where dragged tiles will land: before or after this tile (a line between them).
+  const [slot, setSlot] = useState<{ id: string; after: boolean } | null>(null);
+  // A folder's menu: right-click, a long press, or the menu key.
+  const [menuFor, setMenuFor] = useState<string | null>(null);
+  const press = useRef<number | null>(null);
   const carries = (e: React.DragEvent) => [...e.dataTransfer.types].includes(CARD_DRAG_TYPE);
   const dropOnFolder = (folder: string | null) =>
     canEdit && foldersOn
@@ -535,7 +556,7 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
     const r = img.naturalWidth / img.naturalHeight;
     setShapes((was) => (Math.abs((was[id] ?? 0) - r) < 0.01 ? was : { ...was, [id]: r }));
   };
-  const shapeOf = (item: Item) => shapes[item.id] ?? item.shape ?? (item.file?.kind === "video" ? 16 / 9 : item.file ? 1 : POSTER);
+  const shapeOf = (item: Item) => shapes[item.id] ?? item.shape ?? (item.file?.kind === "video" ? 16 / 9 : item.file?.kind === "document" ? 3 / 4 : item.file ? 1 : POSTER);
   const [gridWidth, setGridWidth] = useState(0);
   const gridRef = grid;
   useLayoutEffect(() => {
@@ -590,56 +611,76 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
         )}
       </div>
 
-      {foldersOn && (hasFolders || canEdit) && (
-        <div className="flex min-w-0 items-center gap-2">
-          <ChipRow aria-label="Folders" className="flex-1">
-            <FilterChip on={view === "all"} count={items.length} onClick={() => setView("all")}>
-              All
-            </FilterChip>
-            {(folders ?? []).map((f) => (
-              <FilterChip key={f.id} on={view === f.id} count={count(f.id)} onClick={() => setView(f.id)} {...dropOnFolder(f.id)} className={cn(over === `folder:${f.id}` && "border-nia-blue bg-nia-blue/10")}>
-                {f.name}
-              </FilterChip>
-            ))}
-            {hasFolders && unsorted > 0 && (
-              <FilterChip on={view === "unsorted"} count={unsorted} onClick={() => setView("unsorted")} {...dropOnFolder(null)} className={cn(over === "folder:unsorted" && "border-nia-blue bg-nia-blue/10")}>
-                Unsorted
-              </FilterChip>
-            )}
-            {canEdit && (
-              <button type="button" onClick={() => setNaming({ folder: null })} className={cn(chipClass(false), "border-dashed text-muted-foreground")}>
-                <FolderPlus aria-hidden className="size-4" /> New folder
-              </button>
-            )}
-          </ChipRow>
-          {canEdit && currentFolder && (
-            <DropdownMenu>
+      <ChipRow aria-label="Folders and type">
+        <FilterChip on={view === "all"} count={inView("all").length} onClick={() => setView("all")}>
+          All
+        </FilterChip>
+        {foldersOn &&
+          (folders ?? []).map((f) => (
+            <DropdownMenu key={f.id} open={menuFor === f.id} onOpenChange={(o) => setMenuFor(o ? f.id : null)}>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label={`${currentFolder.name}: folder options`}>
-                  <MoreHorizontal />
-                </Button>
+                <FilterChip
+                  on={view === f.id}
+                  count={count(f.id)}
+                  aria-haspopup={canEdit ? "menu" : undefined}
+                  // A click picks the folder; its menu opens on right-click (below), not here.
+                  onPointerDown={(e) => {
+                    e.preventDefault();
+                    if (canEdit && e.pointerType === "touch") press.current = window.setTimeout(() => setMenuFor(f.id), 500);
+                  }}
+                  onPointerUp={() => press.current && window.clearTimeout(press.current)}
+                  onPointerLeave={() => press.current && window.clearTimeout(press.current)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown") {
+                      e.preventDefault();
+                      setView(f.id);
+                    }
+                  }}
+                  onClick={() => setView(f.id)}
+                  onContextMenu={(e) => {
+                    if (!canEdit) return;
+                    e.preventDefault();
+                    setMenuFor(f.id);
+                  }}
+                  {...dropOnFolder(f.id)}
+                  className={cn(over === `folder:${f.id}` && "border-nia-blue bg-nia-blue/10")}
+                >
+                  {f.name}
+                </FilterChip>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onSelect={() => setNaming({ folder: currentFolder })}>Rename</DropdownMenuItem>
-                <DropdownMenuItem disabled={folders?.[0]?.id === currentFolder.id} onSelect={() => void moveFolder(currentFolder, -1)}>
-                  Move earlier
-                </DropdownMenuItem>
-                <DropdownMenuItem disabled={folders?.at(-1)?.id === currentFolder.id} onSelect={() => void moveFolder(currentFolder, 1)}>
-                  Move later
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive" onSelect={() => setConfirmRemove(currentFolder)}>
-                  Remove folder
-                </DropdownMenuItem>
-              </DropdownMenuContent>
+              {canEdit && (
+                <DropdownMenuContent align="start">
+                  <DropdownMenuItem onSelect={() => setNaming({ folder: f })}>Rename</DropdownMenuItem>
+                  <DropdownMenuItem disabled={folders?.[0]?.id === f.id} onSelect={() => void moveFolder(f, -1)}>
+                    Move earlier
+                  </DropdownMenuItem>
+                  <DropdownMenuItem disabled={folders?.at(-1)?.id === f.id} onSelect={() => void moveFolder(f, 1)}>
+                    Move later
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem variant="destructive" onSelect={() => setConfirmRemove(f)}>
+                    Remove folder
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              )}
             </DropdownMenu>
-          )}
-        </div>
-      )}
+          ))}
+        {hasFolders && unsorted > 0 && (
+          <FilterChip on={view === "unsorted"} count={unsorted} onClick={() => setView("unsorted")} {...dropOnFolder(null)} className={cn(over === "folder:unsorted" && "border-nia-blue bg-nia-blue/10")}>
+            Unsorted
+          </FilterChip>
+        )}
+        {canEdit && foldersOn && (
+          <button type="button" onClick={() => setNaming({ folder: null })} className={cn(chipClass(false), "border-dashed text-muted-foreground")}>
+            <FolderPlus aria-hidden className="size-4" /> New folder
+          </button>
+        )}
+        <ChipMenu label="Type:" value={kind} defaultValue="reference" onChange={setKind} options={TYPES} />
+      </ChipRow>
 
       {canEdit && (
         <div className="flex flex-col gap-3 rounded-2xl border border-border p-4">
-          <Dropzone projectId={projectId} tag="reference" folderId={inFolder} onUploaded={refresh} hint={currentFolder ? `Pictures go into ${currentFolder.name}` : undefined} />
+          <Dropzone projectId={projectId} tag={kind === "all" ? "auto" : kind} folderId={inFolder} onUploaded={refresh} hint={currentFolder ? `Pictures go into ${currentFolder.name}` : undefined} />
           {postsOff ? <NotYet>Adding Instagram links isn&rsquo;t switched on yet.</NotYet> : <AddInstagramReference projectId={projectId} held={new Set((posts ?? []).map((p) => p.link.code))} onAdded={() => void postAdded()} />}
         </div>
       )}
@@ -657,7 +698,7 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
         </ul>
       ) : shown.length === 0 ? (
         <p className="text-sm text-muted-foreground">
-          {items.length === 0 ? (canEdit ? "No references yet. Add pictures or Instagram links, or titles from Inspiration below." : "No references yet.") : currentFolder ? `Nothing in ${currentFolder.name} yet.` : "Nothing here."}
+          {items.length === 0 ? (kind !== "reference" ? `No ${TYPES.find((t) => t.value === kind)!.label.toLowerCase()} yet.` : canEdit ? "No references yet. Add pictures or Instagram links, or titles from Inspiration below." : "No references yet.") : currentFolder ? `Nothing in ${currentFolder.name} yet.` : "Nothing here."}
         </p>
       ) : (
         <div
@@ -678,7 +719,7 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
                   style={{ width: size.w }}
                   key={item.id}
                   data-tile={item.id}
-                  className={cn("group relative flex shrink-0 flex-col gap-1.5 rounded-lg", dragging && (dragging === item.id || (picked.has(dragging) && on)) && "opacity-40", over === item.id && dragging !== item.id && "ring-3 ring-nia-blue/60")}
+                  className={cn("group relative flex shrink-0 flex-col gap-1.5 rounded-lg", dragging && (dragging === item.id || (picked.has(dragging) && on)) && "opacity-40")}
                   draggable={canEdit && !selecting}
                   onDragStart={(e) => {
                     // A selected tile carries the whole selection.
@@ -690,18 +731,26 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
                   onDragEnd={() => {
                     setDragging(null);
                     setOver(null);
+                    setSlot(null);
                   }}
                   onDragOver={(e) => {
                     if (!dragging || !carries(e)) return;
                     e.preventDefault();
-                    setOver(item.id);
+                    const r = e.currentTarget.getBoundingClientRect();
+                    const after = e.clientX > r.left + r.width / 2;
+                    if (slot?.id !== item.id || slot.after !== after) setSlot({ id: item.id, after });
                   }}
                   onDrop={(e) => {
-                    const ids = e.dataTransfer.getData(CARD_DRAG_TYPE).split(",");
-                    setOver(null);
-                    if (ids.length === 1 && ids[0]) void reorder(ids[0], item.id);
+                    const ids = e.dataTransfer.getData(CARD_DRAG_TYPE).split(",").filter(Boolean);
+                    const after = slot?.id === item.id ? slot.after : false;
+                    setSlot(null);
+                    if (ids.length) void reorder(ids, item.id, after);
                   }}
                 >
+                  {slot?.id === item.id && dragging && (
+                    // The line where the dragged tiles will land, in the gap beside this one.
+                    <span aria-hidden className="pointer-events-none absolute top-0 z-10 w-0.5 rounded-full bg-nia-blue" style={{ height: size.h, [slot.after ? "right" : "left"]: -(GAP / 2) - 1 }} />
+                  )}
                   <button
                     type="button"
                     data-open
@@ -780,6 +829,20 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
               </Button>
             </>
           )}
+          {pickedItems.some((i) => i.file) && (
+            <Select value="" onValueChange={(v) => void retagMany(pickedItems.flatMap((i) => (i.file ? [i.file] : [])), v as FileTag).then(clearPicked)}>
+              <SelectTrigger aria-label="Tag selected files as" className="h-8 w-auto rounded-full text-small">
+                <SelectValue placeholder="Tag as…" />
+              </SelectTrigger>
+              <SelectContent>
+                {TAGS.map((t) => (
+                  <SelectItem key={t.value} value={t.value}>
+                    {t.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
           <Button variant="ghost" size="compact" disabled={!picked.size} onClick={() => setConfirmBulk(true)}>
             Remove
           </Button>
@@ -809,6 +872,8 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      {canEdit && <ArchiveButton projectId={projectId} onChanged={refresh} onRestored={restored} />}
 
       <FolderNameDialog open={naming !== null} folder={naming?.folder ?? null} onClose={() => setNaming(null)} onSave={saveFolder} />
 
@@ -878,11 +943,12 @@ export function ProjectReferences({ projectId, files, canEdit, now }: { projectI
                 position={viewing ?? 0}
                 count={shown.length}
                 onFolder={(f) => void moveTo([open], f)}
+                onTag={open.file ? (t) => void retag(open.file!, t) : undefined}
                 onNote={(text) => void saveNote(open, text)}
                 onMove={(by) => {
                   const to = shown[(viewing ?? 0) + by];
                   if (!to) return;
-                  void reorder(open.id, to.id).then(() => setViewing((v) => (v === null ? v : v + by)));
+                  void reorder([open.id], to.id, by > 0).then(() => setViewing((v) => (v === null ? v : v + by)));
                 }}
                 onRemove={() => {
                   setViewing(null);
@@ -967,6 +1033,7 @@ function ReferenceDetails({
   position,
   count,
   onFolder,
+  onTag,
   onNote,
   onMove,
   onRemove,
@@ -982,6 +1049,8 @@ function ReferenceDetails({
   position: number;
   count: number;
   onFolder: (folder: string | null) => void;
+  /** An uploaded file's tag (reference, raw, work in progress, final, brief). */
+  onTag?: (tag: FileTag) => void;
   onNote: (text: string) => void;
   onMove: (by: -1 | 1) => void;
   onRemove: () => void;
@@ -1022,6 +1091,30 @@ function ReferenceDetails({
         </div>
       )}
 
+      {item.file && (
+        <div className="flex flex-col gap-2">
+          <span id="reference-tag" className={label}>
+            Tag
+          </span>
+          {canEdit && onTag ? (
+            <Select value={item.file.tag ?? undefined} onValueChange={(v) => onTag(v as FileTag)}>
+              <SelectTrigger aria-labelledby="reference-tag" className="w-full">
+                <SelectValue placeholder="Untagged" />
+              </SelectTrigger>
+              <SelectContent>
+                {TAGS.map((t) => (
+                  <SelectItem key={t.value} value={t.value}>
+                    {t.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          ) : (
+            <span className="text-sm text-foreground">{TAGS.find((t) => t.value === item.file?.tag)?.label ?? "Untagged"}</span>
+          )}
+        </div>
+      )}
+
       {canEdit ? (
         <div className="flex flex-col gap-2">
           <label htmlFor="reference-note" className={label}>
@@ -1037,6 +1130,13 @@ function ReferenceDetails({
       ) : null}
 
       <div className="flex flex-wrap gap-2">
+        {item.file?.kind === "document" && item.file.url && (
+          <Button asChild variant="outline" size="compact">
+            <a href={item.file.url} target="_blank" rel="noreferrer">
+              Open <ArrowUpRight aria-hidden />
+            </a>
+          </Button>
+        )}
         {item.link &&
           (item.file ? (
             <Button asChild variant="outline" size="compact">

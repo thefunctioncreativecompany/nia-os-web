@@ -1379,3 +1379,13 @@ onboarding's Import profile and Follow creators describe features removed in the
   and Nia sends with web-push 3.6.7 (the long-standing release, not the two-week-old 4.0). When
   push is on, the open page stops showing notices itself so nothing shows twice. Log out takes
   the address away and turns the device setting off.
+- (2026-11-25) One gallery on the References tab (Ika: the Files pills become "a drop down filter
+  next to the pills on references, similar to explore"; she chose merging over keeping Files
+  separate). The project's other files (raw, work in progress, briefs) sit in the same grid behind
+  Explore's dropdown "Type: References ▾" (References, Raw files, Work in progress, Briefs &
+  paperwork, Everything); References includes Explore titles and Instagram posts. Uploads take the
+  type in view (Everything: by kind of file). Tagging moved to the selection bar (Tag as…) and the
+  viewer; Archive sits under the gallery; final assets stay on Overview. A folder's options open on
+  right-click (a long press on phones, the menu key), not a visible button (Ika). Dragging to
+  reorder shows a Nia Blue line in the gap where the tiles will land, before or after the tile
+  under the pointer; a selection drags together.

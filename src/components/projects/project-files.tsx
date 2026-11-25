@@ -19,7 +19,6 @@ import { Button } from "@/components/ui/button";
 import { openUpgrade } from "@/components/nia/upgrade-dialog";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { SegmentedControl } from "@/components/nia/segmented-control";
 
 // Files on a project (BUILD_PLAN 2.4, Ika 2026-10-19): upload stills, documents, voice memos and
 // video, tagged by what they are for (references, raw files, work in progress, final assets,
@@ -330,7 +329,6 @@ function TagMenu({ file, canEdit, onChange }: { file: ProjectFile; canEdit: bool
   );
 }
 
-type Tab = "all" | FileTag;
 
 // Final assets sit apart, under the project's description (Ika, 2026-10-22); Files & references
 // holds everything else.
@@ -641,112 +639,11 @@ export function ProjectFinalAssets({ files, canEdit, now }: { files: ProjectFile
   );
 }
 
-// Tabs in Files: every tag but final and reference, which have their own sections (final assets on
-// Overview; references in folders above, project-references.tsx).
-const TABS = TAGS.filter((t) => t.value !== "final" && t.value !== "reference");
-
-export function ProjectFiles({ projectId, files, canEdit, now }: { projectId: string; files: ProjectFile[]; canEdit: boolean; now: number }) {
-  const [tab, setTab] = useState<Tab>("all");
-  const { live: all, remove, retag, retagMany, refresh, restored } = useProjectFiles(files);
-
-  const live = all.filter((f) => !isFinal(f) && f.tag !== "reference");
-  const inTab = tab === "all" ? live : live.filter((f) => f.tag === tab);
-  // Selecting several files to tag at once; Shift picks every file between this one and the last.
-  const [selecting, setSelecting] = useState(false);
-  const [picked, setPicked] = useState<Set<string>>(new Set());
-  const anchor = useRef<string | null>(null);
-  const shown = (["image", "document", "audio", "video"] as const).flatMap((k) => inTab.filter((f) => f.kind === k));
-  const pick = (file: ProjectFile, range: boolean) => {
-    // Read the last picked file now: the state update below runs later.
-    const from = anchor.current ? shown.findIndex((f) => f.id === anchor.current) : -1;
-    const to = shown.findIndex((f) => f.id === file.id);
-    const span = range && from >= 0 && to >= 0 ? shown.slice(Math.min(from, to), Math.max(from, to) + 1).map((f) => f.id) : null;
-    anchor.current = file.id;
-    setPicked((current) => {
-      const next = new Set(current);
-      if (span) span.forEach((id) => next.add(id));
-      else if (next.has(file.id)) next.delete(file.id);
-      else next.add(file.id);
-      return next;
-    });
-  };
-  const stopSelecting = () => {
-    setSelecting(false);
-    setPicked(new Set());
-    anchor.current = null;
-  };
-  const tagPicked = async (tag: FileTag) => {
-    await retagMany(shown.filter((f) => picked.has(f.id)), tag);
-    stopSelecting();
-  };
-  const counts = Object.fromEntries(TABS.map((t) => [t.value, live.filter((f) => f.tag === t.value).length]));
-
-  return (
-    <section aria-labelledby="files" className="flex flex-col gap-4">
-      <div className="flex flex-col gap-3">
-        <h2 id="files" className="text-lg leading-[1.4] font-bold text-foreground">
-          Files
-        </h2>
-        {live.length > 0 && (
-          <SegmentedControl
-            className="-mx-4 max-w-[calc(100%+2rem)] overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:max-w-full sm:px-0"
-            label="Show files"
-            value={tab}
-            onChange={(v) => setTab(v as Tab)}
-            segments={[{ value: "all", label: "All", count: live.length }, ...TABS.map((t) => ({ value: t.value, label: t.plural, count: counts[t.value] }))]}
-          />
-        )}
-        {canEdit && inTab.length > 1 && (
-          <Button variant="secondary" size="compact" className="w-fit" onClick={() => (selecting ? stopSelecting() : setSelecting(true))}>
-            {selecting ? "Done" : "Select"}
-          </Button>
-        )}
-      </div>
-      {/* Uploads go in through References above (Ika, 2026-11-25: one upload bar on the tab) and
-          Documents; files are listed and tagged here. */}
-      {live.length === 0 && !canEdit && <p className="text-small text-muted-foreground">No files yet.</p>}
-      {canEdit && <ArchiveButton projectId={projectId} onChanged={refresh} onRestored={restored} />}
-      {live.length > 0 && inTab.length === 0 && <p className="text-small text-muted-foreground">Nothing tagged {TAGS.find((t) => t.value === tab)?.label.toLowerCase()} yet. Change a file&rsquo;s tag from the menu on it.</p>}
-
-      <FileGroups files={inTab} canEdit={canEdit} now={now} remove={remove} retag={retag} picking={selecting ? { picked, pick } : null} />
-
-      {selecting && (
-        <div role="toolbar" aria-label="Tag selected files" className="fixed inset-x-0 bottom-28 z-40 mx-auto flex w-fit max-w-[calc(100%-2rem)] flex-wrap items-center gap-2 rounded-full border border-border bg-card p-2 pl-4 shadow-elevation-2 lg:bottom-6">
-          <span aria-live="polite" className="text-small font-semibold text-foreground tabular-nums">
-            {picked.size} selected
-          </span>
-          <Button variant="ghost" size="compact" onClick={() => setPicked(new Set(shown.map((f) => f.id)))}>
-            Select all
-          </Button>
-          <Button size="compact" disabled={!picked.size} onClick={() => void tagPicked("final")}>
-            Set as final
-          </Button>
-          <Select value="" onValueChange={(v) => void tagPicked(v as FileTag)} disabled={!picked.size}>
-            <SelectTrigger aria-label="Tag selected as" className="h-8 w-auto rounded-full text-small">
-              <SelectValue placeholder="Tag as…" />
-            </SelectTrigger>
-            <SelectContent>
-              {TAGS.filter((t) => t.value !== "final").map((t) => (
-                <SelectItem key={t.value} value={t.value}>
-                  {t.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Button variant="ghost" size="icon-sm" aria-label="Stop selecting" onClick={stopSelecting}>
-            <X />
-          </Button>
-        </div>
-      )}
-    </section>
-  );
-}
-
 type Archived = { id: string; name: string; path: string; thumb_path: string | null; kind: FileKind; size: number; deleted_at: string };
 
 // The archive (Ika, 2026-10-19): files archived from this project, to restore or delete for good.
 // Deleting for good removes the stored file first, then its record.
-function ArchiveButton({ projectId, onChanged, onRestored }: { projectId: string; onChanged: () => void; onRestored: (id: string) => void }) {
+export function ArchiveButton({ projectId, onChanged, onRestored }: { projectId: string; onChanged: () => void; onRestored: (id: string) => void }) {
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState<Archived[] | null>(null);
   const [confirming, setConfirming] = useState<string | null>(null);

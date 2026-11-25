@@ -12,7 +12,7 @@ import { ProjectLive } from "@/components/projects/project-live";
 import { ProjectDocuments } from "@/components/projects/project-documents";
 import { ProjectMeetings } from "@/components/projects/project-meetings";
 import { googleConfigured } from "@/lib/google";
-import { ProjectFiles, ProjectFinalAssets } from "@/components/projects/project-files";
+import { ProjectFinalAssets } from "@/components/projects/project-files";
 import { ProjectInspiration, ProjectReferences } from "@/components/projects/project-inspiration-lazy";
 import { Comments } from "@/components/nia/comments";
 import { everyTemplate } from "@/features/templates/catalog";
@@ -92,11 +92,8 @@ async function ProjectPage({ params }: Pick<PageProps<"/projects/[id]">, "params
         meetings={meetingsSection}
         finals={<ProjectFinalAssets files={files} canEdit={canEdit} now={now} />}
         files={
-          <>
-            {/* References in folders (PR1), then the other files. */}
-            <ProjectReferences projectId={id} files={files.filter((f) => f.tag === "reference")} canEdit={canEdit} now={now} />
-            <ProjectFiles projectId={id} files={files} canEdit={canEdit} now={now} />
-          </>
+          // One gallery for the tab: references (in folders) and, by Type, the project's other files.
+          <ProjectReferences projectId={id} files={files.filter((f) => f.tag !== "final")} canEdit={canEdit} now={now} />
         }
         inspiration={<ProjectInspiration projectId={id} signals={inspirationSignals(project)} canEdit={canEdit} />}
         comments={<Comments subject={{ projectId: id }} />}
