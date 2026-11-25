@@ -1297,3 +1297,9 @@ onboarding's Import profile and Follow creators describe features removed in the
   It draws from the week up to the latest added day, not today, so it's never empty in a quiet
   week (`src/features/explore/recent.ts`). Replaces the parked mosaic (2026-11-08, "not working
   great"); the `/explore/recent` redirect is gone.
+- (2026-11-20) Desktop app (Ika: "starting with desktop"): first make Nia installable from the
+  browser (Chrome, Edge, Safari's Add to Dock), its own window and icon, loading the live site;
+  then check it works there; a downloadable app (Tauri) only when there's a reason the installed
+  one can't meet. Phones follow. The icon is the existing Nia mark; the window bar takes the page
+  background (white or `#1F1F1F`). No offline code: Chrome's own offline screen shows Nia's name
+  and icon.
