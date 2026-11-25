@@ -1,6 +1,6 @@
 # Nia master list
 
-**Updated 2026-11-24.** The one place for what's shipped, what's open, feedback and future features.
+**Updated 2026-11-25.** The one place for what's shipped, what's open, feedback and future features.
 Each item runs as its own fix, one at a time (below). Elsewhere, and kept there:
 
 - Why each decision was made: [decisions.md](decisions.md).
@@ -208,7 +208,10 @@ packed inside it; the work is making the site behave like an app.
 | # | What | Status |
 |---|------|--------|
 | D1 | **Install Nia as an app.** Chrome and Edge offer Install (Mac and Windows), Safari offers File → Add to Dock; Nia opens in its own window from the Dock or Start menu with its own icon. App settings in `src/app/manifest.ts`, icons in `public/app-icons/` (from the existing Nia mark), the window bar follows light and dark (and the choice in Settings). Offline: Chrome's own "You're offline" screen with Nia's name and icon, no extra code | ✅ 2026-11-24 |
-| D2 | **Check it in its own window.** No address bar or back button there: Back links on every screen, links to other sites open in the browser, downloads (PDF, Word) save, Google sign-in and Google Calendar come back to the window, and the whole app in Safari (a Mac app would use Safari's engine). Then What's new | ⬜ next |
+| D2 | **Check it in its own window.** Checked 2026-11-25 on the live site as the installed app (test account): 40 kinds of page load and each has a way back (navbar, Projects tabs, "← Back" or the Nia logo); email sign-in and Log out work; Google sign-in and Google Calendar go to Google and return to Nia's address (so into the app window in Chrome and Edge); downloads are made on the computer (blob), which app windows allow; outside links open in the browser except the Privacy page's Google policy link (fixed 2026-11-25). Safari waits on Ika (a Safari app keeps its own sign-in; Google may open in Safari). Then What's new | 🔄 Safari (Ika) |
+| D5 | **Documents offline.** Each document opened keeps a copy on the computer; offline it opens read-only with "Offline: saved at …"; opening Nia offline lists the saved documents; Log out deletes the copies. Nothing to switch on (Ika OK'd 2026-11-25) | ⬜ next |
+| D6 | **Desktop notifications.** C1: while Nia is open (even behind other apps) the computer shows shares, comments and access requests (collaborators' edits stay in Updates); click opens the project; one switch in Settings → Notifications (from the Claude Design draft). C2 later: also when Nia is closed (web push: a migration, two Vercel keys, a database hook) | ⬜ after D5 |
+| D7 | Explore all → Timeline shows a page error (React #418: the server and the browser draw different text), in the browser too | ⬜ |
 | D3 | A Mac and Windows app you download (Tauri) only when there's a reason the installed web app can't meet: offline call sheets, notifications on the desktop, files from the computer, the Mac App Store | ⬜ after the beta (BUILD_PLAN) |
 | D4 | Phones: the same install on Android and iPhone (Share → Add to Home Screen) first; App Store and Play apps later need more than a website in a frame (Apple's rule) | ⬜ after desktop |
 
