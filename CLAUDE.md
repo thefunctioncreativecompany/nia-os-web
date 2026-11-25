@@ -195,7 +195,7 @@ Milestone 0 — Foundations
   from Figma (Pending and Wrapped text darkened for contrast).
 - [x] 0.4 Nia components in `src/components/nia`, built from what Figma shows: Navbar (+ UserMenu),
   StatusBadge, EmptyState (optional illustration slot), DocumentHeader (+ DocumentPreviewHeader,
-  DownloadPdfButton; title in Geist bold since F1), ProjectCard (default + compact, 19:10 cover,
+  DownloadPdfButton, removed unused 2026-11-19; title in Geist bold since F1), ProjectCard (default + compact, 19:10 cover,
   hover lift), TemplateCard (default + compact), ProposalCard (Apply Changes / Modify),
   SavedIndicator (tick animation via `motion`). Waiting on Figma (Ika designs in Claude Design, then
   added before the step that needs it): ProjectCard production-type chip, next shoot date and

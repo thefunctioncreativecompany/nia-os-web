@@ -9,7 +9,7 @@ export function TimelineLocked({ className }: { className?: string }) {
   return (
     <div className={cn("flex min-h-[calc(100svh-var(--nav-h)-7rem)] flex-col items-center justify-center gap-4 px-6 text-center lg:min-h-[calc(100svh-var(--nav-h))]", className)}>
       <Monitor aria-hidden className="size-8 text-muted-foreground" />
-      <h1 className="text-h3 font-semibold text-foreground">The timeline is on desktop</h1>
+      <h1 className="text-h2 font-semibold tracking-tight text-foreground">The timeline is on desktop</h1>
       <p className="max-w-md text-sm text-muted-foreground">Open Explore all on a computer to move through time. Here, the canvas has every title.</p>
       <Button asChild variant="outline">
         <Link href="/explore/all">Open the canvas</Link>

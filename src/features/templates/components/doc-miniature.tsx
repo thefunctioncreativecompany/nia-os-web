@@ -134,7 +134,7 @@ function MiniSection({ section: s }: { section: Section }) {
   }
   return (
     <div className="mt-3.5">
-      <p className="mb-1.75 truncate text-micro font-extrabold text-foreground">{s.title}</p>
+      <p className="mb-1.75 truncate text-micro font-bold text-foreground">{s.title}</p>
       {body}
     </div>
   );
