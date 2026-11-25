@@ -915,6 +915,51 @@
    }
   ]
  },
+ "a-talent-for-murder": {
+  "qid": "Q131935663",
+  "people": [
+   {
+    "id": "Q349391",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1189113",
+    "role": "Cast"
+   },
+   {
+    "id": "Q15069963",
+    "role": "Cast"
+   },
+   {
+    "id": "Q272518",
+    "role": "Cast"
+   },
+   {
+    "id": "Q349842",
+    "role": "Director"
+   },
+   {
+    "id": "Q519827",
+    "role": "Writer"
+   },
+   {
+    "id": "Q1733057",
+    "role": "Producer"
+   },
+   {
+    "id": "Q15941546",
+    "role": "Producer"
+   },
+   {
+    "id": "Q27057753",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q27929280",
+    "role": "Music"
+   }
+  ]
+ },
  "abouna": {
   "qid": "Q3192690",
   "people": [
@@ -1810,6 +1855,43 @@
    }
   ]
  },
+ "apocalypse-z-new-world": {
+  "qid": "Q142091368",
+  "people": [
+   {
+    "id": "Q126226386",
+    "role": "Cast"
+   },
+   {
+    "id": "Q5943686",
+    "role": "Cast"
+   },
+   {
+    "id": "Q21001794",
+    "role": "Cast"
+   },
+   {
+    "id": "Q110834674",
+    "role": "Cast"
+   },
+   {
+    "id": "Q125124050",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6165528",
+    "role": "Cast"
+   },
+   {
+    "id": "Q23664851",
+    "role": "Director"
+   },
+   {
+    "id": "Q5984573",
+    "role": "Editor"
+   }
+  ]
+ },
  "apollo-13": {
   "qid": "Q106428",
   "people": [
@@ -2135,6 +2217,23 @@
    {
     "id": "Q2158922",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "avatar-seven-havens": {
+  "qid": "Q132592986",
+  "people": [
+   {
+    "id": "Q85178",
+    "role": "Creator"
+   },
+   {
+    "id": "Q85175",
+    "role": "Creator"
+   },
+   {
+    "id": "Q3247705",
+    "role": "Music"
    }
   ]
  },
@@ -3184,6 +3283,27 @@
    {
     "id": "Q3942970",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "blades-of-the-guardians": {
+  "qid": "Q130301952",
+  "people": [
+   {
+    "id": "Q107017290",
+    "role": "Creator"
+   },
+   {
+    "id": "Q460297",
+    "role": "Director"
+   },
+   {
+    "id": "Q15913203",
+    "role": "Writer"
+   },
+   {
+    "id": "Q127428040",
+    "role": "Writer"
    }
   ]
  },
@@ -10018,6 +10138,51 @@
    }
   ]
  },
+ "heartland": {
+  "qid": "Q136757568",
+  "people": [
+   {
+    "id": "Q229313",
+    "role": "Cast"
+   },
+   {
+    "id": "Q459384",
+    "role": "Cast"
+   },
+   {
+    "id": "Q106899995",
+    "role": "Cast"
+   },
+   {
+    "id": "Q298371",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2627462",
+    "role": "Cast"
+   },
+   {
+    "id": "Q455827",
+    "role": "Cast"
+   },
+   {
+    "id": "Q47290449",
+    "role": "Cast"
+   },
+   {
+    "id": "Q15215623",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q15069859",
+    "role": "Producer"
+   },
+   {
+    "id": "Q28536181",
+    "role": "Producer"
+   }
+  ]
+ },
  "hidden-figures": {
   "qid": "Q23755544",
   "people": [
@@ -12671,6 +12836,51 @@
    {
     "id": "Q100741988",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "kung-fu-soccer": {
+  "qid": "Q140316382",
+  "people": [
+   {
+    "id": "Q105159412",
+    "role": "Cast"
+   },
+   {
+    "id": "Q18663212",
+    "role": "Cast"
+   },
+   {
+    "id": "Q12494180",
+    "role": "Cast"
+   },
+   {
+    "id": "Q934648",
+    "role": "Cast"
+   },
+   {
+    "id": "Q15910501",
+    "role": "Cast"
+   },
+   {
+    "id": "Q706219",
+    "role": "Cast"
+   },
+   {
+    "id": "Q311179",
+    "role": "Director, Writer, Producer"
+   },
+   {
+    "id": "Q16336405",
+    "role": "Writer"
+   },
+   {
+    "id": "Q113853276",
+    "role": "Producer"
+   },
+   {
+    "id": "Q15924853",
+    "role": "Music"
    }
   ]
  },
@@ -15437,6 +15647,10 @@
    }
   ]
  },
+ "never-surrender": {
+  "qid": "Q141689566",
+  "people": []
+ },
  "nickel-boys": {
   "qid": "Q116030637",
   "people": [
@@ -16608,6 +16822,27 @@
    },
    {
     "id": "Q541907",
+    "role": "Music"
+   }
+  ]
+ },
+ "paw-patrol-the-dino-movie": {
+  "qid": "Q132802215",
+  "people": [
+   {
+    "id": "Q23553923",
+    "role": "Director, Writer"
+   },
+   {
+    "id": "Q16198106",
+    "role": "Writer"
+   },
+   {
+    "id": "Q22083748",
+    "role": "Writer"
+   },
+   {
+    "id": "Q6572159",
     "role": "Music"
    }
   ]
@@ -18928,6 +19163,56 @@
    }
   ]
  },
+ "runner": {
+  "qid": "Q133809675",
+  "people": [
+   {
+    "id": "Q926963",
+    "role": "Cast"
+   },
+   {
+    "id": "Q161916",
+    "role": "Cast"
+   },
+   {
+    "id": "Q294819",
+    "role": "Cast"
+   },
+   {
+    "id": "Q50082651",
+    "role": "Cast"
+   },
+   {
+    "id": "Q235233",
+    "role": "Cast"
+   },
+   {
+    "id": "Q7636430",
+    "role": "Cast"
+   },
+   {
+    "id": "Q7171604",
+    "role": "Cast"
+   },
+   {
+    "id": "Q24734684",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6117343",
+    "role": "Cast",
+    "character": "Donna's Doctor"
+   },
+   {
+    "id": "Q7437478",
+    "role": "Director"
+   },
+   {
+    "id": "Q19878370",
+    "role": "Producer"
+   }
+  ]
+ },
  "saloum": {
   "qid": "Q108610237",
   "people": [
@@ -21168,6 +21453,41 @@
    }
   ]
  },
+ "spider-noir": {
+  "qid": "Q123956515",
+  "people": [
+   {
+    "id": "Q42869",
+    "role": "Cast",
+    "character": "Spider-Man Noir"
+   },
+   {
+    "id": "Q500628",
+    "role": "Cast",
+    "character": "Robbie Robertson"
+   },
+   {
+    "id": "Q206659",
+    "role": "Cast",
+    "character": "Silvermane"
+   },
+   {
+    "id": "Q27864073",
+    "role": "Cast",
+    "character": "Black Cat"
+   },
+   {
+    "id": "Q123386756",
+    "role": "Cast",
+    "character": "Tombstone"
+   },
+   {
+    "id": "Q1190693",
+    "role": "Cast",
+    "character": "Sandman"
+   }
+  ]
+ },
  "squid-game": {
   "qid": "Q106582931",
   "people": [
@@ -22885,6 +23205,39 @@
    }
   ]
  },
+ "the-beast": {
+  "qid": "Q131187454",
+  "people": [
+   {
+    "id": "Q172678",
+    "role": "Cast"
+   },
+   {
+    "id": "Q28262",
+    "role": "Cast"
+   },
+   {
+    "id": "Q5622130",
+    "role": "Cast"
+   },
+   {
+    "id": "Q318712",
+    "role": "Director"
+   },
+   {
+    "id": "Q19339049",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q2576780",
+    "role": "Editor"
+   },
+   {
+    "id": "Q1888492",
+    "role": "Music"
+   }
+  ]
+ },
  "the-best-years-of-our-lives": {
   "qid": "Q645094",
   "people": [
@@ -24325,6 +24678,108 @@
    }
   ]
  },
+ "the-fix": {
+  "qid": "Q130367869",
+  "people": [
+   {
+    "id": "Q58444",
+    "role": "Cast"
+   },
+   {
+    "id": "Q139638",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3464233",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16196488",
+    "role": "Cast"
+   },
+   {
+    "id": "Q55238284",
+    "role": "Cast"
+   },
+   {
+    "id": "Q52584389",
+    "role": "Cast"
+   },
+   {
+    "id": "Q5890038",
+    "role": "Director, Writer"
+   }
+  ]
+ },
+ "the-furious": {
+  "qid": "Q125948183",
+  "people": [
+   {
+    "id": "Q9344146",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3459336",
+    "role": "Cast"
+   },
+   {
+    "id": "Q52002",
+    "role": "Cast"
+   },
+   {
+    "id": "Q12525054",
+    "role": "Cast"
+   },
+   {
+    "id": "Q135670488",
+    "role": "Cast"
+   },
+   {
+    "id": "Q110314832",
+    "role": "Cast"
+   },
+   {
+    "id": "Q11310828",
+    "role": "Cast"
+   },
+   {
+    "id": "Q11632790",
+    "role": "Director"
+   },
+   {
+    "id": "Q116226476",
+    "role": "Writer"
+   },
+   {
+    "id": "Q64856260",
+    "role": "Writer, Producer"
+   },
+   {
+    "id": "Q140268509",
+    "role": "Writer"
+   },
+   {
+    "id": "Q140268634",
+    "role": "Writer"
+   },
+   {
+    "id": "Q8014107",
+    "role": "Producer"
+   },
+   {
+    "id": "Q123569636",
+    "role": "Editor"
+   },
+   {
+    "id": "Q30018292",
+    "role": "Music"
+   },
+   {
+    "id": "Q139121",
+    "role": "Music"
+   }
+  ]
+ },
  "the-general": {
   "qid": "Q850159",
   "people": [
@@ -24706,6 +25161,59 @@
    {
     "id": "Q440313",
     "role": "Costume Designer"
+   }
+  ]
+ },
+ "the-good-daughter": {
+  "qid": "Q133464974",
+  "people": [
+   {
+    "id": "Q228717",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6809055",
+    "role": "Cast"
+   },
+   {
+    "id": "Q206659",
+    "role": "Cast"
+   },
+   {
+    "id": "Q96944777",
+    "role": "Cast"
+   },
+   {
+    "id": "Q433198",
+    "role": "Cast"
+   },
+   {
+    "id": "Q549948",
+    "role": "Cast"
+   },
+   {
+    "id": "Q231163",
+    "role": "Cast"
+   },
+   {
+    "id": "Q3308158",
+    "role": "Cast"
+   },
+   {
+    "id": "Q80761563",
+    "role": "Cast"
+   },
+   {
+    "id": "Q135021762",
+    "role": "Cast"
+   },
+   {
+    "id": "Q448425",
+    "role": "Creator, Writer"
+   },
+   {
+    "id": "Q2343073",
+    "role": "Director"
    }
   ]
  },
@@ -25881,6 +26389,64 @@
    },
    {
     "id": "Q213869",
+    "role": "Music"
+   }
+  ]
+ },
+ "the-invite": {
+  "qid": "Q134083296",
+  "people": [
+   {
+    "id": "Q220308",
+    "role": "Cast"
+   },
+   {
+    "id": "Q39666",
+    "role": "Cast"
+   },
+   {
+    "id": "Q125904",
+    "role": "Cast"
+   },
+   {
+    "id": "Q200355",
+    "role": "Cast, Director",
+    "character": "Angela"
+   },
+   {
+    "id": "Q2546373",
+    "role": "Writer"
+   },
+   {
+    "id": "Q540608",
+    "role": "Writer"
+   },
+   {
+    "id": "Q5238526",
+    "role": "Producer"
+   },
+   {
+    "id": "Q15642553",
+    "role": "Producer"
+   },
+   {
+    "id": "Q1840340",
+    "role": "Producer"
+   },
+   {
+    "id": "Q136133825",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q60922953",
+    "role": "Editor"
+   },
+   {
+    "id": "Q137440811",
+    "role": "Editor"
+   },
+   {
+    "id": "Q2311177",
     "role": "Music"
    }
   ]
@@ -27198,6 +27764,39 @@
    {
     "id": "Q345827",
     "role": "Production Designer"
+   }
+  ]
+ },
+ "the-mongoose": {
+  "qid": "Q132240256",
+  "people": [
+   {
+    "id": "Q58444",
+    "role": "Cast"
+   },
+   {
+    "id": "Q191828",
+    "role": "Cast"
+   },
+   {
+    "id": "Q310315",
+    "role": "Cast"
+   },
+   {
+    "id": "Q313653",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2063318",
+    "role": "Director of Photography"
+   },
+   {
+    "id": "Q21290622",
+    "role": "Editor"
+   },
+   {
+    "id": "Q6835480",
+    "role": "Music"
    }
   ]
  },
@@ -30586,6 +31185,63 @@
    }
   ]
  },
+ "widows-bay": {
+  "qid": "Q136498700",
+  "people": [
+   {
+    "id": "Q342784",
+    "role": "Cast"
+   },
+   {
+    "id": "Q464320",
+    "role": "Cast"
+   },
+   {
+    "id": "Q23713460",
+    "role": "Cast"
+   },
+   {
+    "id": "Q29453375",
+    "role": "Cast"
+   },
+   {
+    "id": "Q2487180",
+    "role": "Cast"
+   },
+   {
+    "id": "Q139899326",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6342864",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6174074",
+    "role": "Cast"
+   },
+   {
+    "id": "Q558301",
+    "role": "Cast"
+   },
+   {
+    "id": "Q1079204",
+    "role": "Cast"
+   },
+   {
+    "id": "Q4258026",
+    "role": "Cast"
+   },
+   {
+    "id": "Q20684954",
+    "role": "Cast"
+   },
+   {
+    "id": "Q6377429",
+    "role": "Creator"
+   }
+  ]
+ },
  "wild-horse-nine": {
   "qid": "Q133341572",
   "people": [
@@ -30889,6 +31545,51 @@
    {
     "id": "Q141380007",
     "role": "Producer"
+   }
+  ]
+ },
+ "your-mother-your-mother-your-mother": {
+  "qid": "Q133286528",
+  "people": [
+   {
+    "id": "Q360531",
+    "role": "Cast"
+   },
+   {
+    "id": "Q312705",
+    "role": "Cast"
+   },
+   {
+    "id": "Q726142",
+    "role": "Cast"
+   },
+   {
+    "id": "Q127377862",
+    "role": "Cast"
+   },
+   {
+    "id": "Q111488758",
+    "role": "Cast"
+   },
+   {
+    "id": "Q16163828",
+    "role": "Cast"
+   },
+   {
+    "id": "Q45740631",
+    "role": "Cast"
+   },
+   {
+    "id": "Q141552202",
+    "role": "Cast"
+   },
+   {
+    "id": "Q23769533",
+    "role": "Director"
+   },
+   {
+    "id": "Q123486559",
+    "role": "Director of Photography"
    }
   ]
  }

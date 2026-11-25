@@ -1309,3 +1309,16 @@ onboarding's Import profile and Follow creators describe features removed in the
   offline, a saved document opens read-only (the worker marks the copy; the editor shows "Offline
   copy from …") and anything else shows `/offline`. Log out deletes the copies. Live site only
   (off in development).
+- (2026-11-24) Best of 2026, batches 10 and 11: The Good Daughter, Runner, Never Surrender, PAW
+  Patrol: The Dino Movie, The Invite, The Fix, The Furious, A Story of Derry, Apocalypse Z: New
+  World; The Mongoose, Avatar: Seven Havens, Kung Fu Soccer, Blades of the Guardians, Spider-Noir,
+  Heartland, The Beast, Your Mother Your Mother Your Mother, A Talent for Murder, Widow's Bay (19 new
+  titles; Sunrise on the Reaping came with its franchise). Trailers checked by eye (Runner, The Beast
+  and A Talent for Murder had another film's or a reupload). Press kits checked by hand: Wikipedia's
+  Never Surrender reviews were of the 2009 film, Spider-Noir's were streaming-ratings stories, and
+  videos of Runner Runner, Blade Runner, Heart of the Beast, the Fast & Furious films, ABC's The Fix
+  and CBC's Heartland were taken out; titles with fewer than two reviews filled from edited
+  publications. The weekly rerank moved the line: 90 of this week's top 100 are on Explore; seven of
+  the new titles and Sense and Sensibility, Whalefall and How to Rob a Bank sit just below it (still
+  on Explore), and ten newly ranked titles wait for the next batch (`toAdd` in best-of-2026.json).
+  A Story of Derry has no Wikidata item, press kit or exact date yet; Never Surrender has no cast.
