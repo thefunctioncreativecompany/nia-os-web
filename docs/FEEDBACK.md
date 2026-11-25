@@ -21,6 +21,24 @@ Status: ⬜ logged, not started · 🔍 being studied · 🔄 in progress · ✅
 
 ---
 
+## 000000. Logged 2026-11-25: UI review of the live site
+
+Headless Chrome on app.niatechnologies.co, test account 2: 12 screens (Home, Projects, a project's
+Overview and References, Cast & crew, Documents, Templates, a template, Explore, an Explore title,
+Settings, Plans) on desktop, desktop dark and phone, 36 views. Fine: no console errors, every page
+under 3.1s (most under 2s), no sideways scroll on phones, Geist only, no all-caps, every page title
+at the standard (28px semibold), at most one blue button per screen and always on the main action
+(Share project, Add person, Save to project, Add to project, Save name). Re-checked the 2026-11-12
+list below (UX4, UX13, UX15–UX17 updated).
+
+| # | What | Status |
+|---|------|--------|
+| UX22 | Project cards say "Edited nov 14": the month in lower case (Home's Recent projects, Projects) | ⬜ |
+| UX23 | Template field labels still in Title Case (Notice Metadata, Production Company, Type of Production, Dates / Times, Parking Restrictions…), in the editor and its PDF; left from UX8 for a templates pass | ⬜ |
+| UX24 | The round Explore all button (bottom left, desktop) covers page content, e.g. a project's Notes heading; with Feedback bottom right (UX3), two floating buttons on every page | ⬜ |
+| UX25 | References: the always-open upload and link bar is about 200px tall and pushes the gallery below the first screen on a laptop; a slimmer bar (one line, drop anywhere on the gallery) keeps it open without taking the screen | ⬜ |
+| UX26 | A project's "Final assets · 1" uses the old heading look (bold, smaller) beside the standard section headings (Details, Notes) | ⬜ |
+
 ## 00000. Logged 2026-11-24: Ika, project page (references, key milestones)
 
 Decided 2026-11-24 (Ika): **Ika designs first** in Claude Design (reference folders, the
@@ -230,7 +248,7 @@ sideways scroll on phones, Geist only, no all-caps, dark mode consistent.
 | UX1 | Settings → General: Email, Push, Weekly digest, Default view, Language, Time zone, Auto-save, Version history save but nothing reads them (rule: grey out with `NotYet`) | ✅ 2026-11-12, removed (and Profile’s AI assistant card and Apple row); tag `parked-2026-11-12-settings` |
 | UX2 | Phone, Cast & crew: toolbar runs off screen, hiding Add person and Status; cast table's Contact and Status cut off | ⬜ |
 | UX3 | Floating Feedback button covers content bottom right (Home Activity menu, title-page chips, Settings switch) | ⬜ |
-| UX4 | Plans sells AI credits before the Copilot exists; two equal primary buttons | ⬜ |
+| UX4 | Plans sells AI credits before the Copilot exists; two equal primary buttons | 🔄 2026-11-25: the two blue buttons are now grey (Get Starter, Get Creator); AI credits still listed before the Copilot exists |
 | UX5 | Explore titles show placeholders ("Recognition: To be confirmed", "Season 3 —") | ⬜ |
 | UX6 | Settings and Plans light up the Home tab (navbar `match`) | ⬜ |
 | UX7 | Titles off the heading standard (Filming Notice, person pages, Privacy, check-email, onboarding; Explore and project titles smaller on phones); the project title heading read as "Edit title" | ✅ 2026-11-12 |
@@ -239,11 +257,11 @@ sideways scroll on phones, Geist only, no all-caps, dark mode consistent.
 | UX10 | Page edges 30 / 60 / 124px across tabs | ✅ 2026-11-12, one edge `md:px-page` (30px) |
 | UX11 | Details/Manage switch square-cornered (`SegmentedControl`, also Plans and project files) | ✅ 2026-11-12, pill |
 | UX12 | No-cover projects show a grey block that looks like loading (future build: no-cover look) | ⬜ |
-| UX13 | Phone tap targets under 44px (crew email icons, show-password eye, text links, Monthly/Annual, tag chips) | ⬜ |
+| UX13 | Phone tap targets under 44px (crew email icons, show-password eye, text links, Monthly/Annual, tag chips) | ⬜ 2026-11-25: still, and the top bar's + and account buttons are 36px on every phone page; also crew email icons, Activity's More actions, a deliverable's remove |
 | UX14 | Phone, project page: Adjust and Change cover always over the cover photo | ⬜ |
-| UX15 | Phone, Home: the New project tile is a full card of empty space | ⬜ |
-| UX16 | Phone, Explore title: "Trailer" label overlaps the trailer's own text | ⬜ |
-| UX17 | Template editor: the How-it-works card fills the first screen | ⬜ |
+| UX15 | Phone, Home: the New project tile is a full card of empty space | ✅ 2026-11-19 (Home's dashed New project tile removed; confirmed 2026-11-25) |
+| UX16 | Phone, Explore title: "Trailer" label overlaps the trailer's own text | ✅ 2026-11-25 review: Trailer sits on the picture, clear of the trailer's own text |
+| UX17 | Template editor: the How-it-works card fills the first screen | ✅ 2026-11-25 review: the How it works card no longer fills the first screen |
 | UX18 | Home Activity repeats share-link on/off lines; group repeats | ⬜ |
 | UX19 | Person page: "Films" for a series; "leading actor · Creator" capitals | ⬜ |
 | UX20 | Login hero is a *Sinners (2025)* still: rights? (rule: imagery from the user's own work) | ⏸ |
