@@ -1,6 +1,6 @@
 # Nia master list
 
-**Updated 2026-11-18.** The one place for what's shipped, what's open, feedback and future features.
+**Updated 2026-11-24.** The one place for what's shipped, what's open, feedback and future features.
 Each item runs as its own fix, one at a time (below). Elsewhere, and kept there:
 
 - Why each decision was made: [decisions.md](decisions.md).
@@ -198,6 +198,19 @@ Ika asked how github.com/meta/astryx could help without replacing what we have. 
 | AX2 | Astryx's ready-made layouts (table with a floating bar for changing many rows, filter tabs, step-by-step form with a review step, chat with citations) as references in Claude Design before Figma: cast & crew bulk changes, shoot days, Copilot | ⬜ when those steps start |
 | AX3 | Check our own controls (`FilterChip`, `ChipMenu`, `SearchField`) against Astryx's written accessibility contracts (keyboard, screen reader) | ⬜ |
 | AX4 | Score how well a fresh AI assistant follows CLAUDE.md on 10 Nia screen tasks, like Astryx's "vibe tests", to see which rules don't get through | ⬜ later, optional |
+
+## 0c. Logged 2026-11-20: Nia as a desktop app (then mobile)
+
+Ika asked how to prepare for desktop and mobile apps, starting with desktop. Nia needs its server
+(sign-in, the database, server actions), so every app loads the live site rather than a copy
+packed inside it; the work is making the site behave like an app.
+
+| # | What | Status |
+|---|------|--------|
+| D1 | **Install Nia as an app.** Chrome and Edge offer Install (Mac and Windows), Safari offers File → Add to Dock; Nia opens in its own window from the Dock or Start menu with its own icon. App settings in `src/app/manifest.ts`, icons in `public/app-icons/` (from the existing Nia mark), the window bar follows light and dark (and the choice in Settings). Offline: Chrome's own "You're offline" screen with Nia's name and icon, no extra code | ✅ 2026-11-24 |
+| D2 | **Check it in its own window.** No address bar or back button there: Back links on every screen, links to other sites open in the browser, downloads (PDF, Word) save, Google sign-in and Google Calendar come back to the window, and the whole app in Safari (a Mac app would use Safari's engine). Then What's new | ⬜ next |
+| D3 | A Mac and Windows app you download (Tauri) only when there's a reason the installed web app can't meet: offline call sheets, notifications on the desktop, files from the computer, the Mac App Store | ⬜ after the beta (BUILD_PLAN) |
+| D4 | Phones: the same install on Android and iPhone (Share → Add to Home Screen) first; App Store and Play apps later need more than a website in a frame (Apple's rule) | ⬜ after desktop |
 
 ## 0. Logged 2026-11-12: UI/UX audit of the live site
 
