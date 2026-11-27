@@ -1389,3 +1389,7 @@ onboarding's Import profile and Follow creators describe features removed in the
   right-click (a long press on phones, the menu key), not a visible button (Ika). Dragging to
   reorder shows a Nia Blue line in the gap where the tiles will land, before or after the tile
   under the pointer; a selection drags together.
+- (2026-11-27) Copy check: all text people read in Nia (the interface, emails, notifications, and
+  what Nia's AI drafts) goes through the humanizer skill before it ships, to remove machine-written
+  patterns. First pass over the whole app the same day: emails, notifications, onboarding,
+  What's new, templates and Explore; ten lines changed, the rest was already plain.

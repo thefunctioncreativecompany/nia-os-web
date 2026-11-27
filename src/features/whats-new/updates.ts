@@ -293,8 +293,8 @@ export const UPDATES: Update[] = [
   {
     id: "search",
     date: "2026-10-31",
-    title: "Search that understands you",
-    body: "Find projects, documents, files, templates and Explore from one search, even with a typo. Search Explore by look or mood, like natural light. On phones too.",
+    title: "Search everything, even with a typo",
+    body: "Find projects, documents, files, templates and Explore from one search. Search Explore by look or mood, like natural light. On phones too.",
     href: "/home",
     cta: "Try search (⌘K)",
     icon: "Search",
