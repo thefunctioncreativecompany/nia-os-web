@@ -1,6 +1,6 @@
 # Nia master list
 
-**Updated 2026-11-25.** The one place for what's shipped, what's open, feedback and future features.
+**Updated 2026-11-27.** The one place for what's shipped, what's open, feedback and future features.
 Each item runs as its own fix, one at a time (below). Elsewhere, and kept there:
 
 - Why each decision was made: [decisions.md](decisions.md).
@@ -20,6 +20,51 @@ Status: ⬜ logged, not started · 🔍 being studied · 🔄 in progress · ✅
 5. Commit, push, check the live site, update this list (and BUILD_PLAN.md if it maps to a step).
 
 ---
+
+## 0000000. Logged 2026-11-27: Youvanni's interview, Jacqueline's idea
+
+Nothing here is built. Sources: Ika's user research call with Youvanni (2026-11-23, notes) and a
+message from Jacqueline, a photographer in NYC. Youvanni's next steps: put production checklists
+and reminders on the roadmap, and look into expenses and reimbursements.
+
+### A. Youvanni: money and information on set
+
+What Youvanni described: crew regularly pay for production costs themselves and wait 30 to 90
+days to be paid back, even for small things (Ubers, last-minute supplies). There aren't enough
+production cards on set, so the default becomes "I'll reimburse you". The real problem is the
+costs nobody planned (a run to Party City for hairspray): they never appear on the budget sheet
+but always happen. "Personal money should never fund someone else's shoot." On set, experienced
+producers sometimes keep the run of show, quote sheet and task list to themselves, so assistants
+work without them, and offering help can read as overstepping.
+
+| # | What | Today | Implications | Size |
+|---|------|-------|--------------|------|
+| FB23 | **Expenses and reimbursements**: crew log what they paid for (what, how much, a photo of the receipt), the producer approves it, and both see when it's paid back; unplanned costs show against the budget | Production Budget and Invoice (with Mark paid) templates; nothing per person or per receipt | A project's expenses list: who paid, receipt photo (Storage), approved, paid back, a total against the budget's miscellaneous line. Nia records money, it doesn't move it (no payments in Nia yet; paying people out is a separate, regulated step). Needs a table and storage rules (migration), and who can approve (B14, permissions by role). Study first: how productions handle petty cash and floats today | L 🔍 |
+| FB24 | **Checklists by role, with recommended practice**: each role gets what to have, what to do and when; "here's what we recommend", not rules | Workflows (12) list the documents for a goal; key milestones have assignees; nothing per crew role | A checklist per role (producer, PA, stylist, photographer…) that a project can add and edit, from a starting set Nia recommends. The starting sets must come from working crew, never invented: Ika gathers them from testers. Fits Milestone 4 (shoot days) and B3 (workflows) | M–L |
+| FB25 | **Reminders tied to the shoot's timeline**: "Shoot starts now, here's your checklist" | Desktop notifications while Nia is open (D6 step 1); with Nia closed built, waiting on Ika (D6); no shoot days yet | Needs shoot days with times (Milestone 4) and FB24's checklists; reminders go out through D6 (and D4 on phones). Each person chooses which reminders they get | M |
+| FB26 | **Everyone on the shoot sees the plan**: the run of show, quote sheet and task list reach assistants without relying on the producer to pass them on | Share by email or link; key milestones with assignees (PR2); crew without Nia accounts can't see their tasks | What each role sees by default (B14), crew joining by username (B15) and a crew view of the shoot day (Milestone 4's Shoot Day screen). Product point: when the plan lives in Nia, asking for it isn't overstepping | M |
+
+### B. Jacqueline: a nudge to keep going
+
+> "this just gave me the idea that with nia you should have a feature that reminds you to keep
+> editing (if you're building a project) on a front banner when u open ur phone. i started making
+> this blog on cap cut and almost forgot about ut and the only reason i keep going back is because
+> i see the banner on the front of my phone" (Jacqueline, NYC photographer)
+
+| # | What | Today | Implications | Size |
+|---|------|-------|--------------|------|
+| FB27 | **A reminder to pick a project back up**, on the phone's lock screen | Desktop notifications (D6); phones not started (D4) | An opt-in "pick up where you left off" notice for a project with open work that hasn't been touched in a while, with how often set by the person (calm, never daily by default). On iPhone, web notifications need Nia added to the Home Screen first (D4). Ties to FB25 (same notices) | M |
+
+**Jacqueline's test project, Fruit Stand** ("the fruit of your labor"), kept as a real test case
+for the photographer workflow (Plan a client photoshoot):
+
+- Shots: side-profile headshot with a knit bag and fruit ("did u bring ur mesh bag?"); a bitten
+  apple in hand, angled down to the ground; picking out fruit.
+- Goal: 10 very different pictures, one grid of all of them, and two slides of a split image.
+- Edit: vintage (she first wrote "soft and almost dreamy", then changed it).
+
+Worth checking with it: the shot list holds the prop note (the mesh bag reminder is FB24 and FB25
+in miniature), and the deliverables (a grid and split-image slides) have somewhere to live.
 
 ## 000000. Logged 2026-11-25: UI review of the live site
 
