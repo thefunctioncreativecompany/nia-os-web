@@ -3,7 +3,7 @@ import "server-only";
 import sharp, { type Sharp } from "sharp";
 
 // Guardrails for every picture Nia downloads and resizes on the server (security audit,
-// 2026-11-15): the image resizer (/api/img), Explore's trailer stills and Instagram covers.
+// 2026-11-15): Explore's trailer stills and Instagram covers.
 // - At most `maxBytes` is ever read: the size the server states is checked first, then the
 //   download stops as soon as it passes the cap (a server can lie about its size).
 // - Only pictures (`image/*`), within a time limit.
