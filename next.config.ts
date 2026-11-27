@@ -1,14 +1,14 @@
 import type { NextConfig } from "next";
 
+const SUPABASE_HOST = process.env.NEXT_PUBLIC_SUPABASE_URL ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname : null;
 
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   images: {
-    // Nia's own resizer (src/lib/image-loader.ts, src/app/api/img): Vercel's monthly image
-    // allowance on the Hobby plan ran out on 2026-11-08 (Ika, 2026-11-09).
-    loader: "custom",
-    loaderFile: "./src/lib/image-loader.ts",
+    // Vercel's own resizer again, now that Nia is on Vercel Pro (Ika, 2026-11-27). Nia's own
+    // resizer (/api/img, 2026-11-09 to 2026-11-27) ran on Nia's server and used up the Hobby
+    // plan's 4 hours of CPU a month, which paused the site.
     // 90 for the full-bleed auth/onboarding hero images; 75 is the default elsewhere.
     qualities: [75, 90],
     // AVIF first (Explore's posters are the heaviest part of any page; speed audit 2026-10-31),
@@ -18,7 +18,8 @@ const nextConfig: NextConfig = {
     // YouTube's own trailer thumbnails (Explore), fetched by our server so the browser doesn't
     // contact YouTube until Play is pressed.
     remotePatterns: [
-      { protocol: "https", hostname: "*.supabase.co", pathname: "/storage/v1/object/public/**" },
+      // Nia's own Supabase project only, so other projects' pictures can't use Nia's allowance.
+      ...(SUPABASE_HOST ? [{ protocol: "https" as const, hostname: SUPABASE_HOST, pathname: "/storage/v1/object/public/**" }] : []),
       { protocol: "https", hostname: "i.ytimg.com", pathname: "/vi/**" },
       // Film people's free photos on Wikimedia Commons (Explore's Cast & Crew), loaded unoptimized.
       { protocol: "https", hostname: "upload.wikimedia.org", pathname: "/wikipedia/commons/**" },
