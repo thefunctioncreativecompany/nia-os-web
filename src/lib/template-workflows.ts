@@ -19,9 +19,9 @@ export const WORKFLOWS: Record<string, Workflow> = {
   "t01-editorial-shoot": {
     stages: ["Blueprint", "Pre-production", "Shoot", "Safeguards"],
     steps: [
-      { n: 1, label: "Vision", stage: "Blueprint", requires: [], delivers: "Direction statement", map: { sub: 0, row: 1 }, description: "The single direction every decision on this shoot answers to." },
-      { n: 2, label: "Concept Blueprint", stage: "Blueprint", requires: [1], delivers: "Concept & deliverables", map: { sub: 1, row: 0 }, description: "The vision translated into a concept the team can build." },
-      { n: 3, label: "Mood References", stage: "Blueprint", requires: [1], delivers: "Reference board", map: { sub: 1, row: 2 }, description: "The visual language: light, palette, styling, casting, place." },
+      { n: 1, label: "Vision", stage: "Blueprint", requires: [], delivers: "Direction statement", map: { sub: 0, row: 1 }, description: "One line on what this shoot is for, for every decision to come back to." },
+      { n: 2, label: "Concept Blueprint", stage: "Blueprint", requires: [1], delivers: "Concept & deliverables", map: { sub: 1, row: 0 }, description: "The vision turned into a concept and the list of what to deliver." },
+      { n: 3, label: "Mood References", stage: "Blueprint", requires: [1], delivers: "Reference board", map: { sub: 1, row: 2 }, description: "The look: light, palette, styling, casting and place." },
       { n: 4, label: "Location Scouting", stage: "Pre-production", requires: [2, 3], delivers: "Confirmed location", map: { sub: 0, row: 0 }, description: "Shortlist, recce and confirm where the day happens." },
       { n: 5, label: "Talent Casting", stage: "Pre-production", requires: [2, 3], delivers: "Confirmed talent", map: { sub: 0, row: 1 }, description: "Who is in front of the camera, and when they are available." },
       { n: 6, label: "Styling & Wardrobe", stage: "Pre-production", requires: [3, 5], delivers: "Look list", map: { sub: 1, row: 2 }, description: "Looks, pulls, fittings and returns." },

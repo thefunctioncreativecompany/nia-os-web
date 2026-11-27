@@ -75,6 +75,10 @@ Design:
 - Few words (Ika, 2026-11-10): creatives are visual, so a section gets a title and no explaining
   line; cards lead with a picture and a name. Add a sentence only where someone would be stuck
   without it.
+- Copy check (Ika, 2026-11-27): run every new or changed piece of text people will read through
+  `/humanizer` before committing it: screens, buttons, toasts, empty states, What's new, template
+  and Explore text, emails, notification and push text (including in migrations), and anything
+  Nia's AI writes for users. No em dashes in copy; ranges (9–5) and the "—" empty-field mark stay.
 - Motion: `fast` 150ms, `base` 250ms, `slow` 400ms, ease-out on enter, no loops, respect reduced
   motion. Only modals/panels, the saved tick, cards settling, the card hover sweep, workflow covers
   (steps arriving once, the line drawing on hover; Ika, 2026-11-10), Copilot highlights and

@@ -43,7 +43,7 @@ export function SourceForm({
     <OnboardingStep
       narrow
       title="How did you hear about us?"
-      description="Help us tailor your production experience"
+      description="It helps us see where people find Nia."
     >
       <form onSubmit={handleSubmit} className="flex flex-col gap-7">
         <div role="radiogroup" aria-label="How did you hear about us?" className="flex flex-wrap gap-2">

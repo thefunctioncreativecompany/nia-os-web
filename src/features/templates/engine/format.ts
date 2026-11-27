@@ -49,7 +49,7 @@ export function formatDateTimeRange(value: DateTimeRange, { datesOnly = false } 
 
 export function formatYesNo(value: YesNo) {
   if (value.answer === 'no') return 'No';
-  if (value.answer === 'yes') return value.note.trim() ? `Yes — ${value.note.trim()}` : 'Yes';
+  if (value.answer === 'yes') return value.note.trim() ? `Yes, ${value.note.trim()}` : 'Yes';
   return value.note.trim();
 }
 
