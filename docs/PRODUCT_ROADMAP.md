@@ -111,6 +111,9 @@ UB1, PA3–PA5, PA7, PA8.
 | Nia AI | Designed | Paste a brief, get a Space; spots the films a brief names and adds them as references (BR1, BR2) |
 | Agents | Planned | Model-agnostic agents for the legwork: call sheets, clashes, hand-offs; each one proposes |
 | Explore by content type | Studied (EX8) | View Explore all as Trailers · Interviews · Behind the scenes · Press events |
+| Production checklists and reminders | Planned (Youvanni, FB24–FB26) | A checklist for each role from practice Nia recommends, reminders tied to the shoot's timeline ("Shoot starts now, here's your checklist"), and the run of show reaching everyone on the shoot; builds on Milestone 4's shoot days and desktop notifications |
+| Expenses and reimbursements | Being studied (Youvanni, FB23) | Crew log what they paid for with a receipt photo, the producer approves, both see when it's paid back; unplanned costs show against the budget. Nia records money, it doesn't move it |
+| Keep-going reminders | Idea (Jacqueline, FB27) | An opt-in phone or desktop notice to pick a project back up when it's gone quiet |
 | Recreate this look | Idea (Alvin, FB9) | From an Explore title, a shot list and mood board proposed into your project |
 | Template looks | Idea (Inbar, FB18) | A few designed versions of each template (background, fonts); needs a decision on document fonts |
 | Community profile | Idea (Inbar, FB19) | A profile for networking and collaboration, started inside Settings |
