@@ -1424,3 +1424,12 @@ onboarding's Import profile and Follow creators describe features removed in the
   review was dropped when its verdict couldn't be confirmed. Wednesday, Beauty and the Beast,
   Narnia, House of Cards, The Crown, Sex Education, A View to a Kill, Fifty Shades of Grey and 3:10
   to Yuma have no reviews yet (Wikipedia cites none usable); fill them from edited publications later.
+- (2026-11-28) Explore by genre (Ika: "build sorting by genre on explore page"): a Genre menu leads
+  Explore search's filter row, before Look, Camera, Setting and Mood, and lives in the address
+  (`?genre=Drama`). It narrows like the others: it offers only the genres left by the search and
+  the other choices, most used first, and the results heading names it. Genres are a field of
+  their own on each search document (`genres`, not production tags), so typed search and taste
+  rank as before. One vocabulary: only the platform's `GENRES`; the film pop-ups' few other words
+  were moved to them, and genres now show in sentence case on title pages and film pop-ups.
+  Creator films have no genres, only a type; it counts when the type is itself a genre (Fashion
+  Film, Branded Content, Editorial, Behind the Scenes). In What's new. Not in Figma yet.

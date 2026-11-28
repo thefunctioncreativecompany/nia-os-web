@@ -14,6 +14,8 @@ export type SearchDoc = {
   /** Cast and crew names. */
   people?: string[];
   tags: { id: string; label: string }[];
+  /** Its genres, in the platform's words (GENRES in src/lib/projects.ts, stored in Title Case). */
+  genres?: string[];
 };
 
 export type SearchHit = {
@@ -160,4 +162,16 @@ export function withTags(docs: SearchDoc[], chosen: string[], taste?: TasteMap):
   if (!taste?.size) return found;
   const order = new Map(found.map((d, i) => [d.slug, i]));
   return [...found].sort((a, b) => tasteScore(b, taste) - tasteScore(a, taste) || order.get(a.slug)! - order.get(b.slug)!);
+}
+
+/** Items in a genre (all of them when none is chosen), in the order given. */
+export function inGenre(docs: SearchDoc[], genre: string | null): SearchDoc[] {
+  return genre ? docs.filter((d) => d.genres?.includes(genre)) : docs;
+}
+
+/** The genres some of these items have, most used first, with how many. */
+export function genreChoices(docs: SearchDoc[]): { id: string; count: number }[] {
+  const counts = new Map<string, number>();
+  for (const d of docs) for (const g of d.genres ?? []) counts.set(g, (counts.get(g) ?? 0) + 1);
+  return [...counts].map(([id, count]) => ({ id, count })).sort((a, b) => b.count - a.count || a.id.localeCompare(b.id));
 }

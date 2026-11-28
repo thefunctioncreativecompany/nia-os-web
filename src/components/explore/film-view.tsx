@@ -10,6 +10,7 @@ import { filmSlug } from "@/features/explore/items";
 import { recordView } from "@/features/explore/views";
 import { getFilm } from "./explore-data";
 import { getFilmDetails, lengthOf, linksFor } from "./film-details";
+import { sentenceCase } from "@/lib/sentence-case";
 import { FilmVideoPlayer, PressKitSection, type PlayerVideo } from "./press-kit-body";
 import type { PressCoverage, PressVideo } from "./press-coverage";
 import { AddToProject, SaveToCollection } from "./save-controls";
@@ -90,7 +91,7 @@ export function FilmView({ filmId, castCrew = [], castTotal = 0, press = null }:
               {row("Directed by", film.director)}
               {details.starring.length > 0 && row("Starring", details.starring.join(", "))}
               {details.basedOn && row("Based on", details.basedOn)}
-              {details.genres.length > 0 && row(details.genres.length > 1 ? "Genres" : "Genre", details.genres.join(", "))}
+              {details.genres.length > 0 && row(details.genres.length > 1 ? "Genres" : "Genre", details.genres.map(sentenceCase).join(", "))}
               {press?.streaming && row("Streaming on", press.streaming)}
             </dl>
           </section>

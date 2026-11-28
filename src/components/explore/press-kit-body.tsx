@@ -9,6 +9,7 @@ import { DialogDescription } from "@/components/ui/dialog";
 import { useStopVideosWhenHidden } from "@/hooks/use-stop-videos";
 import { getFilm } from "./explore-data";
 import { getFilmDetails, linksFor } from "./film-details";
+import { sentenceCase } from "@/lib/sentence-case";
 import { PosterArt } from "./poster-art";
 import type { PressCoverage, PressVideo } from "./press-coverage";
 import { loadPress } from "@/features/explore/press-actions";
@@ -54,7 +55,7 @@ export function PressKitBody({ filmId, inDialog = false }: { filmId: string; inD
           <Summary className="mt-6 text-lead leading-relaxed text-foreground/80">{details.summary}</Summary>
           <ul className="mt-3.5 flex flex-wrap gap-2">
             {details.genres.map((g) => (
-              <li key={g} className="rounded-full bg-secondary px-3 py-1.5 text-small text-foreground/80">{g}</li>
+              <li key={g} className="rounded-full bg-secondary px-3 py-1.5 text-small text-foreground/80">{sentenceCase(g)}</li>
             ))}
           </ul>
 

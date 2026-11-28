@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "explore-genre",
+    date: "2026-11-28",
+    title: "Browse Explore by genre",
+    body: "Pick a genre in Explore's filters, from drama to westerns, and narrow it further by look, camera, setting or mood.",
+    href: "/explore",
+    cta: "Browse by genre",
+    icon: "magnifier",
+    weight: { production: 0.7, fashion: 0.6, creator: 0.7 },
+  },
+  {
     id: "comment-mentions",
     date: "2026-11-28",
     title: "@mention people in comments",

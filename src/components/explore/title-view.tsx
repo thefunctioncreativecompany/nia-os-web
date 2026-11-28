@@ -210,7 +210,7 @@ export function TitleView({
               {season && row(season.label ?? `Season ${season.number}`, [season.year, season.episode_count && `${season.episode_count} episodes`].filter(Boolean).join(" · ") || "—")}
               {row(title.countries.length > 1 ? "Countries" : "Country", title.countries.join(", "))}
               {row(creditTerm(title), title.credit ?? "To be confirmed")}
-              {title.genres.length > 0 && row(title.genres.length > 1 ? "Genres" : "Genre", title.genres.join(", "))}
+              {title.genres.length > 0 && row(title.genres.length > 1 ? "Genres" : "Genre", title.genres.map(sentenceCase).join(", "))}
               {title.platform && row("Where to watch", title.platform)}
               {row("Collection", collection.name)}
             </dl>

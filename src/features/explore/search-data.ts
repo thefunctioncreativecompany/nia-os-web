@@ -8,6 +8,8 @@ import { CATEGORY_NAMES, findEntry } from "./made-in-africa";
 import { findCreatorFilm } from "./creators";
 import { GROUP_LABELS, tagGroup, tagLabel, tagsFor, type TagGroup } from "./tags";
 import type { SearchDoc } from "./search";
+import { getFilmDetails } from "@/components/explore/film-details";
+import { GENRES } from "@/lib/projects";
 
 /** The four production details the filter menus offer (Ika, 2026-11-19); the rest are found by typing. */
 export const FILTER_GROUPS = ["look", "camera", "setting", "mood"] as const satisfies readonly TagGroup[];
@@ -40,8 +42,19 @@ export function searchDocs(places: Record<string, string[]> = {}, castCrew: Reco
       extra: extra.join(" ").toLowerCase(),
       people: film ? film.credits.map((c) => c.name) : (castCrew[item.slug] ?? []),
       tags: tagsFor(item.slug).map((id) => ({ id, label: tagLabel(id) })),
+      genres: genresOf(item.slug),
     };
   });
+}
+
+const IS_GENRE = new Set<string>(GENRES);
+/** A title's genres, a film's (its pop-up's facts), or a creator film's type when that is itself a
+ * genre (Fashion Film, Branded Content, Editorial, Behind the Scenes); only the platform's words. */
+function genresOf(slug: string): string[] {
+  const entry = findEntry(slug);
+  const film = slug.startsWith("film-") ? getFilmDetails(slug.slice("film-".length)) : null;
+  const own = entry ? entry.title.genres : film ? film.genres : [findCreatorFilm(slug)?.type ?? ""];
+  return own.filter((g) => IS_GENRE.has(g));
 }
 
 /** A group's tags that some of these items carry, most used first, with how many. */

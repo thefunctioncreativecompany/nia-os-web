@@ -11,13 +11,14 @@ import { PersonPicture } from "@/components/nia/cast-crew-row";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ChipMenu, ChipRow, FilterChip, ResultCount, searchFieldInput, searchFieldShell } from "@/components/nia/filter-bar";
 import { FilmGallery, GalleryCard, POSTER, type GalleryEntry } from "@/components/explore/film-gallery";
-import { coversAll, rankExplore, withTags, type SearchDoc, type SearchHit, type TasteMap } from "@/features/explore/search";
+import { coversAll, genreChoices, inGenre, rankExplore, withTags, type SearchDoc, type SearchHit, type TasteMap } from "@/features/explore/search";
 import { findExploreNames, loadExploreCastCrew, loadExploreSearchIndex, type NameHit } from "@/features/explore/search-index";
 import { matchName, pickBest } from "@/features/explore/name-search";
 import { initials } from "@/lib/initials";
 import { loadTaste } from "@/features/explore/taste";
 import type { ExploreItem } from "@/features/explore/items";
 import { servedSized } from "@/lib/served-sized";
+import { sentenceCase } from "@/lib/sentence-case";
 import { cn } from "@/lib/utils";
 
 // Explore search (Ika, 2026-11-19), shaped like Templates search: titles, who made them, their cast
@@ -31,6 +32,7 @@ import { cn } from "@/lib/utils";
 // studios and festivals are matched on the server (findExploreNames) and shown as themselves; Best
 // match leads with a name when the search is that name, and with a title only when one stands out
 // (name-search.ts `pickBest`).
+// Genre leads the menus (2026-11-27, `?genre=`): the platform's genre words, most used first.
 
 const GROUPS = ["look", "camera", "setting", "mood"] as const;
 type Group = (typeof GROUPS)[number];
@@ -69,7 +71,8 @@ export function ExploreSearch({ count, children }: { count: number; children: Re
   const committed = params.get("q")?.trim() ?? "";
   const chosen = Object.fromEntries(GROUPS.map((g) => [g, params.get(g)])) as Record<Group, string | null>;
   const tag = params.get("tag");
-  const active = Boolean(committed || tag || GROUPS.some((g) => chosen[g]));
+  const genre = params.get("genre");
+  const active = Boolean(committed || tag || genre || GROUPS.some((g) => chosen[g]));
 
   const [query, setQuery] = useState(committed);
   const [data, setData] = useState<Loaded | null>(null);
@@ -91,7 +94,7 @@ export function ExploreSearch({ count, children }: { count: number; children: Re
   }
 
   // Changes the search in the address without reloading the page; each change is a step Back undoes.
-  const update = (next: Partial<Record<Group | "q" | "tag", string | null>>) => {
+  const update = (next: Partial<Record<Group | "q" | "tag" | "genre", string | null>>) => {
     const url = new URL(window.location.href);
     for (const [key, value] of Object.entries(next)) {
       if (value) url.searchParams.set(key, value);
@@ -115,7 +118,7 @@ export function ExploreSearch({ count, children }: { count: number; children: Re
   const extraTag = tag && data && !GROUPS.includes(data.groupOf(tag) as Group) ? tag : null;
   const narrowedTo = [...picked, ...(extraTag ? [extraTag] : [])];
   const narrowKey = narrowedTo.join(",");
-  const pool = useMemo(() => (data ? withTags(data.docs, narrowKey ? narrowKey.split(",") : [], data.taste) : []), [data, narrowKey]);
+  const pool = useMemo(() => (data ? inGenre(withTags(data.docs, narrowKey ? narrowKey.split(",") : [], data.taste), genre) : []), [data, narrowKey, genre]);
   const hits: SearchHit[] | null = data && committed ? rankExplore(committed, pool, data.taste) : null;
   const found = hits ? hits.length : pool.length;
   // People, studios and festivals named in the search, asked of the server when it changes.
@@ -139,7 +142,7 @@ export function ExploreSearch({ count, children }: { count: number; children: Re
 
   const clear = () => {
     setQuery("");
-    update({ q: null, tag: null, look: null, camera: null, setting: null, mood: null });
+    update({ q: null, tag: null, genre: null, look: null, camera: null, setting: null, mood: null });
   };
 
   return (
@@ -156,10 +159,11 @@ export function ExploreSearch({ count, children }: { count: number; children: Re
           }}
           onCommit={(q) => update({ q: q || null })}
         />
-        <ChipRow role="group" aria-label="Filter by production details">
+        <ChipRow role="group" aria-label="Filter by genre and production details">
+          <GenreMenu docs={data ? withTags(searched, narrowedTo) : []} value={genre} onChange={(next) => update({ genre: next })} />
           {GROUPS.map((g) => {
             // Each menu offers what the search and the other choices leave.
-            const others = withTags(searched, narrowedTo.filter((id) => id !== chosen[g]));
+            const others = inGenre(withTags(searched, narrowedTo.filter((id) => id !== chosen[g])), genre);
             const choices = data ? data.choices(others, g) : [];
             const value = chosen[g] ?? ALL;
             const options = [{ value: ALL, label: "All" }, ...choices.map((c) => ({ value: c.id, label: c.label }))];
@@ -199,7 +203,7 @@ export function ExploreSearch({ count, children }: { count: number; children: Re
           <div className="mb-6 flex items-start justify-between gap-3">
             <div>
               <h2 id="explore-results" className="text-subtitle font-semibold text-foreground">
-                {committed ? <>Results for &ldquo;{committed}&rdquo;</> : narrowedTo.map(data.labelOf).join(" · ")}
+                {committed ? <>Results for &ldquo;{committed}&rdquo;</> : [...(genre ? [sentenceCase(genre)] : []), ...narrowedTo.map(data.labelOf)].join(" · ")}
               </h2>
               {hits && hits.length > 0 && !coversAll(hits[0]) && !names.length && (
                 <p className="text-small text-muted-foreground">Nothing has everything you typed yet. These are the closest.</p>
@@ -218,6 +222,22 @@ export function ExploreSearch({ count, children }: { count: number; children: Re
         {counted}
       </span>
     </>
+  );
+}
+
+// Genre: All, then the genres the search and the other choices leave, most used first.
+function GenreMenu({ docs, value, onChange }: { docs: SearchDoc[]; value: string | null; onChange: (genre: string | null) => void }) {
+  const options = [{ value: ALL, label: "All" }, ...genreChoices(docs).map((c) => ({ value: c.id, label: sentenceCase(c.id) }))];
+  if (value && !options.some((o) => o.value === value)) options.push({ value, label: sentenceCase(value) });
+  return (
+    <ChipMenu
+      label="Genre"
+      value={value ?? ALL}
+      defaultValue={ALL}
+      columns={options.length > 9 ? 2 : 1}
+      options={options}
+      onChange={(next) => onChange(next === ALL ? null : next)}
+    />
   );
 }
 
