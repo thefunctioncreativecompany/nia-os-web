@@ -6,7 +6,7 @@
 //   node scripts/build-gear-catalog-seed.mjs            writes the v<version> migration
 //   node scripts/build-gear-catalog-seed.mjs --check    checks the JSON only
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -69,6 +69,11 @@ update public.gear_catalog set retired_at = now()
 where retired_at is null and id not in (${items.map((it) => q(it.id)).join(", ")});
 `;
 
-const out = join(root, `supabase/migrations/20261128010000_gear_catalog_v${catalog.version}.sql`);
+// Each version is its own migration with its own timestamp (Supabase knows a migration by it):
+// rewriting a version keeps its file; a new version is stamped now, so it runs after the last.
+const migrations = join(root, "supabase/migrations");
+const existing = readdirSync(migrations).find((f) => f.endsWith(`_gear_catalog_v${catalog.version}.sql`));
+const stamp = new Date().toISOString().replace(/\D/g, "").slice(0, 14);
+const out = join(migrations, existing ?? `${stamp}_gear_catalog_v${catalog.version}.sql`);
 writeFileSync(out, sql);
 console.log(`Wrote ${out.replace(root + "/", "")}: ${items.length} items.`);

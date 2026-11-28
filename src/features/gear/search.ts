@@ -9,13 +9,15 @@ export type KitMatch = { gearId: string; catalogId: string | null; name: string;
 
 type CatalogRow = { id: string; name: string; brand: string | null; department: string; category: string; kind: "branded" | "generic"; variants: string | null; image_url: string | null };
 
-const like = (s: string) => `%${s.replace(/[%_\\]/g, "\\$&")}%`;
+const like = (s: string) => `%${s}%`;
 const toItem = (r: CatalogRow): CatalogItem => ({ id: r.id, name: r.name, brand: r.brand, department: r.department, category: r.category, kind: r.kind, variants: r.variants, imageUrl: r.image_url });
 
-/** The longest word of a search narrows the read; rankCatalog then orders what came back. */
-const keyWord = (query: string) =>
+/** The longest word of a search narrows the read; rankCatalog then orders what came back. Letters
+ * and digits only: punctuation (a comma, brackets) would break the read's filter, and % or _ would
+ * turn into wildcards. */
+export const keyWord = (query: string) =>
   query
-    .split(/[\s-]+/)
+    .split(/[^\p{L}\p{N}]+/u)
     .filter(Boolean)
     .toSorted((a, b) => b.length - a.length)[0] ?? "";
 

@@ -163,8 +163,125 @@ create policy "project_gear: change" on public.project_gear for update to authen
   using (public.can_edit_project(project_id))
   with check (
     public.can_edit_project(project_id)
+    and exists (
+      select 1 from public.gear k join public.projects pr on pr.id = project_gear.project_id
+      where k.id = project_gear.gear_id and k.workspace_id = pr.workspace_id
+    )
     and (
       responsible_id is null
       or exists (select 1 from public.cast_crew c where c.project_id = project_gear.project_id and c.person_id = project_gear.responsible_id and c.deleted_at is null)
     )
   );
+
+-- Adding gear to a project ------------------------------------------------------------------
+--
+-- One call adds a whole batch (picked, pasted or typed), all or nothing (src/features/gear/
+-- mutations.ts, addGear). It runs with the database's own rights so that crew invited to a
+-- project as editors, who aren't members of the team that owns it, can still put new gear on
+-- the team's kit list; it checks the caller can edit the project first, and only ever touches
+-- that project and its team's kit.
+--
+-- Each pick is {gearId?, catalogId?, name?, department?, quantity}. The kit item, in order: the
+-- one picked (it must be the team's); the one made from the same catalogue item; the one kit
+-- item with exactly the typed name; else a new kit item (from the catalogue item, or the typed
+-- name and the department worked out from it). Something already on the project gets its
+-- quantity raised instead of a second line. Returns {"added": n, "raised": [names]}.
+
+create or replace function public.add_project_gear(p_project_id uuid, p_picks jsonb)
+returns jsonb
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  v_workspace uuid;
+  v_pick jsonb;
+  v_name text;
+  v_qty integer;
+  v_gear uuid;
+  v_owned integer;
+  v_brand text;
+  v_catalog text;
+  v_ids uuid[];
+  v_line uuid;
+  v_line_qty integer;
+  v_position integer;
+  v_added integer := 0;
+  v_raised text[] := '{}';
+begin
+  if not public.can_edit_project(p_project_id) then
+    raise exception 'You can''t add gear to this project.' using errcode = '42501';
+  end if;
+  if jsonb_typeof(p_picks) is distinct from 'array' or jsonb_array_length(p_picks) > 200 then
+    raise exception 'Add up to 200 items at a time.' using errcode = '22023';
+  end if;
+  select workspace_id into v_workspace from public.projects where id = p_project_id;
+  select coalesce(max(position) + 1, 0) into v_position
+    from public.project_gear where project_id = p_project_id and deleted_at is null;
+
+  for v_pick in select value from jsonb_array_elements(p_picks) loop
+    v_gear := null; v_owned := 0; v_brand := null; v_catalog := null;
+    v_qty := least(greatest(coalesce(round((v_pick->>'quantity')::numeric)::integer, 1), 1), 999);
+    v_name := left(btrim(coalesce(v_pick->>'name', '')), 160);
+
+    if v_pick->>'gearId' is not null then
+      select id, coalesce(quantity_owned, 0), name into v_gear, v_owned, v_name
+        from public.gear
+        where id = (v_pick->>'gearId')::uuid and workspace_id = v_workspace and deleted_at is null;
+      if v_gear is null then
+        raise exception 'That kit isn''t on this team''s list.' using errcode = '22023';
+      end if;
+    elsif v_pick->>'catalogId' is not null then
+      select id, name, brand into v_catalog, v_name, v_brand
+        from public.gear_catalog where id = v_pick->>'catalogId' and retired_at is null;
+      if v_catalog is null then
+        raise exception 'That catalogue item isn''t available.' using errcode = '22023';
+      end if;
+      select id, coalesce(quantity_owned, 0) into v_gear, v_owned
+        from public.gear
+        where workspace_id = v_workspace and catalog_id = v_catalog and deleted_at is null;
+    elsif v_name <> '' then
+      select array_agg(id) into v_ids from (
+        select id from public.gear
+        where workspace_id = v_workspace and deleted_at is null and lower(name) = lower(v_name)
+        limit 2
+      ) s;
+      if cardinality(v_ids) = 1 then
+        v_gear := v_ids[1];
+        select coalesce(quantity_owned, 0) into v_owned from public.gear where id = v_gear;
+      end if;
+    else
+      continue;
+    end if;
+
+    if v_gear is null then
+      -- Linked to the catalogue, a kit item takes its department and category from there.
+      insert into public.gear (workspace_id, catalog_id, name, brand, department)
+      values (
+        v_workspace, v_catalog, v_name, v_brand,
+        case when v_catalog is null then nullif(left(btrim(coalesce(v_pick->>'department', '')), 60), '') end
+      )
+      returning id into v_gear;
+    end if;
+
+    v_line := null;
+    select id, quantity into v_line, v_line_qty
+      from public.project_gear
+      where project_id = p_project_id and gear_id = v_gear and deleted_at is null;
+    if v_line is not null then
+      update public.project_gear set quantity = least(v_line_qty + v_qty, 999) where id = v_line;
+      v_raised := array_append(v_raised, v_name);
+    else
+      insert into public.project_gear (project_id, gear_id, quantity, source, status, position)
+      values (p_project_id, v_gear, v_qty, case when v_owned > 0 then 'owned' else 'rental' end, 'needed', v_position);
+      v_position := v_position + 1;
+      v_added := v_added + 1;
+    end if;
+  end loop;
+
+  return jsonb_build_object('added', v_added, 'raised', to_jsonb(v_raised));
+end;
+$$;
+
+revoke execute on function public.add_project_gear(uuid, jsonb) from public, anon;
+grant execute on function public.add_project_gear(uuid, jsonb) to authenticated;

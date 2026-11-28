@@ -379,18 +379,6 @@
 ]
 },
 {
-"id": "canon-14mm-t2-8-verify-model",
-"name": "Canon 14mm T2.8 (verify model)",
-"brand": "Canon",
-"department": "Lenses",
-"category": "Cinema primes",
-"kind": "branded",
-"variants": null,
-"sources": [
-"Magic Lightbox"
-]
-},
-{
 "id": "dzofilm-arles-100mm-t1-4-prime-cine-lens",
 "name": "DZOFilm Arles 100mm T1.4 Prime Cine Lens",
 "brand": "DZO Film",
@@ -1714,7 +1702,7 @@
 ]
 },
 {
-"id": "takumar-asahi-auto-takumar-35mm-f2-3",
+"id": "asahi-auto-takumar-35mm-f2-3",
 "name": "Asahi Auto-Takumar 35mm f2.3",
 "brand": "Takumar",
 "department": "Lenses",
@@ -1738,7 +1726,7 @@
 ]
 },
 {
-"id": "zeiss-carl-zeiss-flektogon-20mm-f2-8",
+"id": "zeiss-flektogon-20mm-f2-8",
 "name": "Carl Zeiss Flektogon 20mm f2.8",
 "brand": "Zeiss",
 "department": "Lenses",
@@ -1750,7 +1738,7 @@
 ]
 },
 {
-"id": "zeiss-carl-zeiss-planar-50mm-f1-4",
+"id": "zeiss-planar-50mm-f1-4",
 "name": "Carl Zeiss Planar 50mm f1.4",
 "brand": "Zeiss",
 "department": "Lenses",
@@ -1762,7 +1750,7 @@
 ]
 },
 {
-"id": "zeiss-carl-zeiss-planar-50mm-f1-7",
+"id": "zeiss-planar-50mm-f1-7",
 "name": "Carl Zeiss Planar 50mm f1.7",
 "brand": "Zeiss",
 "department": "Lenses",
@@ -2435,7 +2423,7 @@
 ]
 },
 {
-"id": "h-hnel-pro-dual-charger",
+"id": "hahnel-pro-dual-charger",
 "name": "Hähnel Pro Dual Charger",
 "brand": "Hähnel",
 "department": "Camera accessories",
@@ -2510,8 +2498,8 @@
 "id": "sony-vct-u14-tripod-plate",
 "name": "Sony VCT-U14 Tripod Plate",
 "brand": "Sony",
-"department": "Camera accessories",
-"category": "Batteries & power",
+"department": "Camera support",
+"category": "Tripods & heads",
 "kind": "branded",
 "variants": null,
 "sources": [
@@ -3184,7 +3172,7 @@
 ]
 },
 {
-"id": "h-hnel-capture-module-pro",
+"id": "hahnel-capture-module-pro",
 "name": "Hähnel Capture Module Pro",
 "brand": "Hähnel",
 "department": "Camera accessories",
@@ -3196,7 +3184,7 @@
 ]
 },
 {
-"id": "h-hnel-giga-t-pro-wireless-remote",
+"id": "hahnel-giga-t-pro-wireless-remote",
 "name": "Hähnel Giga T Pro Wireless Remote",
 "brand": "Hähnel",
 "department": "Camera accessories",
@@ -3208,7 +3196,7 @@
 ]
 },
 {
-"id": "h-hnel-intervalometer",
+"id": "hahnel-intervalometer",
 "name": "Hähnel Intervalometer",
 "brand": "Hähnel",
 "department": "Camera accessories",
@@ -3802,7 +3790,7 @@
 ]
 },
 {
-"id": "freefly-m-vi-pro",
+"id": "freefly-movi-pro",
 "name": "Freefly MōVI Pro",
 "brand": "Freefly",
 "department": "Camera support",
@@ -6463,7 +6451,7 @@
 ]
 },
 {
-"id": "california-sunbounce-sunbounce-boom-stick",
+"id": "california-sunbounce-boom-stick",
 "name": "Sunbounce Boom Stick",
 "brand": "California Sunbounce",
 "department": "Grip",
@@ -6802,7 +6790,7 @@
 ]
 },
 {
-"id": "rode-rode-ntg2-shotgun-mic",
+"id": "rode-ntg2-shotgun-mic",
 "name": "RØDE NTG2 Shotgun Mic",
 "brand": "Rode",
 "department": "Audio",
@@ -6827,7 +6815,7 @@
 ]
 },
 {
-"id": "rode-rode-stereo-videomic-pro",
+"id": "rode-stereo-videomic-pro",
 "name": "RØDE Stereo VideoMic Pro",
 "brand": "Rode",
 "department": "Audio",
@@ -6839,7 +6827,7 @@
 ]
 },
 {
-"id": "rode-rode-videomic",
+"id": "rode-videomic",
 "name": "RØDE VideoMic",
 "brand": "Rode",
 "department": "Audio",
@@ -6851,7 +6839,7 @@
 ]
 },
 {
-"id": "rode-rode-videomic-pro",
+"id": "rode-videomic-pro",
 "name": "RØDE VideoMic Pro",
 "brand": "Rode",
 "department": "Audio",
@@ -6863,7 +6851,7 @@
 ]
 },
 {
-"id": "rode-rode-videomicro",
+"id": "rode-videomicro",
 "name": "RØDE VideoMicro",
 "brand": "Rode",
 "department": "Audio",
@@ -6899,7 +6887,7 @@
 ]
 },
 {
-"id": "rode-rode-wireless-go-ii",
+"id": "rode-wireless-go-ii",
 "name": "RØDE Wireless GO II",
 "brand": "Rode",
 "department": "Audio",
@@ -7019,7 +7007,7 @@
 ]
 },
 {
-"id": "rode-rode-podmic-dynamic-microphone",
+"id": "rode-podmic-dynamic-microphone",
 "name": "RØDE PodMic Dynamic Microphone",
 "brand": "Rode",
 "department": "Audio",
@@ -7031,7 +7019,7 @@
 ]
 },
 {
-"id": "rode-rode-psa1-desk-mounted-broadcast-microphone-boom-arm",
+"id": "rode-psa1-desk-mounted-broadcast-microphone-boom-arm",
 "name": "RØDE PSA1+ Desk-mounted Broadcast Microphone Boom Arm",
 "brand": "Rode",
 "department": "Audio",
@@ -7272,7 +7260,7 @@
 ]
 },
 {
-"id": "rode-rode-blimp-windshield-and-shock-mount",
+"id": "rode-blimp-windshield-and-shock-mount",
 "name": "RØDE Blimp Windshield & Shock Mount",
 "brand": "Rode",
 "department": "Audio",
@@ -7284,7 +7272,7 @@
 ]
 },
 {
-"id": "rode-rode-boompole-3m",
+"id": "rode-boompole-3m",
 "name": "RØDE Boompole 3m",
 "brand": "Rode",
 "department": "Audio",
@@ -7936,7 +7924,7 @@
 ]
 },
 {
-"id": "pearstone-photographer-s-step-ladder-3-step",
+"id": "pearstone-photographers-step-ladder-3-step",
 "name": "Photographer's Step Ladder 3-Step",
 "brand": "Pearstone",
 "department": "Production & unit",

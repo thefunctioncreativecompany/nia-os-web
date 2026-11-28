@@ -56,11 +56,9 @@ export type GearEntry = {
 
 /** Lines grouped by department, in GEAR_DEPARTMENTS order (gear in an unknown one goes last). */
 export function byDepartment(entries: GearEntry[]) {
-  const known = new Set(GEAR_DEPARTMENTS);
-  const groups = GEAR_DEPARTMENTS.map((d) => ({ department: d, lines: entries.filter((e) => e.department === d) }));
-  const rest = entries.filter((e) => !known.has(e.department));
-  if (rest.length) groups.push({ department: "Other", lines: [...(groups.find((g) => g.department === "Other")?.lines ?? []), ...rest] });
-  return groups.filter((g, i, all) => g.lines.length && all.findIndex((x) => x.department === g.department) === i);
+  const order = GEAR_DEPARTMENTS.includes("Other") ? GEAR_DEPARTMENTS : [...GEAR_DEPARTMENTS, "Other"];
+  const home = (e: GearEntry) => (GEAR_DEPARTMENTS.includes(e.department) ? e.department : "Other");
+  return order.map((d) => ({ department: d, lines: entries.filter((e) => home(e) === d) })).filter((g) => g.lines.length);
 }
 
 /** The counts the tab and the page lead with: lines, pieces, how many still to book, how many

@@ -29,11 +29,13 @@ export const isDepartment = (v: string) => CATEGORIES.has(v);
 
 // Gear typed without picking from the catalogue still lands in a department.
 const DEPARTMENT_OF: [RegExp, string][] = [
+  // Sound first: "Zoom H6" is a recorder, not a lens, and "monitor headphones" are headphones. A bare
+  // "recorder" is left to Monitors & video (Ninja, Shogun); sound recorders go by their names.
+  [/\b(mic|microphone|lav|lavalier|boom ?pole|shotgun|mixer|headphones?|blimp|xlr|walkie|radio|intercom|audio|(?:sound|field) recorder|zoom [hf]\d+n?|tascam|sound devices)\b/i, "Audio"],
   [/\b(lens|prime|zoom|anamorphic|extender|adapter|speed ?booster|macro|probe)\b|\b\d{1,3}(-\d{1,3})?mm\b/i, "Lenses"],
-  [/\b(matte ?box|follow focus|filter|nd|pro-?mist|polari[sz]er|battery|v-?mount|cage|slate|clapper|timecode|light ?meter)\b/i, "Camera accessories"],
+  [/\b(matte ?box|follow focus|filter|nd|pro-?mist|polari[sz]er|battery|v-?mount|cage|slate|clapper(?:board)?|timecode|light ?meter)\b/i, "Camera accessories"],
   [/\b(tripod|sticks|fluid head|hi-?hat|baby legs|slider|dolly|track|gimbal|ronin|steadicam|easyrig|jib|crane|monopod)\b/i, "Camera support"],
   [/\b(monitor|recorder|ninja|shogun|teradek|transmitter|wireless video|converter|teleprompter)\b/i, "Monitors & video"],
-  [/\b(mic|microphone|lav|lavalier|boom ?pole|shotgun|recorder|mixer|headphones?|blimp|xlr|walkie|radio|intercom)\b/i, "Audio"],
   [/\b(c-?stand|stand|clamp|apple box|wedge|sandbag|flag|net|floppy|frame|rag|silk|grid cloth|bounce|reflector|poly ?board|green ?screen|cart|rope)\b/i, "Grip"],
   [/\b(light|led|hmi|tungsten|fresnel|panel|tube|softbox|lantern|dome|skypanel|aputure|nanlite|kino|strobe|flash|speedlight|dimmer)\b/i, "Lighting"],
   [/\b(generator|power station|distro|extension|cable drum|stinger)\b/i, "Power & distribution"],
@@ -96,7 +98,9 @@ export function parseGearLines(text: string): GearLine[] {
     .map((line) => {
       let quantity = 1;
       let name = line;
-      const lead = name.match(/^(\d{1,3})\s*[x×]\s+(.+)$/i) ?? name.match(/^(\d{1,3})\s+([a-z].*)$/i);
+      // "4 x 4 floppy" opens with a size, not a count.
+      const size = /^\d{1,3}\s*[x×]\s*\d{1,3}\b/i.test(name);
+      const lead = size ? null : (name.match(/^(\d{1,3})\s*[x×]\s+(.+)$/i) ?? name.match(/^(\d{1,3})\s+([a-z].*)$/i));
       const tail = name.match(/^(.+?)\s*(?:[,\t;]\s*|\s[x×]\s*)(\d{1,3})$/i) ?? name.match(/^(.+?)\s*\((\d{1,3})\)$/);
       if (lead) {
         quantity = Number(lead[1]);

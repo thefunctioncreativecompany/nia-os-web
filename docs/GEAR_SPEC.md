@@ -10,7 +10,7 @@ same catalogue when it comes.
 
 | Done | File |
 |---|---|
-| The catalogue: 668 items in 16 departments (ShareGrid's rental categories, items from Glow Hire's catalogue, Magic Lightbox's online catalogue and B&H's "Essential gear for the working pro"; colour, size and length variants folded into one item) | `src/data/gear/catalog.json`, `src/data/gear/taxonomy.json` |
+| The catalogue: 667 items in 16 departments (ShareGrid's rental categories, items from Glow Hire's catalogue, Magic Lightbox's online catalogue and B&H's "Essential gear for the working pro"; colour, size and length variants folded into one item) | `src/data/gear/catalog.json`, `src/data/gear/taxonomy.json` |
 | The tables and access rules (not run) | `supabase/migrations/20261128000000_gear.sql` |
 | The catalogue's data (not run; written by the script, never by hand) | `supabase/migrations/20261128010000_gear_catalog_v1.sql`, `scripts/build-gear-catalog-seed.mjs` |
 | Search, reading pasted lists, departments for typed gear | `src/features/gear/catalog.ts` |
@@ -18,7 +18,7 @@ same catalogue when it comes.
 | Reading a project's gear (server) | `src/features/gear/data.ts` |
 | Finding gear to add, on first use (browser) | `src/features/gear/search.ts` |
 | Adding, changing and removing gear (browser) | `src/features/gear/mutations.ts` |
-| Tests (10) | `src/features/gear/gear.test.ts` |
+| Tests (14) | `src/features/gear/gear.test.ts` |
 
 Checked 2026-11-28 outside the app: the tests and type checks pass; both migrations ran twice on
 Postgres 16 with stand-ins for Nia's tables (668 items loaded, nothing retired); 12 access checks
@@ -26,6 +26,16 @@ with two accounts pass (a second account can't see, add to or change another wor
 the catalogue is read-only; the person responsible must be on the project's cast & crew; one line
 per kit item per project; one kit item per catalogue item per workspace; a removed line can be
 added again). They still need running for real in step G1 (Standard checks).
+
+Reviewed and fixed 2026-11-28, before G1: a line can no longer be pointed at, or moved to, another
+team's kit or project; adding gear is one database call, `add_project_gear`, all or nothing, which
+also lets crew invited to a project as editors add new kit (they aren't members of the team that
+owns it); every change checks the database saved it (a blocked change otherwise looks saved);
+search ignores punctuation; lines in a department Nia doesn't know show under Other; 21 catalogue
+ids cleaned (`rode-rode-…`, `h-hnel-…`, `zeiss-carl-zeiss-…`), the unverified "Canon 14mm T2.8
+(verify model)" taken out until its model is known, the Sony VCT-U14 plate moved to Tripods &
+heads; each new catalogue version gets its own migration timestamp. Checked on PGlite (Postgres
+17) with stand-ins for Nia's tables: 18 checks pass, including the crew, viewer and other-team cases.
 
 No screens are built. Per CLAUDE.md, the Gear tab, the Gear page and the Add gear pop-up are
 designed in Claude Design and reconciled into Figma first (the brief is at the end).
@@ -116,7 +126,9 @@ Three tables, in `20261128000000_gear.sql`; the same shape and rules as `people`
 
 Who can see what: everyone signed in reads the catalogue, and only the SQL Editor changes it;
 workspace members see and add to their kit list; anyone who can open a project sees its gear;
-people who can edit a project change it. One line per kit item per project, one kit item per
+people who can edit a project change it, and add gear through `add_project_gear` (which puts new
+kit on the project's team list, so invited crew can build the list too). Kit details (name, serial,
+owner) are changed by the team's members only. One line per kit item per project, one kit item per
 catalogue item per workspace.
 
 Not in the tables on purpose (scope): prices, day rates and totals (budget and Marketplace come
@@ -133,7 +145,7 @@ never change an existing id), then
 
 ```
 node scripts/build-gear-catalog-seed.mjs --check   # checks ids, departments and categories
-node scripts/build-gear-catalog-seed.mjs           # writes 20261128010000_gear_catalog_v1.sql
+node scripts/build-gear-catalog-seed.mjs           # rewrites this version's migration, or stamps a new one
 ```
 
 and paste the migration into the Supabase SQL Editor. It's safe to run again: items are added or
@@ -157,7 +169,8 @@ with sample data, Design check, connect Supabase, Standard checks, tick, update 
   first table). 2026-11-28.
 - [ ] **G1 Tables live.** Ika runs `20261128000000_gear.sql`, then
   `20261128010000_gear_catalog_v1.sql`, in the SQL Editor. Then the 12 access checks with the two
-  test accounts against Supabase (supabase-js), and `select count(*) from gear_catalog` is 668.
+  test accounts against Supabase (supabase-js), plus crew adding gear through `add_project_gear`,
+  and `select count(*) from gear_catalog` is 667.
   Log both in CLAUDE.md's "Migrations run so far".
 - [ ] **G2 Design.** Ika designs the Gear tab, the Gear page, the Add gear pop-up and the side panel
   in Claude Design (brief below), then into Figma. No code before this.

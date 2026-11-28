@@ -31,87 +31,39 @@ export type GearForm = {
 const text = (s: string, max: number) => s.trim().slice(0, max) || null;
 const quantity = (n: number) => Math.min(Math.max(Math.round(n) || 1, 1), 999);
 
-/** Adds gear to the project in one go. The kit item, in the order checked: the one picked, the one
- * made from the same catalogue item, the one kit item with exactly the typed name; else a new kit
- * item. Something already on the project gets its quantity raised instead of a second line.
- * Returns how many lines were added and the names whose quantity went up. */
-export async function addGear(projectId: string, picks: GearPick[]) {
-  const db = createClient();
-  const { data: project, error: projectError } = await db.from("projects").select("workspace_id").eq("id", projectId).single();
-  if (projectError) throw projectError;
-  const { data: onProject } = await db.from("project_gear").select("id, gear_id, quantity").eq("project_id", projectId).is("deleted_at", null);
-  const lines = new Map((onProject ?? []).map((r) => [r.gear_id as string, { id: r.id as string, quantity: r.quantity as number }]));
-  let position = lines.size;
-  let added = 0;
-  const raised: string[] = [];
-  for (const p of picks) {
-    const name = (p.catalog?.name ?? p.name).trim().slice(0, 160);
-    if (!name) continue;
-    let gearId = p.gearId ?? null;
-    let owned = 0;
-    if (!gearId && p.catalog) {
-      const { data } = await db.from("gear").select("id, quantity_owned").eq("workspace_id", project.workspace_id).eq("catalog_id", p.catalog.id).is("deleted_at", null).maybeSingle();
-      gearId = data?.id ?? null;
-      owned = data?.quantity_owned ?? 0;
-    }
-    if (!gearId && !p.catalog) {
-      const { data } = await db.from("gear").select("id, quantity_owned").eq("workspace_id", project.workspace_id).ilike("name", name.replace(/[%_\\]/g, "\\$&")).is("deleted_at", null).limit(2);
-      if (data?.length === 1) {
-        gearId = data[0].id as string;
-        owned = (data[0].quantity_owned as number | null) ?? 0;
-      }
-    }
-    if (gearId && !owned && p.gearId) {
-      const { data } = await db.from("gear").select("quantity_owned").eq("id", gearId).maybeSingle();
-      owned = data?.quantity_owned ?? 0;
-    }
-    if (!gearId) {
-      // Linked to the catalogue, a kit item takes its department and category from there.
-      const fields = p.catalog
-        ? { catalog_id: p.catalog.id, name, brand: p.catalog.brand }
-        : { name, department: guessDepartment(name) };
-      const { data, error } = await db.from("gear").insert({ workspace_id: project.workspace_id, ...fields }).select("id").single();
-      if (error) throw error;
-      gearId = data.id as string;
-    }
-    const line = lines.get(gearId);
-    if (line) {
-      const next = quantity(line.quantity + p.quantity);
-      const { error } = await db.from("project_gear").update({ quantity: next }).eq("id", line.id);
-      if (error) throw error;
-      lines.set(gearId, { ...line, quantity: next });
-      raised.push(name);
-      continue;
-    }
-    const { data, error } = await db
-      .from("project_gear")
-      .insert({ project_id: projectId, gear_id: gearId, quantity: quantity(p.quantity), source: owned > 0 ? "owned" : "rental", status: "needed", position: position++ })
-      .select("id")
-      .single();
-    if (error) throw error;
-    lines.set(gearId, { id: data.id as string, quantity: quantity(p.quantity) });
-    added++;
-  }
-  return { added, raised };
+// The database turns away a change someone isn't allowed to make by changing nothing, without an
+// error; so every change asks for the rows it changed back, and too few means it didn't save.
+type Changed = { data: { id: string }[] | null; error: unknown };
+function saved({ data, error }: Changed, expected = 1, what = "This change") {
+  if (error) throw error;
+  if ((data?.length ?? 0) < expected) throw new Error(`${what} wasn't saved. You may not have edit access any more; reload and try again.`);
 }
 
-/** Saves a line and its kit item (name, brand, serial and owner belong to the kit; the rest to
- * this project). */
-export async function updateGear(lineId: string, gearId: string, f: GearForm) {
+/** Adds gear to the project in one go, all or nothing (the database's add_project_gear, which also
+ * lets crew invited to the project add new kit). The kit item, in the order checked: the one
+ * picked, the one made from the same catalogue item, the one kit item with exactly the typed name;
+ * else a new kit item. Something already on the project gets its quantity raised instead of a
+ * second line. Returns how many lines were added and the names whose quantity went up. */
+export async function addGear(projectId: string, picks: GearPick[]): Promise<{ added: number; raised: string[] }> {
+  const batch = picks.flatMap((p) => {
+    const name = (p.catalog?.name ?? p.name).trim().slice(0, 160);
+    if (!name && !p.gearId) return [];
+    const typed = !p.gearId && !p.catalog;
+    return [{ gearId: p.gearId ?? null, catalogId: p.gearId ? null : (p.catalog?.id ?? null), name, department: typed ? guessDepartment(name) : null, quantity: quantity(p.quantity) }];
+  });
+  if (!batch.length) return { added: 0, raised: [] };
+  const { data, error } = await createClient().rpc("add_project_gear", { p_project_id: projectId, p_picks: batch });
+  if (error) throw error;
+  return data as { added: number; raised: string[] };
+}
+
+/** Saves a line and, with `kit`, its kit item (name, brand, department, category, serial and owner
+ * belong to the team's kit list, so only the team's members change them; crew invited to the
+ * project save the line alone). The line first: if the kit then fails, the error says so. */
+export async function updateGear(lineId: string, gearId: string, f: GearForm, { kit }: { kit: boolean }) {
   const db = createClient();
-  const [kit, line] = await Promise.all([
-    db
-      .from("gear")
-      .update({
-        name: f.name.trim().slice(0, 160),
-        brand: text(f.brand, 80),
-        department: text(f.department, 60),
-        category: text(f.category, 60),
-        serial_number: text(f.serialNumber, 120),
-        owner: text(f.owner, 120),
-      })
-      .eq("id", gearId),
-    db
+  saved(
+    await db
       .from("project_gear")
       .update({
         quantity: quantity(f.quantity),
@@ -123,31 +75,43 @@ export async function updateGear(lineId: string, gearId: string, f: GearForm) {
         status: f.status,
         notes: text(f.notes, 2000),
       })
-      .eq("id", lineId),
-  ]);
-  if (kit.error) throw kit.error;
-  if (line.error) throw line.error;
+      .eq("id", lineId)
+      .select("id"),
+  );
+  if (!kit) return;
+  saved(
+    await db
+      .from("gear")
+      .update({
+        name: f.name.trim().slice(0, 160),
+        brand: text(f.brand, 80),
+        department: text(f.department, 60),
+        category: text(f.category, 60),
+        serial_number: text(f.serialNumber, 120),
+        owner: text(f.owner, 120),
+      })
+      .eq("id", gearId)
+      .select("id"),
+    1,
+    "The line was saved, but the kit details",
+  );
 }
 
 export async function setGearStatus(lineId: string, status: GearStatus) {
-  const { error } = await createClient().from("project_gear").update({ status }).eq("id", lineId);
-  if (error) throw error;
+  saved(await createClient().from("project_gear").update({ status }).eq("id", lineId).select("id"));
 }
 
 /** Several lines at once ("Mark all packed" on the pick-up run, "Mark all returned" at wrap). */
 export async function setGearStatuses(lineIds: string[], status: GearStatus) {
   if (!lineIds.length) return;
-  const { error } = await createClient().from("project_gear").update({ status }).in("id", lineIds);
-  if (error) throw error;
+  saved(await createClient().from("project_gear").update({ status }).in("id", lineIds).select("id"), lineIds.length, "Some of these changes");
 }
 
 export async function setGearQuantity(lineId: string, n: number) {
-  const { error } = await createClient().from("project_gear").update({ quantity: quantity(n) }).eq("id", lineId);
-  if (error) throw error;
+  saved(await createClient().from("project_gear").update({ quantity: quantity(n) }).eq("id", lineId).select("id"));
 }
 
 /** Takes gear off this project (kept, not erased); it stays on the workspace's kit list. */
 export async function removeGear(lineId: string) {
-  const { error } = await createClient().from("project_gear").update({ deleted_at: new Date().toISOString() }).eq("id", lineId);
-  if (error) throw error;
+  saved(await createClient().from("project_gear").update({ deleted_at: new Date().toISOString() }).eq("id", lineId).select("id"));
 }
