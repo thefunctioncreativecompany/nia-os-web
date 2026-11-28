@@ -1393,3 +1393,10 @@ onboarding's Import profile and Follow creators describe features removed in the
   what Nia's AI drafts) goes through the humanizer skill before it ships, to remove machine-written
   patterns. First pass over the whole app the same day: emails, notifications, onboarding,
   What's new, templates and Explore; ten lines changed, the rest was already plain.
+- (2026-11-27) More notifications (FEEDBACK D8). A new document goes to everyone on the project and
+  now shows on the computer; uploads stay in Updates. Being added to a cast or crew goes only to the
+  person added (not the team). Shoot dates, due date and deliverables go to everyone on the project;
+  the budget only to the owner and editors. Mentions work in comments, meeting notes and documents;
+  someone outside the project who's mentioned gets a notification or, without an account, an email,
+  both with Ask for access and never the text itself. Notifications carry what they're about
+  (`event`) instead of being read from their wording.

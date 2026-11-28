@@ -7,7 +7,8 @@ import { ArrowLeft, ArrowRight, Check, ChevronDown, History } from "lucide-react
 
 import { cn, getInitials } from "@/lib/utils";
 import { DURATION, EASE_OUT } from "@/lib/motion";
-import { describeActivity, projectNoteHref, type ActivityItem } from "@/lib/projects";
+import { describeActivity, type ActivityItem } from "@/lib/projects";
+import { noteHref, noticeEvent } from "@/lib/notice-rules";
 import { createClient } from "@/lib/supabase/client";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -25,7 +26,7 @@ const KINDS: { id: Kind; label: string; actions: string[]; words: RegExp; dot: s
   { id: "sharing", label: "Sharing", actions: ["shared", "unshared", "link_on", "link_off"], words: /shared|invited|link/i, dot: "bg-phase-soon-foreground" },
 ];
 
-type Note = { id: number; project_id: string | null; kind: "shared" | "activity"; title: string; body: string; read_at: string | null; archived_at: string | null; created_at: string };
+type Note = { id: number; project_id: string | null; kind: "shared" | "activity"; event?: string | null; title: string; body: string; read_at: string | null; archived_at: string | null; created_at: string };
 
 // Notifications and activity rows, as one list (as on Home).
 type Entry = {
@@ -77,14 +78,23 @@ function fromActivity(item: ActivityItem): Entry {
   };
 }
 
+// Updates' groups: by what the notification is about where it says (`event`), else by its words.
+function kindOfNote(note: Note, text: string): Kind {
+  const event = noticeEvent(note);
+  if (["shared", "access_request", "access_granted"].includes(event)) return "sharing";
+  if (event === "doc_added") return "documents";
+  if (event !== "activity" && event !== "comment" && event !== "reply") return "projects";
+  return KINDS.find((k) => k.id !== "projects" && k.words.test(text))?.id ?? "projects";
+}
+
 function fromNote(note: Note): Entry {
   const text = `${note.title} ${plainText(note.body ?? "")}`;
   return {
     key: `n${note.id}`,
     at: note.created_at,
-    kind: note.kind === "shared" ? "sharing" : (KINDS.find((k) => k.id !== "projects" && k.words.test(text))?.id ?? "projects"),
+    kind: kindOfNote(note, text),
     projectId: note.project_id,
-    href: note.project_id ? projectNoteHref(note.project_id, note.title) : undefined,
+    href: note.project_id ? noteHref(note) : undefined,
     projectTitle: "",
     person: note.title,
     line: (
@@ -116,7 +126,7 @@ export function ActivityPage({ items, scroller }: { items: ActivityItem[]; scrol
     let live = true;
     void createClient()
       .from("notifications")
-      .select("id, project_id, kind, title, body, read_at, archived_at, created_at")
+      .select("*")
       .order("created_at", { ascending: false })
       .limit(300)
       .then(({ data, error }) => live && setNotes(error ? [] : (data as Note[])));
