@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ComponentProps } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ComponentProps } from "react";
 
 import { cn, getInitials } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -27,6 +27,16 @@ export function MentionField({ value, onChange, find, multiline = false, classNa
   const [query, setQuery] = useState<string | null>(null);
   const [people, setPeople] = useState<MentionPerson[]>([]);
   const [pick, setPick] = useState(0);
+  // Where the cursor goes after a pick, set as soon as the new words are in the box (before the
+  // next key, so fast typing lands after the name).
+  const caretAfter = useRef<number | null>(null);
+  useLayoutEffect(() => {
+    const el = field.current;
+    if (caretAfter.current === null || !el) return;
+    el.focus();
+    el.setSelectionRange(caretAfter.current, caretAfter.current);
+    caretAfter.current = null;
+  }, [value]);
 
   // Who matches what's typed after the @ (people with a username only).
   useEffect(() => {
@@ -52,12 +62,9 @@ export function MentionField({ value, onChange, find, multiline = false, classNa
     const caret = el?.selectionStart ?? value.length;
     const before = value.slice(0, caret).replace(/@[A-Za-z0-9._]{0,30}$/, `@${person.username} `);
     const next = before + value.slice(caret);
+    caretAfter.current = before.length;
     onChange(next);
     setQuery(null);
-    requestAnimationFrame(() => {
-      el?.focus();
-      el?.setSelectionRange(before.length, before.length);
-    });
   };
 
   const open = query !== null && people.length > 0;
