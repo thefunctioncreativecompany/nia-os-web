@@ -6,13 +6,13 @@ a tab on the project page, its own page at `/projects/[id]/gear`, a list per wor
 per project. Marketplace (leasing and buying gear) stays a separate, later feature and can read the
 same catalogue when it comes.
 
-**Where this stands.** The framework is in the repo and nothing is live:
+**Where this stands.** The framework is in the repo and the tables are live in Supabase (G1, 2026-11-28); no screens yet:
 
 | Done | File |
 |---|---|
 | The catalogue: 667 items in 16 departments (ShareGrid's rental categories, items from Glow Hire's catalogue, Magic Lightbox's online catalogue and B&H's "Essential gear for the working pro"; colour, size and length variants folded into one item) | `src/data/gear/catalog.json`, `src/data/gear/taxonomy.json` |
-| The tables and access rules (not run) | `supabase/migrations/20261128000000_gear.sql` |
-| The catalogue's data (not run; written by the script, never by hand) | `supabase/migrations/20261128010000_gear_catalog_v1.sql`, `scripts/build-gear-catalog-seed.mjs` |
+| The tables and access rules (run 2026-11-28) | `supabase/migrations/20261128000000_gear.sql` |
+| The catalogue's data (run 2026-11-28; written by the script, never by hand) | `supabase/migrations/20261128010000_gear_catalog_v1.sql`, `scripts/build-gear-catalog-seed.mjs` |
 | Search, reading pasted lists, departments for typed gear | `src/features/gear/catalog.ts` |
 | A project's list: statuses, sources, grouping, counts, sample data | `src/features/gear/list.ts` |
 | Reading a project's gear (server) | `src/features/gear/data.ts` |
@@ -167,7 +167,10 @@ with sample data, Design check, connect Supabase, Standard checks, tick, update 
 
 - [x] **G0 Framework.** The catalogue, the tables (not run), the logic and its tests (this file's
   first table). 2026-11-28.
-- [ ] **G1 Tables live.** Ika runs `20261128000000_gear.sql`, then
+- [x] **G1 Tables live.** 2026-11-28: both run; 667 items; 18 checks with the two test accounts
+  pass (catalogue read-only, outsiders see and change nothing, viewers can't add, invited crew can
+  add new kit to the team's list, no other team's kit, all or nothing, removed lines come back).
+  Ika runs `20261128000000_gear.sql`, then
   `20261128010000_gear_catalog_v1.sql`, in the SQL Editor. Then the 12 access checks with the two
   test accounts against Supabase (supabase-js), plus crew adding gear through `add_project_gear`,
   and `select count(*) from gear_catalog` is 667.
