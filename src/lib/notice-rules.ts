@@ -22,6 +22,7 @@ const ON_COMPUTER = new Set([
   "access_granted",
   "comment",
   "reply",
+  "mention",
   "doc_added",
   "crew_added",
   "shoot_dates",
@@ -29,7 +30,7 @@ const ON_COMPUTER = new Set([
   "budget",
 ]);
 
-const TAB: Record<string, string> = { comment: "comments", reply: "comments", doc_added: "documents", crew_added: "crew" };
+const TAB: Record<string, string> = { comment: "comments", reply: "comments", mention: "comments", doc_added: "documents", crew_added: "crew" };
 
 /** Where a notification opens: the project's tab it's about, else the project, else Home. */
 export function noteHref(row: Pick<NoticeRow, "project_id" | "kind" | "title" | "event">): string {
