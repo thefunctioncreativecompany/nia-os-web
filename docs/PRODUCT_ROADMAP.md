@@ -90,17 +90,21 @@ UB1, PA3–PA5, PA7, PA8.
 1. Briefs editable on the platform, formatting kept everywhere (UB2, UB3).
 2. Milestone 4: Locations, then shoot days and the schedule, documents that fill themselves, the
    Shoot Day screen, Home that knows the next shoot.
-3. Collaboration: permissions by role (B14), then add crew by Nia username with accept (B15),
+3. Production checklists and reminders (Youvanni, FB24–FB26): a checklist for each role from
+   practice Nia recommends, reminders tied to the shoot's timeline ("Shoot starts now, here's your
+   checklist"), and the run of show reaching everyone on the shoot. Builds on Milestone 4's shoot
+   days and the desktop notifications.
+4. Collaboration: permissions by role (B14), then add crew by Nia username with accept (B15),
    version history (B16) and live co-editing (B17).
-4. Milestone 5: Copilot (AI proposes, the producer decides).
-5. Beta pilot with the three groups.
-6. A new person's first minute (feedback 2026-11-18, FB2, FB14, FB16): Home's "Get started with"
+5. Milestone 5: Copilot (AI proposes, the producer decides).
+6. Beta pilot with the three groups.
+7. A new person's first minute (feedback 2026-11-18, FB2, FB14, FB16): Home's "Get started with"
    is live (2026-11-19); still to do: the role picked at onboarding fills an empty Home with that
    group's workflows, fewer onboarding questions, template thumbnails that show the template (FB15).
-7. Explore's study page, one design (EX6 with FB6–FB10): stills and colour strip at the top,
+8. Explore's study page, one design (EX6 with FB6–FB10): stills and colour strip at the top,
    tags you can tap (production-notes tags open search since 2026-11-19), production notes before
    box office, checked camera and lighting details.
-8. Later: applying for work (briefs, castings, festivals, grants) with your profile and portfolio;
+9. Later: applying for work (briefs, castings, festivals, grants) with your profile and portfolio;
    a PR workspace (press kits, junkets, talent rosters, media lists, coverage); a brand kit (B18);
    Explore open before sign-up (B1), weekly new titles, "Start a project from this".
 
@@ -112,7 +116,6 @@ UB1, PA3–PA5, PA7, PA8.
 | Nia AI | Designed | Paste a brief, get a Space; spots the films a brief names and adds them as references (BR1, BR2) |
 | Agents | Planned | Model-agnostic agents for the legwork: call sheets, clashes, hand-offs; each one proposes |
 | Explore by content type | Studied (EX8) | View Explore all as Trailers · Interviews · Behind the scenes · Press events |
-| Production checklists and reminders | Planned (Youvanni, FB24–FB26) | A checklist for each role from practice Nia recommends, reminders tied to the shoot's timeline ("Shoot starts now, here's your checklist"), and the run of show reaching everyone on the shoot; builds on Milestone 4's shoot days and desktop notifications |
 | Expenses and reimbursements | Being studied (Youvanni, FB23) | Crew log what they paid for with a receipt photo, the producer approves, both see when it's paid back; unplanned costs show against the budget. Nia records money, it doesn't move it |
 | Keep-going reminders | Idea (Jacqueline, FB27) | An opt-in phone or desktop notice to pick a project back up when it's gone quiet |
 | Recreate this look | Idea (Alvin, FB9) | From an Explore title, a shot list and mood board proposed into your project |
