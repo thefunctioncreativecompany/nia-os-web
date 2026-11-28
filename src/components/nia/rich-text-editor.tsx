@@ -248,7 +248,8 @@ export function RichTextEditor({
         </div>
       )}
       <EditorContent editor={editor} />
-      {suggest && (suggest.items.length > 0 || suggest.query) && (
+      {/* "No one matches" only while it's one word: past a space it's probably just writing. */}
+      {suggest && (suggest.items.length > 0 || (suggest.query && !suggest.query.includes(" "))) && (
         <div
           role="listbox"
           aria-label="People to mention"
@@ -304,11 +305,12 @@ function mentionExtension({ wrapper, listRef, findPeople, setSuggest, setPick }:
     renderText: ({ node }) => `@${node.attrs.label ?? ""}`,
     suggestion: {
       char: "@",
-      // "@ama@studio.com" stays one search (the default stops at a second @).
+      // Up to three words ("@Ama Owusu"), and "@ama@studio.com" stays one search (the default
+      // stops at a space or a second @).
       findSuggestionMatch: ({ $position }) => {
         const before = $position.nodeBefore;
         if (!before?.isText || !before.text) return null;
-        const match = /(?:^|\s)@([^\s]{0,60})$/.exec(before.text);
+        const match = /(?:^|\s)@((?:[^\s]{1,60}(?: [^\s]{0,60}){0,2})?)$/.exec(before.text);
         if (!match) return null;
         const typed = match[0].trimStart();
         return { range: { from: $position.pos - typed.length, to: $position.pos }, query: match[1], text: typed };
