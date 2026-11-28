@@ -55,8 +55,8 @@ stack and the counts.
 | Explore catalogue | 🔄 90 of Best of 2026's top 100 live | The last 10, then the weekly rerank; studio-catalogue titles 2–3 at a time, each with a press kit; AI tagging from a fixed list (EX5) |
 | PostHog activation | 🔄 Installed, session replay on | First recordings on the live site; Replay Vision scanners start then |
 | Meetings (steps 2 and 4 of 4) | 🔄 Steps 1 and 3 live (see Live now); step 2 (Claude's suggested changes on Apply) built, off until an `ANTHROPIC_API_KEY` is added | Add the key for step 2; then Gemini notes arriving by themselves (4). `docs/MEETINGS_SPEC.md` |
-| Desktop app | 🔄 Steps 1, offline documents and notifications while open live 2026-11-24/25 | Safari check (D2, Ika); notifications with Nia closed built, waiting on `20261127000000_push_subscriptions.sql`, the database webhook and the Vercel keys (D6, Ika); a downloadable Tauri app only with a reason (D3); phones after desktop (D4) |
-| Notifications (D8) | 🔄 Part 1 built 2026-11-28: new documents, added to a cast or crew, shoot dates, deliverables and budget changes; waits on `20261128000000_more_notifications.sql` (Ika) | Part 2 @mentions in comments; part 3 in meeting notes and documents; part 4 mentions of people outside the project (email via Resend); Inbox messages with the Inbox |
+| Desktop app | 🔄 Steps 1, offline documents and notifications live 2026-11-24/25; notifications with Nia closed live 2026-11-27 | Safari check (D2, Ika); a downloadable Tauri app only with a reason (D3); phones after desktop (D4) |
+| Notifications (D8) | 🔄 Part 1 live 2026-11-28: new documents, added to a cast or crew, shoot dates, deliverables and budget changes | Part 2 @mentions in comments; part 3 in meeting notes and documents; part 4 mentions of people outside the project (email via Resend); Inbox messages with the Inbox |
 | Onboarding (1.4) | 🔄 | "How did you hear about us" as an optional tap; "What you can do" as slides (waits on Figma) |
 
 ## Known rough edges
@@ -157,7 +157,7 @@ From beta testers, November 2026 (full list and permissions: [FEEDBACK.md](FEEDB
 | Google | Sign in with Google; Calendar and Meet for booking production meetings (`src/lib/google.ts`, its own "Nia calendar" client; free) | Sign-in live; Calendar live, in Google's Testing mode (only test users added in Google Cloud can connect) until Google verifies the app |
 | Resend | Auth emails and project invites | Live |
 | Anthropic (Claude API) | A meeting's suggested changes (Meetings step 2) | Built, off until an `ANTHROPIC_API_KEY` is added |
-| Browser push services (Google, Apple, Microsoft) | Desktop notifications when Nia is closed: Nia sends to the address each browser gives (keys `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`); a Supabase database webhook on new notifications calls `/api/push` (`PUSH_WEBHOOK_SECRET`) | Built; live once the migration, webhook and Vercel keys are in |
+| Browser push services (Google, Apple, Microsoft) | Desktop notifications when Nia is closed: Nia sends to the address each browser gives (keys `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`); a Supabase database webhook on new notifications calls `/api/push` (`PUSH_WEBHOOK_SECRET`) | Live 2026-11-27 (tested in the Safari app with Nia quit) |
 | PostHog | Product analytics, session replay | Live, waiting on first recordings |
 | TMDB | Explore posters, credits and trailers (free API during the private beta) | Beta; commercial licence before charging |
 | Wikidata, Wikimedia Commons | Explore credits and film people's photos (credited) | Live |
