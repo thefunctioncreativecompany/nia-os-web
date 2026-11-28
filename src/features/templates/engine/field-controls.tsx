@@ -18,6 +18,8 @@ import { createClient } from '@/lib/supabase/client';
 import { TimeWheel, type TimeValue } from '@/components/nia/time-wheel';
 import type { DurationUnit, FieldSpec } from '../types';
 import { useDocumentContext } from './document-context';
+import { MentionField } from '@/components/nia/mention-field';
+import { mentionPeople } from '@/lib/mention-people';
 import { PictureCell } from './pictures';
 import { fieldKind, fieldLabel, optionsFromSection, refRows, type FieldValue } from './sections';
 import { formatClock, formatDays, formatPages, isEmail, parseDay, toAmount, toDay, type DateTimeRange, type Duration, type TimeRange, type Weather, type YesNo } from './format';
@@ -45,9 +47,17 @@ type ControlProps = {
   currency?: string;
 };
 
+// One @mention lookup per project, so the text boxes share it (and React sees the same function).
+const finders = new Map<string, ReturnType<typeof mentionPeople>>();
+const mentionFinder = (projectId: string) => {
+  if (!finders.has(projectId)) finders.set(projectId, mentionPeople(projectId));
+  return finders.get(projectId)!;
+};
+
 export function FieldControl({ id, field, value, onChange, compact = false, tall = false, minDay, currency = 'USD' }: ControlProps) {
   const label = fieldLabel(field);
   const spec = typeof field === 'string' ? undefined : field;
+  const projectId = useDocumentContext()?.projectId;
 
   switch (fieldKind(field)) {
     case 'choice':
@@ -108,6 +118,8 @@ export function FieldControl({ id, field, value, onChange, compact = false, tall
     case 'email':
       return <EmailControl id={id} label={compact ? label : undefined} value={value as string} onChange={onChange} />;
     default:
+      if (projectId)
+        return <MentionField id={id} aria-label={tall || compact ? label : undefined} value={value as string} placeholder="—" multiline={tall} rows={tall ? 2 : undefined} find={mentionFinder(projectId)} onChange={onChange} className={tall ? cn(lineInput, 'min-h-16 resize-none') : lineInput} />;
       return tall ? (
         <Textarea id={id} aria-label={label} value={value as string} placeholder="—" rows={2} onChange={(e) => onChange(e.target.value)} className={cn(lineInput, 'min-h-16 resize-none')} />
       ) : (

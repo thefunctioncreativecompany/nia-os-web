@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, Ellipsis } from "lucide-react";
 import { toast } from "sonner";
 
@@ -11,6 +11,7 @@ import { RichText } from "@/lib/rich-text";
 import { timeAgo } from "@/lib/projects";
 import { createClient } from "@/lib/supabase/client";
 import { currentUser } from "@/lib/supabase/current-user";
+import { mentionPeople } from "@/lib/mention-people";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -90,20 +91,7 @@ export function Comments({ subject, className }: { subject: CommentsSubject; cla
     return () => seen.disconnect();
   }, [load]);
 
-  const findPeople = useCallback(
-    async (q: string): Promise<MentionPerson[]> => {
-      if (!pid) return [];
-      const { data, error } = await createClient().rpc("mention_people", { pid, q });
-      if (error || !data) return [];
-      return (data as { id: string; full_name: string; username: string | null; avatar_url: string | null }[]).map((p) => ({
-        id: p.id,
-        name: p.full_name,
-        username: p.username,
-        avatar: p.avatar_url,
-      }));
-    },
-    [pid],
-  );
+  const findPeople = useMemo(() => (pid ? mentionPeople(pid) : undefined), [pid]);
 
   const post = async (words: string, parent: string | null) => {
     const { error } = await createClient().rpc("post_comment", { pid, slug, parent, words });
@@ -138,7 +126,7 @@ export function Comments({ subject, className }: { subject: CommentsSubject; cla
   const count = rows.filter((r) => !r.removed).length;
 
   return (
-    <MentionsContext.Provider value={pid ? findPeople : undefined}>
+    <MentionsContext.Provider value={findPeople}>
     <section aria-labelledby="comments" className={cn("flex max-w-3xl flex-col gap-6", className)}>
       <h2 id="comments" className="text-subtitle font-semibold text-foreground">
         Comments {count > 0 && <span className="text-micro font-normal text-muted-foreground">{count}</span>}

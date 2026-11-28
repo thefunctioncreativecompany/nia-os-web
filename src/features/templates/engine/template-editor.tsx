@@ -133,7 +133,7 @@ export function TemplateEditor({
   };
 
   return (
-    <DocumentContext.Provider value={{ schema, data: doc.data }}>
+    <DocumentContext.Provider value={{ schema, data: doc.data, projectId }}>
     <PicturesContext.Provider value={pictures}>
     <div className="flex flex-1 flex-wrap">
       <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-7 px-4 pt-10 pb-15 md:pr-10 md:pl-page print:p-0">

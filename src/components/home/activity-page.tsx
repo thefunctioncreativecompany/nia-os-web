@@ -26,7 +26,7 @@ const KINDS: { id: Kind; label: string; actions: string[]; words: RegExp; dot: s
   { id: "sharing", label: "Sharing", actions: ["shared", "unshared", "link_on", "link_off"], words: /shared|invited|link/i, dot: "bg-phase-soon-foreground" },
 ];
 
-type Note = { id: number; project_id: string | null; kind: "shared" | "activity"; event?: string | null; title: string; body: string; read_at: string | null; archived_at: string | null; created_at: string };
+type Note = { id: number; project_id: string | null; kind: "shared" | "activity"; event?: string | null; link?: string | null; title: string; body: string; read_at: string | null; archived_at: string | null; created_at: string };
 
 // Notifications and activity rows, as one list (as on Home).
 type Entry = {

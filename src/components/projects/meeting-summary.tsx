@@ -7,6 +7,7 @@ import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
 import { parseDay } from "@/lib/dates";
+import { mentionPeople } from "@/lib/mention-people";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover";
@@ -24,7 +25,8 @@ type Flagged = { text: string; top: number };
 // and change it, Enter for the next point, Tab to nest one, "Section heading" for a section; saved
 // a moment after typing stops (and on leaving). Above the notes, the action items it finds (points
 // under "Action items", "Next steps", "To do"…) with "Add to milestones"; beside any point, a flag
-// sends that one point as an action or a milestone, with a date. Nothing is added twice.
+// sends that one point as an action or a milestone, with a date. Nothing is added twice. Typing @
+// mentions someone on the project (2026-11-28), who's told once the notes save.
 export function MeetingSummary({
   projectId,
   heldOn,
@@ -40,6 +42,8 @@ export function MeetingSummary({
   onSave: (summary: string) => Promise<void>;
 }) {
   const [draft, setDraft] = useState(value);
+  // @mentions of the people on the project (20261130000000_mentions_notes_documents.sql tells them).
+  const findPeople = useMemo(() => mentionPeople(projectId), [projectId]);
   const [have, setHave] = useState<Set<string>>(new Set());
   // "Tomorrow" and "by Friday" count from the meeting's day (or today, when it has none).
   const [today] = useState(() => (heldOn && parseDay(heldOn)) || new Date());
@@ -85,7 +89,7 @@ export function MeetingSummary({
     <div className="flex flex-col gap-5">
       <ActionItems projectId={projectId} items={items} have={have} />
       <PointFlags projectId={projectId} have={have} today={today}>
-        <RichTextEditor value={value} label="Meeting notes" placeholder={placeholder} variant="document" headings maxLength={100000} onChange={change} onDone={(save) => save && flush()} className="text-sm leading-relaxed text-foreground" />
+        <RichTextEditor value={value} label="Meeting notes" placeholder={placeholder} variant="document" headings maxLength={100000} mentions={findPeople} onChange={change} onDone={(save) => save && flush()} className="text-sm leading-relaxed text-foreground" />
       </PointFlags>
     </div>
   );
