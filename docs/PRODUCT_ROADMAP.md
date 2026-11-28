@@ -62,6 +62,8 @@ Logged in [FEEDBACK.md](FEEDBACK.md) → UI/UX audit (2026-11-12) and Still open
 | 1 | Sign-up email: last test sent no email | ⏸ Ika |
 | G1 | Google sign-in shows the Supabase address | ⏸ Ika |
 | DB | `20261110000000_explore_open.sql` not run: only invited people can save Explore titles | ⏸ Ika |
+| PB1 | Profile pictures broken on the login screen and missing in Cast & crew | ✅ 2026-11-28; ⏸ Ika runs `20261129000000_crew_photos.sql` for crew photos |
+| PB2 | Continue with Google reused the Google account already signed in | ✅ 2026-11-28 |
 
 ## Next up
 

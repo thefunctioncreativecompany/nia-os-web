@@ -17,6 +17,9 @@ const REMOTE = [
   (u: URL) => u.hostname === "i.ytimg.com" && u.pathname.startsWith("/vi/"),
   // Film people's free photos on Wikimedia Commons.
   (u: URL) => u.hostname === "upload.wikimedia.org" && u.pathname.startsWith("/wikipedia/commons/"),
+  // Google account photos: everyone who signs up with Google starts with one (2026-11-28: they
+  // were turned away here, so those pictures showed broken on the login screen and in crew lists).
+  (u: URL) => u.hostname === "lh3.googleusercontent.com" && /^\/a-?\//.test(u.pathname),
 ];
 
 const notFound = () => new Response("Not found", { status: 404 });

@@ -36,7 +36,7 @@ export function UserMenu({ user }: { user: CurrentUser }) {
   const others = useMemo(() => parseAccounts(raw).filter((a) => a.id !== user.id), [raw, user.id]);
 
   // Keeps this account's saved sign-in current, so switching back to it later works.
-  useEffect(() => keepRemembering(createClient()), []);
+  useEffect(() => keepRemembering(createClient(), user.avatarUrl), [user.avatarUrl]);
 
   const switchAccount = async (id: string, name: string) => {
     const result = await switchTo(createClient(), id);
@@ -56,7 +56,7 @@ export function UserMenu({ user }: { user: CurrentUser }) {
       accounts={{
         others: others.map((a) => ({ id: a.id, name: a.name || a.email, email: a.email, avatarSrc: a.avatar ?? undefined, onSelect: () => void switchAccount(a.id, a.name || a.email) })),
         onAdd: async () => {
-          remember((await createClient().auth.getSession()).data.session);
+          remember((await createClient().auth.getSession()).data.session, user.avatarUrl);
           router.push("/login?add=1");
         },
       }}

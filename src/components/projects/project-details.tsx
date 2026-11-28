@@ -245,8 +245,24 @@ export function BudgetField({ projectId, onSaved }: { projectId: string; onSaved
 
 // Crew & talent: the people on the production as a round row (CastCrewRow); they're added and
 // changed in the project's Cast & crew directory, which keeps this list in step.
+// People linked to a Nia account show their profile photo (2026-11-28), loaded when the row opens;
+// everyone else keeps their initials.
 export function CrewSection({ crew, canEdit, directoryHref }: { crew: CrewMember[]; canEdit: boolean; directoryHref: string }) {
-  const people: RowPerson[] = crew.map((c, i) => ({ key: `${i}-${c.name}`, name: c.name, role: c.role, href: directoryHref }));
+  const [photos, setPhotos] = useState<Map<string, string>>(new Map());
+  const userIds = [...new Set(crew.flatMap((c) => (c.userId ? [c.userId] : [])))].sort().join(",");
+  useEffect(() => {
+    if (!userIds) return;
+    let live = true;
+    void createClient()
+      .rpc("crew_photos", { user_ids: userIds.split(",") })
+      .then(({ data }) => {
+        if (live) setPhotos(new Map(((data ?? []) as { id: string; avatar_url: string | null }[]).flatMap((p) => (p.avatar_url ? [[p.id, p.avatar_url] as const] : []))));
+      });
+    return () => {
+      live = false;
+    };
+  }, [userIds]);
+  const people: RowPerson[] = crew.map((c, i) => ({ key: `${i}-${c.name}`, name: c.name, role: c.role, href: directoryHref, photo: c.userId ? photos.get(c.userId) : null }));
   return (
     <section aria-labelledby="crew" className="flex flex-col gap-4">
       <div className="flex flex-wrap items-baseline justify-between gap-3">

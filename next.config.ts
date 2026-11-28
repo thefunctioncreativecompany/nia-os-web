@@ -22,6 +22,9 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "i.ytimg.com", pathname: "/vi/**" },
       // Film people's free photos on Wikimedia Commons (Explore's Cast & Crew), loaded unoptimized.
       { protocol: "https", hostname: "upload.wikimedia.org", pathname: "/wikipedia/commons/**" },
+      // Google account photos (people who signed up with Google).
+      { protocol: "https", hostname: "lh3.googleusercontent.com", pathname: "/a/**" },
+      { protocol: "https", hostname: "lh3.googleusercontent.com", pathname: "/a-/**" },
     ],
   },
   partialPrefetching: true,
