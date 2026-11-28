@@ -31,6 +31,10 @@
   "date": "2026-01-14",
   "precision": "day"
  },
+ "3-10-to-yuma": {
+  "date": "2007-01-01",
+  "precision": "year"
+ },
  "a-beautiful-mind": {
   "date": "2001-01-01",
   "precision": "year"
@@ -63,6 +67,10 @@
   "date": "2026-09-14",
   "precision": "day"
  },
+ "a-view-to-a-kill": {
+  "date": "1985-01-01",
+  "precision": "year"
+ },
  "abouna": {
   "date": "2002-01-01",
   "precision": "year"
@@ -93,6 +101,10 @@
  },
  "american-housewife": {
   "date": "2016-10-11",
+  "precision": "day"
+ },
+ "american-psycho": {
+  "date": "2000-01-21",
   "precision": "day"
  },
  "an-american-in-paris": {
@@ -166,6 +178,10 @@
  "batman": {
   "date": "1989-01-01",
   "precision": "year"
+ },
+ "beauty-and-the-beast": {
+  "date": "2017-03-16",
+  "precision": "day"
  },
  "ben-hur": {
   "date": "1959-11-18",
@@ -277,6 +293,10 @@
  },
  "children-of-blood-and-bone": {
   "date": "2027-01-15",
+  "precision": "day"
+ },
+ "cinderella": {
+  "date": "2015-03-12",
   "precision": "day"
  },
  "citizen-kane": {
@@ -823,6 +843,10 @@
   "date": "2024-01-01",
   "precision": "year"
  },
+ "dallas-buyers-club": {
+  "date": "2013-09-07",
+  "precision": "day"
+ },
  "dam": {
   "date": "2021-01-01",
   "precision": "year"
@@ -841,6 +865,10 @@
  },
  "do-the-right-thing": {
   "date": "1989-01-01",
+  "precision": "year"
+ },
+ "doctor-zhivago": {
+  "date": "1965-01-01",
   "precision": "year"
  },
  "double-indemnity": {
@@ -871,6 +899,10 @@
   "date": "2004-03-09",
   "precision": "day"
  },
+ "everything-everywhere-all-at-once": {
+  "date": "2022-03-11",
+  "precision": "day"
+ },
  "evil-dead-burn": {
   "date": "2026-07-09",
   "precision": "day"
@@ -893,6 +925,10 @@
  },
  "felicite": {
   "date": "2017-02-11",
+  "precision": "day"
+ },
+ "fifty-shades-of-grey": {
+  "date": "2015-02-11",
   "precision": "day"
  },
  "fight-club": {
@@ -1024,8 +1060,8 @@
   "precision": "year"
  },
  "go": {
-  "date": "2025-01-01",
-  "precision": "year"
+  "date": "2025-01-11",
+  "precision": "day"
  },
  "goat": {
   "date": "2026-02-13",
@@ -1042,6 +1078,10 @@
  "goodbye-julia": {
   "date": "2023-04-01",
   "precision": "month"
+ },
+ "grand-hotel": {
+  "date": "1932-01-01",
+  "precision": "year"
  },
  "green-book": {
   "date": "2018-09-11",
@@ -1135,6 +1175,10 @@
   "date": "2023-07-01",
   "precision": "day"
  },
+ "house-of-cards": {
+  "date": "2013-02-01",
+  "precision": "day"
+ },
  "how-the-grinch-stole-christmas-1966": {
   "date": "1966-01-01",
   "precision": "year"
@@ -1166,6 +1210,10 @@
  "imitation-of-life-1934": {
   "date": "1934-01-01",
   "precision": "year"
+ },
+ "in-bruges": {
+  "date": "2008-01-17",
+  "precision": "day"
  },
  "in-the-heat-of-the-night": {
   "date": "1967-01-01",
@@ -1299,6 +1347,10 @@
   "date": "2026-04-09",
   "precision": "day"
  },
+ "licence-to-kill": {
+  "date": "1989-01-01",
+  "precision": "year"
+ },
  "lie-to-me": {
   "date": "2009-01-21",
   "precision": "day"
@@ -1318,6 +1370,10 @@
  "lobola-man": {
   "date": "2024-01-01",
   "precision": "year"
+ },
+ "logan": {
+  "date": "2017-02-17",
+  "precision": "day"
  },
  "lost-in-translation": {
   "date": "2003-08-29",
@@ -1395,6 +1451,10 @@
   "date": "1945-09-24",
   "precision": "day"
  },
+ "milk": {
+  "date": "2008-01-01",
+  "precision": "year"
+ },
  "minions-and-monsters": {
   "date": "2026-06-24",
   "precision": "day"
@@ -1443,6 +1503,10 @@
   "date": "2026-08-21",
   "precision": "day"
  },
+ "mutiny-on-the-bounty": {
+  "date": "1935-01-01",
+  "precision": "year"
+ },
  "nanny-mcphee": {
   "date": "2005-01-01",
   "precision": "year"
@@ -1483,6 +1547,10 @@
   "date": "2025-09-05",
   "precision": "day"
  },
+ "octopussy": {
+  "date": "1983-01-01",
+  "precision": "year"
+ },
  "off-campus": {
   "date": "2026-05-13",
   "precision": "day"
@@ -1505,6 +1573,10 @@
  },
  "one-on-one": {
   "date": "2001-09-03",
+  "precision": "day"
+ },
+ "onward": {
+  "date": "2020-03-05",
   "precision": "day"
  },
  "oppenheimer": {
@@ -1679,6 +1751,10 @@
   "date": "2003-01-01",
   "precision": "year"
  },
+ "saw-ii": {
+  "date": "2005-01-01",
+  "precision": "year"
+ },
  "scarface": {
   "date": "1983-12-09",
   "precision": "day"
@@ -1710,6 +1786,10 @@
  "sew-the-winter-to-my-skin": {
   "date": "2018-01-01",
   "precision": "year"
+ },
+ "sex-education": {
+  "date": "2019-01-11",
+  "precision": "day"
  },
  "shadow": {
   "date": "2019-03-08",
@@ -1809,6 +1889,10 @@
  },
  "star-wars-episode-vii-the-force-awakens": {
   "date": "2015-12-16",
+  "precision": "day"
+ },
+ "stargate": {
+  "date": "1994-10-28",
   "precision": "day"
  },
  "stormy-weather": {
@@ -1915,8 +1999,16 @@
   "date": "2026-10-25",
   "precision": "day"
  },
+ "the-chronicles-of-narnia-the-lion-the-witch-and-the-wardrobe": {
+  "date": "2005-12-08",
+  "precision": "day"
+ },
  "the-college-dropout-video-anthology": {
   "date": "2005-03-22",
+  "precision": "day"
+ },
+ "the-crown": {
+  "date": "2016-11-04",
   "precision": "day"
  },
  "the-curious-case-of-benjamin-button": {
@@ -1926,6 +2018,10 @@
  "the-da-vinci-code": {
   "date": "2006-05-17",
   "precision": "day"
+ },
+ "the-danish-girl": {
+  "date": "2015-01-01",
+  "precision": "year"
  },
  "the-day-after-tomorrow": {
   "date": "2004-05-27",
@@ -1953,6 +2049,10 @@
  },
  "the-end-of-oak-street": {
   "date": "2026-08-09",
+  "precision": "day"
+ },
+ "the-expendables": {
+  "date": "2010-08-03",
   "precision": "day"
  },
  "the-fast-and-the-furious": {
@@ -2073,6 +2173,10 @@
  },
  "the-last-days-of-ptolemy-grey": {
   "date": "2022-03-11",
+  "precision": "day"
+ },
+ "the-lion-king": {
+  "date": "2019-07-17",
   "precision": "day"
  },
  "the-lord-of-the-rings-the-fellowship-of-the-ring": {
@@ -2303,6 +2407,10 @@
   "date": "2026-10-01",
   "precision": "day"
  },
+ "wednesday": {
+  "date": "2022-11-23",
+  "precision": "day"
+ },
  "west-side-story": {
   "date": "1961-01-01",
   "precision": "year"
@@ -2337,6 +2445,18 @@
  },
  "x-men": {
   "date": "2000-07-13",
+  "precision": "day"
+ },
+ "x-men-days-of-future-past": {
+  "date": "2014-05-21",
+  "precision": "day"
+ },
+ "x-men-the-last-stand": {
+  "date": "2006-05-24",
+  "precision": "day"
+ },
+ "x2": {
+  "date": "2003-05-01",
   "precision": "day"
  },
  "you-can-see-everything": {

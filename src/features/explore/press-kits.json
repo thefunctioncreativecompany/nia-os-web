@@ -267,6 +267,26 @@
   "cinemaRelease": true,
   "imdb": "tt32141377"
  },
+ "3-10-to-yuma": {
+  "videos": [
+   {
+    "id": "jX1m45CwvJ8",
+    "kind": "Official trailer",
+    "title": "3:10 To Yuma (2007) Official Trailer #1 - Russell Crowe, Christian Bale Movie",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "UNVpx3ud_Zw",
+    "kind": "Cast interview",
+    "title": "3:10 to Yuma: Russell Crowe & Christian Bale Exclusive Interview | ScreenSlam",
+    "channel": "ScreenSlam"
+   }
+  ],
+  "reviews": [],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0381849"
+ },
  "a-charlie-brown-christmas": {
   "videos": [],
   "reviews": [
@@ -630,6 +650,20 @@
   "cinemaRelease": true,
   "imdb": "tt14129116"
  },
+ "a-view-to-a-kill": {
+  "videos": [
+   {
+    "id": "p5Bcbddb4VI",
+    "kind": "Cast interview",
+    "title": "Roger Moore interview | Royal Film Premier | A view to a Kill | 1985",
+    "channel": "ThamesTv"
+   }
+  ],
+  "reviews": [],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0090264"
+ },
  "all-about-eve": {
   "videos": [
    {
@@ -679,6 +713,62 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0042192"
+ },
+ "american-psycho": {
+  "videos": [
+   {
+    "id": "HHMaiPPjHHg",
+    "kind": "Official trailer",
+    "title": "American Psycho (2000) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Murderer! Fiend! Cad! (But Well-Dressed)",
+    "href": "https://archive.nytimes.com/www.nytimes.com/library/film/041400psycho-film-review.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "American Psycho",
+    "href": "https://www.rogerebert.com/reviews/american-psycho-2000",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "American Psycho",
+    "href": "https://www.latimes.com/archives/la-xpm-2000-apr-14-ca-19332-story.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Slate",
+    "title": "Dressed to Kill",
+    "href": "http://www.slate.com/articles/arts/movies/2000/04/dressed_to_kill.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Time",
+    "title": "A Yuppie's Killer Instinct",
+    "href": "http://content.time.com/time/magazine/article/0,9171,996639,00.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Newsweek",
+    "title": "What A Total Psychopath",
+    "href": "http://www.newsweek.com/id/83755"
+   },
+   {
+    "outlet": "The Village Voice",
+    "title": "Atrocity Exhibitions",
+    "href": "https://archive.today/20130209003714/http://www.villagevoice.com/2000-04-11/film/atrocity-exhibitions/1"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0144084"
  },
  "an-american-in-paris": {
   "videos": [
@@ -1253,6 +1343,61 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt1517268"
+ },
+ "beauty-and-the-beast": {
+  "videos": [
+   {
+    "id": "pnkgw6pAKkM",
+    "kind": "Official trailer",
+    "title": "BEAUTY AND THE BEAST | NEW Trailer | Official Disney UK",
+    "channel": "Disney UK"
+   },
+   {
+    "id": "nyC_dNvGcd4",
+    "kind": "Teaser",
+    "title": "Beauty and the Beast Official Teaser Trailer #1 (2017) - Emma Watson, Dan Stevens Movie HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "rBqoa8AZgSg",
+    "kind": "Cast interview",
+    "title": "Emma Watson & Dan Stevens 'Beauty and the Beast' interview - BBC London News",
+    "channel": "BBC London"
+   },
+   {
+    "id": "iOD7lXSLbbI",
+    "kind": "Cast interview",
+    "title": "BEAUTY AND THE BEAST 2017 Cast Interviews",
+    "channel": "Flicks And The City"
+   },
+   {
+    "id": "sfp-coYCuM0",
+    "kind": "Cast interview",
+    "title": "Cast of live-action 'Beauty and the Beast' dish on playing classic characters | ABC News",
+    "channel": "ABC News"
+   },
+   {
+    "id": "SCTSRI2z4Gs",
+    "kind": "Filmmaker interview",
+    "title": "Beauty and The Beast | Bill Condon on Mr. Potts and The Curse | Interview",
+    "channel": "CinemaBlend"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Forbes",
+    "title": "The $255 Million Spell That Disney Cast On Britain",
+    "href": "https://www.forbes.com/sites/csylt/2018/06/08/the-255-million-spell-that-disney-cast-on-britain/"
+   },
+   {
+    "outlet": "IndieWire",
+    "title": "'Beauty and the Beast': How Bill Condon Built Hollywood's Most Expensive Musical",
+    "href": "https://www.indiewire.com/2017/03/420-disney-beauty-and-the-beast-bill-condon-emma-watson-musical-1201791591/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt2771200"
  },
  "ben-hur": {
   "videos": [],
@@ -2080,6 +2225,81 @@
   ],
   "imdb": "tt6779038"
  },
+ "cinderella": {
+  "videos": [
+   {
+    "id": "LfR8Su4ulX0",
+    "kind": "Official trailer",
+    "title": "Cinderella Official Trailer #1 (2015) - Helena Bonham Carter, Lily James Disney Movie HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "ZmroR5WziVs",
+    "kind": "Teaser",
+    "title": "Cinderella Official Teaser Trailer #1 (2015) - Live-Action Disney Fantasy Movie HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "eunLTHHnUDo",
+    "kind": "Cast interview",
+    "title": "CINDERELLA | Cast Interviews - 2015 | Official Disney UK",
+    "channel": "Disney UK"
+   },
+   {
+    "id": "FgnnQTkhVXE",
+    "kind": "Cast interview",
+    "title": "Cinderella Cast Interview: Kenneth Branagh, Richard Madden & Holliday Grainger | Disney 2015",
+    "channel": "Star Sessions"
+   },
+   {
+    "id": "RqbzGi9ZrqA",
+    "kind": "Cast interview",
+    "title": "Cinderella Cast Interview: Lily James & Richard Madden | Disney 2015",
+    "channel": "Star Sessions"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Berlin Film Review: 'Cinderella'",
+    "href": "https://variety.com/2015/film/reviews/berlin-film-review-disneys-new-live-action-cinderella-1201433243/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Cinderella review – Kenneth Branagh's perky, pretty cupcake of a fairytale",
+    "href": "https://www.theguardian.com/film/2015/feb/13/cinderella-review-kenneth-branaghs-perky-pretty-cupcake-of-a-fairytale",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Forbes",
+    "title": "Review: Disney's 'Cinderella' Is the Fairest of Them All",
+    "href": "https://www.forbes.com/sites/scottmendelson/2015/02/23/review-disneys-cinderella-is-the-fairest-of-them-all/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time",
+    "title": "Review: Disney's Live-Action Cinderella Rekindles Old Studio Magic",
+    "href": "https://time.com/3743894/cinderella-review-disney-live-action/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Wall Street Journal",
+    "title": "Cinderella Review: Finding New Soul in Old Shoe",
+    "href": "https://www.wsj.com/articles/cinderella-review-finds-new-soul-in-old-shoe-1426187867",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Box Office: 'Cinderella' Lives Happily Ever After With $132.5M Global Debut",
+    "href": "https://www.hollywoodreporter.com/news/box-office-cinderella-lives-happily-781558"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1661199"
+ },
  "citizen-kane": {
   "videos": [
    {
@@ -2535,6 +2755,92 @@
   "cinemaRelease": true,
   "imdb": "tt31015216"
  },
+ "dallas-buyers-club": {
+  "videos": [
+   {
+    "id": "BhFYcnRPEfA",
+    "kind": "Official trailer",
+    "title": "Dallas Buyers Club Official Trailer #1 (2013) - Matthew McConaughey Movie HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "b9QB-fb5fvw",
+    "kind": "Cast interview",
+    "title": "Dallas Buyers Club | Matthew McConaughey and Jared Leto Start the Dallas Buyers Club",
+    "channel": "Focus Features"
+   },
+   {
+    "id": "y8NRWFmRUpg",
+    "kind": "Cast interview",
+    "title": "Dallas Buyers Club Interview - Matthew McConaughey (2013) - Jennifer Garner Movie HD",
+    "channel": "Rotten Tomatoes Coming Soon"
+   },
+   {
+    "id": "ErT-I6-9Xf0",
+    "kind": "Cast interview",
+    "title": "Film Society Talks | Matthew McConaughey | Dallas Buyers Club (Full)",
+    "channel": "Film at Lincoln Center"
+   },
+   {
+    "id": "9yJfZgEqp2E",
+    "kind": "Filmmaker interview",
+    "title": "Dallas Buyers Club: Jean MarcValle Official Movie Interview | ScreenSlam",
+    "channel": "ScreenSlam"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Time",
+    "title": "Dallas Buyers Club: McConaughey Shines as a Homophobe Who Gets AIDS",
+    "href": "https://entertainment.time.com/2013/09/12/dallas-buyers-club-mcconaughey-shines-as-a-homophobe-who-gets-aids/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "JoBlo.com",
+    "title": "Review: Dallas Buyers Club (TIFF 2013)",
+    "href": "https://www.joblo.com/movie-news/review-dallas-buyers-club-tiff-2013#!bPaavp",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "'Dallas Buyer's Club' review: McConaughey great",
+    "href": "http://www.sfgate.com/movies/article/Dallas-Buyer-s-Club-review-McConaughey-great-4965624.php",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Washington Post",
+    "title": "'Dallas Buyers Club' movie review: Matthew McConaughey triumphs",
+    "href": "https://www.washingtonpost.com/goingoutguide/movies/dallas-buyers-club-movie-review-matthew-mcconaughey-triumphs/2013/11/06/bf30a768-4634-11e3-bf0c-cebf37c6f484_story.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Orange County Register",
+    "title": "'Dallas Buyers Club' a bargain at any price",
+    "href": "http://www.ocregister.com/articles/woodroof-534981-mcconaughey-club.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "NPR",
+    "title": "Matthew McConaughey, Fiercely Committed To This 'Club'",
+    "href": "https://www.npr.org/2013/11/01/241642016/matthew-mcconaughey-fiercely-committed-to-this-club?ft=1&f=1045",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Dallas Buyers Club' Moving Up Release to Early November",
+    "href": "https://www.hollywoodreporter.com/news/dallas-buyers-club-moving-up-614540"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "'Dallas Buyers Club' off to solid start in limited release",
+    "href": "https://www.latimes.com/entertainment/envelope/cotown/la-et-ct-dallas-buyers-club-box-office-20131103-story.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0790636"
+ },
  "dam": {
   "videos": [],
   "reviews": [
@@ -2651,6 +2957,45 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt15047880"
+ },
+ "doctor-zhivago": {
+  "videos": [
+   {
+    "id": "CGGr21PilKY",
+    "kind": "Official trailer",
+    "title": "Doctor Zhivago (1965) Original Trailer - Omar Sharif Movie",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "lxcZK6hQg7Q",
+    "kind": "Festival Q&A",
+    "title": "Doctor Zhivago Q&A with Sir Tom Courtenay | BFI",
+    "channel": "BFI"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Time",
+    "title": "Cinema: To Russia with Love",
+    "href": "https://content.time.com/time/subscriber/article/0,33009,842363,00.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Screen: David Lean's 'Doctor Zhivago' Has Premiere",
+    "href": "https://www.nytimes.com/1965/12/23/archives/adaptation-of-pasternak-novel-at-the-capitol-by-bosley-crowther.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The New Yorker",
+    "title": "The Current Cinema",
+    "href": "https://www.newyorker.com/magazine/1966/01/01/action-is-character",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0059113"
  },
  "double-indemnity": {
   "videos": [],
@@ -2855,6 +3200,87 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0319343"
+ },
+ "everything-everywhere-all-at-once": {
+  "videos": [
+   {
+    "id": "wxN1T1uxQ2g",
+    "kind": "Official trailer",
+    "title": "Everything Everywhere All At Once | Official Trailer HD | A24",
+    "channel": "A24"
+   },
+   {
+    "id": "7EZAVAnVWMU",
+    "kind": "Cast interview",
+    "title": "Cast of 'Everything Everywhere All At Once' talk Oscar-nominated film",
+    "channel": "Good Morning America"
+   },
+   {
+    "id": "gq0lIX7_3FM",
+    "kind": "Cast interview",
+    "title": "Everything Everywhere All At Once Cast Tries to Explain Its WTF Premise | IGN Fan Fest 2022",
+    "channel": "IGN"
+   },
+   {
+    "id": "l2nhvjrYy9M",
+    "kind": "Cast interview",
+    "title": "'Everything Everywhere All at Once' star dishes on Oscar nomination",
+    "channel": "Good Morning America"
+   },
+   {
+    "id": "tbkjxGbtoMQ",
+    "kind": "Filmmaker interview",
+    "title": "Daniels on Everything Everywhere All at Once, absurd & profound, multiverses obsession – interview",
+    "channel": "The Upcoming"
+   },
+   {
+    "id": "c2mnwrVssUg",
+    "kind": "Cast interview",
+    "title": "The 'Everything Everywhere All At Once' Cast on Why They Love Michelle Yeoh | Entertainment Weekly",
+    "channel": "Entertainment Weekly"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "IndieWire",
+    "title": "'Everything Everywhere All at Once' Review: 'The Matrix' Meets the Multiverse in Daniels' Instant Classic",
+    "href": "https://www.indiewire.com/2022/03/everything-everywhere-all-at-once-review-1234707051/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Michelle Yeoh in 'Everything Everywhere All at Once': Film Review",
+    "href": "https://www.hollywoodreporter.com/movies/movie-reviews/everything-everywhere-all-at-once-sxsw-2022-1235108278/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "Everything Everywhere All at Once movie review (2022)",
+    "href": "https://www.rogerebert.com/reviews/everything-everywhere-all-at-once-2022",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Everything Everywhere All At Once review – ambitious, exhausting trip to the multiverse",
+    "href": "https://www.theguardian.com/film/2022/mar/22/everything-everywhere-all-at-once-review-michelle-yeoh",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Vanity Fair",
+    "title": "Ambitious, Outrageous 'Everything Everywhere All at Once' Is All That and More",
+    "href": "https://www.vanityfair.com/hollywood/2022/04/everything-everywhere-all-at-once-movie-review",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Small Movies, Big Profits: An Oscar Winner And Horror Hits Among Overachievers In Deadline's 2022 Most Valuable Blockbuster Tournament",
+    "href": "https://deadline.com/2023/04/most-profitable-movies-2022-highest-return-1235324425/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt6710474"
  },
  "evil-dead-burn": {
   "videos": [
@@ -3166,6 +3592,37 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt5980798"
+ },
+ "fifty-shades-of-grey": {
+  "videos": [
+   {
+    "id": "SfZWFDs0LxA",
+    "kind": "Official trailer",
+    "title": "Fifty Shades Of Grey - Official Trailer (Universal Pictures) HD",
+    "channel": "Universal Pictures UK"
+   },
+   {
+    "id": "Q1-PpHBGfrE",
+    "kind": "Filmmaker interview",
+    "title": "Fifty Shades of Grey: Sam Taylor Johnson Official Interview | ScreenSlam",
+    "channel": "ScreenSlam"
+   },
+   {
+    "id": "G6FNpjT8X-8",
+    "kind": "Filmmaker interview",
+    "title": "Bazaar interviews Sam Taylor-Johnson for Fifty Shades of Grey",
+    "channel": "Harper's Bazaar UK"
+   },
+   {
+    "id": "9H9Tu0wBvVE",
+    "kind": "Filmmaker interview",
+    "title": "Director Sam Taylor-Johnson Interview - Fifty Shades of Grey",
+    "channel": "HeyUGuys"
+   }
+  ],
+  "reviews": [],
+  "articles": [],
+  "imdb": "tt2322441"
  },
  "five-fingers-for-marseilles": {
   "videos": [],
@@ -3829,6 +4286,33 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt14330672"
+ },
+ "grand-hotel": {
+  "videos": [
+   {
+    "id": "fUhl5o8cJ5g",
+    "kind": "Official trailer",
+    "title": "Grand Hotel Official Trailer #1 - Lionel Barrymore Movie (1932) HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Grand Hotel",
+    "href": "https://variety.com/1932/film/reviews/grand-hotel-2-1200410647/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Review: Grand Hotel",
+    "href": "https://www.nytimes.com/packages/html/movies/bestpictures/hotel-re.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0022958"
  },
  "greenland-2-migration": {
   "videos": [
@@ -4988,6 +5472,60 @@
   "cinemaRelease": true,
   "imdb": "tt25750836"
  },
+ "house-of-cards": {
+  "videos": [
+   {
+    "id": "8QnMmpfKWvo",
+    "kind": "Official trailer",
+    "title": "House of Cards | Series Trailer [HD] | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "NUL0nQFZEpo",
+    "kind": "Teaser",
+    "title": "House of Cards | Teaser [HD] | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "JZcqC_gUitk",
+    "kind": "Cast interview",
+    "title": "\"House of Cards\" stars discuss filming explosive Season 2 scene",
+    "channel": "CBS Mornings"
+   },
+   {
+    "id": "rSKwu62izMg",
+    "kind": "Cast interview",
+    "title": "'House of Cards' cast talk binge-watching",
+    "channel": "AP Archive"
+   },
+   {
+    "id": "m7elqrPiLAo",
+    "kind": "Cast interview",
+    "title": "House of Cards | Interview | TimesTalks",
+    "channel": "New York Times Events"
+   },
+   {
+    "id": "gSqpnNHSekA",
+    "kind": "Featurette",
+    "title": "House of Cards Season 3 - Behind the Scenes",
+    "channel": "Sony Pictures Entertainment"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "The Streaming Era Owes Thanks to 'House of Cards' (Column)",
+    "href": "https://variety.com/2018/tv/columns/house-of-cards-season-6-streaming-era-1203017193/"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "A Drama's Streaming Premiere",
+    "href": "https://www.nytimes.com/2013/01/20/arts/television/house-of-cards-arrives-as-a-netflix-series.html"
+   }
+  ],
+  "imdb": "tt1856010"
+ },
  "how-the-grinch-stole-christmas-1966": {
   "videos": [
    {
@@ -5403,6 +5941,63 @@
    }
   ],
   "imdb": "tt0025301"
+ },
+ "in-bruges": {
+  "videos": [
+   {
+    "id": "p-gG2qo_l_A",
+    "kind": "Official trailer",
+    "title": "In Bruges Official Trailer #1 - Ralph Fiennes Movie (2008) HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "0bYENjP8D8Y",
+    "kind": "Filmmaker interview",
+    "title": "Martin McDonagh on In Bruges, Seven Psychopaths and new film Wild Horse Nine | BFI in Conversation",
+    "channel": "BFI"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "In Bruges",
+    "href": "https://www.rogerebert.com/reviews/in-bruges-2008",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Washington Post",
+    "title": "In Bruges",
+    "href": "https://archive.today/20130209073852/http://www.washingtonpost.com/gog/movies/in-bruges,1144443/critic-review.html%23reviewNum1",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "Review: 'In Bruges' features hit men with soul",
+    "href": "http://www.sfgate.com/movies/article/Review-In-Bruges-features-hit-men-with-soul-3295142.php",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "In Bruges Review",
+    "href": "https://web.archive.org/web/20080210140805/https://www.ew.com/ew/article/0,,20176557,00.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Village Voice",
+    "title": "More Adventures in Gangsterland",
+    "href": "https://web.archive.org/web/20080830032216/http://www.villagevoice.com/2008-01-29/film/more-adventures-in-gangsterland/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "USA Today",
+    "title": "'In Bruges' offers sharp, quirky story of two hit men on holiday",
+    "href": "http://usatoday30.usatoday.com/life/movies/reviews/2008-02-07-in-bruges_N.htm",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0780536"
  },
  "insidious-out-of-the-further": {
   "videos": [
@@ -6401,6 +6996,33 @@
   ],
   "articles": []
  },
+ "licence-to-kill": {
+  "videos": [
+   {
+    "id": "quHQAuO0lkg",
+    "kind": "Official trailer",
+    "title": "Licence to Kill (1989) Official Trailer - Timothy Dalton James Bond Movie Hd",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Dalton as a Brooding Bond In 'License to Kill'",
+    "href": "https://www.nytimes.com/1989/07/14/movies/review-film-dalton-as-a-brooding-bond-in-license-to-kill.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Licence To Kill",
+    "href": "https://www.rogerebert.com/reviews/licence-to-kill-1989",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0097742"
+ },
  "lilies-of-the-field": {
   "videos": [],
   "reviews": [
@@ -6542,6 +7164,86 @@
   ],
   "streaming": "Netflix",
   "imdb": "tt32615298"
+ },
+ "logan": {
+  "videos": [
+   {
+    "id": "Div0iP65aZo",
+    "kind": "Official trailer",
+    "title": "Logan | Official Trailer [HD] | 20th Century FOX",
+    "channel": "20th Century Studios"
+   },
+   {
+    "id": "Hu2vvcub3FU",
+    "kind": "Cast interview",
+    "title": "Interview With the Cast of Logan",
+    "channel": "HBO"
+   },
+   {
+    "id": "bwtaXJyhNCI",
+    "kind": "Cast interview",
+    "title": "Super-Size Stories from the Cast - Exclusive 'Logan' Interview (2017)",
+    "channel": "Rotten Tomatoes"
+   },
+   {
+    "id": "Fs2_62OW6kY",
+    "kind": "Cast interview",
+    "title": "Hugh Jackman and Patrick Stewart Exclusive 'Logan' Interview (2017)",
+    "channel": "Fandango"
+   },
+   {
+    "id": "frBPKu25JrU",
+    "kind": "Cast interview",
+    "title": "Hugh Jackman And Patrick Stewart Discuss Their Film, \"Logan\"",
+    "channel": "BUILD Series"
+   },
+   {
+    "id": "2BZvH0eCUHw",
+    "kind": "Cast interview",
+    "title": "Hugh Jackman Interview: Logan and Professor X's Disappointment in Wolverine | SYFY WIRE",
+    "channel": "SYFY"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "IGN",
+    "title": "Logan Review",
+    "href": "https://www.ign.com/articles/2017/02/17/logan-review",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The A.V. Club",
+    "title": "The Wolverine series gets a superb sendoff with the brutal, R-rated Logan",
+    "href": "https://www.avclub.com/review/wolverine-series-gets-superb-sendoff-brutal-r-rate-251147",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Logan: Film Review Berlin 2017",
+    "href": "https://www.hollywoodreporter.com/review/logan-review-970227",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Logan review – Hugh Jackman's Wolverine enters a winter of X-Men discontent",
+    "href": "https://www.theguardian.com/film/2017/feb/17/logan-review-hugh-jackmans-wolverine-enters-a-winter-of-x-men-discontent",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Collider",
+    "title": "'Logan': James Mangold Reveals Timeline; Teases Film's Unique Tone and Family Focus",
+    "href": "https://collider.com/logan-timeline-explained-james-mangold/#images"
+   },
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "James Mangold, Hugh Jackman Sinking Claws Into Another 'The Wolverine' Film",
+    "href": "https://deadline.com/2013/11/james-mangold-hugh-jackman-sinking-claws-into-another-the-wolverine-film-627461/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt3315342"
  },
  "love-actually": {
   "videos": [
@@ -7243,6 +7945,62 @@
   "cinemaRelease": true,
   "imdb": "tt0037913"
  },
+ "milk": {
+  "videos": [
+   {
+    "id": "hF05_CB81c0",
+    "kind": "Official trailer",
+    "title": "Milk Official Trailer #1 - Sean Penn Movie (2008) HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "GNDRhMax88Y",
+    "kind": "Cast interview",
+    "title": "Milk: Josh Brolin Exclusive Interview | ScreenSlam",
+    "channel": "ScreenSlam"
+   },
+   {
+    "id": "9FEziAL1PQU",
+    "kind": "Cast interview",
+    "title": "Cast Talks About New Film 'Milk'",
+    "channel": "PIX11 News"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Review of Milk",
+    "href": "https://web.archive.org/web/20150403003958/http://variety.com/2008/film/reviews/milk-7-1200472542/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Film Review: Milk",
+    "href": "https://web.archive.org/web/20150209090626/http://www.pastdeadline.com/hr/film-reviews/film-review-milk-1003899291.story",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Movie Review – Milk",
+    "href": "https://www.nytimes.com/2008/11/26/movies/26milk.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Orange County Register",
+    "title": "Orange County plays the villain in Harvey Milk movie",
+    "href": "https://web.archive.org/web/20081224063139/http://www.ocregister.com/articles/harvey-milk-orange-2246137-county-interview"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Van Sant off of 'Castro St.'",
+    "href": "https://variety.com/1993/film/news/van-sant-off-of-castro-st-106013/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1013753"
+ },
  "minions-and-monsters": {
   "videos": [
    {
@@ -7748,6 +8506,27 @@
   "cinemaRelease": true,
   "imdb": "tt32338669"
  },
+ "mutiny-on-the-bounty": {
+  "videos": [
+   {
+    "id": "aFalJyGNGmE",
+    "kind": "Official trailer",
+    "title": "Mutiny on the Bounty Official Trailer #1 - Clark Gable Movie (1935) HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Movie Review – Mutiny on the Bounty",
+    "href": "https://www.nytimes.com/movie/review?res=9D01E6DF163CE53ABC4153DFB767838E629EDE",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0026752"
+ },
  "nanny-mcphee": {
   "videos": [],
   "reviews": [],
@@ -8156,6 +8935,62 @@
   "cinemaRelease": true,
   "imdb": "tt37287335"
  },
+ "octopussy": {
+  "videos": [],
+  "reviews": [
+   {
+    "outlet": "The Washington Post",
+    "title": "Octopussy",
+    "href": "https://www.washingtonpost.com/archive/lifestyle/1983/06/10/octopussy/70699171-17ed-4a81-83f7-7180f555d46d/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Film: James Bond Meets 'Octopussy'",
+    "href": "https://www.nytimes.com/1983/06/10/movies/james-bond-meets-octopussy.html/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Film Reviews: Octopussy",
+    "href": "https://variety.com/1982/film/reviews/octopussy-1200425472/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "'Octopussy' Fulfills The 007 Formula",
+    "href": "https://www.newspapers.com/newspage/633665598",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time",
+    "title": "Cinema: The Bond Wagon Crawls Along",
+    "href": "https://content.time.com/time/subscriber/article/0,33009,953973-1,00.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "A spy for all seasons",
+    "href": "https://www.newspapers.com/article/the-guardian-derek-malcolms-review-for/127580000/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Chicago Tribune",
+    "title": "Action galore saves weak 'Octopussy' script",
+    "href": "https://www.newspapers.com/article/chicago-tribune-gene-siskel-reviews-the/73359963/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "American Film Institute",
+    "title": "Octopussy",
+    "href": "https://catalog.afi.com/Film/58029-OCTOPUSSY?sid=be471d3b-6397-4d55-9bcf-e27c523c3422&sr=10.689891&cp=1&pos=0"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0086034"
+ },
  "off-campus": {
   "videos": [
    {
@@ -8328,6 +9163,51 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0047296"
+ },
+ "onward": {
+  "videos": [
+   {
+    "id": "TxpjGMpnmx4",
+    "kind": "Official trailer",
+    "title": "Onward International Trailer #1 (2020) | Movieclips Trailers",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "Pxwt2Bm9Fu4",
+    "kind": "Teaser",
+    "title": "Disney•Pixar's Onward | Teaser Trailer",
+    "channel": "Walt Disney Studios Malaysia"
+   },
+   {
+    "id": "g-ZRxD6Xug0",
+    "kind": "Cast interview",
+    "title": "Epic Questions with the Cast and Crew of Onward | Disney",
+    "channel": "Disney"
+   },
+   {
+    "id": "K3VTbfH6pok",
+    "kind": "Cast interview",
+    "title": "Onward: Chris Pratt, Julia Louis-Dreyfus D23 Official Movie Interview | ScreenSlam",
+    "channel": "ScreenSlam"
+   },
+   {
+    "id": "hrqCC536gtw",
+    "kind": "Filmmaker interview",
+    "title": "Onward: Dan Scanlon, Kori Rae D23 Official Movie Interview | ScreenSlam",
+    "channel": "ScreenSlam"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Rolling Stone",
+    "title": "'Onward' Review: Pixar's Elf-Family Fantasy Is Light on Company's Magic",
+    "href": "https://www.rollingstone.com/movies/movie-reviews/onward-movie-review-pixar-960479/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt7146812"
  },
  "oppenheimer": {
   "videos": [
@@ -9856,6 +10736,45 @@
   "streaming": "Netflix",
   "imdb": "tt19671142"
  },
+ "saw-ii": {
+  "videos": [
+   {
+    "id": "Lq2AzZB6DUE",
+    "kind": "Official trailer",
+    "title": "Saw II (2005) Official Trailer #1 - Horror Movie",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Saw II Review",
+    "href": "https://www.variety.com/review/VE1117928622?categoryid=31&cs=1",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Grisly Saw II makes the cut",
+    "href": "https://www.latimes.com/archives/la-xpm-2005-oct-28-et-saw28-story.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Film in Review; Saw II",
+    "href": "https://www.nytimes.com/2005/10/28/movies/28saw.html",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Saw lifts Lions Gate stock",
+    "href": "https://variety.com/2005/film/features/saw-lifts-lions-gate-stock-1117932006/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0432348"
+ },
  "scary-movie": {
   "videos": [
    {
@@ -10178,6 +11097,60 @@
   ],
   "articles": [],
   "imdb": "tt7416536"
+ },
+ "sex-education": {
+  "videos": [
+   {
+    "id": "Hj0r9vi7dmU",
+    "kind": "Official trailer",
+    "title": "Sex Education: Season 2 | Trailer 2 | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "Xr1Fz7a0OO4",
+    "kind": "Cast interview",
+    "title": "Sex Education - A Conversation About Sexual Assault & Aimee's Bus Scene",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "R_dhVkyVTcg",
+    "kind": "Cast interview",
+    "title": "The Emma Mackey Sex Education Interview | Netflix IX",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "xJVN02gXoZI",
+    "kind": "Cast interview",
+    "title": "The Gillian Anderson Sex Education Interview",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "X1B05Dpfbkw",
+    "kind": "Cast interview",
+    "title": "Mimi Keene & Asa Butterfield's Candid Conversation | Sex Education | Netflix India",
+    "channel": "Netflix India"
+   },
+   {
+    "id": "01oB5fkT_-Y",
+    "kind": "Cast interview",
+    "title": "Sex Education | Behind-The-Scenes Season 3 Set Tour With The Cast!",
+    "channel": "Still Watching Netflix"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Netflix Commits to 'Sex Education' With U.K. Drama Order",
+    "href": "https://variety.com/2017/tv/news/netflix-sex-education-1202624394/"
+   },
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "Netflix Unveils First Look At Gillian Anderson In British Comedy Drama 'Sex Education'",
+    "href": "https://deadline.com/2018/12/netflix-sex-education-gillian-anderson-1202513439/"
+   }
+  ],
+  "imdb": "tt7767422"
  },
  "shadow": {
   "videos": [],
@@ -10876,6 +11849,39 @@
   "cinemaRelease": true,
   "imdb": "tt0031971"
  },
+ "stargate": {
+  "videos": [
+   {
+    "id": "c3sgzrgpn8s",
+    "kind": "Official trailer",
+    "title": "STARGATE (1994) | Official Trailer | MGM",
+    "channel": "Amazon MGM Studios"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Stargate",
+    "href": "https://www.rogerebert.com/reviews/stargate-1994",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Deseret News",
+    "title": "Movie review: Stargate",
+    "href": "https://web.archive.org/web/20061105014132/http://deseretnews.com/movies/view/1,1257,1736,00.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Ledger-Enquirer",
+    "title": "'Stargate' still No. 1 at box office",
+    "href": "https://www.newspapers.com/clip/121990561/stargate-still-no-1-at-box-office/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0111282"
+ },
  "stormy-weather": {
   "videos": [],
   "reviews": [
@@ -11559,6 +12565,32 @@
   "cinemaRelease": true,
   "imdb": "tt2321555"
  },
+ "the-chronicles-of-narnia-the-lion-the-witch-and-the-wardrobe": {
+  "videos": [
+   {
+    "id": "usEkWtuNn-w",
+    "kind": "Official trailer",
+    "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe Trailer | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "n1zljzWbSQY",
+    "kind": "Featurette",
+    "title": "The Chronicles of Narnia The Lion Behind The Scenes Part 2 | ScreenSlam",
+    "channel": "ScreenSlam"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Movies.com",
+    "title": "20 Secrets about Narnia (Page 2)",
+    "href": "https://web.archive.org/web/20061215190645/http://movies.go.com/narnia/feature?featureid=745671"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0363771"
+ },
  "the-college-dropout-video-anthology": {
   "videos": [
    {
@@ -11577,6 +12609,111 @@
    }
   ],
   "imdb": "tt0466040"
+ },
+ "the-crown": {
+  "videos": [
+   {
+    "id": "JWtnJjn6ng0",
+    "kind": "Official trailer",
+    "title": "Official Trailer",
+    "channel": "Netflix"
+   },
+   {
+    "id": "K_TE8yi58S8",
+    "kind": "Teaser",
+    "title": "The Crown Season 3 | Teaser Trailer | Netflix",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "n_tIs2Im5Jo",
+    "kind": "Cast interview",
+    "title": "The Crown | Casting & Research | Netflix",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "F3XQ-fSPrn8",
+    "kind": "Cast interview",
+    "title": "The Crown Cast Tell The Story Of Filming Season 4 | Netflix",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "0iJzuTL7NAI",
+    "kind": "Cast interview",
+    "title": "The Olivia and Helena Interview | The Crown S3",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "_-1A-g5fr0Y",
+    "kind": "Cast interview",
+    "title": "The Crown's Claire Foy (Full Interview) | Chelsea | Netflix",
+    "channel": "Netflix Is A Joke"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "BBC News",
+    "title": "Netflix to adapt Queen Elizabeth II play The Audience",
+    "href": "https://www.bbc.co.uk/news/entertainment-arts-30034850"
+   },
+   {
+    "outlet": "BBC News",
+    "title": "Netflix plans original UK drama about the Queen",
+    "href": "https://www.bbc.co.uk/news/entertainment-arts-27539739"
+   }
+  ],
+  "imdb": "tt4786824"
+ },
+ "the-danish-girl": {
+  "videos": [
+   {
+    "id": "3vyUHGl0Y6E",
+    "kind": "Official trailer",
+    "title": "THE DANISH GIRL - Official Trailer - In Theaters November 2015",
+    "channel": "Focus Features"
+   },
+   {
+    "id": "Vc4s4wQxGHY",
+    "kind": "Cast interview",
+    "title": "Conversations with Alicia Vikander of THE DANISH GIRL",
+    "channel": "SAG-AFTRA Foundation"
+   },
+   {
+    "id": "IdOtD2fs4Eo",
+    "kind": "Cast interview",
+    "title": "Academy Conversations: The Danish Girl",
+    "channel": "Oscars"
+   },
+   {
+    "id": "ilky9Psfl3k",
+    "kind": "Featurette",
+    "title": "The Danish Girl (2016) Pixie Featurette (Universal Pictures)",
+    "channel": "Universal Pictures Australia"
+   },
+   {
+    "id": "cl8W_rdHF8k",
+    "kind": "Featurette",
+    "title": "THE DANISH GIRL - 'Eddie Redmayne' Featurette - Now Playing",
+    "channel": "Focus Features"
+   },
+   {
+    "id": "Ojikbcxvam8",
+    "kind": "Featurette",
+    "title": "The Danish Girl - Eddie Redmayne Featurette (Universal Pictures)",
+    "channel": "Universal Pictures UK"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Sydney Morning Herald",
+    "title": "Review: The Danish Girl is 'an exercise in constructed melodrama'",
+    "href": "https://www.smh.com.au/entertainment/movies/review-the-danish-girl-is-an-exercise-in-constructed-melodrama-20160119-gm95ba.html",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0810819"
  },
  "the-devil-wears-prada-2": {
   "videos": [
@@ -11877,6 +13014,75 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt27165187"
+ },
+ "the-expendables": {
+  "videos": [
+   {
+    "id": "8KtYRALe-xo",
+    "kind": "Official trailer",
+    "title": "The Expendables (2010) - Official Trailer #1",
+    "channel": "Lionsgate Movies"
+   },
+   {
+    "id": "ZrzeFfsOU4c",
+    "kind": "Teaser",
+    "title": "The Expendables (2010) - Teaser Trailer",
+    "channel": "Lionsgate Movies"
+   },
+   {
+    "id": "UToyuKq112Q",
+    "kind": "Featurette",
+    "title": "The Expendables (2010) - 'Soldiers' Behind the Scenes Episode #2",
+    "channel": "Lionsgate Movies"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "The Expendables – Film Review",
+    "href": "https://web.archive.org/web/20100805100946/http://www.hollywoodreporter.com/hr/film-reviews/the-expendables-film-review-1004107460.story",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Boxoffice",
+    "title": "THE EXPENDABLES: Action of (and with) the \"Old Guard\"",
+    "href": "https://web.archive.org/web/20100806183142/http://www.boxofficemagazine.com/reviews/theatrical/2010-08-the-expendables",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Time",
+    "title": "The Expendables: Sly and the Family Clones",
+    "href": "https://web.archive.org/web/20100818095924/http://www.time.com/time/arts/article/0,8599,2010151-1,00.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "E! Online",
+    "title": "Review: The Expendables Packs the Ultimate Adrenaline Shot for Summer",
+    "href": "http://www.eonline.com/uberblog/movie_reviews/b195056_review_expendables_packs_ultimate.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New Yorker",
+    "title": "Tough Guys",
+    "href": "https://www.newyorker.com/arts/critics/cinema/2010/08/16/100816crci_cinema_lane?currentPage=1",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Rolling Stone",
+    "title": "The Expendables",
+    "href": "https://web.archive.org/web/20100815211113/http://www.rollingstone.com/movies/reviews/17388/190694",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Box office: 'Expendables' blows up, 'Scott Pilgrim' out of tune, 'Eat Pray Love' has decent first bite",
+    "href": "https://www.latimes.com/archives/blogs/company-town-blog/story/2010-08-15/box-office-expendables-blows-up-scott-pilgrim-out-of-tune-eat-pray-love-has-decent-first-bite"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1320253"
  },
  "the-fix": {
   "videos": [
@@ -12697,6 +13903,75 @@
    }
   ],
   "imdb": "tt13820498"
+ },
+ "the-lion-king": {
+  "videos": [
+   {
+    "id": "7TavVZMewpY",
+    "kind": "Official trailer",
+    "title": "The Lion King Official Trailer",
+    "channel": "Disney"
+   },
+   {
+    "id": "zCecE7OyVMU",
+    "kind": "Teaser",
+    "title": "The Lion King Teaser Trailer #1 (2019) | Movieclips Trailers",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "iwycCipNMVE",
+    "kind": "Filmmaker interview",
+    "title": "Jon Favreau on The Lion King, Beyoncé & New Star Wars Series",
+    "channel": "Jimmy Kimmel Live"
+   },
+   {
+    "id": "v5u5cei0tNg",
+    "kind": "Filmmaker interview",
+    "title": "The Lion King: Donald Glover and Jon Favreau (Full Interview)",
+    "channel": "Entertainment Tonight"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "Review: Disney's photo-real 'The Lion King' remake sings a new yet familiar tune",
+    "href": "https://www.latimes.com/entertainment/movies/la-et-mn-lion-king-beyonce-review-20190711-story.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "The Lion King: Review",
+    "href": "https://www.hollywoodreporter.com/review/lion-king-review-1223757",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "The Lion King review: deepfake copycat ain't so grrreat",
+    "href": "https://www.theguardian.com/film/2019/jul/11/the-lion-king-review-anthro-leonine-clones-original",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Forbes",
+    "title": "'The Lion King' Review: Be Prepared For A Crushing Disappointment",
+    "href": "https://www.forbes.com/sites/scottmendelson/2019/07/11/the-lion-king-review-be-prepared-for-a-crushing-disappointment/#85526a85d86a",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "IndieWire",
+    "title": "'The Lion King' Review: Disney's Remake Is a Disastrous Plunge into the Uncanny Valley",
+    "href": "https://www.indiewire.com/features/general/the-lion-king-review-2019-1202157153/",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Box Office: The Lion King Roars Past $1B in Global Ticket Sales",
+    "href": "https://www.hollywoodreporter.com/news/general-news/lion-king-box-office-roars-past-1b-global-ticket-sales-1227920/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt6105098"
  },
  "the-lord-of-the-rings-the-fellowship-of-the-ring": {
   "videos": [
@@ -14694,6 +15969,43 @@
   ],
   "imdb": "tt37972251"
  },
+ "wednesday": {
+  "videos": [
+   {
+    "id": "03u4xyj0TH4",
+    "kind": "Official trailer",
+    "title": "Wednesday: Season 2 | Official Trailer | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "Di310WS8zLk",
+    "kind": "Teaser",
+    "title": "Wednesday Addams | Official Teaser | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "LEb9yR9QoRw",
+    "kind": "Cast interview",
+    "title": "The Wednesday Cast Judges Netflix Characters as Outcasts vs. Normies | Wednesday | Netflix",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "F117HPHLzow",
+    "kind": "Cast interview",
+    "title": "'Wednesday' Cast Test How Well They Know Each Other | Vanity Fair",
+    "channel": "Vanity Fair"
+   },
+   {
+    "id": "EYZZ0XLEtlA",
+    "kind": "Cast interview",
+    "title": "The Wednesday Cast Tries to Guess What's in the Box | Wednesday: Season 2 | Netflix",
+    "channel": "Still Watching Netflix"
+   }
+  ],
+  "reviews": [],
+  "articles": [],
+  "imdb": "tt13443470"
+ },
  "west-side-story": {
   "videos": [
    {
@@ -15166,6 +16478,181 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt32897959"
+ },
+ "x-men-days-of-future-past": {
+  "videos": [
+   {
+    "id": "gsjtg7m1MMM",
+    "kind": "Official trailer",
+    "title": "X-Men: Days of Future Past | Official Trailer 3 [HD] | 20th Century FOX",
+    "channel": "X-Men Movies"
+   },
+   {
+    "id": "gK34xmwoX-I",
+    "kind": "Cast interview",
+    "title": "X-Men: Days of Future Past - Video Interviews",
+    "channel": "IGN"
+   },
+   {
+    "id": "iA8PlmmRsbg",
+    "kind": "Cast interview",
+    "title": "X-Men: Days of Future Past - The Fandango Interview | Celebrity Interviews | FandangoMovies",
+    "channel": "Fandango"
+   },
+   {
+    "id": "e9MRCL67ydU",
+    "kind": "Cast interview",
+    "title": "Michael Fassbender & James McAvoy Interview - X-Men: Days of Future Past (2014) JoBlo.com HD",
+    "channel": "JoBlo Movie Network"
+   },
+   {
+    "id": "vT05y9b0AnI",
+    "kind": "Cast interview",
+    "title": "'X-Men' Cast Members on Fighting Killer Robots, Time Travel",
+    "channel": "ABC News"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "CinemaBlend",
+    "title": "X-Men: Days of Future Past Review",
+    "href": "https://web.archive.org/web/20200727000854/https://www.cinemablend.com/reviews/X-Men-Days-of-Future-Past-6836.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "X-Men: Days of Future Past review - 'like trying to follow two games of chess at once' | Film",
+    "href": "https://www.theguardian.com/film/2014/may/13/x-men-days-of-future-past-review",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Film Review: X-Men: Days of Future Past",
+    "href": "https://variety.com/2014/film/reviews/film-review-x-men-days-of-future-past-1201177971/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Daily Telegraph",
+    "title": "X-Men: Days of Future Past, review: 'A mess of mutants'",
+    "href": "https://web.archive.org/web/20140513011101/http://www.telegraph.co.uk/culture/film/filmreviews/10825791/X-Men-Days-of-Future-Past-review-A-mess-of-mutants.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "RogerEbert.com",
+    "title": "X-Men: Days of Future Past, review by Simon Abrams for rogerebert.com",
+    "href": "https://www.rogerebert.com/reviews/x-men-days-of-future-past-2014",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt1877832"
+ },
+ "x-men-the-last-stand": {
+  "videos": [
+   {
+    "id": "ZQ0v5dXbw7M",
+    "kind": "Official trailer",
+    "title": "X-Men: The Last Stand (2006) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "Ny4dACZgvTM",
+    "kind": "Featurette",
+    "title": "X MEN THE LAST STAND Behind The Scenes (2006) Sci-Fi",
+    "channel": "JoBlo Behind-the-Scenes + Bloopers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Salon",
+    "title": "X-Men: The Last Stand",
+    "href": "http://www.salon.com/2006/05/26/xmen_stand/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Variety",
+    "title": "X-Men: The Last Stand",
+    "href": "https://variety.com/2006/film/awards/x-men-the-last-stand-1200516077/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Star Tribune",
+    "title": "'X-Men' trilogy goes down in flames",
+    "href": "http://www.startribune.com/entertainment/movies/11524436.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Rolling Stone",
+    "title": "X-Men: The Last Stand Movie Review",
+    "href": "https://www.rollingstone.com/movies/reviews/x-men-the-last-stand-20060526",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Chicago Tribune",
+    "title": "'X-Men: The Last Stand' scores Memorial Day weekend record",
+    "href": "https://www.chicagotribune.com/news/ct-xpm-2006-05-29-0605290181-story.html"
+   },
+   {
+    "outlet": "Reuters",
+    "title": "Early summer movies underperform at box office",
+    "href": "https://www.reuters.com/article/us-boxoffice/early-summer-movies-underperform-at-box-office-idUSN2826542020070530"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0376994"
+ },
+ "x2": {
+  "videos": [
+   {
+    "id": "pkR8y3c8Pk4",
+    "kind": "Cast interview",
+    "title": "X2 X-Men II - Anna Paquin, Aron Stanford, & Shawn Ashmore Interviews Press Junket (2003)",
+    "channel": "Historic Films Stock Footage Archive"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "X2: X-Men United",
+    "href": "https://www.rogerebert.com/reviews/x2-x-men-united-2003",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Los Angeles Times",
+    "title": "X2 might get its claws in you",
+    "href": "https://www.latimes.com/archives/la-xpm-2003-may-02-et-turan2-story.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "The Inhuman Touch",
+    "href": "https://www.sfgate.com/movies/article/THE-INHUMAN-TOUCH-X-Men-sequel-packed-with-2618961.php",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Washington Post",
+    "title": "X-Men United: Missing a Why, It Spawns Zzzzs",
+    "href": "https://www.washingtonpost.com/wp-dyn/content/article/2003/05/02/AR2005040200554.html",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Marvel-ous 'X2' opening",
+    "href": "https://variety.com/2003/scene/markets-festivals/marvel-ous-x2-opening-1117885660/"
+   },
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "Matrix Reloaded breaks box office records",
+    "href": "https://ew.com/article/2003/05/16/matrix-reloaded-breaks-box-office-records/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0290334"
  },
  "you-can-see-everything": {
   "videos": [

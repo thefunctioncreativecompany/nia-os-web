@@ -1406,3 +1406,21 @@ onboarding's Import profile and Follow creators describe features removed in the
   Part 2 suggests and notifies only people on the project (owner and members); mentioning people
   outside it is part 4. A mention replaces the owner's "commented on" or the "replied to" for the
   same person.
+- (2026-11-28) Explore: the next 30 from the studio catalogue (Ika: "add next 30 in explore
+  queue"), 174 of 312 now on Explore: Milk, The Lion King (2019), X2, X-Men: Days of Future Past,
+  Logan, Doctor Zhivago, Wednesday, Beauty and the Beast (2017), X-Men: The Last Stand, Everything
+  Everywhere All at Once, The Lion, the Witch and the Wardrobe, American Psycho, The Expendables,
+  Octopussy, House of Cards, The Crown, Sex Education, Stargate, A View to a Kill, In Bruges, Dallas
+  Buyers Club, Fifty Shades of Grey, Cinderella (2015), Licence to Kill, Mutiny on the Bounty (1935),
+  Saw II, 3:10 to Yuma (2007), The Danish Girl, Onward, Grand Hotel. Posters checked by eye (all
+  official). The Wikipedia lookup matched The Crown to The Thomas Crown Affair; its IMDb id, and
+  Wednesday's and Fifty Shades of Grey's, came from the catalogue's Wikidata items instead. Trailers
+  for Days of Future Past and The Crown from TMDB (official channels, checked to embed); X2,
+  Octopussy and A View to a Kill have none yet. Press kits checked by hand: videos of other films
+  taken out (Prince Caspian, Mufasa, The Expendables 3, the 2019 Grand Hotel series, a band called
+  The Milk, a Despicable Me 4 featurette), as were film clips and fan channels; rankings, round-ups,
+  box-office news and Fifty Shades of Grey's book reviews were removed from the reviews; each verdict
+  was read from the review itself (Ebert's one-star Stargate review had been marked Positive), and a
+  review was dropped when its verdict couldn't be confirmed. Wednesday, Beauty and the Beast,
+  Narnia, House of Cards, The Crown, Sex Education, A View to a Kill, Fifty Shades of Grey and 3:10
+  to Yuma have no reviews yet (Wikipedia cites none usable); fill them from edited publications later.

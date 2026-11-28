@@ -13370,6 +13370,895 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "milk",
+   "collection": "modern-classics",
+   "title": "Milk",
+   "type": "film",
+   "genres": [
+    "Biography",
+    "Drama",
+    "Historical"
+   ],
+   "year": 2008,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Gus Van Sant",
+   "recognition": "Academy Awards for Best Actor (Sean Penn) and Original Screenplay",
+   "pair_with": "",
+   "study_note": "Gus Van Sant restages Harvey Milk's San Francisco on Castro Street itself, cutting real news footage of the time into the drama",
+   "added": "2026-11-27",
+   "imdb_id": "tt1013753",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "hF05_CB81c0",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-lion-king",
+   "collection": "modern-classics",
+   "title": "The Lion King",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Drama",
+    "Family",
+    "Animation"
+   ],
+   "year": 2019,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Jon Favreau",
+   "recognition": "Over $1.6 billion at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Jon Favreau shoots a fully computer-made film like a live-action one: the crew worked real camera rigs, cranes and dollies inside virtual reality",
+   "added": "2026-11-27",
+   "imdb_id": "tt6105098",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "7TavVZMewpY",
+     "kind": "trailer",
+     "channel": "Disney",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "x2",
+   "collection": "modern-classics",
+   "title": "X2",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2003,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Bryan Singer",
+   "recognition": "Over $407 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Opens on Nightcrawler teleporting through the White House, one of the sequel's set pieces built from practical sets and visual effects together",
+   "added": "2026-11-27",
+   "imdb_id": "tt0290334"
+  },
+  {
+   "slug": "x-men-days-of-future-past",
+   "collection": "modern-classics",
+   "title": "X-Men: Days of Future Past",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2014,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Bryan Singer",
+   "recognition": "Over $745 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Two casts playing the same characters decades apart, the 1973 scenes and a dark future cut together around Quicksilver's slow-motion kitchen sequence",
+   "added": "2026-11-27",
+   "imdb_id": "tt1877832",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "gsjtg7m1MMM",
+     "kind": "trailer",
+     "channel": "X-Men Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "logan",
+   "collection": "modern-classics",
+   "title": "Logan",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Drama",
+    "Sci-Fi",
+    "Western"
+   ],
+   "year": 2017,
+   "countries": [
+    "United States"
+   ],
+   "credit": "James Mangold",
+   "recognition": "Academy Award nominee, Best Adapted Screenplay",
+   "pair_with": "",
+   "study_note": "James Mangold makes his superhero film a western: dusty roads, an old man and a girl, and a black-and-white cut released as Logan Noir",
+   "added": "2026-11-27",
+   "imdb_id": "tt3315342",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Div0iP65aZo",
+     "kind": "trailer",
+     "channel": "20th Century Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "doctor-zhivago",
+   "collection": "modern-classics",
+   "title": "Doctor Zhivago",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Romance",
+    "Historical",
+    "War"
+   ],
+   "year": 1965,
+   "countries": [
+    "United Kingdom",
+    "United States",
+    "Italy"
+   ],
+   "credit": "David Lean",
+   "recognition": "Five Academy Awards, including Best Adapted Screenplay and Cinematography",
+   "pair_with": "",
+   "study_note": "David Lean's Russian epic was shot mostly in Spain, its winters made with fake snow and its frozen house dressed in wax",
+   "added": "2026-11-27",
+   "imdb_id": "tt0059113",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "CGGr21PilKY",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "wednesday",
+   "collection": "drama-series",
+   "title": "Wednesday",
+   "type": "series",
+   "genres": [
+    "Comedy",
+    "Mystery",
+    "Fantasy"
+   ],
+   "year": 2022,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Alfred Gough & Miles Millar",
+   "recognition": "Netflix's most-watched English-language series",
+   "pair_with": "",
+   "study_note": "Tim Burton directs four of the first eight episodes, shot in Romania, and Jenna Ortega choreographed Wednesday's dance herself",
+   "added": "2026-11-27",
+   "imdb_id": "tt13443470",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "03u4xyj0TH4",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "beauty-and-the-beast",
+   "collection": "modern-classics",
+   "title": "Beauty and the Beast",
+   "type": "film",
+   "genres": [
+    "Family",
+    "Fantasy",
+    "Romance",
+    "Musical"
+   ],
+   "year": 2017,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Bill Condon",
+   "recognition": "Over $1.2 billion at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Disney's 1991 animation remade in live action, with Dan Stevens on stilts in a motion-capture suit for the Beast and his face captured separately",
+   "added": "2026-11-27",
+   "imdb_id": "tt2771200",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "pnkgw6pAKkM",
+     "kind": "trailer",
+     "channel": "Disney UK",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "x-men-the-last-stand",
+   "collection": "modern-classics",
+   "title": "X-Men: The Last Stand",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2006,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Brett Ratner",
+   "recognition": "Over $459 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "The trilogy's finale is built around a cure for mutation, ending with the Golden Gate Bridge torn loose and swung to Alcatraz",
+   "added": "2026-11-27",
+   "imdb_id": "tt0376994",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "ZQ0v5dXbw7M",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "everything-everywhere-all-at-once",
+   "collection": "black-and-poc-leads",
+   "title": "Everything Everywhere All at Once",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Comedy",
+    "Sci-Fi"
+   ],
+   "year": 2022,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Daniel Kwan & Daniel Scheinert",
+   "recognition": "Seven Academy Awards, including Best Picture and Director",
+   "pair_with": "",
+   "study_note": "The Daniels made a multiverse on a modest budget, with a visual-effects team of five artists working mostly from home",
+   "added": "2026-11-27",
+   "imdb_id": "tt6710474",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "wxN1T1uxQ2g",
+     "kind": "trailer",
+     "channel": "A24",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-chronicles-of-narnia-the-lion-the-witch-and-the-wardrobe",
+   "collection": "modern-classics",
+   "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Family",
+    "Fantasy"
+   ],
+   "year": 2005,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Andrew Adamson",
+   "recognition": "Academy Award for Best Makeup",
+   "pair_with": "",
+   "study_note": "Andrew Adamson, coming from Shrek, shot in New Zealand and set a computer-made Aslan among real snowfields and forests",
+   "added": "2026-11-27",
+   "imdb_id": "tt0363771",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "usEkWtuNn-w",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "american-psycho",
+   "collection": "modern-classics",
+   "title": "American Psycho",
+   "type": "film",
+   "genres": [
+    "Thriller",
+    "Crime",
+    "Satire"
+   ],
+   "year": 2000,
+   "countries": [
+    "Canada",
+    "United States"
+   ],
+   "credit": "Mary Harron",
+   "recognition": "Premiered at the Sundance Film Festival",
+   "pair_with": "",
+   "study_note": "Mary Harron plays Bret Easton Ellis's killer as satire: 1980s Manhattan offices, business cards and restaurant bookings shot as straight-faced as an advert",
+   "added": "2026-11-27",
+   "imdb_id": "tt0144084",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "HHMaiPPjHHg",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-expendables",
+   "collection": "modern-classics",
+   "title": "The Expendables",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Thriller"
+   ],
+   "year": 2010,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Sylvester Stallone",
+   "recognition": "Over $274 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Sylvester Stallone directs and gathers a generation of action stars, with Jason Statham, Jet Li, Dolph Lundgren and a scene with Bruce Willis and Arnold Schwarzenegger",
+   "added": "2026-11-27",
+   "imdb_id": "tt1320253",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "8KtYRALe-xo",
+     "kind": "trailer",
+     "channel": "Lionsgate Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "octopussy",
+   "collection": "modern-classics",
+   "title": "Octopussy",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Thriller"
+   ],
+   "year": 1983,
+   "countries": [
+    "United Kingdom"
+   ],
+   "credit": "John Glen",
+   "recognition": "Over $187 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Roger Moore's Bond in Udaipur, with an auto-rickshaw chase through the streets, a palace on Lake Pichola and a fight on top of a moving train",
+   "added": "2026-11-27",
+   "imdb_id": "tt0086034"
+  },
+  {
+   "slug": "house-of-cards",
+   "collection": "drama-series",
+   "title": "House of Cards",
+   "type": "series",
+   "genres": [
+    "Drama",
+    "Thriller"
+   ],
+   "year": 2013,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Beau Willimon",
+   "recognition": "Netflix's first original drama series; Emmy Award for David Fincher's direction of its first episode",
+   "pair_with": "",
+   "study_note": "David Fincher sets the look in the first two episodes: still, symmetrical frames, a cold palette and a lead who speaks straight to camera",
+   "added": "2026-11-27",
+   "imdb_id": "tt1856010",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "8QnMmpfKWvo",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-crown",
+   "collection": "drama-series",
+   "title": "The Crown",
+   "type": "series",
+   "genres": [
+    "Drama",
+    "Historical",
+    "Biography"
+   ],
+   "year": 2016,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Peter Morgan",
+   "recognition": "Emmy Award for Outstanding Drama Series, 2021",
+   "pair_with": "",
+   "study_note": "Peter Morgan recasts the royal family every two seasons, so three actresses play Elizabeth II across six decades",
+   "added": "2026-11-27",
+   "imdb_id": "tt4786824",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "JWtnJjn6ng0",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "sex-education",
+   "collection": "drama-series",
+   "title": "Sex Education",
+   "type": "series",
+   "genres": [
+    "Comedy",
+    "Drama",
+    "Coming of Age"
+   ],
+   "year": 2019,
+   "countries": [
+    "United Kingdom"
+   ],
+   "credit": "Laurie Nunn",
+   "recognition": "BAFTA TV Award for Aimee Lou Wood, 2021",
+   "pair_with": "",
+   "study_note": "Shot in Wales and styled like an American high-school film: letterman jackets, lockers and a bright palette at a British school",
+   "added": "2026-11-27",
+   "imdb_id": "tt7767422",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Hj0r9vi7dmU",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "stargate",
+   "collection": "modern-classics",
+   "title": "Stargate",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 1994,
+   "countries": [
+    "United States",
+    "France"
+   ],
+   "credit": "Roland Emmerich",
+   "recognition": "Over $196 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Roland Emmerich builds an ancient Egypt on another planet in the dunes of the American desert: the film that started a television franchise",
+   "added": "2026-11-27",
+   "imdb_id": "tt0111282",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "c3sgzrgpn8s",
+     "kind": "trailer",
+     "channel": "Amazon MGM Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "a-view-to-a-kill",
+   "collection": "modern-classics",
+   "title": "A View to a Kill",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Thriller"
+   ],
+   "year": 1985,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "John Glen",
+   "recognition": "Duran Duran's theme reached number one in the United States",
+   "pair_with": "",
+   "study_note": "Roger Moore's last Bond: a parachute jump from the Eiffel Tower and a finale on the Golden Gate Bridge",
+   "added": "2026-11-27",
+   "imdb_id": "tt0090264"
+  },
+  {
+   "slug": "in-bruges",
+   "collection": "modern-classics",
+   "title": "In Bruges",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Dark Comedy"
+   ],
+   "year": 2008,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Martin McDonagh",
+   "recognition": "Academy Award nominee, Best Original Screenplay",
+   "pair_with": "",
+   "study_note": "Martin McDonagh's first feature, shot on location: two hitmen killing time in a medieval town that plays as a third character",
+   "added": "2026-11-27",
+   "imdb_id": "tt0780536",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "p-gG2qo_l_A",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "dallas-buyers-club",
+   "collection": "modern-classics",
+   "title": "Dallas Buyers Club",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Biography"
+   ],
+   "year": 2013,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Jean-Marc Vallée",
+   "recognition": "Three Academy Awards, including Best Actor (Matthew McConaughey) and Supporting Actor (Jared Leto)",
+   "pair_with": "",
+   "study_note": "Shot in about a month on a small budget, handheld and without film lights, by Jean-Marc Vallée",
+   "added": "2026-11-27",
+   "imdb_id": "tt0790636",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "BhFYcnRPEfA",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "fifty-shades-of-grey",
+   "collection": "modern-classics",
+   "title": "Fifty Shades of Grey",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Romance"
+   ],
+   "year": 2015,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Sam Taylor-Johnson",
+   "recognition": "Over $569 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Sam Taylor-Johnson, a photographer and video artist, adapts E. L. James's bestseller with Seamus McGarvey's cool, glossy cinematography",
+   "added": "2026-11-27",
+   "imdb_id": "tt2322441",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "SfZWFDs0LxA",
+     "kind": "trailer",
+     "channel": "Universal Pictures UK",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "cinderella",
+   "collection": "modern-classics",
+   "title": "Cinderella",
+   "type": "film",
+   "genres": [
+    "Family",
+    "Fantasy",
+    "Romance"
+   ],
+   "year": 2015,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Kenneth Branagh",
+   "recognition": "Over $542 million at the worldwide box office; Academy Award nominee, Best Costume Design",
+   "pair_with": "",
+   "study_note": "Kenneth Branagh plays the fairy tale straight, with Sandy Powell's costumes and a palace built on the stages at Pinewood",
+   "added": "2026-11-27",
+   "imdb_id": "tt1661199",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "LfR8Su4ulX0",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "licence-to-kill",
+   "collection": "modern-classics",
+   "title": "Licence to Kill",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Thriller"
+   ],
+   "year": 1989,
+   "countries": [
+    "United Kingdom",
+    "United States",
+    "Mexico"
+   ],
+   "credit": "John Glen",
+   "recognition": "Over $156 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Timothy Dalton's darker Bond, out for revenge, shot largely in Mexico and ending in a tanker-truck chase down a mountain road",
+   "added": "2026-11-27",
+   "imdb_id": "tt0097742",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "quHQAuO0lkg",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "mutiny-on-the-bounty",
+   "collection": "studio-era",
+   "title": "Mutiny on the Bounty",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Drama",
+    "Historical"
+   ],
+   "year": 1935,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Frank Lloyd",
+   "recognition": "Academy Award for Best Picture",
+   "pair_with": "",
+   "study_note": "MGM sailed full-size replicas of the Bounty and the Pandora off Catalina Island, with Charles Laughton and Clark Gable",
+   "added": "2026-11-27",
+   "imdb_id": "tt0026752",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "aFalJyGNGmE",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "saw-ii",
+   "collection": "modern-classics",
+   "title": "Saw II",
+   "type": "film",
+   "genres": [
+    "Horror",
+    "Thriller",
+    "Crime"
+   ],
+   "year": 2005,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Darren Lynn Bousman",
+   "recognition": "Over $147 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Made for about $4 million, with a cast locked in one booby-trapped house: Darren Lynn Bousman's first feature",
+   "added": "2026-11-27",
+   "imdb_id": "tt0432348",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Lq2AzZB6DUE",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "3-10-to-yuma",
+   "collection": "modern-classics",
+   "title": "3:10 to Yuma",
+   "type": "film",
+   "genres": [
+    "Western",
+    "Drama",
+    "Action"
+   ],
+   "year": 2007,
+   "countries": [
+    "United States"
+   ],
+   "credit": "James Mangold",
+   "recognition": "Two Academy Award nominations",
+   "pair_with": "",
+   "study_note": "James Mangold remakes the 1957 western on New Mexico locations, with Russell Crowe and Christian Bale",
+   "added": "2026-11-27",
+   "imdb_id": "tt0381849",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "jX1m45CwvJ8",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-danish-girl",
+   "collection": "modern-classics",
+   "title": "The Danish Girl",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Biography",
+    "Romance"
+   ],
+   "year": 2015,
+   "countries": [
+    "United Kingdom",
+    "United States",
+    "Belgium"
+   ],
+   "credit": "Tom Hooper",
+   "recognition": "Academy Award for Best Supporting Actress (Alicia Vikander)",
+   "pair_with": "",
+   "study_note": "Tom Hooper and cinematographer Danny Cohen take their frames from painting, especially Vilhelm Hammershøi's quiet Copenhagen interiors",
+   "added": "2026-11-27",
+   "imdb_id": "tt0810819",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "3vyUHGl0Y6E",
+     "kind": "trailer",
+     "channel": "Focus Features",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "onward",
+   "collection": "modern-classics",
+   "title": "Onward",
+   "type": "film",
+   "genres": [
+    "Animation",
+    "Adventure",
+    "Comedy",
+    "Family",
+    "Fantasy"
+   ],
+   "year": 2020,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Dan Scanlon",
+   "recognition": "Academy Award nominee, Best Animated Feature",
+   "pair_with": "",
+   "study_note": "Pixar's suburban fantasy road trip, drawn from Dan Scanlon losing his father when he was a baby",
+   "added": "2026-11-27",
+   "imdb_id": "tt7146812",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "TxpjGMpnmx4",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "grand-hotel",
+   "collection": "studio-era",
+   "title": "Grand Hotel",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Romance"
+   ],
+   "year": 1932,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Edmund Goulding",
+   "recognition": "Academy Award for Best Picture",
+   "pair_with": "",
+   "study_note": "MGM's stars under one Berlin hotel roof, with Greta Garbo, John and Lionel Barrymore and Joan Crawford: the model for every ensemble hotel film since",
+   "added": "2026-11-27",
+   "imdb_id": "tt0022958",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "fUhl5o8cJ5g",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

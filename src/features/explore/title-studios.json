@@ -2459,5 +2459,188 @@
  "widows-bay": {
   "studios": [],
   "tmdb": "tv/270476"
+ },
+ "milk": {
+  "studios": [
+   "focus"
+  ],
+  "tmdb": "movie/10139"
+ },
+ "the-lion-king": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/420818"
+ },
+ "x2": {
+  "studios": [
+   "20th-century"
+  ],
+  "tmdb": "movie/36658"
+ },
+ "x-men-days-of-future-past": {
+  "studios": [
+   "20th-century",
+   "marvel"
+  ],
+  "tmdb": "movie/127585"
+ },
+ "logan": {
+  "studios": [
+   "20th-century",
+   "marvel"
+  ],
+  "tmdb": "movie/263115"
+ },
+ "doctor-zhivago": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/907"
+ },
+ "wednesday": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/119051"
+ },
+ "beauty-and-the-beast": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/321612"
+ },
+ "x-men-the-last-stand": {
+  "studios": [
+   "20th-century",
+   "marvel"
+  ],
+  "tmdb": "movie/36668"
+ },
+ "everything-everywhere-all-at-once": {
+  "studios": [
+   "a24"
+  ],
+  "tmdb": "movie/545611"
+ },
+ "the-chronicles-of-narnia-the-lion-the-witch-and-the-wardrobe": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/411"
+ },
+ "american-psycho": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/1359"
+ },
+ "the-expendables": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/27578"
+ },
+ "octopussy": {
+  "studios": [
+   "eon"
+  ],
+  "tmdb": "movie/700"
+ },
+ "house-of-cards": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/1425"
+ },
+ "the-crown": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/65494"
+ },
+ "sex-education": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/81356"
+ },
+ "stargate": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/2164"
+ },
+ "a-view-to-a-kill": {
+  "studios": [
+   "mgm",
+   "united-artists",
+   "eon"
+  ],
+  "tmdb": "movie/707"
+ },
+ "in-bruges": {
+  "studios": [
+   "focus"
+  ],
+  "tmdb": "movie/8321"
+ },
+ "dallas-buyers-club": {
+  "studios": [],
+  "tmdb": "movie/152532"
+ },
+ "fifty-shades-of-grey": {
+  "studios": [
+   "universal",
+   "focus"
+  ],
+  "tmdb": "movie/216015"
+ },
+ "cinderella": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/150689"
+ },
+ "licence-to-kill": {
+  "studios": [
+   "united-artists",
+   "eon"
+  ],
+  "tmdb": "movie/709"
+ },
+ "mutiny-on-the-bounty": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/12311"
+ },
+ "saw-ii": {
+  "studios": [],
+  "tmdb": "movie/215"
+ },
+ "3-10-to-yuma": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/5176"
+ },
+ "the-danish-girl": {
+  "studios": [
+   "working-title"
+  ],
+  "tmdb": "movie/306819"
+ },
+ "onward": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/508439"
+ },
+ "grand-hotel": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/33680"
  }
 }

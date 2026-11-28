@@ -410,6 +410,10 @@
   "warm-palette",
   "low-key"
  ],
+ "3-10-to-yuma": [
+  "muted-colour",
+  "warm-palette"
+ ],
  "a-beautiful-mind": [
   "warm-palette",
   "low-key"
@@ -438,6 +442,9 @@
   "vivid-colour",
   "warm-palette",
   "low-key"
+ ],
+ "a-view-to-a-kill": [
+  "vivid-colour"
  ],
  "abouna": [
   "cool-palette"
@@ -468,6 +475,9 @@
  ],
  "american-housewife": [
   "vivid-colour"
+ ],
+ "american-psycho": [
+  "low-key"
  ],
  "an-american-in-paris": [
   "warm-palette",
@@ -544,6 +554,10 @@
   "muted-colour",
   "warm-palette",
   "low-key"
+ ],
+ "beauty-and-the-beast": [
+  "vivid-colour",
+  "cool-palette"
  ],
  "ben-hur": [
   "vivid-colour",
@@ -651,6 +665,10 @@
   "warm-palette",
   "low-key"
  ],
+ "cinderella": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "citizen-kane": [
   "black-and-white",
   "bright-airy"
@@ -695,6 +713,10 @@
   "warm-palette",
   "low-key"
  ],
+ "dallas-buyers-club": [
+  "muted-colour",
+  "bright-airy"
+ ],
  "dam": [
   "cool-palette"
  ],
@@ -714,6 +736,10 @@
  "do-the-right-thing": [
   "vivid-colour",
   "cool-palette"
+ ],
+ "doctor-zhivago": [
+  "muted-colour",
+  "bright-airy"
  ],
  "double-indemnity": [
   "vivid-colour",
@@ -746,6 +772,10 @@
  "eternal-sunshine-of-the-spotless-mind": [
   "cool-palette"
  ],
+ "everything-everywhere-all-at-once": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "evil-dead-burn": [
   "vivid-colour",
   "warm-palette",
@@ -769,6 +799,10 @@
  ],
  "felicite": [
   "vivid-colour"
+ ],
+ "fifty-shades-of-grey": [
+  "muted-colour",
+  "low-key"
  ],
  "fight-club": [
   "vivid-colour",
@@ -835,6 +869,10 @@
   "vivid-colour",
   "warm-palette",
   "low-key"
+ ],
+ "grand-hotel": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "green-book": [
   "vivid-colour",
@@ -912,6 +950,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "house-of-cards": [
+  "muted-colour",
+  "low-key"
+ ],
  "how-the-grinch-stole-christmas-1966": [
   "vivid-colour",
   "warm-palette"
@@ -945,6 +987,7 @@
   "warm-palette",
   "bright-airy"
  ],
+ "in-bruges": [],
  "in-the-heat-of-the-night": [
   "vivid-colour",
   "warm-palette"
@@ -1065,6 +1108,10 @@
   "warm-palette",
   "low-key"
  ],
+ "licence-to-kill": [
+  "warm-palette",
+  "bright-airy"
+ ],
  "lie-to-me": [],
  "life-of-pi": [
   "muted-colour",
@@ -1078,6 +1125,10 @@
   "warm-palette"
  ],
  "lobola-man": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "logan": [
   "vivid-colour",
   "warm-palette"
  ],
@@ -1149,6 +1200,10 @@
  "mildred-pierce": [
   "black-and-white"
  ],
+ "milk": [
+  "vivid-colour",
+  "cool-palette"
+ ],
  "minions-and-monsters": [
   "vivid-colour",
   "warm-palette"
@@ -1183,6 +1238,10 @@
   "low-key"
  ],
  "mr-smith-goes-to-washington": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "mutiny-on-the-bounty": [
   "vivid-colour",
   "warm-palette"
  ],
@@ -1226,6 +1285,11 @@
  "obsession": [
   "low-key"
  ],
+ "octopussy": [
+  "muted-colour",
+  "warm-palette",
+  "bright-airy"
+ ],
  "off-campus": [],
  "on-becoming-a-guinea-fowl": [
   "vivid-colour",
@@ -1242,6 +1306,10 @@
   "warm-palette"
  ],
  "one-on-one": [
+  "vivid-colour",
+  "cool-palette"
+ ],
+ "onward": [
   "vivid-colour",
   "cool-palette"
  ],
@@ -1403,6 +1471,10 @@
  "saving-private-ryan": [
   "muted-colour"
  ],
+ "saw-ii": [
+  "muted-colour",
+  "bright-airy"
+ ],
  "saw": [
   "muted-colour",
   "bright-airy"
@@ -1436,6 +1508,9 @@
   "warm-palette"
  ],
  "sew-the-winter-to-my-skin": [],
+ "sex-education": [
+  "low-key"
+ ],
  "shadow": [
   "muted-colour",
   "warm-palette"
@@ -1522,6 +1597,9 @@
  ],
  "star-wars": [
   "vivid-colour"
+ ],
+ "stargate": [
+  "low-key"
  ],
  "stormy-weather": [
   "warm-palette"
@@ -1619,6 +1697,14 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "the-chronicles-of-narnia-the-lion-the-witch-and-the-wardrobe": [
+  "vivid-colour",
+  "warm-palette"
+ ],
+ "the-crown": [
+  "muted-colour",
+  "low-key"
+ ],
  "the-curious-case-of-benjamin-button": [
   "vivid-colour",
   "warm-palette"
@@ -1627,6 +1713,9 @@
   "vivid-colour",
   "warm-palette",
   "low-key"
+ ],
+ "the-danish-girl": [
+  "vivid-colour"
  ],
  "the-day-after-tomorrow": [
   "cool-palette"
@@ -1648,6 +1737,10 @@
   "warm-palette"
  ],
  "the-end-of-oak-street": [],
+ "the-expendables": [
+  "muted-colour",
+  "low-key"
+ ],
  "the-fast-and-the-furious-tokyo-drift": [
   "muted-colour"
  ],
@@ -1764,6 +1857,11 @@
  "the-last-days-of-ptolemy-grey": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "the-lion-king": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
  ],
  "the-lord-of-the-rings-the-fellowship-of-the-ring": [
   "vivid-colour",
@@ -1973,6 +2071,11 @@
   "cool-palette",
   "low-key"
  ],
+ "wednesday": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
+ ],
  "west-side-story": [
   "vivid-colour",
   "warm-palette"
@@ -2003,9 +2106,16 @@
   "vivid-colour",
   "low-key"
  ],
+ "x-men-days-of-future-past": [
+  "warm-palette"
+ ],
+ "x-men-the-last-stand": [
+  "cool-palette"
+ ],
  "x-men": [
   "muted-colour"
  ],
+ "x2": [],
  "you-can-see-everything": [
   "warm-palette"
  ],
