@@ -39,8 +39,10 @@ export async function listCastCrew(supabase: Client, projectId: string): Promise
   const userIds = [...new Set(rows.flatMap((r) => (r.person!.user_id && !r.person!.photo_url ? [r.person!.user_id] : [])))];
   const avatars = new Map<string, string | null>();
   if (userIds.length) {
-    const { data: profiles } = await supabase.from("profiles").select("id, avatar_url").in("id", userIds);
-    for (const p of profiles ?? []) avatars.set(p.id, p.avatar_url);
+    // Profiles are private to their owner, so photos come through crew_photos
+    // (20261129000000_crew_photos.sql): the photo only, for people in a crew list you can see.
+    const { data: profiles } = await supabase.rpc("crew_photos", { user_ids: userIds });
+    for (const p of (profiles ?? []) as { id: string; avatar_url: string | null }[]) avatars.set(p.id, p.avatar_url);
   }
   return rows.map((r) => {
     const p = r.person!;

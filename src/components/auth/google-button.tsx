@@ -24,6 +24,10 @@ export function GoogleButton() {
       provider: "google",
       options: {
         redirectTo: `${window.location.origin}/auth/confirm?next=${encodeURIComponent(next)}`,
+        // Always show Google's account chooser (2026-11-28): without it Google quietly reuses the
+        // Google account this browser is already signed in to, so "Add another account" or a
+        // second person on the same computer landed back in the first account.
+        queryParams: { prompt: "select_account" },
       },
     });
     // On success the browser is already leaving for Google.

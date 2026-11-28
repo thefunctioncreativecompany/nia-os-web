@@ -42,16 +42,22 @@ export function parseAccounts(raw: string): SavedAccount[] {
   }
 }
 
-/** Saves (or updates) an account from its current session. */
-export function remember(session: Session | null) {
+/**
+ * Saves (or updates) an account from its current session. `avatar` is the Nia profile photo when
+ * the caller knows it (the user menu does): the session only carries the Google photo, so a photo
+ * uploaded to Nia never reached the login screen's "Continue as" (2026-11-28). Without one, the
+ * photo saved before is kept.
+ */
+export function remember(session: Session | null, avatar?: string | null) {
   if (!session?.refresh_token) return;
   const u = session.user;
   const meta = u.user_metadata ?? {};
+  const saved = savedAccounts().find((a) => a.id === u.id);
   const entry: SavedAccount = {
     id: u.id,
     email: u.email ?? "",
     name: (meta.preferred_name as string) || (meta.full_name as string) || u.email || "",
-    avatar: (meta.avatar_url as string) ?? null,
+    avatar: avatar || saved?.avatar || (meta.avatar_url as string) || (meta.picture as string) || null,
     refreshToken: session.refresh_token,
   };
   write([entry, ...savedAccounts().filter((a) => a.id !== u.id)]);
@@ -62,11 +68,11 @@ export function forget(id: string) {
   write(savedAccounts().filter((a) => a.id !== id));
 }
 
-/** Keeps the signed-in account's saved token current as Supabase refreshes it. */
-export function keepRemembering(supabase: SupabaseClient) {
+/** Keeps the signed-in account's saved token (and photo) current as Supabase refreshes it. */
+export function keepRemembering(supabase: SupabaseClient, avatar?: string | null) {
   const { data } = supabase.auth.onAuthStateChange((event, session) => {
     if (event === "SIGNED_OUT") return;
-    if (session) remember(session);
+    if (session) remember(session, avatar);
   });
   return () => data.subscription.unsubscribe();
 }

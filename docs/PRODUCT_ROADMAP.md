@@ -84,6 +84,8 @@ UB1, PA3–PA5, PA7, PA8.
 | 1 | Sign-up email: last test sent no email | ⏸ Ika |
 | G1 | Google sign-in shows the Supabase address | ⏸ Ika |
 | DB | Migrations not run: `20261110000000_explore_open.sql` (only invited people can save Explore titles), `20261123000000_portfolios_own_work.sql` (PA1, PA2), `20261127000000_push_subscriptions.sql` (D6) | ⏸ Ika |
+| PB1 | Profile pictures broken on the login screen and missing in Cast & crew | ✅ 2026-11-28 |
+| PB2 | Continue with Google reused the Google account already signed in | ✅ 2026-11-28 |
 
 ## Next up
 

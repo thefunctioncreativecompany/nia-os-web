@@ -21,6 +21,13 @@ Status: ⬜ logged, not started · 🔍 being studied · 🔄 in progress · ✅
 
 ---
 
+## 00000000. Logged 2026-11-28: Ika, profile pictures and Google sign-in
+
+| # | What | Found | Status |
+|---|------|-------|--------|
+| PB1 | **Profile pictures broken on the login screen and missing in Cast & crew.** | Google account photos weren't on the list of picture sources Nia allows, and 23 of 49 profiles use one, so those showed broken. "Continue as" saved only the Google photo (never one uploaded to Nia). Profiles are private to their owner, so the crew directory's photo lookup always came back empty; the project page's Crew & talent row never asked for photos | ✅ 2026-11-28: Google photos allowed (`next.config.ts`); "Continue as" keeps the Nia profile photo; crew photos through `crew_photos` (`20261129000000_crew_photos.sql`, run 2026-11-28: the photo only, for people in a crew list you can see) in the directory and the project row. Tested with two accounts (photo returned only once linked; signed-out and unlinked get nothing) |
+| PB2 | **Continue with Google signed into the account already signed in.** | The button never asked Google for its account chooser, so Google reused the browser's Google account ("Add another account", or a second person on the same computer) | ✅ 2026-11-28: Google's "Choose an account" screen every time (`prompt=select_account`). To check live with a second Google account |
+
 ## 0000000. Logged 2026-11-27: Youvanni's interview, Jacqueline's idea
 
 Nothing here is built. Sources: Ika's user research call with Youvanni (2026-11-23, notes) and a
