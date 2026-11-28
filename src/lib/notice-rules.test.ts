@@ -43,6 +43,13 @@ describe("the new kinds (event)", () => {
     expect(noticeEvent(row("activity", "Ama commented on Lookbook", "p1", "activity"))).toBe("activity");
     expect(noteHref(row("activity", "Ama renamed Lookbook", "p1", "comment"))).toBe("/projects/p1?tab=comments");
   });
+  it("opens a mention in meeting notes or a document at its own page, and only inside Nia", () => {
+    const at = (link: string) => noteHref({ ...row("activity", "Ama mentioned you in Kickoff call notes on Lookbook", "p1", "mention"), link });
+    expect(at("/projects/p1?meeting=m1")).toBe("/projects/p1?meeting=m1");
+    expect(at("/templates/D01?doc=d1")).toBe("/templates/D01?doc=d1");
+    expect(at("//evil.example")).toBe("/projects/p1?tab=comments");
+    expect(at("https://evil.example")).toBe("/projects/p1?tab=comments");
+  });
   it("tells access requests and approvals from shares", () => {
     expect(noticeEvent(row("shared", "Ama asked to open Lookbook"))).toBe("access_request");
     expect(noticeEvent(row("shared", "You can now edit Lookbook"))).toBe("access_granted");

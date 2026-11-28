@@ -3,7 +3,7 @@
 // Each notification says what it's about (`event`, 20261128000000_more_notifications.sql). Older
 // rows, or a database the migration hasn't reached, are told apart by their wording instead.
 
-export type NoticeRow = { id: number; user_id?: string; project_id: string | null; kind: string; title: string; body: string; event?: string | null };
+export type NoticeRow = { id: number; user_id?: string; project_id: string | null; kind: string; title: string; body: string; event?: string | null; link?: string | null };
 
 /** What a notification is about. */
 export function noticeEvent(row: Pick<NoticeRow, "kind" | "title" | "event">): string {
@@ -32,8 +32,11 @@ const ON_COMPUTER = new Set([
 
 const TAB: Record<string, string> = { comment: "comments", reply: "comments", mention: "comments", doc_added: "documents", crew_added: "crew" };
 
-/** Where a notification opens: the project's tab it's about, else the project, else Home. */
-export function noteHref(row: Pick<NoticeRow, "project_id" | "kind" | "title" | "event">): string {
+/** Where a notification opens: its own page when it has one (a meeting, a document), else the
+ * project's tab it's about, else the project, else Home. */
+export function noteHref(row: Pick<NoticeRow, "project_id" | "kind" | "title" | "event" | "link">): string {
+  // Only a page inside Nia ("/…", never "//other.site").
+  if (row.link && /^\/[A-Za-z0-9]/.test(row.link)) return row.link;
   if (!row.project_id) return "/home";
   const tab = TAB[noticeEvent(row)];
   return `/projects/${row.project_id}${tab ? `?tab=${tab}` : ""}`;

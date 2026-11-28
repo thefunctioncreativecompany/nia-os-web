@@ -21,7 +21,7 @@ import { setHomePanel, useHomePanel } from "@/components/home/home-panel";
 // View all opens in the right panel (Ika, 2026-11-19); its list loads only then.
 const ActivityPanel = dynamic(() => import("@/components/home/activity-panel").then((m) => m.ActivityPanel), { ssr: false });
 
-type Note = { id: number; project_id: string | null; kind: "shared" | "activity"; event?: string | null; title: string; body: string; read_at: string | null; archived_at: string | null; created_at: string };
+type Note = { id: number; project_id: string | null; kind: "shared" | "activity"; event?: string | null; link?: string | null; title: string; body: string; read_at: string | null; archived_at: string | null; created_at: string };
 
 type Row =
   | { kind: "note"; key: string; at: number; note: Note }

@@ -1449,3 +1449,7 @@ onboarding's Import profile and Follow creators describe features removed in the
   Thelma & Louise, The Expendables 2, Narcos, Don't Look Up (its Wikipedia lookup failed), Cat on a
   Hot Tin Roof, Daredevil, The Witcher and The Broadway Melody; YouTube gave few press videos this
   run.
+- (2026-11-28) Mentions in documents are plain @usernames (or @ and an exact email), not codes:
+  documents download as PDF and Word, where "@ama.o" reads as written. The @ list in a document's
+  text boxes offers only people with a username. Meeting notes use the same codes as comments.
+  Notifications can carry their own page (`link`), so a mention opens its meeting or document.
