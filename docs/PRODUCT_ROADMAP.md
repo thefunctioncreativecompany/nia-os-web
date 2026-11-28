@@ -56,7 +56,7 @@ stack and the counts.
 | PostHog activation | 🔄 Installed, session replay on | First recordings on the live site; Replay Vision scanners start then |
 | Meetings (steps 2 and 4 of 4) | 🔄 Steps 1 and 3 live (see Live now); step 2 (Claude's suggested changes on Apply) built, off until an `ANTHROPIC_API_KEY` is added | Add the key for step 2; then Gemini notes arriving by themselves (4). `docs/MEETINGS_SPEC.md` |
 | Desktop app | 🔄 Steps 1, offline documents and notifications live 2026-11-24/25; notifications with Nia closed live 2026-11-27 | Safari check (D2, Ika); a downloadable Tauri app only with a reason (D3); phones after desktop (D4) |
-| Notifications (D8) | 🔄 Part 1 live 2026-11-28: new documents, added to a cast or crew, shoot dates, deliverables and budget changes | Part 2 @mentions in comments; part 3 in meeting notes and documents; part 4 mentions of people outside the project (email via Resend); Inbox messages with the Inbox |
+| Notifications (D8) | 🔄 Part 1 live 2026-11-28: new documents, added to a cast or crew, shoot dates, deliverables and budget changes | Part 2 @mentions in comments built 2026-11-28, waits on `20261129000000_mentions.sql` (Ika); part 3 in meeting notes and documents; part 4 mentions of people outside the project (email via Resend); Inbox messages with the Inbox |
 | Onboarding (1.4) | 🔄 | "How did you hear about us" as an optional tap; "What you can do" as slides (waits on Figma) |
 
 ## Known rough edges
@@ -143,6 +143,7 @@ From beta testers, November 2026 (full list and permissions: [FEEDBACK.md](FEEDB
 | Documents | jsPDF + jspdf-autotable (PDF), docx (Word), pdf.js (reading PDFs), mammoth (reading Word meeting notes) |
 | Other UI | Recharts, react-day-picker, d3-time, cmdk, Sonner, Vaul, react-easy-crop |
 | Notifications | web-push 3.6.7 (sends desktop notices through the browser's own push service: Google's for Chrome and Edge, Apple's for Safari; `src/lib/push.ts`) |
+| Text editing | TipTap 3.32.2 (formatting as you type, saved as Markdown; `@tiptap/extension-mention` and `@tiptap/suggestion` for @mentions in comments; `src/components/nia/rich-text-editor.tsx`) |
 | Video | Remotion (template tutorials, demo films); ElevenLabs voice-over (demo films only) |
 | Testing | Vitest; GitHub Actions runs types, lint and tests on every pull request (`.github/workflows/checks.yml`); Playwright MCP (headless Chrome checks); ESLint with Nia's design rules (`lint/nia-design-rules.mjs`) |
 | Security | Zod 4 checks every server action's input (`src/lib/schemas.ts`); pictures downloaded on the server (Explore's trailer stills, Instagram covers) are capped at 50 MB and 100 megapixels, refuse redirects and come only from allowed places (`src/lib/fetch-image.ts`); Vercel resizes Supabase pictures from Nia's own project only |

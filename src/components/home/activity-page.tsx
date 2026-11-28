@@ -83,7 +83,7 @@ function kindOfNote(note: Note, text: string): Kind {
   const event = noticeEvent(note);
   if (["shared", "access_request", "access_granted"].includes(event)) return "sharing";
   if (event === "doc_added") return "documents";
-  if (event !== "activity" && event !== "comment" && event !== "reply") return "projects";
+  if (!["activity", "comment", "reply", "mention"].includes(event)) return "projects";
   return KINDS.find((k) => k.id !== "projects" && k.words.test(text))?.id ?? "projects";
 }
 

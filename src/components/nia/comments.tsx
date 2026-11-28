@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { ChevronDown, Ellipsis } from "lucide-react";
 import { toast } from "sonner";
 
@@ -14,12 +14,15 @@ import { currentUser } from "@/lib/supabase/current-user";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import type { MentionPerson } from "@/components/nia/rich-text-editor";
 
 // Comments (Ika, 2026-11-11, after YouTube's): under a project's cover and description, for the people on it
 // (viewers too), and under Explore titles and films, for anyone signed in. Newest first; replies
 // one level deep under "N replies". Authors edit and remove their own; a project's owner can
 // remove any on it. Loads when the section comes near the screen. Hidden until
 // 20261112000000_comments.sql is run.
+// @mentions (2026-11-28): on a project, typing @ suggests the people on it; whoever is picked is
+// told (20261129000000_mentions.sql). Not under Explore titles.
 
 export type CommentsSubject = { projectId: string } | { slug: string };
 
@@ -38,6 +41,9 @@ type Row = {
 type Me = { name: string; email: string; avatar: string | null };
 
 const MAX = 2000;
+
+// Who can be @mentioned here (projects only).
+const MentionsContext = createContext<((query: string) => Promise<MentionPerson[]>) | undefined>(undefined);
 
 // The formatting editor, loaded when someone starts writing a comment.
 const CommentEditor = dynamic(() => import("@/components/nia/rich-text-editor").then((m) => m.RichTextEditor), {
@@ -84,6 +90,21 @@ export function Comments({ subject, className }: { subject: CommentsSubject; cla
     return () => seen.disconnect();
   }, [load]);
 
+  const findPeople = useCallback(
+    async (q: string): Promise<MentionPerson[]> => {
+      if (!pid) return [];
+      const { data, error } = await createClient().rpc("mention_people", { pid, q });
+      if (error || !data) return [];
+      return (data as { id: string; full_name: string; username: string | null; avatar_url: string | null }[]).map((p) => ({
+        id: p.id,
+        name: p.full_name,
+        username: p.username,
+        avatar: p.avatar_url,
+      }));
+    },
+    [pid],
+  );
+
   const post = async (words: string, parent: string | null) => {
     const { error } = await createClient().rpc("post_comment", { pid, slug, parent, words });
     if (error) {
@@ -117,6 +138,7 @@ export function Comments({ subject, className }: { subject: CommentsSubject; cla
   const count = rows.filter((r) => !r.removed).length;
 
   return (
+    <MentionsContext.Provider value={pid ? findPeople : undefined}>
     <section aria-labelledby="comments" className={cn("flex max-w-3xl flex-col gap-6", className)}>
       <h2 id="comments" className="text-subtitle font-semibold text-foreground">
         Comments {count > 0 && <span className="text-micro font-normal text-muted-foreground">{count}</span>}
@@ -130,6 +152,7 @@ export function Comments({ subject, className }: { subject: CommentsSubject; cla
         </ul>
       )}
     </section>
+    </MentionsContext.Provider>
   );
 }
 
@@ -305,6 +328,7 @@ function Composer({
   // A new editor after each send, so it starts empty.
   const [round, setRound] = useState(0);
   const field = useRef<HTMLTextAreaElement>(null);
+  const mentions = useContext(MentionsContext);
 
   // Grow with the words.
   useEffect(() => {
@@ -353,6 +377,7 @@ function Composer({
             onChange={setWords}
             onSubmit={() => void send()}
             onCancel={cancel}
+            mentions={mentions}
           />
         ) : (
         <textarea

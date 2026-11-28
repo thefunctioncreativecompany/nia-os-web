@@ -124,7 +124,7 @@ export function GeneralSettingsForm({
             description={
               notices === "blocked"
                 ? "Your browser is blocking them. Allow notifications for Nia in the browser's site settings, then come back."
-                : `When someone shares a project with you, comments, adds a document, changes the shoot dates, deliverables or budget, or adds you to the cast or crew, ${closedToo ? "even when Nia is closed" : "while Nia is open"}. On this device.`
+                : `When someone shares a project with you, comments or mentions you, adds a document, changes the shoot dates, deliverables or budget, or adds you to the cast or crew, ${closedToo ? "even when Nia is closed" : "while Nia is open"}. On this device.`
             }
             checked={notices === "on"}
             onCheckedChange={(checked) => void setDesktopNotices(checked)}

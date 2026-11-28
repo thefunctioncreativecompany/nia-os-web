@@ -32,6 +32,15 @@ describe("formatted text", () => {
     expect(html("1. Rehearse\n2. Shoot")).toContain('<ol class="flex flex-col gap-1 pl-5 list-decimal">');
   });
 
+  it("shows @mentions by name, never their codes", () => {
+    const md = 'Can [@ id="00000000-0000-0000-0000-000000000001" label="Ama Owusu"] check? [@ id="x"]';
+    const out = html(md);
+    expect(out).toContain('<span class="font-medium text-nia-blue">@Ama Owusu</span>');
+    expect(out).toContain(">@someone<");
+    expect(out).not.toContain("00000000");
+    expect(plainText(md)).toBe("Can @Ama Owusu check? @someone");
+  });
+
   it("keeps escaped marks as written", () => {
     expect(html("5 \\* 3 \\_ok\\_")).toContain("5 * 3 _ok_");
   });

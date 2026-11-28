@@ -28,6 +28,9 @@ describe("the new kinds (event)", () => {
   it("shows a new document, opening Documents", () => {
     expect(noticeFor(row("activity", "Ama added Call Sheet to Lookbook", "p1", "doc_added"))).toEqual({ href: "/projects/p1?tab=documents" });
   });
+  it("shows an @mention, opening the project's comments", () => {
+    expect(noticeFor(row("activity", "Ama mentioned you in Lookbook", "p1", "mention"))).toEqual({ href: "/projects/p1?tab=comments" });
+  });
   it("shows being added to the cast or crew, opening Crew & talent", () => {
     expect(noticeFor(row("activity", "Ama added you to the crew of Lookbook", "p1", "crew_added"))).toEqual({ href: "/projects/p1?tab=crew" });
   });

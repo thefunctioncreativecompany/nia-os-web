@@ -1400,3 +1400,9 @@ onboarding's Import profile and Follow creators describe features removed in the
   someone outside the project who's mentioned gets a notification or, without an account, an email,
   both with Ask for access and never the text itself. Notifications carry what they're about
   (`event`) instead of being read from their wording.
+- (2026-11-28) Mentions are stored inside the text in TipTap's own form ([@ id="…" label="Name"]),
+  so the database reads who was mentioned from the comment itself and shows read "@Name"; a
+  `mentions` table remembers who was told where, so editing or autosave never tells anyone twice.
+  Part 2 suggests and notifies only people on the project (owner and members); mentioning people
+  outside it is part 4. A mention replaces the owner's "commented on" or the "replied to" for the
+  same person.

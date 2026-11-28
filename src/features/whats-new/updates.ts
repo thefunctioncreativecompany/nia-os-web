@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "comment-mentions",
+    date: "2026-11-28",
+    title: "@mention people in comments",
+    body: "Type @ in a project's comments and pick someone on the project by name, username or email. They get a notification that opens the comment.",
+    href: "/projects",
+    cta: "Open your projects",
+    icon: "chat",
+    weight: { production: 0.85, fashion: 0.6, creator: 0.6 },
+  },
+  {
     id: "more-notifications",
     date: "2026-11-28",
     title: "Know when the production changes",

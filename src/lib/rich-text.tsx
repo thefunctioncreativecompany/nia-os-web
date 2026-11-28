@@ -8,7 +8,8 @@ import { cn } from "@/lib/utils";
 // two spaces) and [links](https://…); meeting notes also have section headings ("### ", Ika
 // 2026-11-19). Text written before is plain and reads the same.
 // Shown here as React elements, never as HTML from the text, so nothing in it can run; links go
-// only to http(s) and mailto addresses.
+// only to http(s) and mailto addresses. A person @mentioned in a comment is stored as
+// [@ id="…" label="Ama Owusu"] (TipTap's mention, 20261129000000_mentions.sql) and shows as "@Ama Owusu".
 
 type Item = { text: string; children: Block[] };
 export type Block = { kind: "p"; lines: string[] } | { kind: "h"; text: string } | { kind: "ul" | "ol"; start: number; items: Item[] };
@@ -93,7 +94,10 @@ function parseLines(lines: string[], from: number, to: number, base: number): Bl
 
 const SAFE_LINK = /^(https?:\/\/|mailto:)/i;
 
-/** Inline marks: **bold**, *italic* / _italic_, [text](url), and \-escaped characters. */
+const MENTION = /^\[@\s*([^\]]*)\]/;
+const mentionLabel = (attrs: string) => /label="([^"]*)"/.exec(attrs)?.[1] || "someone";
+
+/** Inline marks: **bold**, *italic* / _italic_, [text](url), @mentions and \-escaped characters. */
 export function inline(text: string, key = "i"): ReactNode[] {
   const out: ReactNode[] = [];
   let buffer = "";
@@ -125,6 +129,19 @@ export function inline(text: string, key = "i"): ReactNode[] {
         flush();
         out.push(<em key={`${key}-${n++}`}>{inline(text.slice(i + 1, end), `${key}-${n}`)}</em>);
         i = end + 1;
+        continue;
+      }
+    }
+    if (c === "[" && text[i + 1] === "@") {
+      const mention = MENTION.exec(text.slice(i));
+      if (mention) {
+        flush();
+        out.push(
+          <span key={`${key}-${n++}`} className="font-medium text-nia-blue">
+            @{mentionLabel(mention[1])}
+          </span>,
+        );
+        i += mention[0].length;
         continue;
       }
     }
@@ -215,6 +232,7 @@ export function RichText({ value, className }: { value: string; className?: stri
 export function plainText(value: string) {
   const words = (s: string) =>
     s
+      .replace(/\[@\s*([^\]]*)\]/g, (_, attrs: string) => `@${mentionLabel(attrs)}`)
       .replace(/\\([\\`*_{}[\]()#+\-.!>~|])/g, "$1")
       .replace(/\*\*(.+?)\*\*/g, "$1")
       .replace(/(^|[^\w*])[*_](?!\s)(.+?)(?<!\s)[*_](?=[^\w*]|$)/g, "$1$2")
