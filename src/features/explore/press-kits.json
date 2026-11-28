@@ -154,6 +154,33 @@
   "cinemaRelease": true,
   "imdb": "tt0337563"
  },
+ "21-grams": {
+  "videos": [
+   {
+    "id": "l5OrRqj5At4",
+    "kind": "Official trailer",
+    "title": "21 Grams Official Trailer #1 - Sean Penn Movie (2003) HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "21 Grams",
+    "href": "https://www.rogerebert.com/reviews/21-grams-2003",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "FILM FESTIVAL REVIEW; Hearts Incapacitated, Souls Wasting Away",
+    "href": "https://www.nytimes.com/2003/10/18/movies/film-festival-review-hearts-incapacitated-souls-wasting-away.html",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0315733"
+ },
  "27-dresses": {
   "videos": [
    {
@@ -664,6 +691,80 @@
   "cinemaRelease": true,
   "imdb": "tt0090264"
  },
+ "alice-through-the-looking-glass": {
+  "videos": [
+   {
+    "id": "anvGUW-vsLE",
+    "kind": "Official trailer",
+    "title": "Alice Through the Looking Glass Official Trailer #1 (2016) - Mia Wasikowska, Johnny Depp Movie HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "RcJTKjw3JOo",
+    "kind": "Teaser",
+    "title": "Disney's Alice Through the Looking Glass | Official Teaser Trailer",
+    "channel": "Walt Disney Studios Philippines"
+   },
+   {
+    "id": "jPC_u0TcoC8",
+    "kind": "Cast interview",
+    "title": "Alice Through the Looking Glass Interview - Helena Bonham Carter (2016) - Fantasy Movie HD",
+    "channel": "Rotten Tomatoes Coming Soon"
+   },
+   {
+    "id": "_MZvqHBntSo",
+    "kind": "Cast interview",
+    "title": "Alice Through the Looking Glass Interview - Anne Hathaway (2016) - Fantasy Movie HD",
+    "channel": "Rotten Tomatoes Coming Soon"
+   },
+   {
+    "id": "psulypsUdK0",
+    "kind": "Cast interview",
+    "title": "Alice Through the Looking Glass - Cast and Director Interview",
+    "channel": "IGN"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New York Times",
+    "title": "Review: 'Alice Through the Looking Glass' and a Trippy Time Machine",
+    "href": "https://www.nytimes.com/2016/05/27/movies/review-alice-through-the-looking-glass-and-a-trippy-time-machine.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Boston Globe",
+    "title": "'Alice Through the Looking Glass' is no wonderland",
+    "href": "https://www.bostonglobe.com/arts/movies/2016/05/25/alice-through-looking-glass-wonderland/wzSiaifkK1c0s6aXOnf2SP/story.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "New York Daily News",
+    "title": "'Alice Through the Looking Glass' gets Daily News critic mad as a hatter",
+    "href": "https://www.nydailynews.com/2016/05/25/alice-through-the-looking-glass-gets-daily-news-critic-mad-as-a-hatter/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "San Diego Reader",
+    "title": "Review: Alice Through the Looking Glass",
+    "href": "http://www.sandiegoreader.com/movies/alice-through-the-looking-glass/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Disney mad for 'Alice in Wonderland' sequel",
+    "href": "https://variety.com/2012/film/news/disney-mad-for-alice-in-wonderland-sequel-1118063318/"
+   },
+   {
+    "outlet": "Collider",
+    "title": "Director James Bobin Talks MUPPETS MOST WANTED, Finding the Story for the Sequel, Putting Together the Cast, ALICE IN WONDERLAND 2, and More",
+    "href": "https://collider.com/james-bobin-muppets-most-wanted-alice-wonderland-2-interview/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt2567026"
+ },
  "all-about-eve": {
   "videos": [
    {
@@ -879,6 +980,69 @@
   ],
   "streaming": "Netflix",
   "imdb": "tt21432050"
+ },
+ "anora": {
+  "videos": [
+   {
+    "id": "GuPkfvxmtdw",
+    "kind": "Official trailer",
+    "title": "Anora Trailer #1 (2024)",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "3B-zVmswYtI",
+    "kind": "Filmmaker interview",
+    "title": "'Anora' Director Sean Baker On Cannes Win, Casting, And Spotlights Those On The Margins",
+    "channel": "Deadline Hollywood"
+   },
+   {
+    "id": "zOxunJcoCe0",
+    "kind": "Cast interview",
+    "title": "Mikey Madison, Yura Borisov, Mark Eydelshteyn and Karren Karagulian for ‘Anora' | Conversations",
+    "channel": "SAG-AFTRA Foundation"
+   },
+   {
+    "id": "m52ZCqMjH6w",
+    "kind": "Cast interview",
+    "title": "Mikey Madison for ‘Anora' | Conversations at the SAG-AFTRA Foundation",
+    "channel": "SAG-AFTRA Foundation"
+   },
+   {
+    "id": "ZgotC8YiNyM",
+    "kind": "Filmmaker interview",
+    "title": "Oscar-Winning 'Anora' Star Mikey Madison & Director Sean Baker Break Down a Scene | Vanity Fair",
+    "channel": "Vanity Fair"
+   },
+   {
+    "id": "3e5BQ1cFXzg",
+    "kind": "Filmmaker interview",
+    "title": "'Anora' Director Sean Baker & 'The Brutalist' Director Brady Corbet | Directors on Directors",
+    "channel": "Variety"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogersMovieNation.com",
+    "title": "Sex Worker 'Anora marries her 'Whale'",
+    "href": "https://rogersmovienation.com/2024/11/18/movie-review-sex-worker-anora-marries-her-whale/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "theFilmVerdict.com",
+    "title": "A streetwise Brooklyn lapdancer falls for a super-rich Russian playboy",
+    "href": "https://thefilmverdict.com/anora/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "'Anora' Rocks Best Per Screen Opening of 2024 as Neon Calls Out Critical & Audience Trajectory Similar to Parasite – Specialty Box Office",
+    "href": "https://deadline.com/2024/10/indie-film-box-office-sean-baker-anora-we-live-in-time-1236121361/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt28607951"
  },
  "apocalypse-z-new-world": {
   "videos": [],
@@ -2107,6 +2271,31 @@
   "cinemaRelease": true,
   "imdb": "tt0034583"
  },
+ "cat-on-a-hot-tin-roof": {
+  "videos": [
+   {
+    "id": "AzogcorjLOI",
+    "kind": "Official trailer",
+    "title": "Cat on a Hot Tin Roof (1958) Official Trailer 1 - Elizabeth Taylor, Paul Newman Movie HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "The Guardian",
+    "title": "Cat on a Hot Tin Roof: Tennessee Williams's southern discomfort",
+    "href": "https://www.theguardian.com/stage/2012/sep/30/cat-on-a-hot-tin-roof"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Fur Flies in 'Cat on a Hot Tin Roof'",
+    "href": "https://www.nytimes.com/1958/09/19/archives/the-fur-flies-in-cat-on-a-hot-tin-roof-talent-galore-found-in-music.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0051459"
+ },
  "charlies-angels": {
   "videos": [],
   "reviews": [
@@ -2506,6 +2695,69 @@
   "cinemaRelease": true,
   "imdb": "tt34385135"
  },
+ "contagion": {
+  "videos": [
+   {
+    "id": "4sYSyuuLk5g",
+    "kind": "Official trailer",
+    "title": "Contagion (2011) Official Exclusive 1080p HD Trailer",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "NlYCWsnoYrE",
+    "kind": "Cast interview",
+    "title": "Matt Damon Talks Contagion",
+    "channel": "IGN"
+   },
+   {
+    "id": "bkNjc8GZLls",
+    "kind": "Featurette",
+    "title": "Coronavirus (COVID-19) Safety PSA from the Cast of Contagion | Warner Bros. Entertainment",
+    "channel": "Warner Bros. Entertainment"
+   },
+   {
+    "id": "YhfifCYyuMs",
+    "kind": "Cast interview",
+    "title": "Contagion's Sudden Relevance: What the Cast Said About GERMS (Flashback)",
+    "channel": "Entertainment Tonight"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Guardian",
+    "title": "Contagion – review",
+    "href": "https://www.theguardian.com/film/2011/oct/20/contagion-film-review",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Contagion: Venice Film Review",
+    "href": "https://www.hollywoodreporter.com/review/contagion-venice-film-review-230993",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Rolling Stone",
+    "title": "Contagion",
+    "href": "https://www.rollingstone.com/movies/movie-reviews/contagion-119882/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "'Contagion' review: Nothing to sneeze at",
+    "href": "http://www.sfgate.com/movies/article/Contagion-review-Nothing-to-sneeze-at-2310794.php",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Box Office Report: Steven Soderbergh's 'Contagion' Winning Weekend Race",
+    "href": "http://www.hollywoodreporter.com/news/box-office-report-steven-soderberghs-233727"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1598778"
+ },
  "coyote-vs-acme": {
   "videos": [
    {
@@ -2618,6 +2870,51 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt32430579"
+ },
+ "cruella": {
+  "videos": [
+   {
+    "id": "gmRKv7n2If8",
+    "kind": "Official trailer",
+    "title": "Disney's Cruella | Official Trailer",
+    "channel": "Disney"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Guardian",
+    "title": "Cruella review – Emma Stone is a joy as the refashioned supervillain",
+    "href": "https://www.theguardian.com/film/2021/may/29/cruella-review-emma-stone-emma-thompson-101-dalmatians-disney",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'Cruella' Review: Emma Stone Reimagines the '101 Dalmatians' de-Villainess as an Iconic Underdog",
+    "href": "https://variety.com/2021/film/reviews/cruella-review-emma-stone-1234981828/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "'Cruella' Review: A Disney Villain Gets a Backstory. It's Spotty.",
+    "href": "https://www.nytimes.com/2021/05/26/movies/cruella-review.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "ABC News",
+    "title": "'Cruella' review: Emma Stone and Emma Thompson deliver much to enjoy in this beautifully crafted fluffball",
+    "href": "https://www.goodmorningamerica.com/culture/story/cruella-review-emma-stone-emma-thompson-deliver-enjoy-77871985",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "'A Quiet Place Part II' Screaming To $58M+; 'Cruella' Set To Dazzle $27M+: The Box Office Is Back",
+    "href": "https://deadline.com/2021/05/a-quiet-place-part-ii-cruella-memorial-day-weekend-box-office-1234766021/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt3228774"
  },
  "crystal-lake": {
   "videos": [
@@ -2872,6 +3169,106 @@
   "streaming": "Showmax",
   "imdb": "tt13635918"
  },
+ "daredevil": {
+  "videos": [
+   {
+    "id": "jAy6NJ_D5vU",
+    "kind": "Official trailer",
+    "title": "Marvel's Daredevil | Official Trailer [HD] | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "VK1mrTQd8D0",
+    "kind": "Teaser",
+    "title": "Marvel's Daredevil | Teaser Trailer | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "hOVVbN75-9Q",
+    "kind": "Cast interview",
+    "title": "The Cast of Marvel's Daredevil drop by Marvel LIVE!",
+    "channel": "Marvel Entertainment"
+   },
+   {
+    "id": "b90hqsuw4iU",
+    "kind": "Cast interview",
+    "title": "Cast of Marvel's Daredevil talk about the Series",
+    "channel": "Marvel Entertainment"
+   },
+   {
+    "id": "9Y1UtwjBOKY",
+    "kind": "Cast interview",
+    "title": "Daredevil: Charlie Cox & Cast On Season 2, The Punisher & More At NYCC 2015 | Entertainment Weekly",
+    "channel": "Entertainment Weekly"
+   }
+  ],
+  "reviews": [],
+  "articles": [],
+  "imdb": "tt3322312"
+ },
+ "darkest-hour": {
+  "videos": [
+   {
+    "id": "4pNOCzV5jG0",
+    "kind": "Official trailer",
+    "title": "Darkest Hour Trailer #1 (2017) | Movieclips Trailers",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "_svUOaXDbuc",
+    "kind": "Cast interview",
+    "title": "Darkest Hour Cast On Portraying Historical Characters | Darkest Hour | On Set",
+    "channel": "Universal Pictures At Home"
+   },
+   {
+    "id": "pnx8H2i4IX0",
+    "kind": "Cast interview",
+    "title": "Gary Oldman Talks Transformation into Winston Churchill for 'Darkest Hour' & 'Dunkirk' | TIFF 2017",
+    "channel": "The Hollywood Reporter"
+   },
+   {
+    "id": "cQDrzzlGzEk",
+    "kind": "Cast interview",
+    "title": "Academy Conversations: Darkest Hour",
+    "channel": "Oscars"
+   },
+   {
+    "id": "yzWflmcQH3k",
+    "kind": "Cast interview",
+    "title": "Darkest Hour Cast Interview: Gary Oldman, Kristin Scott Thomas, Lily James & Joe Wright on Churchill",
+    "channel": "Star Sessions"
+   },
+   {
+    "id": "IJsl0tGXdqA",
+    "kind": "Cast interview",
+    "title": "Gary Oldman - Darkest Hour interview | Newshub",
+    "channel": "Newshub"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Rolling Stone",
+    "title": "'Darkest Hour' Review: Gary Oldman Gives Us a Fearsome, Oscar-Worthy Churchill",
+    "href": "https://web.archive.org/web/20180108105749/https://www.rollingstone.com/movies/reviews/peter-travers-darkest-hours-gary-oldman-gives-us-a-fearsome-churchill-w512243",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "IndieWire",
+    "title": "'Darkest Hour' Review: Gary Oldman Makes Joe Wright's Biopic as Rousing and Ferocious as Winston Churchill Was Himself",
+    "href": "https://www.indiewire.com/2017/09/darkest-hour-review-gary-oldman-winston-churchill-telluride-1201872512/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "'Call Me By Your Name' Scores Year's Best Average Opener At $101K; 'Darkest Hour' Has Robust Start – Specialty Box Office",
+    "href": "https://deadline.com/2017/11/call-me-by-your-name-best-average-darkest-hour-robust-start-specialty-box-office-1202214595/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt4555426"
+ },
  "disclosure-day": {
   "videos": [
    {
@@ -2958,6 +3355,81 @@
   "cinemaRelease": true,
   "imdb": "tt15047880"
  },
+ "divergent": {
+  "videos": [
+   {
+    "id": "Aw7Eln_xuWc",
+    "kind": "Official trailer",
+    "title": "Divergent Official Final Trailer (2014) - Shailene Woodley, Kate Winslet Movie HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "IvcrFezs0lQ",
+    "kind": "Teaser",
+    "title": "Divergent Official Teaser Trailer #2 (2014) - Shailene Woodley HD",
+    "channel": "Rotten Tomatoes Trailers"
+   },
+   {
+    "id": "R7gTKW7oloQ",
+    "kind": "Cast interview",
+    "title": "Comic-Con: 'Divergent' Cast",
+    "channel": "The Hollywood Reporter"
+   },
+   {
+    "id": "ci96hmOV4Os",
+    "kind": "Cast interview",
+    "title": "Divergent Interview - Miles Teller & Jai Courtney (2014) - Sci-Fi Movie HD",
+    "channel": "Rotten Tomatoes Coming Soon"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The New Yorker",
+    "title": "Divergent (2014): Review",
+    "href": "https://web.archive.org/web/20140411231712/http://www.newyorker.com/arts/reviews/film/divergent_burger",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Film Review: 'Divergent'",
+    "href": "https://variety.com/2014/film/reviews/film-review-divergent-1201133435/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Rolling Stone",
+    "title": "'Divergent' Movie Review",
+    "href": "https://www.rollingstone.com/movies/reviews/divergent-20140320",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "The Washington Post",
+    "title": "'Divergent' movie review: Better than the book? Believe it.",
+    "href": "https://www.washingtonpost.com/goingoutguide/movies/divergent-movie-review-better-than-the-book-believe-it/2014/03/19/03b9bfe2-af75-11e3-96dc-d6ea14c099f9_story.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Australian Broadcasting Corporation",
+    "title": "Divergent: Review by Margaret Pomeranz",
+    "href": "https://web.archive.org/web/20140715180604/http://www.abc.net.au/atthemovies/txt/s3970024.htm",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "IGN",
+    "title": "All Too Familiar",
+    "href": "https://www.ign.com/articles/2014/03/17/divergent-review",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Deadline Hollywood",
+    "title": "No. 17 'Divergent' – 2014 Most Valuable Movie Blockbuster Tournament",
+    "href": "https://deadline.com/2015/03/divergent-profit-box-office-2014-1201389595/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1840309"
+ },
  "doctor-zhivago": {
   "videos": [
    {
@@ -2996,6 +3468,42 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt0059113"
+ },
+ "dont-look-up": {
+  "videos": [
+   {
+    "id": "RbIxYm3mKzI",
+    "kind": "Official trailer",
+    "title": "DON'T LOOK UP | Leonardo DiCaprio, Jennifer Lawrence | Official Trailer | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "SL9aJcqrtnw",
+    "kind": "Teaser",
+    "title": "DON’T LOOK UP | Official Teaser Trailer | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "YEMaLsPTWlo",
+    "kind": "Cast interview",
+    "title": "Leonardo DiCaprio Explains Don't Look Up | Netflix",
+    "channel": "Still Watching Netflix"
+   },
+   {
+    "id": "wBbU-Th5lb8",
+    "kind": "Filmmaker interview",
+    "title": "In 'Don't Look Up,' director Adam McKay makes allegorical plea to follow climate science",
+    "channel": "PBS NewsHour"
+   },
+   {
+    "id": "Uez21Yc-sRQ",
+    "kind": "Filmmaker interview",
+    "title": "Adam McKay & Joe Wright talk Improv in ‘Don’t Look Up’ and Cyrano’s Nose | Directors on Directors",
+    "channel": "Variety"
+   }
+  ],
+  "reviews": [],
+  "articles": []
  },
  "double-indemnity": {
   "videos": [],
@@ -3200,6 +3708,51 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0319343"
+ },
+ "enchanted": {
+  "videos": [
+   {
+    "id": "IJwUFq8uOr0",
+    "kind": "Official trailer",
+    "title": "Enchanted (2007) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "7TJOX0VZSYQ",
+    "kind": "Featurette",
+    "title": "Enchanted: Behind The Scenes Part 1 of 4 (Broll) | ScreenSlam",
+    "channel": "ScreenSlam"
+   },
+   {
+    "id": "bWUSlrzLIr4",
+    "kind": "Featurette",
+    "title": "Enchanted: Behind The Scenes Part 2 of 4 (Broll) | ScreenSlam",
+    "channel": "ScreenSlam"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Enchanted",
+    "href": "https://web.archive.org/web/20130226044436/http://rogerebert.suntimes.com/apps/pbcs.dll/article?AID=%2F20071120%2FREVIEWS%2F711200302%2F1023",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "LA Weekly",
+    "title": "Movie Reviews: Enchanted, August Rush, Hitman, Holly",
+    "href": "https://web.archive.org/web/20080212055515/http://www.laweekly.com/film%2Btv/film-reviews/movie-reviews-enchanted-august-rush-hitman-holly/17754/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "USA Today",
+    "title": "Enchanted casts spell over Thanksgiving box office",
+    "href": "https://www.usatoday.com/life/movies/news/2007-11-25-box-office_N.htm"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0461770"
  },
  "everything-everywhere-all-at-once": {
   "videos": [
@@ -4481,6 +5034,39 @@
   "cinemaRelease": true,
   "imdb": "tt14905854"
  },
+ "hannibal": {
+  "videos": [
+   {
+    "id": "Lr3OavheNu0",
+    "kind": "Official trailer",
+    "title": "Hannibal (2001) Official Trailer - Anthony Hopkins Movie HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Empire",
+    "title": "Hannibal Review",
+    "href": "https://www.empireonline.com/movies/reviews/hannibal-review/",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Hannibal Review",
+    "href": "https://variety.com/review/VE1117797220",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "ABC News",
+    "title": "Box Office: Hannibal Takes Record-Sized Bite",
+    "href": "https://abcnews.com/Entertainment/story?id=109619&page=1"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0212985"
+ },
  "harry-potter-and-the-chamber-of-secrets": {
   "videos": [
    {
@@ -5714,6 +6300,56 @@
   ],
   "articles": [],
   "streaming": "Netflix"
+ },
+ "hulk": {
+  "videos": [
+   {
+    "id": "2ErnLuJKQA4",
+    "kind": "Official trailer",
+    "title": "Hulk (2003) Official Trailer #1 - Erica Bana Movie HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Rolling Stone",
+    "title": "Hulk",
+    "href": "https://web.archive.org/web/20110628215343/http://www.rollingstone.com/movies/reviews/the-hulk-20030620",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "CNN",
+    "title": "Hulk not quite all there",
+    "href": "http://www.cnn.com/2003/SHOWBIZ/Movies/06/19/sprj.cas03.review.hulk/index.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "Hulk is a smash-'em-up blockbuster",
+    "href": "https://www.sfgate.com/movies/article/Hulk-is-a-smash-em-up-blockbuster-2551388.php",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Boston Globe",
+    "title": "This not-so-incredible Hulk takes simple joys to serious extremes",
+    "href": "https://web.archive.org/web/20110512040314/http://www.boston.com/movies/display?display=movie&id=1842",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Green meanie's no weenie",
+    "href": "https://variety.com/2003/film/box-office/green-meanie-s-no-weenie-1117888287/"
+   },
+   {
+    "outlet": "Springfield News-Leader",
+    "title": "'Hulk' rages to record opening; 'Finding Nemo' sinks to second",
+    "href": "https://www.newspapers.com/article/the-springfield-news-leader-hulk-rages/136851014/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0286716"
  },
  "i-am-a-fugitive-from-a-chain-gang": {
   "videos": [],
@@ -7245,6 +7881,33 @@
   "cinemaRelease": true,
   "imdb": "tt3315342"
  },
+ "lord-of-war": {
+  "videos": [
+   {
+    "id": "AXgyoER0aRc",
+    "kind": "Official trailer",
+    "title": "Lord of War (2005) Official Trailer #1 - Nicolas Cage Movie",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "SFGate",
+    "title": "'Lord of War' lost in no-man's-land between fact and fiction",
+    "href": "https://www.sfgate.com/movies/article/Lord-of-War-lost-in-no-man-s-land-between-fact-2568902.php",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Washington Post",
+    "title": "'Lord of War' Drives The Devil's Bargain",
+    "href": "https://www.washingtonpost.com/archive/lifestyle/2005/09/16/lord-of-war-drives-the-devils-bargain/3bfb7674-1235-4879-a23c-ec4d7d593786/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0399295"
+ },
  "love-actually": {
   "videos": [
    {
@@ -8407,6 +9070,33 @@
   "cinemaRelease": true,
   "imdb": "tt0031679"
  },
+ "mrs-miniver": {
+  "videos": [
+   {
+    "id": "QXXHxxSZZ8A",
+    "kind": "Official trailer",
+    "title": "Mrs. Miniver Official Trailer #1 - Reginald Owen Movie (1942) HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Variety",
+    "title": "Mrs. Miniver",
+    "href": "https://variety.com/1942/film/reviews/mrs-miniver-3-1200413926/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Library of Congress",
+    "title": "Michael Jackson, the Muppets and Early Cinema Tapped for Preservation in 2009 Library of Congress National Film Registry",
+    "href": "https://www.loc.gov/today/pr/2009/09-250.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0035093"
+ },
  "muhammad-ali-the-peoples-champ": {
   "videos": [
    {
@@ -8539,6 +9229,31 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0396752"
+ },
+ "narcos": {
+  "videos": [
+   {
+    "id": "xl8zdCY-abw",
+    "kind": "Official trailer",
+    "title": "Narcos - Main Trailer - Netflix [HD]",
+    "channel": "Netflix Malaysia"
+   },
+   {
+    "id": "tFkjxHqg6zc",
+    "kind": "Teaser",
+    "title": "Narcos | Teaser [HD] | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "mnaCke2-DJU",
+    "kind": "Filmmaker interview",
+    "title": "Interview Showrunner avec Chris Brancato (Narcos)",
+    "channel": "Konbini"
+   }
+  ],
+  "reviews": [],
+  "articles": [],
+  "imdb": "tt2707408"
  },
  "native-son-1951": {
   "videos": [],
@@ -9163,6 +9878,57 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0047296"
+ },
+ "one-battle-after-another": {
+  "videos": [
+   {
+    "id": "feOQFKv2Lw4",
+    "kind": "Official trailer",
+    "title": "One Battle After Another  - Official Trailer - Warner Bros. UK & Ireland",
+    "channel": "Warner Bros. UK & Ireland"
+   },
+   {
+    "id": "LpCisOBd4Ao",
+    "kind": "Cast interview",
+    "title": "The Cast of One Battle After Another Talk About Landing Their Roles & Meeting for the First Time",
+    "channel": "The Tonight Show Starring Jimmy Fallon"
+   },
+   {
+    "id": "ibIESlxeN8Y",
+    "kind": "Cast interview",
+    "title": "The Cast of 'One Battle After Another' Gush Over Working with Paul Thomas Anderson",
+    "channel": "Oscars"
+   },
+   {
+    "id": "bIzS7p1rTpg",
+    "kind": "Cast interview",
+    "title": "Cast for ‘One Battle After Another’ | Conversations at the SAG-AFTRA Foundation",
+    "channel": "SAG-AFTRA Foundation"
+   },
+   {
+    "id": "JpkWEwxw1WY",
+    "kind": "Cast interview",
+    "title": "One Battle After Another Cast Break Down Their Characters' Goals and Physicality",
+    "channel": "Letterboxd"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "RogerEbert.com",
+    "title": "'One Battle After Another' movie review (2025)",
+    "href": "https://www.rogerebert.com/reviews/one-battle-after-another-movie-review-2025",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "BBC",
+    "title": "'One Battle After Another': Why this year's most acclaimed film flopped",
+    "href": "https://www.bbc.com/culture/article/20251020-why-one-battle-after-another-flopped"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt30144839"
  },
  "onward": {
   "videos": [
@@ -9827,6 +10593,33 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt34206385"
+ },
+ "prince-of-persia-the-sands-of-time": {
+  "videos": [
+   {
+    "id": "9qXlAls2Gv0",
+    "kind": "Official trailer",
+    "title": "Prince Of Persia: The Sands Of Time  - Official Trailer #2",
+    "channel": "Disney UK"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Prince of Persia: The Sands of Time",
+    "href": "http://rogerebert.suntimes.com/apps/pbcs.dll/article?AID=%2F20100526%2FREVIEWS%2F100529984",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Los Angeles Times",
+    "title": "'Prince of Persia' weaker than hoped for in foreign debut",
+    "href": "https://www.latimes.com/archives/la-xpm-2010-may-24-la-et-boxoffice-sidebar-20100524-story.html"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0473075"
  },
  "project-hail-mary": {
   "videos": [
@@ -10599,6 +11392,63 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt35538033"
+ },
+ "roma": {
+  "videos": [
+   {
+    "id": "6BS27ngZtxg",
+    "kind": "Official trailer",
+    "title": "ROMA | Official Trailer | Netflix",
+    "channel": "Netflix"
+   },
+   {
+    "id": "MIJsdcmG-_Y",
+    "kind": "Teaser",
+    "title": "Roma Teaser Trailer #1 (2018) | Movieclips Indie",
+    "channel": "Rotten Tomatoes Indie"
+   },
+   {
+    "id": "zquPaLZEPu8",
+    "kind": "Filmmaker interview",
+    "title": "Alfonso Cuaron Talks Finding 'Roma' Star Yalitza Aparicio | Close Up",
+    "channel": "The Hollywood Reporter"
+   },
+   {
+    "id": "NXD2VKjwB0Y",
+    "kind": "Filmmaker interview",
+    "title": "Alfonso Cuarón Kept Roma's Script a Secret from Cast and Crew During Filming",
+    "channel": "The Tonight Show Starring Jimmy Fallon"
+   },
+   {
+    "id": "dZxLAGzGUK0",
+    "kind": "Cast interview",
+    "title": "Full interview with Oscar-nominated stars of 'Roma' on their breakthrough roles",
+    "channel": "Good Morning America"
+   },
+   {
+    "id": "0Y0G7TZtxWo",
+    "kind": "Cast interview",
+    "title": "Academy Conversations: Roma",
+    "channel": "Oscars"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Guardian",
+    "title": "Roma review – an epic of tearjerking magnificence",
+    "href": "https://www.theguardian.com/film/2018/nov/29/roma-review-alfonso-cuaron",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "Box Office: Netflix's 'Roma' Opens Strong in Limited Release, Say Experts",
+    "href": "https://www.hollywoodreporter.com/news/box-office-netflix-s-roma-opens-strong-limited-release-say-experts-1163716"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt6155172"
  },
  "roman-holiday": {
   "videos": [],
@@ -11496,6 +12346,33 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0413267"
+ },
+ "sicario": {
+  "videos": [
+   {
+    "id": "Yfhu5JIxnZc",
+    "kind": "Official trailer",
+    "title": "Sicario (2015 Movie - Emily Blunt) Official Trailer – “Hitman”",
+    "channel": "Lionsgate Movies"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "The Guardian",
+    "title": "Sicario review – Emily Blunt at the sharp end in war on drugs",
+    "href": "https://www.theguardian.com/film/2015/oct/08/sicario-review-emily-blunt-at-the-sharp-end-in-war-on-drugs",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Grantland.com",
+    "title": "Are My Methods Unsound? Why 'Sicario' Is the 'Apocalypse Now' of the Drug War",
+    "href": "http://grantland.com/hollywood-prospectus/are-my-methods-unsound-why-sicario-is-the-apocalypse-now-of-the-drug-war/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt3397884"
  },
  "silverton-siege": {
   "videos": [
@@ -12469,6 +13346,19 @@
   ],
   "streaming": "Netflix"
  },
+ "the-broadway-melody": {
+  "videos": [],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Variety",
+    "title": "Broadway Melody",
+    "href": "https://variety.com/1929/film/reviews/broadway-melody-1200410242/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0019729"
+ },
  "the-burial-of-kojo": {
   "videos": [
    {
@@ -12564,6 +13454,63 @@
   "articles": [],
   "cinemaRelease": true,
   "imdb": "tt2321555"
+ },
+ "the-chronicles-of-narnia-prince-caspian": {
+  "videos": [
+   {
+    "id": "zZfDS5eu7fA",
+    "kind": "Official trailer",
+    "title": "The Chronicles of Narnia: Prince Caspian (2008) Trailer #1 | Movieclips Classic Trailers",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   },
+   {
+    "id": "uivwbLUBb1Q",
+    "kind": "Cast interview",
+    "title": "The Chronicles Of Narnia: Prince Caspian: Skandar Keynes and William Moseley Video Interview",
+    "channel": "Empire Magazine"
+   },
+   {
+    "id": "U9f3mYnNtTY",
+    "kind": "Cast interview",
+    "title": "The Chronicles Of Narnia: Prince Caspian: Georgie Henley interview | Empire Magazine",
+    "channel": "Empire Magazine"
+   },
+   {
+    "id": "6VQT9S9sbRw",
+    "kind": "Filmmaker interview",
+    "title": "The Chronicles Of Narnia: Prince Caspian: Andrew Adamson interview | Empire Magazine",
+    "channel": "Empire Magazine"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "'Narnia' sequel lacks magic",
+    "href": "https://web.archive.org/web/20080520110648/http://www.sfgate.com/cgi-bin/article.cgi?f=/c/a/2008/05/15/DDIS10M921.DTL",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Today.com",
+    "title": "Return to 'Narnia' a trip worth taking",
+    "href": "https://www.today.com/popculture/return-narnia-trip-worth-taking-wbna24600327",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Anglican Journal",
+    "title": "Narnia film long on action, short on faith",
+    "href": "https://web.archive.org/web/20090115160005/http://www.anglicanjournal.com/100/article/narnia-film-long-on-action-short-on-faith/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "USA Today",
+    "title": "'Prince Caspian' rules, but 'Iron Man' stays strong at box office",
+    "href": "https://www.usatoday.com/life/movies/news/2008-05-18-boxoffice_N.htm"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0499448"
  },
  "the-chronicles-of-narnia-the-lion-the-witch-and-the-wardrobe": {
   "videos": [
@@ -13084,6 +14031,44 @@
   "cinemaRelease": true,
   "imdb": "tt1320253"
  },
+ "the-expendables-2": {
+  "videos": [
+   {
+    "id": "ip_CYHdyUBs",
+    "kind": "Official trailer",
+    "title": "The Expendables 2 (2012) - Official Trailer #1",
+    "channel": "Lionsgate Movies"
+   },
+   {
+    "id": "EdNZZq1u95w",
+    "kind": "Teaser",
+    "title": "THE EXPENDABLES 2 (2012) - Teaser Trailer",
+    "channel": "Lionsgate Movies"
+   },
+   {
+    "id": "vfMvDXN9p9M",
+    "kind": "Cast interview",
+    "title": "The Expendables 2 Interview - Jean-Claude Van Damme - HD Movie",
+    "channel": "Rotten Tomatoes Coming Soon"
+   },
+   {
+    "id": "dMFR6N3Vcr8",
+    "kind": "Cast interview",
+    "title": "The Expendables 2 Interview - Sylvester Stallone - HD Movie",
+    "channel": "Rotten Tomatoes Coming Soon"
+   },
+   {
+    "id": "PTPQCfkAsz8",
+    "kind": "Cast interview",
+    "title": "The Expendables 2 Interview - Scott Adkins - HD Movie",
+    "channel": "Rotten Tomatoes Coming Soon"
+   }
+  ],
+  "reviews": [],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt1764651"
+ },
  "the-fix": {
   "videos": [
    {
@@ -13192,6 +14177,63 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0017925"
+ },
+ "the-girl-with-the-dragon-tattoo": {
+  "videos": [
+   {
+    "id": "DqQe3OrsMKI",
+    "kind": "Official trailer",
+    "title": "THE GIRL WITH THE DRAGON TATTOO - Official Trailer - In Theaters 12/21",
+    "channel": "Sony Pictures Entertainment"
+   },
+   {
+    "id": "YKWXEfXGWtA",
+    "kind": "Teaser",
+    "title": "The Girl With The Dragon Tattoo - Official Teaser - In Theaters 12/21",
+    "channel": "Sony Pictures Entertainment"
+   },
+   {
+    "id": "AoRCqItG5xI",
+    "kind": "Cast interview",
+    "title": "The Girl With The Dragon Tattoo: Rooney Mara Sit Down Interview | ScreenSlam",
+    "channel": "ScreenSlam"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "National Post",
+    "title": "Review: David Fincher makes his mark with The Girl with the Dragon Tattoo",
+    "href": "https://nationalpost.com/entertainment/review-david-fincher-makes-his-mark-with-the-girl-with-the-dragon-tattoo",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Rolling Stone",
+    "title": "The Girl with the Dragon Tattoo",
+    "href": "https://www.rollingstone.com/movies/reviews/the-girl-with-the-dragon-tattoo-20111222",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "The Girl With the Dragon Tattoo (2011)",
+    "href": "https://www.nytimes.com/2011/12/20/movies/the-girl-with-dragon-tattoo-movie-review.html",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Wall Street Journal",
+    "title": "'Tattoo': Raw, Rousing and Rather Redundant",
+    "href": "https://www.wsj.com/articles/SB10001424052970204552304577114432341153856",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The New York Observer",
+    "title": "Girl With the Dragon Tattoo is Quite the Swedish Dish",
+    "href": "http://observer.com/2011/12/girl-with-the-dragon-tattoo-is-quite-the-swedish-dish/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt1568346"
  },
  "the-good-daughter": {
   "videos": [
@@ -13333,6 +14375,45 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt0032551"
+ },
+ "the-great-ziegfeld": {
+  "videos": [
+   {
+    "id": "h-Rez1xM3yo",
+    "kind": "Official trailer",
+    "title": "The Great Ziegfeld Official Trailer #1 - Reginald Owen Movie (1936) HD",
+    "channel": "Rotten Tomatoes Classic Trailers"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Time",
+    "title": "Cinema: The New Pictures: Apr. 20, 1936",
+    "href": "https://web.archive.org/web/20070320192536/http://www.time.com/time/magazine/article/0,9171,848521,00.html",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Spokane Daily Chronicle",
+    "title": "Great Ziegfeld Scores at Fox",
+    "href": "https://news.google.com/newspapers?id=nMtXAAAAIBAJ&pg=7456,2717746",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Chicago Reader",
+    "title": "The Great Ziegfeld",
+    "href": "http://www.chicagoreader.com/chicago/the-great-ziegfeld/Film?oid=1060544",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Variety",
+    "title": "Review: \"The Great Ziegfeld\"",
+    "href": "https://variety.com/1936/film/reviews/the-great-ziegfeld-2-1200411276/",
+    "verdict": "Positive"
+   }
+  ],
+  "articles": [],
+  "cinemaRelease": true,
+  "imdb": "tt0027698"
  },
  "the-heart-is-a-muscle": {
   "videos": [
@@ -14925,6 +16006,60 @@
   "streaming": "Netflix",
   "imdb": "tt42543947"
  },
+ "the-queens-gambit": {
+  "videos": [
+   {
+    "id": "LIFeFoPkEVE",
+    "kind": "Official trailer",
+    "title": "The Queen's Gambit Limited Series Official 4K Trailer",
+    "channel": "Netflix - Universe"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Entertainment Weekly",
+    "title": "The Queen's Gambit plays familiar moves with style and star power: Review",
+    "href": "https://ew.com/tv/tv-reviews/queens-gambit-netflix-review/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Variety",
+    "title": "'The Queen's Gambit,' Starring a Magnetic Anya Taylor-Joy, Is a Shrewd Study of Genius: TV Review",
+    "href": "https://variety.com/2020/tv/reviews/the-queens-gambit-review-anya-taylor-joy-1234810169/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "Rolling Stone",
+    "title": "'The Queen's Gambit': A Female Bobby Fischer Keeps Her Challengers in Check",
+    "href": "https://www.rollingstone.com/tv/tv-reviews/queens-gambit-netflix-review-1075641/",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "The Washington Post",
+    "title": "'The Queen's Gambit' is mesmerizing, but there's one glaring problem",
+    "href": "https://www.washingtonpost.com/arts-entertainment/2020/11/03/queens-gambit-jolene/",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Wired",
+    "title": "Why The Queen's Gambit Is the No. 1 Netflix Show Right Now",
+    "href": "https://www.wired.com/story/the-queens-gambit-netflix-chess-addiction/"
+   },
+   {
+    "outlet": "USA Today",
+    "title": "'The Queen's Gambit': This Netflix miniseries about chess is one of the best shows of 2020",
+    "href": "https://www.usatoday.com/story/entertainment/tv/2020/10/28/the-queens-gambit-review-one-best-shows-2020/3753873001/"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "How The Queen's Gambit became Netflix's unlikeliest hit of the year",
+    "href": "https://www.theguardian.com/tv-and-radio/2020/nov/26/the-queens-gambit-netflix-most-watched-series-hit-chess"
+   }
+  ],
+  "imdb": "tt10048342"
+ },
  "the-searchers": {
   "videos": [],
   "reviews": [
@@ -15162,6 +16297,30 @@
   "cinemaRelease": true,
   "imdb": "tt28650488"
  },
+ "the-witcher": {
+  "videos": [
+   {
+    "id": "ndl1W4ltcmg",
+    "kind": "Official trailer",
+    "title": "THE WITCHER | MAIN TRAILER | NETFLIX",
+    "channel": "Netflix"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "TheWrap",
+    "title": "Andrzej Sapkowski’s 'The Witcher' Series Bound for the Big Screen With 'Ben-Hur' Producer",
+    "href": "https://www.thewrap.com/andrzej-sapkowskis-the-witcher-series-bound-for-the-big-screen-with-ben-hur-producer/"
+   },
+   {
+    "outlet": "Film New Europe",
+    "title": "Platige Image in Production with The Witcher",
+    "href": "https://www.filmneweurope.com/news/poland-news/item/111580-platige-image-in-production-with-the-witcher"
+   }
+  ],
+  "imdb": "tt5180504"
+ },
  "the-wizard-of-oz": {
   "videos": [
    {
@@ -15296,6 +16455,66 @@
    }
   ],
   "imdb": "tt33046197"
+ },
+ "thelma-and-louise": {
+  "videos": [
+   {
+    "id": "9VUdc-8WDyo",
+    "kind": "Official trailer",
+    "title": "Thelma & Louise (1991) | Official Trailer | MGM Studios",
+    "channel": "Amazon MGM Studios"
+   },
+   {
+    "id": "uWSAae2OVyQ",
+    "kind": "Cast interview",
+    "title": "Geena Davis reveals why Brad Pitt was cast in Thelma & Louise 😍 | The Graham Norton Show - BBC",
+    "channel": "BBC"
+   },
+   {
+    "id": "vAgPgRGQh4c",
+    "kind": "Cast interview",
+    "title": "Geena Davis & Susan Sarandon on making THELMA & LOUISE",
+    "channel": "American Film Institute"
+   },
+   {
+    "id": "kwhoRQu7fbs",
+    "kind": "Featurette",
+    "title": "Thelma & Louise Movie - Official Behind the Scenes #2 (1991)",
+    "channel": "Fandango (Stream)"
+   },
+   {
+    "id": "_-efAmLhbnk",
+    "kind": "Featurette",
+    "title": "Thelma & Louise Movie - Official Behind the Scenes #1 (1991)",
+    "channel": "Fandango (Stream)"
+   },
+   {
+    "id": "Oclpx9nc5_4",
+    "kind": "Featurette",
+    "title": "The Making of \"Thelma & Louise\"",
+    "channel": "Oscars"
+   }
+  ],
+  "reviews": [],
+  "articles": [
+   {
+    "outlet": "Vanity Fair",
+    "title": "The Ride of a Lifetime",
+    "href": "https://www.vanityfair.com/news/2011/03/the-making-of-thelma-and-louise-201103"
+   },
+   {
+    "outlet": "AFI Catalog of Feature Films",
+    "title": "Thelma & Louise (1991) – History",
+    "href": "https://catalog.afi.com/Film/59064-THELMA-LOUISE?sid=cb72437b-618b-454d-89bc-0602b2ba6cb5&sr=0.5455946&cp=1&pos=0"
+   },
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Thelma & Louise' Reunion: Susan Sarandon, Geena Davis Talk Film's Shocking Reception, Predictions it Would Change Hollywood: \"We're Still Waiting\"",
+    "href": "https://www.hollywoodreporter.com/movies/movie-news/thelma-and-louise-reunion-geena-davis-susan-sarandon-1234970834/"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt0103074"
  },
  "this-is-not-a-burial": {
   "videos": [
@@ -15649,6 +16868,57 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt29355505"
+ },
+ "tron-legacy": {
+  "videos": [
+   {
+    "id": "P78pl1FUXfA",
+    "kind": "Official trailer",
+    "title": "TRON: LEGACY - Official Trailer",
+    "channel": "Disney UK"
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "Chicago Sun-Times",
+    "title": "Digital ghosts in the machine",
+    "href": "https://www.rogerebert.com/reviews/tron-legacy-2010",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The New York Times",
+    "title": "Following in Father's Parallel-Universe Footsteps",
+    "href": "https://www.nytimes.com/2010/12/17/movies/17tron.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "San Francisco Chronicle",
+    "title": "'Tron: Legacy' review: Gridlock",
+    "href": "http://www.sfgate.com/movies/article/Tron-Legacy-review-Gridlock-2522206.php",
+    "verdict": "Mixed"
+   },
+   {
+    "outlet": "Philadelphia Daily News",
+    "title": "'Tron': 3-D effects, 1-D everything else",
+    "href": "http://www.philly.com/philly/entertainment/movies/20101216_Tron__3-D_effects__1-D_everything_else.html",
+    "verdict": "Critical"
+   },
+   {
+    "outlet": "Star Tribune",
+    "title": "Copping some Z's in Tronland",
+    "href": "https://web.archive.org/web/20101222054321/http://www.startribune.com/entertainment/movies/112018474.html?elr=KArksD:aDyaEP:kD:aUnc5PDiUiD3aPc:_Yyc:aULPQL7PQLanchO7DiUr",
+    "verdict": "Critical"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "Rolling Stone",
+    "title": "Tron: Legacy",
+    "href": "https://www.rollingstone.com/movies/reviews/tron-legacy-20101216"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt1104001"
  },
  "trouble-in-paradise": {
   "videos": [],
@@ -16409,6 +17679,51 @@
   ],
   "cinemaRelease": true,
   "imdb": "tt2056785"
+ },
+ "wonder-woman-1984": {
+  "videos": [
+   {
+    "id": "sfM7_JLk-84",
+    "kind": "Official trailer",
+    "title": "Wonder Woman 1984 – Official Trailer",
+    "channel": "Warner Bros."
+   }
+  ],
+  "reviews": [
+   {
+    "outlet": "IndieWire",
+    "title": "'Wonder Woman 1984' Review: Gal Gadot Returns in a Bonkers Blast of '80s Excess and Intrigue",
+    "href": "https://www.indiewire.com/2020/12/wonder-woman-1984-review-gal-gadot-sequel-1234603077/",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "AP NEWS",
+    "title": "Review: Wonder Woman combats a huckster's rise in '1984'",
+    "href": "https://apnews.com/article/film-reviews-wonder-woman-gal-gadot-a1d04dee9da05eba8770741c0c750536",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "BBC",
+    "title": "Wonder Woman 1984 'fills you with wonder'",
+    "href": "https://www.bbc.com/culture/article/20201215-wonder-woman-1984-fills-you-with-wonder",
+    "verdict": "Positive"
+   },
+   {
+    "outlet": "The Guardian",
+    "title": "Wonder Woman 1984 review – queenly Gal Gadot disarms the competition",
+    "href": "https://www.theguardian.com/film/2020/dec/15/wonder-woman-1984-review-gal-gadot-kristen-wiig-patty-jenkins",
+    "verdict": "Mixed"
+   }
+  ],
+  "articles": [
+   {
+    "outlet": "The Hollywood Reporter",
+    "title": "'Wonder Woman 1984' Makes Huge Streaming Debut, Nielsen Says",
+    "href": "https://www.hollywoodreporter.com/live-feed/wonder-woman-1984-streaming-audience-hbo-max"
+   }
+  ],
+  "cinemaRelease": true,
+  "imdb": "tt7126948"
  },
  "wuthering-heights": {
   "videos": [

@@ -401,6 +401,10 @@
  "2001-a-space-odyssey": [
   "low-key"
  ],
+ "21-grams": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "27-dresses": [
   "muted-colour",
   "bright-airy"
@@ -456,6 +460,9 @@
  "alice-in-wonderland": [
   "warm-palette"
  ],
+ "alice-through-the-looking-glass": [
+  "warm-palette"
+ ],
  "alien": [
   "muted-colour",
   "low-key"
@@ -491,6 +498,10 @@
   "vivid-colour",
   "warm-palette",
   "low-key"
+ ],
+ "anora": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "apocalypse-now": [
   "vivid-colour",
@@ -651,6 +662,10 @@
   "low-key"
  ],
  "cast-away": [],
+ "cat-on-a-hot-tin-roof": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "charlies-angels": [
   "vivid-colour",
   "warm-palette",
@@ -690,6 +705,10 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "contagion": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "coyote-vs-acme": [
   "vivid-colour",
   "warm-palette"
@@ -703,6 +722,11 @@
  "crouching-tiger-hidden-dragon": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "cruella": [
+  "muted-colour",
+  "warm-palette",
+  "low-key"
  ],
  "crystal-lake": [
   "warm-palette",
@@ -720,6 +744,14 @@
  "dam": [
   "cool-palette"
  ],
+ "daredevil": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
+ "darkest-hour": [
+  "low-key"
+ ],
  "die-hard": [
   "muted-colour",
   "warm-palette",
@@ -729,6 +761,7 @@
   "muted-colour",
   "bright-airy"
  ],
+ "divergent": [],
  "django-unchained": [
   "muted-colour",
   "warm-palette"
@@ -739,6 +772,11 @@
  ],
  "doctor-zhivago": [
   "muted-colour",
+  "bright-airy"
+ ],
+ "dont-look-up": [
+  "muted-colour",
+  "warm-palette",
   "bright-airy"
  ],
  "double-indemnity": [
@@ -768,6 +806,10 @@
  "elf": [
   "cool-palette",
   "bright-airy"
+ ],
+ "enchanted": [
+  "vivid-colour",
+  "cool-palette"
  ],
  "eternal-sunshine-of-the-spotless-mind": [
   "cool-palette"
@@ -871,8 +913,7 @@
   "low-key"
  ],
  "grand-hotel": [
-  "vivid-colour",
-  "warm-palette"
+  "black-and-white"
  ],
  "green-book": [
   "vivid-colour",
@@ -884,6 +925,10 @@
  "groundhog-day": [],
  "half-and-half": [
   "warm-palette"
+ ],
+ "hannibal": [
+  "warm-palette",
+  "low-key"
  ],
  "harry-potter-and-the-chamber-of-secrets": [
   "vivid-colour"
@@ -968,6 +1013,9 @@
  "how-to-ruin-love": [
   "vivid-colour",
   "warm-palette"
+ ],
+ "hulk": [
+  "low-key"
  ],
  "i-am-a-fugitive-from-a-chain-gang": [
   "vivid-colour",
@@ -1132,6 +1180,10 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "lord-of-war": [
+  "muted-colour",
+  "warm-palette"
+ ],
  "lost-in-translation": [
   "vivid-colour",
   "warm-palette"
@@ -1241,9 +1293,13 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "mrs-miniver": [
+  "muted-colour",
+  "warm-palette",
+  "bright-airy"
+ ],
  "mutiny-on-the-bounty": [
-  "vivid-colour",
-  "warm-palette"
+  "black-and-white"
  ],
  "mutiny": [
   "muted-colour"
@@ -1251,6 +1307,10 @@
  "nanny-mcphee": [
   "vivid-colour",
   "cool-palette"
+ ],
+ "narcos": [
+  "warm-palette",
+  "low-key"
  ],
  "native-son-1951": [
   "black-and-white",
@@ -1303,6 +1363,10 @@
   "warm-palette"
  ],
  "once-upon-a-time-in-the-west": [
+  "warm-palette"
+ ],
+ "one-battle-after-another": [
+  "vivid-colour",
   "warm-palette"
  ],
  "one-on-one": [
@@ -1379,6 +1443,10 @@
  "primetime": [
   "cool-palette"
  ],
+ "prince-of-persia-the-sands-of-time": [
+  "vivid-colour",
+  "warm-palette"
+ ],
  "prison-break": [
   "muted-colour"
  ],
@@ -1451,6 +1519,9 @@
  "rocky": [
   "muted-colour",
   "bright-airy"
+ ],
+ "roma": [
+  "muted-colour"
  ],
  "roman-holiday": [
   "black-and-white",
@@ -1543,6 +1614,9 @@
  "shutter-island": [
   "vivid-colour",
   "low-key"
+ ],
+ "sicario": [
+  "warm-palette"
  ],
  "silverton-siege": [
   "vivid-colour",
@@ -1690,12 +1764,20 @@
   "vivid-colour",
   "warm-palette"
  ],
+ "the-broadway-melody": [
+  "warm-palette",
+  "bright-airy"
+ ],
  "the-burial-of-kojo": [
   "cool-palette"
  ],
  "the-cat-in-the-hat": [
   "vivid-colour",
   "cool-palette"
+ ],
+ "the-chronicles-of-narnia-prince-caspian": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "the-chronicles-of-narnia-the-lion-the-witch-and-the-wardrobe": [
   "vivid-colour",
@@ -1737,6 +1819,11 @@
   "warm-palette"
  ],
  "the-end-of-oak-street": [],
+ "the-expendables-2": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "the-expendables": [
   "muted-colour",
   "low-key"
@@ -1766,6 +1853,7 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "the-girl-with-the-dragon-tattoo": [],
  "the-godfather-part-ii": [
   "muted-colour",
   "low-key"
@@ -1787,6 +1875,10 @@
  ],
  "the-grapes-of-wrath": [
   "black-and-white",
+  "bright-airy"
+ ],
+ "the-great-ziegfeld": [
+  "warm-palette",
   "bright-airy"
  ],
  "the-green-mile": [
@@ -1951,6 +2043,9 @@
   "low-key"
  ],
  "the-pursuit-of-happyness": [],
+ "the-queens-gambit": [
+  "warm-palette"
+ ],
  "the-revenant": [],
  "the-searchers": [
   "vivid-colour",
@@ -1988,6 +2083,11 @@
   "vivid-colour",
   "cool-palette"
  ],
+ "the-witcher": [
+  "vivid-colour",
+  "warm-palette",
+  "low-key"
+ ],
  "the-wizard-of-oz": [
   "warm-palette"
  ],
@@ -1998,6 +2098,11 @@
  ],
  "the-wrecking-crew": [
   "warm-palette"
+ ],
+ "thelma-and-louise": [
+  "muted-colour",
+  "warm-palette",
+  "bright-airy"
  ],
  "this-is-not-a-burial": [
   "vivid-colour",
@@ -2037,6 +2142,11 @@
  "training-day": [],
  "transformers": [
   "warm-palette"
+ ],
+ "tron-legacy": [
+  "vivid-colour",
+  "cool-palette",
+  "low-key"
  ],
  "trouble-in-paradise": [
   "vivid-colour",
@@ -2101,6 +2211,10 @@
  ],
  "wildwood": [
   "cool-palette"
+ ],
+ "wonder-woman-1984": [
+  "vivid-colour",
+  "warm-palette"
  ],
  "wuthering-heights": [
   "vivid-colour",

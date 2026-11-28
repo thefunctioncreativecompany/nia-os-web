@@ -2642,5 +2642,181 @@
    "mgm"
   ],
   "tmdb": "movie/33680"
+ },
+ "the-broadway-melody": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/65203"
+ },
+ "lord-of-war": {
+  "studios": [],
+  "tmdb": "movie/1830"
+ },
+ "one-battle-after-another": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/1054867"
+ },
+ "alice-through-the-looking-glass": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/241259"
+ },
+ "thelma-and-louise": {
+  "studios": [
+   "mgm",
+   "scott-free"
+  ],
+  "tmdb": "movie/1541"
+ },
+ "roma": {
+  "studios": [],
+  "tmdb": "movie/426426"
+ },
+ "divergent": {
+  "studios": [],
+  "tmdb": "movie/157350"
+ },
+ "the-expendables-2": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/76163"
+ },
+ "anora": {
+  "studios": [],
+  "tmdb": "movie/1064213"
+ },
+ "contagion": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/39538"
+ },
+ "the-chronicles-of-narnia-prince-caspian": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/2454"
+ },
+ "narcos": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/63351"
+ },
+ "dont-look-up": {
+  "studios": [],
+  "tmdb": "movie/646380"
+ },
+ "sicario": {
+  "studios": [
+   "lionsgate"
+  ],
+  "tmdb": "movie/273481"
+ },
+ "21-grams": {
+  "studios": [
+   "focus"
+  ],
+  "tmdb": "movie/470"
+ },
+ "hulk": {
+  "studios": [
+   "universal"
+  ],
+  "tmdb": "movie/1927"
+ },
+ "darkest-hour": {
+  "studios": [
+   "focus",
+   "working-title"
+  ],
+  "tmdb": "movie/399404"
+ },
+ "wonder-woman-1984": {
+  "studios": [
+   "warner"
+  ],
+  "tmdb": "movie/464052"
+ },
+ "cruella": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/337404"
+ },
+ "mrs-miniver": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/27367"
+ },
+ "hannibal": {
+  "studios": [
+   "universal",
+   "mgm",
+   "scott-free"
+  ],
+  "tmdb": "movie/9740"
+ },
+ "prince-of-persia-the-sands-of-time": {
+  "studios": [
+   "disney",
+   "bruckheimer"
+  ],
+  "tmdb": "movie/9543"
+ },
+ "enchanted": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/4523"
+ },
+ "tron-legacy": {
+  "studios": [
+   "disney"
+  ],
+  "tmdb": "movie/20526"
+ },
+ "the-girl-with-the-dragon-tattoo": {
+  "studios": [
+   "columbia",
+   "mgm"
+  ],
+  "tmdb": "movie/65754"
+ },
+ "cat-on-a-hot-tin-roof": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/261"
+ },
+ "the-great-ziegfeld": {
+  "studios": [
+   "mgm"
+  ],
+  "tmdb": "movie/43277"
+ },
+ "daredevil": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/61889"
+ },
+ "the-witcher": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/71912"
+ },
+ "the-queens-gambit": {
+  "studios": [
+   "netflix"
+  ],
+  "tmdb": "tv/87739"
  }
 }

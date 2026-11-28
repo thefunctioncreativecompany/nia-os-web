@@ -14259,6 +14259,894 @@
      "is_primary": true
     }
    ]
+  },
+  {
+   "slug": "the-broadway-melody",
+   "collection": "studio-era",
+   "title": "The Broadway Melody",
+   "type": "film",
+   "genres": [
+    "Musical",
+    "Romance",
+    "Drama"
+   ],
+   "year": 1929,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Harry Beaumont",
+   "recognition": "Academy Award for Best Picture",
+   "pair_with": "",
+   "study_note": "MGM's first all-talking musical and the first sound film to win Best Picture, with one number shot in two-strip Technicolor",
+   "added": "2026-11-28",
+   "imdb_id": "tt0019729"
+  },
+  {
+   "slug": "lord-of-war",
+   "collection": "modern-classics",
+   "title": "Lord of War",
+   "type": "film",
+   "genres": [
+    "Crime",
+    "Drama",
+    "Thriller"
+   ],
+   "year": 2005,
+   "countries": [
+    "United States",
+    "France",
+    "Germany"
+   ],
+   "credit": "Andrew Niccol",
+   "pair_with": "",
+   "study_note": "Andrew Niccol's arms-dealer satire opens on one bullet's life from factory to gunshot, and the production used real guns and tanks because they cost less than props",
+   "added": "2026-11-28",
+   "imdb_id": "tt0399295",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "AXgyoER0aRc",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "one-battle-after-another",
+   "collection": "modern-classics",
+   "title": "One Battle After Another",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Comedy",
+    "Crime"
+   ],
+   "year": 2025,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Paul Thomas Anderson",
+   "pair_with": "",
+   "study_note": "Paul Thomas Anderson shoots in VistaVision, the 1950s widescreen film format, with Leonardo DiCaprio as a burnt-out revolutionary, loosely from Thomas Pynchon's Vineland",
+   "added": "2026-11-28",
+   "imdb_id": "tt30144839",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "feOQFKv2Lw4",
+     "kind": "trailer",
+     "channel": "Warner Bros. UK & Ireland",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "alice-through-the-looking-glass",
+   "collection": "modern-classics",
+   "title": "Alice Through the Looking Glass",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Family",
+    "Fantasy"
+   ],
+   "year": 2016,
+   "countries": [
+    "United States"
+   ],
+   "credit": "James Bobin",
+   "recognition": "Over $299 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "James Bobin follows Tim Burton's Alice into a sequel built largely on blue screen, with Sacha Baron Cohen as Time",
+   "added": "2026-11-28",
+   "imdb_id": "tt2567026",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "anvGUW-vsLE",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "thelma-and-louise",
+   "collection": "modern-classics",
+   "title": "Thelma & Louise",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Adventure"
+   ],
+   "year": 1991,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Ridley Scott",
+   "recognition": "Academy Award for Best Original Screenplay (Callie Khouri)",
+   "pair_with": "",
+   "study_note": "Ridley Scott's road movie across the American Southwest, filmed largely in Utah's canyon country and ending on its famous freeze-frame",
+   "added": "2026-11-28",
+   "imdb_id": "tt0103074",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "9VUdc-8WDyo",
+     "kind": "trailer",
+     "channel": "Amazon MGM Studios",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "roma",
+   "collection": "black-and-poc-leads",
+   "title": "Roma",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Historical"
+   ],
+   "year": 2018,
+   "countries": [
+    "Mexico",
+    "United States"
+   ],
+   "credit": "Alfonso Cuarón",
+   "recognition": "Academy Awards for Best Director, Cinematography and Foreign Language Film; Venice Golden Lion",
+   "pair_with": "",
+   "study_note": "Alfonso Cuarón shot it himself, in black-and-white on large-format digital cameras, with slow pans across the 1970s Mexico City of his childhood",
+   "added": "2026-11-28",
+   "imdb_id": "tt6155172",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "6BS27ngZtxg",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "divergent",
+   "collection": "modern-classics",
+   "title": "Divergent",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+   ],
+   "year": 2014,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Neil Burger",
+   "recognition": "Over $288 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Neil Burger sets Veronica Roth's young-adult dystopia in a walled-in, half-ruined Chicago, filmed on the city's real streets and trains",
+   "added": "2026-11-28",
+   "imdb_id": "tt1840309",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Aw7Eln_xuWc",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-expendables-2",
+   "collection": "modern-classics",
+   "title": "The Expendables 2",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Thriller"
+   ],
+   "year": 2012,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Simon West",
+   "recognition": "Over $314 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Simon West takes over from Sylvester Stallone and shoots in Bulgaria, adding Jean-Claude Van Damme and Chuck Norris to the line-up",
+   "added": "2026-11-28",
+   "imdb_id": "tt1764651",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "ip_CYHdyUBs",
+     "kind": "trailer",
+     "channel": "Lionsgate Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "anora",
+   "collection": "modern-classics",
+   "title": "Anora",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Comedy",
+    "Romance"
+   ],
+   "year": 2024,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Sean Baker",
+   "recognition": "Palme d'Or; five Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "Sean Baker shot on 35mm on a small budget in Brighton Beach and Las Vegas, and edited the film himself",
+   "added": "2026-11-28",
+   "imdb_id": "tt28607951",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "GuPkfvxmtdw",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "contagion",
+   "collection": "modern-classics",
+   "title": "Contagion",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Thriller",
+    "Sci-Fi"
+   ],
+   "year": 2011,
+   "countries": [
+    "United States",
+    "United Arab Emirates"
+   ],
+   "credit": "Steven Soderbergh",
+   "recognition": "Over $136 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Steven Soderbergh shot it himself under the name Peter Andrews, following a pandemic through hands, door handles and glasses",
+   "added": "2026-11-28",
+   "imdb_id": "tt1598778",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "4sYSyuuLk5g",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-chronicles-of-narnia-prince-caspian",
+   "collection": "modern-classics",
+   "title": "The Chronicles of Narnia: Prince Caspian",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Family",
+    "Fantasy"
+   ],
+   "year": 2008,
+   "countries": [
+    "United States",
+    "United Kingdom"
+   ],
+   "credit": "Andrew Adamson",
+   "recognition": "Over $419 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Andrew Adamson's sequel, filmed in New Zealand, the Czech Republic, Slovenia and Poland, around a night raid on a castle built for it",
+   "added": "2026-11-28",
+   "imdb_id": "tt0499448",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "zZfDS5eu7fA",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "narcos",
+   "collection": "drama-series",
+   "title": "Narcos",
+   "type": "series",
+   "genres": [
+    "Crime",
+    "Drama",
+    "True Crime"
+   ],
+   "year": 2015,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Chris Brancato, Carlo Bernard & Doug Miro",
+   "recognition": "Golden Globe nominations for Best Drama Series and for Wagner Moura",
+   "pair_with": "",
+   "study_note": "Shot on location in Colombia, in English and Spanish, with a DEA agent's voice-over cut against real archive footage of Pablo Escobar's era",
+   "added": "2026-11-28",
+   "imdb_id": "tt2707408",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "xl8zdCY-abw",
+     "kind": "trailer",
+     "channel": "Netflix Malaysia",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "dont-look-up",
+   "collection": "modern-classics",
+   "title": "Don't Look Up",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Sci-Fi",
+    "Satire"
+   ],
+   "year": 2021,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Adam McKay",
+   "recognition": "Four Academy Award nominations, including Best Picture",
+   "pair_with": "",
+   "study_note": "Adam McKay's comet satire with Leonardo DiCaprio and Jennifer Lawrence, filmed in Massachusetts under pandemic safety rules",
+   "added": "2026-11-28",
+   "imdb_id": "tt11286314",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "RbIxYm3mKzI",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "sicario",
+   "collection": "modern-classics",
+   "title": "Sicario",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Crime",
+    "Thriller"
+   ],
+   "year": 2015,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Denis Villeneuve",
+   "recognition": "Three Academy Award nominations, including Best Cinematography",
+   "pair_with": "",
+   "study_note": "Roger Deakins shoots the border from above and at night, including a raid seen through thermal and night-vision cameras",
+   "added": "2026-11-28",
+   "imdb_id": "tt3397884",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Yfhu5JIxnZc",
+     "kind": "trailer",
+     "channel": "Lionsgate Movies",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "21-grams",
+   "collection": "modern-classics",
+   "title": "21 Grams",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Crime",
+    "Thriller"
+   ],
+   "year": 2003,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Alejandro G. Iñárritu",
+   "recognition": "Academy Award nominations for Naomi Watts and Benicio del Toro",
+   "pair_with": "",
+   "study_note": "Guillermo Arriaga's script is told out of order, and Rodrigo Prieto shot it handheld with heavy grain and drained colour",
+   "added": "2026-11-28",
+   "imdb_id": "tt0315733",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "l5OrRqj5At4",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "hulk",
+   "collection": "modern-classics",
+   "title": "Hulk",
+   "type": "film",
+   "genres": [
+    "Sci-Fi",
+    "Action",
+    "Drama"
+   ],
+   "year": 2003,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Ang Lee",
+   "recognition": "Over $245 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Ang Lee cuts the film like comic-book panels, with split screens and wipes across the frame",
+   "added": "2026-11-28",
+   "imdb_id": "tt0286716",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "2ErnLuJKQA4",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "darkest-hour",
+   "collection": "modern-classics",
+   "title": "Darkest Hour",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Historical",
+    "Biography",
+    "War"
+   ],
+   "year": 2017,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Joe Wright",
+   "recognition": "Academy Awards for Best Actor (Gary Oldman) and Makeup and Hairstyling",
+   "pair_with": "",
+   "study_note": "Gary Oldman becomes Churchill under Kazu Hiro's prosthetics, in a London lit by shafts of light through bunker and Parliament windows",
+   "added": "2026-11-28",
+   "imdb_id": "tt4555426",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "4pNOCzV5jG0",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "wonder-woman-1984",
+   "collection": "modern-classics",
+   "title": "Wonder Woman 1984",
+   "type": "film",
+   "genres": [
+    "Action",
+    "Adventure",
+    "Fantasy"
+   ],
+   "year": 2020,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Patty Jenkins",
+   "recognition": "Released in cinemas and on HBO Max on the same day",
+   "pair_with": "",
+   "study_note": "Patty Jenkins sets the sequel in 1984, restoring a shopping mall of the era inside a real Virginia mall",
+   "added": "2026-11-28",
+   "imdb_id": "tt7126948",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "sfM7_JLk-84",
+     "kind": "trailer",
+     "channel": "Warner Bros.",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "cruella",
+   "collection": "modern-classics",
+   "title": "Cruella",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Crime",
+    "Fashion"
+   ],
+   "year": 2021,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Craig Gillespie",
+   "recognition": "Academy Award for Best Costume Design (Jenny Beavan)",
+   "pair_with": "",
+   "study_note": "Jenny Beavan's costumes take 101 Dalmatians' villain into 1970s London punk and couture",
+   "added": "2026-11-28",
+   "imdb_id": "tt3228774",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "gmRKv7n2If8",
+     "kind": "trailer",
+     "channel": "Disney",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "mrs-miniver",
+   "collection": "studio-era",
+   "title": "Mrs. Miniver",
+   "type": "film",
+   "genres": [
+    "Drama",
+    "Romance",
+    "War"
+   ],
+   "year": 1942,
+   "countries": [
+    "United States"
+   ],
+   "credit": "William Wyler",
+   "recognition": "Six Academy Awards, including Best Picture",
+   "pair_with": "",
+   "study_note": "Made in Hollywood while Britain was at war, its English village built on MGM's lot; its closing sermon was printed as leaflets and dropped over Europe",
+   "added": "2026-11-28",
+   "imdb_id": "tt0035093",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "QXXHxxSZZ8A",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "hannibal",
+   "collection": "modern-classics",
+   "title": "Hannibal",
+   "type": "film",
+   "genres": [
+    "Crime",
+    "Thriller",
+    "Horror"
+   ],
+   "year": 2001,
+   "countries": [
+    "United Kingdom",
+    "United States"
+   ],
+   "credit": "Ridley Scott",
+   "recognition": "Over $351 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Ridley Scott moves Hannibal Lecter to Florence, filming in its palazzos, piazzas and museums",
+   "added": "2026-11-28",
+   "imdb_id": "tt0212985",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "Lr3OavheNu0",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "prince-of-persia-the-sands-of-time",
+   "collection": "modern-classics",
+   "title": "Prince of Persia: The Sands of Time",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Fantasy",
+    "Action"
+   ],
+   "year": 2010,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Mike Newell",
+   "recognition": "Over $336 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Adapted from the video game and filmed in Morocco's deserts, with free-running stunts across rooftops",
+   "added": "2026-11-28",
+   "imdb_id": "tt0473075",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "9qXlAls2Gv0",
+     "kind": "trailer",
+     "channel": "Disney UK",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "enchanted",
+   "collection": "modern-classics",
+   "title": "Enchanted",
+   "type": "film",
+   "genres": [
+    "Comedy",
+    "Family",
+    "Fantasy",
+    "Romance",
+    "Musical"
+   ],
+   "year": 2007,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Kevin Lima",
+   "recognition": "Three Academy Award nominations for Best Original Song",
+   "pair_with": "",
+   "study_note": "Disney sends a hand-drawn princess into live-action New York: the film starts in traditional animation and steps out into Central Park",
+   "added": "2026-11-28",
+   "imdb_id": "tt0461770"
+  },
+  {
+   "slug": "tron-legacy",
+   "collection": "modern-classics",
+   "title": "Tron: Legacy",
+   "type": "film",
+   "genres": [
+    "Adventure",
+    "Action",
+    "Sci-Fi"
+   ],
+   "year": 2010,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Joseph Kosinski",
+   "recognition": "Over $400 million at the worldwide box office",
+   "pair_with": "",
+   "study_note": "Joseph Kosinski lit the Grid with light built into the suits and sets, to a score by Daft Punk",
+   "added": "2026-11-28",
+   "imdb_id": "tt1104001",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "P78pl1FUXfA",
+     "kind": "trailer",
+     "channel": "Disney UK",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-girl-with-the-dragon-tattoo",
+   "collection": "modern-classics",
+   "title": "The Girl with the Dragon Tattoo",
+   "type": "film",
+   "genres": [
+    "Thriller",
+    "Crime",
+    "Mystery"
+   ],
+   "year": 2011,
+   "countries": [
+    "United States",
+    "Sweden"
+   ],
+   "credit": "David Fincher",
+   "recognition": "Academy Award for Best Film Editing",
+   "pair_with": "",
+   "study_note": "David Fincher shoots Stieg Larsson's thriller in a Swedish winter, in a cold, drained palette, to Trent Reznor and Atticus Ross's score",
+   "added": "2026-11-28",
+   "imdb_id": "tt1568346",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "DqQe3OrsMKI",
+     "kind": "trailer",
+     "channel": "Sony Pictures Entertainment",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "cat-on-a-hot-tin-roof",
+   "collection": "studio-era",
+   "title": "Cat on a Hot Tin Roof",
+   "type": "film",
+   "genres": [
+    "Drama"
+   ],
+   "year": 1958,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Richard Brooks",
+   "recognition": "Six Academy Award nominations, including Best Picture",
+   "pair_with": "",
+   "study_note": "Tennessee Williams's play on screen, with Elizabeth Taylor and Paul Newman, kept almost entirely inside one Mississippi plantation house",
+   "added": "2026-11-28",
+   "imdb_id": "tt0051459",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "AzogcorjLOI",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-great-ziegfeld",
+   "collection": "studio-era",
+   "title": "The Great Ziegfeld",
+   "type": "film",
+   "genres": [
+    "Musical",
+    "Biography",
+    "Drama"
+   ],
+   "year": 1936,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Robert Z. Leonard",
+   "recognition": "Academy Award for Best Picture",
+   "pair_with": "",
+   "study_note": "MGM's three-hour biography of the Broadway showman, built around a revolving, wedding-cake set for 'A Pretty Girl Is Like a Melody'",
+   "added": "2026-11-28",
+   "imdb_id": "tt0027698",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "h-Rez1xM3yo",
+     "kind": "trailer",
+     "channel": "Rotten Tomatoes Classic Trailers",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "daredevil",
+   "collection": "drama-series",
+   "title": "Daredevil",
+   "type": "series",
+   "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Superhero"
+   ],
+   "year": 2015,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Drew Goddard",
+   "pair_with": "",
+   "study_note": "Netflix's first Marvel series, with a hallway fight in its second episode played as one unbroken take",
+   "added": "2026-11-28",
+   "imdb_id": "tt3322312",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "jAy6NJ_D5vU",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-witcher",
+   "collection": "drama-series",
+   "title": "The Witcher",
+   "type": "series",
+   "genres": [
+    "Fantasy",
+    "Action",
+    "Adventure"
+   ],
+   "year": 2019,
+   "countries": [
+    "United States",
+    "Poland"
+   ],
+   "credit": "Lauren Schmidt Hissrich",
+   "pair_with": "",
+   "study_note": "Adapted from Andrzej Sapkowski's Polish novels and filmed in Hungary and on the Canary Islands, with Henry Cavill as Geralt for three seasons",
+   "added": "2026-11-28",
+   "imdb_id": "tt5180504",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "ndl1W4ltcmg",
+     "kind": "trailer",
+     "channel": "Netflix",
+     "is_primary": true
+    }
+   ]
+  },
+  {
+   "slug": "the-queens-gambit",
+   "collection": "drama-series",
+   "title": "The Queen's Gambit",
+   "type": "series",
+   "genres": [
+    "Drama",
+    "Coming of Age"
+   ],
+   "year": 2020,
+   "countries": [
+    "United States"
+   ],
+   "credit": "Scott Frank & Allan Scott",
+   "recognition": "Emmy Award for Outstanding Limited Series, 2021",
+   "pair_with": "",
+   "study_note": "Scott Frank's limited series about a chess prodigy, filmed in Berlin standing in for 1950s and 60s Kentucky, Paris, Mexico City and Moscow",
+   "added": "2026-11-28",
+   "imdb_id": "tt10048342",
+   "videos": [
+    {
+     "provider": "youtube",
+     "video_id": "LIFeFoPkEVE",
+     "kind": "trailer",
+     "channel": "Netflix - Universe",
+     "is_primary": true
+    }
+   ]
   }
  ],
  "categories": [

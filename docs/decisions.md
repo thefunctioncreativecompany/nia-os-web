@@ -1433,3 +1433,19 @@ onboarding's Import profile and Follow creators describe features removed in the
   were moved to them, and genres now show in sentence case on title pages and film pop-ups.
   Creator films have no genres, only a type; it counts when the type is itself a genre (Fashion
   Film, Branded Content, Editorial, Behind the Scenes). In What's new. Not in Figma yet.
+- (2026-11-28) Explore: the next 30 from the studio catalogue, 204 of 312 now on Explore: The
+  Broadway Melody, Lord of War, One Battle After Another, Alice Through the Looking Glass, Thelma &
+  Louise, Roma, Divergent, The Expendables 2, Anora, Contagion, Prince Caspian, Narcos, Don't Look
+  Up, Sicario, 21 Grams, Hulk, Darkest Hour, Wonder Woman 1984, Cruella, Mrs. Miniver, Hannibal,
+  Prince of Persia, Enchanted, Tron: Legacy, The Girl with the Dragon Tattoo (2011), Cat on a Hot
+  Tin Roof, The Great Ziegfeld, Daredevil (2015 series), The Witcher, The Queen's Gambit. Posters
+  checked by eye; every IMDb id checked against the catalogue's Wikidata item (Daredevil had matched
+  the 2003 film). Trailers for Prince of Persia and The Girl with the Dragon Tattoo from TMDB
+  (Disney UK, Sony); Enchanted's TMDB pick was a YouTube Movies rental listing, so it has none, as
+  The Broadway Melody. Roma's countries are Mexico and the United States (TMDB listed the UK).
+  Press kits checked by hand as before: other productions taken out (Disenchanted, Narcos: Mexico,
+  Daredevil: Born Again), with fan channels, early-reaction round-ups, box-office news and opinion
+  pieces; Variety's 1936 Great Ziegfeld review moved from articles to reviews. No reviews yet for
+  Thelma & Louise, The Expendables 2, Narcos, Don't Look Up (its Wikipedia lookup failed), Cat on a
+  Hot Tin Roof, Daredevil, The Witcher and The Broadway Melody; YouTube gave few press videos this
+  run.
