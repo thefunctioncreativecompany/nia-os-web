@@ -56,6 +56,7 @@ stack and the counts.
 | PostHog activation | 🔄 Installed, session replay on | First recordings on the live site; Replay Vision scanners start then |
 | Meetings (steps 2 and 4 of 4) | 🔄 Steps 1 and 3 live (see Live now); step 2 (Claude's suggested changes on Apply) built, off until an `ANTHROPIC_API_KEY` is added | Add the key for step 2; then Gemini notes arriving by themselves (4). `docs/MEETINGS_SPEC.md` |
 | Desktop app | 🔄 Steps 1, offline documents and notifications while open live 2026-11-24/25 | Safari check (D2, Ika); notifications with Nia closed built, waiting on `20261127000000_push_subscriptions.sql`, the database webhook and the Vercel keys (D6, Ika); a downloadable Tauri app only with a reason (D3); phones after desktop (D4) |
+| Notifications (D8) | 🔄 Part 1 built 2026-11-28: new documents, added to a cast or crew, shoot dates, deliverables and budget changes; waits on `20261128000000_more_notifications.sql` (Ika) | Part 2 @mentions in comments; part 3 in meeting notes and documents; part 4 mentions of people outside the project (email via Resend); Inbox messages with the Inbox |
 | Onboarding (1.4) | 🔄 | "How did you hear about us" as an optional tap; "What you can do" as slides (waits on Figma) |
 
 ## Known rough edges

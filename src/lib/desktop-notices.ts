@@ -7,7 +7,9 @@ import { createClient } from "@/lib/supabase/client";
 import { noticeFor, type NoticeRow } from "@/lib/notice-rules";
 
 // Desktop notifications (FEEDBACK D6, Ika 2026-11-25): the computer shows when someone shares a
-// project with you, comments or asks for access. Collaborators' edits stay in Updates. A choice
+// project with you, comments or asks for access; since 2026-11-27 also new documents, being added
+// to a cast or crew, and changes to shoot dates, deliverables or budget (which ones: notice-rules.ts).
+// Other edits stay in Updates. A choice
 // for this device (Settings → General), on only once the browser allows it.
 // Step 2: where the browser can, this computer also gets them when Nia is closed. Turning on gives
 // Nia the browser's address for notices (a push subscription, saved for this person); the server
@@ -126,7 +128,7 @@ export async function setDesktopNotices(on: boolean): Promise<NoticeState> {
     const closedToo = await startPush();
     show({
       title: "Desktop notifications are on",
-      body: `Shares, comments and access requests show here${closedToo ? ", even when Nia is closed" : " while Nia is open"}.`,
+      body: `Shares, comments, new documents and production changes show here${closedToo ? ", even when Nia is closed" : " while Nia is open"}.`,
       tag: "nia-on",
     });
   }

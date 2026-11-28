@@ -31,6 +31,16 @@ export type Update = {
 
 export const UPDATES: Update[] = [
   {
+    id: "more-notifications",
+    date: "2026-11-28",
+    title: "Know when the production changes",
+    body: "Nia tells you when a new document lands in a project, when the shoot dates, deliverables or budget change, and when someone adds you to a cast or crew, on your computer too.",
+    href: "/settings/general",
+    cta: "Check your notifications",
+    icon: "chat",
+    weight: { production: 0.9, fashion: 0.6, creator: 0.6 },
+  },
+  {
     id: "milestone-assignees",
     date: "2026-11-25",
     title: "Who's on each milestone",

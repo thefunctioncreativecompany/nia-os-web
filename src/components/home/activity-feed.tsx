@@ -6,7 +6,8 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { Archive, MailOpen } from "lucide-react";
 
-import { describeActivity, projectNoteHref, timeAgo, type ActivityItem } from "@/lib/projects";
+import { describeActivity, timeAgo, type ActivityItem } from "@/lib/projects";
+import { noteHref } from "@/lib/notice-rules";
 import { createClient } from "@/lib/supabase/client";
 import { cn, getInitials } from "@/lib/utils";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -20,7 +21,7 @@ import { setHomePanel, useHomePanel } from "@/components/home/home-panel";
 // View all opens in the right panel (Ika, 2026-11-19); its list loads only then.
 const ActivityPanel = dynamic(() => import("@/components/home/activity-panel").then((m) => m.ActivityPanel), { ssr: false });
 
-type Note = { id: number; project_id: string | null; kind: "shared" | "activity"; title: string; body: string; read_at: string | null; archived_at: string | null; created_at: string };
+type Note = { id: number; project_id: string | null; kind: "shared" | "activity"; event?: string | null; title: string; body: string; read_at: string | null; archived_at: string | null; created_at: string };
 
 type Row =
   | { kind: "note"; key: string; at: number; note: Note }
@@ -50,7 +51,7 @@ export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[];
       // Archived ones too, so the activity row of an archived notification stays hidden.
       const { data, error } = await supabase
         .from("notifications")
-        .select("id, project_id, kind, title, body, read_at, archived_at, created_at")
+        .select("*")
         .order("created_at", { ascending: false })
         .limit(50);
       if (!live) return;
@@ -121,7 +122,7 @@ export function ActivityFeed({ items, now: serverNow }: { items: ActivityItem[];
                   type="button"
                   onClick={() => {
                     if (!row.note.read_at) mark(row.note.id, { read_at: new Date().toISOString() });
-                    if (row.note.project_id) router.push(projectNoteHref(row.note.project_id, row.note.title));
+                    if (row.note.project_id) router.push(noteHref(row.note));
                   }}
                   className="flex w-full min-w-0 items-center gap-3 text-left outline-none"
                 >
