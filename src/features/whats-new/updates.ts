@@ -39,6 +39,8 @@ export const UPDATES: Update[] = [
     cta: "Browse by genre",
     icon: "magnifier",
     weight: { production: 0.7, fashion: 0.6, creator: 0.7 },
+  },
+  {
     id: "notes-document-mentions",
     date: "2026-11-28",
     title: "@mention people in meeting notes and documents",
