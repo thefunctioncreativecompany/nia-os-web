@@ -1,0 +1,174 @@
+{
+ "version": 1,
+ "source": "ShareGrid rental categories, extended with Glow Hire and Magic Lightbox groupings (Nia gear master list v1, 2026-11-27)",
+ "departments": [
+  {
+   "name": "Cameras",
+   "categories": [
+    "Cinema cameras",
+    "Mirrorless & DSLR",
+    "Camcorders",
+    "Action & 360 cameras",
+    "Film cameras",
+    "Medium format"
+   ]
+  },
+  {
+   "name": "Lenses",
+   "categories": [
+    "Cinema primes",
+    "Cinema zooms",
+    "Anamorphic",
+    "Photo lenses",
+    "Specialty",
+    "Adaptors & extenders"
+   ]
+  },
+  {
+   "name": "Camera accessories",
+   "categories": [
+    "Batteries & power",
+    "Filters",
+    "Follow focus & lens control",
+    "Matte boxes",
+    "Rigs, cages & rods",
+    "Timecode & slates",
+    "Remotes & triggers",
+    "Lightmeters",
+    "Straps, cases & covers",
+    "Other"
+   ]
+  },
+  {
+   "name": "Camera support",
+   "categories": [
+    "Tripods & heads",
+    "Monopods",
+    "Sliders & dollies",
+    "Gimbals & stabilisers",
+    "Body support",
+    "Jibs & cranes",
+    "Car mounts & specialty rigs",
+    "Underwater housings",
+    "Motion control"
+   ]
+  },
+  {
+   "name": "Monitors & video",
+   "categories": [
+    "On-camera monitors",
+    "Director & client monitors",
+    "Recorders",
+    "Wireless video",
+    "Converters & multiviewers",
+    "EVFs & viewfinders",
+    "Teleprompters"
+   ]
+  },
+  {
+   "name": "Lighting",
+   "categories": [
+    "LED point source",
+    "LED panels & mats",
+    "LED tubes & practicals",
+    "HMI",
+    "Tungsten",
+    "Fluorescent",
+    "Photo strobes & flash",
+    "Modifiers",
+    "Lighting control"
+   ]
+  },
+  {
+   "name": "Grip",
+   "categories": [
+    "Stands",
+    "Clamps & hardware",
+    "Apple boxes & wedges",
+    "Sandbags & weights",
+    "Flags & nets",
+    "Frames & rags",
+    "Bounce & reflectors",
+    "Backdrops & green screens",
+    "Carts",
+    "Rope & rigging",
+    "G&E packages & trucks"
+   ]
+  },
+  {
+   "name": "Power & distribution",
+   "categories": [
+    "Generators",
+    "Portable power stations",
+    "Distro & cable"
+   ]
+  },
+  {
+   "name": "Audio",
+   "categories": [
+    "Shotgun & boom",
+    "On-camera mics",
+    "Wireless",
+    "Handheld & podcast mics",
+    "Recorders & mixers",
+    "Headphones & monitoring",
+    "Booms & windshields",
+    "Audio cables & adaptors",
+    "Comms & intercom",
+    "Speakers"
+   ]
+  },
+  {
+   "name": "Media & DIT",
+   "categories": [
+    "Memory cards",
+    "Card readers",
+    "Drives",
+    "Laptops & DIT",
+    "Tethering"
+   ]
+  },
+  {
+   "name": "Live production",
+   "categories": [
+    "Switchers",
+    "Streaming encoders",
+    "Capture"
+   ]
+  },
+  {
+   "name": "Atmospherics & SFX",
+   "categories": [
+    "Haze & fog",
+    "Wind"
+   ]
+  },
+  {
+   "name": "Expendables",
+   "categories": [
+    "Gels & diffusion",
+    "Tape",
+    "Paper backdrops"
+   ]
+  },
+  {
+   "name": "Production & unit",
+   "categories": [
+    "Unit"
+   ]
+  },
+  {
+   "name": "Drones & vehicles",
+   "categories": [
+    "Drones",
+    "Production vehicles"
+   ]
+  },
+  {
+   "name": "Other",
+   "categories": [
+    "Other"
+   ]
+  }
+ ]
+}

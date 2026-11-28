@@ -1,0 +1,8095 @@
+{
+"version": 1,
+"updated": "2026-11-27",
+"items": [
+{
+"id": "blackmagic-pocket-cinema-camera-6k",
+"name": "Blackmagic Pocket Cinema Camera 6K",
+"brand": "Blackmagic Design",
+"department": "Cameras",
+"category": "Cinema cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blackmagic-pocket-cinema-camera-6k-pro",
+"name": "Blackmagic Pocket Cinema Camera 6K Pro",
+"brand": "Blackmagic Design",
+"department": "Cameras",
+"category": "Cinema cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-fx3",
+"name": "Sony FX3",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Cinema cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-fx6",
+"name": "Sony FX6",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Cinema cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-fx9",
+"name": "Sony FX9",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Cinema cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-pxw-fs5",
+"name": "Sony PXW-FS5",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Cinema cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-pxw-fs7",
+"name": "Sony PXW-FS7",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Cinema cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-pxw-fs7-ii",
+"name": "Sony PXW-FS7 II",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Cinema cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-eos-5d-mark-iii",
+"name": "Canon EOS 5D Mark III",
+"brand": "Canon",
+"department": "Cameras",
+"category": "Mirrorless & DSLR",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-eos-5d-mark-iv",
+"name": "Canon EOS 5D Mark IV",
+"brand": "Canon",
+"department": "Cameras",
+"category": "Mirrorless & DSLR",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-eos-5ds",
+"name": "Canon EOS 5DS",
+"brand": "Canon",
+"department": "Cameras",
+"category": "Mirrorless & DSLR",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-eos-5ds-r",
+"name": "Canon EOS 5DS R",
+"brand": "Canon",
+"department": "Cameras",
+"category": "Mirrorless & DSLR",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "nikon-d850",
+"name": "Nikon D850",
+"brand": "Nikon",
+"department": "Cameras",
+"category": "Mirrorless & DSLR",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-a7r-iv",
+"name": "Sony A7R IV",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Mirrorless & DSLR",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-a7s-ii",
+"name": "Sony A7S II",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Mirrorless & DSLR",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-a7s-iii",
+"name": "Sony A7S III",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Mirrorless & DSLR",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-pmw-200",
+"name": "Sony PMW-200",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Camcorders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-pmw-300",
+"name": "Sony PMW-300",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Camcorders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-pxw-x70-camcorder",
+"name": "Sony PXW-X70 Camcorder",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Camcorders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-pxw-z150-camcorder",
+"name": "Sony PXW-Z150 Camcorder",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Camcorders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-pxw-z200-4k-xdcam-camcorder",
+"name": "Sony PXW-Z200 4K XDCAM Camcorder",
+"brand": "Sony",
+"department": "Cameras",
+"category": "Camcorders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dji-osmo-pocket-4",
+"name": "DJI Osmo Pocket 4",
+"brand": "DJI",
+"department": "Cameras",
+"category": "Action & 360 cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "gopro-hero-10-black",
+"name": "GoPro Hero 10 Black",
+"brand": "GoPro",
+"department": "Cameras",
+"category": "Action & 360 cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "gopro-hero-11-black",
+"name": "GoPro Hero 11 Black",
+"brand": "GoPro",
+"department": "Cameras",
+"category": "Action & 360 cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "gopro-hero-12-black",
+"name": "GoPro Hero 12 Black",
+"brand": "GoPro",
+"department": "Cameras",
+"category": "Action & 360 cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "gopro-hero-5-black",
+"name": "GoPro Hero 5 Black",
+"brand": "GoPro",
+"department": "Cameras",
+"category": "Action & 360 cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "gopro-hero-6-black",
+"name": "GoPro Hero 6 Black",
+"brand": "GoPro",
+"department": "Cameras",
+"category": "Action & 360 cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "gopro-hero-8-black",
+"name": "GoPro Hero 8 Black",
+"brand": "GoPro",
+"department": "Cameras",
+"category": "Action & 360 cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "gopro-hero-9-black",
+"name": "GoPro Hero 9 Black",
+"brand": "GoPro",
+"department": "Cameras",
+"category": "Action & 360 cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "insta360-x4-360-8k-camera",
+"name": "Insta360 X4 360° 8K Camera",
+"brand": "Insta360",
+"department": "Cameras",
+"category": "Action & 360 cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "insta360-x5-360-8k-camera",
+"name": "Insta360 X5 360° 8K Camera",
+"brand": "Insta360",
+"department": "Cameras",
+"category": "Action & 360 cameras",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-14mm-t2-8-verify-model",
+"name": "Canon 14mm T2.8 (verify model)",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-arles-100mm-t1-4-prime-cine-lens",
+"name": "DZOFilm Arles 100mm T1.4 Prime Cine Lens",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-arles-14mm-t1-9-ff-vv-prime-cine-lens-pl-mount",
+"name": "DZOFilm Arles 14mm T1.9 FF/VV Prime Cine Lens (PL-Mount)",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-arles-21mm-t1-4-ff-vv-prime-cine-lens-pl-mount",
+"name": "DZOFilm Arles 21mm T1.4 FF/VV Prime Cine Lens (PL-Mount)",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-arles-25mm-t1-4-prime-cine-lens",
+"name": "DZOFilm Arles 25mm T1.4 Prime Cine Lens",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-arles-35mm-t1-4-prime-cine-lens",
+"name": "DZOFilm Arles 35mm T1.4 Prime Cine Lens",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-arles-50mm-t1-4-prime-cine-lens",
+"name": "DZOFilm Arles 50mm T1.4 Prime Cine Lens",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-arles-75mm-t1-4-prime-cine-lens",
+"name": "DZOFilm Arles 75mm T1.4 Prime Cine Lens",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-vespid-100mm-t2-1-cine-prime",
+"name": "DZOFilm VESPID 100mm T2.1 Cine Prime",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-vespid-125mm-t2-1-cine-prime",
+"name": "DZOFilm VESPID 125mm T2.1 Cine Prime",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-vespid-16mm-t2-1-cine-prime",
+"name": "DZOFilm VESPID 16mm T2.1 Cine Prime",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-vespid-21mm-t2-1-cine-prime",
+"name": "DZOFilm VESPID 21mm T2.1 Cine Prime",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-vespid-25mm-t2-1-cine-prime",
+"name": "DZOFilm VESPID 25mm T2.1 Cine Prime",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-vespid-35mm-t2-1-cine-prime",
+"name": "DZOFilm VESPID 35mm T2.1 Cine Prime",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-vespid-40mm-t2-1-cine-prime",
+"name": "DZOFilm VESPID 40mm T2.1 Cine Prime",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-vespid-50mm-t2-1-cine-prime",
+"name": "DZOFilm VESPID 50mm T2.1 Cine Prime",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-vespid-75mm-t2-1-cine-prime",
+"name": "DZOFilm VESPID 75mm T2.1 Cine Prime",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "laowa-12mm-t2-9-zero-d-cine-pl-mount-full-frame",
+"name": "Laowa 12mm T2.9 Zero-D Cine (PL-Mount, Full-Frame)",
+"brand": "Laowa",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nisi-athena-135mm-t2-2-cine-prime",
+"name": "NiSi Athena 135mm T2.2 Cine Prime",
+"brand": "NiSi",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nisi-athena-14mm-t2-4-cine-prime",
+"name": "NiSi Athena 14mm T2.4 Cine Prime",
+"brand": "NiSi",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nisi-athena-25mm-t1-9-cine-prime",
+"name": "NiSi Athena 25mm T1.9 Cine Prime",
+"brand": "NiSi",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nisi-athena-35mm-t1-9-cine-prime",
+"name": "NiSi Athena 35mm T1.9 Cine Prime",
+"brand": "NiSi",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nisi-athena-50mm-t1-9-cine-prime",
+"name": "NiSi Athena 50mm T1.9 Cine Prime",
+"brand": "NiSi",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nisi-athena-85mm-t1-9-cine-prime",
+"name": "NiSi Athena 85mm T1.9 Cine Prime",
+"brand": "NiSi",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rokinon-16mm-t2-2-cine",
+"name": "Rokinon 16mm T2.2 Cine",
+"brand": "Rokinon",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rokinon-20mm-t1-9-cine",
+"name": "Rokinon 20mm T1.9 Cine",
+"brand": "Rokinon",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rokinon-35mm-t1-5-cine",
+"name": "Rokinon 35mm T1.5 Cine",
+"brand": "Rokinon",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rokinon-50mm-t1-5-cine",
+"name": "Rokinon 50mm T1.5 Cine",
+"brand": "Rokinon",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rokinon-85mm-t1-5-cine",
+"name": "Rokinon 85mm T1.5 Cine",
+"brand": "Rokinon",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-105mm-t1-5-ff-cine-prime",
+"name": "Sigma 105mm T1.5 FF Cine Prime",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sigma-135mm-t2-ff-cine-prime",
+"name": "Sigma 135mm T2 FF Cine Prime",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sigma-14mm-t2-ff-cine-prime",
+"name": "Sigma 14mm T2 FF Cine Prime",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-20mm-t1-5-ff-cine-prime",
+"name": "Sigma 20mm T1.5 FF Cine Prime",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-24mm-t1-5-ff-cine-prime",
+"name": "Sigma 24mm T1.5 FF Cine Prime",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sigma-35mm-t1-5-ff-cine-prime",
+"name": "Sigma 35mm T1.5 FF Cine Prime",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sigma-50mm-t1-5-ff-cine-prime",
+"name": "Sigma 50mm T1.5 FF Cine Prime",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sigma-85mm-t1-5-ff-cine-prime",
+"name": "Sigma 85mm T1.5 FF Cine Prime",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-cinealta-25mm-t2-0-pl",
+"name": "Sony CineAlta 25mm T2.0 (PL)",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-cinealta-35mm-t2-0-pl",
+"name": "Sony CineAlta 35mm T2.0 (PL)",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-cinealta-50mm-t2-0-pl",
+"name": "Sony CineAlta 50mm T2.0 (PL)",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-cp-2-21mm-t2-9",
+"name": "Zeiss CP.2 21mm T2.9",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-cp-2-25mm-t2-9",
+"name": "Zeiss CP.2 25mm T2.9",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-cp-2-28mm-t2-1",
+"name": "Zeiss CP.2 28mm T2.1",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-cp-2-35mm-t2-1",
+"name": "Zeiss CP.2 35mm T2.1",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-cp-2-50mm-t2-1",
+"name": "Zeiss CP.2 50mm T2.1",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-cp-2-85mm-t2-1",
+"name": "Zeiss CP.2 85mm T2.1",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Cinema primes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "arri-alura-45-250mm-t2-6",
+"name": "ARRI Alura 45-250mm T2.6",
+"brand": "ARRI",
+"department": "Lenses",
+"category": "Cinema zooms",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "dzofilm-catta-ace-18-35mm-t2-9-cine-zoom-lens",
+"name": "DZOFilm Catta Ace 18-35mm T2.9 Cine Zoom Lens",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema zooms",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-catta-ace-35-80mm-t2-9-cine-zoom-lens",
+"name": "DZOFilm Catta Ace 35-80mm T2.9 Cine Zoom Lens",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema zooms",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-catta-ace-70-135mm-t2-9-cine-zoom-lens",
+"name": "DZOFilm Catta Ace 70-135mm T2.9 Cine Zoom Lens",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Cinema zooms",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-lwz-3-21-100mm-t2-9-3-9-lightweight-zoom",
+"name": "Zeiss LWZ.3 21-100mm T2.9-3.9 Lightweight Zoom",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Cinema zooms",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blazar-remus-100mm-t2-8-1-5x-anamorphic-lens",
+"name": "Blazar Remus 100mm T2.8 1.5x Anamorphic Lens",
+"brand": "Blazar",
+"department": "Lenses",
+"category": "Anamorphic",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blazar-remus-33mm-t1-8-1-5x-anamorphic-lens-pl-mount-full-frame-amber-flare",
+"name": "Blazar Remus 33mm T1.8 1.5x Anamorphic Lens (PL-Mount, Full-Frame, Amber Flare)",
+"brand": "Blazar",
+"department": "Lenses",
+"category": "Anamorphic",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blazar-remus-45mm-t2-0-1-5x-anamorphic-lens",
+"name": "Blazar Remus 45mm T2.0 1.5x Anamorphic Lens",
+"brand": "Blazar",
+"department": "Lenses",
+"category": "Anamorphic",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blazar-remus-65mm-t2-0-1-5x-anamorphic-lens",
+"name": "Blazar Remus 65mm T2.0 1.5x Anamorphic Lens",
+"brand": "Blazar",
+"department": "Lenses",
+"category": "Anamorphic",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blazar-remus-85mm-t2-8-1-5x-anamorphic-lens",
+"name": "Blazar Remus 85mm T2.8 1.5x Anamorphic Lens",
+"brand": "Blazar",
+"department": "Lenses",
+"category": "Anamorphic",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "lomo-20-120mm-anamorphic-zoom",
+"name": "Lomo 20-120mm Anamorphic Zoom",
+"brand": "Lomo",
+"department": "Lenses",
+"category": "Anamorphic",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-ef-100-400mm-f4-5-5-6l-is-usm",
+"name": "Canon EF 100-400mm f4.5-5.6L IS USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-ef-135mm-f2l-usm",
+"name": "Canon EF 135mm f2L USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-ef-16-35mm-f2-8l-ii-usm",
+"name": "Canon EF 16-35mm f2.8L II USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-ef-16-35mm-f2-8l-iii-usm",
+"name": "Canon EF 16-35mm f2.8L III USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-ef-16-35mm-f2-8l-usm",
+"name": "Canon EF 16-35mm f2.8L USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-ef-20mm-f2-8",
+"name": "Canon EF 20mm f2.8",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-ef-24-105mm-f4l-is-usm",
+"name": "Canon EF 24-105mm f4L IS USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-ef-24-70mm-f2-8l-ii-usm",
+"name": "Canon EF 24-70mm f2.8L II USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-ef-24-70mm-f2-8l-usm",
+"name": "Canon EF 24-70mm f2.8L USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-ef-35mm-f1-4l-usm",
+"name": "Canon EF 35mm f1.4L USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-ef-50mm-f1-2l-usm",
+"name": "Canon EF 50mm f1.2L USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-ef-70-200mm-f2-8l-is-ii-usm",
+"name": "Canon EF 70-200mm f2.8L IS II USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-ef-70-200mm-f2-8l-usm",
+"name": "Canon EF 70-200mm f2.8L USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "joseph-petzval-135mm-f2-5-lens-e-mount-full-frame",
+"name": "Joseph Petzval 135mm f2.5 Lens (E-Mount, Full-Frame)",
+"brand": "Joseph Petzval",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "joseph-petzval-27mm-f1-7-lens-e-mount-full-frame",
+"name": "Joseph Petzval 27mm f1.7 Lens (E-Mount, Full-Frame)",
+"brand": "Joseph Petzval",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "joseph-petzval-35mm-f2-lens-e-mount-full-frame",
+"name": "Joseph Petzval 35mm f2 Lens (E-Mount, Full-Frame)",
+"brand": "Joseph Petzval",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "joseph-petzval-55mm-f1-7-lens-e-mount-full-frame",
+"name": "Joseph Petzval 55mm f1.7 Lens (E-Mount, Full-Frame)",
+"brand": "Joseph Petzval",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "joseph-petzval-80-5mm-f1-9-lens-e-mount-full-frame",
+"name": "Joseph Petzval 80.5mm f1.9 Lens (E-Mount, Full-Frame)",
+"brand": "Joseph Petzval",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "leica-elmarit-r-135mm-f2-8",
+"name": "Leica Elmarit-R 135mm f2.8",
+"brand": "Leica",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "leica-elmarit-r-24mm-f2-8",
+"name": "Leica Elmarit-R 24mm f2.8",
+"brand": "Leica",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "leica-elmarit-r-35mm-f2-8",
+"name": "Leica Elmarit-R 35mm f2.8",
+"brand": "Leica",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "leica-summicron-r-50mm-f2",
+"name": "Leica Summicron-R 50mm f2",
+"brand": "Leica",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "leica-super-angulon-r-21mm-f4",
+"name": "Leica Super-Angulon-R 21mm f4",
+"brand": "Leica",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "mamiya-150mm-f4-0",
+"name": "Mamiya 150mm f4.0",
+"brand": "Mamiya",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "mamiya-45mm-f2-8",
+"name": "Mamiya 45mm f2.8",
+"brand": "Mamiya",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "mamiya-55mm-f2-8",
+"name": "Mamiya 55mm f2.8",
+"brand": "Mamiya",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "mamiya-80mm-f2-8",
+"name": "Mamiya 80mm f2.8",
+"brand": "Mamiya",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nikon-af-s-14-24mm-f2-8g-ed",
+"name": "Nikon AF-S 14-24mm f2.8G ED",
+"brand": "Nikon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "nikon-af-s-70-200mm-f2-8g-ed-vr-ii",
+"name": "Nikon AF-S 70-200mm f2.8G ED VR II",
+"brand": "Nikon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rokinon-24mm-f1-4",
+"name": "Rokinon 24mm f1.4",
+"brand": "Rokinon",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "schneider-blue-line-ls-lenses-medium-format",
+"name": "Schneider Blue Line LS Lenses (medium format)",
+"brand": "Schneider",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": "35mm, 55mm, 80mm, 110mm, 120mm Macro, 150mm, 240mm, 40-80mm",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sigma-14-24mm-f2-8-dg-art-lens",
+"name": "Sigma 14-24mm f2.8 DG Art Lens",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-16-28mm-f2-8-dg-dn-contemporary",
+"name": "Sigma 16-28mm f2.8 DG DN Contemporary",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-20mm-f1-4-art-lens",
+"name": "Sigma 20mm f1.4 Art Lens",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-24-105mm-f4-art",
+"name": "Sigma 24-105mm f4 Art",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sigma-24-70mm-f2-8-art-lens",
+"name": "Sigma 24-70mm f2.8 Art Lens",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-24mm-f1-4-art",
+"name": "Sigma 24mm f1.4 Art",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sigma-24mm-f1-4-dg-dn-art-lens",
+"name": "Sigma 24mm f1.4 DG DN Art Lens",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-35mm-f1-2-art-lens",
+"name": "Sigma 35mm f1.2 Art Lens",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-35mm-f1-4-art",
+"name": "Sigma 35mm f1.4 Art",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sigma-50mm-f1-4-art-lens",
+"name": "Sigma 50mm f1.4 Art Lens",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-70-200mm-f2-8",
+"name": "Sigma 70-200mm f2.8",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-85mm-f1-4-art-lens",
+"name": "Sigma 85mm f1.4 Art Lens",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-e-16mm-f2-8",
+"name": "Sony E 16mm f2.8",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-e-pz-18-105mm-f4-g-oss",
+"name": "Sony E PZ 18-105mm f4 G OSS",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-e-pz-18-110mm-f4-g-oss",
+"name": "Sony E PZ 18-110mm f4 G OSS",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-fe-24-105mm-f4-g-oss",
+"name": "Sony FE 24-105mm f4 G OSS",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-fe-24-70mm-f2-8-gm",
+"name": "Sony FE 24-70mm f2.8 GM",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-fe-35mm-f1-4-gm",
+"name": "Sony FE 35mm f1.4 GM",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-fe-50mm-f1-2-gm",
+"name": "Sony FE 50mm f1.2 GM",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-fe-50mm-f1-8",
+"name": "Sony FE 50mm f1.8",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-fe-70-200mm-f2-8-gm-oss",
+"name": "Sony FE 70-200mm f2.8 GM OSS",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-fe-pz-28-135mm-f4-g-oss",
+"name": "Sony FE PZ 28-135mm f4 G OSS",
+"brand": "Sony",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "takumar-asahi-auto-takumar-35mm-f2-3",
+"name": "Asahi Auto-Takumar 35mm f2.3",
+"brand": "Takumar",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tokina-11-16mm-f2-8",
+"name": "Tokina 11-16mm f2.8",
+"brand": "Tokina",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-carl-zeiss-flektogon-20mm-f2-8",
+"name": "Carl Zeiss Flektogon 20mm f2.8",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-carl-zeiss-planar-50mm-f1-4",
+"name": "Carl Zeiss Planar 50mm f1.4",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-carl-zeiss-planar-50mm-f1-7",
+"name": "Carl Zeiss Planar 50mm f1.7",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-batis-25mm-f2",
+"name": "Zeiss Batis 25mm f2",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "zeiss-batis-85mm-f1-8",
+"name": "Zeiss Batis 85mm f1.8",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "zeiss-contax-100mm-f2-0",
+"name": "Zeiss Contax 100mm f2.0",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-100mm-f3-5",
+"name": "Zeiss Contax 100mm f3.5",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-135mm-f2-0",
+"name": "Zeiss Contax 135mm f2.0",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-135mm-f2-8",
+"name": "Zeiss Contax 135mm f2.8",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-15mm-f3-5",
+"name": "Zeiss Contax 15mm f3.5",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-25mm-f2-8",
+"name": "Zeiss Contax 25mm f2.8",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-28mm-f2-8",
+"name": "Zeiss Contax 28mm f2.8",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-300mm-f4",
+"name": "Zeiss Contax 300mm f4",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-35mm-f1-4",
+"name": "Zeiss Contax 35mm f1.4",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-35mm-f2-8",
+"name": "Zeiss Contax 35mm f2.8",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-50mm-f1-4",
+"name": "Zeiss Contax 50mm f1.4",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-50mm-f1-7",
+"name": "Zeiss Contax 50mm f1.7",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-contax-85mm-f1-4",
+"name": "Zeiss Contax 85mm f1.4",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-ze-18mm-f3-5",
+"name": "Zeiss ZE 18mm f3.5",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-ze-21mm-f2-8",
+"name": "Zeiss ZE 21mm f2.8",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "zeiss-ze-25mm-f2",
+"name": "Zeiss ZE 25mm f2",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "zeiss-ze-35mm-f1-4",
+"name": "Zeiss ZE 35mm f1.4",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-ze-50mm-f1-4",
+"name": "Zeiss ZE 50mm f1.4",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-ze-85mm-f1-4",
+"name": "Zeiss ZE 85mm f1.4",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-zf-18mm-f3-5",
+"name": "Zeiss ZF 18mm f3.5",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-zf-25mm-f2-8",
+"name": "Zeiss ZF 25mm f2.8",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-zf-28mm-f2-0",
+"name": "Zeiss ZF 28mm f2.0",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-zf-35mm-f1-4",
+"name": "Zeiss ZF 35mm f1.4",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-zf-50mm-f1-4",
+"name": "Zeiss ZF 50mm f1.4",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-zf-85mm-f1-4",
+"name": "Zeiss ZF 85mm f1.4",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Photo lenses",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-ef-100mm-f2-8l-macro-is-usm",
+"name": "Canon EF 100mm f2.8L Macro IS USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-ef-8-15mm-f4l-fisheye-usm",
+"name": "Canon EF 8-15mm f4L Fisheye USM",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-ts-e-24mm-f3-5l-tilt-shift",
+"name": "Canon TS-E 24mm f3.5L Tilt-Shift",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-ts-e-45mm-f2-8-tilt-shift",
+"name": "Canon TS-E 45mm f2.8 Tilt-Shift",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "cosmos-fisheye-180-aux-lens",
+"name": "Cosmos Fisheye 180° Aux Lens",
+"brand": "Cosmos",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dzofilm-vespid-90mm-t2-8-macro-cine-prime-lens",
+"name": "DZOFilm VESPID 90mm T2.8 Macro Cine Prime Lens",
+"brand": "DZO Film",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "kilfitt-macro-kilar-90mm-f2-8",
+"name": "Kilfitt Macro Kilar 90mm f2.8",
+"brand": "Kilfitt",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "laowa-24mm-f14-2x-macro-probe",
+"name": "Laowa 24mm f14 2x Macro Probe",
+"brand": "Laowa",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "laowa-24mm-t14-2x-periprobe-lens",
+"name": "Laowa 24mm T14 2x Periprobe Lens",
+"brand": "Laowa",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "lensbaby-control-freak",
+"name": "Lensbaby Control Freak",
+"brand": "Lensbaby",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rokinon-24mm-f3-5-tilt-shift",
+"name": "Rokinon 24mm f3.5 Tilt-Shift",
+"brand": "Rokinon",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rokinon-8mm-f2-8-fisheye",
+"name": "Rokinon 8mm f2.8 Fisheye",
+"brand": "Rokinon",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sigma-70mm-f2-8-art-macro",
+"name": "Sigma 70mm f2.8 Art Macro",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "zeiss-contax-60mm-f2-8-macro",
+"name": "Zeiss Contax 60mm f2.8 Macro",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zeiss-milvus-ze-100mm-macro",
+"name": "Zeiss Milvus/ZE 100mm Macro",
+"brand": "Zeiss",
+"department": "Lenses",
+"category": "Specialty",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-extender-ef-1-4x",
+"name": "Canon Extender EF 1.4x",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Adaptors & extenders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-extender-ef-2x",
+"name": "Canon Extender EF 2x",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Adaptors & extenders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-extension-tube-set-12-20-36mm",
+"name": "Canon Extension Tube Set (12/20/36mm)",
+"brand": "Canon",
+"department": "Lenses",
+"category": "Adaptors & extenders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "ib-e-optics-pl-2x-extender",
+"name": "IB/E Optics PL 2x Extender",
+"brand": "IB/E Optics",
+"department": "Lenses",
+"category": "Adaptors & extenders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "metabones-ef-to-e-adapter",
+"name": "Metabones EF to E Adapter",
+"brand": "Metabones",
+"department": "Lenses",
+"category": "Adaptors & extenders",
+"kind": "branded",
+"variants": "smart, Speed Booster, T Cine",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "metabones-pl-to-e-adapter",
+"name": "Metabones PL to E Adapter",
+"brand": "Metabones",
+"department": "Lenses",
+"category": "Adaptors & extenders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "nikon-af-s-teleconverter-tc-14e-ii",
+"name": "Nikon AF-S Teleconverter TC-14E II",
+"brand": "Nikon",
+"department": "Lenses",
+"category": "Adaptors & extenders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "novoflex-eos-nikon-adapter",
+"name": "Novoflex EOS-Nikon Adapter",
+"brand": "Novoflex",
+"department": "Lenses",
+"category": "Adaptors & extenders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "novoflex-mft-to-ef-adapter",
+"name": "Novoflex MFT to EF Adapter",
+"brand": "Novoflex",
+"department": "Lenses",
+"category": "Adaptors & extenders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sigma-mc-11-ef-to-e-adapter",
+"name": "Sigma MC-11 EF to E Adapter",
+"brand": "Sigma",
+"department": "Lenses",
+"category": "Adaptors & extenders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tilta-nucleus-autofocus-adapter-arri-pl-lens-to-e-mount-body",
+"name": "Tilta Nucleus Autofocus Adapter - Arri PL (Lens) to E-Mount (Body)",
+"brand": "Tilta",
+"department": "Lenses",
+"category": "Adaptors & extenders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-lp-e6-battery-and-charger",
+"name": "Canon LP-E6 Battery & Charger",
+"brand": "Canon",
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "fxlion-v-mount-battery",
+"name": "V-Mount Battery",
+"brand": "FXLion",
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "h-hnel-pro-dual-charger",
+"name": "Hähnel Pro Dual Charger",
+"brand": "Hähnel",
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "nikon-en-el15-battery-and-charger",
+"name": "Nikon EN-EL15 Battery & Charger",
+"brand": "Nikon",
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "pag-pl150-v-mount-battery",
+"name": "PAG PL150 V-Mount Battery",
+"brand": "PAG",
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "paglink-v-mount-plate-and-power-hub-d-tap",
+"name": "V-Mount Plate & Power Hub (D-Tap)",
+"brand": "PAGlink",
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "pearstone-duo-battery-charger",
+"name": "Pearstone Duo Battery Charger",
+"brand": "Pearstone",
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "sony-bp-u-battery-and-charger",
+"name": "Sony BP-U Battery & Charger",
+"brand": "Sony",
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "branded",
+"variants": "BP-U30, BP-U60",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-vct-u14-tripod-plate",
+"name": "Sony VCT-U14 Tripod Plate",
+"brand": "Sony",
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "vello-bg-n15-battery-grip",
+"name": "Vello BG-N15 Battery Grip",
+"brand": "Vello",
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "watson-np-fw50-battery",
+"name": "Watson NP-FW50 Battery",
+"brand": "Watson",
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "block-battery-12v-24ah",
+"name": "Block Battery 12V 24Ah",
+"brand": null,
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "v-mount-charger",
+"name": "V-Mount Charger",
+"brand": null,
+"department": "Camera accessories",
+"category": "Batteries & power",
+"kind": "generic",
+"variants": "single, 4-bay",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "hoya-uv-clear-protection-filter-screw-in",
+"name": "UV / Clear Protection Filter (screw-in)",
+"brand": "Hoya",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "kenko-variable-nd-filter-screw-in",
+"name": "Variable ND Filter (screw-in)",
+"brand": "Kenko",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": "62-82mm",
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "schneider-138mm-diopter-set",
+"name": "Schneider 138mm Diopter Set",
+"brand": "Schneider",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": "+1/2, +1, +2, +3",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "schneider-138mm-split-diopter-set",
+"name": "Schneider 138mm Split Diopter Set",
+"brand": "Schneider",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "schneider-4x4-clear-optical-flat",
+"name": "Schneider 4x4 Clear Optical Flat",
+"brand": "Schneider",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "schneider-4x5-65-hollywood-black-magic-1-4",
+"name": "Schneider 4x5.65 Hollywood Black Magic 1/4",
+"brand": "Schneider",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "schneider-4x5-65-hollywood-black-magic-1-8",
+"name": "Schneider 4x5.65 Hollywood Black Magic 1/8",
+"brand": "Schneider",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "schneider-4x5-65-linear-polarizer",
+"name": "Schneider 4x5.65 Linear Polarizer",
+"brand": "Schneider",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "schneider-4x5-65-nd-grad-set-hard-soft",
+"name": "Schneider 4x5.65 ND Grad Set (hard / soft)",
+"brand": "Schneider",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": "0.3, 0.6, 0.9",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "schneider-4x5-65-platinum-irnd-set",
+"name": "Schneider 4x5.65 Platinum IRND Set",
+"brand": "Schneider",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "schneider-82mm-hollywood-black-magic-1-4",
+"name": "Schneider 82mm Hollywood Black Magic 1/4",
+"brand": "Schneider",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "schneider-82mm-hollywood-black-magic-1-8",
+"name": "Schneider 82mm Hollywood Black Magic 1/8",
+"brand": "Schneider",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "schneider-classic-soft-set",
+"name": "Schneider Classic Soft Set",
+"brand": "Schneider",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": "1/4, 1/2, 1, 2",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tiffen-black-pro-mist-1-4-screw-in",
+"name": "Black Pro-Mist 1/4 (screw-in)",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tiffen-black-pro-mist-1-8-screw-in",
+"name": "Black Pro-Mist 1/8 (screw-in)",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tiffen-4x4-black-pro-mist-set",
+"name": "Tiffen 4x4 Black Pro-Mist Set",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": "1/2, 1, 2, 3",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tiffen-4x5-65-black-pro-mist-1-2",
+"name": "Tiffen 4x5.65 Black Pro-Mist 1/2",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tiffen-4x5-65-black-pro-mist-1-4",
+"name": "Tiffen 4x5.65 Black Pro-Mist 1/4",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tiffen-4x5-65-black-pro-mist-1-8",
+"name": "Tiffen 4x5.65 Black Pro-Mist 1/8",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tiffen-4x5-65-irnd-0-3",
+"name": "Tiffen 4x5.65 IRND 0.3",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tiffen-4x5-65-irnd-0-6",
+"name": "Tiffen 4x5.65 IRND 0.6",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tiffen-4x5-65-irnd-0-9",
+"name": "Tiffen 4x5.65 IRND 0.9",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tiffen-4x5-65-irnd-1-2",
+"name": "Tiffen 4x5.65 IRND 1.2",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tiffen-4x5-65-nd-set-0-3-0-6-0-9",
+"name": "Tiffen 4x5.65 ND Set (0.3 / 0.6 / 0.9)",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "tiffen-soft-fx-set",
+"name": "Tiffen Soft/FX Set",
+"brand": "Tiffen",
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "branded",
+"variants": "1, 2, 3",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "circular-polarizer-screw-in",
+"name": "Circular Polarizer (screw-in)",
+"brand": null,
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "generic",
+"variants": "49-105mm",
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "step-up-step-down-rings",
+"name": "Step-Up / Step-Down Rings",
+"brand": null,
+"department": "Camera accessories",
+"category": "Filters",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "arri-ff-5-follow-focus",
+"name": "ARRI FF-5 Follow Focus",
+"brand": "ARRI",
+"department": "Camera accessories",
+"category": "Follow focus & lens control",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "dji-focus-pro-follow-focus-system-w-lidar",
+"name": "DJI Focus Pro Follow Focus System w/ LiDAR",
+"brand": "DJI",
+"department": "Camera accessories",
+"category": "Follow focus & lens control",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "redrock-follow-focus",
+"name": "Redrock Follow Focus",
+"brand": "Redrock",
+"department": "Camera accessories",
+"category": "Follow focus & lens control",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rt-motion-wireless-follow-focus",
+"name": "RT Motion Wireless Follow Focus",
+"brand": "RT Motion",
+"department": "Camera accessories",
+"category": "Follow focus & lens control",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tilta-nucleus-m-ii-remote-follow-focus-kit",
+"name": "Tilta Nucleus-M II Remote Follow Focus Kit",
+"brand": "Tilta",
+"department": "Camera accessories",
+"category": "Follow focus & lens control",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tilta-nucleus-m-remote-follow-focus-kit",
+"name": "Tilta Nucleus-M Remote Follow Focus Kit",
+"brand": "Tilta",
+"department": "Camera accessories",
+"category": "Follow focus & lens control",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zacuto-follow-focus",
+"name": "Zacuto Follow Focus",
+"brand": "Zacuto",
+"department": "Camera accessories",
+"category": "Follow focus & lens control",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manual-follow-focus-15mm",
+"name": "Manual Follow Focus (15mm)",
+"brand": null,
+"department": "Camera accessories",
+"category": "Follow focus & lens control",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "arri-lmb-4x5-pro-matte-box-set",
+"name": "ARRI LMB 4x5 Pro Matte Box Set",
+"brand": "ARRI",
+"department": "Camera accessories",
+"category": "Matte boxes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "bright-tangerine-misfit-atom-clip-on-matte-box",
+"name": "Bright Tangerine Misfit Atom Clip-On Matte Box",
+"brand": "Bright Tangerine",
+"department": "Camera accessories",
+"category": "Matte boxes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "chrosziel-4x5-65-matte-box",
+"name": "Chrosziel 4x5.65 Matte Box",
+"brand": "Chrosziel",
+"department": "Camera accessories",
+"category": "Matte boxes",
+"kind": "branded",
+"variants": "2- and 3-tray",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "movcam-mm5-mattebox",
+"name": "Movcam MM5 Mattebox",
+"brand": "Movcam",
+"department": "Camera accessories",
+"category": "Matte boxes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "smallrig-lightweight-carbon-fibre-clip-on-mattebox",
+"name": "SmallRig Lightweight Carbon Fibre Clip-On Mattebox",
+"brand": "SmallRig",
+"department": "Camera accessories",
+"category": "Matte boxes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tilta-mb-t12-matte-box",
+"name": "Tilta MB-T12 Matte Box",
+"brand": "Tilta",
+"department": "Camera accessories",
+"category": "Matte boxes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "manfrotto-noga-friction-arm",
+"name": "Noga / Friction Arm",
+"brand": "Manfrotto",
+"department": "Camera accessories",
+"category": "Rigs, cages & rods",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "zacuto-handheld-rig-z-cage",
+"name": "Zacuto Handheld Rig / Z-Cage",
+"brand": "Zacuto",
+"department": "Camera accessories",
+"category": "Rigs, cages & rods",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "camera-shoulder-rig",
+"name": "Camera Shoulder Rig",
+"brand": null,
+"department": "Camera accessories",
+"category": "Rigs, cages & rods",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "lens-support-15mm",
+"name": "Lens Support (15mm)",
+"brand": null,
+"department": "Camera accessories",
+"category": "Rigs, cages & rods",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tentacle-sync-e-timecode-generator",
+"name": "Tentacle Sync E Timecode Generator",
+"brand": "Tentacle Sync",
+"department": "Camera accessories",
+"category": "Timecode & slates",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "tentacle-sync-timebar-timecode-slate",
+"name": "Tentacle Sync Timebar Timecode Slate",
+"brand": "Tentacle Sync",
+"department": "Camera accessories",
+"category": "Timecode & slates",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "clapperboard",
+"name": "Clapperboard",
+"brand": null,
+"department": "Camera accessories",
+"category": "Timecode & slates",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-remote-switch-rs-80n3",
+"name": "Canon Remote Switch RS-80N3",
+"brand": "Canon",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-tc-80n3-timer-remote",
+"name": "Canon TC-80N3 Timer Remote",
+"brand": "Canon",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "gopro-remote",
+"name": "GoPro Remote",
+"brand": "GoPro",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "h-hnel-capture-module-pro",
+"name": "Hähnel Capture Module Pro",
+"brand": "Hähnel",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "h-hnel-giga-t-pro-wireless-remote",
+"name": "Hähnel Giga T Pro Wireless Remote",
+"brand": "Hähnel",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "h-hnel-intervalometer",
+"name": "Hähnel Intervalometer",
+"brand": "Hähnel",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "impact-powersync16-radio-slave",
+"name": "Impact PowerSync16 Radio Slave",
+"brand": "Impact",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "nikon-shutter-release",
+"name": "Nikon Shutter Release",
+"brand": "Nikon",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "pocketwizard-flextt5-transceiver",
+"name": "PocketWizard FlexTT5 Transceiver",
+"brand": "PocketWizard",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "pocketwizard-plus-iii-set",
+"name": "PocketWizard Plus III Set",
+"brand": "PocketWizard",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"B&H essentials"
+]
+},
+{
+"id": "profoto-air-remote-ttl",
+"name": "Profoto Air Remote TTL",
+"brand": "Profoto",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": "Canon, Nikon, Fujifilm",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "vello-shutterboss-ii-wireless-remote",
+"name": "Vello ShutterBoss II Wireless Remote",
+"brand": "Vello",
+"department": "Camera accessories",
+"category": "Remotes & triggers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "sekonic-c-700u-spectromaster-colour-meter",
+"name": "Sekonic C-700U SpectroMaster Colour Meter",
+"brand": "Sekonic",
+"department": "Camera accessories",
+"category": "Lightmeters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "sekonic-light-meter",
+"name": "Sekonic Light Meter",
+"brand": "Sekonic",
+"department": "Camera accessories",
+"category": "Lightmeters",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "blackrapid-yeti-slim-dual-camera-harness",
+"name": "BlackRapid Yeti Slim Dual Camera Harness",
+"brand": "BlackRapid",
+"department": "Camera accessories",
+"category": "Straps, cases & covers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "cotton-carrier-camera-vest",
+"name": "Cotton Carrier Camera Vest",
+"brand": "Cotton Carrier",
+"department": "Camera accessories",
+"category": "Straps, cases & covers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "camera-rain-cover-black-and-white",
+"name": "Camera Rain Cover (Black & White)",
+"brand": null,
+"department": "Camera accessories",
+"category": "Straps, cases & covers",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "canon-wft-e8a-wireless-file-transmitter",
+"name": "Canon WFT-E8A Wireless File Transmitter",
+"brand": "Canon",
+"department": "Camera accessories",
+"category": "Other",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "gopro-media-mod",
+"name": "GoPro Media Mod",
+"brand": "GoPro",
+"department": "Camera accessories",
+"category": "Other",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-xdca-fs7-extension-unit",
+"name": "Sony XDCA-FS7 Extension Unit",
+"brand": "Sony",
+"department": "Camera accessories",
+"category": "Other",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "visibledust-sensor-cleaning-kit",
+"name": "Sensor Cleaning Kit",
+"brand": "VisibleDust",
+"department": "Camera accessories",
+"category": "Other",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "zeiss-lens-cleaning-kit",
+"name": "Lens Cleaning Kit",
+"brand": "Zeiss",
+"department": "Camera accessories",
+"category": "Other",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "gitzo-tripod",
+"name": "Gitzo Tripod",
+"brand": "Gitzo",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-029-head",
+"name": "Manfrotto 029 Head",
+"brand": "Manfrotto",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-055-tripod-legs",
+"name": "Manfrotto 055 Tripod Legs",
+"brand": "Manfrotto",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-058b-heavy-duty-tripod",
+"name": "Manfrotto 058B Heavy-Duty Tripod",
+"brand": "Manfrotto",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-322rc2-pistol-grip-ball-head",
+"name": "Manfrotto 322RC2 Pistol Grip Ball Head",
+"brand": "Manfrotto",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-504hd-fluid-video-head-75mm",
+"name": "Manfrotto 504HD Fluid Video Head (75mm)",
+"brand": "Manfrotto",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-808rc4-head",
+"name": "Manfrotto 808RC4 Head",
+"brand": "Manfrotto",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "oben-tt-100-tabletop-tripod",
+"name": "Oben TT-100 Tabletop Tripod",
+"brand": "Oben",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "sachtler-video-20-100mm",
+"name": "Sachtler Video 20 (100mm)",
+"brand": "Sachtler",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sachtler-video-25-150mm",
+"name": "Sachtler Video 25 (150mm)",
+"brand": "Sachtler",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "secced-100mm-tripod-system",
+"name": "Secced 100mm Tripod System",
+"brand": "Secced",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "secced-75mm-tripod-system",
+"name": "Secced 75mm Tripod System",
+"brand": "Secced",
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "baby-legs",
+"name": "Baby Legs",
+"brand": null,
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "generic",
+"variants": "75mm, 100mm, 150mm",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "ball-head",
+"name": "Ball Head",
+"brand": null,
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "hi-hat",
+"name": "Hi-Hat",
+"brand": null,
+"department": "Camera support",
+"category": "Tripods & heads",
+"kind": "generic",
+"variants": "75mm, 100mm, 150mm, Mitchell",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-561b-video-monopod",
+"name": "Manfrotto 561B Video Monopod",
+"brand": "Manfrotto",
+"department": "Camera support",
+"category": "Monopods",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "a-and-j-pro-motorized-carbon-fibre-slider",
+"name": "A&J Pro Motorized Carbon Fibre Slider",
+"brand": "A&J",
+"department": "Camera support",
+"category": "Sliders & dollies",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "ifootage-motorized-shark-slider-nano-ii-43-cm",
+"name": "iFootage Motorized Shark Slider Nano II (43 cm)",
+"brand": "iFootage",
+"department": "Camera support",
+"category": "Sliders & dollies",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "kessler-cineslider-5ft",
+"name": "Kessler CineSlider 5ft",
+"brand": "Kessler",
+"department": "Camera support",
+"category": "Sliders & dollies",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "desert-dolly",
+"name": "Desert Dolly",
+"brand": null,
+"department": "Camera support",
+"category": "Sliders & dollies",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "dolly-track-curved",
+"name": "Dolly Track - Curved",
+"brand": null,
+"department": "Camera support",
+"category": "Sliders & dollies",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "dolly-track-straight-1-2m",
+"name": "Dolly Track - Straight 1.2m",
+"brand": null,
+"department": "Camera support",
+"category": "Sliders & dollies",
+"kind": "generic",
+"variants": "also 1.5m, 2.2m",
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "doorway-platform-dolly",
+"name": "Doorway / Platform Dolly",
+"brand": null,
+"department": "Camera support",
+"category": "Sliders & dollies",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "skateboard-dolly",
+"name": "Skateboard Dolly",
+"brand": null,
+"department": "Camera support",
+"category": "Sliders & dollies",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "wally-dolly-with-track",
+"name": "Wally Dolly with Track",
+"brand": null,
+"department": "Camera support",
+"category": "Sliders & dollies",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "dji-osmo-mobile",
+"name": "DJI Osmo Mobile",
+"brand": "DJI",
+"department": "Camera support",
+"category": "Gimbals & stabilisers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dji-ronin-rs2",
+"name": "DJI Ronin RS2",
+"brand": "DJI",
+"department": "Camera support",
+"category": "Gimbals & stabilisers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dji-ronin-rs3-pro",
+"name": "DJI Ronin RS3 Pro",
+"brand": "DJI",
+"department": "Camera support",
+"category": "Gimbals & stabilisers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "dji-ronin-rs4-pro-gimbal-stabilizer",
+"name": "DJI Ronin RS4 Pro Gimbal Stabilizer",
+"brand": "DJI",
+"department": "Camera support",
+"category": "Gimbals & stabilisers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dji-ronin-m",
+"name": "DJI Ronin-M",
+"brand": "DJI",
+"department": "Camera support",
+"category": "Gimbals & stabilisers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "dji-ronin-s",
+"name": "DJI Ronin-S",
+"brand": "DJI",
+"department": "Camera support",
+"category": "Gimbals & stabilisers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "flowcine-serene-arm",
+"name": "Flowcine Serene Arm",
+"brand": "Flowcine",
+"department": "Camera support",
+"category": "Gimbals & stabilisers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "freefly-m-vi-pro",
+"name": "Freefly MōVI Pro",
+"brand": "Freefly",
+"department": "Camera support",
+"category": "Gimbals & stabilisers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tilta-advanced-ring-grip-for-dji-rs",
+"name": "Tilta Advanced Ring Grip for DJI RS",
+"brand": "Tilta",
+"department": "Camera support",
+"category": "Gimbals & stabilisers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "gimbal-support-vest",
+"name": "Gimbal Support Vest",
+"brand": null,
+"department": "Camera support",
+"category": "Gimbals & stabilisers",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "easyrig-minimax",
+"name": "Easyrig Minimax",
+"brand": "EasyRig",
+"department": "Camera support",
+"category": "Body support",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "easyrig-vario-5",
+"name": "Easyrig Vario 5",
+"brand": "EasyRig",
+"department": "Camera support",
+"category": "Body support",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "predator-jib-arm",
+"name": "Predator Jib Arm",
+"brand": "Predator",
+"department": "Camera support",
+"category": "Jibs & cranes",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "dji-suction-cup-mount",
+"name": "Suction Cup Mount",
+"brand": "DJI",
+"department": "Camera support",
+"category": "Car mounts & specialty rigs",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "glidegear-snc-100-snorricam",
+"name": "GlideGear SNC 100 Snorricam",
+"brand": "GlideGear",
+"department": "Camera support",
+"category": "Car mounts & specialty rigs",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "lilliput-a7s-7-inch-4k-hdmi-monitor",
+"name": "Lilliput A7S 7\" 4K HDMI Monitor",
+"brand": "Lilliput",
+"department": "Monitors & video",
+"category": "On-camera monitors",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "lilliput-q5-5-inch-monitor",
+"name": "Lilliput Q5 5\" Monitor",
+"brand": "Lilliput",
+"department": "Monitors & video",
+"category": "On-camera monitors",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "lilliput-q7-pro-7-inch-monitor",
+"name": "Lilliput Q7 Pro 7\" Monitor",
+"brand": "Lilliput",
+"department": "Monitors & video",
+"category": "On-camera monitors",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "lilliput-15-inch-quad-split-monitor",
+"name": "Lilliput 15\" Quad-Split Monitor",
+"brand": "Lilliput",
+"department": "Monitors & video",
+"category": "Director & client monitors",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "lilliput-21-5-inch-quad-split-3g-sdi-hdmi-monitor",
+"name": "Lilliput 21.5\" Quad Split 3G-SDI/HDMI Monitor",
+"brand": "Lilliput",
+"department": "Monitors & video",
+"category": "Director & client monitors",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "lilliput-bm150-15-inch-monitor",
+"name": "Lilliput BM150 15\" Monitor",
+"brand": "Lilliput",
+"department": "Monitors & video",
+"category": "Director & client monitors",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "lilliput-bm280-4ks-28-inch-4k-monitor",
+"name": "Lilliput BM280-4KS 28\" 4K Monitor",
+"brand": "Lilliput",
+"department": "Monitors & video",
+"category": "Director & client monitors",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "atomos-ninja-v",
+"name": "Atomos Ninja V",
+"brand": "Atomos",
+"department": "Monitors & video",
+"category": "Recorders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "atomos-shogun-inferno",
+"name": "Atomos Shogun Inferno",
+"brand": "Atomos",
+"department": "Monitors & video",
+"category": "Recorders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "blackmagic-hyperdeck-studio-mini",
+"name": "Blackmagic HyperDeck Studio Mini",
+"brand": "Blackmagic Design",
+"department": "Monitors & video",
+"category": "Recorders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "accsoon-cineeye-2s-pro-wireless-video-kit",
+"name": "Accsoon CineEye 2S Pro Wireless Video Kit",
+"brand": "Accsoon",
+"department": "Monitors & video",
+"category": "Wireless video",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dji-goggles",
+"name": "DJI Goggles",
+"brand": "DJI",
+"department": "Monitors & video",
+"category": "Wireless video",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dji-ronin-raveneye-image-transmission-system",
+"name": "DJI Ronin RavenEye Image Transmission System",
+"brand": "DJI",
+"department": "Monitors & video",
+"category": "Wireless video",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dji-transmission-high-bright-monitor-combo",
+"name": "DJI Transmission High-Bright Monitor Combo",
+"brand": "DJI",
+"department": "Monitors & video",
+"category": "Wireless video",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "dji-transmission-standard-tx-rx-combo",
+"name": "DJI Transmission Standard Tx + Rx Combo",
+"brand": "DJI",
+"department": "Monitors & video",
+"category": "Wireless video",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "hollyland-mars-m1-enhanced-5-5-inch-wireless-transceiver-monitor",
+"name": "Hollyland Mars M1 Enhanced 5.5\" Wireless Transceiver Monitor",
+"brand": "Hollyland",
+"department": "Monitors & video",
+"category": "Wireless video",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "st-video-stw-200-wireless-video-kit",
+"name": "ST Video STW-200 Wireless Video Kit",
+"brand": "ST Video",
+"department": "Monitors & video",
+"category": "Wireless video",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "st-video-stw-700-wireless-video-kit",
+"name": "ST Video STW-700 Wireless Video Kit",
+"brand": "ST Video",
+"department": "Monitors & video",
+"category": "Wireless video",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "teradek-bolt-6-lt-750-3g-sdi-hdmi-wireless-transmitter",
+"name": "Teradek Bolt 6 LT 750 3G-SDI/HDMI Wireless Transmitter",
+"brand": "Teradek",
+"department": "Monitors & video",
+"category": "Wireless video",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "teradek-bolt-pro-1000-wireless-video-transmitter",
+"name": "Teradek Bolt Pro 1000 Wireless Video Transmitter",
+"brand": "Teradek",
+"department": "Monitors & video",
+"category": "Wireless video",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "avmatrix-mv0430-quad-split-multiviewer-3g-sdi",
+"name": "AVMatrix MV0430 Quad Split Multiviewer 3G-SDI",
+"brand": "AVMatrix",
+"department": "Monitors & video",
+"category": "Converters & multiviewers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blackmagic-micro-converter-bi-directional-sdi-hdmi-12g",
+"name": "Blackmagic Micro Converter Bi-directional SDI/HDMI 12G",
+"brand": "Blackmagic Design",
+"department": "Monitors & video",
+"category": "Converters & multiviewers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blackmagic-micro-converter-bi-directional-sdi-hdmi-3g",
+"name": "Blackmagic Micro Converter Bi-directional SDI/HDMI 3G",
+"brand": "Blackmagic Design",
+"department": "Monitors & video",
+"category": "Converters & multiviewers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blackmagic-micro-converter-sdi-to-hdmi-3g",
+"name": "Blackmagic Micro Converter SDI to HDMI 3G",
+"brand": "Blackmagic Design",
+"department": "Monitors & video",
+"category": "Converters & multiviewers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "decimator-multiview-generator",
+"name": "Decimator Multiview Generator",
+"brand": "Decimator",
+"department": "Monitors & video",
+"category": "Converters & multiviewers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "aputure-ls-600x-pro",
+"name": "Aputure LS 600x Pro",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "aputure-ls-c300d-ii",
+"name": "Aputure LS C300d II",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "aputure-storm-xt52-point-source-tunable-white-led-monolight",
+"name": "Aputure STORM XT52 Point-Source Tunable-White LED Monolight",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "arri-l7-c-led-fresnel",
+"name": "ARRI L7-C LED Fresnel",
+"brand": "ARRI",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-forza-300",
+"name": "Nanlite Forza 300",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-forza-300b-bi-colour",
+"name": "Nanlite Forza 300B Bi-Colour",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-forza-500",
+"name": "Nanlite Forza 500",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-forza-60b-bi-colour",
+"name": "Nanlite Forza 60B Bi-Colour",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-forza-60c-rgb",
+"name": "Nanlite Forza 60C RGB",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-forza-720b-bi-colour",
+"name": "Nanlite Forza 720B Bi-Colour",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlux-evoke-1200-led",
+"name": "Nanlux Evoke 1200 LED",
+"brand": "Nanlux",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlux-evoke-150c-rgb-led-light",
+"name": "Nanlux Evoke 150C RGB LED Light",
+"brand": "Nanlux",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlux-evoke-2400b-led-cob-light",
+"name": "Nanlux Evoke 2400B LED COB Light",
+"brand": "Nanlux",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlux-evoke-5c-rgb-led-spotlight-kit-4-lights",
+"name": "Nanlux Evoke 5C RGB LED Spotlight Kit (4 Lights)",
+"brand": "Nanlux",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlux-evoke-600c-rgb-led-light",
+"name": "Nanlux Evoke 600C RGB LED Light",
+"brand": "Nanlux",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlux-evoke-900c-rgb-led-light",
+"name": "Nanlux Evoke 900C RGB LED Light",
+"brand": "Nanlux",
+"department": "Lighting",
+"category": "LED point source",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "aputure-al-m9-on-camera-led",
+"name": "Aputure AL-M9 On-Camera LED",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "aputure-amaran-al-mx-bi-color-mini",
+"name": "Aputure Amaran AL-MX Bi-Color Mini",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "aputure-infinimat-1x2-rgb-flexible-led-mat-light",
+"name": "Aputure INFINIMAT 1x2 RGB Flexible LED Mat Light",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "aputure-infinimat-2x4-rgb-flexible-led-mat-light",
+"name": "Aputure INFINIMAT 2x4 RGB Flexible LED Mat Light",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "aputure-infinimat-4x4-rgb-flexible-led-mat-light",
+"name": "Aputure INFINIMAT 4x4 RGB Flexible LED Mat Light",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "arri-skypanel-s120-c",
+"name": "ARRI SkyPanel S120-C",
+"brand": "ARRI",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "arri-skypanel-s30-c",
+"name": "ARRI SkyPanel S30-C",
+"brand": "ARRI",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "arri-skypanel-s60-c",
+"name": "ARRI SkyPanel S60-C",
+"brand": "ARRI",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "creamsource-2x1",
+"name": "Creamsource 2x1",
+"brand": "Creamsource",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "digitalfoto-yy120-bi-colour-led",
+"name": "Digitalfoto YY120 Bi-Colour LED",
+"brand": "Digitalfoto",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "digitalfoto-yy150-rgb-led",
+"name": "Digitalfoto YY150 RGB LED",
+"brand": "Digitalfoto",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "eversirius-ex120-rgbw-led-soft-panel",
+"name": "Eversirius EX120 RGBW LED Soft Panel",
+"brand": "Eversirius",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "falcon-eyes-pocketlite-f7-ii-rgb-led",
+"name": "Falcon Eyes PocketLite F7 II RGB LED",
+"brand": "Falcon Eyes",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "falcon-eyes-rx-7120-ii-600w-rgb-cct-led-flex-light",
+"name": "Falcon Eyes RX-7120 II 600W RGB+CCT LED Flex Light",
+"brand": "Falcon Eyes",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "falcon-eyes-rx-818-rgb-led-light-mat",
+"name": "Falcon Eyes RX-818 RGB LED Light Mat",
+"brand": "Falcon Eyes",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "litepanels-astra-1x1-bi-colour",
+"name": "Litepanels Astra 1x1 Bi-Colour",
+"brand": "Litepanels",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "litepanels-astra-6x-bi-colour",
+"name": "Litepanels Astra 6X Bi-Colour",
+"brand": "Litepanels",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-alien-300c-rgb-led-light-panel",
+"name": "Nanlite Alien 300C RGB LED Light Panel",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-mixpad-11-rgb",
+"name": "Nanlite MixPad 11 RGB",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-pavoslim-120c-rgb-led-panel",
+"name": "Nanlite PavoSlim 120C RGB LED Panel",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-pavoslim-60c-rgb-led-panel",
+"name": "Nanlite PavoSlim 60C RGB LED Panel",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "2-bank-led-light",
+"name": "2-Bank LED Light",
+"brand": null,
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "4-bank-led-light",
+"name": "4-Bank LED Light",
+"brand": null,
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "led-panel-1x1",
+"name": "LED Panel 1x1",
+"brand": null,
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "on-camera-led-light",
+"name": "On-Camera LED Light",
+"brand": null,
+"department": "Lighting",
+"category": "LED panels & mats",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "astera-lunabulb-kit-b22-bayonet",
+"name": "Astera LunaBulb Kit (B22 - Bayonet)",
+"brand": "Astera",
+"department": "Lighting",
+"category": "LED tubes & practicals",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "astera-lunabulb-kit-e27-screw",
+"name": "Astera LunaBulb Kit (E27 - Screw)",
+"brand": "Astera",
+"department": "Lighting",
+"category": "LED tubes & practicals",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-pavotube-4ft-kit",
+"name": "Nanlite PavoTube 4ft Kit",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED tubes & practicals",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-pavotube-ii-6c-2ft-rgb-tube",
+"name": "Nanlite PavoTube II 6C 2ft RGB Tube",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "LED tubes & practicals",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "arri-m18",
+"name": "ARRI M18",
+"brand": "ARRI",
+"department": "Lighting",
+"category": "HMI",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "arri-m8",
+"name": "ARRI M8",
+"brand": "ARRI",
+"department": "Lighting",
+"category": "HMI",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "hmi-compact-1-2k",
+"name": "HMI Compact 1.2K",
+"brand": null,
+"department": "Lighting",
+"category": "HMI",
+"kind": "generic",
+"variants": "also 2.5K, 4K, 6K",
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "hmi-par",
+"name": "HMI PAR",
+"brand": null,
+"department": "Lighting",
+"category": "HMI",
+"kind": "generic",
+"variants": "200W, 1.2K, 2.5K, 4K",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "dedolight-150w",
+"name": "Dedolight 150W",
+"brand": "Dedolight",
+"department": "Lighting",
+"category": "Tungsten",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-protungsten-1000w",
+"name": "Profoto ProTungsten 1000W",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Tungsten",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "blonde-2k-open-face-kit",
+"name": "Blonde (2K Open Face) Kit",
+"brand": null,
+"department": "Lighting",
+"category": "Tungsten",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "par-can",
+"name": "PAR Can",
+"brand": null,
+"department": "Lighting",
+"category": "Tungsten",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "redhead-kit",
+"name": "Redhead Kit",
+"brand": null,
+"department": "Lighting",
+"category": "Tungsten",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tungsten-fresnel-150w",
+"name": "Tungsten Fresnel 150W",
+"brand": null,
+"department": "Lighting",
+"category": "Tungsten",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "tungsten-fresnel-1k",
+"name": "Tungsten Fresnel 1K",
+"brand": null,
+"department": "Lighting",
+"category": "Tungsten",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tungsten-fresnel-2k",
+"name": "Tungsten Fresnel 2K",
+"brand": null,
+"department": "Lighting",
+"category": "Tungsten",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tungsten-fresnel-300w",
+"name": "Tungsten Fresnel 300W",
+"brand": null,
+"department": "Lighting",
+"category": "Tungsten",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tungsten-fresnel-5k",
+"name": "Tungsten Fresnel 5K",
+"brand": null,
+"department": "Lighting",
+"category": "Tungsten",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tungsten-fresnel-650w",
+"name": "Tungsten Fresnel 650W",
+"brand": null,
+"department": "Lighting",
+"category": "Tungsten",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "kino-flo-4bank",
+"name": "Kino Flo 4Bank",
+"brand": "Kino Flo",
+"department": "Lighting",
+"category": "Fluorescent",
+"kind": "branded",
+"variants": "2ft, 4ft",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "kino-flo-diva-lite-400",
+"name": "Kino Flo Diva-Lite 400",
+"brand": "Kino Flo",
+"department": "Lighting",
+"category": "Fluorescent",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "kino-flo-flathead-80",
+"name": "Kino Flo Flathead 80",
+"brand": "Kino Flo",
+"department": "Lighting",
+"category": "Fluorescent",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-mr-14ex-macro-ring-lite",
+"name": "Canon MR-14EX Macro Ring Lite",
+"brand": "Canon",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-speedlite-580ex-ii",
+"name": "Canon Speedlite 580EX II",
+"brand": "Canon",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "canon-speedlite-600ex-rt",
+"name": "Canon Speedlite 600EX-RT",
+"brand": "Canon",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "nikon-sb-5000-speedlight",
+"name": "Nikon SB-5000 Speedlight",
+"brand": "Nikon",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-7b-1200-battery-pack-and-head",
+"name": "Profoto 7B 1200 Battery Pack & Head",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-8a-2400-air-pack",
+"name": "Profoto 8A 2400 Air Pack",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-a1-ttl-on-camera-flash",
+"name": "Profoto A1 TTL On-Camera Flash",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": "Canon / Nikon",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-acute-7a-2400-studio-pack",
+"name": "Profoto Acute / 7A 2400 Studio Pack",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-b1-b1x-500-airttl",
+"name": "Profoto B1 / B1X 500 AirTTL",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-b2-250-airttl-location-kit",
+"name": "Profoto B2 250 AirTTL Location Kit",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-pro-plus-flash-head",
+"name": "Profoto Pro Plus Flash Head",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-pro-10",
+"name": "Profoto Pro-10",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-pro-b4-1000-air",
+"name": "Profoto Pro-B4 1000 Air",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-proring-2",
+"name": "Profoto ProRing 2",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-striplight",
+"name": "Profoto StripLight",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Photo strobes & flash",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "aputure-f10-fresnel",
+"name": "Aputure F10 Fresnel",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "aputure-lantern",
+"name": "Aputure Lantern",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "aputure-light-dome-150",
+"name": "Aputure Light Dome 150",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "aputure-light-dome-ii",
+"name": "Aputure Light Dome II",
+"brand": "Aputure",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "broncolor-flooter",
+"name": "Broncolor Flooter",
+"brand": "Broncolor",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "broncolor-para-177-222",
+"name": "Broncolor Para 177 / 222",
+"brand": "Broncolor",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "chimera-octa-softbox",
+"name": "Chimera Octa Softbox",
+"brand": "Chimera",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": "5ft, 7ft",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "chimera-softbox",
+"name": "Chimera Softbox",
+"brand": "Chimera",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": "2x3, 3x4, 4x6",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "chimera-stripbox",
+"name": "Chimera Stripbox",
+"brand": "Chimera",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": "3x1, 4x1",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "godox-qr-p90-softbox",
+"name": "Godox QR-P90 Softbox",
+"brand": "Godox",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "godox-softbox-p120",
+"name": "Godox Softbox P120",
+"brand": "Godox",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "godox-softbox-p90",
+"name": "Godox Softbox P90",
+"brand": "Godox",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-forza-lantern-80cm",
+"name": "Nanlite Forza Lantern - 80cm",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-pj-bm-projection-attachment",
+"name": "Nanlite PJ-BM Projection Attachment",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-pj-fz60-projection-attachment",
+"name": "Nanlite PJ-FZ60 Projection Attachment",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlite-softbox-60cm",
+"name": "Nanlite Softbox 60cm",
+"brand": "Nanlite",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "nanlux-motorized-fresnel-lens-fl-35e",
+"name": "Nanlux Motorized Fresnel Lens FL-35E",
+"brand": "Nanlux",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "photoflex-octa-softbox-3ft",
+"name": "Photoflex Octa Softbox 3ft",
+"brand": "Photoflex",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-barn-doors",
+"name": "Profoto Barn Doors",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-beauty-dish",
+"name": "Profoto Beauty Dish",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": "silver, white",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-cine-reflector-kit",
+"name": "Profoto Cine Reflector Kit",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-giant-reflector-210-silver",
+"name": "Profoto Giant Reflector 210 Silver",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-grid-kit",
+"name": "Profoto Grid Kit",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-hr-lantern",
+"name": "Profoto HR Lantern",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-magnum-reflector",
+"name": "Profoto Magnum Reflector",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-narrow-beam-reflector",
+"name": "Profoto Narrow Beam Reflector",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-ocf-modifiers-octa-beauty-dish-grid-kit",
+"name": "Profoto OCF Modifiers (Octa, Beauty Dish, Grid Kit)",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-rfi-octa",
+"name": "Profoto RFi Octa",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": "3ft, 5ft",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-rfi-softbox",
+"name": "Profoto RFi Softbox",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": "2x3, 3x4, 4x6",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-rfi-stripbox",
+"name": "Profoto RFi Stripbox",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": "1x4, 1x6",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-snoot",
+"name": "Profoto Snoot",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "profoto-zoom-reflector-standard-wide-tele",
+"name": "Profoto Zoom Reflector (Standard, Wide, Tele)",
+"brand": "Profoto",
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "chimera-lantern-china-ball",
+"name": "Chimera Lantern (China ball)",
+"brand": null,
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "generic",
+"variants": "22\" 500W, 30\" 1K",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "snoot",
+"name": "Snoot",
+"brand": null,
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "generic",
+"variants": "300W, 650W, 2K",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "softbox-grid-egg-crate",
+"name": "Softbox Grid / Egg Crate",
+"brand": null,
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "speed-ring-adapters-profoto-elinchrom",
+"name": "Speed Ring Adapters (Profoto / Elinchrom)",
+"brand": null,
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "speedlight-softbox-and-snoot",
+"name": "Speedlight Softbox & Snoot",
+"brand": null,
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "umbrella",
+"name": "Umbrella",
+"brand": null,
+"department": "Lighting",
+"category": "Modifiers",
+"kind": "generic",
+"variants": "silver, white, translucent, gold; small to XL deep",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "astera-asterabox-crmx-transmitter-box",
+"name": "Astera AsteraBox CRMX Transmitter Box",
+"brand": "Astera",
+"department": "Lighting",
+"category": "Lighting control",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "inline-dimmer",
+"name": "Inline Dimmer",
+"brand": null,
+"department": "Lighting",
+"category": "Lighting control",
+"kind": "generic",
+"variants": "2.5K, 5K",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "impact-multiboom-light-stand",
+"name": "Multiboom Light Stand",
+"brand": "Impact",
+"department": "Grip",
+"category": "Stands",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "manfrotto-boom-arm-with-weight",
+"name": "Boom Arm with Weight",
+"brand": "Manfrotto",
+"department": "Grip",
+"category": "Stands",
+"kind": "branded",
+"variants": "Combo, Mega and Super Boom",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-combo-roller-stand",
+"name": "Combo Roller Stand",
+"brand": "Manfrotto",
+"department": "Grip",
+"category": "Stands",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-hi-riser-stand",
+"name": "Hi-Riser Stand",
+"brand": "Manfrotto",
+"department": "Grip",
+"category": "Stands",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-junior-combo-stand",
+"name": "Junior Combo Stand",
+"brand": "Manfrotto",
+"department": "Grip",
+"category": "Stands",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-low-boy-stand",
+"name": "Low Boy Stand",
+"brand": "Manfrotto",
+"department": "Grip",
+"category": "Stands",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-turtle-stand",
+"name": "Turtle Stand",
+"brand": "Manfrotto",
+"department": "Grip",
+"category": "Stands",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "manfrotto-wind-up-stand",
+"name": "Wind-Up Stand",
+"brand": "Manfrotto",
+"department": "Grip",
+"category": "Stands",
+"kind": "branded",
+"variants": "single, double, super",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "baby-combo-stand",
+"name": "Baby Combo Stand",
+"brand": null,
+"department": "Grip",
+"category": "Stands",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "c-stand-20-inch-baby",
+"name": "C-Stand 20\" (Baby)",
+"brand": null,
+"department": "Grip",
+"category": "Stands",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "c-stand-40-inch",
+"name": "C-Stand 40\"",
+"brand": null,
+"department": "Grip",
+"category": "Stands",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "combo-stand-2-riser",
+"name": "Combo Stand 2-Riser",
+"brand": null,
+"department": "Grip",
+"category": "Stands",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "combo-stand-3-riser",
+"name": "Combo Stand 3-Riser",
+"brand": null,
+"department": "Grip",
+"category": "Stands",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "combo-stand-3-riser-with-boom",
+"name": "Combo Stand 3-Riser with Boom",
+"brand": null,
+"department": "Grip",
+"category": "Stands",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "crank-up-stand-crankovator",
+"name": "Crank-Up Stand (Crankovator)",
+"brand": null,
+"department": "Grip",
+"category": "Stands",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "heavy-duty-light-stand",
+"name": "Heavy Duty Light Stand",
+"brand": null,
+"department": "Grip",
+"category": "Stands",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "light-stand",
+"name": "Light Stand",
+"brand": null,
+"department": "Grip",
+"category": "Stands",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "poly-board-stand",
+"name": "Poly Board Stand",
+"brand": null,
+"department": "Grip",
+"category": "Stands",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "studio-plinth",
+"name": "Studio Plinth",
+"brand": null,
+"department": "Grip",
+"category": "Stands",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "impact-reflector-holder",
+"name": "Reflector Holder",
+"brand": "Impact",
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "manfrotto-magic-arm",
+"name": "Magic Arm",
+"brand": "Manfrotto",
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "a-clamp-pony-clamp",
+"name": "A-Clamp (Pony Clamp)",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "barrel-clamp",
+"name": "Barrel Clamp",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "big-ben-clamp",
+"name": "Big Ben Clamp",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "cardellini-clamp",
+"name": "Cardellini Clamp",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "cheese-plate",
+"name": "Cheese Plate",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "crocodile-clip",
+"name": "Crocodile Clip",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "g-clamp",
+"name": "G-Clamp",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": "small, medium",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "gaffer-grip",
+"name": "Gaffer Grip",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "goal-post",
+"name": "Goal Post",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "j-hook",
+"name": "J-Hook",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "mafer-clamp",
+"name": "Mafer Clamp",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "poly-board-holder",
+"name": "Poly Board Holder",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "spigot-reducing-spigot",
+"name": "Spigot / Reducing Spigot",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "spring-clamp",
+"name": "Spring Clamp",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "swivel-clamp",
+"name": "Swivel Clamp",
+"brand": null,
+"department": "Grip",
+"category": "Clamps & hardware",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "apple-box-full",
+"name": "Apple Box - Full",
+"brand": null,
+"department": "Grip",
+"category": "Apple boxes & wedges",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "apple-box-half",
+"name": "Apple Box - Half",
+"brand": null,
+"department": "Grip",
+"category": "Apple boxes & wedges",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "apple-box-quarter",
+"name": "Apple Box - Quarter",
+"brand": null,
+"department": "Grip",
+"category": "Apple boxes & wedges",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "apple-box-set",
+"name": "Apple Box Set",
+"brand": null,
+"department": "Grip",
+"category": "Apple boxes & wedges",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "wedge-set",
+"name": "Wedge Set",
+"brand": null,
+"department": "Grip",
+"category": "Apple boxes & wedges",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "sandbag",
+"name": "Sandbag",
+"brand": null,
+"department": "Grip",
+"category": "Sandbags & weights",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "steady-bag",
+"name": "Steady Bag",
+"brand": null,
+"department": "Grip",
+"category": "Sandbags & weights",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "double-net",
+"name": "Double Net",
+"brand": null,
+"department": "Grip",
+"category": "Flags & nets",
+"kind": "generic",
+"variants": "4x4 frame; rags in 6x6 to 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "flag-kit",
+"name": "Flag Kit",
+"brand": null,
+"department": "Grip",
+"category": "Flags & nets",
+"kind": "generic",
+"variants": "18x24, 24x36",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "floppy-4x4",
+"name": "Floppy 4x4",
+"brand": null,
+"department": "Grip",
+"category": "Flags & nets",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "single-net",
+"name": "Single Net",
+"brand": null,
+"department": "Grip",
+"category": "Flags & nets",
+"kind": "generic",
+"variants": "4x4 frame; rags in 6x6 to 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rosco-rag-ultra-bounce",
+"name": "Rag - Ultra Bounce",
+"brand": "Rosco",
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rosco-hi-lite-8x8",
+"name": "Rosco Hi-Lite 8x8",
+"brand": "Rosco",
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "westcott-scrim-jim-6x6-kit",
+"name": "Westcott Scrim Jim 6x6 Kit",
+"brand": "Westcott",
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "branded",
+"variants": "frame, full/half/quarter silk, silver, blackout",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "butterfly-frame-and-corner-kit",
+"name": "Butterfly Frame & Corner Kit",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "6x6, 8x8, 12x12, 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rag-blackout-solid",
+"name": "Rag - Blackout / Solid",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "6x6 to 20x20",
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "rag-chroma-blue",
+"name": "Rag - Chroma Blue",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "12x12",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rag-chroma-green",
+"name": "Rag - Chroma Green",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "6x6 to 20x20",
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "rag-full-grid-cloth",
+"name": "Rag - Full Grid Cloth",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "8x8 to 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rag-full-silk",
+"name": "Rag - Full Silk",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "4x4 to 20x20",
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "rag-gold-silver-checkerboard",
+"name": "Rag - Gold / Silver Checkerboard",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "6x6 to 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rag-half-grid-cloth",
+"name": "Rag - Half Grid Cloth",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "8x8 to 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rag-half-silk",
+"name": "Rag - Half Silk",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "6x6 to 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rag-quarter-grid-cloth",
+"name": "Rag - Quarter Grid Cloth",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "6x6 to 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rag-quarter-silk",
+"name": "Rag - Quarter Silk",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "6x6 to 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rag-silver-white-bounce",
+"name": "Rag - Silver / White Bounce",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "6x6 to 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rag-unbleached-muslin",
+"name": "Rag - Unbleached Muslin",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "8x8 to 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rag-white-bounce",
+"name": "Rag - White Bounce",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": "6x6 to 20x20",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "trace-frame-4x4",
+"name": "Trace Frame 4x4",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "yashmak-kit",
+"name": "Yashmak Kit",
+"brand": null,
+"department": "Grip",
+"category": "Frames & rags",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "california-sunbounce-6x4-kit",
+"name": "California Sunbounce 6x4 Kit",
+"brand": "California Sunbounce",
+"department": "Grip",
+"category": "Bounce & reflectors",
+"kind": "branded",
+"variants": "silver/white, gold/silver, zebra, black/white, 2/3 & full silk",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "california-sunbounce-sun-swatter-6x8",
+"name": "California Sunbounce Sun-Swatter 6x8",
+"brand": "California Sunbounce",
+"department": "Grip",
+"category": "Bounce & reflectors",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "california-sunbounce-sunbounce-boom-stick",
+"name": "Sunbounce Boom Stick",
+"brand": "California Sunbounce",
+"department": "Grip",
+"category": "Bounce & reflectors",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "5-in-1-collapsible-reflector",
+"name": "5-in-1 Collapsible Reflector",
+"brand": null,
+"department": "Grip",
+"category": "Bounce & reflectors",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire",
+"B&H essentials"
+]
+},
+{
+"id": "mirror-board-4x4",
+"name": "Mirror Board 4x4",
+"brand": null,
+"department": "Grip",
+"category": "Bounce & reflectors",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "poly-board-4x8-black-and-white",
+"name": "Poly Board 4x8 Black & White",
+"brand": null,
+"department": "Grip",
+"category": "Bounce & reflectors",
+"kind": "generic",
+"variants": "also 4x4",
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "poly-board-silver",
+"name": "Poly Board Silver",
+"brand": null,
+"department": "Grip",
+"category": "Bounce & reflectors",
+"kind": "generic",
+"variants": "4x4, 4x8",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "product-tent",
+"name": "Product Tent",
+"brand": null,
+"department": "Grip",
+"category": "Bounce & reflectors",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "reflector-board-silver-gold",
+"name": "Reflector Board (silver / gold)",
+"brand": null,
+"department": "Grip",
+"category": "Bounce & reflectors",
+"kind": "generic",
+"variants": "4x4 hard & soft",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "cloth-backdrop",
+"name": "Cloth Backdrop",
+"brand": null,
+"department": "Grip",
+"category": "Backdrops & green screens",
+"kind": "generic",
+"variants": "brown, grey",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "digi-green-screen",
+"name": "Digi Green Screen",
+"brand": null,
+"department": "Grip",
+"category": "Backdrops & green screens",
+"kind": "generic",
+"variants": "6x6, 8x8, 12x12",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "foldit-collapsible-cart",
+"name": "Foldit Collapsible Cart",
+"brand": "Foldit",
+"department": "Grip",
+"category": "Carts",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "inovativ-digishade",
+"name": "Inovativ DigiShade",
+"brand": "Inovativ",
+"department": "Grip",
+"category": "Carts",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "inovativ-laptop-plate-system",
+"name": "Inovativ Laptop Plate System",
+"brand": "Inovativ",
+"department": "Grip",
+"category": "Carts",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "inovativ-ranger-48-inch-equipment-cart",
+"name": "Inovativ Ranger 48\" Equipment Cart",
+"brand": "Inovativ",
+"department": "Grip",
+"category": "Carts",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "inovativ-scout-37-inch-equipment-cart",
+"name": "Inovativ Scout 37\" Equipment Cart",
+"brand": "Inovativ",
+"department": "Grip",
+"category": "Carts",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rigging-rope-20m",
+"name": "Rigging Rope 20m",
+"brand": null,
+"department": "Grip",
+"category": "Rope & rigging",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "honda-eu20i-generator-2kva",
+"name": "Honda EU20i Generator (2kVA)",
+"brand": "Honda",
+"department": "Power & distribution",
+"category": "Generators",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "honda-eu22is-generator",
+"name": "Honda EU22is Generator",
+"brand": "Honda",
+"department": "Power & distribution",
+"category": "Generators",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "honda-eu30is-generator-3kva",
+"name": "Honda EU30is Generator (3kVA)",
+"brand": "Honda",
+"department": "Power & distribution",
+"category": "Generators",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "honda-eu65is-generator",
+"name": "Honda EU65is Generator",
+"brand": "Honda",
+"department": "Power & distribution",
+"category": "Generators",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "ecoflow-delta-pro-3600w",
+"name": "EcoFlow DELTA Pro 3600W",
+"brand": "EcoFlow",
+"department": "Power & distribution",
+"category": "Portable power stations",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "apc-surgearrest-surge-protector",
+"name": "APC SurgeArrest Surge Protector",
+"brand": "APC",
+"department": "Power & distribution",
+"category": "Distro & cable",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "32a-single-phase-cable",
+"name": "32A Single-Phase Cable",
+"brand": null,
+"department": "Power & distribution",
+"category": "Distro & cable",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "32a-single-phase-distro-box",
+"name": "32A Single-Phase Distro Box",
+"brand": null,
+"department": "Power & distribution",
+"category": "Distro & cable",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "32a-three-phase-cable",
+"name": "32A Three-Phase Cable",
+"brand": null,
+"department": "Power & distribution",
+"category": "Distro & cable",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "32a-three-phase-distro-box",
+"name": "32A Three-Phase Distro Box",
+"brand": null,
+"department": "Power & distribution",
+"category": "Distro & cable",
+"kind": "generic",
+"variants": "to 2x32A or 6x16A",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "63a-three-phase-distro-box",
+"name": "63A Three-Phase Distro Box",
+"brand": null,
+"department": "Power & distribution",
+"category": "Distro & cable",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "extension-cable-15a-16a",
+"name": "Extension Cable 15A / 16A",
+"brand": null,
+"department": "Power & distribution",
+"category": "Distro & cable",
+"kind": "generic",
+"variants": "10m, 15m, 25m, 30m barrel",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "medium-distro-package",
+"name": "Medium Distro Package",
+"brand": null,
+"department": "Power & distribution",
+"category": "Distro & cable",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rode-rode-ntg2-shotgun-mic",
+"name": "RØDE NTG2 Shotgun Mic",
+"brand": "Rode",
+"department": "Audio",
+"category": "Shotgun & boom",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "shotgun-mic-kit-pistol-grip-blimp-mic",
+"name": "Shotgun Mic Kit (pistol grip + blimp + mic)",
+"brand": null,
+"department": "Audio",
+"category": "Shotgun & boom",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rode-rode-stereo-videomic-pro",
+"name": "RØDE Stereo VideoMic Pro",
+"brand": "Rode",
+"department": "Audio",
+"category": "On-camera mics",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rode-rode-videomic",
+"name": "RØDE VideoMic",
+"brand": "Rode",
+"department": "Audio",
+"category": "On-camera mics",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rode-rode-videomic-pro",
+"name": "RØDE VideoMic Pro",
+"brand": "Rode",
+"department": "Audio",
+"category": "On-camera mics",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rode-rode-videomicro",
+"name": "RØDE VideoMicro",
+"brand": "Rode",
+"department": "Audio",
+"category": "On-camera mics",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sennheiser-mke-400-on-camera-mic",
+"name": "Sennheiser MKE 400 On-Camera Mic",
+"brand": "Sennheiser",
+"department": "Audio",
+"category": "On-camera mics",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-ecm-xm1-shotgun-mic",
+"name": "Sony ECM-XM1 Shotgun Mic",
+"brand": "Sony",
+"department": "Audio",
+"category": "On-camera mics",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rode-rode-wireless-go-ii",
+"name": "RØDE Wireless GO II",
+"brand": "Rode",
+"department": "Audio",
+"category": "Wireless",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sennheiser-ew-100-g4-handheld-wireless-kit",
+"name": "Sennheiser EW 100 G4 Handheld Wireless Kit",
+"brand": "Sennheiser",
+"department": "Audio",
+"category": "Wireless",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sennheiser-ew-100-g4-wireless-lav-kit",
+"name": "Sennheiser EW 100 G4 Wireless Lav Kit",
+"brand": "Sennheiser",
+"department": "Audio",
+"category": "Wireless",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sennheiser-mke-2-lavalier-wired",
+"name": "Sennheiser MKE 2 Lavalier (wired)",
+"brand": "Sennheiser",
+"department": "Audio",
+"category": "Wireless",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sennheiser-wireless-handheld-mic-kit",
+"name": "Sennheiser Wireless Handheld Mic Kit",
+"brand": "Sennheiser",
+"department": "Audio",
+"category": "Wireless",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sennheiser-wireless-lav-kit",
+"name": "Sennheiser Wireless Lav Kit",
+"brand": "Sennheiser",
+"department": "Audio",
+"category": "Wireless",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-uwp-d11-wireless-lav-kit",
+"name": "Sony UWP-D11 Wireless Lav Kit",
+"brand": "Sony",
+"department": "Audio",
+"category": "Wireless",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-uwp-d12-handheld-wireless-kit",
+"name": "Sony UWP-D12 Handheld Wireless Kit",
+"brand": "Sony",
+"department": "Audio",
+"category": "Wireless",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-uwp-d21-wireless-lav-kit",
+"name": "Sony UWP-D21 Wireless Lav Kit",
+"brand": "Sony",
+"department": "Audio",
+"category": "Wireless",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "electro-voice-re50-handheld-mic",
+"name": "Electro-Voice RE50 Handheld Mic",
+"brand": "Electro-Voice",
+"department": "Audio",
+"category": "Handheld & podcast mics",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rode-rode-podmic-dynamic-microphone",
+"name": "RØDE PodMic Dynamic Microphone",
+"brand": "Rode",
+"department": "Audio",
+"category": "Handheld & podcast mics",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rode-rode-psa1-desk-mounted-broadcast-microphone-boom-arm",
+"name": "RØDE PSA1+ Desk-mounted Broadcast Microphone Boom Arm",
+"brand": "Rode",
+"department": "Audio",
+"category": "Handheld & podcast mics",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "handheld-wired-mic",
+"name": "Handheld Wired Mic",
+"brand": null,
+"department": "Audio",
+"category": "Handheld & podcast mics",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "headset-madonna-mic",
+"name": "Headset (Madonna) Mic",
+"brand": null,
+"department": "Audio",
+"category": "Handheld & podcast mics",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "behringer-xenyx-x2222usb-mixer",
+"name": "Behringer Xenyx X2222USB Mixer",
+"brand": "Behringer",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rode-rodecaster-pro-ii-audio-production-studio",
+"name": "RØDECaster Pro II Audio Production Studio",
+"brand": "Rode",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rode-rodecaster-pro-production-studio",
+"name": "RØDECaster Pro Production Studio",
+"brand": "Rode",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "saramonic-2-channel-xlr-audio-mixer",
+"name": "Saramonic 2-Channel XLR Audio Mixer",
+"brand": "Saramonic",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sony-xlr-k1m-xlr-adapter-kit",
+"name": "Sony XLR-K1M XLR Adapter Kit",
+"brand": "Sony",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sound-devices-788t-8-ch-recorder",
+"name": "Sound Devices 788T 8-Ch Recorder",
+"brand": "Sound Devices",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "zoom-f4-recorder",
+"name": "Zoom F4 Recorder",
+"brand": "Zoom",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "zoom-f8-recorder",
+"name": "Zoom F8 Recorder",
+"brand": "Zoom",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "zoom-f8n-recorder",
+"name": "Zoom F8n Recorder",
+"brand": "Zoom",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "zoom-h6-recorder",
+"name": "Zoom H6 Recorder",
+"brand": "Zoom",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "zoom-h6-xlr-capsule-adapter",
+"name": "Zoom H6 XLR Capsule Adapter",
+"brand": "Zoom",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "zoom-h8-recorder",
+"name": "Zoom H8 Recorder",
+"brand": "Zoom",
+"department": "Audio",
+"category": "Recorders & mixers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "behringer-ha400-headphone-amplifier",
+"name": "Behringer HA400 Headphone Amplifier",
+"brand": "Behringer",
+"department": "Audio",
+"category": "Headphones & monitoring",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "mackie-hm-4-headphone-amplifier",
+"name": "Mackie HM-4 Headphone Amplifier",
+"brand": "Mackie",
+"department": "Audio",
+"category": "Headphones & monitoring",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sennheiser-headphones",
+"name": "Sennheiser Headphones",
+"brand": "Sennheiser",
+"department": "Audio",
+"category": "Headphones & monitoring",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sennheiser-rs-120-wireless-headphones",
+"name": "Sennheiser RS 120 Wireless Headphones",
+"brand": "Sennheiser",
+"department": "Audio",
+"category": "Headphones & monitoring",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "monitoring-headphones",
+"name": "Monitoring Headphones",
+"brand": null,
+"department": "Audio",
+"category": "Headphones & monitoring",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rode-rode-blimp-windshield-and-shock-mount",
+"name": "RØDE Blimp Windshield & Shock Mount",
+"brand": "Rode",
+"department": "Audio",
+"category": "Booms & windshields",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rode-rode-boompole-3m",
+"name": "RØDE Boompole 3m",
+"brand": "Rode",
+"department": "Audio",
+"category": "Booms & windshields",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "boom-pole",
+"name": "Boom Pole",
+"brand": null,
+"department": "Audio",
+"category": "Booms & windshields",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "boom-pole-holder",
+"name": "Boom Pole Holder",
+"brand": null,
+"department": "Audio",
+"category": "Booms & windshields",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "mic-stand-and-adapter",
+"name": "Mic Stand & Adapter",
+"brand": null,
+"department": "Audio",
+"category": "Booms & windshields",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "3-5mm-trs-female-to-xlr-male-adapter",
+"name": "3.5mm TRS Female to XLR Male Adapter",
+"brand": null,
+"department": "Audio",
+"category": "Audio cables & adaptors",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "xlr-cable",
+"name": "XLR Cable",
+"brand": null,
+"department": "Audio",
+"category": "Audio cables & adaptors",
+"kind": "generic",
+"variants": "Lengths: 1m, 3m, 5m, 10m, 20m; drums 30m, 50m",
+"sources": [
+"Glow Hire",
+"Magic Lightbox"
+]
+},
+{
+"id": "hollyland-solidcom-c1-pro-wireless-intercom",
+"name": "Hollyland Solidcom C1 Pro Wireless Intercom",
+"brand": "Hollyland",
+"department": "Audio",
+"category": "Comms & intercom",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "motorola-two-way-radio",
+"name": "Two-Way Radio",
+"brand": "Motorola",
+"department": "Audio",
+"category": "Comms & intercom",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "zartek-za-725-two-way-radio",
+"name": "Zartek ZA-725 Two-Way Radio",
+"brand": "Zartek",
+"department": "Audio",
+"category": "Comms & intercom",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "sandisk-compactflash-cf-card",
+"name": "CompactFlash (CF) Card",
+"brand": "SanDisk",
+"department": "Media & DIT",
+"category": "Memory cards",
+"kind": "branded",
+"variants": "32GB, 64GB",
+"sources": [
+"Glow Hire",
+"B&H essentials"
+]
+},
+{
+"id": "sandisk-sd-card-sdxc",
+"name": "SD Card (SDXC)",
+"brand": "SanDisk",
+"department": "Media & DIT",
+"category": "Memory cards",
+"kind": "branded",
+"variants": "64GB, 128GB V30",
+"sources": [
+"Glow Hire",
+"B&H essentials"
+]
+},
+{
+"id": "sony-cfexpress-card",
+"name": "CFexpress Card",
+"brand": "Sony",
+"department": "Media & DIT",
+"category": "Memory cards",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-sxs-pro-card",
+"name": "SxS Pro+ Card",
+"brand": "Sony",
+"department": "Media & DIT",
+"category": "Memory cards",
+"kind": "branded",
+"variants": "8GB-128GB",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-xqd-g-series-card",
+"name": "XQD G Series Card",
+"brand": "Sony",
+"department": "Media & DIT",
+"category": "Memory cards",
+"kind": "branded",
+"variants": "64GB, 128GB",
+"sources": [
+"Glow Hire",
+"B&H essentials"
+]
+},
+{
+"id": "cfast-2-0-card",
+"name": "CFast 2.0 Card",
+"brand": null,
+"department": "Media & DIT",
+"category": "Memory cards",
+"kind": "generic",
+"variants": "64GB, 128GB, 256GB",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sandisk-cfast-2-0-card-reader",
+"name": "CFast 2.0 Card Reader",
+"brand": "SanDisk",
+"department": "Media & DIT",
+"category": "Card readers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-cfexpress-card-reader",
+"name": "CFexpress Card Reader",
+"brand": "Sony",
+"department": "Media & DIT",
+"category": "Card readers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-xqd-to-sxs-adapter",
+"name": "XQD to SxS Adapter",
+"brand": "Sony",
+"department": "Media & DIT",
+"category": "Card readers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "sony-xqd-usb-3-0-card-reader",
+"name": "XQD USB 3.0 Card Reader",
+"brand": "Sony",
+"department": "Media & DIT",
+"category": "Card readers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "multi-card-usb-reader",
+"name": "Multi-Card USB Reader",
+"brand": null,
+"department": "Media & DIT",
+"category": "Card readers",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "nexto-di-nd2901-card-backup-drive",
+"name": "NEXTO DI ND2901 Card Backup Drive",
+"brand": "NEXTO DI",
+"department": "Media & DIT",
+"category": "Drives",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "wd-elements-2tb-external-drive",
+"name": "WD Elements 2TB External Drive",
+"brand": "WD",
+"department": "Media & DIT",
+"category": "Drives",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "apple-macbook-pro-15-inch",
+"name": "Apple MacBook Pro 15\"",
+"brand": "Apple",
+"department": "Media & DIT",
+"category": "Laptops & DIT",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "eizo-coloredge-cg243-24-inch-monitor",
+"name": "Eizo ColorEdge CG243 24\" Monitor",
+"brand": "Eizo",
+"department": "Media & DIT",
+"category": "Laptops & DIT",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "hyperjuice-external-macbook-battery",
+"name": "HyperJuice External MacBook Battery",
+"brand": "HyperJuice",
+"department": "Media & DIT",
+"category": "Laptops & DIT",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "seaport-i-visor-laptop-case",
+"name": "Seaport i-Visor Laptop Case",
+"brand": "Seaport Digital",
+"department": "Media & DIT",
+"category": "Laptops & DIT",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "think-tank-laptop-sun-hood",
+"name": "Laptop Sun Hood",
+"brand": "Think Tank",
+"department": "Media & DIT",
+"category": "Laptops & DIT",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tether-cable-usb-3-0-to-micro-b",
+"name": "Tether Cable USB 3.0 to Micro-B",
+"brand": "Tether Tools",
+"department": "Media & DIT",
+"category": "Tethering",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "tether-cable-usb-c-to-usb-c",
+"name": "Tether Cable USB-C to USB-C",
+"brand": "Tether Tools",
+"department": "Media & DIT",
+"category": "Tethering",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "video-cables-and-adaptors-hdmi-dvi-usb-c",
+"name": "Video Cables & Adaptors (HDMI, DVI, USB-C)",
+"brand": null,
+"department": "Media & DIT",
+"category": "Tethering",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "avmatrix-vs0601u-6-input-live-stream-switcher",
+"name": "AVMatrix VS0601U 6-Input Live Stream Switcher",
+"brand": "AVMatrix",
+"department": "Live production",
+"category": "Switchers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blackmagic-atem-mini-extreme-iso",
+"name": "Blackmagic ATEM Mini Extreme ISO",
+"brand": "Blackmagic Design",
+"department": "Live production",
+"category": "Switchers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blackmagic-atem-mini-extreme-sdi-iso-switcher",
+"name": "Blackmagic ATEM Mini Extreme SDI ISO Switcher",
+"brand": "Blackmagic Design",
+"department": "Live production",
+"category": "Switchers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blackmagic-atem-mini-pro",
+"name": "Blackmagic ATEM Mini Pro",
+"brand": "Blackmagic Design",
+"department": "Live production",
+"category": "Switchers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "blackmagic-atem-production-studio",
+"name": "Blackmagic ATEM Production Studio",
+"brand": "Blackmagic Design",
+"department": "Live production",
+"category": "Switchers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "datavideo-hs-2000-vision-mixer",
+"name": "Datavideo HS-2000 Vision Mixer",
+"brand": "Datavideo",
+"department": "Live production",
+"category": "Switchers",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "liveu-solo-pro-4k-portable-streaming-encoder",
+"name": "LiveU Solo Pro 4K Portable Streaming Encoder",
+"brand": "LiveU",
+"department": "Live production",
+"category": "Streaming encoders",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "avmatrix-sdi-hdmi-to-usb-3-capture-device",
+"name": "AVMatrix SDI/HDMI to USB 3 Capture Device",
+"brand": "AVMatrix",
+"department": "Live production",
+"category": "Capture",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "antari-hz-400-haze-machine",
+"name": "Antari HZ-400 Haze Machine",
+"brand": "Antari",
+"department": "Atmospherics & SFX",
+"category": "Haze & fog",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "pmi-smokegenie-handheld-fog-and-haze-machine-kit",
+"name": "SmokeGENIE Handheld Fog and Haze Machine Kit",
+"brand": "PMI",
+"department": "Atmospherics & SFX",
+"category": "Haze & fog",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "robe-smoke-machine",
+"name": "Robe Smoke Machine",
+"brand": "Robe",
+"department": "Atmospherics & SFX",
+"category": "Haze & fog",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rosco-v-hazer",
+"name": "Rosco V-Hazer",
+"brand": "Rosco",
+"department": "Atmospherics & SFX",
+"category": "Haze & fog",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "rosco-vapour-plus-smoke-machine",
+"name": "Rosco Vapour Plus Smoke Machine",
+"brand": "Rosco",
+"department": "Atmospherics & SFX",
+"category": "Haze & fog",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Magic Lightbox"
+]
+},
+{
+"id": "wind-machine-variable",
+"name": "Wind Machine (variable)",
+"brand": null,
+"department": "Atmospherics & SFX",
+"category": "Wind",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rosco-ctb-gel-per-metre",
+"name": "Rosco CTB Gel (per metre)",
+"brand": "Rosco",
+"department": "Expendables",
+"category": "Gels & diffusion",
+"kind": "branded",
+"variants": "1/4, 1/2, full",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rosco-cto-gel-per-metre",
+"name": "Rosco CTO Gel (per metre)",
+"brand": "Rosco",
+"department": "Expendables",
+"category": "Gels & diffusion",
+"kind": "branded",
+"variants": "1/4, 1/2, full",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rosco-diffusion-per-metre",
+"name": "Rosco Diffusion (per metre)",
+"brand": "Rosco",
+"department": "Expendables",
+"category": "Gels & diffusion",
+"kind": "branded",
+"variants": "1/8, 1/4, 1/2, full",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rosco-nd-gel-per-metre",
+"name": "Rosco ND Gel (per metre)",
+"brand": "Rosco",
+"department": "Expendables",
+"category": "Gels & diffusion",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "rosco-straw-gel-per-metre",
+"name": "Rosco Straw Gel (per metre)",
+"brand": "Rosco",
+"department": "Expendables",
+"category": "Gels & diffusion",
+"kind": "branded",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "shurtape-cable-path-tape",
+"name": "Cable Path Tape",
+"brand": "Shurtape",
+"department": "Expendables",
+"category": "Tape",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "gaffer-tape",
+"name": "Gaffer Tape",
+"brand": null,
+"department": "Expendables",
+"category": "Tape",
+"kind": "generic",
+"variants": "2\" black, white, grey",
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "seamless-paper-backdrop-extra-wide",
+"name": "Seamless Paper Backdrop (extra-wide)",
+"brand": null,
+"department": "Expendables",
+"category": "Paper backdrops",
+"kind": "generic",
+"variants": "White, Black, Charcoal, Chromagreen, Chromablue",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "seamless-paper-backdrop-standard-width",
+"name": "Seamless Paper Backdrop (standard width)",
+"brand": null,
+"department": "Expendables",
+"category": "Paper backdrops",
+"kind": "generic",
+"variants": "50+ colours incl. Polar White, Black, Chromagreen, Chromablue, greys",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "impact-posing-stool",
+"name": "Posing Stool",
+"brand": "Impact",
+"department": "Production & unit",
+"category": "Unit",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "pearstone-photographer-s-step-ladder-3-step",
+"name": "Photographer's Step Ladder 3-Step",
+"brand": "Pearstone",
+"department": "Production & unit",
+"category": "Unit",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "safcord-cable-protector-cord-cover",
+"name": "Cable Protector / Cord Cover",
+"brand": "Safcord",
+"department": "Production & unit",
+"category": "Unit",
+"kind": "branded",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "clothing-rail",
+"name": "Clothing Rail",
+"brand": null,
+"department": "Production & unit",
+"category": "Unit",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "cooler-box",
+"name": "Cooler Box",
+"brand": null,
+"department": "Production & unit",
+"category": "Unit",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "folding-table",
+"name": "Folding Table",
+"brand": null,
+"department": "Production & unit",
+"category": "Unit",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "garment-steamer",
+"name": "Garment Steamer",
+"brand": null,
+"department": "Production & unit",
+"category": "Unit",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "gas-heater-and-bottle",
+"name": "Gas Heater & Bottle",
+"brand": null,
+"department": "Production & unit",
+"category": "Unit",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "gazebo",
+"name": "Gazebo",
+"brand": null,
+"department": "Production & unit",
+"category": "Unit",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "ladder",
+"name": "Ladder",
+"brand": null,
+"department": "Production & unit",
+"category": "Unit",
+"kind": "generic",
+"variants": "4ft, large",
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "led-flashlight",
+"name": "LED Flashlight",
+"brand": null,
+"department": "Production & unit",
+"category": "Unit",
+"kind": "generic",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "multi-tool",
+"name": "Multi-Tool",
+"brand": null,
+"department": "Production & unit",
+"category": "Unit",
+"kind": "generic",
+"variants": null,
+"sources": [
+"B&H essentials"
+]
+},
+{
+"id": "multiplug",
+"name": "Multiplug",
+"brand": null,
+"department": "Production & unit",
+"category": "Unit",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+},
+{
+"id": "ratchet-straps",
+"name": "Ratchet Straps",
+"brand": null,
+"department": "Production & unit",
+"category": "Unit",
+"kind": "generic",
+"variants": null,
+"sources": [
+"Glow Hire"
+]
+}
+]
+}
